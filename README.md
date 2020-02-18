@@ -8,9 +8,12 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 EFT is using BattlEye, so we **cannot** use [SharpMonoInjector](https://github.com/warbler/SharpMonoInjector).
 
 This trainer gives:
-- HUD (ammo left)
+- HUD (ammo left in chamber / magazine, fire mode)
 - Door unlocker
 - Wallhack
 - Exfiltration points outline
 - Autohealth (offline raid only)
 - No bullet hits (offline raid only)
+
+![demo](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/demo.png)
+![demo](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/demo2.png)
