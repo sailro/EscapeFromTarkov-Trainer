@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29418.71
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLog.EFT.Trainer", "NLog.EFT.Trainer.csproj", "{F4EB56B6-F914-11E9-AAD5-362B9E155667}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F4EB56B6-F914-11E9-AAD5-362B9E155667}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4EB56B6-F914-11E9-AAD5-362B9E155667}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4EB56B6-F914-11E9-AAD5-362B9E155667}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4EB56B6-F914-11E9-AAD5-362B9E155667}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE957FB7-4DF8-4913-8BF3-1AA0493DC8C1}
+	EndGlobalSection
+EndGlobal
