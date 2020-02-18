@@ -1,0 +1,223 @@
+{
+  "Tag": "Untagged",
+  "Childs": [
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.RectTransform"
+            },
+            {
+              "Type": "UnityEngine.CanvasRenderer"
+            },
+            {
+              "Type": "UnityEngine.UI.Image"
+            },
+            {
+              "Type": "UnityEngine.CanvasGroup"
+            }
+          ],
+          "Name": "Image"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.RectTransform"
+                },
+                {
+                  "Type": "UnityEngine.CanvasRenderer"
+                },
+                {
+                  "Type": "UnityEngine.UI.Image"
+                }
+              ],
+              "Name": "18"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.RectTransform"
+                },
+                {
+                  "Type": "UnityEngine.CanvasRenderer"
+                },
+                {
+                  "Type": "UnityEngine.UI.Image"
+                }
+              ],
+              "Name": "Quixel"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.RectTransform"
+                },
+                {
+                  "Type": "UnityEngine.CanvasRenderer"
+                },
+                {
+                  "Type": "UnityEngine.UI.Image"
+                }
+              ],
+              "Name": "Geneburn"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.RectTransform"
+                },
+                {
+                  "Type": "UnityEngine.CanvasRenderer"
+                },
+                {
+                  "Type": "UnityEngine.UI.Image"
+                }
+              ],
+              "Name": "Logo"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.RectTransform"
+                },
+                {
+                  "Type": "UnityEngine.CanvasRenderer"
+                },
+                {
+                  "Type": "UnityEngine.UI.Image"
+                },
+                {
+                  "Type": "UnityEngine.Animation"
+                }
+              ],
+              "Name": "Loader"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.RectTransform"
+                },
+                {
+                  "Type": "UnityEngine.CanvasRenderer"
+                },
+                {
+                  "Type": "CustomTextMeshProUGUI"
+                },
+                {
+                  "Type": "UnityEngine.UI.ContentSizeFitter"
+                }
+              ],
+              "Name": "Text"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.RectTransform"
+                },
+                {
+                  "Type": "UnityEngine.CanvasRenderer"
+                },
+                {
+                  "Type": "UnityEngine.UI.Image"
+                }
+              ],
+              "Name": "Copyright"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.RectTransform"
+                },
+                {
+                  "Type": "UnityEngine.CanvasRenderer"
+                },
+                {
+                  "Type": "CustomTextMeshProUGUI"
+                },
+                {
+                  "Type": "UnityEngine.UI.ContentSizeFitter"
+                }
+              ],
+              "Name": "Description"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.RectTransform"
+                },
+                {
+                  "Type": "UnityEngine.CanvasRenderer"
+                },
+                {
+                  "Type": "UnityEngine.UI.Image"
+                }
+              ],
+              "Name": "BattleyeLogo"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.RectTransform"
+            },
+            {
+              "Type": "UnityEngine.CanvasGroup"
+            }
+          ],
+          "Name": "Info"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.RectTransform"
+        },
+        {
+          "Type": "UnityEngine.CanvasRenderer"
+        },
+        {
+          "Type": "EFT.UI.SplashScreenPanel"
+        }
+      ],
+      "Name": "SplashScreen"
+    }
+  ],
+  "Components": [
+    {
+      "Type": "UnityEngine.RectTransform"
+    },
+    {
+      "Type": "UnityEngine.Canvas"
+    },
+    {
+      "Type": "UnityEngine.UI.CanvasScaler"
+    },
+    {
+      "Type": "UnityEngine.UI.GraphicRaycaster"
+    }
+  ],
+  "Name": "Canvas"
+}

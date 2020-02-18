@@ -1,0 +1,16 @@
+{
+  "Tag": "Untagged",
+  "Childs": [],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    },
+    {
+      "Type": "UnityDiagnostics.FrameStarter"
+    },
+    {
+      "Type": "UnityDiagnostics.FrameEnder"
+    }
+  ],
+  "Name": "FRAME_MEASURER"
+}

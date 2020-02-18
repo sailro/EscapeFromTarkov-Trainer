@@ -1,0 +1,104 @@
+{
+  "Tag": "Untagged",
+  "Childs": [
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        },
+        {
+          "Type": "RainCondensator"
+        }
+      ],
+      "Name": "mag_toz-106_mc_20-01_sb3_20x70_4_LOD0"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        },
+        {
+          "Type": "UnityEngine.BoxCollider"
+        }
+      ],
+      "Name": "mag_toz-106_mc_20-01_sb3_20x70_4_LOD1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "patron_001"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "patron_002"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "patron_003"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "patron_004"
+    }
+  ],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    },
+    {
+      "Type": "UnityEngine.LODGroup"
+    },
+    {
+      "Type": "PreviewPivot"
+    },
+    {
+      "Type": "MagVisualController"
+    },
+    {
+      "Type": "EFT.Interactive.ObservedLootItem"
+    },
+    {
+      "Type": "UnityEngine.BoxCollider"
+    }
+  ],
+  "Name": "mag_toz-106_mc_20-01_sb3_20x70_4(Clone)"
+}

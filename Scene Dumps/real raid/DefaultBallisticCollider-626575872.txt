@@ -1,0 +1,16 @@
+{
+  "Tag": "Untagged",
+  "Childs": [],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    },
+    {
+      "Type": "UnityEngine.BoxCollider"
+    },
+    {
+      "Type": "EFT.Ballistics.BallisticCollider"
+    }
+  ],
+  "Name": "DefaultBallisticCollider"
+}

@@ -1,0 +1,13 @@
+{
+  "Tag": "Untagged",
+  "Childs": [],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    },
+    {
+      "Type": "Numba.Awaiting.Engine.RoutineHelper"
+    }
+  ],
+  "Name": "RoutineHelper"
+}

@@ -1,0 +1,223 @@
+{
+  "Tag": "Untagged",
+  "Childs": [
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "highlight_transform"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.AudioSource"
+                    }
+                  ],
+                  "Name": "place_of_fame"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "EFT.Hideout.AreaLevelAudio"
+                },
+                {
+                  "Type": "EFT.AudioArray"
+                },
+                {
+                  "Type": "UnityEngine.AudioSource"
+                }
+              ],
+              "Name": "AudioAmbiance"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "immediate_enable"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "light_levels"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "EFT.Hideout.HideoutAreaLevel"
+        }
+      ],
+      "Name": "level0"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "highlight_transform"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.AudioSource"
+                    }
+                  ],
+                  "Name": "place_of_fame"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "EFT.Hideout.AreaLevelAudio"
+                },
+                {
+                  "Type": "EFT.AudioArray"
+                },
+                {
+                  "Type": "UnityEngine.AudioSource"
+                }
+              ],
+              "Name": "AudioAmbiance"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "immediate_enable"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "light_levels"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "EFT.Hideout.HideoutAreaLevel"
+        }
+      ],
+      "Name": "level1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "place_of_fame_area_point"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "Cinemachine.CinemachinePipeline"
+            },
+            {
+              "Type": "Cinemachine.CinemachineComposer"
+            },
+            {
+              "Type": "Cinemachine.CinemachineTransposer"
+            }
+          ],
+          "Name": "cm"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "Cinemachine.CinemachineVirtualCamera"
+        }
+      ],
+      "Name": "VCamera_place_of_fame"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "place_of_fame_camera_point"
+    }
+  ],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    },
+    {
+      "Type": "EFT.Hideout.HideoutArea"
+    }
+  ],
+  "Name": "16_place_of_fame"
+}

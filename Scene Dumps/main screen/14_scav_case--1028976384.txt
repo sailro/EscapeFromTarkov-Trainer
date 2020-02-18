@@ -1,0 +1,1945 @@
+{
+  "Tag": "Untagged",
+  "Childs": [
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "EFT.Hideout.HideoutInteractionTrigger"
+                },
+                {
+                  "Type": "UnityEngine.BoxCollider"
+                }
+              ],
+              "Name": "scav_case_area_trigger"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "EFT.Hideout.HideoutInteractionTrigger"
+            },
+            {
+              "Type": "UnityEngine.BoxCollider"
+            }
+          ],
+          "Name": "scav_case_raycast_collider"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.BoxCollider"
+        },
+        {
+          "Type": "EFT.Hideout.HideoutAreaTrigger"
+        }
+      ],
+      "Name": "scav_case_collider"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "highlight_transform"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.AudioSource"
+                    }
+                  ],
+                  "Name": "scav_case"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "EFT.Hideout.AreaLevelAudio"
+                },
+                {
+                  "Type": "EFT.AudioArray"
+                },
+                {
+                  "Type": "UnityEngine.AudioSource"
+                }
+              ],
+              "Name": "AudioAmbiance"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "immediate_enable"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "light_levels"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "EFT.Hideout.HideoutAreaLevel"
+        }
+      ],
+      "Name": "level0"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    }
+                  ],
+                  "Name": "collider"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "model_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "model_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "model_LOD2"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "shadow_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "shadow_LOD2"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "ballistic"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "Plastic_suitcase_140_P"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        }
+                      ],
+                      "Name": "door_grille_LOD0"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshCollider"
+                        },
+                        {
+                          "Type": "EFT.Ballistics.BallisticCollider"
+                        }
+                      ],
+                      "Name": "door_grille_LOD1"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        }
+                      ],
+                      "Name": "door_grille_LOD2"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshCollider"
+                        }
+                      ],
+                      "Name": "colider"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        }
+                      ],
+                      "Name": "shadow"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "Base HumanLDigit13"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "Base HumanLDigit23"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "Base HumanLDigit33"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "Base HumanLDigit43"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "Base HumanLDigit53 (1)"
+                            }
+                          ],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            }
+                          ],
+                          "Name": "sg_targets"
+                        },
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [
+                                        {
+                                          "Tag": "Untagged",
+                                          "Childs": [],
+                                          "Components": [
+                                            {
+                                              "Type": "UnityEngine.Transform"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.MeshFilter"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.MeshRenderer"
+                                            }
+                                          ],
+                                          "Name": "Box001"
+                                        }
+                                      ],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "Base HumanLDigit13"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "Box002"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "Base HumanLDigit12"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.MeshFilter"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.MeshRenderer"
+                                    }
+                                  ],
+                                  "Name": "Box003"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "RootMotion.FinalIK.LimbIK"
+                                }
+                              ],
+                              "Name": "Base HumanLDigit11"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [
+                                        {
+                                          "Tag": "Untagged",
+                                          "Childs": [],
+                                          "Components": [
+                                            {
+                                              "Type": "UnityEngine.Transform"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.MeshFilter"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.MeshRenderer"
+                                            }
+                                          ],
+                                          "Name": "Box004"
+                                        }
+                                      ],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "Base HumanLDigit23"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "Box008"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "Base HumanLDigit22"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.MeshFilter"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.MeshRenderer"
+                                    }
+                                  ],
+                                  "Name": "Box012"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "RootMotion.FinalIK.LimbIK"
+                                }
+                              ],
+                              "Name": "Base HumanLDigit21"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [
+                                        {
+                                          "Tag": "Untagged",
+                                          "Childs": [],
+                                          "Components": [
+                                            {
+                                              "Type": "UnityEngine.Transform"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.MeshFilter"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.MeshRenderer"
+                                            }
+                                          ],
+                                          "Name": "Box005"
+                                        }
+                                      ],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "Base HumanLDigit33"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "Box009"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "Base HumanLDigit32"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.MeshFilter"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.MeshRenderer"
+                                    }
+                                  ],
+                                  "Name": "Box013"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "RootMotion.FinalIK.LimbIK"
+                                }
+                              ],
+                              "Name": "Base HumanLDigit31"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [
+                                        {
+                                          "Tag": "Untagged",
+                                          "Childs": [],
+                                          "Components": [
+                                            {
+                                              "Type": "UnityEngine.Transform"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.MeshFilter"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.MeshRenderer"
+                                            }
+                                          ],
+                                          "Name": "Box006"
+                                        }
+                                      ],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "Base HumanLDigit43"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "Box010"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "Base HumanLDigit42"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.MeshFilter"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.MeshRenderer"
+                                    }
+                                  ],
+                                  "Name": "Box014"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "RootMotion.FinalIK.LimbIK"
+                                }
+                              ],
+                              "Name": "Base HumanLDigit41"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [
+                                        {
+                                          "Tag": "Untagged",
+                                          "Childs": [],
+                                          "Components": [
+                                            {
+                                              "Type": "UnityEngine.Transform"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.MeshFilter"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.MeshRenderer"
+                                            }
+                                          ],
+                                          "Name": "Box007"
+                                        }
+                                      ],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "Base HumanLDigit53"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "Box011"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "Base HumanLDigit52"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.MeshFilter"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.MeshRenderer"
+                                    }
+                                  ],
+                                  "Name": "Box015"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "RootMotion.FinalIK.LimbIK"
+                                }
+                              ],
+                              "Name": "Base HumanLDigit51"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshFilter"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshRenderer"
+                                }
+                              ],
+                              "Name": "Box016"
+                            }
+                          ],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            },
+                            {
+                              "Type": "SmartGrip"
+                            }
+                          ],
+                          "Name": "test_hand"
+                        },
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            }
+                          ],
+                          "Name": "sg_pivot"
+                        }
+                      ],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "Pull"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "Base HumanLDigit13"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "Base HumanLDigit23"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "Base HumanLDigit33"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "Base HumanLDigit43"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "Base HumanLDigit53 (1)"
+                            }
+                          ],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            }
+                          ],
+                          "Name": "sg_targets"
+                        },
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [
+                                        {
+                                          "Tag": "Untagged",
+                                          "Childs": [],
+                                          "Components": [
+                                            {
+                                              "Type": "UnityEngine.Transform"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.MeshFilter"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.MeshRenderer"
+                                            }
+                                          ],
+                                          "Name": "Box001"
+                                        }
+                                      ],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "Base HumanLDigit13"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "Box002"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "Base HumanLDigit12"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.MeshFilter"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.MeshRenderer"
+                                    }
+                                  ],
+                                  "Name": "Box003"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "RootMotion.FinalIK.LimbIK"
+                                }
+                              ],
+                              "Name": "Base HumanLDigit11"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [
+                                        {
+                                          "Tag": "Untagged",
+                                          "Childs": [],
+                                          "Components": [
+                                            {
+                                              "Type": "UnityEngine.Transform"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.MeshFilter"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.MeshRenderer"
+                                            }
+                                          ],
+                                          "Name": "Box004"
+                                        }
+                                      ],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "Base HumanLDigit23"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "Box008"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "Base HumanLDigit22"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.MeshFilter"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.MeshRenderer"
+                                    }
+                                  ],
+                                  "Name": "Box012"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "RootMotion.FinalIK.LimbIK"
+                                }
+                              ],
+                              "Name": "Base HumanLDigit21"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [
+                                        {
+                                          "Tag": "Untagged",
+                                          "Childs": [],
+                                          "Components": [
+                                            {
+                                              "Type": "UnityEngine.Transform"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.MeshFilter"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.MeshRenderer"
+                                            }
+                                          ],
+                                          "Name": "Box005"
+                                        }
+                                      ],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "Base HumanLDigit33"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "Box009"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "Base HumanLDigit32"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.MeshFilter"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.MeshRenderer"
+                                    }
+                                  ],
+                                  "Name": "Box013"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "RootMotion.FinalIK.LimbIK"
+                                }
+                              ],
+                              "Name": "Base HumanLDigit31"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [
+                                        {
+                                          "Tag": "Untagged",
+                                          "Childs": [],
+                                          "Components": [
+                                            {
+                                              "Type": "UnityEngine.Transform"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.MeshFilter"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.MeshRenderer"
+                                            }
+                                          ],
+                                          "Name": "Box006"
+                                        }
+                                      ],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "Base HumanLDigit43"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "Box010"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "Base HumanLDigit42"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.MeshFilter"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.MeshRenderer"
+                                    }
+                                  ],
+                                  "Name": "Box014"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "RootMotion.FinalIK.LimbIK"
+                                }
+                              ],
+                              "Name": "Base HumanLDigit41"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [
+                                        {
+                                          "Tag": "Untagged",
+                                          "Childs": [],
+                                          "Components": [
+                                            {
+                                              "Type": "UnityEngine.Transform"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.MeshFilter"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.MeshRenderer"
+                                            }
+                                          ],
+                                          "Name": "Box007"
+                                        }
+                                      ],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "Base HumanLDigit53"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "Box011"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "Base HumanLDigit52"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.MeshFilter"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.MeshRenderer"
+                                    }
+                                  ],
+                                  "Name": "Box015"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "RootMotion.FinalIK.LimbIK"
+                                }
+                              ],
+                              "Name": "Base HumanLDigit51"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshFilter"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshRenderer"
+                                }
+                              ],
+                              "Name": "Box016"
+                            }
+                          ],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            },
+                            {
+                              "Type": "SmartGrip"
+                            }
+                          ],
+                          "Name": "test_hand"
+                        },
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            }
+                          ],
+                          "Name": "sg_pivot"
+                        }
+                      ],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "Push"
+                    }
+                  ],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.BoxCollider"
+                    }
+                  ],
+                  "Name": "door"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.ParticleSystem"
+                    },
+                    {
+                      "Type": "UnityEngine.ParticleSystemRenderer"
+                    }
+                  ],
+                  "Name": "hit_effect"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "Inside_Door_Metal_Grille_L (1)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    }
+                  ],
+                  "Name": "colider"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "glass"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "model"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "model_lod"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.LODGroup"
+                    }
+                  ],
+                  "Name": "shadow"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.Light"
+                    }
+                  ],
+                  "Name": "Point light"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.Light"
+                    }
+                  ],
+                  "Name": "Spotlight"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "ballistic"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "laptop_open (2)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    }
+                  ],
+                  "Name": "colider 2"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "model 2"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "shadow 2"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "garb_aerosol1_open"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.BoxCollider"
+                    }
+                  ],
+                  "Name": "collider"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "radio_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "radio_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "shadow"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "item_spec_radioset (4)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "StaticDeferredDecal"
+                }
+              ],
+              "Name": "DecalGraffiti (21)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "StaticDeferredDecal"
+                }
+              ],
+              "Name": "DecalGraffiti (22)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "StaticDeferredDecal"
+                }
+              ],
+              "Name": "DecalGraffiti (20)"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "highlight_transform"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.AudioSource"
+                    }
+                  ],
+                  "Name": "scav_case"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "EFT.Hideout.AreaLevelAudio"
+                },
+                {
+                  "Type": "EFT.AudioArray"
+                },
+                {
+                  "Type": "UnityEngine.AudioSource"
+                }
+              ],
+              "Name": "AudioAmbiance"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "immediate_enable"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "light_levels"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "EFT.Hideout.HideoutAreaLevel"
+        }
+      ],
+      "Name": "level1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "scavcase_area_point"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "Cinemachine.CinemachinePipeline"
+            },
+            {
+              "Type": "Cinemachine.CinemachineComposer"
+            },
+            {
+              "Type": "Cinemachine.CinemachineTransposer"
+            }
+          ],
+          "Name": "cm"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "Cinemachine.CinemachineVirtualCamera"
+        }
+      ],
+      "Name": "VCamera_scavcase"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "scavcase_camera_point"
+    }
+  ],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    },
+    {
+      "Type": "EFT.Hideout.HideoutArea"
+    }
+  ],
+  "Name": "14_scav_case"
+}

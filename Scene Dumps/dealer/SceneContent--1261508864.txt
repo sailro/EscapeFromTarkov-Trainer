@@ -1,0 +1,4302 @@
+{
+  "Tag": "Untagged",
+  "Childs": [
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp1_Glass"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp1_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp1_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp1_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp1_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp1_LOD1"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_lamp1 (3)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp1_Glass"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp1_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp1_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp1_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp1_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp1_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.Light"
+                }
+              ],
+              "Name": "Point light"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_lamp1 (5)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp1_Glass"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp1_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp1_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp1_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp1_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp1_LOD1"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_lamp1 (7)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp3_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp3_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp3_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp3_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp3_LOD1"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_lamp3 (1)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp3_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp3_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp3_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp3_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp3_LOD1"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_lamp3 (2)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp3_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp3_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp3_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp3_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp3_LOD1"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_lamp3 (3)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp1_Glass"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp1_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp1_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp1_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp1_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp1_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.Light"
+                }
+              ],
+              "Name": "Point light"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_lamp1 (6)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp1_Glass"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp1_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp1_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp1_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp1_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp1_LOD1"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_lamp1 (9)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp1_Glass"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp1_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp1_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp1_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp1_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp1_LOD1"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_lamp1 (11)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp3_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp3_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp3_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp3_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp3_LOD1"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_lamp3 (4)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp3_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp3_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp3_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp3_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp3_LOD1"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_lamp3 (5)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp1_Glass"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp1_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp1_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp1_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp1_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp1_LOD1"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_lamp1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp1_Glass"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp1_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp1_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp1_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp1_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp1_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.Light"
+                }
+              ],
+              "Name": "Point light"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_lamp1 (13)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp1_Glass"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp1_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp1_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp1_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp1_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp1_LOD1"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_lamp1 (8)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp1_Glass"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp1_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp1_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp1_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp1_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp1_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.Light"
+                },
+                {
+                  "Type": "EFT.Visual.LightFlicker"
+                }
+              ],
+              "Name": "Point light"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_lamp1 (10)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp3_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp3_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp3_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp3_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp3_LOD1"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_lamp3 (6)"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "cut_lamp"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "model_LOD0"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "model_LOD1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "shadow"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "alarm_panel_2_wire_1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            }
+          ],
+          "Name": "bunker 1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "vent"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "wall_FPS"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "wall_TPS"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "test_bunker"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "shards_glass 1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "shards_glass"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "MultiFlare"
+        }
+      ],
+      "Name": "!MultiFlare"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        }
+      ],
+      "Name": "vent_test"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "bunker"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            }
+          ],
+          "Name": "bunker_floor"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "stair"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "Polybrush.z_AdditionalVertexStreams"
+            }
+          ],
+          "Name": "stub"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            }
+          ],
+          "Name": "bunker_ceiling"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "bunker_floor (1)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            }
+          ],
+          "Name": "bunker_floor_new_segment"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                },
+                {
+                  "Type": "UnityEngine.MeshCollider"
+                }
+              ],
+              "Name": "bunker_wall"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                },
+                {
+                  "Type": "UnityEngine.MeshCollider"
+                },
+                {
+                  "Type": "EFT.Ballistics.BallisticCollider"
+                }
+              ],
+              "Name": "bunker_wall (1)"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "new_bunker_wall"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "bunker_floor_new_segment (1)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "bunker_ceiling (1)"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "bunker_VP"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp2_Glass"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp2_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp2_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp2_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp2_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp2_LOD1"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_lamp2 (3)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp2_Glass"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp2_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp2_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp2_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp2_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp2_LOD1"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_lamp2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp2_Glass"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp2_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp2_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp2_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp2_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp2_LOD1"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_lamp2 (2)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp4_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp4_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp4_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp4_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp4_LOD1"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_lamp4"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.Light"
+                }
+              ],
+              "Name": "Point light"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp2_Glass"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_lamp2_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp2_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_lamp2_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp2_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_lamp2_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.Light"
+                }
+              ],
+              "Name": "Point light (1)"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_lamp2 (1)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_switch_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_switch_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_switch_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_switch_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_switch_LOD1"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_switch"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "bunker_filter_Metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Ballistic"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_filter_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "bunker_filter_LOD1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_filter_LOD0"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Shadows_filter_LOD1"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.LODGroup"
+            }
+          ],
+          "Name": "bunker_filter"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "static_lamp"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "!light"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "UnityEngine.MeshCollider"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        }
+      ],
+      "Name": "Quad"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "StaticDeferredDecalRenderer"
+        },
+        {
+          "Type": "LightManager"
+        }
+      ],
+      "Name": "EditorDecalManager"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "StaticDeferredDecal"
+        }
+      ],
+      "Name": "DecalGraffiti (19)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "StaticDeferredDecal"
+        }
+      ],
+      "Name": "DecalGraffiti (22)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "StaticDeferredDecal"
+        }
+      ],
+      "Name": "DecalGraffiti (23)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "StaticDeferredDecal"
+        }
+      ],
+      "Name": "DecalGraffiti (24)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "StaticDeferredDecal"
+        }
+      ],
+      "Name": "DecalGraffiti (35)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (4)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "sand_decal6 (11)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "StaticDeferredDecal"
+        }
+      ],
+      "Name": "DecalGraffiti (42)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "StaticDeferredDecal"
+        }
+      ],
+      "Name": "DecalGraffiti (43)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "sand_decal6 (12)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "barrel_metal_lod0"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "barrel_metal_lod1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "barrel_metal_lod2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            }
+          ],
+          "Name": "colider"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "shadow_lod0"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "shadow_lod1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "shadow_lod2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            }
+          ],
+          "Name": "ballistic"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "barrel_metal_cover (1)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "sand_decal6 (13)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "sand_decal6 (14)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (6)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "StaticDeferredDecal"
+        }
+      ],
+      "Name": "DecalGraffiti (52)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "StaticDeferredDecal"
+        }
+      ],
+      "Name": "DecalGraffiti (54)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshCollider"
+                },
+                {
+                  "Type": "EFT.Ballistics.BallisticCollider"
+                }
+              ],
+              "Name": "Metal"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "Ballistic"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            }
+          ],
+          "Name": "Collider"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "parking_heat_LOD0"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "parking_heat_LOD1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "parking_heat_Shadow_LOD0"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "parking_heat"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "StaticDeferredDecal"
+        }
+      ],
+      "Name": "DecalGraffiti (55)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "shards_glass 1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "shards_glass (3)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "StaticDeferredDecal"
+        }
+      ],
+      "Name": "DecalGraffiti (58)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (5)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "StaticDeferredDecal"
+        }
+      ],
+      "Name": "DecalGraffiti (44)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "StaticDeferredDecal"
+        }
+      ],
+      "Name": "DecalGraffiti (45)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (7)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "sand_decal6 (15)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (8)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshCollider"
+                },
+                {
+                  "Type": "EFT.Ballistics.BallisticCollider"
+                }
+              ],
+              "Name": "Metal"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "Ballistic"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            }
+          ],
+          "Name": "Collider"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "parking_heat_LOD0"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "parking_heat_LOD1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "parking_heat_Shadow_LOD0"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "parking_heat (1)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "sand_decal6 (16)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "sand_decal6 (17)"
+    }
+  ],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    }
+  ],
+  "Name": "SceneContent"
+}

@@ -1,0 +1,2403 @@
+{
+  "Tag": "Untagged",
+  "Childs": [
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_2_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_angle1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_angle1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod_angle1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_angle2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_angle2_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod_angle2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_2_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_angle2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_angle2_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod_angle2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_angle2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_angle2_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod_angle2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_angle1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_angle1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod_angle1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_angle_4"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_angle_4_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod_angle4"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_angle_4"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_angle_4_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod_angle4"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_angle1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_angle1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod_angle1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_angle3"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_angle3_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod_angle3"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_angle1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_angle1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod_angle1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_angle2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_angle2_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod_angle2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_2_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_angle2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_angle2_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod_angle2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_angle2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_angle2_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod_angle2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_angle1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_angle1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod_angle1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_2_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_2_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_angle2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_angle2_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod_angle2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_angle5"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_angle5_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod_angle5"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "provod_1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "provod_1_lod"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "provod1"
+    }
+  ],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    }
+  ],
+  "Name": "provod2 Group"
+}

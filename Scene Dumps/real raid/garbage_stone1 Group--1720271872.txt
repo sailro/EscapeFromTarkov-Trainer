@@ -1,0 +1,5051 @@
+{
+  "Tag": "Untagged",
+  "Childs": [
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2 (1)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (31)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (1)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (24)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (4)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (17)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (2)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2 (4)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (28)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (9)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (20)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (25)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (14)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (10)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (5)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2 (2)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (3)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (7)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (13)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (15)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (1)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (6)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (21)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (29)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (22)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (26)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2 (3)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (27)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2 (5)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (16)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (30)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2 (6)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (18)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (12)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (8)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (11)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (23)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (1)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (1)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone2"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "garbage_stone1"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "garbage_stone1 (19)"
+    }
+  ],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    }
+  ],
+  "Name": "garbage_stone1 Group"
+}

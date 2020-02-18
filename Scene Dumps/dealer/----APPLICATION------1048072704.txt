@@ -1,0 +1,13 @@
+{
+  "Tag": "Untagged",
+  "Childs": [],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    },
+    {
+      "Type": "TimeScaler"
+    }
+  ],
+  "Name": "----APPLICATION----"
+}

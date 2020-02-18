@@ -1,0 +1,607 @@
+{
+  "Tag": "Untagged",
+  "Childs": [
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.AudioSource"
+            }
+          ],
+          "Name": "ambient factory"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.AudioSource"
+            }
+          ],
+          "Name": "ambient distant fight"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.AudioSource"
+            }
+          ],
+          "Name": "music (2)"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "Scene Sounds"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles (1)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles (2)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles (3)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles (4)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles (5)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles (6)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles (7)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles (8)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles (9)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles (10)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles (11)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles (12)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles (13)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles (14)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles (15)"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "LocalDustParticles"
+            }
+          ],
+          "Name": "dust_particles (16)"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        },
+        {
+          "Type": "LocalDustParticlesParent"
+        }
+      ],
+      "Name": "!dust"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "fog"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "fog"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "fog"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "fog"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "fog"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "fog"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "fog"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "fog"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        }
+      ],
+      "Name": "!fogplanes"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "singleplayer"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "WindControllerFactory"
+        }
+      ],
+      "Name": "WindControllerFactory"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "StaticDeferredDecalRenderer"
+        },
+        {
+          "Type": "CullingManager"
+        }
+      ],
+      "Name": "EditorDecalManager"
+    }
+  ],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    }
+  ],
+  "Name": "Day_effects"
+}

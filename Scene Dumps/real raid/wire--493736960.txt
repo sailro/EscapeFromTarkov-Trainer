@@ -1,0 +1,129 @@
+{
+  "Tag": "Untagged",
+  "Childs": [
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "WireGenerator"
+        }
+      ],
+      "Name": "GameObject"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        },
+        {
+          "Type": "WireGenerator"
+        }
+      ],
+      "Name": "wires_central"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "WireGenerator"
+        }
+      ],
+      "Name": "wires_warehouse"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "WireGenerator"
+            }
+          ],
+          "Name": "GameObject"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "wire1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        },
+        {
+          "Type": "WireGenerator"
+        }
+      ],
+      "Name": "wires_far"
+    }
+  ],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    },
+    {
+      "Type": "WindController"
+    },
+    {
+      "Type": "UnityEngine.WindZone"
+    }
+  ],
+  "Name": "wire"
+}

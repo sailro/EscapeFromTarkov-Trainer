@@ -1,0 +1,3330 @@
+{
+  "Tag": "Untagged",
+  "Childs": [
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "EFT.Hideout.HideoutInteractionTrigger"
+                },
+                {
+                  "Type": "UnityEngine.BoxCollider"
+                }
+              ],
+              "Name": "library_area_trigger"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "EFT.Hideout.HideoutInteractionTrigger"
+            },
+            {
+              "Type": "UnityEngine.BoxCollider"
+            },
+            {
+              "Type": "UnityEngine.CapsuleCollider"
+            }
+          ],
+          "Name": "library_raycast_collider"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.BoxCollider"
+        },
+        {
+          "Type": "EFT.Hideout.HideoutAreaTrigger"
+        }
+      ],
+      "Name": "library_collider"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "highlight_transform"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.AudioSource"
+                    }
+                  ],
+                  "Name": "library"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "EFT.Hideout.AreaLevelAudio"
+                },
+                {
+                  "Type": "EFT.AudioArray"
+                },
+                {
+                  "Type": "UnityEngine.AudioSource"
+                }
+              ],
+              "Name": "AudioAmbiance"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "immediate_enable"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "light_levels"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "EFT.Hideout.HideoutAreaLevel"
+        }
+      ],
+      "Name": "level0"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "light_in 1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "light_in_lod"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.LODGroup"
+                    }
+                  ],
+                  "Name": "light_in_shadow"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.Light"
+                    }
+                  ],
+                  "Name": "Spotlight"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.Light"
+                    }
+                  ],
+                  "Name": "Spotlight (1)"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.Light"
+                    }
+                  ],
+                  "Name": "Spotlight (2)"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "AdvancedLight"
+                    }
+                  ],
+                  "Name": "adv_light"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "ballistic"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                },
+                {
+                  "Type": "EFT.Hideout.MultiObjectAmbiance"
+                }
+              ],
+              "Name": "light_in_export (1)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "light_in 1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "light_in_lod"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.LODGroup"
+                    }
+                  ],
+                  "Name": "light_in_shadow"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.Light"
+                    }
+                  ],
+                  "Name": "Spotlight"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.Light"
+                    }
+                  ],
+                  "Name": "Spotlight (1)"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.Light"
+                    }
+                  ],
+                  "Name": "Spotlight (2)"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "AdvancedLight"
+                    }
+                  ],
+                  "Name": "adv_light"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "ballistic"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                },
+                {
+                  "Type": "EFT.Hideout.MultiObjectAmbiance"
+                }
+              ],
+              "Name": "light_in_export (2)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshCollider"
+                        },
+                        {
+                          "Type": "EFT.Ballistics.BallisticCollider"
+                        }
+                      ],
+                      "Name": "glass"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshCollider"
+                        },
+                        {
+                          "Type": "EFT.Ballistics.BallisticCollider"
+                        }
+                      ],
+                      "Name": "metall"
+                    }
+                  ],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    }
+                  ],
+                  "Name": "balistic"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "floor_lamp_02_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "floor_lamp_02_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "shadow_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    }
+                  ],
+                  "Name": "Collider"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.Light"
+                    }
+                  ],
+                  "Name": "Point light"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.Light"
+                    }
+                  ],
+                  "Name": "Point light (1)"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "AdvancedLight"
+                    }
+                  ],
+                  "Name": "GameObject"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                },
+                {
+                  "Type": "EFT.Hideout.MultiObjectAmbiance"
+                }
+              ],
+              "Name": "floor_lamp_02"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshCollider"
+                        },
+                        {
+                          "Type": "EFT.Ballistics.BallisticCollider"
+                        }
+                      ],
+                      "Name": "metall"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshCollider"
+                        },
+                        {
+                          "Type": "EFT.Ballistics.BallisticCollider"
+                        }
+                      ],
+                      "Name": "wood"
+                    }
+                  ],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    }
+                  ],
+                  "Name": "balistic"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    }
+                  ],
+                  "Name": "colider"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "shelves_shop"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "shelves_shop_lod"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "shelves_shop_shadow"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "shelves_store_small01"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    }
+                  ],
+                  "Name": "Collision"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "model_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "model_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Shadows_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Shadows_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "ballistic"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "Armchair2"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.BoxCollider"
+                    }
+                  ],
+                  "Name": "collider"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "thin_diary_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "thin_diary_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "thin_diary_shadow"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                },
+                {
+                  "Type": "PreviewPivot"
+                }
+              ],
+              "Name": "item_thin_diary"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshCollider"
+                        },
+                        {
+                          "Type": "EFT.Ballistics.BallisticCollider"
+                        }
+                      ],
+                      "Name": "Glass"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshCollider"
+                        },
+                        {
+                          "Type": "EFT.Ballistics.BallisticCollider"
+                        }
+                      ],
+                      "Name": "Soft"
+                    }
+                  ],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    }
+                  ],
+                  "Name": "Ballistic"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Cactus_4_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Cactus_4_Shadow_LOD0"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "Cactus_4"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "chain_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.BoxCollider"
+                    }
+                  ],
+                  "Name": "chain_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.BoxCollider"
+                    }
+                  ],
+                  "Name": "colider"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                },
+                {
+                  "Type": "PreviewPivot"
+                }
+              ],
+              "Name": "item_chain"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "book_2_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "book_2_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "book_2_shadow"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "Book_2"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Book_SmallSet1_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "Book_SmallSet1_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Book_SmallSet1_Shadow"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.BoxCollider"
+                    }
+                  ],
+                  "Name": "Collider_Box"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "Book_SmallSet1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Book_SmallSet1_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "Book_SmallSet1_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Book_SmallSet1_Shadow"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.BoxCollider"
+                    }
+                  ],
+                  "Name": "Collider_Box"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "Book_SmallSet2"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    }
+                  ],
+                  "Name": "books_01_col"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "books_01_lod0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "books_01_lod1"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "books_01"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Books_LongSet_3_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "Books_LongSet_3_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Books_LongSet_3_shadow"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.BoxCollider"
+                    }
+                  ],
+                  "Name": "Collider_Box"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "Books_LongSet_3"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "magazine_11_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "magazine_11_shadow"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "magazine_11"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "book_14_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "book_14_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "book_14_shadow"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "Book_14"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "book_open_02_lod0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "book_open_02_lod1"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "book_open_02"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                },
+                {
+                  "Type": "UnityEngine.MeshCollider"
+                },
+                {
+                  "Type": "EFT.Ballistics.BallisticCollider"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "magazine_03 (3)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshCollider"
+                        },
+                        {
+                          "Type": "EFT.Ballistics.BallisticCollider"
+                        }
+                      ],
+                      "Name": "Glass"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshCollider"
+                        },
+                        {
+                          "Type": "EFT.Ballistics.BallisticCollider"
+                        }
+                      ],
+                      "Name": "Soft"
+                    }
+                  ],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    }
+                  ],
+                  "Name": "Ballistic"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Cactus_2_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Cactus_2_Shadow_LOD0"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "Cactus_2 (1)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "books_03_lod0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "books_03_lod1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    }
+                  ],
+                  "Name": "col"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "shadow"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "books_03 (2)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "books_03_lod0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "books_03_lod1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    }
+                  ],
+                  "Name": "col"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "shadow"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "books_03 (3)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    }
+                  ],
+                  "Name": "books_02_col"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "books_02_lod0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "books_02_lod1"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "books_02 (1)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "book_04_lod0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "book_04_lod1"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "book_04"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "Frame3_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Frame3_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Frame3_Shadows_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Frame3_Shadows_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "Picter"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "Frame_3"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Books_LongSet_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "Books_LongSet_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Books_LongSet_Shadow"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.BoxCollider"
+                    }
+                  ],
+                  "Name": "Collider_Box"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "Books_LongSet_1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "metal_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "metal_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.BoxCollider"
+                    }
+                  ],
+                  "Name": "colider"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.LODGroup"
+                    }
+                  ],
+                  "Name": "shadow"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                },
+                {
+                  "Type": "PreviewPivot"
+                }
+              ],
+              "Name": "item_horse_figurine"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "book_7_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "book_7_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "book_7_shadow"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "Book_7"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Book_SmallSet1_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "Book_SmallSet1_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Book_SmallSet1_Shadow"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.BoxCollider"
+                    }
+                  ],
+                  "Name": "Collider_Box"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "Book_SmallSet1 (1)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Book_UpSet_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "Book_UpSet_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Book_UpSet_Shadow"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.BoxCollider"
+                    }
+                  ],
+                  "Name": "Collider_Box"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "Book_UpSet"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Books_LongSet_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "Books_LongSet_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Books_LongSet_Shadow"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.BoxCollider"
+                    }
+                  ],
+                  "Name": "Collider_Box"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "Books_LongSet_1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "magazine_8_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "magazine_8_shadow"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "magazine_8"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    }
+                  ],
+                  "Name": "Vase1_Collider"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "Vase1_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Vase1_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Vase1_Shadows_LOD0"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "Vase_1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                },
+                {
+                  "Type": "UnityEngine.MeshCollider"
+                },
+                {
+                  "Type": "EFT.Ballistics.BallisticCollider"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "magazine_03 (1)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                },
+                {
+                  "Type": "UnityEngine.MeshCollider"
+                },
+                {
+                  "Type": "EFT.Ballistics.BallisticCollider"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "magazine_03 (2)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    }
+                  ],
+                  "Name": "books_02_col"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "books_02_lod0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "books_02_lod1"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "books_02"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "books_03_lod0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "books_03_lod1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    }
+                  ],
+                  "Name": "col"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "shadow"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "books_03 (1)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "Frame_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Frame_Shadows_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "Picter"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "Frame_1"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "book_open_02_lod0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "book_open_02_lod1"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "book_open_02"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "books_03_lod0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "books_03_lod1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    }
+                  ],
+                  "Name": "col"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "shadow"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "books_03 (4)"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "highlight_transform"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.AudioSource"
+                    }
+                  ],
+                  "Name": "library"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "EFT.Hideout.AreaLevelAudio"
+                },
+                {
+                  "Type": "EFT.AudioArray"
+                },
+                {
+                  "Type": "UnityEngine.AudioSource"
+                }
+              ],
+              "Name": "AudioAmbiance"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "immediate_enable"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "light_levels"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "EFT.Hideout.HideoutAreaLevel"
+        }
+      ],
+      "Name": "level1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "library_area_point"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "Cinemachine.CinemachinePipeline"
+            },
+            {
+              "Type": "Cinemachine.CinemachineComposer"
+            },
+            {
+              "Type": "Cinemachine.CinemachineTransposer"
+            }
+          ],
+          "Name": "cm"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "Cinemachine.CinemachineVirtualCamera"
+        }
+      ],
+      "Name": "VCamera_library"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "library_camera_point"
+    }
+  ],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    },
+    {
+      "Type": "EFT.Hideout.HideoutArea"
+    }
+  ],
+  "Name": "13_library"
+}

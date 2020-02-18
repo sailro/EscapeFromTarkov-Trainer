@@ -1,0 +1,19 @@
+{
+  "Tag": "Untagged",
+  "Childs": [],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    },
+    {
+      "Type": "UnityEngine.MeshFilter"
+    },
+    {
+      "Type": "UnityEngine.MeshRenderer"
+    },
+    {
+      "Type": "WireSplineGenerator"
+    }
+  ],
+  "Name": "wire_spline_floor_dungeon"
+}

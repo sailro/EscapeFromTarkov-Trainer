@@ -1,0 +1,57 @@
+{
+  "Tag": "Untagged",
+  "Childs": [
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "EFT.Interactive.PlayerSpawnPoint"
+            }
+          ],
+          "Name": "Spawn_USEC"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "EFT.Interactive.PlayerSpawnPoint"
+            }
+          ],
+          "Name": "Spawn_BEAR"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "EFT.Interactive.SpawnArea"
+        }
+      ],
+      "Name": "PlayerSpawnPoints"
+    }
+  ],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    },
+    {
+      "Type": "LootPointsGroup"
+    },
+    {
+      "Type": "EFT.Interactive.Location"
+    }
+  ],
+  "Name": "Loot points container"
+}

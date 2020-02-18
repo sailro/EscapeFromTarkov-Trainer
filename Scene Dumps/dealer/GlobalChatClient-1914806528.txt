@@ -1,0 +1,16 @@
+{
+  "Tag": "Untagged",
+  "Childs": [],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    },
+    {
+      "Type": "Communications.ChatClient"
+    },
+    {
+      "Type": "Communications.ChatController"
+    }
+  ],
+  "Name": "GlobalChatClient"
+}

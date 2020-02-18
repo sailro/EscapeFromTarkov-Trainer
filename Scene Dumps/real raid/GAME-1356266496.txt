@@ -1,0 +1,33 @@
+{
+  "Tag": "Untagged",
+  "Childs": [
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.Networking.NetworkIdentity"
+        },
+        {
+          "Type": "EFT.NetworkGameSession"
+        }
+      ],
+      "Name": "Play session(5b52ac7cf0dd35241668e7f4)"
+    }
+  ],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    },
+    {
+      "Type": "EFT.NetworkGame"
+    },
+    {
+      "Type": "EFT.ChannelCombined"
+    }
+  ],
+  "Name": "GAME"
+}

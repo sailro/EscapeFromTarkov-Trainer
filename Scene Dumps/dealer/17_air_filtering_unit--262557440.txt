@@ -1,0 +1,966 @@
+{
+  "Tag": "Untagged",
+  "Childs": [
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "EFT.Hideout.HideoutInteractionTrigger"
+                },
+                {
+                  "Type": "UnityEngine.BoxCollider"
+                }
+              ],
+              "Name": "afu_area_trigger"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "EFT.Hideout.HideoutInteractionTrigger"
+            },
+            {
+              "Type": "UnityEngine.BoxCollider"
+            }
+          ],
+          "Name": "afu_raycast_collider"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.BoxCollider"
+        },
+        {
+          "Type": "EFT.Hideout.HideoutAreaTrigger"
+        }
+      ],
+      "Name": "afu_collider"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "highlight_transform"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.AudioSource"
+                    }
+                  ],
+                  "Name": "air_filtering_unit"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "EFT.Hideout.AreaLevelAudio"
+                },
+                {
+                  "Type": "EFT.AudioArray"
+                },
+                {
+                  "Type": "UnityEngine.AudioSource"
+                }
+              ],
+              "Name": "AudioAmbiance"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "immediate_enable"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "light_levels"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "EFT.Hideout.HideoutAreaLevel"
+        }
+      ],
+      "Name": "level0"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "EFT.Hideout.HideoutInteractionTrigger"
+            },
+            {
+              "Type": "UnityEngine.BoxCollider"
+            }
+          ],
+          "Name": "afu_raycast_collider"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "airfilter_system_BALLISTIC_metalthick"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    }
+                  ],
+                  "Name": "airfilter_system_COLLIDER"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "airfilter_system_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "airfilter_system_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "airfilter_system_SHADOW_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "airfilter_system_SHADOW_LOD1"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "airfilter_system"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.BoxCollider"
+                    }
+                  ],
+                  "Name": "item_barter_other_airfilter_COLLIDER"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "item_barter_other_airfilter_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.BoxCollider"
+                    }
+                  ],
+                  "Name": "item_barter_other_airfilter_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "item_barter_other_airfilter_SHADOW_LOD0"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                },
+                {
+                  "Type": "PreviewPivot"
+                }
+              ],
+              "Name": "item_barter_other_airfilter"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.BoxCollider"
+                    }
+                  ],
+                  "Name": "item_barter_other_airfilter_COLLIDER"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "item_barter_other_airfilter_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.BoxCollider"
+                    }
+                  ],
+                  "Name": "item_barter_other_airfilter_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "item_barter_other_airfilter_SHADOW_LOD0"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                },
+                {
+                  "Type": "PreviewPivot"
+                }
+              ],
+              "Name": "item_barter_other_airfilter (1)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.BoxCollider"
+                    }
+                  ],
+                  "Name": "item_barter_other_airfilter_COLLIDER"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "item_barter_other_airfilter_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.BoxCollider"
+                    }
+                  ],
+                  "Name": "item_barter_other_airfilter_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "item_barter_other_airfilter_SHADOW_LOD0"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                },
+                {
+                  "Type": "PreviewPivot"
+                }
+              ],
+              "Name": "item_barter_other_airfilter (2)"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "highlight_transform"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.AudioSource"
+                    }
+                  ],
+                  "Name": "air_filtering_unit"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "EFT.Hideout.AreaLevelAudio"
+                },
+                {
+                  "Type": "EFT.AudioArray"
+                },
+                {
+                  "Type": "UnityEngine.AudioSource"
+                }
+              ],
+              "Name": "AudioAmbiance"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "immediate_enable"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.Light"
+                        }
+                      ],
+                      "Name": "Point Light"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        }
+                      ],
+                      "Name": "light_in 1"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        }
+                      ],
+                      "Name": "light_in_lod"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        },
+                        {
+                          "Type": "UnityEngine.LODGroup"
+                        }
+                      ],
+                      "Name": "light_in_shadow"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshCollider"
+                        },
+                        {
+                          "Type": "EFT.Ballistics.BallisticCollider"
+                        }
+                      ],
+                      "Name": "ballistic"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.Light"
+                        }
+                      ],
+                      "Name": "Point Light (1)"
+                    }
+                  ],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.LODGroup"
+                    },
+                    {
+                      "Type": "EFT.Hideout.MultiObjectAmbiance"
+                    },
+                    {
+                      "Type": "EFT.Hideout.MultiObjectAmbiance"
+                    }
+                  ],
+                  "Name": "light_in_export (5)"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshCollider"
+                        },
+                        {
+                          "Type": "EFT.Ballistics.BallisticCollider"
+                        }
+                      ],
+                      "Name": "lamp_LOD0"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "AdvancedLight"
+                        }
+                      ],
+                      "Name": "advlight (2)"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.Light"
+                        }
+                      ],
+                      "Name": "Point light (2)"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        },
+                        {
+                          "Type": "UnityEngine.LODGroup"
+                        }
+                      ],
+                      "Name": "shadow"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        }
+                      ],
+                      "Name": "glass_LOD0"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshCollider"
+                        },
+                        {
+                          "Type": "EFT.Ballistics.BallisticCollider"
+                        }
+                      ],
+                      "Name": "glass_LOD1"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshCollider"
+                        },
+                        {
+                          "Type": "EFT.Ballistics.BallisticCollider"
+                        }
+                      ],
+                      "Name": "Lum_lamp_LOD1"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.Light"
+                        }
+                      ],
+                      "Name": "Point light"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.Light"
+                        }
+                      ],
+                      "Name": "Point light (1)"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        }
+                      ],
+                      "Name": "Lum_lamp_LOD0"
+                    }
+                  ],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.LODGroup"
+                    },
+                    {
+                      "Type": "EFT.Interactive.LampController"
+                    },
+                    {
+                      "Type": "UnityEngine.AudioSource"
+                    },
+                    {
+                      "Type": "EFT.Hideout.LampControllerAmbiance"
+                    }
+                  ],
+                  "Name": "Lum_lamp_hideout (9)"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "EFT.Hideout.LightLevel"
+                },
+                {
+                  "Type": "MultiFlareLightHelper"
+                }
+              ],
+              "Name": "3light"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "light_levels"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "EFT.Hideout.HideoutAreaLevel"
+        }
+      ],
+      "Name": "level1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "air_filtering_unit_area_point"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "Cinemachine.CinemachinePipeline"
+            },
+            {
+              "Type": "Cinemachine.CinemachineComposer"
+            },
+            {
+              "Type": "Cinemachine.CinemachineTransposer"
+            }
+          ],
+          "Name": "cm"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "Cinemachine.CinemachineVirtualCamera"
+        }
+      ],
+      "Name": "VCamera_air_filtering_unit"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "air_filtering_unit_camera_point"
+    }
+  ],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    },
+    {
+      "Type": "EFT.Hideout.HideoutArea"
+    }
+  ],
+  "Name": "17_air_filtering_unit"
+}

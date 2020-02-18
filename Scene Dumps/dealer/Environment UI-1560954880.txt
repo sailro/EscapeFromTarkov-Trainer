@@ -1,0 +1,1126 @@
+{
+  "Tag": "Untagged",
+  "Childs": [
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.RectTransform"
+                    },
+                    {
+                      "Type": "UnityEngine.CanvasRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.UI.Image"
+                    },
+                    {
+                      "Type": "UnityEngine.CanvasGroup"
+                    }
+                  ],
+                  "Name": "Top Glow"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.RectTransform"
+                },
+                {
+                  "Type": "UnityEngine.Canvas"
+                },
+                {
+                  "Type": "UnityEngine.UI.CanvasScaler"
+                },
+                {
+                  "Type": "EFT.UI.CanvasPixelPerfect"
+                },
+                {
+                  "Type": "EFT.UI.UICanvasScaler"
+                }
+              ],
+              "Name": "Glow Canvas"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "LocalDustParticles"
+                    }
+                  ],
+                  "Name": "dust_particles"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "LocalDustParticles"
+                    }
+                  ],
+                  "Name": "dust_particles (1)"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                },
+                {
+                  "Type": "LocalDustParticlesParent"
+                }
+              ],
+              "Name": "!dust"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "Common"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "panorama"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "panorama (1)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "panorama (2)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.Animation"
+                    }
+                  ],
+                  "Name": "decal_plane"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.Rigidbody"
+                }
+              ],
+              "Name": "decal_plane"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.Light"
+                }
+              ],
+              "Name": "Point light"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.Light"
+                }
+              ],
+              "Name": "Point light"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.Light"
+                        },
+                        {
+                          "Type": "EFT.Visual.LightFlicker"
+                        }
+                      ],
+                      "Name": "Point light_bulb"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        },
+                        {
+                          "Type": "UnityEngine.Animator"
+                        }
+                      ],
+                      "Name": "bulb"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "MultiFlareLight"
+                        }
+                      ],
+                      "Name": "flare_lampmenu"
+                    }
+                  ],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "CW2.Animations.PhysicsSimulator"
+                    }
+                  ],
+                  "Name": "Lamp"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.Rigidbody"
+                }
+              ],
+              "Name": "Lamp"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Normal"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "OffScreen"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Shit"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "MultiFlare"
+                }
+              ],
+              "Name": "MultiFlare"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.Light"
+                }
+              ],
+              "Name": "Point light"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "FactoryLayout"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.Animation"
+                    }
+                  ],
+                  "Name": "decal_plane"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.Rigidbody"
+                }
+              ],
+              "Name": "decal_plane"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.Light"
+                }
+              ],
+              "Name": "Point light"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Normal"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "OffScreen"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Shit"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "MultiFlare"
+                }
+              ],
+              "Name": "MultiFlare"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.Light"
+                }
+              ],
+              "Name": "Point light"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.Light"
+                }
+              ],
+              "Name": "Point light"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.SkinnedMeshRenderer"
+                    }
+                  ],
+                  "Name": "Pine_branch"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "PineHub004Bone001Bone001Bone001Bone001Bone001"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "PineHub004Bone001Bone001Bone001Bone001Bone002"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "PineHub004Bone001Bone001Bone001Bone001Bone003"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "PineHub004Bone001Bone001Bone001Bone001Bone004"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [
+                                        {
+                                          "Tag": "Untagged",
+                                          "Childs": [],
+                                          "Components": [
+                                            {
+                                              "Type": "UnityEngine.Transform"
+                                            }
+                                          ],
+                                          "Name": "Dummy001"
+                                        },
+                                        {
+                                          "Tag": "Untagged",
+                                          "Childs": [],
+                                          "Components": [
+                                            {
+                                              "Type": "UnityEngine.Transform"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.MeshFilter"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.MeshRenderer"
+                                            },
+                                            {
+                                              "Type": "UnityEngine.BoxCollider"
+                                            }
+                                          ],
+                                          "Name": "Valuable_nyball_menu"
+                                        }
+                                      ],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.Animation"
+                                        }
+                                      ],
+                                      "Name": "Valuable_nyball_animated"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "PineHub004Bone001Bone001Bone001Bone001"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "PineHub004Bone001Bone001Bone001Bone003"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "PineHub004Bone001Bone001Bone001Bone004Bone001"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "PineHub004Bone001Bone001Bone001Bone004Bone002"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "PineHub004Bone001Bone001Bone001Bone004"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "PineHub004Bone001Bone001Bone001"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "PineHub004Bone001Bone001Bone002Bone001"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "PineHub004Bone001Bone001Bone002Bone002"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "PineHub004Bone001Bone001Bone002Bone003"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "PineHub004Bone001Bone001Bone002"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "PineHub004Bone001Bone001Bone003"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "PineHub004Bone001Bone001Bone004"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "PineHub004Bone001Bone001Bone005Bone001"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "PineHub004Bone001Bone001Bone005Bone002"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "PineHub004Bone001Bone001Bone005Bone003"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "PineHub004Bone001Bone001Bone005"
+                            }
+                          ],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            }
+                          ],
+                          "Name": "PineHub004Bone001Bone001"
+                        },
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            }
+                          ],
+                          "Name": "PineHub004Bone001Bone002"
+                        }
+                      ],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "PineBone"
+                    }
+                  ],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    }
+                  ],
+                  "Name": "PineHub"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.Animator"
+                }
+              ],
+              "Name": "Pine_branch_animated"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "panorama (1)"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "panorama"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "WoodsLayout"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "EnvironmentObject"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.Camera"
+                },
+                {
+                  "Type": "UnityStandardAssets.CinematicEffects.AmbientOcclusion"
+                },
+                {
+                  "Type": "UnityStandardAssets.ImageEffects.Bloom"
+                },
+                {
+                  "Type": "UnityStandardAssets.ImageEffects.BloomAndFlares"
+                },
+                {
+                  "Type": "ChromaticAberration"
+                },
+                {
+                  "Type": "CC_Sharpen"
+                },
+                {
+                  "Type": "PrismEffects"
+                },
+                {
+                  "Type": "UnityStandardAssets.ImageEffects.ColorCorrectionCurves"
+                },
+                {
+                  "Type": "DesaturateEffect"
+                },
+                {
+                  "Type": "CW2.Animations.PhysicsSimulator"
+                },
+                {
+                  "Type": "UnityStandardAssets.ImageEffects.CameraMotionBlur"
+                },
+                {
+                  "Type": "UnityStandardAssets.ImageEffects.Bloom"
+                },
+                {
+                  "Type": "UnityEngine.Rendering.PostProcessing.PostProcessLayer"
+                }
+              ],
+              "Name": "MainMenuCamera"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.Camera"
+                }
+              ],
+              "Name": "Genius Camera"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "WoodsCameraContainer"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.Camera"
+                },
+                {
+                  "Type": "UnityStandardAssets.CinematicEffects.AmbientOcclusion"
+                },
+                {
+                  "Type": "UnityStandardAssets.ImageEffects.Bloom"
+                },
+                {
+                  "Type": "UnityStandardAssets.ImageEffects.BloomAndFlares"
+                },
+                {
+                  "Type": "ChromaticAberration"
+                },
+                {
+                  "Type": "PrismEffects"
+                },
+                {
+                  "Type": "UnityStandardAssets.ImageEffects.ColorCorrectionCurves"
+                },
+                {
+                  "Type": "DesaturateEffect"
+                },
+                {
+                  "Type": "CW2.Animations.PhysicsSimulator"
+                },
+                {
+                  "Type": "UnityStandardAssets.ImageEffects.CameraMotionBlur"
+                },
+                {
+                  "Type": "UnityStandardAssets.ImageEffects.Bloom"
+                },
+                {
+                  "Type": "LightSwitcherOverkill"
+                },
+                {
+                  "Type": "UnityEngine.Rendering.PostProcessing.PostProcessLayer"
+                }
+              ],
+              "Name": "MainMenuCamera"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.Camera"
+                }
+              ],
+              "Name": "Genius Camera"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "FactoryCameraContainer"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "CameraContainers"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.RectTransform"
+            },
+            {
+              "Type": "UnityEngine.CanvasRenderer"
+            },
+            {
+              "Type": "UnityEngine.UI.Image"
+            },
+            {
+              "Type": "UnityEngine.CanvasGroup"
+            }
+          ],
+          "Name": "Factory"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.RectTransform"
+            },
+            {
+              "Type": "UnityEngine.CanvasRenderer"
+            },
+            {
+              "Type": "UnityEngine.UI.Image"
+            },
+            {
+              "Type": "UnityEngine.CanvasGroup"
+            }
+          ],
+          "Name": "Woods"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.RectTransform"
+            },
+            {
+              "Type": "UnityEngine.CanvasRenderer"
+            },
+            {
+              "Type": "UnityEngine.UI.Image"
+            },
+            {
+              "Type": "UnityEngine.CanvasGroup"
+            }
+          ],
+          "Name": "Hideout"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.RectTransform"
+        },
+        {
+          "Type": "UnityEngine.Canvas"
+        },
+        {
+          "Type": "UnityEngine.UI.CanvasScaler"
+        }
+      ],
+      "Name": "Shading"
+    }
+  ],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    },
+    {
+      "Type": "EFT.UI.EnvironmentUI"
+    },
+    {
+      "Type": "EFT.UI.JittingController"
+    },
+    {
+      "Type": "EFT.UI.EnvironmentShading"
+    }
+  ],
+  "Name": "Environment UI"
+}

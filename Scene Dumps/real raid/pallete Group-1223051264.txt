@@ -1,0 +1,1046 @@
+{
+  "Tag": "Untagged",
+  "Childs": [
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "barrel_metal_lod0"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "barrel_metal_lod1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "barrel_metal_lod2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            }
+          ],
+          "Name": "colider"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "shadow_lod0"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "shadow_lod1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "shadow_lod2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "barrel_metal_ballistic"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "barrel_metal_1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "barrel_metal_lod0"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "barrel_metal_lod1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "barrel_metal_lod2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            }
+          ],
+          "Name": "colider"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "shadow_lod0"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "shadow_lod1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "shadow_lod2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            }
+          ],
+          "Name": "ballistic"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "barrel_metal_cover"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "barrel_plastic_lod0"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "barrel_plastic_lod1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "barrel_plastic_lod2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            }
+          ],
+          "Name": "colider"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "shadow_lod0"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "shadow_lod1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "shadow_lod2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshCollider"
+                },
+                {
+                  "Type": "EFT.Ballistics.BallisticCollider"
+                }
+              ],
+              "Name": "plastic"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "ballistic"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "barrel_plastic1 (3)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "chair_cruash"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "chair_cruash_lod"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            }
+          ],
+          "Name": "collider"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "chair_crush (1)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "barrel_metal_lod0"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "barrel_metal_lod1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "barrel_metal_lod2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            }
+          ],
+          "Name": "colider"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "shadow_lod0"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "shadow_lod1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "shadow_lod2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "ballistic"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "barrel_metal_2"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "baloon"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "baloon_lod"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.BoxCollider"
+            }
+          ],
+          "Name": "collider"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "Metal"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "ballon (1)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            }
+          ],
+          "Name": "colider"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "pallete"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "pallete_lod"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "shadow"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            }
+          ],
+          "Name": "pallete_ballistic"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "pallete"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "barrel_metal_lod0"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "barrel_metal_lod1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "barrel_metal_lod2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            }
+          ],
+          "Name": "colider"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "shadow_lod0"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "shadow_lod1"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "UnityEngine.MeshRenderer"
+            }
+          ],
+          "Name": "shadow_lod2"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "UnityEngine.MeshFilter"
+            },
+            {
+              "Type": "EFT.Ballistics.BallisticCollider"
+            },
+            {
+              "Type": "UnityEngine.MeshCollider"
+            }
+          ],
+          "Name": "ballistic"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "barrel_metal_cover (1)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "paper5 (4)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        }
+      ],
+      "Name": "paper5 (5)"
+    }
+  ],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    }
+  ],
+  "Name": "pallete Group"
+}

@@ -1,0 +1,948 @@
+{
+  "Tag": "Untagged",
+  "Childs": [
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "EFT.Hideout.HideoutInteractionTrigger"
+                },
+                {
+                  "Type": "UnityEngine.BoxCollider"
+                }
+              ],
+              "Name": "solar_power_area_trigger"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "EFT.Hideout.HideoutInteractionTrigger"
+            },
+            {
+              "Type": "UnityEngine.BoxCollider"
+            }
+          ],
+          "Name": "solar_power_raycast_collider"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.BoxCollider"
+        },
+        {
+          "Type": "EFT.Hideout.HideoutAreaTrigger"
+        }
+      ],
+      "Name": "solar_power_collider"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "highlight_transform"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.AudioSource"
+                    }
+                  ],
+                  "Name": "solar_power"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "EFT.Hideout.AreaLevelAudio"
+                },
+                {
+                  "Type": "EFT.AudioArray"
+                },
+                {
+                  "Type": "UnityEngine.AudioSource"
+                }
+              ],
+              "Name": "AudioAmbiance"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "immediate_enable"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "light_levels"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "EFT.Hideout.HideoutAreaLevel"
+        }
+      ],
+      "Name": "level0"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Rubber_floor_tile_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Rubber_floor_tile_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Rubber_floor_tile_Shadow_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Rubber_floor_tile_Shadow_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    }
+                  ],
+                  "Name": "ballistic"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "Rubber_tile_floor (10)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Rubber_floor_tile_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Rubber_floor_tile_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Rubber_floor_tile_Shadow_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Rubber_floor_tile_Shadow_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    }
+                  ],
+                  "Name": "ballistic"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "Rubber_tile_floor (2)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Rubber_floor_tile_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Rubber_floor_tile_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Rubber_floor_tile_Shadow_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "Rubber_floor_tile_Shadow_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    }
+                  ],
+                  "Name": "ballistic"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "Rubber_tile_floor (17)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    }
+                  ],
+                  "Name": "rack_shelf_col"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "rack_shelf_lod0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "rack_shelf_shadow"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "rack_shelf_lod1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "metal"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "rack_shelf (3)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    },
+                    {
+                      "Type": "EFT.Ballistics.BallisticCollider"
+                    }
+                  ],
+                  "Name": "solar_generator_LFP_80_BALLISTIC_plastic"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshCollider"
+                        },
+                        {
+                          "Type": "EFT.Ballistics.BallisticCollider"
+                        }
+                      ],
+                      "Name": "solar_generator_LFP_80_Cap_BALLISTIC_plastic"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshCollider"
+                        }
+                      ],
+                      "Name": "solar_generator_LFP_80_Cap_COLLIDER"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        }
+                      ],
+                      "Name": "solar_generator_LFP_80_Cap_LOD0"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        }
+                      ],
+                      "Name": "solar_generator_LFP_80_Cap_LOD1"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        }
+                      ],
+                      "Name": "solar_generator_LFP_80_Cap_SHADOW_LOD0"
+                    }
+                  ],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    }
+                  ],
+                  "Name": "solar_generator_LFP_80_Cap"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshCollider"
+                    }
+                  ],
+                  "Name": "solar_generator_LFP_80_COLLIDER"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "solar_generator_LFP_80_LOD0"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "solar_generator_LFP_80_LOD1"
+                },
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshFilter"
+                    },
+                    {
+                      "Type": "UnityEngine.MeshRenderer"
+                    }
+                  ],
+                  "Name": "solar_generator_LFP_80_SHADOW_LOD0"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.LODGroup"
+                }
+              ],
+              "Name": "solar_generator_LFP_80"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.Light"
+                }
+              ],
+              "Name": "Point Light"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.Light"
+                    },
+                    {
+                      "Type": "EFT.Visual.LightFlicker"
+                    }
+                  ],
+                  "Name": "Point light"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.SphereCollider"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Sphere (6)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.Light"
+                    },
+                    {
+                      "Type": "EFT.Visual.LightFlicker"
+                    }
+                  ],
+                  "Name": "Point light"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.SphereCollider"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                }
+              ],
+              "Name": "Sphere (7)"
+            },
+            {
+              "Tag": "Untagged",
+              "Childs": [],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "UnityEngine.MeshFilter"
+                },
+                {
+                  "Type": "UnityEngine.MeshRenderer"
+                },
+                {
+                  "Type": "WireSplineGenerator"
+                }
+              ],
+              "Name": "wires_generator (2)"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "highlight_transform"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    },
+                    {
+                      "Type": "UnityEngine.AudioSource"
+                    }
+                  ],
+                  "Name": "solar_power"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                },
+                {
+                  "Type": "EFT.Hideout.AreaLevelAudio"
+                },
+                {
+                  "Type": "EFT.AudioArray"
+                },
+                {
+                  "Type": "UnityEngine.AudioSource"
+                }
+              ],
+              "Name": "AudioAmbiance"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "immediate_enable"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "light_levels"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "EFT.Hideout.HideoutAreaLevel"
+        }
+      ],
+      "Name": "level1"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "solar_power_area_point"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            },
+            {
+              "Type": "Cinemachine.CinemachinePipeline"
+            },
+            {
+              "Type": "Cinemachine.CinemachineComposer"
+            },
+            {
+              "Type": "Cinemachine.CinemachineTransposer"
+            }
+          ],
+          "Name": "cm"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "Cinemachine.CinemachineVirtualCamera"
+        }
+      ],
+      "Name": "VCamera_solar_power"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        }
+      ],
+      "Name": "solar_power_camera_point"
+    }
+  ],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    },
+    {
+      "Type": "EFT.Hideout.HideoutArea"
+    }
+  ],
+  "Name": "18_solar_power"
+}

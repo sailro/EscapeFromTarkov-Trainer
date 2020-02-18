@@ -1,0 +1,13 @@
+{
+  "Tag": "Untagged",
+  "Childs": [],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    },
+    {
+      "Type": "DG.Tweening.Core.DOTweenComponent"
+    }
+  ],
+  "Name": "[DOTween]"
+}

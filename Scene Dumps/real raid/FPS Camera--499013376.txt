@@ -1,0 +1,192 @@
+{
+  "Tag": "MainCamera",
+  "Childs": [
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.Camera"
+        },
+        {
+          "Type": "UnityEngine.FlareLayer"
+        },
+        {
+          "Type": "UnityEngine.GUILayer"
+        },
+        {
+          "Type": "UnityEngine.AudioListener"
+        },
+        {
+          "Type": "AdditionalCameraSSAA"
+        }
+      ],
+      "Name": "AdditionalCameraSSAA"
+    }
+  ],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    },
+    {
+      "Type": "UnityEngine.Camera"
+    },
+    {
+      "Type": "FakeCharacterGI"
+    },
+    {
+      "Type": "Undithering"
+    },
+    {
+      "Type": "VolumetricLightRenderer"
+    },
+    {
+      "Type": "HBAO"
+    },
+    {
+      "Type": "BSG.CameraEffects.NightVision"
+    },
+    {
+      "Type": "ThermalVision"
+    },
+    {
+      "Type": "UnityStandardAssets.ImageEffects.Bloom"
+    },
+    {
+      "Type": "UnityStandardAssets.ImageEffects.BloomAndFlares"
+    },
+    {
+      "Type": "UnityStandardAssets.CinematicEffects.AmbientOcclusion"
+    },
+    {
+      "Type": "PrismEffects"
+    },
+    {
+      "Type": "CandelaSSRR"
+    },
+    {
+      "Type": "CustomGlobalFog"
+    },
+    {
+      "Type": "UnityStandardAssets.ImageEffects.GlobalFog"
+    },
+    {
+      "Type": "UnityStandardAssets.ImageEffects.BloomAndFlares"
+    },
+    {
+      "Type": "UnityStandardAssets.ImageEffects.ColorCorrectionCurves"
+    },
+    {
+      "Type": "DesaturateEffect"
+    },
+    {
+      "Type": "ChromaticAberration"
+    },
+    {
+      "Type": "CC_Vintage"
+    },
+    {
+      "Type": "UnityStandardAssets.ImageEffects.Antialiasing"
+    },
+    {
+      "Type": "FastBlur"
+    },
+    {
+      "Type": "DeathFade"
+    },
+    {
+      "Type": "BloodOnScreen"
+    },
+    {
+      "Type": "PostprocessGrayscale"
+    },
+    {
+      "Type": "InventoryBlur"
+    },
+    {
+      "Type": "DistortCameraFX"
+    },
+    {
+      "Type": "EffectsController"
+    },
+    {
+      "Type": "CC_BleachBypass"
+    },
+    {
+      "Type": "CC_ContrastVignette"
+    },
+    {
+      "Type": "CC_DoubleVision"
+    },
+    {
+      "Type": "CC_HueFocus"
+    },
+    {
+      "Type": "CC_RadialBlur"
+    },
+    {
+      "Type": "CC_Sharpen"
+    },
+    {
+      "Type": "CC_Technicolor"
+    },
+    {
+      "Type": "CC_BrightnessContrastGamma"
+    },
+    {
+      "Type": "BSG.CameraEffects.TextureMask"
+    },
+    {
+      "Type": "SSAOMask"
+    },
+    {
+      "Type": "UnityStandardAssets.ImageEffects.DepthOfField"
+    },
+    {
+      "Type": "VisorEffect"
+    },
+    {
+      "Type": "GrenadeFlashScreenEffect"
+    },
+    {
+      "Type": "EyeBurn"
+    },
+    {
+      "Type": "SSAA"
+    },
+    {
+      "Type": "HysteresisFilter"
+    },
+    {
+      "Type": "CC_FastVignette"
+    },
+    {
+      "Type": "CC_Blend"
+    },
+    {
+      "Type": "CC_Blend"
+    },
+    {
+      "Type": "CC_Wiggle"
+    },
+    {
+      "Type": "UnityStandardAssets.ImageEffects.MotionBlur"
+    },
+    {
+      "Type": "UnityEngine.Rendering.PostProcessing.PostProcessLayer"
+    },
+    {
+      "Type": "CC_Blend"
+    },
+    {
+      "Type": "CC_Blend"
+    },
+    {
+      "Type": "AudioSourceCulling"
+    }
+  ],
+  "Name": "FPS Camera"
+}

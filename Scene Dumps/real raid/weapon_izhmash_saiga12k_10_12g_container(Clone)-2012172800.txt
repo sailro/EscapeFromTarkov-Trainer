@@ -1,0 +1,3584 @@
+{
+  "Tag": "Untagged",
+  "Childs": [
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        }
+      ],
+      "Name": "MuzzleJetCombinedMesh"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [
+                                        {
+                                          "Tag": "Untagged",
+                                          "Childs": [],
+                                          "Components": [
+                                            {
+                                              "Type": "UnityEngine.Transform"
+                                            }
+                                          ],
+                                          "Name": "Base HumanLDigit13"
+                                        }
+                                      ],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "Base HumanLDigit12"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "Base HumanLDigit11"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [
+                                        {
+                                          "Tag": "Untagged",
+                                          "Childs": [],
+                                          "Components": [
+                                            {
+                                              "Type": "UnityEngine.Transform"
+                                            }
+                                          ],
+                                          "Name": "Base HumanLDigit23"
+                                        }
+                                      ],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "Base HumanLDigit22"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "Base HumanLDigit21"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [
+                                        {
+                                          "Tag": "Untagged",
+                                          "Childs": [],
+                                          "Components": [
+                                            {
+                                              "Type": "UnityEngine.Transform"
+                                            }
+                                          ],
+                                          "Name": "Base HumanLDigit33"
+                                        }
+                                      ],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "Base HumanLDigit32"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "Base HumanLDigit31"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [
+                                        {
+                                          "Tag": "Untagged",
+                                          "Childs": [],
+                                          "Components": [
+                                            {
+                                              "Type": "UnityEngine.Transform"
+                                            }
+                                          ],
+                                          "Name": "Base HumanLDigit43"
+                                        }
+                                      ],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "Base HumanLDigit42"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "Base HumanLDigit41"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [
+                                        {
+                                          "Tag": "Untagged",
+                                          "Childs": [],
+                                          "Components": [
+                                            {
+                                              "Type": "UnityEngine.Transform"
+                                            }
+                                          ],
+                                          "Name": "Base HumanLDigit53"
+                                        }
+                                      ],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "Base HumanLDigit52"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "Base HumanLDigit51"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "Base HumanLPalm"
+                            }
+                          ],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            }
+                          ],
+                          "Name": "Base HumanLForearm3"
+                        }
+                      ],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "Base HumanLForearm2"
+                    }
+                  ],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    }
+                  ],
+                  "Name": "Base HumanLForearm1"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Base HumanLUpperarm"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "Base HumanLCollarbone"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [
+                                        {
+                                          "Tag": "Untagged",
+                                          "Childs": [],
+                                          "Components": [
+                                            {
+                                              "Type": "UnityEngine.Transform"
+                                            }
+                                          ],
+                                          "Name": "Base HumanRDigit13"
+                                        }
+                                      ],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "Base HumanRDigit12"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "Base HumanRDigit11"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [
+                                        {
+                                          "Tag": "Untagged",
+                                          "Childs": [],
+                                          "Components": [
+                                            {
+                                              "Type": "UnityEngine.Transform"
+                                            }
+                                          ],
+                                          "Name": "Base HumanRDigit23"
+                                        }
+                                      ],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "Base HumanRDigit22"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "Base HumanRDigit21"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [
+                                        {
+                                          "Tag": "Untagged",
+                                          "Childs": [],
+                                          "Components": [
+                                            {
+                                              "Type": "UnityEngine.Transform"
+                                            }
+                                          ],
+                                          "Name": "Base HumanRDigit33"
+                                        }
+                                      ],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "Base HumanRDigit32"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "Base HumanRDigit31"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [
+                                        {
+                                          "Tag": "Untagged",
+                                          "Childs": [],
+                                          "Components": [
+                                            {
+                                              "Type": "UnityEngine.Transform"
+                                            }
+                                          ],
+                                          "Name": "Base HumanRDigit43"
+                                        }
+                                      ],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "Base HumanRDigit42"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "Base HumanRDigit41"
+                                },
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [
+                                        {
+                                          "Tag": "Untagged",
+                                          "Childs": [],
+                                          "Components": [
+                                            {
+                                              "Type": "UnityEngine.Transform"
+                                            }
+                                          ],
+                                          "Name": "Base HumanRDigit53"
+                                        }
+                                      ],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        }
+                                      ],
+                                      "Name": "Base HumanRDigit52"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    }
+                                  ],
+                                  "Name": "Base HumanRDigit51"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "Base HumanRPalm"
+                            }
+                          ],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            }
+                          ],
+                          "Name": "Base HumanRForearm3"
+                        }
+                      ],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "Base HumanRForearm2"
+                    }
+                  ],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    }
+                  ],
+                  "Name": "Base HumanRForearm1"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Base HumanRUpperarm"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "Base HumanRCollarbone"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "Camera_animated"
+        },
+        {
+          "Tag": "Untagged",
+          "Childs": [
+            {
+              "Tag": "Untagged",
+              "Childs": [
+                {
+                  "Tag": "Untagged",
+                  "Childs": [
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "aim_camera"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "Bend_Goal_Left"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "Bend_Goal_Right"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            },
+                            {
+                              "Type": "MuzzleSparks"
+                            },
+                            {
+                              "Type": "MuzzleSmoke"
+                            },
+                            {
+                              "Type": "MuzzleFume"
+                            },
+                            {
+                              "Type": "MuzzleJet"
+                            },
+                            {
+                              "Type": "MuzzleFume"
+                            },
+                            {
+                              "Type": "HeatHazeEmitter"
+                            }
+                          ],
+                          "Name": "default_muzzleflash_no_dtk_big(Clone)"
+                        },
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            },
+                            {
+                              "Type": "HeatHazeEmitter"
+                            }
+                          ],
+                          "Name": "DefaultHeatHaze(Clone)"
+                        }
+                      ],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "fireport"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "mod_align_front"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshFilter"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshRenderer"
+                                },
+                                {
+                                  "Type": "UnityEngine.BoxCollider"
+                                }
+                              ],
+                              "Name": "handguard_saiga12_izhmash_saiga12k_10_std_LOD0"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "GameObject"
+                            }
+                          ],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            },
+                            {
+                              "Type": "PreviewPivot"
+                            },
+                            {
+                              "Type": "EFT.AssetsManager.WeaponModPoolObject"
+                            },
+                            {
+                              "Type": "EFT.Interactive.ObservedLootItem"
+                            },
+                            {
+                              "Type": "UnityEngine.BoxCollider"
+                            }
+                          ],
+                          "Name": "handguard_saiga12_izhmash_saiga12k_10_std(Clone)"
+                        }
+                      ],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "mod_handguard"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshFilter"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshRenderer"
+                                },
+                                {
+                                  "Type": "RainCondensator"
+                                }
+                              ],
+                              "Name": "mag_saiga12_maxrounds_powermag_20_12x76_20_intеrnal_LOD0"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshFilter"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshRenderer"
+                                },
+                                {
+                                  "Type": "RainCondensator"
+                                }
+                              ],
+                              "Name": "mag_saiga12_maxrounds_powermag_20_12x76_20_LOD0"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshFilter"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshRenderer"
+                                },
+                                {
+                                  "Type": "UnityEngine.BoxCollider"
+                                }
+                              ],
+                              "Name": "mag_saiga12_maxrounds_powermag_20_12x76_20_LOD1"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD1"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD1"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.LODGroup"
+                                    },
+                                    {
+                                      "Type": "PreviewPivot"
+                                    },
+                                    {
+                                      "Type": "EFT.AssetsManager.AmmoPoolObject"
+                                    },
+                                    {
+                                      "Type": "EFT.Interactive.ObservedLootItem"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.BoxCollider"
+                                    },
+                                    {
+                                      "Type": "EFT.Shell"
+                                    }
+                                  ],
+                                  "Name": "patron_12x70_slug_poleva_3(Clone)"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "patron_001"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD1"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD1"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.LODGroup"
+                                    },
+                                    {
+                                      "Type": "PreviewPivot"
+                                    },
+                                    {
+                                      "Type": "EFT.AssetsManager.AmmoPoolObject"
+                                    },
+                                    {
+                                      "Type": "EFT.Interactive.ObservedLootItem"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.BoxCollider"
+                                    },
+                                    {
+                                      "Type": "EFT.Shell"
+                                    }
+                                  ],
+                                  "Name": "patron_12x70_slug_poleva_3(Clone)"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "patron_002"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD1"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD1"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.LODGroup"
+                                    },
+                                    {
+                                      "Type": "PreviewPivot"
+                                    },
+                                    {
+                                      "Type": "EFT.AssetsManager.AmmoPoolObject"
+                                    },
+                                    {
+                                      "Type": "EFT.Interactive.ObservedLootItem"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.BoxCollider"
+                                    },
+                                    {
+                                      "Type": "EFT.Shell"
+                                    }
+                                  ],
+                                  "Name": "patron_12x70_slug_poleva_3(Clone)"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "patron_003"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD1"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD1"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.LODGroup"
+                                    },
+                                    {
+                                      "Type": "PreviewPivot"
+                                    },
+                                    {
+                                      "Type": "EFT.AssetsManager.AmmoPoolObject"
+                                    },
+                                    {
+                                      "Type": "EFT.Interactive.ObservedLootItem"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.BoxCollider"
+                                    },
+                                    {
+                                      "Type": "EFT.Shell"
+                                    }
+                                  ],
+                                  "Name": "patron_12x70_slug_poleva_3(Clone)"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "patron_004"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD1"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD1"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.LODGroup"
+                                    },
+                                    {
+                                      "Type": "PreviewPivot"
+                                    },
+                                    {
+                                      "Type": "EFT.AssetsManager.AmmoPoolObject"
+                                    },
+                                    {
+                                      "Type": "EFT.Interactive.ObservedLootItem"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.BoxCollider"
+                                    },
+                                    {
+                                      "Type": "EFT.Shell"
+                                    }
+                                  ],
+                                  "Name": "patron_12x70_slug_poleva_3(Clone)"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "patron_005"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD1"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD1"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.LODGroup"
+                                    },
+                                    {
+                                      "Type": "PreviewPivot"
+                                    },
+                                    {
+                                      "Type": "EFT.AssetsManager.AmmoPoolObject"
+                                    },
+                                    {
+                                      "Type": "EFT.Interactive.ObservedLootItem"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.BoxCollider"
+                                    },
+                                    {
+                                      "Type": "EFT.Shell"
+                                    }
+                                  ],
+                                  "Name": "patron_12x70_slug_poleva_3(Clone)"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "patron_006"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD1"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD1"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.LODGroup"
+                                    },
+                                    {
+                                      "Type": "PreviewPivot"
+                                    },
+                                    {
+                                      "Type": "EFT.AssetsManager.AmmoPoolObject"
+                                    },
+                                    {
+                                      "Type": "EFT.Interactive.ObservedLootItem"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.BoxCollider"
+                                    },
+                                    {
+                                      "Type": "EFT.Shell"
+                                    }
+                                  ],
+                                  "Name": "patron_12x70_slug_poleva_3(Clone)"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "patron_007"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD1"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD1"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.LODGroup"
+                                    },
+                                    {
+                                      "Type": "PreviewPivot"
+                                    },
+                                    {
+                                      "Type": "EFT.AssetsManager.AmmoPoolObject"
+                                    },
+                                    {
+                                      "Type": "EFT.Interactive.ObservedLootItem"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.BoxCollider"
+                                    },
+                                    {
+                                      "Type": "EFT.Shell"
+                                    }
+                                  ],
+                                  "Name": "patron_12x70_slug_poleva_3(Clone)"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "patron_008"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD1"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD1"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.LODGroup"
+                                    },
+                                    {
+                                      "Type": "PreviewPivot"
+                                    },
+                                    {
+                                      "Type": "EFT.AssetsManager.AmmoPoolObject"
+                                    },
+                                    {
+                                      "Type": "EFT.Interactive.ObservedLootItem"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.BoxCollider"
+                                    },
+                                    {
+                                      "Type": "EFT.Shell"
+                                    }
+                                  ],
+                                  "Name": "patron_12x70_slug_poleva_3(Clone)"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "patron_009"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD1"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD1"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.LODGroup"
+                                    },
+                                    {
+                                      "Type": "PreviewPivot"
+                                    },
+                                    {
+                                      "Type": "EFT.AssetsManager.AmmoPoolObject"
+                                    },
+                                    {
+                                      "Type": "EFT.Interactive.ObservedLootItem"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.BoxCollider"
+                                    },
+                                    {
+                                      "Type": "EFT.Shell"
+                                    }
+                                  ],
+                                  "Name": "patron_12x70_slug_poleva_3(Clone)"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "patron_010"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD1"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD1"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.LODGroup"
+                                    },
+                                    {
+                                      "Type": "PreviewPivot"
+                                    },
+                                    {
+                                      "Type": "EFT.AssetsManager.AmmoPoolObject"
+                                    },
+                                    {
+                                      "Type": "EFT.Interactive.ObservedLootItem"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.BoxCollider"
+                                    },
+                                    {
+                                      "Type": "EFT.Shell"
+                                    }
+                                  ],
+                                  "Name": "patron_12x70_slug_poleva_3(Clone)"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "patron_011"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD1"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD1"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.LODGroup"
+                                    },
+                                    {
+                                      "Type": "PreviewPivot"
+                                    },
+                                    {
+                                      "Type": "EFT.AssetsManager.AmmoPoolObject"
+                                    },
+                                    {
+                                      "Type": "EFT.Interactive.ObservedLootItem"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.BoxCollider"
+                                    },
+                                    {
+                                      "Type": "EFT.Shell"
+                                    }
+                                  ],
+                                  "Name": "patron_12x70_slug_poleva_3(Clone)"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "patron_012"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD1"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD1"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.LODGroup"
+                                    },
+                                    {
+                                      "Type": "PreviewPivot"
+                                    },
+                                    {
+                                      "Type": "EFT.AssetsManager.AmmoPoolObject"
+                                    },
+                                    {
+                                      "Type": "EFT.Interactive.ObservedLootItem"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.BoxCollider"
+                                    },
+                                    {
+                                      "Type": "EFT.Shell"
+                                    }
+                                  ],
+                                  "Name": "patron_12x70_slug_poleva_3(Clone)"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "patron_013"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD1"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD1"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.LODGroup"
+                                    },
+                                    {
+                                      "Type": "PreviewPivot"
+                                    },
+                                    {
+                                      "Type": "EFT.AssetsManager.AmmoPoolObject"
+                                    },
+                                    {
+                                      "Type": "EFT.Interactive.ObservedLootItem"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.BoxCollider"
+                                    },
+                                    {
+                                      "Type": "EFT.Shell"
+                                    }
+                                  ],
+                                  "Name": "patron_12x70_slug_poleva_3(Clone)"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "patron_014"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD1"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD1"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.LODGroup"
+                                    },
+                                    {
+                                      "Type": "PreviewPivot"
+                                    },
+                                    {
+                                      "Type": "EFT.AssetsManager.AmmoPoolObject"
+                                    },
+                                    {
+                                      "Type": "EFT.Interactive.ObservedLootItem"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.BoxCollider"
+                                    },
+                                    {
+                                      "Type": "EFT.Shell"
+                                    }
+                                  ],
+                                  "Name": "patron_12x70_slug_poleva_3(Clone)"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "patron_015"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [
+                                {
+                                  "Tag": "Untagged",
+                                  "Childs": [
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_full_LOD1"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD0"
+                                    },
+                                    {
+                                      "Tag": "Untagged",
+                                      "Childs": [],
+                                      "Components": [
+                                        {
+                                          "Type": "UnityEngine.Transform"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshFilter"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.MeshRenderer"
+                                        },
+                                        {
+                                          "Type": "UnityEngine.BoxCollider"
+                                        }
+                                      ],
+                                      "Name": "patron_12x70_slug_poleva_3_shell_LOD1"
+                                    }
+                                  ],
+                                  "Components": [
+                                    {
+                                      "Type": "UnityEngine.Transform"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.LODGroup"
+                                    },
+                                    {
+                                      "Type": "PreviewPivot"
+                                    },
+                                    {
+                                      "Type": "EFT.AssetsManager.AmmoPoolObject"
+                                    },
+                                    {
+                                      "Type": "EFT.Interactive.ObservedLootItem"
+                                    },
+                                    {
+                                      "Type": "UnityEngine.BoxCollider"
+                                    },
+                                    {
+                                      "Type": "EFT.Shell"
+                                    }
+                                  ],
+                                  "Name": "patron_12x70_slug_poleva_3(Clone)"
+                                }
+                              ],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "patron_016"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "patron_017"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "patron_018"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "patron_019"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "patron_020"
+                            }
+                          ],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            },
+                            {
+                              "Type": "UnityEngine.LODGroup"
+                            },
+                            {
+                              "Type": "PreviewPivot"
+                            },
+                            {
+                              "Type": "MagVisualController"
+                            },
+                            {
+                              "Type": "EFT.Interactive.ObservedLootItem"
+                            },
+                            {
+                              "Type": "UnityEngine.BoxCollider"
+                            }
+                          ],
+                          "Name": "mag_saiga12_maxrounds_powermag_20_12x76_20(Clone)"
+                        }
+                      ],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "mod_magazine"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "mod_magazine_new"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "mod_mount_000"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshFilter"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshRenderer"
+                                },
+                                {
+                                  "Type": "RainCondensator"
+                                }
+                              ],
+                              "Name": "muzzle_saiga12_izhmash_saiga12_std_12g_LOD0"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshFilter"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshRenderer"
+                                },
+                                {
+                                  "Type": "UnityEngine.BoxCollider"
+                                }
+                              ],
+                              "Name": "muzzle_saiga12_izhmash_saiga12_std_12g_LOD1"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "MuzzleFume"
+                                },
+                                {
+                                  "Type": "MuzzleSparks"
+                                },
+                                {
+                                  "Type": "MuzzleSmoke"
+                                },
+                                {
+                                  "Type": "MuzzleFume"
+                                },
+                                {
+                                  "Type": "MuzzleJet"
+                                },
+                                {
+                                  "Type": "HeatHazeEmitter"
+                                }
+                              ],
+                              "Name": "muzzleflash_000"
+                            }
+                          ],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            },
+                            {
+                              "Type": "UnityEngine.LODGroup"
+                            },
+                            {
+                              "Type": "PreviewPivot"
+                            },
+                            {
+                              "Type": "EFT.AssetsManager.WeaponModPoolObject"
+                            },
+                            {
+                              "Type": "EFT.Interactive.ObservedLootItem"
+                            },
+                            {
+                              "Type": "UnityEngine.BoxCollider"
+                            }
+                          ],
+                          "Name": "muzzle_saiga12_izhmash_saiga12_std_12g(Clone)"
+                        }
+                      ],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "mod_muzzle"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshFilter"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshRenderer"
+                                },
+                                {
+                                  "Type": "RainCondensator"
+                                }
+                              ],
+                              "Name": "pistolgrip_ak_zenit_rk3_LOD0"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshFilter"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshRenderer"
+                                },
+                                {
+                                  "Type": "UnityEngine.BoxCollider"
+                                }
+                              ],
+                              "Name": "pistolgrip_ak_zenit_rk3_LOD1"
+                            }
+                          ],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            },
+                            {
+                              "Type": "UnityEngine.LODGroup"
+                            },
+                            {
+                              "Type": "PreviewPivot"
+                            },
+                            {
+                              "Type": "EFT.AssetsManager.WeaponModPoolObject"
+                            },
+                            {
+                              "Type": "EFT.Interactive.ObservedLootItem"
+                            },
+                            {
+                              "Type": "UnityEngine.BoxCollider"
+                            }
+                          ],
+                          "Name": "pistolgrip_ak_zenit_rk3(Clone)"
+                        }
+                      ],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "mod_pistol_grip"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshFilter"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshRenderer"
+                                },
+                                {
+                                  "Type": "RainCondensator"
+                                }
+                              ],
+                              "Name": "reciever_saiga12_izhmash_saiga12k_10_std_LOD0"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshFilter"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshRenderer"
+                                },
+                                {
+                                  "Type": "UnityEngine.BoxCollider"
+                                }
+                              ],
+                              "Name": "reciever_saiga12_izhmash_saiga12k_10_std_LOD1"
+                            }
+                          ],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            },
+                            {
+                              "Type": "UnityEngine.LODGroup"
+                            },
+                            {
+                              "Type": "PreviewPivot"
+                            },
+                            {
+                              "Type": "EFT.AssetsManager.WeaponModPoolObject"
+                            },
+                            {
+                              "Type": "EFT.Interactive.ObservedLootItem"
+                            },
+                            {
+                              "Type": "UnityEngine.BoxCollider"
+                            }
+                          ],
+                          "Name": "reciever_saiga12_izhmash_saiga12k_10_std(Clone)"
+                        }
+                      ],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "mod_reciever"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "mod_aim_camera"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "mod_align_rear"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshFilter"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshRenderer"
+                                },
+                                {
+                                  "Type": "RainCondensator"
+                                }
+                              ],
+                              "Name": "sight_rear_saiga_izhmash_saiga_fixed_LOD0"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshFilter"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshRenderer"
+                                },
+                                {
+                                  "Type": "UnityEngine.BoxCollider"
+                                }
+                              ],
+                              "Name": "sight_rear_saiga_izhmash_saiga_fixed_LOD1"
+                            }
+                          ],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            },
+                            {
+                              "Type": "UnityEngine.LODGroup"
+                            },
+                            {
+                              "Type": "PreviewPivot"
+                            },
+                            {
+                              "Type": "EFT.AssetsManager.WeaponModPoolObject"
+                            },
+                            {
+                              "Type": "EFT.Interactive.ObservedLootItem"
+                            },
+                            {
+                              "Type": "UnityEngine.BoxCollider"
+                            },
+                            {
+                              "Type": "SightModVisualControllers"
+                            }
+                          ],
+                          "Name": "sight_rear_saiga_izhmash_saiga_fixed(Clone)"
+                        }
+                      ],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "mod_sight_rear"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                }
+                              ],
+                              "Name": "mod_stock"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshFilter"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshRenderer"
+                                },
+                                {
+                                  "Type": "UnityEngine.BoxCollider"
+                                }
+                              ],
+                              "Name": "stock_ak74m_izhmash_ak74m_std_LOD1"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshFilter"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshRenderer"
+                                },
+                                {
+                                  "Type": "RainCondensator"
+                                }
+                              ],
+                              "Name": "stock_saiga12_izhmash_saiga12_fold_ak_type_LOD0"
+                            }
+                          ],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            },
+                            {
+                              "Type": "UnityEngine.LODGroup"
+                            },
+                            {
+                              "Type": "PreviewPivot"
+                            },
+                            {
+                              "Type": "EFT.AssetsManager.WeaponModPoolObject"
+                            },
+                            {
+                              "Type": "EFT.Interactive.ObservedLootItem"
+                            },
+                            {
+                              "Type": "UnityEngine.BoxCollider"
+                            }
+                          ],
+                          "Name": "stock_saiga12_izhmash_saiga12_fold_ak_type(Clone)"
+                        }
+                      ],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "mod_stock"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshFilter"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshRenderer"
+                                }
+                              ],
+                              "Name": "patron_12x70_slug_poleva_3_full_LOD0"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshFilter"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshRenderer"
+                                },
+                                {
+                                  "Type": "UnityEngine.BoxCollider"
+                                }
+                              ],
+                              "Name": "patron_12x70_slug_poleva_3_full_LOD1"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshFilter"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshRenderer"
+                                }
+                              ],
+                              "Name": "patron_12x70_slug_poleva_3_shell_LOD0"
+                            },
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshFilter"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshRenderer"
+                                },
+                                {
+                                  "Type": "UnityEngine.BoxCollider"
+                                }
+                              ],
+                              "Name": "patron_12x70_slug_poleva_3_shell_LOD1"
+                            }
+                          ],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            },
+                            {
+                              "Type": "UnityEngine.LODGroup"
+                            },
+                            {
+                              "Type": "PreviewPivot"
+                            },
+                            {
+                              "Type": "EFT.AssetsManager.AmmoPoolObject"
+                            },
+                            {
+                              "Type": "EFT.Interactive.ObservedLootItem"
+                            },
+                            {
+                              "Type": "UnityEngine.BoxCollider"
+                            },
+                            {
+                              "Type": "EFT.Shell"
+                            }
+                          ],
+                          "Name": "patron_12x70_slug_poleva_3(Clone)"
+                        }
+                      ],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "patron_in_weapon"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "shellport"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            },
+                            {
+                              "Type": "MuzzleFume"
+                            }
+                          ],
+                          "Name": "extractor_smoke"
+                        }
+                      ],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "smokeport"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            }
+                          ],
+                          "Name": "mod_charge"
+                        },
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            },
+                            {
+                              "Type": "UnityEngine.MeshFilter"
+                            },
+                            {
+                              "Type": "UnityEngine.MeshRenderer"
+                            }
+                          ],
+                          "Name": "saiga12_bolt_LOD0"
+                        },
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshFilter"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshRenderer"
+                                }
+                              ],
+                              "Name": "saiga12_bolt_cover_LOD0"
+                            }
+                          ],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            }
+                          ],
+                          "Name": "weapon_bolt_cover"
+                        },
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [
+                            {
+                              "Tag": "Untagged",
+                              "Childs": [],
+                              "Components": [
+                                {
+                                  "Type": "UnityEngine.Transform"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshFilter"
+                                },
+                                {
+                                  "Type": "UnityEngine.MeshRenderer"
+                                }
+                              ],
+                              "Name": "saiga12_larva_LOD0"
+                            }
+                          ],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            }
+                          ],
+                          "Name": "weapon_bolt_larva"
+                        }
+                      ],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "weapon_bolt"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            },
+                            {
+                              "Type": "UnityEngine.MeshFilter"
+                            },
+                            {
+                              "Type": "UnityEngine.MeshRenderer"
+                            }
+                          ],
+                          "Name": "saiga12_hammer_LOD0"
+                        }
+                      ],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "weapon_hammer"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        }
+                      ],
+                      "Name": "weapon_izhmash_saiga12k_10_12g_LOD0"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        },
+                        {
+                          "Type": "UnityEngine.BoxCollider"
+                        }
+                      ],
+                      "Name": "weapon_izhmash_saiga12k_10_12g_LOD1"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "weapon_L_hand_marker"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "weapon_L_IK_marker"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "weapon_LCollarbone_marker"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "weapon_R_hand_marker"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "weapon_R_IK_marker"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "weapon_RCollarbone_marker"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            },
+                            {
+                              "Type": "UnityEngine.MeshFilter"
+                            },
+                            {
+                              "Type": "UnityEngine.MeshRenderer"
+                            }
+                          ],
+                          "Name": "saiga12_release_LOD0"
+                        }
+                      ],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "weapon_release"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            },
+                            {
+                              "Type": "UnityEngine.MeshFilter"
+                            },
+                            {
+                              "Type": "UnityEngine.MeshRenderer"
+                            }
+                          ],
+                          "Name": "saiga12_fire_selector_LOD0"
+                        }
+                      ],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "weapon_selector"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            },
+                            {
+                              "Type": "UnityEngine.MeshFilter"
+                            },
+                            {
+                              "Type": "UnityEngine.MeshRenderer"
+                            }
+                          ],
+                          "Name": "saiga_12_stock_lock_LOD0"
+                        }
+                      ],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "weapon_stock_lock"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [
+                        {
+                          "Tag": "Untagged",
+                          "Childs": [],
+                          "Components": [
+                            {
+                              "Type": "UnityEngine.Transform"
+                            },
+                            {
+                              "Type": "UnityEngine.MeshFilter"
+                            },
+                            {
+                              "Type": "UnityEngine.MeshRenderer"
+                            }
+                          ],
+                          "Name": "saiga12_trigger_LOD0"
+                        }
+                      ],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "weapon_trigger"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        }
+                      ],
+                      "Name": "weapon_vest_IK_marker"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.Light"
+                        },
+                        {
+                          "Type": "MuzzleLight"
+                        }
+                      ],
+                      "Name": "Muzzle Light"
+                    },
+                    {
+                      "Tag": "Untagged",
+                      "Childs": [],
+                      "Components": [
+                        {
+                          "Type": "UnityEngine.Transform"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshFilter"
+                        },
+                        {
+                          "Type": "UnityEngine.MeshRenderer"
+                        },
+                        {
+                          "Type": "HotObject"
+                        }
+                      ],
+                      "Name": "MuzzleJetCombinedMesh"
+                    }
+                  ],
+                  "Components": [
+                    {
+                      "Type": "UnityEngine.Transform"
+                    }
+                  ],
+                  "Name": "weapon"
+                }
+              ],
+              "Components": [
+                {
+                  "Type": "UnityEngine.Transform"
+                }
+              ],
+              "Name": "Weapon_root_anim"
+            }
+          ],
+          "Components": [
+            {
+              "Type": "UnityEngine.Transform"
+            }
+          ],
+          "Name": "Weapon_root"
+        }
+      ],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.Animator"
+        },
+        {
+          "Type": "UnityEngine.LODGroup"
+        },
+        {
+          "Type": "TransformLinks"
+        }
+      ],
+      "Name": "weapon_izhmash_saiga12k_10_12g.generated(Clone)"
+    }
+  ],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    },
+    {
+      "Type": "WeaponPrefab"
+    },
+    {
+      "Type": "PreviewPivot"
+    },
+    {
+      "Type": "MuzzleManager"
+    },
+    {
+      "Type": "WeaponSoundPlayer"
+    },
+    {
+      "Type": "EFT.ShellExtractionData"
+    },
+    {
+      "Type": "EFT.Visual.FoldableStockView"
+    },
+    {
+      "Type": "EFT.Interactive.ObservedLootItem"
+    },
+    {
+      "Type": "UnityEngine.BoxCollider"
+    },
+    {
+      "Type": "FirearmsEffects"
+    }
+  ],
+  "Name": "weapon_izhmash_saiga12k_10_12g_container(Clone)"
+}

@@ -1,0 +1,10 @@
+{
+  "Tag": "Untagged",
+  "Childs": [],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    }
+  ],
+  "Name": "UpperFloor (moved to VolumePropagationAndEnvironmentSwitcherTriggers physics world)"
+}

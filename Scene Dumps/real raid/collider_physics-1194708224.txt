@@ -1,0 +1,106 @@
+{
+  "Tag": "Untagged",
+  "Childs": [
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "UnityEngine.BoxCollider"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        }
+      ],
+      "Name": "Cube"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "UnityEngine.BoxCollider"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        }
+      ],
+      "Name": "Cube (1)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "UnityEngine.BoxCollider"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        }
+      ],
+      "Name": "Cube (2)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "UnityEngine.BoxCollider"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        }
+      ],
+      "Name": "Cube (3)"
+    },
+    {
+      "Tag": "Untagged",
+      "Childs": [],
+      "Components": [
+        {
+          "Type": "UnityEngine.Transform"
+        },
+        {
+          "Type": "UnityEngine.MeshFilter"
+        },
+        {
+          "Type": "UnityEngine.BoxCollider"
+        },
+        {
+          "Type": "UnityEngine.MeshRenderer"
+        }
+      ],
+      "Name": "Cube (4)"
+    }
+  ],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    }
+  ],
+  "Name": "collider_physics"
+}

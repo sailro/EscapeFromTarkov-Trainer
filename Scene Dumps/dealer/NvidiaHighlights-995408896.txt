@@ -1,0 +1,13 @@
+{
+  "Tag": "Untagged",
+  "Childs": [],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    },
+    {
+      "Type": "HighlightsManager"
+    }
+  ],
+  "Name": "NvidiaHighlights"
+}

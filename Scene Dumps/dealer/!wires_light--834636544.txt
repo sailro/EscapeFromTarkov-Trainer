@@ -1,0 +1,19 @@
+{
+  "Tag": "Untagged",
+  "Childs": [],
+  "Components": [
+    {
+      "Type": "UnityEngine.Transform"
+    },
+    {
+      "Type": "UnityEngine.MeshRenderer"
+    },
+    {
+      "Type": "UnityEngine.MeshFilter"
+    },
+    {
+      "Type": "WireGenerator"
+    }
+  ],
+  "Name": "!wires_light"
+}
