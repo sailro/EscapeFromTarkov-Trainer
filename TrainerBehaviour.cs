@@ -67,8 +67,6 @@ namespace EFT.Trainer
 
 			try
 			{
-				UnlockDoors();
-
 				var bones = FindObjectsOfType<PlayerBones>();
 				foreach(var playerBones in bones)
 				{
@@ -77,6 +75,7 @@ namespace EFT.Trainer
 
 					if (player != null && player.IsYourPlayer())
 					{
+						UnlockDoors(player);
 						DisableBulletHits(go);
 						AutoHealth(player);
 						PrepareHud(player);
@@ -95,7 +94,7 @@ namespace EFT.Trainer
 			}
 		}
 
-		private static void UnlockDoors()
+		private static void UnlockDoors(Player player)
 		{
 			var doors = FindObjectsOfType<Door>();
 			foreach (var door in doors)
@@ -104,7 +103,14 @@ namespace EFT.Trainer
 				if (door == null)
 					continue;
 
-				if (door.DoorState == EDoorState.Locked)
+				if (door.DoorState != EDoorState.Locked)
+					continue;
+
+				var offset = player.Transform.position - door.transform.position;
+				var sqrLen = offset.sqrMagnitude;
+
+				// only unlock if near me, else you'll get a ban from BattlEye if you brute-force-unlock all doors
+				if (sqrLen <= 20.0f)
 					door.DoorState = EDoorState.Shut;
 			}
 		}
