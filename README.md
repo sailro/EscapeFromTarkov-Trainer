@@ -51,6 +51,17 @@ So I just crafted a proper config file, making NLog invoking the ctor of my stub
 
 ![config](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/config.png)
 
+```csharp
+[Target(nameof(EFTTarget))]
+public sealed class EFTTarget : TargetWithLayout
+{
+	public EFTTarget()
+	{
+		Loader.Load();
+	}
+}
+```
+
 Then, I’m now loaded in the Game AppDomain, I can hook to the current gameObjects:
 
 ```csharp
