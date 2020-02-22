@@ -2,7 +2,7 @@
 # EscapeFromTarkov-Trainer
 
 -**important note**- before publishing this repository, I gave all the details to EFT developers, so that they can fix their 
-game (so this trainer should not be usable anymore). Indeed I don't care for offline game trainers, but I don't want a multiplayer or online game to be ruined by cheaters. I was just interested by the reverse-engineering part. 
+game (so this trainer should not be usable anymore... or not). Indeed I don't care for offline game trainers, but I don't want a multiplayer or online game to be ruined by cheaters. I was just interested by the reverse-engineering part. 
 
 *I'm not responsible for any consequences that result from using this code. BattleState / BattlEye will probably ban you if you try to use it.* (and if you still want to use it, you should rename all methods/types/fields, as BattlEye is collecting strings from game process).
 
