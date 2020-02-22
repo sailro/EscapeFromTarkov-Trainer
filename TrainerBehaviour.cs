@@ -27,7 +27,7 @@ namespace EFT.Trainer
 			_outline = bundle.LoadAsset<Shader>("assets/outline.shader");
 			//standard = Shader.Find("p0/Reflective/Bumped Specular SMap");
 
-			InvokeRepeating("Trainer", 10f, 1f);
+			InvokeRepeating(nameof(Trainer), 10f, 1f);
 		}
 
 		private static void DumpScenes()
