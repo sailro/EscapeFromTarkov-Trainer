@@ -17,5 +17,5 @@ This trainer gives:
 - Autohealth (offline raid only)
 - No bullet hits (offline raid only)
 
-![demo](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/demo.png)
-![demo](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/demo2.png)
+![demo](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo.png)
+![demo](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo2.png)
