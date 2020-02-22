@@ -18,23 +18,9 @@ namespace EFT.Trainer
 			}
 		}
 
-		public static TrainerBehaviour Trainer
-		{
-			get
-			{
-				return HookObject.GetComponent<TrainerBehaviour>();
-			}
-		}
-
 		public static void Load()
 		{
 			HookObject.AddComponent<TrainerBehaviour>();
-		}
-
-		public static void Unload()
-		{
-			Object.DestroyImmediate(Trainer);
-			Object.DestroyImmediate(HookObject);
 		}
 	}
 }
