@@ -106,7 +106,7 @@ private static void UnlockDoors(Player player)
         var offset = player.Transform.position - door.transform.position;
         var sqrLen = offset.sqrMagnitude;
 
-        // only unlock if near player, else you'll get a ban from BattlEye if you brute-force-unlock all doors
+        // only unlock if near player, else you'll get a ban if you brute-force-unlock all doors
         if (sqrLen <= 20.0f)
             door.DoorState = EDoorState.Shut;
     }
