@@ -9,11 +9,11 @@ namespace EFT.Trainer
 			get
 			{
 				var result = GameObject.Find("Application (Main Client)");
-				if (result == null)
-				{
-					result = new GameObject("Trainer");
-					Object.DontDestroyOnLoad(result);
-				}
+				if (result != null)
+					return result;
+
+				result = new GameObject("Trainer");
+				Object.DontDestroyOnLoad(result);
 				return result;
 			}
 		}

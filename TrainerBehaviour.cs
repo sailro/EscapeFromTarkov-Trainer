@@ -71,7 +71,7 @@ namespace EFT.Trainer
 				foreach(var playerBones in bones)
 				{
 					var go = playerBones.transform.parent;
-					var player = playerBones?.Player;
+					var player = playerBones.Player;
 
 					if (player != null && player.IsYourPlayer())
 					{
@@ -124,7 +124,7 @@ namespace EFT.Trainer
 
 		private void OutlineExfiltrationPoints(GameWorld world, Player player)
 		{
-			var ect = world?.ExfiltrationController;
+			var ect = world.ExfiltrationController;
 			if (ect?.ExfiltrationPoints == null)
 				return;
 
@@ -166,7 +166,7 @@ namespace EFT.Trainer
 			var mag = weapon?.GetCurrentMagazine();
 			if (mag != null)
 			{
-				_hud = $"{mag.Count}+{weapon.ChamberAmmoCount}/{mag.MaxCount} [{weapon.SelectedFireMode.ToString()}]";
+				_hud = $"{mag.Count}+{weapon.ChamberAmmoCount}/{mag.MaxCount} [{weapon.SelectedFireMode}]";
 			}
 		}
 
