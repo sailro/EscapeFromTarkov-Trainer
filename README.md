@@ -1,26 +1,38 @@
 
 # EscapeFromTarkov-Trainer
 
--**important note**- before publishing this repository, I gave all the details to EFT developers, so that they can fix their 
-game (so this trainer should not be usable anymore... or not). Indeed I don't care for offline game trainers, but I don't want a multiplayer or online game to be ruined by cheaters. I was just interested by the reverse-engineering part. 
-
-*I'm not responsible for any consequences that result from using this code. BattleState / BattlEye will probably ban you if you try to use it.* (and if you still want to use it, you should rename all methods/types/fields, as BattlEye is collecting strings from game process).
+*I'm not responsible for any consequences that result from using this code. BattleState / BattlEye will ban you if you try to use it.*
 
 This is an attempt -for educational purposes only- to alter a Unity game at runtime without patching the binaries (so without using [Cecil](https://github.com/jbevain/cecil) nor [Reflexil](https://github.com/sailro/reflexil)).
-EFT is using BattlEye, so we **cannot** use [SharpMonoInjector](https://github.com/warbler/SharpMonoInjector).
 
 ## Features
 
 This trainer gives:
 - HUD (ammo left in chamber / magazine, fire mode)
-- Door unlocker
-- Wallhack
-- Exfiltration points outline
-- Autohealth (offline raid only)
-- No bullet hits (offline raid only)
+- Automatic Door unlocker
+- Wallhack (you'll see players / bots / bosses with distinct colors through walls)
+- Exfiltration points outline (green for available points, yellow for others)
 
 ![demo](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo.png)
 ![demo](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo2.png)
+
+## Installation
+
+You can try to compile the code yourself (you will need a recent Visual Studio, because we are using CSharp 9). you can use a precompiled release as well.
+
+Copy all files in your EFT directory like `C:\Battlestate Games\EFT`:
+
+`EscapeFromTarkov_Data\Managed\NLog.EFT.Trainer.dll` (this is the compiled code for the trainer)
+`EscapeFromTarkov_Data\outline` (this is the dedicated shader we use to outline players [wallhack])
+
+### If you are using the Live version (you should NOT do that, you'll be detected and banned):
+
+Rename `EscapeFromTarkov_Data\Managed\NLog.dll.nlog-live` to `NLog.dll.nlog`
+
+### If you are using sptarkov (https://www.sp-tarkov.com):
+
+Overwrite the existing `EscapeFromTarkov_Data\Managed\NLog.dll.nlog` using `NLog.dll.nlog-sptarkov`, or update the existing file accordingly. We must include the following 
+`<target name="EFTTarget" xsi:type="EFTTarget" />` in the `targets` section for the trainer to be loaded properly.
 
 ## Mono injection
 
