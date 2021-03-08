@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using EFT.Trainer.Features;
+using UnityEngine;
 
 namespace EFT.Trainer
 {
@@ -12,7 +13,7 @@ namespace EFT.Trainer
 				if (result != null)
 					return result;
 
-				result = new GameObject("Trainer");
+				result = new GameObject(nameof(Loader));
 				Object.DontDestroyOnLoad(result);
 				return result;
 			}
@@ -20,7 +21,11 @@ namespace EFT.Trainer
 
 		public static void Load()
 		{
-			HookObject.AddComponent<TrainerBehaviour>();
+			HookObject.AddComponent<GameState>();
+			HookObject.AddComponent<ExfiltrationPoints>();
+			HookObject.AddComponent<Hud>();
+			HookObject.AddComponent<Players>();
+			HookObject.AddComponent<Doors>();
 		}
 	}
 }

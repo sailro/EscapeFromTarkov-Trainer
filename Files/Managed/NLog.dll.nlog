@@ -6,7 +6,4 @@
         <target name="EFTTarget" xsi:type="EFTTarget" />
     </targets>
 
-    <rules>
-        <logger name="*" minlevel="Debug" writeTo="EFTTarget" />
-    </rules>
 </nlog>
