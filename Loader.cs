@@ -25,7 +25,7 @@ namespace EFT.Trainer
 			HookObject.AddComponent<ExfiltrationPoints>();
 			HookObject.AddComponent<Hud>();
 			HookObject.AddComponent<Players>();
-			HookObject.AddComponent<Doors>();
+			//HookObject.AddComponent<Doors>(); disabling for now, we are impacting badly load performance
 		}
 	}
 }
