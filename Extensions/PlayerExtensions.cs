@@ -6,6 +6,7 @@
 		{
 			return player != null 
 			       && player.Transform != null 
+			       && player.Transform.Original != null 
 			       && player.PlayerBones != null 
 			       && player.PlayerBones.transform != null;
 		}

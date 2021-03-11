@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using EFT.Trainer.Extensions;
 using UnityEngine;
 
 namespace EFT.Trainer.Features
@@ -28,6 +29,9 @@ namespace EFT.Trainer.Features
 
 			foreach (var ennemy in hostiles)
 			{
+				if (!ennemy.IsValid())
+					continue;
+
 				var color = GetPlayerColor(ennemy);
 				SetShaders(ennemy, _outline, color);
 			}

@@ -1,4 +1,5 @@
 ﻿using EFT.InventoryLogic;
+using EFT.Trainer.Extensions;
 using UnityEngine;
 
 namespace EFT.Trainer.Features
@@ -10,7 +11,10 @@ namespace EFT.Trainer.Features
 		public void OnGUI()
 		{
 			var player = GameState.Current?.LocalPlayer;
-			if (player == null || player.HandsController == null || player.HandsController.Item is not Weapon weapon)
+			if (!player.IsValid())
+				return;
+
+			if (player!.HandsController == null || player.HandsController.Item is not Weapon weapon)
 				return;
 
 			var mag = weapon.GetCurrentMagazine();

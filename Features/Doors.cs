@@ -24,7 +24,7 @@ namespace EFT.Trainer.Features
 		public override void ProcessData(IEnumerable<Door> data)
 		{
 			var player = GameState.Current?.LocalPlayer;
-			if (player == null)
+			if (!player.IsValid())
 				return;
 
 			foreach (var door in data)
@@ -32,7 +32,7 @@ namespace EFT.Trainer.Features
 				if (door.DoorState != EDoorState.Locked)
 					continue;
 
-				var offset = player.Transform.position - door.transform.position;
+				var offset = player!.Transform.position - door.transform.position;
 				var sqrLen = offset.sqrMagnitude;
 
 				// only unlock if near me, else you'll get a ban from BattlEye if you brute-force-unlock all doors

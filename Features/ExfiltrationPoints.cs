@@ -26,10 +26,10 @@ namespace EFT.Trainer
 				yield break;
 
 			var player = GameState.Current?.LocalPlayer;
-			if (player == null)
+			if (!player.IsValid())
 				yield break;
 
-			var profile = player.Profile;
+			var profile = player!.Profile;
 			var info = profile?.Info;
 			if (info == null)
 				yield break;
