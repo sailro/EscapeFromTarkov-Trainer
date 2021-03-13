@@ -1,34 +1,29 @@
-﻿using System.Collections.Generic;
-using EFT.Interactive;
+﻿using EFT.Interactive;
 using EFT.Trainer.Extensions;
+using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class Doors : CachableMonoBehaviour<IEnumerable<Door>>
+	public class Doors : MonoBehaviour
 	{
-		public override float CacheTimeInSec => 10f;
-		public override bool Enabled => true;
-
-		public override IEnumerable<Door> RefreshData()
+		public void Update()
 		{
+			if (Input.GetKey(KeyCode.KeypadPeriod))
+				UnlockNearbyDoors();
+		}
+
+		private static void UnlockNearbyDoors()
+		{
+			var player = GameState.Current?.LocalPlayer;
+			if (!player.IsValid())
+				return;
+
 			var doors = FindObjectsOfType<Door>();
 			foreach (var door in doors)
 			{
 				if (!door.IsValid())
 					continue;
 
-				yield return door;
-			}
-		}
-
-		public override void ProcessData(IEnumerable<Door> data)
-		{
-			var player = GameState.Current?.LocalPlayer;
-			if (!player.IsValid())
-				return;
-
-			foreach (var door in data)
-			{
 				if (door.DoorState != EDoorState.Locked)
 					continue;
 

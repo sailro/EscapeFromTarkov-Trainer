@@ -9,7 +9,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 
 This trainer gives:
 - HUD (ammo left in chamber / magazine, fire mode)
-- Automatic Door unlocker
+- Door unlocker (use keypad period)
 - Wallhack (you'll see players / bots / bosses with distinct colors through walls)
 - Exfiltration points outline (green for available points, yellow for others)
 
