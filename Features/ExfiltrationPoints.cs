@@ -4,9 +4,10 @@ using System.Linq;
 using Comfort.Common;
 using EFT.Interactive;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.UI;
 using UnityEngine;
 
-namespace EFT.Trainer
+namespace EFT.Trainer.Features
 {
 	public class ExfiltrationPoints : CachableMonoBehaviour<IEnumerable<ExfiltrationPointRecord>>
 	{

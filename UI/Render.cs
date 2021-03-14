@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EFT.Trainer
+namespace EFT.Trainer.UI
 {
     public static class Render
     {

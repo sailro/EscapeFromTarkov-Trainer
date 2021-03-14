@@ -33,19 +33,20 @@ namespace EFT.Trainer.Features
 
 		public void OnTriggerFeature<T>(Match match) where T : MonoBehaviour, IEnableable
 		{
+			var matchGroup = match?.Groups[ValueGroup];
+			if (matchGroup == null || !matchGroup.Success)
+				return;
+
 			var feature = Loader.HookObject.GetComponent<T>();
 			if (feature == null)
 				return;
 
-			switch (match.Groups[ValueGroup].Value)
+			feature.Enabled = matchGroup.Value switch
 			{
-				case "on":
-					feature.Enabled = true;
-					break;
-				case "off":
-					feature.Enabled = false;
-					break;
-			}
+				"on" => true,
+				"off" => false,
+				_ => feature.Enabled
+			};
 		}
 	}
 }

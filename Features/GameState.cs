@@ -2,7 +2,7 @@
 using Comfort.Common;
 using EFT.Trainer.Extensions;
 
-namespace EFT.Trainer
+namespace EFT.Trainer.Features
 {
 	public class GameState : CachableMonoBehaviour<GameStateSnapshot>
 	{

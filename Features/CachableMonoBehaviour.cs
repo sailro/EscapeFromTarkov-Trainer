@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace EFT.Trainer
+namespace EFT.Trainer.Features
 {
 	public abstract class CachableMonoBehaviour<T> : MonoBehaviour, IEnableable
 	{

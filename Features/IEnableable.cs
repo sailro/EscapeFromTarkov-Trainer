@@ -1,4 +1,4 @@
-﻿namespace EFT.Trainer
+﻿namespace EFT.Trainer.Features
 {
 	public interface IEnableable
 	{

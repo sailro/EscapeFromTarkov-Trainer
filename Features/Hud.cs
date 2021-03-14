@@ -1,5 +1,6 @@
 ﻿using EFT.InventoryLogic;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.UI;
 using UnityEngine;
 
 namespace EFT.Trainer.Features
