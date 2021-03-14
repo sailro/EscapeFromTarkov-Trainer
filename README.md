@@ -11,7 +11,8 @@ This trainer gives:
 - HUD (ammo left in chamber / magazine, fire mode)
 - Door unlocker (use keypad period)
 - Wallhack (you'll see players / bots / bosses with distinct colors through walls)
-- Exfiltration points outline (green for available points, yellow for others)
+- Exfiltration points (green for available points, yellow for others)
+- No recoil (optional)
 
 ![demo](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo.png)
 ![demo](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo2.png)
@@ -33,6 +34,19 @@ Rename `EscapeFromTarkov_Data\Managed\NLog.dll.nlog-live` to `NLog.dll.nlog`
 
 Overwrite the existing `EscapeFromTarkov_Data\Managed\NLog.dll.nlog` using `NLog.dll.nlog-sptarkov`, or update the existing file accordingly. We must include the following 
 `<target name="EFTTarget" xsi:type="EFTTarget" />` in the `targets` section for the trainer to be loaded properly.
+
+## Configuration
+
+![console](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/console.png)
+
+This trainer hooks into EFT command system, so you can easily setup features using the built-in console:
+
+| Command  | Values        | Default | Description                      | 
+|----------|---------------|---------|----------------------------------|
+| exfil    | `on` or `off` | `on`    | Show/hide exfiltration points    |
+| hud      | `on` or `off` | `on`    | Show/hide hud.                   |
+| wallhack | `on` or `off` | `on`    | Show/hide players (on next raid) |
+| norecoil | `on` or `off` | `off`   | Disable/Enable recoil            |
 
 ## Mono injection
 
