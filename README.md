@@ -12,7 +12,7 @@ This trainer gives:
 - Door unlocker (use keypad period)
 - Wallhack (you'll see players / bots / bosses with distinct colors through walls)
 - Exfiltration points (green for available points, yellow for others)
-- No recoil (optional)
+- No recoil (off by default)
 
 ![demo](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo.png)
 ![demo](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo2.png)
