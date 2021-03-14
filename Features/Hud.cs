@@ -4,12 +4,16 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class Hud : MonoBehaviour
+	public class Hud : MonoBehaviour, IEnableable
 	{
 		public static readonly Color HudColor = Color.white;
+		public bool Enabled { get; set; } = true;
 		
 		public void OnGUI()
 		{
+			if (!Enabled)
+				return;
+
 			var player = GameState.Current?.LocalPlayer;
 			if (!player.IsValid())
 				return;

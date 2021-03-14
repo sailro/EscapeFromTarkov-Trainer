@@ -2,10 +2,10 @@
 
 namespace EFT.Trainer
 {
-	public abstract class CachableMonoBehaviour<T> : MonoBehaviour
+	public abstract class CachableMonoBehaviour<T> : MonoBehaviour, IEnableable
 	{
 		public abstract float CacheTimeInSec { get; }
-		public abstract bool Enabled { get; }
+		public abstract bool Enabled { get; set; }
 
 		private float _nextCacheTime;
 		private T _data;

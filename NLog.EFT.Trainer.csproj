@@ -87,10 +87,13 @@
     <Compile Include="Features\CachableMonoBehaviour.cs" />
     <Compile Include="Extensions\CameraExtensions.cs" />
     <Compile Include="EFTTarget.cs" />
+    <Compile Include="Features\Commands.cs" />
     <Compile Include="Features\Doors.cs" />
     <Compile Include="Features\Hud.cs" />
     <Compile Include="Features\ExfiltrationPoints.cs" />
+    <Compile Include="Features\IEnableable.cs" />
     <Compile Include="Features\Players.cs" />
+    <Compile Include="Features\Recoil.cs" />
     <Compile Include="Loader.cs" />
     <Compile Include="Features\GameState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

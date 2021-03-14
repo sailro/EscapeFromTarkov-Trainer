@@ -7,11 +7,12 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class Players : MonoBehaviour
+	public class Players : MonoBehaviour, IEnableable
 	{
 		internal static readonly Color PlayerColor = Color.blue;
 		internal static readonly Color BotColor = Color.yellow;
 		internal static readonly Color BossColor = Color.red;
+		public bool Enabled { get; set; } = true;
 
 		private Shader _outline;
 
@@ -23,6 +24,9 @@ namespace EFT.Trainer.Features
 
 		private void Update()
 		{
+			if (!Enabled)
+				return;
+
 			var hostiles = GameState.Current?.Hostiles;
 			if (hostiles == null)
 				return;

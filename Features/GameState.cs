@@ -9,7 +9,7 @@ namespace EFT.Trainer
 		public static GameStateSnapshot Current { get; private set; }
 
 		public override float CacheTimeInSec => 4f;
-		public override bool Enabled => true;
+		public override bool Enabled { get; set; } = true;
 
 		public override GameStateSnapshot RefreshData()
 		{

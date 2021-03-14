@@ -14,7 +14,7 @@ namespace EFT.Trainer
 		public static readonly Color ExfiltrationPointColor = Color.yellow;
 
 		public override float CacheTimeInSec => 10f;
-		public override bool Enabled => true;
+		public override bool Enabled { get; set; } = true;
 
 		public override IEnumerable<ExfiltrationPointRecord> RefreshData()
 		{

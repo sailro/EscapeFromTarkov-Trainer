@@ -26,6 +26,8 @@ namespace EFT.Trainer
 			HookObject.AddComponent<Hud>();
 			HookObject.AddComponent<Players>();
 			HookObject.AddComponent<Doors>();
+			HookObject.AddComponent<Recoil>();
+			HookObject.AddComponent<Commands>();
 		}
 	}
 }
