@@ -23,8 +23,8 @@ You can try to compile the code yourself (you will need a recent Visual Studio, 
 
 Copy all files in your EFT directory like `C:\Battlestate Games\EFT`:
 
-`EscapeFromTarkov_Data\Managed\NLog.EFT.Trainer.dll` (this is the compiled code for the trainer)
-`EscapeFromTarkov_Data\outline` (this is the dedicated shader we use to outline players [wallhack])
+- `EscapeFromTarkov_Data\Managed\NLog.EFT.Trainer.dll` (this is the compiled code for the trainer)
+- `EscapeFromTarkov_Data\outline` (this is the dedicated shader we use to outline players [wallhack])
 
 ### If you are using the Live version (you should NOT do that, you'll be detected and banned):
 
