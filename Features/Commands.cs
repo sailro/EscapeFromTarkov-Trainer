@@ -17,6 +17,11 @@ namespace EFT.Trainer.Features
 			if (!PreloaderUI.Instantiated)
 				return;
 
+			RegisterCommands();
+		}
+
+		private void RegisterCommands()
+		{
 			var commands = ConsoleScreen.Commands;
 			if (commands.Count == 0)
 				return;
@@ -27,7 +32,6 @@ namespace EFT.Trainer.Features
 			commands.AddCommand(new GClass1907($"norecoil (?<{ValueGroup}>(on)|(off))", OnTriggerFeature<Recoil>));
 
 			Registered = true;
-
 			Destroy(this);
 		}
 
