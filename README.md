@@ -43,10 +43,12 @@ This trainer hooks into EFT command system, so you can easily setup features usi
 
 | Command  | Values        | Default | Description                      | 
 |----------|---------------|---------|----------------------------------|
+| dump     |               |         | Dump game state for analysis     |
 | exfil    | `on` or `off` | `on`    | Show/hide exfiltration points    |
 | hud      | `on` or `off` | `on`    | Show/hide hud.                   |
-| wallhack | `on` or `off` | `on`    | Show/hide players (on next raid) |
 | norecoil | `on` or `off` | `off`   | Disable/Enable recoil            |
+| status   |               |         | Show status of all features      |
+| wallhack | `on` or `off` | `on`    | Show/hide players (on next raid) |
 
 ## Mono injection
 
