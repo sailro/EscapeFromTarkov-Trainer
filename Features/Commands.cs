@@ -75,7 +75,7 @@ namespace EFT.Trainer.Features
 					continue;
 
 				var json = SceneDumper.DumpScene(scene).ToPrettyJson();
-				File.WriteAllText(Path.Combine(thisDump, $"@scene - {scene.name}.txt"), json);
+				File.WriteAllText(Path.Combine(thisDump, GetSafeFilename($"@scene - {scene.name}.txt")), json);
 			}
 
 			PreloaderUI.Instance.Console.AddLog("Dumping game objects...", "dump");
@@ -84,12 +84,17 @@ namespace EFT.Trainer.Features
 				if (go == null || go.transform.parent != null || !go.activeSelf) 
 					continue;
 
-				var filename = go.name + "-" + go.GetHashCode() + ".txt";
+				var filename = GetSafeFilename(go.name + "-" + go.GetHashCode() + ".txt");
 				var json = SceneDumper.DumpGameObject(go).ToPrettyJson();
 				File.WriteAllText(Path.Combine(thisDump, filename), json);
 			}
 
 			PreloaderUI.Instance.Console.AddLog($"Dump created in {thisDump}", "dump");
+		}
+
+		private static string GetSafeFilename(string filename)
+		{
+			return string.Join("_", filename.Split(Path.GetInvalidFileNameChars()));  	
 		}
 
 		public void OnTriggerFeature(Type featureType, Match match)
