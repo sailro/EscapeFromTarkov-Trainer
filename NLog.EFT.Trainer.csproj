@@ -94,6 +94,7 @@
     <Compile Include="Features\IEnableable.cs" />
     <Compile Include="Features\Players.cs" />
     <Compile Include="Features\Recoil.cs" />
+    <Compile Include="Features\SceneDumper.cs" />
     <Compile Include="Loader.cs" />
     <Compile Include="Features\GameState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,6 +1,10 @@
-﻿using System.Text.RegularExpressions;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Text.RegularExpressions;
 using EFT.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace EFT.Trainer.Features
 {
@@ -8,6 +12,13 @@ namespace EFT.Trainer.Features
 	{
 		public bool Registered { get; set; } = false;
 		public const string ValueGroup = "value";
+		private readonly Dictionary<string, Type> _features = new()
+		{
+			{"exfil", typeof(ExfiltrationPoints)},
+			{"hud", typeof(Hud)},
+			{"wallhack", typeof(Players)},
+			{"norecoil", typeof(Recoil)}
+		};
 
 		public void Update()
 		{
@@ -26,23 +37,68 @@ namespace EFT.Trainer.Features
 			if (commands.Count == 0)
 				return;
 
-			commands.AddCommand(new GClass1907($"exfil (?<{ValueGroup}>(on)|(off))", OnTriggerFeature<ExfiltrationPoints>));
-			commands.AddCommand(new GClass1907($"hud (?<{ValueGroup}>(on)|(off))", OnTriggerFeature<Hud>));
-			commands.AddCommand(new GClass1907($"wallhack (?<{ValueGroup}>(on)|(off))", OnTriggerFeature<Players>));
-			commands.AddCommand(new GClass1907($"norecoil (?<{ValueGroup}>(on)|(off))", OnTriggerFeature<Recoil>));
+			foreach (var (featureName, featureType) in _features)
+			{
+				commands.AddCommand(new GClass1907($"{featureName} (?<{ValueGroup}>(on)|(off))", m => OnTriggerFeature(featureType, m)));
+			}
+
+			commands.AddCommand(new GClass1907("dump", _ => Dump()));
+			commands.AddCommand(new GClass1907("status", _ => Status()));
 
 			Registered = true;
 			Destroy(this);
 		}
 
-		public void OnTriggerFeature<T>(Match match) where T : MonoBehaviour, IEnableable
+		private void Status()
+		{
+			foreach (var (featureName, featureType) in _features)
+			{
+				if (Loader.HookObject.GetComponent(featureType) is not IEnableable feature)
+					return;
+
+				PreloaderUI.Instance.Console.AddLog($"{featureName} is {(feature.Enabled ? "on" : "off")}", "status");
+			}
+		}
+
+		private static void Dump()
+		{
+			var dumpfolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Escape from Tarkov", "Dumps");
+			var thisDump = Path.Combine(dumpfolder, $"{DateTime.Now:yyyyMMdd-HHmmss}");
+
+			Directory.CreateDirectory(thisDump);
+
+			PreloaderUI.Instance.Console.AddLog("Dumping scenes...", "dump");
+			for (int i = 0; i < SceneManager.sceneCount; i++) 
+			{
+				var scene = SceneManager.GetSceneAt(i);
+				if (!scene.isLoaded)
+					continue;
+
+				var json = SceneDumper.DumpScene(scene).ToPrettyJson();
+				File.WriteAllText(Path.Combine(thisDump, $"@scene - {scene.name}.txt"), json);
+			}
+
+			PreloaderUI.Instance.Console.AddLog("Dumping game objects...", "dump");
+			foreach (var go in FindObjectsOfType<GameObject>())
+			{
+				if (go == null || go.transform.parent != null || !go.activeSelf) 
+					continue;
+
+				var filename = go.name + "-" + go.GetHashCode() + ".txt";
+				var json = SceneDumper.DumpGameObject(go).ToPrettyJson();
+				File.WriteAllText(Path.Combine(thisDump, filename), json);
+			}
+
+			PreloaderUI.Instance.Console.AddLog($"Dump created in {thisDump}", "dump");
+		}
+
+		public void OnTriggerFeature(Type featureType, Match match)
 		{
 			var matchGroup = match?.Groups[ValueGroup];
 			if (matchGroup == null || !matchGroup.Success)
 				return;
 
-			var feature = Loader.HookObject.GetComponent<T>();
-			if (feature == null)
+			if (Loader.HookObject.GetComponent(featureType) is not IEnableable feature)
 				return;
 
 			feature.Enabled = matchGroup.Value switch
