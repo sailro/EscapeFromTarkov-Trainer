@@ -14,7 +14,7 @@ namespace EFT.Trainer.Features
 		public static readonly Color EligibleExfiltrationPointColor = Color.green;
 		public static readonly Color ExfiltrationPointColor = Color.yellow;
 
-		public override float CacheTimeInSec => 10f;
+		public override float CacheTimeInSec => 5f;
 		public override bool Enabled { get; set; } = true;
 
 		public override IEnumerable<ExfiltrationPointRecord> RefreshData()
@@ -40,8 +40,11 @@ namespace EFT.Trainer.Features
 			if (points == null)
 				yield break;
 
-			var eligiblePoints = GetEligibleExfiltrationPoints(side, world, profile);
 			var camera = Camera.main;
+			if (camera == null)
+				yield break;
+
+			var eligiblePoints = GetEligibleExfiltrationPoints(side, world, profile);
 			foreach (var point in points)
 			{
 				if (!point.IsValid()) 
@@ -87,6 +90,8 @@ namespace EFT.Trainer.Features
 		public override void ProcessDataOnGUI(IEnumerable<ExfiltrationPointRecord> data)
 		{
 			var camera = Camera.main;
+			if (camera == null)
+				return;
 
 			foreach (var point in data)
 			{
