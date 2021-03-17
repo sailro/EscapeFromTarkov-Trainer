@@ -17,7 +17,8 @@ namespace EFT.Trainer.Features
 			{"exfil", typeof(ExfiltrationPoints)},
 			{"hud", typeof(Hud)},
 			{"wallhack", typeof(Players)},
-			{"norecoil", typeof(Recoil)}
+			{"norecoil", typeof(Recoil)},
+			{"quest", typeof(Quests)}
 		};
 
 		public void Update()

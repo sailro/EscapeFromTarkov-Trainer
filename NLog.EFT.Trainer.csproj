@@ -83,12 +83,14 @@
   <ItemGroup>
     <Compile Include="Extensions\ExfiltrationPointExtension.cs" />
     <Compile Include="Extensions\DoorExtensions.cs" />
+    <Compile Include="Extensions\KnownTemplateIds.cs" />
     <Compile Include="Extensions\PlayerExtensions.cs" />
     <Compile Include="Features\CachableMonoBehaviour.cs" />
     <Compile Include="Extensions\CameraExtensions.cs" />
     <Compile Include="EFTTarget.cs" />
     <Compile Include="Features\Commands.cs" />
     <Compile Include="Features\Doors.cs" />
+    <Compile Include="Features\Quests.cs" />
     <Compile Include="Features\Hud.cs" />
     <Compile Include="Features\ExfiltrationPoints.cs" />
     <Compile Include="Features\IEnableable.cs" />
