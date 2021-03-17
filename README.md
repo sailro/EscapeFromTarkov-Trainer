@@ -13,7 +13,7 @@ This trainer gives:
 - Wallhack (you'll see players / bots / bosses with distinct colors through walls)
 - Exfiltration points (green for available points, yellow for others)
 - No recoil (off by default)
-- Quest locations to place items (off by default)
+- Locations where to place quest items (off by default)
 
 ![demo](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo.png)
 ![demo](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo2.png)
