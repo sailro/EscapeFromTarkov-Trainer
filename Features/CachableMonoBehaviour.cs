@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
@@ -7,19 +8,40 @@ namespace EFT.Trainer.Features
 		public abstract float CacheTimeInSec { get; }
 		public abstract bool Enabled { get; set; }
 
-		private float _nextCacheTime;
 		private T _data;
+		private bool _refreshing = false;
+
+		void Start()
+		{
+			StartCoroutine(RefreshDataScheduler());
+		}
+
+		private IEnumerator RefreshDataScheduler()
+		{
+			while (true)
+			{
+				if (Enabled)
+				{
+					try
+					{
+						_refreshing = true;
+						/*if (PreloaderUI.Instantiated)
+							PreloaderUI.Instance.Console.AddLog($"Refreshing {GetType().Name}...{DateTime.Now:hh:mm:ss}", "scheduler");*/
+						_data = RefreshData();
+					}
+					finally
+					{
+						_refreshing = false;
+					}
+				}
+				yield return new WaitForSeconds(CacheTimeInSec);
+			}
+		}
 
 		public void Update()
 		{
-			if (!Enabled) 
+			if (!Enabled || _refreshing) 
 				return;
-
-			if (Time.time >= _nextCacheTime)
-			{
-				_data = RefreshData();
-				_nextCacheTime = Time.time + CacheTimeInSec;
-			}
 
 			if (_data != null)
 				ProcessData(_data);
@@ -27,7 +49,7 @@ namespace EFT.Trainer.Features
 
 		public void OnGUI()
 		{
-			if (!Enabled) 
+			if (!Enabled || _refreshing) 
 				return;
 
 			if (_data != null)
