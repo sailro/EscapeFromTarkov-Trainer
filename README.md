@@ -13,9 +13,11 @@ This trainer gives:
 - Wallhack (you'll see players / bots / bosses with distinct colors through walls)
 - Exfiltration points (green for available points, yellow for others)
 - No recoil (off by default)
+- Quest locations to place items (off by default)
 
 ![demo](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo.png)
 ![demo](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo2.png)
+![demo](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/quests.png)
 
 ## Installation
 
@@ -47,6 +49,7 @@ This trainer hooks into command system, so you can easily setup features using t
 | exfil    | `on` or `off` | `on`    | Show/hide exfiltration points    |
 | hud      | `on` or `off` | `on`    | Show/hide hud.                   |
 | norecoil | `on` or `off` | `off`   | Disable/Enable recoil            |
+| quest    | `on` or `off` | `off`   | Disable/Enable quest locations   |
 | status   |               |         | Show status of all features      |
 | wallhack | `on` or `off` | `on`    | Show/hide players (on next raid) |
 
