@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text.RegularExpressions;
+using Comfort.Common;
+using EFT.Interactive;
+using EFT.Trainer.Extensions;
 using EFT.UI;
+using JsonType;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -18,10 +23,11 @@ namespace EFT.Trainer.Features
 			{"hud", typeof(Hud)},
 			{"wallhack", typeof(Players)},
 			{"norecoil", typeof(Recoil)},
-			{"quest", typeof(Quests)}
+			{"quest", typeof(Quests)},
+			{"stash", typeof(LootableContainers)},
 		};
 
-		public void Update()
+		private void Update()
 		{
 			if (Registered)
 				return;
@@ -45,9 +51,72 @@ namespace EFT.Trainer.Features
 
 			commands.AddCommand(new GClass1907("dump", _ => Dump()));
 			commands.AddCommand(new GClass1907("status", _ => Status()));
+			commands.AddCommand(new GClass1907("list", _ => ListLootItems()));
+			commands.AddCommand(new GClass1907($"track (?<{ValueGroup}>.*)", TrackLootItem));
+			commands.AddCommand(new GClass1907($"untrack (?<{ValueGroup}>.*)", UnTrackLootItem));
 
 			Registered = true;
 			Destroy(this);
+		}
+
+		private static void UnTrackLootItem(Match match)
+		{
+			var matchGroup = match?.Groups[ValueGroup];
+			if (matchGroup == null || !matchGroup.Success)
+				return;
+
+			LootItems.UnTrack(matchGroup.Value);
+		}
+
+		private static void TrackLootItem(Match match)
+		{
+			var matchGroup = match?.Groups[ValueGroup];
+			if (matchGroup == null || !matchGroup.Success)
+				return;
+
+			LootItems.Track(matchGroup.Value);
+		}
+
+		private static void ListLootItems()
+		{
+			var world = Singleton<GameWorld>.Instance;
+
+			if (world == null)
+				return;
+
+			var lootItems = world.LootItems;
+			var itemsPerName = new Dictionary<string, List<LootItem>>();
+
+			for (var i = 0; i < lootItems.Count; i++)
+			{
+				var lootItem = lootItems.GetByIndex(i);
+				if (!lootItem.IsValid())
+					continue;
+
+				var itemName = lootItem.Item.ShortName.Localized();
+				if (!itemsPerName.TryGetValue(itemName, out var pnList))
+				{
+					pnList = new List<LootItem>();
+					itemsPerName[itemName] = pnList;
+				}
+				pnList.Add(lootItem);
+			}
+
+			var names = itemsPerName.Keys.ToList();
+			names.Sort();
+			names.Reverse();
+
+			foreach (var itemName in names)
+			{
+				var list = itemsPerName[itemName];
+				var rarity = list.First().Item.Template.Rarity;
+				var extra = rarity != ELootRarity.Not_exist ? $" ({rarity})" : string.Empty;
+				AddConsoleLog($"{itemName} [{list.Count}]{extra}", "list");
+			}
+
+			AddConsoleLog("------", "list");
+
+			AddConsoleLog($"found {lootItems.Count} items", "list");
 		}
 
 		private void Status()
@@ -57,7 +126,7 @@ namespace EFT.Trainer.Features
 				if (Loader.HookObject.GetComponent(featureType) is not IEnableable feature)
 					return;
 
-				PreloaderUI.Instance.Console.AddLog($"{featureName} is {(feature.Enabled ? "on" : "off")}", "status");
+				AddConsoleLog($"{featureName} is {(feature.Enabled ? "on" : "off")}", "status");
 			}
 		}
 
@@ -68,7 +137,7 @@ namespace EFT.Trainer.Features
 
 			Directory.CreateDirectory(thisDump);
 
-			PreloaderUI.Instance.Console.AddLog("Dumping scenes...", "dump");
+			AddConsoleLog("Dumping scenes...", "dump");
 			for (int i = 0; i < SceneManager.sceneCount; i++) 
 			{
 				var scene = SceneManager.GetSceneAt(i);
@@ -79,7 +148,7 @@ namespace EFT.Trainer.Features
 				File.WriteAllText(Path.Combine(thisDump, GetSafeFilename($"@scene - {scene.name}.txt")), json);
 			}
 
-			PreloaderUI.Instance.Console.AddLog("Dumping game objects...", "dump");
+			AddConsoleLog("Dumping game objects...", "dump");
 			foreach (var go in FindObjectsOfType<GameObject>())
 			{
 				if (go == null || go.transform.parent != null || !go.activeSelf) 
@@ -90,7 +159,7 @@ namespace EFT.Trainer.Features
 				File.WriteAllText(Path.Combine(thisDump, filename), json);
 			}
 
-			PreloaderUI.Instance.Console.AddLog($"Dump created in {thisDump}", "dump");
+			AddConsoleLog($"Dump created in {thisDump}", "dump");
 		}
 
 		private static string GetSafeFilename(string filename)
@@ -114,5 +183,12 @@ namespace EFT.Trainer.Features
 				_ => feature.Enabled
 			};
 		}
+
+		private static void AddConsoleLog(string log, string from = "scheduler")
+		{
+			if (PreloaderUI.Instantiated)
+				PreloaderUI.Instance.Console.AddLog(log, from);
+		}
+
 	}
 }

@@ -4,22 +4,21 @@ using System.Linq;
 using Comfort.Common;
 using EFT.Interactive;
 using EFT.Trainer.Extensions;
-using EFT.Trainer.UI;
 using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class ExfiltrationPoints : CachableMonoBehaviour<ExfiltrationPointRecord[]>
+	public class ExfiltrationPoints : PointOfInterests
 	{
 		public static readonly Color EligibleExfiltrationPointColor = Color.green;
 		public static readonly Color ExfiltrationPointColor = Color.yellow;
 
-		public override float CacheTimeInSec => 5f;
+		public override float CacheTimeInSec => 7f;
 		public override bool Enabled { get; set; } = true;
 
-		public static ExfiltrationPointRecord[] Empty => Array.Empty<ExfiltrationPointRecord>();
+		public static PointOfInterest[] Empty => Array.Empty<PointOfInterest>();
 
-		public override ExfiltrationPointRecord[] RefreshData()
+		public override PointOfInterest[] RefreshData()
 		{
 			var world = Singleton<GameWorld>.Instance;
 			if (world == null)
@@ -47,14 +46,14 @@ namespace EFT.Trainer.Features
 				return Empty;
 
 			var eligiblePoints = GetEligibleExfiltrationPoints(side, world, profile);
-			var records = new List<ExfiltrationPointRecord>();
+			var records = new List<PointOfInterest>();
 			foreach (var point in points)
 			{
 				if (!point.IsValid()) 
 					continue;
 
 				var position = point.transform.position;
-				records.Add(new ExfiltrationPointRecord
+				records.Add(new PointOfInterest
 				{
 					Name = point.Settings.Name.Localized(),
 					Position = position,
@@ -91,33 +90,5 @@ namespace EFT.Trainer.Features
 
 			return result.ToArray();
 		}
-
-		public override void ProcessDataOnGUI(ExfiltrationPointRecord[] data)
-		{
-			var camera = Camera.main;
-			if (camera == null)
-				return;
-
-			foreach (var point in data)
-			{
-				var position = point.Position;
-
-				var screenPosition = camera.WorldPointToScreenPoint(position);
-				if (!camera.IsScreenPointVisible(screenPosition))
-					continue;
-
-				var distance = Math.Round(Vector3.Distance(camera.transform.position, position));
-				var caption = $"{point.Name} [{distance}m]";
-				Render.DrawString(new Vector2(screenPosition.x - 50f, screenPosition.y), caption, point.Color);
-			}
-		}
-	}
-
-	public struct ExfiltrationPointRecord
-	{
-		public string Name { get; set; }
-		public Vector3 Position { get; set; }
-		public Vector3 ScreenPosition { get; set; }
-		public Color Color { get; set; }
 	}
 }

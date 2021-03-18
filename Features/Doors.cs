@@ -6,7 +6,7 @@ namespace EFT.Trainer.Features
 {
 	public class Doors : MonoBehaviour
 	{
-		public void Update()
+		private void Update()
 		{
 			if (Input.GetKey(KeyCode.KeypadPeriod))
 				UnlockNearbyDoors();

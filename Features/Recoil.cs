@@ -7,7 +7,7 @@ namespace EFT.Trainer.Features
 	{
 		public bool Enabled { get; set; } = false;
 
-		public void Update()
+		private void Update()
 		{
 			if (!Enabled)
 				return;

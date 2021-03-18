@@ -5,21 +5,20 @@ using Comfort.Common;
 using EFT.Interactive;
 using EFT.Quests;
 using EFT.Trainer.Extensions;
-using EFT.Trainer.UI;
 using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class Quests : CachableMonoBehaviour<QuestRecord[]>
+	public class Quests : PointOfInterests
 	{
 		public static readonly Color QuestColor = Color.magenta;
 
 		public override float CacheTimeInSec => 5f;
 		public override bool Enabled { get; set; } = false;
 
-		public static QuestRecord[] Empty => Array.Empty<QuestRecord>();
+		public static PointOfInterest[] Empty => Array.Empty<PointOfInterest>();
 
-		public override QuestRecord[] RefreshData()
+		public override PointOfInterest[] RefreshData()
 		{
 			var world = Singleton<GameWorld>.Instance;
 			if (world == null)
@@ -40,7 +39,9 @@ namespace EFT.Trainer.Features
 				.AllPlayerItems
 				.ToArray();
 
-			var records = new List<QuestRecord>();
+			var records = new List<PointOfInterest>();
+
+			// Step 1: find all locations to place quest items we have in the player inventory
 			foreach (var trigger in triggers)
 			{
 				var ìtems = profile.
@@ -57,7 +58,7 @@ namespace EFT.Trainer.Features
 
 					var isMultitool = result.TemplateId == KnownTemplateIds.MultiTool;
 					var position = trigger.transform.position;
-					records.Add(new QuestRecord
+					records.Add(new PointOfInterest
 					{
 						Name = isMultitool ? "Repair" : $"Place {result.Template.NameLocalizationKey.Localized()}",
 						Position = position,
@@ -67,35 +68,45 @@ namespace EFT.Trainer.Features
 					break;
 				}
 			}
-			return records.ToArray();
-		}
 
-		public override void ProcessDataOnGUI(QuestRecord[] data)
-		{
-			var camera = Camera.main;
-			if (camera == null)
-				return;
+			// Step 2: search for all lootItems related to quests
+			var lootItems = world.LootItems;
 
-			foreach (var quest in data)
+			var startedQuests = profile
+				.Quests
+				.LoadedList
+				.Where(q => q.QuestStatus == EQuestStatus.Started)
+				.ToArray();
+
+			for (var i = 0; i < lootItems.Count; i++)
 			{
-				var position = quest.Position;
-
-				var screenPosition = camera.WorldPointToScreenPoint(position);
-				if (!camera.IsScreenPointVisible(screenPosition))
+				var lootItem = lootItems.GetByIndex(i);
+				if (!lootItem.IsValid())
 					continue;
 
-				var distance = Math.Round(Vector3.Distance(camera.transform.position, position));
-				var caption = $"{quest.Name} [{distance}m]";
-				Render.DrawString(new Vector2(screenPosition.x - 50f, screenPosition.y), caption, quest.Color);
-			}
-		}
-	}
+				if (!lootItem.Item.QuestItem)
+					continue;
 
-	public struct QuestRecord
-	{
-		public string Name { get; set; }
-		public Vector3 Position { get; set; }
-		public Vector3 ScreenPosition { get; set; }
-		public Color Color { get; set; }
+				foreach (var quest in startedQuests)
+				{
+					foreach (var condition in quest.GetConditions<ConditionFindItem>(EQuestStatus.AvailableForFinish))
+					{
+						if (condition.target.Contains(lootItem.Item.TemplateId) && !quest.ConditionHandlers[condition].Test() && !quest.CompletedConditions.Contains(condition.id))
+						{
+							var position = lootItem.transform.position;
+							records.Add(new PointOfInterest
+							{
+								Name = lootItem.Item.ShortName.Localized(),
+								Position = position,
+								ScreenPosition = camera.WorldPointToScreenPoint(position),
+								Color = QuestColor
+							});
+						}
+					}
+				}
+			}
+
+			return records.ToArray();
+		}
 	}
 }

@@ -10,7 +10,7 @@ namespace EFT.Trainer.Features
 		public static readonly Color HudColor = Color.white;
 		public bool Enabled { get; set; } = true;
 		
-		public void OnGUI()
+		private void OnGUI()
 		{
 			if (!Enabled)
 				return;

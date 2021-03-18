@@ -16,12 +16,12 @@ namespace EFT.Trainer.Features
 		private readonly System.Diagnostics.Stopwatch _stopwatch = new();
 #endif
 
-		void Start()
+		private void Start()
 		{
 			StartCoroutine(RefreshDataScheduler());
 		}
 
-		protected void AddConsoleLog(string log, string from = "scheduler")
+		protected static void AddConsoleLog(string log, string from = "scheduler")
 		{
 			if (PreloaderUI.Instantiated)
 				PreloaderUI.Instance.Console.AddLog(log, from);
@@ -61,7 +61,7 @@ namespace EFT.Trainer.Features
 			StartCoroutine(RefreshDataScheduler());
 		}
 
-		public void Update()
+		private void Update()
 		{
 			if (!Enabled || _refreshing) 
 				return;
@@ -70,7 +70,7 @@ namespace EFT.Trainer.Features
 				ProcessData(_data);
 		}
 
-		public void OnGUI()
+		private void OnGUI()
 		{
 			if (!Enabled || _refreshing) 
 				return;
