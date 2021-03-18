@@ -9,9 +9,10 @@ namespace EFT.Trainer.Features
 {
 	public class Players : MonoBehaviour, IEnableable
 	{
-		internal static readonly Color PlayerColor = Color.blue;
-		internal static readonly Color BotColor = Color.yellow;
-		internal static readonly Color BossColor = Color.red;
+		public static readonly Color PlayerColor = Color.blue;
+		public static readonly Color BotColor = Color.yellow;
+		public static readonly Color BossColor = Color.red;
+
 		public bool Enabled { get; set; } = true;
 
 		private Shader _outline;

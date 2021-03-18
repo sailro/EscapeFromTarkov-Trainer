@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class ExfiltrationPoints : CachableMonoBehaviour<IEnumerable<ExfiltrationPointRecord>>
+	public class ExfiltrationPoints : CachableMonoBehaviour<ExfiltrationPointRecord[]>
 	{
 		public static readonly Color EligibleExfiltrationPointColor = Color.green;
 		public static readonly Color ExfiltrationPointColor = Color.yellow;
@@ -17,48 +17,53 @@ namespace EFT.Trainer.Features
 		public override float CacheTimeInSec => 5f;
 		public override bool Enabled { get; set; } = true;
 
-		public override IEnumerable<ExfiltrationPointRecord> RefreshData()
+		public static ExfiltrationPointRecord[] Empty => Array.Empty<ExfiltrationPointRecord>();
+
+		public override ExfiltrationPointRecord[] RefreshData()
 		{
 			var world = Singleton<GameWorld>.Instance;
 			if (world == null)
-				yield break;
+				return Empty;
 
 			if (world.ExfiltrationController == null)
-				yield break;
+				return Empty;
 
 			var player = GameState.Current?.LocalPlayer;
 			if (!player.IsValid())
-				yield break;
+				return Empty;
 
 			var profile = player!.Profile;
 			var info = profile?.Info;
 			if (info == null)
-				yield break;
+				return Empty;
 
 			var side = info.Side;
 			var points = GetExfiltrationPoints(side, world);
 			if (points == null)
-				yield break;
+				return Empty;
 
 			var camera = Camera.main;
 			if (camera == null)
-				yield break;
+				return Empty;
 
 			var eligiblePoints = GetEligibleExfiltrationPoints(side, world, profile);
+			var records = new List<ExfiltrationPointRecord>();
 			foreach (var point in points)
 			{
 				if (!point.IsValid()) 
 					continue;
 
 				var position = point.transform.position;
-				yield return new ExfiltrationPointRecord
+				records.Add(new ExfiltrationPointRecord
 				{
 					Name = point.Settings.Name.Localized(),
 					Position = position,
 					ScreenPosition = camera.WorldPointToScreenPoint(position),
 					Color = eligiblePoints.Contains(point) ? EligibleExfiltrationPointColor : ExfiltrationPointColor
-				};
+				});
 			}
+
+			return records.ToArray();
 		}
 
 		private static ExfiltrationPoint[] GetExfiltrationPoints(EPlayerSide side, GameWorld world)
@@ -87,7 +92,7 @@ namespace EFT.Trainer.Features
 			return result.ToArray();
 		}
 
-		public override void ProcessDataOnGUI(IEnumerable<ExfiltrationPointRecord> data)
+		public override void ProcessDataOnGUI(ExfiltrationPointRecord[] data)
 		{
 			var camera = Camera.main;
 			if (camera == null)

@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using EFT.UI;
 using UnityEngine;
 
 namespace EFT.Trainer.Features
@@ -11,31 +12,53 @@ namespace EFT.Trainer.Features
 		private T _data;
 		private bool _refreshing = false;
 
+#if DEBUG_PERFORMANCE
+		private readonly System.Diagnostics.Stopwatch _stopwatch = new();
+#endif
+
 		void Start()
 		{
 			StartCoroutine(RefreshDataScheduler());
 		}
 
+		protected void AddConsoleLog(string log, string from = "scheduler")
+		{
+			if (PreloaderUI.Instantiated)
+				PreloaderUI.Instance.Console.AddLog(log, from);
+		}
+
 		private IEnumerator RefreshDataScheduler()
 		{
-			while (true)
+			if (Enabled)
 			{
-				if (Enabled)
+				try
 				{
-					try
-					{
-						_refreshing = true;
-						/*if (PreloaderUI.Instantiated)
-							PreloaderUI.Instance.Console.AddLog($"Refreshing {GetType().Name}...{DateTime.Now:hh:mm:ss}", "scheduler");*/
-						_data = RefreshData();
-					}
-					finally
-					{
-						_refreshing = false;
-					}
+					_refreshing = true;
+
+#if DEBUG_PERFORMANCE
+					_stopwatch.Restart();
+					AddConsoleLog($"Refreshing {GetType().Name}...");
+#endif
+
+					_data = RefreshData();
 				}
-				yield return new WaitForSeconds(CacheTimeInSec);
+				finally
+				{
+					_refreshing = false;
+
+#if DEBUG_PERFORMANCE
+					_stopwatch.Stop();
+#endif
+
+				}
 			}
+
+#if DEBUG_PERFORMANCE
+			AddConsoleLog($"Refreshed in {_stopwatch.ElapsedMilliseconds}ms...");
+#endif
+
+			yield return new WaitForSeconds(CacheTimeInSec);
+			StartCoroutine(RefreshDataScheduler());
 		}
 
 		public void Update()
