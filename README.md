@@ -53,7 +53,7 @@ This trainer hooks into command system, so you can easily setup features using t
 | dump     |               |         | Dump game state for analysis     |
 | exfil    | `on` or `off` | `on`    | Show/hide exfiltration points    |
 | hud      | `on` or `off` | `on`    | Show/hide hud.                   |
-| list     |               |         | List lootable items.             |
+| list     |               |         | List lootable items              |
 | norecoil | `on` or `off` | `off`   | Disable/Enable recoil            |
 | quest    | `on` or `off` | `off`   | Disable/Enable quest POI         |
 | stash    | `on` or `off` | `off`   | Show hidden stashes              |
