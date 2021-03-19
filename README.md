@@ -8,16 +8,21 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 ## Features
 
 This trainer gives:
-- HUD (ammo left in chamber / magazine, fire mode)
-- Door unlocker (use keypad period)
-- Wallhack (you'll see players / bots / bosses with distinct colors through walls)
-- Exfiltration points (green for available points, yellow for others)
-- No recoil (off by default)
-- Locations where to place quest items (off by default)
+- HUD (ammo left in chamber / magazine, fire mode).
+- Door unlocker (use keypad period).
+- Wallhack (you'll see players / bots / bosses with distinct colors through walls).
+- Exfiltration points (green for available points, yellow for others).
+- No recoil (off by default).
+- Locations for taking/placing quest items (off by default). Only items related to your started quests are displayed.
+- Hiddens stashes like buried barrels or ground caches (off by default).
+- Ability to list all lootable items and to track any item by name.
 
-![demo](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo.png)
-![demo](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo2.png)
-![demo](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/quests.png)
+![Wallhack](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo.png)
+![Exfils](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo2.png)
+![Quests](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/quests.png)
+![Stashes](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/stashes.png)
+![Track](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/track.png)
+![Lootitems](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/lootitems.png)
 
 ## Installation
 
@@ -48,9 +53,13 @@ This trainer hooks into command system, so you can easily setup features using t
 | dump     |               |         | Dump game state for analysis     |
 | exfil    | `on` or `off` | `on`    | Show/hide exfiltration points    |
 | hud      | `on` or `off` | `on`    | Show/hide hud.                   |
+| list     |               |         | List lootable items.             |
 | norecoil | `on` or `off` | `off`   | Disable/Enable recoil            |
-| quest    | `on` or `off` | `off`   | Disable/Enable quest locations   |
+| quest    | `on` or `off` | `off`   | Disable/Enable quest POI         |
+| stash    | `on` or `off` | `off`   | Show hidden stashes              |
 | status   |               |         | Show status of all features      |
+| track    | `<name>`      |         | Track all items matching `name`  |
+| untrack  | `<name>`|`*`  |         | Untrack a `name` or `*` for all  |
 | wallhack | `on` or `off` | `on`    | Show/hide players (on next raid) |
 
 ## Mono injection
