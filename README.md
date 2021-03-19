@@ -14,7 +14,7 @@ This trainer gives:
 - Exfiltration points (green for available points, yellow for others).
 - No recoil (off by default).
 - Locations for taking/placing quest items (off by default). Only items related to your started quests are displayed.
-- Hiddens stashes like buried barrels or ground caches (off by default).
+- Hidden stashes like buried barrels or ground caches (off by default).
 - Ability to list all lootable items and to track any item by name.
 
 ![Wallhack](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo.png)
