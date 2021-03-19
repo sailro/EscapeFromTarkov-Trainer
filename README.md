@@ -55,8 +55,8 @@ This trainer hooks into the command system, so you can easily setup features usi
 | hud      | `on` or `off`   | `on`    | Show/hide hud.                   |
 | list     |                 |         | List lootable items              |
 | norecoil | `on` or `off`   | `off`   | Disable/Enable recoil            |
-| quest    | `on` or `off`   | `off`   | Disable/Enable quest POI         |
-| stash    | `on` or `off`   | `off`   | Show hidden stashes              |
+| quest    | `on` or `off`   | `off`   | Show/hide quest POI              |
+| stash    | `on` or `off`   | `off`   | Show/hide stashes                |
 | status   |                 |         | Show status of all features      |
 | track    | `<name>`        |         | Track all items matching `name`  |
 | untrack  | `<name>` or `*` |         | Untrack a `name` or `*` for all  |
