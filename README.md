@@ -48,19 +48,19 @@ Overwrite the existing `EscapeFromTarkov_Data\Managed\NLog.dll.nlog` using `NLog
 
 This trainer hooks into command system, so you can easily setup features using the built-in console:
 
-| Command  | Values        | Default | Description                      | 
-|----------|---------------|---------|----------------------------------|
-| dump     |               |         | Dump game state for analysis     |
-| exfil    | `on` or `off` | `on`    | Show/hide exfiltration points    |
-| hud      | `on` or `off` | `on`    | Show/hide hud.                   |
-| list     |               |         | List lootable items              |
-| norecoil | `on` or `off` | `off`   | Disable/Enable recoil            |
-| quest    | `on` or `off` | `off`   | Disable/Enable quest POI         |
-| stash    | `on` or `off` | `off`   | Show hidden stashes              |
-| status   |               |         | Show status of all features      |
-| track    | `<name>`      |         | Track all items matching `name`  |
-| untrack  | `<name>`|`*`  |         | Untrack a `name` or `*` for all  |
-| wallhack | `on` or `off` | `on`    | Show/hide players (on next raid) |
+| Command  | Values          | Default | Description                      | 
+|----------|-----------------|---------|----------------------------------|
+| dump     |                 |         | Dump game state for analysis     |
+| exfil    | `on` or `off`   | `on`    | Show/hide exfiltration points    |
+| hud      | `on` or `off`   | `on`    | Show/hide hud.                   |
+| list     |                 |         | List lootable items              |
+| norecoil | `on` or `off`   | `off`   | Disable/Enable recoil            |
+| quest    | `on` or `off`   | `off`   | Disable/Enable quest POI         |
+| stash    | `on` or `off`   | `off`   | Show hidden stashes              |
+| status   |                 |         | Show status of all features      |
+| track    | `<name>`        |         | Track all items matching `name`  |
+| untrack  | `<name>` or `*` |         | Untrack a `name` or `*` for all  |
+| wallhack | `on` or `off`   | `on`    | Show/hide players (on next raid) |
 
 ## Mono injection
 
