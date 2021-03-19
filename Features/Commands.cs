@@ -19,12 +19,12 @@ namespace EFT.Trainer.Features
 		public const string ValueGroup = "value";
 		private readonly Dictionary<string, Type> _features = new()
 		{
-			{"exfil", typeof(ExfiltrationPoints)},
-			{"hud", typeof(Hud)},
 			{"wallhack", typeof(Players)},
-			{"norecoil", typeof(Recoil)},
-			{"quest", typeof(Quests)},
 			{"stash", typeof(LootableContainers)},
+			{"quest", typeof(Quests)},
+			{"norecoil", typeof(Recoil)},
+			{"hud", typeof(Hud)},
+			{"exfil", typeof(ExfiltrationPoints)},
 		};
 
 		private void Update()
