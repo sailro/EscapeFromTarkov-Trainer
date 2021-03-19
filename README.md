@@ -46,7 +46,7 @@ Overwrite the existing `EscapeFromTarkov_Data\Managed\NLog.dll.nlog` using `NLog
 
 ![console](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/console.png)
 
-This trainer hooks into command system, so you can easily setup features using the built-in console:
+This trainer hooks into the command system, so you can easily setup features using the built-in console:
 
 | Command  | Values          | Default | Description                      | 
 |----------|-----------------|---------|----------------------------------|
