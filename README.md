@@ -16,6 +16,7 @@ This trainer gives:
 - Locations for taking/placing quest items (off by default). Only items related to your started quests are displayed.
 - Hidden stashes like buried barrels or ground caches (off by default).
 - Ability to list all lootable items and to track any item by name.
+- Load/Save all settings.
 
 ![Wallhack](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo.png)
 ![Exfils](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo2.png)
@@ -54,13 +55,50 @@ This trainer hooks into the command system, so you can easily setup features usi
 | exfil    | `on` or `off`   | `on`    | Show/hide exfiltration points    |
 | hud      | `on` or `off`   | `on`    | Show/hide hud.                   |
 | list     |                 |         | List lootable items              |
+| load     |                 |         | Load settings to trainer.ini     |
 | norecoil | `on` or `off`   | `off`   | Disable/Enable recoil            |
 | quest    | `on` or `off`   | `off`   | Show/hide quest POI              |
+| save     |                 |         | Save settings to trainer.ini     |
 | stash    | `on` or `off`   | `off`   | Show/hide stashes                |
 | status   |                 |         | Show status of all features      |
 | track    | `<name>`        |         | Track all items matching `name`  |
 | untrack  | `<name>` or `*` |         | Untrack a `name` or `*` for all  |
 | wallhack | `on` or `off`   | `on`    | Show/hide players (on next raid) |
+
+## Sample `trainer.ini` configuration file
+
+```ini
+EFT.Trainer.Features.Doors.Key="KeypadPeriod"
+
+EFT.Trainer.Features.ExfiltrationPoints.CacheTimeInSec=7.0
+EFT.Trainer.Features.ExfiltrationPoints.EligibleColor=[0.0,1.0,0.0,1.0]
+EFT.Trainer.Features.ExfiltrationPoints.Enabled=true
+EFT.Trainer.Features.ExfiltrationPoints.NotEligibleColor=[1.0,0.921568632,0.0156862754,1.0]
+
+EFT.Trainer.Features.GameState.CacheTimeInSec=2.0
+EFT.Trainer.Features.GameState.Enabled=true
+
+EFT.Trainer.Features.Hud.Color=[1.0,1.0,1.0,1.0]
+EFT.Trainer.Features.Hud.Enabled=true
+
+EFT.Trainer.Features.LootableContainers.CacheTimeInSec=11.0
+EFT.Trainer.Features.LootableContainers.Color=[1.0,1.0,1.0,1.0]
+EFT.Trainer.Features.LootableContainers.Enabled=false
+
+EFT.Trainer.Features.LootItems.CacheTimeInSec=3.0
+EFT.Trainer.Features.LootItems.Color=[0.0,1.0,1.0,1.0]
+EFT.Trainer.Features.LootItems.Enabled=true
+EFT.Trainer.Features.LootItems.TrackedNames=["6L31","analyzer","graphic","battery","Broken GPhone","ushanka","cowboy"]
+
+EFT.Trainer.Features.Players.BossColor=[1.0,0.0,0.0,1.0]
+EFT.Trainer.Features.Players.BotColor=[1.0,0.921568632,0.0156862754,1.0]
+EFT.Trainer.Features.Players.Enabled=true
+EFT.Trainer.Features.Players.PlayerColor=[0.0,0.0,1.0,1.0]
+
+EFT.Trainer.Features.Quests.CacheTimeInSec=5.0
+EFT.Trainer.Features.Quests.Color=[1.0,0.0,1.0,1.0]
+EFT.Trainer.Features.Quests.Enabled=true
+```
 
 ## Mono injection
 
