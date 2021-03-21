@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Comfort.Common;
 using EFT.Interactive;
+using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using EFT.UI;
 using JsonType;
@@ -17,6 +18,7 @@ namespace EFT.Trainer.Features
 	{
 		public bool Registered { get; set; } = false;
 		public const string ValueGroup = "value";
+		public string UserPath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Escape from Tarkov");
 		private readonly Dictionary<string, Type> _features = new()
 		{
 			{"wallhack", typeof(Players)},
@@ -52,29 +54,42 @@ namespace EFT.Trainer.Features
 			commands.AddCommand(new GClass1907("dump", _ => Dump()));
 			commands.AddCommand(new GClass1907("status", _ => Status()));
 			commands.AddCommand(new GClass1907("list", _ => ListLootItems()));
-			commands.AddCommand(new GClass1907($"track (?<{ValueGroup}>.*)", TrackLootItem));
-			commands.AddCommand(new GClass1907($"untrack (?<{ValueGroup}>.*)", UnTrackLootItem));
+
+			var feature = Loader.HookObject.GetComponent<LootItems>();
+			if (feature != null)
+			{
+				commands.AddCommand(new GClass1907($"track (?<{ValueGroup}>.*)", m => TrackLootItem(m, feature)));
+				commands.AddCommand(new GClass1907($"untrack (?<{ValueGroup}>.*)", m => UnTrackLootItem(m, feature)));
+			}
+
+			var configFile = Path.Combine(UserPath, "trainer.ini");
+			var features = Loader.HookObject.GetComponents(typeof(MonoBehaviour));
+			commands.AddCommand(new GClass1907("load", _ => ConfigurationManager.Load(configFile, features)));
+			commands.AddCommand(new GClass1907("save", _ => ConfigurationManager.Save(configFile, features)));
+
+			// Load default configuration
+			ConfigurationManager.Load(configFile, features, false);
 
 			Registered = true;
 			Destroy(this);
 		}
 
-		private static void UnTrackLootItem(Match match)
+		private static void UnTrackLootItem(Match match, LootItems feature)
 		{
 			var matchGroup = match?.Groups[ValueGroup];
 			if (matchGroup == null || !matchGroup.Success)
 				return;
 
-			LootItems.UnTrack(matchGroup.Value);
+			feature.UnTrack(matchGroup.Value);
 		}
 
-		private static void TrackLootItem(Match match)
+		private static void TrackLootItem(Match match, LootItems feature)
 		{
 			var matchGroup = match?.Groups[ValueGroup];
 			if (matchGroup == null || !matchGroup.Success)
 				return;
 
-			LootItems.Track(matchGroup.Value);
+			feature.Track(matchGroup.Value);
 		}
 
 		private static void ListLootItems()
@@ -130,9 +145,9 @@ namespace EFT.Trainer.Features
 			}
 		}
 
-		private static void Dump()
+		private void Dump()
 		{
-			var dumpfolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Escape from Tarkov", "Dumps");
+			var dumpfolder = Path.Combine(UserPath, "Dumps");
 			var thisDump = Path.Combine(dumpfolder, $"{DateTime.Now:yyyyMMdd-HHmmss}");
 
 			Directory.CreateDirectory(thisDump);

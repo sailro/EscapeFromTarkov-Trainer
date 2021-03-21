@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using EFT.Trainer.Configuration;
 using EFT.UI;
 using UnityEngine;
 
@@ -6,7 +7,10 @@ namespace EFT.Trainer.Features
 {
 	public abstract class CachableMonoBehaviour<T> : MonoBehaviour, IEnableable
 	{
-		public abstract float CacheTimeInSec { get; }
+		[ConfigurationProperty]
+		public abstract float CacheTimeInSec { get; set; }
+
+		[ConfigurationProperty]
 		public abstract bool Enabled { get; set; }
 
 		private T _data;

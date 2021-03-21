@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Comfort.Common;
 using EFT.Interactive;
+using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using UnityEngine;
 
@@ -10,10 +11,13 @@ namespace EFT.Trainer.Features
 {
 	public class ExfiltrationPoints : PointOfInterests
 	{
-		public static readonly Color EligibleExfiltrationPointColor = Color.green;
-		public static readonly Color ExfiltrationPointColor = Color.yellow;
+		[ConfigurationProperty]
+		public Color EligibleColor { get; set; } = Color.green;
+		
+		[ConfigurationProperty]
+		public Color NotEligibleColor { get; set; } = Color.yellow;
 
-		public override float CacheTimeInSec => 7f;
+		public override float CacheTimeInSec { get; set; } = 7f;
 		public override bool Enabled { get; set; } = true;
 
 		public static PointOfInterest[] Empty => Array.Empty<PointOfInterest>();
@@ -58,7 +62,7 @@ namespace EFT.Trainer.Features
 					Name = point.Settings.Name.Localized(),
 					Position = position,
 					ScreenPosition = camera.WorldPointToScreenPoint(position),
-					Color = eligiblePoints.Contains(point) ? EligibleExfiltrationPointColor : ExfiltrationPointColor
+					Color = eligiblePoints.Contains(point) ? EligibleColor : NotEligibleColor
 				});
 			}
 

@@ -1,4 +1,5 @@
 ﻿using EFT.InventoryLogic;
+using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
 using UnityEngine;
@@ -7,7 +8,10 @@ namespace EFT.Trainer.Features
 {
 	public class Hud : MonoBehaviour, IEnableable
 	{
-		public static readonly Color HudColor = Color.white;
+		[ConfigurationProperty]
+		public Color Color { get; set; } = Color.white;
+
+		[ConfigurationProperty]
 		public bool Enabled { get; set; } = true;
 		
 		private void OnGUI()
@@ -27,7 +31,7 @@ namespace EFT.Trainer.Features
 				return;
 
 			var hud = $"{mag.Count}+{weapon.ChamberAmmoCount}/{mag.MaxCount} [{weapon.SelectedFireMode}]";
-			Render.DrawString(new Vector2(512, Screen.height - 16f), hud, HudColor);
+			Render.DrawString(new Vector2(512, Screen.height - 16f), hud, Color);
 		}
 	}
 }

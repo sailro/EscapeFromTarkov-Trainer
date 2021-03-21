@@ -86,9 +86,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\ConfigurationManager.cs" />
+    <Compile Include="Configuration\ConfigurationPropertyAttribute.cs" />
     <Compile Include="Extensions\ExfiltrationPointExtension.cs" />
     <Compile Include="Extensions\DoorExtensions.cs" />
-    <Compile Include="Extensions\KnownTemplateIds.cs" />
+    <Compile Include="KnownTemplateIds.cs" />
     <Compile Include="Extensions\LootableContainerExtension.cs" />
     <Compile Include="Extensions\LootItemExtension.cs" />
     <Compile Include="Extensions\PlayerExtensions.cs" />

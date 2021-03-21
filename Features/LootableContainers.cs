@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Comfort.Common;
 using EFT.Interactive;
+using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using UnityEngine;
 
@@ -9,9 +10,10 @@ namespace EFT.Trainer.Features
 {
 	public class LootableContainers : PointOfInterests
 	{
-		public static readonly Color LootableContainerColor = Color.white;
+		[ConfigurationProperty]
+		public Color Color { get; set; } = Color.white;
 
-		public override float CacheTimeInSec => 11f;
+		public override float CacheTimeInSec { get; set; } = 11f;
 		public override bool Enabled { get; set; } = false;
 
 		public static PointOfInterest[] Empty => Array.Empty<PointOfInterest>();
@@ -47,7 +49,7 @@ namespace EFT.Trainer.Features
 					Name = container.Template.LocalizedShortName(),
 					Position = position,
 					ScreenPosition = camera.WorldPointToScreenPoint(position),
-					Color = LootableContainerColor
+					Color = Color
 				});
 			}
 

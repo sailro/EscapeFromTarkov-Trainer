@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Comfort.Common;
+using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using UnityEngine;
 
@@ -9,35 +10,37 @@ namespace EFT.Trainer.Features
 {
 	public class LootItems : PointOfInterests
 	{
-		public static readonly Color LootItemColor = Color.cyan;
+		[ConfigurationProperty]
+		public Color Color { get; set; } = Color.cyan;
 
-		public override float CacheTimeInSec => 3f;
+		public override float CacheTimeInSec { get; set; } = 3f;
 		public override bool Enabled { get; set; } = true;
 
-		private static readonly List<string> _names = new();
+		[ConfigurationProperty]
+		public List<string> TrackedNames { get; set; } = new();
 
-		public static void Track(string name)
+		public void Track(string lootname)
 		{
-			if (!_names.Contains(name))
-				_names.Add(name);
+			if (!TrackedNames.Contains(lootname))
+				TrackedNames.Add(lootname);
 
 			DumpList();
 		}
 
-		public static void UnTrack(string name)
+		public void UnTrack(string lootname)
 		{
-			if (name == "*")
-				_names.Clear();
+			if (lootname == "*")
+				TrackedNames.Clear();
 			else
-				_names.Remove(name);
+				TrackedNames.Remove(lootname);
 
 			DumpList();
 		}
 
-		private static void DumpList()
+		private void DumpList()
 		{
 			AddConsoleLog("Tracking list updated...", "tracker");
-			foreach (var item in _names)
+			foreach (var item in TrackedNames)
 				AddConsoleLog($"Tracking: {item}", "tracker");
 		}
 
@@ -45,7 +48,7 @@ namespace EFT.Trainer.Features
 
 		public override PointOfInterest[] RefreshData()
 		{
-			if (_names.Count == 0)
+			if (TrackedNames.Count == 0)
 				return Empty;
 
 			var world = Singleton<GameWorld>.Instance;
@@ -71,14 +74,14 @@ namespace EFT.Trainer.Features
 				var position = lootItem.transform.position;
 				var lootItemName = lootItem.Item.ShortName.Localized();
 
-				if (_names.Any(match => lootItemName.IndexOf(match, StringComparison.OrdinalIgnoreCase) >= 0))
+				if (TrackedNames.Any(match => lootItemName.IndexOf(match, StringComparison.OrdinalIgnoreCase) >= 0))
 				{
 					records.Add(new PointOfInterest
 					{
 						Name = lootItemName,
 						Position = position,
 						ScreenPosition = camera.WorldPointToScreenPoint(position),
-						Color = LootItemColor
+						Color = Color
 					});
 				}
 			}

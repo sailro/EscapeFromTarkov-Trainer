@@ -8,7 +8,7 @@ namespace EFT.Trainer.Features
 	{
 		public static GameStateSnapshot Current { get; private set; }
 
-		public override float CacheTimeInSec => 2f;
+		public override float CacheTimeInSec { get; set; } = 2f;
 		public override bool Enabled { get; set; } = true;
 
 		public override GameStateSnapshot RefreshData()

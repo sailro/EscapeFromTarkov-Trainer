@@ -1,4 +1,4 @@
-﻿namespace EFT.Trainer.Extensions
+﻿namespace EFT.Trainer
 {
 	public static class KnownTemplateIds
 	{

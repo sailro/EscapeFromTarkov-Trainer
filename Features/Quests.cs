@@ -4,6 +4,7 @@ using System.Linq;
 using Comfort.Common;
 using EFT.Interactive;
 using EFT.Quests;
+using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using UnityEngine;
 
@@ -11,9 +12,10 @@ namespace EFT.Trainer.Features
 {
 	public class Quests : PointOfInterests
 	{
-		public static readonly Color QuestColor = Color.magenta;
+		[ConfigurationProperty]
+		public Color Color { get; set; } = Color.magenta;
 
-		public override float CacheTimeInSec => 5f;
+		public override float CacheTimeInSec { get; set; } = 5f;
 		public override bool Enabled { get; set; } = false;
 
 		public static PointOfInterest[] Empty => Array.Empty<PointOfInterest>();
@@ -63,7 +65,7 @@ namespace EFT.Trainer.Features
 						Name = isMultitool ? "Repair" : $"Place {result.Template.NameLocalizationKey.Localized()}",
 						Position = position,
 						ScreenPosition = camera.WorldPointToScreenPoint(position),
-						Color = QuestColor
+						Color = Color
 					});
 					break;
 				}
@@ -99,7 +101,7 @@ namespace EFT.Trainer.Features
 								Name = lootItem.Item.ShortName.Localized(),
 								Position = position,
 								ScreenPosition = camera.WorldPointToScreenPoint(position),
-								Color = QuestColor
+								Color = Color
 							});
 						}
 					}

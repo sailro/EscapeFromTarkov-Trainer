@@ -1,4 +1,5 @@
 ﻿using EFT.Interactive;
+using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using UnityEngine;
 
@@ -6,9 +7,13 @@ namespace EFT.Trainer.Features
 {
 	public class Doors : MonoBehaviour
 	{
+
+		[ConfigurationProperty]
+		public KeyCode Key { get; set; } = KeyCode.KeypadPeriod;
+
 		private void Update()
 		{
-			if (Input.GetKey(KeyCode.KeypadPeriod))
+			if (Input.GetKey(Key))
 				UnlockNearbyDoors();
 		}
 

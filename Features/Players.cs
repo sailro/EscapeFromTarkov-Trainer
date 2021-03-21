@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using UnityEngine;
 
@@ -6,10 +7,16 @@ namespace EFT.Trainer.Features
 {
 	public class Players : MonoBehaviour, IEnableable
 	{
-		public static readonly Color PlayerColor = Color.blue;
-		public static readonly Color BotColor = Color.yellow;
-		public static readonly Color BossColor = Color.red;
+		[ConfigurationProperty]
+		public Color PlayerColor { get; set; } = Color.blue;
 
+		[ConfigurationProperty]
+		public Color BotColor { get; set; } = Color.yellow;
+		
+		[ConfigurationProperty]
+		public Color BossColor { get; set; } = Color.red;
+
+		[ConfigurationProperty]
 		public bool Enabled { get; set; } = true;
 
 		private Shader _outline;
@@ -39,7 +46,7 @@ namespace EFT.Trainer.Features
 			}
 		}
 
-		private static Color GetPlayerColor(Player player)
+		private Color GetPlayerColor(Player player)
 		{
 			// we can use null propagation here because Profile/Info do not derive from UnityObject
 			var settings = player.Profile?.Info?.Settings;
