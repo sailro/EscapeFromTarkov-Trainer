@@ -27,7 +27,7 @@ This trainer gives:
 
 ## Installation
 
-You can try to compile the code yourself (you will need a recent Visual Studio, because we are using CSharp 9). you can use a precompiled release as well.
+You can try to compile the code yourself (you will need a recent Visual Studio, because we are using CSharp 9). You can use a precompiled release as well.
 
 Copy all files in your EFT directory like `C:\Battlestate Games\EFT`:
 
