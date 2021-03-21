@@ -55,10 +55,10 @@ This trainer hooks into the command system, so you can easily setup features usi
 | exfil    | `on` or `off`   | `on`    | Show/hide exfiltration points    |
 | hud      | `on` or `off`   | `on`    | Show/hide hud.                   |
 | list     |                 |         | List lootable items              |
-| load     |                 |         | Load settings to trainer.ini     |
+| load     |                 |         | Load settings from `trainer.ini` |
 | norecoil | `on` or `off`   | `off`   | Disable/Enable recoil            |
 | quest    | `on` or `off`   | `off`   | Show/hide quest POI              |
-| save     |                 |         | Save settings to trainer.ini     |
+| save     |                 |         | Save settings to `trainer.ini`   |
 | stash    | `on` or `off`   | `off`   | Show/hide stashes                |
 | status   |                 |         | Show status of all features      |
 | track    | `<name>`        |         | Track all items matching `name`  |
