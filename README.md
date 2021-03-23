@@ -88,7 +88,7 @@ EFT.Trainer.Features.LootableContainers.Enabled=false
 EFT.Trainer.Features.LootItems.CacheTimeInSec=3.0
 EFT.Trainer.Features.LootItems.Color=[0.0,1.0,1.0,1.0]
 EFT.Trainer.Features.LootItems.Enabled=true
-EFT.Trainer.Features.LootItems.TrackedNames=["6L31","analyzer","graphic","battery","Broken GPhone","ushanka","cowboy"]
+EFT.Trainer.Features.LootItems.TrackedNames=["6L31","analyzer","graphic","battery","GPhone","ushanka","cowboy"]
 
 EFT.Trainer.Features.Players.BossColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.BotColor=[1.0,0.921568632,0.0156862754,1.0]
