@@ -48,12 +48,19 @@ namespace EFT.Trainer.Features
 
 		private Color GetPlayerColor(Player player)
 		{
-			// we can use null propagation here because Profile/Info do not derive from UnityObject
-			var settings = player.Profile?.Info?.Settings;
+			var info = player.Profile?.Info;
+			if (info == null)
+				return BotColor;
+
+			var settings = info.Settings;
 			if (settings != null && settings.IsBoss())
 				return BossColor;
 
-			return player.IsAI ? BotColor : PlayerColor;
+			// it can still be a bot in sptarkov but let's use the pmc color
+			if (info.Side != EPlayerSide.Savage) 
+				return PlayerColor;
+
+			return BotColor;
 		}
 
 		private static void SetShaders(Player player, Shader shader, Color color)
