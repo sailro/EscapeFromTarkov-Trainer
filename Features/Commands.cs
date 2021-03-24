@@ -53,7 +53,7 @@ namespace EFT.Trainer.Features
 
 			commands.AddCommand(new GClass1907("dump", _ => Dump()));
 			commands.AddCommand(new GClass1907("status", _ => Status()));
-			commands.AddCommand(new GClass1907("list", _ => ListLootItems()));
+			commands.AddCommand(new GClass1907($"list( (?<{ValueGroup}>.*))?", ListLootItems));
 
 			var feature = Loader.HookObject.GetComponent<LootItems>();
 			if (feature != null)
@@ -92,8 +92,13 @@ namespace EFT.Trainer.Features
 			feature.Track(matchGroup.Value);
 		}
 
-		private static void ListLootItems()
+		private static void ListLootItems(Match match)
 		{
+			var search = string.Empty;
+			var matchGroup = match?.Groups[ValueGroup];
+			if (matchGroup != null && matchGroup.Success)
+				search = matchGroup.Value.Trim();
+
 			var world = Singleton<GameWorld>.Instance;
 
 			if (world == null)
@@ -121,19 +126,24 @@ namespace EFT.Trainer.Features
 			names.Sort();
 			names.Reverse();
 
+			var count = 0;
 			foreach (var itemName in names)
 			{
+				if (itemName.IndexOf(search, StringComparison.OrdinalIgnoreCase) < 0)
+					continue;
+
 				var list = itemsPerName[itemName];
 				var rarity = list.First().Item.Template.Rarity;
 				var extra = rarity != ELootRarity.Not_exist ? $" ({rarity})" : string.Empty;
 				AddConsoleLog($"{itemName} [{list.Count}]{extra}", "list");
+
+				count += list.Count;
 			}
 
 			AddConsoleLog("------", "list");
-
-			AddConsoleLog($"found {lootItems.Count} items", "list");
-		}
-
+			AddConsoleLog($"found {count} items", "list");
+		} 
+		
 		private void Status()
 		{
 			foreach (var (featureName, featureType) in _features)
