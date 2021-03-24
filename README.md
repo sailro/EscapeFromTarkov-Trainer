@@ -91,10 +91,11 @@ EFT.Trainer.Features.LootItems.Color=[0.0,1.0,1.0,1.0]
 EFT.Trainer.Features.LootItems.Enabled=true
 EFT.Trainer.Features.LootItems.TrackedNames=["6L31","analyzer","graphic","battery","GPhone","ushanka","cowboy"]
 
+EFT.Trainer.Features.Players.BearColor=[0.0,0.0,1.0,1.0]
 EFT.Trainer.Features.Players.BossColor=[1.0,0.0,0.0,1.0]
-EFT.Trainer.Features.Players.BotColor=[1.0,0.921568632,0.0156862754,1.0]
 EFT.Trainer.Features.Players.Enabled=true
-EFT.Trainer.Features.Players.PlayerColor=[0.0,0.0,1.0,1.0]
+EFT.Trainer.Features.Players.ScavColor=[1.0,0.921568632,0.0156862754,1.0]
+EFT.Trainer.Features.Players.UsecColor=[0.0,1.0,0.0,1.0]
 
 EFT.Trainer.Features.Quests.CacheTimeInSec=5.0
 EFT.Trainer.Features.Quests.Color=[1.0,0.0,1.0,1.0]
