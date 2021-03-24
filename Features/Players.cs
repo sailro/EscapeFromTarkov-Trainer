@@ -8,7 +8,10 @@ namespace EFT.Trainer.Features
 	public class Players : MonoBehaviour, IEnableable
 	{
 		[ConfigurationProperty]
-		public Color PlayerColor { get; set; } = Color.blue;
+		public Color BearPlayerColor { get; set; } = Color.blue;
+
+		[ConfigurationProperty]
+		public Color UsecPlayerColor { get; set; } = Color.green;
 
 		[ConfigurationProperty]
 		public Color BotColor { get; set; } = Color.yellow;
@@ -57,10 +60,12 @@ namespace EFT.Trainer.Features
 				return BossColor;
 
 			// it can still be a bot in sptarkov but let's use the pmc color
-			if (info.Side != EPlayerSide.Savage) 
-				return PlayerColor;
-
-			return BotColor;
+			return info.Side switch
+			{
+				EPlayerSide.Bear => BearPlayerColor,
+				EPlayerSide.Usec => UsecPlayerColor,
+				_ => BotColor
+			};
 		}
 
 		private static void SetShaders(Player player, Shader shader, Color color)
