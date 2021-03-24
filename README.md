@@ -20,6 +20,7 @@ This trainer gives:
 
 ![Wallhack](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo.png)
 ![Exfils](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo2.png)
+![Colors](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo3.png)
 ![Quests](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/quests.png)
 ![Stashes](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/stashes.png)
 ![Track](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/track.png)
