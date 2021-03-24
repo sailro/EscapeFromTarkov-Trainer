@@ -51,7 +51,6 @@ namespace EFT.Trainer.Configuration
 			}
 
 			AddConsoleLog($"Loaded {filename}");
-
 		}
 
 		public static void Save(string filename, Component[] features)
