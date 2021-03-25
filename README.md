@@ -57,6 +57,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | hud      | `on` or `off`       | `on`    | Show/hide hud.                   |
 | list     | `<optional filter>` |         | List lootable items              |
 | load     |                     |         | Load settings from `trainer.ini` |
+| loot     | `on` or `off`       |         | Show/hide tracked items          |
 | norecoil | `on` or `off`       | `off`   | Disable/Enable recoil            |
 | quest    | `on` or `off`       | `off`   | Show/hide quest POI              |
 | save     |                     |         | Save settings to `trainer.ini`   |
@@ -69,37 +70,49 @@ This trainer hooks into the command system, so you can easily setup features usi
 ## Sample `trainer.ini` configuration file
 
 ```ini
+; Be careful when updating this file :)
+; For keys, use https://docs.unity3d.com/ScriptReference/KeyCode.html
+; Colors are stored as an array of 'RGBA' floats
+
 EFT.Trainer.Features.Doors.Key="KeypadPeriod"
 
 EFT.Trainer.Features.ExfiltrationPoints.CacheTimeInSec=7.0
 EFT.Trainer.Features.ExfiltrationPoints.EligibleColor=[0.0,1.0,0.0,1.0]
 EFT.Trainer.Features.ExfiltrationPoints.Enabled=true
+EFT.Trainer.Features.ExfiltrationPoints.Key="F1"
 EFT.Trainer.Features.ExfiltrationPoints.NotEligibleColor=[1.0,0.921568632,0.0156862754,1.0]
 
 EFT.Trainer.Features.GameState.CacheTimeInSec=2.0
-EFT.Trainer.Features.GameState.Enabled=true
 
 EFT.Trainer.Features.Hud.Color=[1.0,1.0,1.0,1.0]
 EFT.Trainer.Features.Hud.Enabled=true
+EFT.Trainer.Features.Hud.Key="F2"
 
 EFT.Trainer.Features.LootableContainers.CacheTimeInSec=11.0
 EFT.Trainer.Features.LootableContainers.Color=[1.0,1.0,1.0,1.0]
 EFT.Trainer.Features.LootableContainers.Enabled=false
+EFT.Trainer.Features.LootableContainers.Key="F3"
 
 EFT.Trainer.Features.LootItems.CacheTimeInSec=3.0
 EFT.Trainer.Features.LootItems.Color=[0.0,1.0,1.0,1.0]
 EFT.Trainer.Features.LootItems.Enabled=true
-EFT.Trainer.Features.LootItems.TrackedNames=["6L31","analyzer","graphic","battery","GPhone","ushanka","cowboy"]
+EFT.Trainer.Features.LootItems.Key="F4"
+EFT.Trainer.Features.LootItems.TrackedNames=["6L31","analyzer","graphic","ushanka","cowboy","respirator","gphone","controller","fiber","wires","vpx","rfid","rechar"]
 
 EFT.Trainer.Features.Players.BearColor=[0.0,0.0,1.0,1.0]
 EFT.Trainer.Features.Players.BossColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.Enabled=true
+EFT.Trainer.Features.Players.Key="F5"
 EFT.Trainer.Features.Players.ScavColor=[1.0,0.921568632,0.0156862754,1.0]
 EFT.Trainer.Features.Players.UsecColor=[0.0,1.0,0.0,1.0]
 
 EFT.Trainer.Features.Quests.CacheTimeInSec=5.0
 EFT.Trainer.Features.Quests.Color=[1.0,0.0,1.0,1.0]
 EFT.Trainer.Features.Quests.Enabled=true
+EFT.Trainer.Features.Quests.Key="F6"
+
+EFT.Trainer.Features.Recoil.Enabled=false
+EFT.Trainer.Features.Recoil.Key="F7"
 ```
 
 ## Mono injection
