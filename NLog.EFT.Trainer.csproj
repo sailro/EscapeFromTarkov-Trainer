@@ -90,7 +90,7 @@
     <Compile Include="Configuration\ConfigurationPropertyAttribute.cs" />
     <Compile Include="Extensions\ExfiltrationPointExtension.cs" />
     <Compile Include="Extensions\DoorExtensions.cs" />
-    <Compile Include="Features\EnableableMonoBehaviour.cs" />
+    <Compile Include="Features\FeatureMonoBehaviour.cs" />
     <Compile Include="KnownTemplateIds.cs" />
     <Compile Include="Extensions\LootableContainerExtension.cs" />
     <Compile Include="Extensions\LootItemExtension.cs" />
@@ -107,7 +107,6 @@
     <Compile Include="Features\Quests.cs" />
     <Compile Include="Features\Hud.cs" />
     <Compile Include="Features\ExfiltrationPoints.cs" />
-    <Compile Include="Features\IEnableable.cs" />
     <Compile Include="Features\Players.cs" />
     <Compile Include="Features\Recoil.cs" />
     <Compile Include="Features\SceneDumper.cs" />

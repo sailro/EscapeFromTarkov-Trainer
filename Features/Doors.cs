@@ -7,7 +7,6 @@ namespace EFT.Trainer.Features
 {
 	public class Doors : MonoBehaviour
 	{
-
 		[ConfigurationProperty]
 		public KeyCode Key { get; set; } = KeyCode.KeypadPeriod;
 

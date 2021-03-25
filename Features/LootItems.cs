@@ -14,7 +14,6 @@ namespace EFT.Trainer.Features
 		public Color Color { get; set; } = Color.cyan;
 
 		public override float CacheTimeInSec { get; set; } = 3f;
-		public override bool Enabled { get; set; } = true;
 
 		[ConfigurationProperty]
 		public List<string> TrackedNames { get; set; } = new();

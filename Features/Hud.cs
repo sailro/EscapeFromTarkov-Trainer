@@ -6,19 +6,13 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class Hud : EnableableMonoBehaviour
+	public class Hud : FeatureMonoBehaviour
 	{
 		[ConfigurationProperty]
 		public Color Color { get; set; } = Color.white;
 
-		[ConfigurationProperty]
-		public override bool Enabled { get; set; } = true;
-		
-		private void OnGUI()
+		protected override void OnGUIFeature()
 		{
-			if (!Enabled)
-				return;
-
 			var player = GameState.Current?.LocalPlayer;
 			if (!player.IsValid())
 				return;

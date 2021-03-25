@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public abstract class CachableMonoBehaviour<T> : EnableableMonoBehaviour
+	public abstract class CachableMonoBehaviour<T> : FeatureMonoBehaviour
 	{
 		[ConfigurationProperty]
 		public abstract float CacheTimeInSec { get; set; }
@@ -62,18 +62,18 @@ namespace EFT.Trainer.Features
 			StartCoroutine(RefreshDataScheduler());
 		}
 
-		private void Update()
+		protected override void UpdateFeature()
 		{
-			if (!Enabled || _refreshing) 
+			if (_refreshing) 
 				return;
 
 			if (_data != null)
 				ProcessData(_data);
 		}
 
-		private void OnGUI()
+		protected override void OnGUIFeature()
 		{
-			if (!Enabled || _refreshing) 
+			if (_refreshing) 
 				return;
 
 			if (_data != null)

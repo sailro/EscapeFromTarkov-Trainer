@@ -18,7 +18,6 @@ namespace EFT.Trainer.Features
 		public Color NotEligibleColor { get; set; } = Color.yellow;
 
 		public override float CacheTimeInSec { get; set; } = 7f;
-		public override bool Enabled { get; set; } = true;
 
 		public static PointOfInterest[] Empty => Array.Empty<PointOfInterest>();
 

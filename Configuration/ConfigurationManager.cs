@@ -37,7 +37,8 @@ namespace EFT.Trainer.Configuration
 				var properties = featureType.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy);
 				foreach (var property in properties)
 				{
-					if (property.GetCustomAttribute<ConfigurationPropertyAttribute>(true) == null)
+					var attribute = property.GetCustomAttribute<ConfigurationPropertyAttribute>(true);
+					if (attribute == null || attribute.Skip)
 						continue;
 
 					var key = $"{featureType.FullName}.{property.Name}=";
@@ -56,6 +57,10 @@ namespace EFT.Trainer.Configuration
 		public static void Save(string filename, Component[] features)
 		{
 			var content = new StringBuilder();
+			content.AppendLine("; Be careful when updating this file :)");
+			content.AppendLine("; For keys, use https://docs.unity3d.com/ScriptReference/KeyCode.html");
+			content.AppendLine("; Colors are stored as an array of 'RGBA' floats");
+			content.AppendLine();
 
 			foreach (var feature in features.OrderBy(f => f.GetType().FullName))
 			{
@@ -65,7 +70,8 @@ namespace EFT.Trainer.Configuration
 				bool matches = false;
 				foreach (var property in properties.OrderBy(p => p.Name))
 				{
-					if (property.GetCustomAttribute<ConfigurationPropertyAttribute>(true) == null)
+					var attribute = property.GetCustomAttribute<ConfigurationPropertyAttribute>(true);
+					if (attribute == null || attribute.Skip)
 						continue;
 
 					matches = true;

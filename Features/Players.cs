@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class Players : EnableableMonoBehaviour
+	public class Players : FeatureMonoBehaviour
 	{
 		[ConfigurationProperty]
 		public Color BearColor { get; set; } = Color.blue;
@@ -19,9 +19,6 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty]
 		public Color BossColor { get; set; } = Color.red;
 
-		[ConfigurationProperty]
-		public override bool Enabled { get; set; } = true;
-
 		private Shader _outline;
 
 		private void Awake()
@@ -30,11 +27,8 @@ namespace EFT.Trainer.Features
 			_outline = bundle.LoadAsset<Shader>("assets/outline.shader");
 		}
 
-		private void Update()
+		protected override void UpdateFeature()
 		{
-			if (!Enabled)
-				return;
-
 			var hostiles = GameState.Current?.Hostiles;
 			if (hostiles == null)
 				return;

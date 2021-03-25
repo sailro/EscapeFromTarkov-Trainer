@@ -25,6 +25,7 @@ namespace EFT.Trainer.Features
 			{"stash", typeof(LootableContainers)},
 			{"quest", typeof(Quests)},
 			{"norecoil", typeof(Recoil)},
+			{"loot", typeof(LootItems)},
 			{"hud", typeof(Hud)},
 			{"exfil", typeof(ExfiltrationPoints)},
 		};
@@ -148,10 +149,11 @@ namespace EFT.Trainer.Features
 		{
 			foreach (var (featureName, featureType) in _features)
 			{
-				if (Loader.HookObject.GetComponent(featureType) is not IEnableable feature)
+				if (Loader.HookObject.GetComponent(featureType) is not FeatureMonoBehaviour feature)
 					return;
 
-				AddConsoleLog($"{featureName} is {(feature.Enabled ? "on" : "off")}", "status");
+				var help = feature.Key != KeyCode.None ? $" ({feature.Key} to toggle)" : string.Empty;
+				AddConsoleLog($"{featureName} is {(feature.Enabled ? "on" : "off")}{help}", "status");
 			}
 		}
 
@@ -198,7 +200,7 @@ namespace EFT.Trainer.Features
 			if (matchGroup == null || !matchGroup.Success)
 				return;
 
-			if (Loader.HookObject.GetComponent(featureType) is not IEnableable feature)
+			if (Loader.HookObject.GetComponent(featureType) is not FeatureMonoBehaviour feature)
 				return;
 
 			feature.Enabled = matchGroup.Value switch

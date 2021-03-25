@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using Comfort.Common;
+using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
@@ -9,7 +11,12 @@ namespace EFT.Trainer.Features
 		public static GameStateSnapshot Current { get; private set; }
 
 		public override float CacheTimeInSec { get; set; } = 2f;
+
+		[ConfigurationProperty(Skip = true)] // we do not want to offer save/load support for this
 		public override bool Enabled { get; set; } = true;
+
+		[ConfigurationProperty(Skip = true)] // we do not want to offer save/load support for this
+		public override KeyCode Key { get; set; } = KeyCode.None;
 
 		public override GameStateSnapshot RefreshData()
 		{
