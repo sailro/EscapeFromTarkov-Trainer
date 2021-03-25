@@ -5,13 +5,10 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public abstract class CachableMonoBehaviour<T> : MonoBehaviour, IEnableable
+	public abstract class CachableMonoBehaviour<T> : EnableableMonoBehaviour
 	{
 		[ConfigurationProperty]
 		public abstract float CacheTimeInSec { get; set; }
-
-		[ConfigurationProperty]
-		public abstract bool Enabled { get; set; }
 
 		private T _data;
 		private bool _refreshing = false;

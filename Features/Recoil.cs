@@ -1,11 +1,12 @@
-﻿using EFT.Trainer.Extensions;
-using UnityEngine;
+﻿using EFT.Trainer.Configuration;
+using EFT.Trainer.Extensions;
 
 namespace EFT.Trainer.Features
 {
-	public class Recoil : MonoBehaviour, IEnableable
+	public class Recoil : EnableableMonoBehaviour
 	{
-		public bool Enabled { get; set; } = false;
+		[ConfigurationProperty]
+		public override bool Enabled { get; set; } = false;
 
 		private void Update()
 		{

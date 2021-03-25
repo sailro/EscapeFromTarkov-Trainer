@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class Players : MonoBehaviour, IEnableable
+	public class Players : EnableableMonoBehaviour
 	{
 		[ConfigurationProperty]
 		public Color BearColor { get; set; } = Color.blue;
@@ -20,7 +20,7 @@ namespace EFT.Trainer.Features
 		public Color BossColor { get; set; } = Color.red;
 
 		[ConfigurationProperty]
-		public bool Enabled { get; set; } = true;
+		public override bool Enabled { get; set; } = true;
 
 		private Shader _outline;
 
