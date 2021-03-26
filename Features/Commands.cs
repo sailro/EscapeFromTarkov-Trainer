@@ -60,8 +60,12 @@ namespace EFT.Trainer.Features
 			if (feature != null)
 			{
 				commands.AddCommand(new GClass1907($"list( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature)));
+				commands.AddCommand(new GClass1907($"listr( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature, ELootRarity.Rare)));
+				commands.AddCommand(new GClass1907($"listsr( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature, ELootRarity.Superrare)));
+
 				commands.AddCommand(new GClass1907($"track (?<{ValueGroup}>.*)", m => TrackLootItem(m, feature)));
 				commands.AddCommand(new GClass1907($"untrack (?<{ValueGroup}>.*)", m => UnTrackLootItem(m, feature)));
+				commands.AddCommand(new GClass1907("tracklist", _ => ShowTrackList(feature)));
 			}
 
 			var configFile = Path.Combine(UserPath, "trainer.ini");
@@ -76,13 +80,22 @@ namespace EFT.Trainer.Features
 			Destroy(this);
 		}
 
+		private static void ShowTrackList(LootItems feature, bool changed = false)
+		{
+			if (changed)
+				AddConsoleLog("Tracking list updated...", "tracker");
+
+			foreach (var item in feature.TrackedNames)
+				AddConsoleLog($"Tracking: {item}", "tracker");
+		}
+
 		private static void UnTrackLootItem(Match match, LootItems feature)
 		{
 			var matchGroup = match?.Groups[ValueGroup];
 			if (matchGroup == null || !matchGroup.Success)
 				return;
 
-			feature.UnTrack(matchGroup.Value);
+			ShowTrackList(feature, feature.UnTrack(matchGroup.Value));
 		}
 
 		private static void TrackLootItem(Match match, LootItems feature)
@@ -91,10 +104,10 @@ namespace EFT.Trainer.Features
 			if (matchGroup == null || !matchGroup.Success)
 				return;
 
-			feature.Track(matchGroup.Value);
+			ShowTrackList(feature, feature.Track(matchGroup.Value));
 		}
 
-		private static void ListLootItems(Match match, LootItems feature)
+		private static void ListLootItems(Match match, LootItems feature, ELootRarity rarityFilter = ELootRarity.Not_exist)
 		{
 			var search = string.Empty;
 			var matchGroup = match?.Groups[ValueGroup];
@@ -127,6 +140,9 @@ namespace EFT.Trainer.Features
 
 				var list = itemsPerName[itemName];
 				var rarity = list.First().Template.Rarity;
+				if (rarityFilter != ELootRarity.Not_exist && rarityFilter != rarity)
+					continue;
+
 				var extra = rarity != ELootRarity.Not_exist ? $" ({rarity})" : string.Empty;
 				AddConsoleLog($"{itemName} [{list.Count}]{extra}", "list");
 
@@ -171,10 +187,10 @@ namespace EFT.Trainer.Features
 				filteredItems.Add(lootItem.Item);
 			}
 
-			IndexItems(filteredItems.ToArray(), itemsPerName);
+			IndexItems(filteredItems, itemsPerName);
 		}
 
-		private static void IndexItems(Item[] items, Dictionary<string, List<Item>> itemsPerName)
+		private static void IndexItems(IEnumerable<Item> items, Dictionary<string, List<Item>> itemsPerName)
 		{
 			foreach (var item in items)
 			{

@@ -22,29 +22,26 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty] 
 		public bool SearchInsideContainers { get; set; } = true;
 
-		public void Track(string lootname)
+		public bool Track(string lootname)
 		{
 			if (!TrackedNames.Contains(lootname))
+			{
 				TrackedNames.Add(lootname);
+				return true;
+			}
 
-			DumpList();
+			return false;
 		}
 
-		public void UnTrack(string lootname)
+		public bool UnTrack(string lootname)
 		{
-			if (lootname == "*")
+			if (lootname == "*" && TrackedNames.Count > 0)
+			{
 				TrackedNames.Clear();
-			else
-				TrackedNames.Remove(lootname);
-
-			DumpList();
-		}
-
-		private void DumpList()
-		{
-			AddConsoleLog("Tracking list updated...", "tracker");
-			foreach (var item in TrackedNames)
-				AddConsoleLog($"Tracking: {item}", "tracker");
+				return true;
+			}
+			
+			return TrackedNames.Remove(lootname);
 		}
 
 		public static PointOfInterest[] Empty => Array.Empty<PointOfInterest>();
