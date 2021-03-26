@@ -25,6 +25,7 @@ This trainer gives:
 ![Stashes](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/stashes.png)
 ![Track](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/track.png)
 ![Lootitems](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/lootitems.png)
+![ItemInContainers](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/itemcontainers.png)
 
 ## Installation
 
