@@ -15,7 +15,7 @@ This trainer gives:
 - No recoil (off by default).
 - Locations for taking/placing quest items (off by default). Only items related to your started quests are displayed.
 - Hidden stashes like buried barrels or ground caches (off by default).
-- Ability to list all lootable items and to track any item by name.
+- Ability to list all lootable items and to track any item by name (even in containers).
 - Load/Save all settings.
 
 ![Wallhack](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo.png)
@@ -97,6 +97,7 @@ EFT.Trainer.Features.LootItems.CacheTimeInSec=3.0
 EFT.Trainer.Features.LootItems.Color=[0.0,1.0,1.0,1.0]
 EFT.Trainer.Features.LootItems.Enabled=true
 EFT.Trainer.Features.LootItems.Key="F4"
+EFT.Trainer.Features.LootItems.SearchInsideContainers=true
 EFT.Trainer.Features.LootItems.TrackedNames=["6L31","analyzer","graphic","ushanka","cowboy","respirator","gphone","controller","fiber","wires","vpx","rfid","rechar"]
 
 EFT.Trainer.Features.Players.BearColor=[0.0,0.0,1.0,1.0]
