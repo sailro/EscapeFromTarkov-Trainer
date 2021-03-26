@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Comfort.Common;
+using EFT.Interactive;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using UnityEngine;
@@ -17,6 +18,9 @@ namespace EFT.Trainer.Features
 
 		[ConfigurationProperty]
 		public List<string> TrackedNames { get; set; } = new();
+
+		[ConfigurationProperty] 
+		public bool SearchInsideContainers { get; set; } = true;
 
 		public void Track(string lootname)
 		{
@@ -62,8 +66,60 @@ namespace EFT.Trainer.Features
 			if (camera == null)
 				return Empty;
 
-			var lootItems = world.LootItems;
 			var records = new List<PointOfInterest>();
+
+			// Step 1 - look outside containers (loot items)
+			FindLootItems(world, records, camera);
+
+			// Step 2 - look inside containers (items)
+			if (SearchInsideContainers)
+				FindItemsInContainers(records, camera);
+
+			return records.ToArray();
+		}
+
+		private void FindItemsInContainers(List<PointOfInterest> records, Camera camera)
+		{
+			var containers = FindObjectsOfType<LootableContainer>();
+			foreach (var container in containers)
+			{
+				if (!container.IsValid())
+					continue;
+
+				var items = container
+					.ItemOwner?
+					.RootItem?
+					.GetAllItems()?
+					.ToArray();
+
+				if (items == null)
+					continue;
+
+				var position = container.transform.position;
+				var containerName = container.Template.LocalizedShortName();
+				foreach (var item in items)
+				{
+					if (!item.IsValid())
+						continue;
+
+					var itemName = item.ShortName.Localized();
+					if (TrackedNames.Any(match => itemName.IndexOf(match, StringComparison.OrdinalIgnoreCase) >= 0))
+					{
+						records.Add(new PointOfInterest
+						{
+							Name = $"{itemName} (in {containerName})",
+							Position = position,
+							ScreenPosition = camera.WorldPointToScreenPoint(position),
+							Color = Color
+						});
+					}
+				}
+			}
+		}
+
+		private void FindLootItems(GameWorld world, List<PointOfInterest> records, Camera camera)
+		{
+			var lootItems = world.LootItems;
 			for (var i = 0; i < lootItems.Count; i++)
 			{
 				var lootItem = lootItems.GetByIndex(i);
@@ -84,8 +140,6 @@ namespace EFT.Trainer.Features
 					});
 				}
 			}
-
-			return records.ToArray();
 		}
 	}
 }

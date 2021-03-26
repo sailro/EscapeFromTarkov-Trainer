@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Comfort.Common;
 using EFT.Interactive;
+using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using EFT.UI;
@@ -54,11 +55,11 @@ namespace EFT.Trainer.Features
 
 			commands.AddCommand(new GClass1907("dump", _ => Dump()));
 			commands.AddCommand(new GClass1907("status", _ => Status()));
-			commands.AddCommand(new GClass1907($"list( (?<{ValueGroup}>.*))?", ListLootItems));
 
 			var feature = Loader.HookObject.GetComponent<LootItems>();
 			if (feature != null)
 			{
+				commands.AddCommand(new GClass1907($"list( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature)));
 				commands.AddCommand(new GClass1907($"track (?<{ValueGroup}>.*)", m => TrackLootItem(m, feature)));
 				commands.AddCommand(new GClass1907($"untrack (?<{ValueGroup}>.*)", m => UnTrackLootItem(m, feature)));
 			}
@@ -93,7 +94,7 @@ namespace EFT.Trainer.Features
 			feature.Track(matchGroup.Value);
 		}
 
-		private static void ListLootItems(Match match)
+		private static void ListLootItems(Match match, LootItems feature)
 		{
 			var search = string.Empty;
 			var matchGroup = match?.Groups[ValueGroup];
@@ -105,23 +106,14 @@ namespace EFT.Trainer.Features
 			if (world == null)
 				return;
 
-			var lootItems = world.LootItems;
-			var itemsPerName = new Dictionary<string, List<LootItem>>();
+			var itemsPerName = new Dictionary<string, List<Item>>();
 
-			for (var i = 0; i < lootItems.Count; i++)
-			{
-				var lootItem = lootItems.GetByIndex(i);
-				if (!lootItem.IsValid())
-					continue;
+			// Step 1 - look outside containers (loot items)
+			FindLootItems(world, itemsPerName);
 
-				var itemName = lootItem.Item.ShortName.Localized();
-				if (!itemsPerName.TryGetValue(itemName, out var pnList))
-				{
-					pnList = new List<LootItem>();
-					itemsPerName[itemName] = pnList;
-				}
-				pnList.Add(lootItem);
-			}
+			// Step 2 - look inside containers (items)
+			if (feature.SearchInsideContainers)
+				FindItemsInContainers(itemsPerName);
 
 			var names = itemsPerName.Keys.ToList();
 			names.Sort();
@@ -134,7 +126,7 @@ namespace EFT.Trainer.Features
 					continue;
 
 				var list = itemsPerName[itemName];
-				var rarity = list.First().Item.Template.Rarity;
+				var rarity = list.First().Template.Rarity;
 				var extra = rarity != ELootRarity.Not_exist ? $" ({rarity})" : string.Empty;
 				AddConsoleLog($"{itemName} [{list.Count}]{extra}", "list");
 
@@ -143,8 +135,63 @@ namespace EFT.Trainer.Features
 
 			AddConsoleLog("------", "list");
 			AddConsoleLog($"found {count} items", "list");
-		} 
-		
+		}
+
+		private static void FindItemsInContainers(Dictionary<string, List<Item>> itemsPerName)
+		{
+			var containers = FindObjectsOfType<LootableContainer>();
+			foreach (var container in containers)
+			{
+				if (!container.IsValid())
+					continue;
+
+				var items = container
+					.ItemOwner?
+					.RootItem?
+					.GetAllItems()?
+					.ToArray();
+
+				if (items == null)
+					continue;
+
+				IndexItems(items, itemsPerName);
+			}
+		}
+
+		private static void FindLootItems(GameWorld world, Dictionary<string, List<Item>> itemsPerName)
+		{
+			var lootItems = world.LootItems;
+			var filteredItems = new List<Item>();
+			for (var i = 0; i < lootItems.Count; i++)
+			{
+				var lootItem = lootItems.GetByIndex(i);
+				if (!lootItem.IsValid())
+					continue;
+
+				filteredItems.Add(lootItem.Item);
+			}
+
+			IndexItems(filteredItems.ToArray(), itemsPerName);
+		}
+
+		private static void IndexItems(Item[] items, Dictionary<string, List<Item>> itemsPerName)
+		{
+			foreach (var item in items)
+			{
+				if (!item.IsValid())
+					continue;
+
+				var itemName = item.ShortName.Localized();
+				if (!itemsPerName.TryGetValue(itemName, out var pnList))
+				{
+					pnList = new List<Item>();
+					itemsPerName[itemName] = pnList;
+				}
+
+				pnList.Add(item);
+			}
+		}
+
 		private void Status()
 		{
 			foreach (var (featureName, featureType) in _features)

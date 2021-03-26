@@ -90,6 +90,7 @@
     <Compile Include="Configuration\ConfigurationPropertyAttribute.cs" />
     <Compile Include="Extensions\ExfiltrationPointExtension.cs" />
     <Compile Include="Extensions\DoorExtensions.cs" />
+    <Compile Include="Extensions\ItemExtension.cs" />
     <Compile Include="Features\FeatureMonoBehaviour.cs" />
     <Compile Include="KnownTemplateIds.cs" />
     <Compile Include="Extensions\LootableContainerExtension.cs" />
