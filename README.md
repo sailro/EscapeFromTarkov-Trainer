@@ -51,22 +51,25 @@ Overwrite the existing `EscapeFromTarkov_Data\Managed\NLog.dll.nlog` using `NLog
 
 This trainer hooks into the command system, so you can easily setup features using the built-in console:
 
-| Command  | Values              | Default | Description                      | 
-|----------|---------------------|---------|----------------------------------|
-| dump     |                     |         | Dump game state for analysis     |
-| exfil    | `on` or `off`       | `on`    | Show/hide exfiltration points    |
-| hud      | `on` or `off`       | `on`    | Show/hide hud.                   |
-| list     | `<optional filter>` |         | List lootable items              |
-| load     |                     |         | Load settings from `trainer.ini` |
-| loot     | `on` or `off`       |         | Show/hide tracked items          |
-| norecoil | `on` or `off`       | `off`   | Disable/Enable recoil            |
-| quest    | `on` or `off`       | `off`   | Show/hide quest POI              |
-| save     |                     |         | Save settings to `trainer.ini`   |
-| stash    | `on` or `off`       | `off`   | Show/hide stashes                |
-| status   |                     |         | Show status of all features      |
-| track    | `[name]`            |         | Track all items matching `name`  |
-| untrack  | `[name]` or `*`     |         | Untrack a `name` or `*` for all  |
-| wallhack | `on` or `off`       | `on`    | Show/hide players (on next raid) |
+| Command   | Values              | Default | Description                         | 
+|-----------|---------------------|---------|-------------------------------------|
+| dump      |                     |         | Dump game state for analysis        |
+| exfil     | `on` or `off`       | `on`    | Show/hide exfiltration points       |
+| hud       | `on` or `off`       | `on`    | Show/hide hud.                      |
+| list      | `<optional filter>` |         | List lootable items                 |
+| listr     | `<optional filter>` |         | List only rare lootable items       |
+| listsr    | `<optional filter>` |         | List only super rare lootable items |
+| load      |                     |         | Load settings from `trainer.ini`    |
+| loot      | `on` or `off`       |         | Show/hide tracked items             |
+| norecoil  | `on` or `off`       | `off`   | Disable/Enable recoil               |
+| quest     | `on` or `off`       | `off`   | Show/hide quest POI                 |
+| save      |                     |         | Save settings to `trainer.ini`      |
+| stash     | `on` or `off`       | `off`   | Show/hide stashes                   |
+| status    |                     |         | Show status of all features         |
+| track     | `[name]`            |         | Track all items matching `name`     |
+| tracklist |                     |         | Show tracked items                  |
+| untrack   | `[name]` or `*`     |         | Untrack a `name` or `*` for all     |
+| wallhack  | `on` or `off`       | `on`    | Show/hide players (on next raid)    |
 
 ## Sample `trainer.ini` configuration file
 
