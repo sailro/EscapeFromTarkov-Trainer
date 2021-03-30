@@ -16,6 +16,8 @@ This trainer gives:
 - Locations for taking/placing quest items (off by default). Only items related to your started quests are displayed.
 - Hidden stashes like buried barrels or ground caches (off by default).
 - Ability to list all lootable items and to track any item by name (even in containers).
+- Unlimited stamina (off by default).
+- Force all guns (even bolt action guns) to use automatic firing mode with customizable fire rate.
 - Load/Save all settings.
 
 ![Wallhack](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo.png)
@@ -53,6 +55,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 
 | Command   | Values              | Default | Description                         | 
 |-----------|---------------------|---------|-------------------------------------|
+| autogun   | `on` or `off`       | `off`   | Enabled/Disable automatic gun mode  |
 | dump      |                     |         | Dump game state for analysis        |
 | exfil     | `on` or `off`       | `on`    | Show/hide exfiltration points       |
 | hud       | `on` or `off`       | `on`    | Show/hide hud.                      |
@@ -64,6 +67,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | norecoil  | `on` or `off`       | `off`   | Disable/Enable recoil               |
 | quest     | `on` or `off`       | `off`   | Show/hide quest POI                 |
 | save      |                     |         | Save settings to `trainer.ini`      |
+| stamina   | `on` or `off`       | `off`   | Enable/Disable unlimited stamina    |
 | stash     | `on` or `off`       | `off`   | Show/hide stashes                   |
 | status    |                     |         | Show status of all features         |
 | track     | `[name]`            |         | Track all items matching `name`     |
@@ -77,6 +81,10 @@ This trainer hooks into the command system, so you can easily setup features usi
 ; Be careful when updating this file :)
 ; For keys, use https://docs.unity3d.com/ScriptReference/KeyCode.html
 ; Colors are stored as an array of 'RGBA' floats
+
+EFT.Trainer.Features.AutomaticGun.Enabled=false
+EFT.Trainer.Features.AutomaticGun.Key="None"
+EFT.Trainer.Features.AutomaticGun.Rate=500
 
 EFT.Trainer.Features.Doors.Key="KeypadPeriod"
 
@@ -118,6 +126,9 @@ EFT.Trainer.Features.Quests.Key="F6"
 
 EFT.Trainer.Features.Recoil.Enabled=false
 EFT.Trainer.Features.Recoil.Key="F7"
+
+EFT.Trainer.Features.Stamina.Enabled=false
+EFT.Trainer.Features.Stamina.Key="None"
 ```
 
 ## Mono injection
