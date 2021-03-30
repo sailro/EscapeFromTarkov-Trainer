@@ -24,11 +24,13 @@ namespace EFT.Trainer.Features
 		{
 			{"wallhack", typeof(Players)},
 			{"stash", typeof(LootableContainers)},
+			{"stamina", typeof(Stamina)},
 			{"quest", typeof(Quests)},
 			{"norecoil", typeof(Recoil)},
 			{"loot", typeof(LootItems)},
 			{"hud", typeof(Hud)},
 			{"exfil", typeof(ExfiltrationPoints)},
+			{"autogun", typeof(AutomaticGun)},
 		};
 
 		private void Update()
@@ -213,7 +215,10 @@ namespace EFT.Trainer.Features
 			foreach (var (featureName, featureType) in _features)
 			{
 				if (Loader.HookObject.GetComponent(featureType) is not FeatureMonoBehaviour feature)
-					return;
+				{
+					AddConsoleLog($"{featureName} is not loaded!");
+					continue;
+				}
 
 				var help = feature.Key != KeyCode.None ? $" ({feature.Key} to toggle)" : string.Empty;
 				AddConsoleLog($"{featureName} is {(feature.Enabled ? "on" : "off")}{help}", "status");

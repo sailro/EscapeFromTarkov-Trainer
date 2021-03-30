@@ -30,6 +30,8 @@ namespace EFT.Trainer
 			HookObject.AddComponent<Features.Quests>(); // prevent namespace conflict
 			HookObject.AddComponent<LootItems>();
 			HookObject.AddComponent<LootableContainers>();
+			HookObject.AddComponent<AutomaticGun>();
+			HookObject.AddComponent<Stamina>();
 			HookObject.AddComponent<Commands>();
 		}
 	}
