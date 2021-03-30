@@ -37,15 +37,6 @@ namespace EFT.Trainer.Features
 
 			template.BoltAction = false;
 			template.bFirerate = Rate;
-
-
-			var animation = player.ProceduralWeaponAnimation;
-			if (animation == null)
-				return;
-
-			var shotEffector = animation.Shootingg;
-			if (shotEffector != null)
-				shotEffector.Intensity = 0f;
 		}
 	}
 }
