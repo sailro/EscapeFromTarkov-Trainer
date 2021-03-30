@@ -61,9 +61,9 @@ namespace EFT.Trainer.Features
 			var feature = Loader.HookObject.GetComponent<LootItems>();
 			if (feature != null)
 			{
-				commands.AddCommand(new GClass1907($"list( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature)));
-				commands.AddCommand(new GClass1907($"listr( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature, ELootRarity.Rare)));
-				commands.AddCommand(new GClass1907($"listsr( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature, ELootRarity.Superrare)));
+				commands.AddCommand(new GClass1907($"list {{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature)));
+				commands.AddCommand(new GClass1907($"listr {{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature, ELootRarity.Rare)));
+				commands.AddCommand(new GClass1907($"listsr {{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature, ELootRarity.Superrare)));
 
 				commands.AddCommand(new GClass1907($"track (?<{ValueGroup}>.*)", m => TrackLootItem(m, feature)));
 				commands.AddCommand(new GClass1907($"untrack (?<{ValueGroup}>.*)", m => UnTrackLootItem(m, feature)));
