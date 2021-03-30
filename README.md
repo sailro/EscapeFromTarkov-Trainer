@@ -58,7 +58,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | autogun   | `on` or `off`       | `off`   | Enabled/Disable automatic gun mode  |
 | dump      |                     |         | Dump game state for analysis        |
 | exfil     | `on` or `off`       | `on`    | Show/hide exfiltration points       |
-| hud       | `on` or `off`       | `on`    | Show/hide hud.                      |
+| hud       | `on` or `off`       | `on`    | Show/hide hud                       |
 | list      | `<optional filter>` |         | List lootable items                 |
 | listr     | `<optional filter>` |         | List only rare lootable items       |
 | listsr    | `<optional filter>` |         | List only super rare lootable items |
