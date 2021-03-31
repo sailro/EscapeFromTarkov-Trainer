@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class Hud : FeatureMonoBehaviour
+	public class Hud : ToggleMonoBehaviour
 	{
 		[ConfigurationProperty]
 		public Color Color { get; set; } = Color.white;

@@ -100,9 +100,10 @@
     <Compile Include="Extensions\ItemExtension.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Features\AutomaticGun.cs" />
-    <Compile Include="Features\FeatureMonoBehaviour.cs" />
+    <Compile Include="Features\ToggleMonoBehaviour.cs" />
     <Compile Include="Features\NoRecoil.cs" />
     <Compile Include="Features\Stamina.cs" />
+    <Compile Include="Features\TriggerMonoBehaviour.cs" />
     <Compile Include="KnownTemplateIds.cs" />
     <Compile Include="Extensions\LootableContainerExtension.cs" />
     <Compile Include="Extensions\LootItemExtension.cs" />

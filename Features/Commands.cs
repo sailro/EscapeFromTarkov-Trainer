@@ -214,7 +214,7 @@ namespace EFT.Trainer.Features
 		{
 			foreach (var (featureName, featureType) in _features)
 			{
-				if (Loader.HookObject.GetComponent(featureType) is not FeatureMonoBehaviour feature)
+				if (Loader.HookObject.GetComponent(featureType) is not ToggleMonoBehaviour feature)
 				{
 					AddConsoleLog($"{featureName} is not loaded!");
 					continue;
@@ -268,7 +268,7 @@ namespace EFT.Trainer.Features
 			if (matchGroup == null || !matchGroup.Success)
 				return;
 
-			if (Loader.HookObject.GetComponent(featureType) is not FeatureMonoBehaviour feature)
+			if (Loader.HookObject.GetComponent(featureType) is not ToggleMonoBehaviour feature)
 				return;
 
 			feature.Enabled = matchGroup.Value switch

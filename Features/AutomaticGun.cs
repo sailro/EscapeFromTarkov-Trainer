@@ -4,9 +4,8 @@ using EFT.Trainer.Extensions;
 
 namespace EFT.Trainer.Features
 {
-	public class AutomaticGun : FeatureMonoBehaviour
+	public class AutomaticGun : ToggleMonoBehaviour
 	{
-		[ConfigurationProperty]
 		public override bool Enabled { get; set; } = false;
 
 		[ConfigurationProperty]

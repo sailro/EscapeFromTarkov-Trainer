@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class Players : FeatureMonoBehaviour
+	public class Players : ToggleMonoBehaviour
 	{
 		[ConfigurationProperty]
 		public Color BearColor { get; set; } = Color.blue;

@@ -1,11 +1,9 @@
-﻿using EFT.Trainer.Configuration;
-using EFT.Trainer.Extensions;
+﻿using EFT.Trainer.Extensions;
 
 namespace EFT.Trainer.Features
 {
-	public class NoRecoil : FeatureMonoBehaviour
+	public class NoRecoil : ToggleMonoBehaviour
 	{
-		[ConfigurationProperty]
 		public override bool Enabled { get; set; } = false;
 
 		protected override void UpdateFeature()

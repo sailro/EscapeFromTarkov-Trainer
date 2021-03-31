@@ -1,11 +1,9 @@
-﻿using EFT.Trainer.Configuration;
-using EFT.Trainer.Extensions;
+﻿using EFT.Trainer.Extensions;
 
 namespace EFT.Trainer.Features
 {
-	public class Stamina : FeatureMonoBehaviour
+	public class Stamina : ToggleMonoBehaviour
 	{
-		[ConfigurationProperty]
 		public override bool Enabled { get; set; } = false;
 
 		protected override void UpdateFeature()

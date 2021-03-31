@@ -1,22 +1,14 @@
 ﻿using EFT.Interactive;
-using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class Doors : MonoBehaviour
+	public class Doors : TriggerMonoBehaviour
 	{
-		[ConfigurationProperty]
-		public KeyCode Key { get; set; } = KeyCode.KeypadPeriod;
+		public override KeyCode Key { get; set; } = KeyCode.KeypadPeriod;
 
-		private void Update()
-		{
-			if (Input.GetKey(Key))
-				UnlockNearbyDoors();
-		}
-
-		private static void UnlockNearbyDoors()
+		protected override void UpdateFeature()
 		{
 			var player = GameState.Current?.LocalPlayer;
 			if (!player.IsValid())
