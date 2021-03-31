@@ -71,7 +71,7 @@ namespace EFT.Trainer.Features
 				ProcessData(_data);
 		}
 
-		protected override void OnGUIFeature()
+		protected override void OnGUIWhenEnabled()
 		{
 			if (_refreshing) 
 				return;

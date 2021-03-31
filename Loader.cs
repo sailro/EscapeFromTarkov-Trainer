@@ -1,5 +1,4 @@
-﻿using EFT.Trainer.Features;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace EFT.Trainer
 {
@@ -21,18 +20,20 @@ namespace EFT.Trainer
 
 		public static void Load()
 		{
-			HookObject.AddComponent<GameState>();
-			HookObject.AddComponent<ExfiltrationPoints>();
-			HookObject.AddComponent<Hud>();
-			HookObject.AddComponent<Players>();
-			HookObject.AddComponent<Doors>();
-			HookObject.AddComponent<NoRecoil>();
-			HookObject.AddComponent<Features.Quests>(); // prevent namespace conflict
-			HookObject.AddComponent<LootItems>();
-			HookObject.AddComponent<LootableContainers>();
-			HookObject.AddComponent<AutomaticGun>();
-			HookObject.AddComponent<Stamina>();
-			HookObject.AddComponent<Commands>();
+			HookObject.AddComponent<Features.GameState>();
+			HookObject.AddComponent<Features.ExfiltrationPoints>();
+			HookObject.AddComponent<Features.Hud>();
+			HookObject.AddComponent<Features.Players>();
+			HookObject.AddComponent<Features.Doors>();
+			HookObject.AddComponent<Features.NoRecoil>();
+			HookObject.AddComponent<Features.Quests>(); 
+			HookObject.AddComponent<Features.LootItems>();
+			HookObject.AddComponent<Features.LootableContainers>();
+			HookObject.AddComponent<Features.AutomaticGun>();
+			HookObject.AddComponent<Features.Stamina>();
+			HookObject.AddComponent<Features.NightVision>();
+			HookObject.AddComponent<Features.ThermalVision>();
+			HookObject.AddComponent<Features.Commands>();
 		}
 	}
 }

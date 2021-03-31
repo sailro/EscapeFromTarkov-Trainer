@@ -23,10 +23,12 @@ namespace EFT.Trainer.Features
 		private readonly Dictionary<string, Type> _features = new()
 		{
 			{"wallhack", typeof(Players)},
+			{"thermal", typeof(ThermalVision)},
 			{"stash", typeof(LootableContainers)},
 			{"stamina", typeof(Stamina)},
 			{"quest", typeof(Quests)},
 			{"norecoil", typeof(NoRecoil)},
+			{"night", typeof(NightVision)},
 			{"loot", typeof(LootItems)},
 			{"hud", typeof(Hud)},
 			{"exfil", typeof(ExfiltrationPoints)},
@@ -146,13 +148,13 @@ namespace EFT.Trainer.Features
 					continue;
 
 				var extra = rarity != ELootRarity.Not_exist ? $" ({rarity.Color()})" : string.Empty;
-				AddConsoleLog($"{itemName} [{list.Count}]{extra}", "list");
+				AddConsoleLog($"{itemName} [{list.Count.ToString().Blue()}]{extra}", "list");
 
 				count += list.Count;
 			}
 
 			AddConsoleLog("------", "list");
-			AddConsoleLog($"found {count} items", "list");
+			AddConsoleLog($"found {count.ToString().Blue()} items", "list");
 		}
 
 		private static void FindItemsInContainers(Dictionary<string, List<Item>> itemsPerName)
@@ -216,7 +218,7 @@ namespace EFT.Trainer.Features
 			{
 				if (Loader.HookObject.GetComponent(featureType) is not ToggleMonoBehaviour feature)
 				{
-					AddConsoleLog($"{featureName} is not loaded!");
+					AddConsoleLog($"{featureName} is not loaded!".Red(), "status");
 					continue;
 				}
 

@@ -11,25 +11,22 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty]
 		public virtual KeyCode Key { get; set; } = KeyCode.None;
 
-		private void Update()
+		protected virtual void Update()
 		{
 			if (Key != KeyCode.None && Input.GetKeyUp(Key))
 				Enabled = !Enabled;
 
 			if (Enabled)
 				UpdateWhenEnabled();
-			else
-				UpdateWhenDisabled();
 		}
 
 		private void OnGUI()
 		{
 			if (Enabled)
-				OnGUIFeature();
+				OnGUIWhenEnabled();
 		}
 
 		protected virtual void UpdateWhenEnabled() {}
-		protected virtual void UpdateWhenDisabled() {}
-		protected virtual void OnGUIFeature() {}
+		protected virtual void OnGUIWhenEnabled() {}
 	}
 }

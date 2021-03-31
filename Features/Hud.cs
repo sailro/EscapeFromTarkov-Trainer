@@ -11,7 +11,7 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty]
 		public Color Color { get; set; } = Color.white;
 
-		protected override void OnGUIFeature()
+		protected override void OnGUIWhenEnabled()
 		{
 			var player = GameState.Current?.LocalPlayer;
 			if (!player.IsValid())
