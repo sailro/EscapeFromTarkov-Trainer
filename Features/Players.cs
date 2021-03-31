@@ -27,7 +27,7 @@ namespace EFT.Trainer.Features
 			_outline = bundle.LoadAsset<Shader>("assets/outline.shader");
 		}
 
-		protected override void UpdateFeature()
+		protected override void UpdateWhenEnabled()
 		{
 			var hostiles = GameState.Current?.Hostiles;
 			if (hostiles == null)

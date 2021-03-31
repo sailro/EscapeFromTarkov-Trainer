@@ -28,7 +28,7 @@ namespace EFT.Trainer.Features
 			if (!player.IsValid())
 				return Empty;
 
-			var camera = Camera.main;
+			var camera = GameState.Current?.Camera;
 			if (camera == null)
 				return Empty;
 

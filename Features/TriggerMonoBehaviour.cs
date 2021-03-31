@@ -11,9 +11,9 @@ namespace EFT.Trainer.Features
 		private void Update()
 		{
 			if (Key != KeyCode.None && Input.GetKeyUp(Key))
-				UpdateFeature();
+				UpdateWhenTriggered();
 		}
 
-		protected virtual void UpdateFeature() {}
+		protected virtual void UpdateWhenTriggered() {}
 	}
 }

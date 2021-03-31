@@ -9,7 +9,7 @@ namespace EFT.Trainer.Features
 	{
 		public override void ProcessDataOnGUI(PointOfInterest[] data)
 		{
-			var camera = Camera.main;
+			var camera = GameState.Current?.Camera;
 			if (camera == null)
 				return;
 

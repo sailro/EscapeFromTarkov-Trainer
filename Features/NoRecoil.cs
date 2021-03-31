@@ -6,7 +6,7 @@ namespace EFT.Trainer.Features
 	{
 		public override bool Enabled { get; set; } = false;
 
-		protected override void UpdateFeature()
+		protected override void UpdateWhenEnabled()
 		{
 			var player = GameState.Current?.LocalPlayer;
 			if (!player.IsValid())

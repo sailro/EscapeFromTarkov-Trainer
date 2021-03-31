@@ -44,7 +44,7 @@ namespace EFT.Trainer.Features
 			if (points == null)
 				return Empty;
 
-			var camera = Camera.main;
+			var camera = GameState.Current?.Camera;
 			if (camera == null)
 				return Empty;
 

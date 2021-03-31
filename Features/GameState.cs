@@ -47,6 +47,8 @@ namespace EFT.Trainer.Features
 				hostiles.Add(player);
 			}
 
+			snapshot.Camera = Camera.main;
+
 			Current = snapshot;
 			return snapshot;
 		}
@@ -54,6 +56,7 @@ namespace EFT.Trainer.Features
 
 	public class GameStateSnapshot
 	{
+		public Camera Camera { get; set; }
 		public Player LocalPlayer { get; set; }
 		public IEnumerable<Player> Hostiles { get; set; }
 	}

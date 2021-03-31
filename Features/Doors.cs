@@ -8,7 +8,7 @@ namespace EFT.Trainer.Features
 	{
 		public override KeyCode Key { get; set; } = KeyCode.KeypadPeriod;
 
-		protected override void UpdateFeature()
+		protected override void UpdateWhenTriggered()
 		{
 			var player = GameState.Current?.LocalPlayer;
 			if (!player.IsValid())

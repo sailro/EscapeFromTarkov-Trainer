@@ -11,7 +11,7 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty]
 		public int Rate { get; set; } = 500;
 
-		protected override void UpdateFeature()
+		protected override void UpdateWhenEnabled()
 		{
 			var player = GameState.Current?.LocalPlayer;
 			if (!player.IsValid())

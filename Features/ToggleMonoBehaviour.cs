@@ -17,7 +17,9 @@ namespace EFT.Trainer.Features
 				Enabled = !Enabled;
 
 			if (Enabled)
-				UpdateFeature();
+				UpdateWhenEnabled();
+			else
+				UpdateWhenDisabled();
 		}
 
 		private void OnGUI()
@@ -26,7 +28,8 @@ namespace EFT.Trainer.Features
 				OnGUIFeature();
 		}
 
-		protected virtual void UpdateFeature() {}
+		protected virtual void UpdateWhenEnabled() {}
+		protected virtual void UpdateWhenDisabled() {}
 		protected virtual void OnGUIFeature() {}
 	}
 }

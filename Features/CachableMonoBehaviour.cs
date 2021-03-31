@@ -62,7 +62,7 @@ namespace EFT.Trainer.Features
 			StartCoroutine(RefreshDataScheduler());
 		}
 
-		protected override void UpdateFeature()
+		protected override void UpdateWhenEnabled()
 		{
 			if (_refreshing) 
 				return;
