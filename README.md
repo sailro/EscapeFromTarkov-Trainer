@@ -9,7 +9,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 
 This trainer gives:
 - HUD (ammo left in chamber / magazine, fire mode).
-- Door unlocker (use keypad period).
+- Door unlocker (use keypad period, or setup your own key bindings with [trainer.ini](#sample-trainerini-configuration-file)).
 - Wallhack (you'll see players / bots / bosses with distinct colors through walls).
 - Exfiltration points (green for available points, yellow for others).
 - No recoil (off by default).
@@ -18,7 +18,7 @@ This trainer gives:
 - Ability to list all lootable items and to track any item by name (even in containers).
 - Unlimited stamina (off by default).
 - Force all guns (even bolt action guns) to use automatic firing mode with customizable fire rate.
-- Thermal and night vision (even combined).
+- Thermal and night visions (even combined).
 - Load/Save all settings.
 
 ![Wallhack](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo.jpg)
