@@ -26,7 +26,7 @@ namespace EFT.Trainer.Features
 			{"stash", typeof(LootableContainers)},
 			{"stamina", typeof(Stamina)},
 			{"quest", typeof(Quests)},
-			{"norecoil", typeof(Recoil)},
+			{"norecoil", typeof(NoRecoil)},
 			{"loot", typeof(LootItems)},
 			{"hud", typeof(Hud)},
 			{"exfil", typeof(ExfiltrationPoints)},

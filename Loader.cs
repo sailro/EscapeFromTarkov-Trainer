@@ -26,7 +26,7 @@ namespace EFT.Trainer
 			HookObject.AddComponent<Hud>();
 			HookObject.AddComponent<Players>();
 			HookObject.AddComponent<Doors>();
-			HookObject.AddComponent<Recoil>();
+			HookObject.AddComponent<NoRecoil>();
 			HookObject.AddComponent<Features.Quests>(); // prevent namespace conflict
 			HookObject.AddComponent<LootItems>();
 			HookObject.AddComponent<LootableContainers>();

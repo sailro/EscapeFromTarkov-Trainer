@@ -3,7 +3,7 @@ using EFT.Trainer.Extensions;
 
 namespace EFT.Trainer.Features
 {
-	public class Recoil : FeatureMonoBehaviour
+	public class NoRecoil : FeatureMonoBehaviour
 	{
 		[ConfigurationProperty]
 		public override bool Enabled { get; set; } = false;
@@ -14,7 +14,10 @@ namespace EFT.Trainer.Features
 			if (!player.IsValid())
 				return;
 
-			player!.ProceduralWeaponAnimation.Shootingg.Intensity = 0f;
+			if (player!.ProceduralWeaponAnimation == null)
+				return;
+
+			player.ProceduralWeaponAnimation.Shootingg.Intensity = 0f;
 		}
 	}
 }

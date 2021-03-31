@@ -101,6 +101,7 @@
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Features\AutomaticGun.cs" />
     <Compile Include="Features\FeatureMonoBehaviour.cs" />
+    <Compile Include="Features\NoRecoil.cs" />
     <Compile Include="Features\Stamina.cs" />
     <Compile Include="KnownTemplateIds.cs" />
     <Compile Include="Extensions\LootableContainerExtension.cs" />
@@ -119,7 +120,6 @@
     <Compile Include="Features\Hud.cs" />
     <Compile Include="Features\ExfiltrationPoints.cs" />
     <Compile Include="Features\Players.cs" />
-    <Compile Include="Features\Recoil.cs" />
     <Compile Include="Features\SceneDumper.cs" />
     <Compile Include="Loader.cs" />
     <Compile Include="Features\GameState.cs" />
