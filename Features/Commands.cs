@@ -145,7 +145,7 @@ namespace EFT.Trainer.Features
 				if (rarityFilter != ELootRarity.Not_exist && rarityFilter != rarity)
 					continue;
 
-				var extra = rarity != ELootRarity.Not_exist ? $" ({rarity})" : string.Empty;
+				var extra = rarity != ELootRarity.Not_exist ? $" ({rarity.Color()})" : string.Empty;
 				AddConsoleLog($"{itemName} [{list.Count}]{extra}", "list");
 
 				count += list.Count;
@@ -221,7 +221,7 @@ namespace EFT.Trainer.Features
 				}
 
 				var help = feature.Key != KeyCode.None ? $" ({feature.Key} to toggle)" : string.Empty;
-				AddConsoleLog($"{featureName} is {(feature.Enabled ? "on" : "off")}{help}", "status");
+				AddConsoleLog($"{featureName} is {(feature.Enabled ? "on".Green() : "off".Red())}{help}", "status");
 			}
 		}
 
@@ -284,6 +284,5 @@ namespace EFT.Trainer.Features
 			if (PreloaderUI.Instantiated)
 				PreloaderUI.Instance.Console.AddLog(log, from);
 		}
-
 	}
 }

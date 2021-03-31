@@ -94,9 +94,11 @@
     <Compile Include="Configuration\ConfigurationManager.cs" />
     <Compile Include="Configuration\ConfigurationPropertyAttribute.cs" />
     <Compile Include="Configuration\KeyCodeConverter.cs" />
+    <Compile Include="Extensions\ELootRarityExtensions.cs" />
     <Compile Include="Extensions\ExfiltrationPointExtension.cs" />
     <Compile Include="Extensions\DoorExtensions.cs" />
     <Compile Include="Extensions\ItemExtension.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Features\AutomaticGun.cs" />
     <Compile Include="Features\FeatureMonoBehaviour.cs" />
     <Compile Include="Features\Stamina.cs" />
