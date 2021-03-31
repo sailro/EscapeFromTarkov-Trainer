@@ -18,16 +18,19 @@ This trainer gives:
 - Ability to list all lootable items and to track any item by name (even in containers).
 - Unlimited stamina (off by default).
 - Force all guns (even bolt action guns) to use automatic firing mode with customizable fire rate.
+- Thermal and night vision (even combined).
 - Load/Save all settings.
 
-![Wallhack](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo.png)
-![Exfils](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo2.png)
-![Colors](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo3.png)
-![Quests](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/quests.png)
-![Stashes](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/stashes.png)
-![Track](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/track.png)
-![Lootitems](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/lootitems.png)
-![ItemInContainers](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/itemcontainers.png)
+![Wallhack](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo.jpg)
+![Exfils](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo2.jpg)
+![Colors](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo3.jpg)
+![Quests](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/quests.jpg)
+![Stashes](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/stashes.jpg)
+![Track](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/track.jpg)
+![Lootitems](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/lootitems.jpg)
+![ItemInContainers](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/itemcontainers.jpg)
+![NightVision](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/night.jpg)
+![ThermalVision](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/thermal.jpg)
 
 ## Installation
 
@@ -49,7 +52,7 @@ Overwrite the existing `EscapeFromTarkov_Data\Managed\NLog.dll.nlog` using `NLog
 
 ## Configuration
 
-![console](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/console.png)
+![console](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/console.jpg)
 
 This trainer hooks into the command system, so you can easily setup features using the built-in console:
 
@@ -57,19 +60,21 @@ This trainer hooks into the command system, so you can easily setup features usi
 |-----------|---------------------|---------|-------------------------------------|
 | autogun   | `on` or `off`       | `off`   | Enabled/Disable automatic gun mode  |
 | dump      |                     |         | Dump game state for analysis        |
-| exfil     | `on` or `off`       | `on`    | Show/hide exfiltration points       |
-| hud       | `on` or `off`       | `on`    | Show/hide hud                       |
+| exfil     | `on` or `off`       | `on`    | Show/Hide exfiltration points       |
+| hud       | `on` or `off`       | `on`    | Show/Hide hud                       |
 | list      | `<optional filter>` |         | List lootable items                 |
 | listr     | `<optional filter>` |         | List only rare lootable items       |
 | listsr    | `<optional filter>` |         | List only super rare lootable items |
 | load      |                     |         | Load settings from `trainer.ini`    |
-| loot      | `on` or `off`       |         | Show/hide tracked items             |
+| loot      | `on` or `off`       |         | Show/Hide tracked items             |
+| night     | `on` or `off`       | `off`   | Enable/Disable night vision         |
 | norecoil  | `on` or `off`       | `off`   | Disable/Enable recoil               |
-| quest     | `on` or `off`       | `off`   | Show/hide quest POI                 |
+| quest     | `on` or `off`       | `off`   | Show/Hide quest POI                 |
 | save      |                     |         | Save settings to `trainer.ini`      |
 | stamina   | `on` or `off`       | `off`   | Enable/Disable unlimited stamina    |
-| stash     | `on` or `off`       | `off`   | Show/hide stashes                   |
+| stash     | `on` or `off`       | `off`   | Show/Hide stashes                   |
 | status    |                     |         | Show status of all features         |
+| thermal   | `on` or `off`       | `off`   | Enable/Disable thermal vision       |
 | track     | `[name]`            |         | Track all items matching `name`     |
 | tracklist |                     |         | Show tracked items                  |
 | untrack   | `[name]` or `*`     |         | Untrack a `name` or `*` for all     |
@@ -110,7 +115,13 @@ EFT.Trainer.Features.LootItems.Color=[0.0,1.0,1.0,1.0]
 EFT.Trainer.Features.LootItems.Enabled=true
 EFT.Trainer.Features.LootItems.Key="F4"
 EFT.Trainer.Features.LootItems.SearchInsideContainers=true
-EFT.Trainer.Features.LootItems.TrackedNames=["6L31","analyzer","graphic","ushanka","cowboy","respirator","gphone","controller","fiber","wires","vpx","rfid","rechar"]
+EFT.Trainer.Features.LootItems.TrackedNames=["virtex","sg-c10","cofdm","battery","vpx","ushanka","chat","pilgrim"]
+
+EFT.Trainer.Features.NightVision.Enabled=false
+EFT.Trainer.Features.NightVision.Key="F11"
+
+EFT.Trainer.Features.NoRecoil.Enabled=false
+EFT.Trainer.Features.NoRecoil.Key="F7"
 
 EFT.Trainer.Features.Players.BearColor=[0.0,0.0,1.0,1.0]
 EFT.Trainer.Features.Players.BossColor=[1.0,0.0,0.0,1.0]
@@ -124,11 +135,11 @@ EFT.Trainer.Features.Quests.Color=[1.0,0.0,1.0,1.0]
 EFT.Trainer.Features.Quests.Enabled=true
 EFT.Trainer.Features.Quests.Key="F6"
 
-EFT.Trainer.Features.Recoil.Enabled=false
-EFT.Trainer.Features.Recoil.Key="F7"
-
-EFT.Trainer.Features.Stamina.Enabled=false
+EFT.Trainer.Features.Stamina.Enabled=true
 EFT.Trainer.Features.Stamina.Key="None"
+
+EFT.Trainer.Features.ThermalVision.Enabled=false
+EFT.Trainer.Features.ThermalVision.Key="F12"
 ```
 
 ## Mono injection
