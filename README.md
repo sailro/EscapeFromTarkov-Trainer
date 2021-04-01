@@ -59,7 +59,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 
 | Command   | Values              | Default | Description                         | 
 |-----------|---------------------|---------|-------------------------------------|
-| autogun   | `on` or `off`       | `off`   | Enabled/Disable automatic gun mode  |
+| autogun   | `on` or `off`       | `off`   | Enable/Disable automatic gun mode  |
 | crosshair | `on` or `off`       | `off`   | Show/Hide crosshair                 |
 | dump      |                     |         | Dump game state for analysis        |
 | exfil     | `on` or `off`       | `on`    | Show/Hide exfiltration points       |
