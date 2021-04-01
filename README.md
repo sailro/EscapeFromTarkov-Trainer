@@ -98,7 +98,7 @@ EFT.Trainer.Features.CrossHair.Enabled=true
 EFT.Trainer.Features.CrossHair.HideWhenAiming=true
 EFT.Trainer.Features.CrossHair.Key="None"
 EFT.Trainer.Features.CrossHair.Size=10.0
-EFT.Trainer.Features.CrossHair.Thickness=1.5
+EFT.Trainer.Features.CrossHair.Thickness=2.0
 
 EFT.Trainer.Features.Doors.Key="KeypadPeriod"
 
