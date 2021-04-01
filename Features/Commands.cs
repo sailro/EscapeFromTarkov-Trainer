@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -55,34 +56,51 @@ namespace EFT.Trainer.Features
 
 			foreach (var (featureName, featureType) in _features)
 			{
-				commands.AddCommand(new GClass1907($"{featureName} (?<{ValueGroup}>(on)|(off))", m => OnTriggerFeature(featureType, m)));
+				CreateCommand(commands, $"{featureName} (?<{ValueGroup}>(on)|(off))", m => OnTriggerFeature(featureType, m));
 			}
 
-			commands.AddCommand(new GClass1907("dump", _ => Dump()));
-			commands.AddCommand(new GClass1907("status", _ => Status()));
+			CreateCommand(commands, "dump", _ => Dump());
+			CreateCommand(commands, "status", _ => Status());
 
 			var feature = Loader.HookObject.GetComponent<LootItems>();
 			if (feature != null)
 			{
-				commands.AddCommand(new GClass1907($"list {{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature)));
-				commands.AddCommand(new GClass1907($"listr {{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature, ELootRarity.Rare)));
-				commands.AddCommand(new GClass1907($"listsr {{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature, ELootRarity.Superrare)));
+				CreateCommand(commands, $"list {{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature));
+				CreateCommand(commands, $"listr {{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature, ELootRarity.Rare));
+				CreateCommand(commands, $"listsr {{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature, ELootRarity.Superrare));
 
-				commands.AddCommand(new GClass1907($"track (?<{ValueGroup}>.*)", m => TrackLootItem(m, feature)));
-				commands.AddCommand(new GClass1907($"untrack (?<{ValueGroup}>.*)", m => UnTrackLootItem(m, feature)));
-				commands.AddCommand(new GClass1907("tracklist", _ => ShowTrackList(feature)));
+				CreateCommand(commands, $"track (?<{ValueGroup}>.*)", m => TrackLootItem(m, feature));
+				CreateCommand(commands, $"untrack (?<{ValueGroup}>.*)", m => UnTrackLootItem(m, feature));
+				CreateCommand(commands, "tracklist", _ => ShowTrackList(feature));
 			}
 
 			var configFile = Path.Combine(UserPath, "trainer.ini");
 			var features = Loader.HookObject.GetComponents(typeof(MonoBehaviour));
-			commands.AddCommand(new GClass1907("load", _ => ConfigurationManager.Load(configFile, features)));
-			commands.AddCommand(new GClass1907("save", _ => ConfigurationManager.Save(configFile, features)));
+			CreateCommand(commands, "load", _ => ConfigurationManager.Load(configFile, features));
+			CreateCommand(commands, "save", _ => ConfigurationManager.Save(configFile, features));
 
 			// Load default configuration
 			ConfigurationManager.Load(configFile, features, false);
 
 			Registered = true;
 			Destroy(this);
+		}
+
+		private static void CreateCommand(IList commands, string regex, Action<Match> match)
+		{
+			// 'commands' field is a List<?> where ? is an obfuscated type, distinct for every EFT build
+			// so use reflection instead of breaking the build every time
+			// and use the non generic IList interface to add a new item
+			var listType = commands.GetType();
+			var commandType = listType.GetGenericArguments().FirstOrDefault();
+			if (commandType == null)
+				return;
+
+			var command = Activator.CreateInstance(commandType, regex, match);
+			if (command == null)
+				return;
+
+			commands.Add(command);
 		}
 
 		private static void ShowTrackList(LootItems feature, bool changed = false)
