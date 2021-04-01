@@ -19,7 +19,7 @@ This trainer gives:
 - Unlimited stamina (off by default).
 - Force all guns (even bolt action guns) to use automatic firing mode with customizable fire rate.
 - Thermal and night visions (even combined).
-- Crosshair (off by default).
+- Crosshair (off by default) with customizable size, color, thickness and auto-hide feature when aiming.
 - Load/Save all settings.
 
 ![Wallhack](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo.jpg)
@@ -60,6 +60,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | Command   | Values              | Default | Description                         | 
 |-----------|---------------------|---------|-------------------------------------|
 | autogun   | `on` or `off`       | `off`   | Enabled/Disable automatic gun mode  |
+| crosshair | `on` or `off`       | `off`   | Show/Hide crosshair                 |
 | dump      |                     |         | Dump game state for analysis        |
 | exfil     | `on` or `off`       | `on`    | Show/Hide exfiltration points       |
 | hud       | `on` or `off`       | `on`    | Show/Hide hud                       |
