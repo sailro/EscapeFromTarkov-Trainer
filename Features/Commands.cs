@@ -167,13 +167,13 @@ namespace EFT.Trainer.Features
 					continue;
 
 				var extra = rarity != ELootRarity.Not_exist ? $" ({rarity.Color()})" : string.Empty;
-				AddConsoleLog($"{itemName} [{list.Count.ToString().Blue()}]{extra}", "list");
+				AddConsoleLog($"{itemName} [{list.Count.ToString().Cyan()}]{extra}", "list");
 
 				count += list.Count;
 			}
 
 			AddConsoleLog("------", "list");
-			AddConsoleLog($"found {count.ToString().Blue()} items", "list");
+			AddConsoleLog($"found {count.ToString().Cyan()} items", "list");
 		}
 
 		private static void FindItemsInContainers(Dictionary<string, List<Item>> itemsPerName)

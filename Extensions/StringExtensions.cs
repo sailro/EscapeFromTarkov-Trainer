@@ -1,30 +1,37 @@
-﻿namespace EFT.Trainer.Extensions
+﻿using UnityEngine;
+
+namespace EFT.Trainer.Extensions
 {
 	public static class StringExtensions
 	{
-		private static string Color(this string str, string color)
+		private static string Color(this string str, Color color)
 		{
-			return $"<color={color.ToLower()}>{str}</color>";
+			return $"<color=#{color.GetHexColor()}>{str}</color>";
 		}
 
 		public static string Blue(this string str)
 		{
-			return str.Color(nameof(Blue));
+			return str.Color(UnityEngine.Color.blue);
 		}
 
 		public static string Yellow(this string str)
 		{
-			return str.Color(nameof(Yellow));
+			return str.Color(UnityEngine.Color.yellow);
 		}
 
 		public static string Red(this string str)
 		{
-			return str.Color(nameof(Red));
+			return str.Color(UnityEngine.Color.red);
 		}
 
 		public static string Green(this string str)
 		{
-			return str.Color(nameof(Green));
+			return str.Color(UnityEngine.Color.green);
+		}
+
+		public static string Cyan(this string str)
+		{
+			return str.Color(UnityEngine.Color.cyan);
 		}
 	}
 }
