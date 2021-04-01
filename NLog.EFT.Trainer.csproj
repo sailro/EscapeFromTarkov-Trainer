@@ -99,6 +99,7 @@
     <Compile Include="Extensions\DoorExtensions.cs" />
     <Compile Include="Extensions\ItemExtension.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="Features\CrossHair.cs" />
     <Compile Include="Features\ThermalVision.cs" />
     <Compile Include="Features\NightVision.cs" />
     <Compile Include="Features\AutomaticGun.cs" />

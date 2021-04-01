@@ -32,6 +32,7 @@ namespace EFT.Trainer.Features
 			{"loot", typeof(LootItems)},
 			{"hud", typeof(Hud)},
 			{"exfil", typeof(ExfiltrationPoints)},
+			{"crosshair", typeof(CrossHair)},
 			{"autogun", typeof(AutomaticGun)},
 		};
 
