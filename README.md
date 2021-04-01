@@ -19,6 +19,7 @@ This trainer gives:
 - Unlimited stamina (off by default).
 - Force all guns (even bolt action guns) to use automatic firing mode with customizable fire rate.
 - Thermal and night visions (even combined).
+- Crosshair (off by default).
 - Load/Save all settings.
 
 ![Wallhack](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo.jpg)
@@ -90,6 +91,13 @@ This trainer hooks into the command system, so you can easily setup features usi
 EFT.Trainer.Features.AutomaticGun.Enabled=false
 EFT.Trainer.Features.AutomaticGun.Key="None"
 EFT.Trainer.Features.AutomaticGun.Rate=500
+
+EFT.Trainer.Features.CrossHair.Color=[1.0,0.0,0.0,1.0]
+EFT.Trainer.Features.CrossHair.Enabled=true
+EFT.Trainer.Features.CrossHair.HideWhenAiming=true
+EFT.Trainer.Features.CrossHair.Key="None"
+EFT.Trainer.Features.CrossHair.Size=10.0
+EFT.Trainer.Features.CrossHair.Thickness=1.5
 
 EFT.Trainer.Features.Doors.Key="KeypadPeriod"
 
