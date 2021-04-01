@@ -19,7 +19,7 @@ namespace EFT.Trainer.Features
 		public float Size { get; set; } = 10f;
 
 		[ConfigurationProperty]
-		public float Thickness { get; set; } = 1.5f;
+		public float Thickness { get; set; } = 2f;
 
 		protected override void OnGUIWhenEnabled()
 		{
@@ -36,8 +36,7 @@ namespace EFT.Trainer.Features
 			var centerx = Screen.width / 2;
 			var centery = Screen.height / 2;
 
-			Render.DrawLine(new Vector2(centerx, centery - Size), new Vector2(centerx, centery + Size), Color, Thickness);
-			Render.DrawLine(new Vector2(centerx - Size, centery), new Vector2(centerx + Size, centery), Color, Thickness);
+			Render.DrawCrosshair(new Vector2(centerx, centery), Size, Color, Thickness);
 		}
 	}
 }
