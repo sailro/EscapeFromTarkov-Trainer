@@ -20,6 +20,7 @@ This trainer gives:
 - Force all guns (even bolt action guns) to use automatic firing mode with customizable fire rate.
 - Thermal and night visions (even combined).
 - Crosshair (off by default) with customizable size, color, thickness and auto-hide feature when aiming.
+- Grenades outline (off by default).
 - Load/Save all settings.
 
 ![Wallhack](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo.jpg)
@@ -59,10 +60,11 @@ This trainer hooks into the command system, so you can easily setup features usi
 
 | Command   | Values              | Default | Description                         | 
 |-----------|---------------------|---------|-------------------------------------|
-| autogun   | `on` or `off`       | `off`   | Enable/Disable automatic gun mode  |
+| autogun   | `on` or `off`       | `off`   | Enable/Disable automatic gun mode   |
 | crosshair | `on` or `off`       | `off`   | Show/Hide crosshair                 |
 | dump      |                     |         | Dump game state for analysis        |
 | exfil     | `on` or `off`       | `on`    | Show/Hide exfiltration points       |
+| grenade   | `on` or `off`       | `off`   | Show/Hide grenades                  |
 | hud       | `on` or `off`       | `on`    | Show/Hide hud                       |
 | list      | `<optional filter>` |         | List lootable items                 |
 | listr     | `<optional filter>` |         | List only rare lootable items       |
@@ -109,6 +111,11 @@ EFT.Trainer.Features.ExfiltrationPoints.Key="F1"
 EFT.Trainer.Features.ExfiltrationPoints.NotEligibleColor=[1.0,0.921568632,0.0156862754,1.0]
 
 EFT.Trainer.Features.GameState.CacheTimeInSec=2.0
+
+EFT.Trainer.Features.Grenades.CacheTimeInSec=0.25
+EFT.Trainer.Features.Grenades.Color=[1.0,0.0,0.0,1.0]
+EFT.Trainer.Features.Grenades.Enabled=true
+EFT.Trainer.Features.Grenades.Key="None"
 
 EFT.Trainer.Features.Hud.Color=[1.0,1.0,1.0,1.0]
 EFT.Trainer.Features.Hud.Enabled=true
