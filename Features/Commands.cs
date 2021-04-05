@@ -32,6 +32,7 @@ namespace EFT.Trainer.Features
 			{"night", typeof(NightVision)},
 			{"loot", typeof(LootItems)},
 			{"hud", typeof(Hud)},
+			{"grenade", typeof(Grenades)},
 			{"exfil", typeof(ExfiltrationPoints)},
 			{"crosshair", typeof(CrossHair)},
 			{"autogun", typeof(AutomaticGun)},

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using Comfort.Common;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
@@ -17,6 +18,14 @@ namespace EFT.Trainer.Features
 
 		[ConfigurationProperty(Skip = true)] // we do not want to offer save/load support for this
 		public override KeyCode Key { get; set; } = KeyCode.None;
+
+		public static Shader OutlineShader { get; private set; }
+
+		private void Awake()
+		{
+			var bundle = AssetBundle.LoadFromFile(Path.Combine(Application.dataPath, "outline"));
+			OutlineShader = bundle.LoadAsset<Shader>("assets/outline.shader");
+		}
 
 		public override GameStateSnapshot RefreshData()
 		{
