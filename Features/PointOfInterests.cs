@@ -7,6 +7,8 @@ namespace EFT.Trainer.Features
 {
 	public abstract class PointOfInterests : CachableMonoBehaviour<PointOfInterest[]>
 	{
+		public static PointOfInterest[] Empty => Array.Empty<PointOfInterest>();
+
 		public override void ProcessDataOnGUI(PointOfInterest[] data)
 		{
 			var camera = GameState.Current?.Camera;

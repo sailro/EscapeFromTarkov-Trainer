@@ -138,7 +138,6 @@ namespace EFT.Trainer.Features
 				search = matchGroup.Value.Trim();
 
 			var world = Singleton<GameWorld>.Instance;
-
 			if (world == null)
 				return;
 

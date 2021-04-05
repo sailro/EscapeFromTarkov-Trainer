@@ -44,8 +44,6 @@ namespace EFT.Trainer.Features
 			return TrackedNames.Remove(lootname);
 		}
 
-		public static PointOfInterest[] Empty => Array.Empty<PointOfInterest>();
-
 		public override PointOfInterest[] RefreshData()
 		{
 			if (TrackedNames.Count == 0)

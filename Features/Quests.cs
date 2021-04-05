@@ -18,8 +18,6 @@ namespace EFT.Trainer.Features
 		public override float CacheTimeInSec { get; set; } = 5f;
 		public override bool Enabled { get; set; } = false;
 
-		public static PointOfInterest[] Empty => Array.Empty<PointOfInterest>();
-
 		public override PointOfInterest[] RefreshData()
 		{
 			var world = Singleton<GameWorld>.Instance;
