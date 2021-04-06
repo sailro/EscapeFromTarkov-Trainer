@@ -44,7 +44,7 @@ namespace EFT.Trainer.Features
 
 			foreach (var player in players)
 			{
-				if (player.IsYourPlayer())
+				if (player.IsYourPlayer)
 				{
 					snapshot.LocalPlayer = player;
 					continue;
