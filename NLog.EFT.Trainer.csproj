@@ -122,7 +122,6 @@
     <Compile Include="Features\LootItems.cs" />
     <Compile Include="Features\PointOfInterest.cs" />
     <Compile Include="Features\PointOfInterests.cs" />
-    <Compile Include="Features\Quests.cs" />
     <Compile Include="Features\Hud.cs" />
     <Compile Include="Features\ExfiltrationPoints.cs" />
     <Compile Include="Features\Players.cs" />

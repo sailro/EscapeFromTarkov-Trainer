@@ -27,7 +27,6 @@ namespace EFT.Trainer.Features
 			{"thermal", typeof(ThermalVision)},
 			{"stash", typeof(LootableContainers)},
 			{"stamina", typeof(Stamina)},
-			{"quest", typeof(Quests)},
 			{"norecoil", typeof(NoRecoil)},
 			{"night", typeof(NightVision)},
 			{"loot", typeof(LootItems)},

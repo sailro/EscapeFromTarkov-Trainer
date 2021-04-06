@@ -13,7 +13,6 @@ This trainer gives:
 - Wallhack (you'll see players / bots / bosses with distinct colors through walls).
 - Exfiltration points (green for available points, yellow for others).
 - No recoil (off by default).
-- Locations for taking/placing quest items (off by default). Only items related to your started quests are displayed.
 - Hidden stashes like buried barrels or ground caches (off by default).
 - Ability to list all lootable items and to track any item by name (even in containers).
 - Unlimited stamina (off by default).
@@ -26,7 +25,6 @@ This trainer gives:
 ![Wallhack](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo.jpg)
 ![Exfils](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo2.jpg)
 ![Colors](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo3.jpg)
-![Quests](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/quests.jpg)
 ![Stashes](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/stashes.jpg)
 ![Track](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/track.jpg)
 ![Lootitems](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/lootitems.jpg)
@@ -73,7 +71,6 @@ This trainer hooks into the command system, so you can easily setup features usi
 | loot      | `on` or `off`       |         | Show/Hide tracked items             |
 | night     | `on` or `off`       | `off`   | Enable/Disable night vision         |
 | norecoil  | `on` or `off`       | `off`   | Disable/Enable recoil               |
-| quest     | `on` or `off`       | `off`   | Show/Hide quest POI                 |
 | save      |                     |         | Save settings to `trainer.ini`      |
 | stamina   | `on` or `off`       | `off`   | Enable/Disable unlimited stamina    |
 | stash     | `on` or `off`       | `off`   | Show/Hide stashes                   |
@@ -145,11 +142,6 @@ EFT.Trainer.Features.Players.Enabled=true
 EFT.Trainer.Features.Players.Key="F5"
 EFT.Trainer.Features.Players.ScavColor=[1.0,0.921568632,0.0156862754,1.0]
 EFT.Trainer.Features.Players.UsecColor=[0.0,1.0,0.0,1.0]
-
-EFT.Trainer.Features.Quests.CacheTimeInSec=5.0
-EFT.Trainer.Features.Quests.Color=[1.0,0.0,1.0,1.0]
-EFT.Trainer.Features.Quests.Enabled=true
-EFT.Trainer.Features.Quests.Key="F6"
 
 EFT.Trainer.Features.Stamina.Enabled=true
 EFT.Trainer.Features.Stamina.Key="None"
