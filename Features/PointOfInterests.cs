@@ -15,18 +15,22 @@ namespace EFT.Trainer.Features
 			if (camera == null)
 				return;
 
-			foreach (var quest in data)
+			foreach (var poi in data)
 			{
-				var position = quest.Position;
+				var position = poi.Position;
 
 				var screenPosition = camera.WorldPointToScreenPoint(position);
 				if (!camera.IsScreenPointVisible(screenPosition))
 					continue;
 
 				var distance = Math.Round(Vector3.Distance(camera.transform.position, position));
-				var caption = $"{quest.Name} [{distance}m]";
-				Render.DrawString(new Vector2(screenPosition.x - 50f, screenPosition.y), caption, quest.Color);
+				Render.DrawString(new Vector2(screenPosition.x - 50f, screenPosition.y), GetCaption(poi, distance), poi.Color);
 			}
+		}
+
+		public virtual string GetCaption(PointOfInterest poi, double distance)
+		{
+			return $"{poi.Name} [{distance}m]";
 		}
 	}
 }
