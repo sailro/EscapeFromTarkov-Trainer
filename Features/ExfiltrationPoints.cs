@@ -1,11 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Comfort.Common;
 using EFT.Interactive;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using UnityEngine;
+
+#nullable enable
 
 namespace EFT.Trainer.Features
 {
@@ -32,21 +33,21 @@ namespace EFT.Trainer.Features
 			if (!player.IsValid())
 				return Empty;
 
-			var profile = player!.Profile;
+			var profile = player.Profile;
 			var info = profile?.Info;
 			if (info == null)
 				return Empty;
 
 			var side = info.Side;
 			var points = GetExfiltrationPoints(side, world);
-			if (points == null)
+			if (points.Length == 0)
 				return Empty;
 
 			var camera = GameState.Current?.Camera;
 			if (camera == null)
 				return Empty;
 
-			var eligiblePoints = GetEligibleExfiltrationPoints(side, world, profile);
+			var eligiblePoints = GetEligibleExfiltrationPoints(side, world, profile!);
 			var records = new List<PointOfInterest>();
 			foreach (var point in points)
 			{

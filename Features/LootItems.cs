@@ -7,6 +7,8 @@ using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using UnityEngine;
 
+#nullable enable
+
 namespace EFT.Trainer.Features
 {
 	public class LootItems : PointOfInterests

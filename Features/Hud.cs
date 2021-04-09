@@ -4,6 +4,8 @@ using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
 using UnityEngine;
 
+#nullable enable
+
 namespace EFT.Trainer.Features
 {
 	public class Hud : ToggleMonoBehaviour
@@ -17,7 +19,7 @@ namespace EFT.Trainer.Features
 			if (!player.IsValid())
 				return;
 
-			if (player!.HandsController == null || player.HandsController.Item is not Weapon weapon)
+			if (player.HandsController == null || player.HandsController.Item is not Weapon weapon)
 				return;
 
 			var mag = weapon.GetCurrentMagazine();

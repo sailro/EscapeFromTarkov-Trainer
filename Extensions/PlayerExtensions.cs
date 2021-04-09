@@ -1,8 +1,12 @@
-﻿namespace EFT.Trainer.Extensions
+﻿using System.Diagnostics.CodeAnalysis;
+
+#nullable enable
+
+namespace EFT.Trainer.Extensions
 {
 	public static class PlayerExtensions
 	{
-		public static bool IsValid(this Player player)
+		public static bool IsValid([NotNullWhen(true)] this Player? player)
 		{
 			return player != null
 			       && player.Transform != null
@@ -13,7 +17,7 @@
 			       && player.PlayerBody.BodySkins != null;
 		}
 
-		public static bool IsAlive(this Player player)
+		public static bool IsAlive([NotNullWhen(true)] this Player? player)
 		{
 			if (!IsValid(player))
 				return false;

@@ -1,5 +1,7 @@
 ﻿using JsonType;
 
+#nullable enable
+
 namespace EFT.Trainer.Extensions
 {
 	public static class ELootRarityExtensions

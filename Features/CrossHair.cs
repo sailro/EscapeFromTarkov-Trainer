@@ -3,6 +3,8 @@ using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
 using UnityEngine;
 
+#nullable enable
+
 namespace EFT.Trainer.Features
 {
 	public class CrossHair : ToggleMonoBehaviour
@@ -27,7 +29,7 @@ namespace EFT.Trainer.Features
 			if (!player.IsValid())
 				return;
 
-			if (player!.HandsController == null)
+			if (player.HandsController == null)
 				return;
 
 			if (player.HandsController.IsAiming && HideWhenAiming)

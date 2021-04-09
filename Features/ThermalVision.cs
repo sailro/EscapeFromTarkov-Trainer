@@ -1,4 +1,6 @@
-﻿namespace EFT.Trainer.Features
+﻿#nullable enable
+
+namespace EFT.Trainer.Features
 {
 	public class ThermalVision : ToggleMonoBehaviour
 	{

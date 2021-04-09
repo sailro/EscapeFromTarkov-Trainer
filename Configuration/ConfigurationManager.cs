@@ -6,6 +6,8 @@ using EFT.UI;
 using Newtonsoft.Json;
 using UnityEngine;
 
+#nullable enable
+
 namespace EFT.Trainer.Configuration
 {
 	public static class ConfigurationManager

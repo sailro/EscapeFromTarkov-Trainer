@@ -2,6 +2,8 @@
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 
+#nullable enable
+
 namespace EFT.Trainer.Features
 {
 	public class AutomaticGun : ToggleMonoBehaviour
@@ -17,7 +19,7 @@ namespace EFT.Trainer.Features
 			if (!player.IsValid())
 				return;
 
-			if (player!.HandsController.Item is not Weapon weapon)
+			if (player.HandsController.Item is not Weapon weapon)
 				return;
 
 			var fireModeComponent = weapon.GetItemComponent<FireModeComponent>();

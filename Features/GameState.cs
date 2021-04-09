@@ -1,15 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using Comfort.Common;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using UnityEngine;
 
+#nullable enable
+
 namespace EFT.Trainer.Features
 {
 	public class GameState : CachableMonoBehaviour<GameStateSnapshot>
 	{
-		public static GameStateSnapshot Current { get; private set; }
+		public static GameStateSnapshot? Current { get; private set; }
 
 		public override float CacheTimeInSec { get; set; } = 2f;
 
@@ -27,7 +30,7 @@ namespace EFT.Trainer.Features
 			OutlineShader = bundle.LoadAsset<Shader>("assets/outline.shader");
 		}
 
-		public override GameStateSnapshot RefreshData()
+		public override GameStateSnapshot? RefreshData()
 		{
 			var snapshot = new GameStateSnapshot();
 			var world = Singleton<GameWorld>.Instance;
@@ -65,8 +68,8 @@ namespace EFT.Trainer.Features
 
 	public class GameStateSnapshot
 	{
-		public Camera Camera { get; set; }
-		public Player LocalPlayer { get; set; }
-		public IEnumerable<Player> Hostiles { get; set; }
+		public Camera? Camera { get; set; }
+		public Player? LocalPlayer { get; set; }
+		public IEnumerable<Player> Hostiles { get; set; } = Array.Empty<Player>();
 	}
 }

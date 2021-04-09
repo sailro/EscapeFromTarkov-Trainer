@@ -2,6 +2,8 @@
 using EFT.Trainer.Extensions;
 using UnityEngine;
 
+#nullable enable
+
 namespace EFT.Trainer.Features
 {
 	public class Players : ToggleMonoBehaviour

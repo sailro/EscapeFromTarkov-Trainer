@@ -98,6 +98,7 @@
     <Compile Include="Extensions\ExfiltrationPointExtension.cs" />
     <Compile Include="Extensions\DoorExtensions.cs" />
     <Compile Include="Extensions\ItemExtension.cs" />
+    <Compile Include="Extensions\NotNullWhenAttribute.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\ThrowableExtensions.cs" />
     <Compile Include="Features\CrossHair.cs" />

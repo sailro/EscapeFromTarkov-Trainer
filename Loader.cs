@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+#nullable enable
+
 namespace EFT.Trainer
 {
 	public class Loader

@@ -1,5 +1,7 @@
 ﻿using NLog.Targets;
 
+#nullable enable
+
 namespace EFT.Trainer
 {
 	[Target(nameof(EFTTarget))]

@@ -3,6 +3,8 @@ using EFT.Trainer.Configuration;
 using EFT.UI;
 using UnityEngine;
 
+#nullable enable
+
 namespace EFT.Trainer.Features
 {
 	public abstract class CachableMonoBehaviour<T> : ToggleMonoBehaviour
@@ -10,7 +12,7 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty]
 		public abstract float CacheTimeInSec { get; set; }
 
-		private T _data;
+		private T? _data;
 		private bool _refreshing = false;
 
 #if DEBUG_PERFORMANCE
@@ -80,7 +82,7 @@ namespace EFT.Trainer.Features
 				ProcessDataOnGUI(_data);
 		}
 
-		public abstract T RefreshData();
+		public abstract T? RefreshData();
 		public virtual void ProcessData(T data) { }
 		public virtual void ProcessDataOnGUI(T data) { }
 	}

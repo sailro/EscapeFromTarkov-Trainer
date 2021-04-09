@@ -2,6 +2,8 @@
 using EFT.Trainer.Extensions;
 using UnityEngine;
 
+#nullable enable
+
 namespace EFT.Trainer.Features
 {
 	public class Doors : TriggerMonoBehaviour
@@ -23,7 +25,7 @@ namespace EFT.Trainer.Features
 				if (door.DoorState != EDoorState.Locked)
 					continue;
 
-				var offset = player!.Transform.position - door.transform.position;
+				var offset = player.Transform.position - door.transform.position;
 				var sqrLen = offset.sqrMagnitude;
 
 				// only unlock if near me, else you'll get a ban from BattlEye if you brute-force-unlock all doors

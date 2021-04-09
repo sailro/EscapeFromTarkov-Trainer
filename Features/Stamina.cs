@@ -1,5 +1,7 @@
 ﻿using EFT.Trainer.Extensions;
 
+#nullable enable
+
 namespace EFT.Trainer.Features
 {
 	public class Stamina : ToggleMonoBehaviour
@@ -12,7 +14,7 @@ namespace EFT.Trainer.Features
 			if (!player.IsValid())
 				return;
 
-			var parameters = player!.Physical?.StaminaParameters;
+			var parameters = player.Physical?.StaminaParameters;
 			if (parameters == null)
 				return;
 

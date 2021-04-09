@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 
+#nullable enable
+
 namespace EFT.Trainer.Extensions
 {
 	public static class StringExtensions

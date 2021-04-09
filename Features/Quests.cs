@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using Comfort.Common;
 using EFT.Interactive;
@@ -7,6 +6,8 @@ using EFT.Quests;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using UnityEngine;
+
+#nullable enable
 
 namespace EFT.Trainer.Features
 {
@@ -32,7 +33,7 @@ namespace EFT.Trainer.Features
 			if (camera == null)
 				return Empty;
 
-			var profile = player!.Profile;
+			var profile = player.Profile;
 			var triggers = FindObjectsOfType<PlaceItemTrigger>();
 			var source = profile
 				.Inventory

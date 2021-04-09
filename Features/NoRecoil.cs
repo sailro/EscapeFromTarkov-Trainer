@@ -1,5 +1,7 @@
 ﻿using EFT.Trainer.Extensions;
 
+#nullable enable
+
 namespace EFT.Trainer.Features
 {
 	public class NoRecoil : ToggleMonoBehaviour
@@ -12,7 +14,7 @@ namespace EFT.Trainer.Features
 			if (!player.IsValid())
 				return;
 
-			if (player!.ProceduralWeaponAnimation == null)
+			if (player.ProceduralWeaponAnimation == null)
 				return;
 
 			player.ProceduralWeaponAnimation.Shootingg.Intensity = 0f;

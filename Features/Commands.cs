@@ -14,6 +14,8 @@ using JsonType;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+#nullable enable
+
 namespace EFT.Trainer.Features
 {
 	public class Commands : MonoBehaviour

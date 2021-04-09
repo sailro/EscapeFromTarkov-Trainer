@@ -1,6 +1,8 @@
 ﻿using EFT.Trainer.Configuration;
 using UnityEngine;
 
+#nullable enable
+
 namespace EFT.Trainer.Features
 {
 	public class TriggerMonoBehaviour : MonoBehaviour

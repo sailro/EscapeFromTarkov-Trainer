@@ -3,6 +3,8 @@ using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
 using UnityEngine;
 
+#nullable enable
+
 namespace EFT.Trainer.Features
 {
 	public abstract class PointOfInterests : CachableMonoBehaviour<PointOfInterest[]>
