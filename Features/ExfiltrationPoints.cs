@@ -40,7 +40,7 @@ namespace EFT.Trainer.Features
 
 			var side = info.Side;
 			var points = GetExfiltrationPoints(side, world);
-			if (points.Length == 0)
+			if (points == null)
 				return Empty;
 
 			var camera = GameState.Current?.Camera;
@@ -48,6 +48,9 @@ namespace EFT.Trainer.Features
 				return Empty;
 
 			var eligiblePoints = GetEligibleExfiltrationPoints(side, world, profile!);
+			if (eligiblePoints == null)
+				return Empty;
+
 			var records = new List<PointOfInterest>();
 			foreach (var point in points)
 			{
@@ -67,14 +70,14 @@ namespace EFT.Trainer.Features
 			return records.ToArray();
 		}
 
-		private static ExfiltrationPoint[] GetExfiltrationPoints(EPlayerSide side, GameWorld world)
+		private static ExfiltrationPoint[]? GetExfiltrationPoints(EPlayerSide side, GameWorld world)
 		{
 			var ect = world.ExfiltrationController;
 			// ReSharper disable once CoVariantArrayConversion
 			return side == EPlayerSide.Savage ? ect.ScavExfiltrationPoints : ect.ExfiltrationPoints;
 		}
 
-		private static ExfiltrationPoint[] GetEligibleExfiltrationPoints(EPlayerSide side, GameWorld world, Profile profile)
+		private static ExfiltrationPoint[]? GetEligibleExfiltrationPoints(EPlayerSide side, GameWorld world, Profile profile)
 		{
 			var ect = world.ExfiltrationController;
 			if (side != EPlayerSide.Savage)
