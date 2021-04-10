@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+#nullable enable
+
 namespace EFT.Trainer.Features
 {
 	public class SceneDumper
@@ -10,7 +12,7 @@ namespace EFT.Trainer.Features
 		[Serializable]
 		public class NamedData
 		{
-			public string Name;
+			public string? Name;
 
 			public NamedData()
 			{
@@ -18,7 +20,7 @@ namespace EFT.Trainer.Features
 
 			public override string ToString()
 			{
-				return Name;
+				return Name ?? string.Empty;
 			}
 		}
 
@@ -36,7 +38,7 @@ namespace EFT.Trainer.Features
 		[Serializable]
 		public class GameObjectData : NamedData
 		{
-			public string Tag;
+			public string? Tag;
 
 			public List<GameObjectData> Childs;
 			public List<ComponentData> Components;
@@ -51,7 +53,7 @@ namespace EFT.Trainer.Features
 		[Serializable]
 		public class ComponentData
 		{
-			public string Type;
+			public string? Type;
 
 			public ComponentData()
 			{
@@ -59,7 +61,7 @@ namespace EFT.Trainer.Features
 
 			public override string ToString()
 			{
-				return Type;
+				return Type ?? string.Empty;
 			}
 		}
 
