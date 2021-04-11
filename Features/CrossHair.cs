@@ -25,6 +25,10 @@ namespace EFT.Trainer.Features
 
 		protected override void OnGUIWhenEnabled()
 		{
+			// do not show when the console is enabled or in the hideout
+			if (Cursor.visible)
+				return;
+
 			var player = GameState.Current?.LocalPlayer;
 			if (!player.IsValid())
 				return;
