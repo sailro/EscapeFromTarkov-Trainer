@@ -11,7 +11,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 
 This trainer gives:
 - HUD (ammo left in chamber / magazine, fire mode).
-- Door unlocker (use keypad period, or setup your own key bindings with [trainer.ini](#sample-trainerini-configuration-file)).
+- Door unlocker (use keypad-period, or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
 - Wallhack (you'll see players / bots / bosses with distinct colors through walls).
 - Exfiltration points (green for available points, yellow for others).
 - No recoil (off by default).
@@ -23,6 +23,7 @@ This trainer gives:
 - Thermal and night visions (even combined).
 - Crosshair (off by default) with customizable size, color, thickness and auto-hide feature when aiming.
 - Grenades outline (off by default).
+- Popup window to enable/disable all features (use right-alt or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
 - Load/Save all settings.
 
 ![Wallhack](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo.jpg)
@@ -35,6 +36,7 @@ This trainer gives:
 ![ItemInContainers](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/itemcontainers.jpg)
 ![NightVision](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/night.jpg)
 ![ThermalVision](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/thermal.jpg)
+![Popup](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/popup.jpg)
 
 ## Installation
 
@@ -60,7 +62,7 @@ Overwrite the existing `EscapeFromTarkov_Data\Managed\NLog.dll.nlog` using `NLog
 
 This trainer hooks into the command system, so you can easily setup features using the built-in console:
 
-| Command   | Values              | Default | Description                         | 
+| Command   | Values              | Default | Description                         |
 |-----------|---------------------|---------|-------------------------------------|
 | autogun   | `on` or `off`       | `off`   | Enable/Disable automatic gun mode   |
 | crosshair | `on` or `off`       | `off`   | Show/Hide crosshair                 |
@@ -96,6 +98,10 @@ This trainer hooks into the command system, so you can easily setup features usi
 EFT.Trainer.Features.AutomaticGun.Enabled=false
 EFT.Trainer.Features.AutomaticGun.Key="None"
 EFT.Trainer.Features.AutomaticGun.Rate=500
+
+EFT.Trainer.Features.Commands.Key="RightAlt"
+EFT.Trainer.Features.Commands.X=20.0
+EFT.Trainer.Features.Commands.Y=40.0
 
 EFT.Trainer.Features.CrossHair.Color=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.CrossHair.Enabled=true
