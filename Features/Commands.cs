@@ -18,37 +18,75 @@ using UnityEngine.SceneManagement;
 
 namespace EFT.Trainer.Features
 {
-	public class Commands : MonoBehaviour
+	public class Commands : ToggleMonoBehaviour
 	{
+		[ConfigurationProperty(Skip = true)] // we do not want to offer save/load support for this
+		public override bool Enabled { get; set; } = false;
+
+		[ConfigurationProperty]
+		public virtual float X { get; set; } = 40f;
+
+		[ConfigurationProperty]
+		public virtual float Y { get; set; } = 20f;
+
+		public override KeyCode Key { get; set; } = KeyCode.RightAlt;
+
 		public bool Registered { get; set; } = false;
 		public const string ValueGroup = "value";
 		public string UserPath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Escape from Tarkov");
 		private readonly Dictionary<string, Type> _features = new()
 		{
-			{"wallhack", typeof(Players)},
-			{"thermal", typeof(ThermalVision)},
-			{"stash", typeof(LootableContainers)},
-			{"stamina", typeof(Stamina)},
-			{"quest", typeof(Quests)},
-			{"norecoil", typeof(NoRecoil)},
-			{"night", typeof(NightVision)},
-			{"loot", typeof(LootItems)},
-			{"hud", typeof(Hud)},
-			{"grenade", typeof(Grenades)},
-			{"exfil", typeof(ExfiltrationPoints)},
-			{"crosshair", typeof(CrossHair)},
 			{"autogun", typeof(AutomaticGun)},
+			{"crosshair", typeof(CrossHair)},
+			{"exfil", typeof(ExfiltrationPoints)},
+			{"grenade", typeof(Grenades)},
+			{"hud", typeof(Hud)},
+			{"loot", typeof(LootItems)},
+			{"night", typeof(NightVision)},
+			{"norecoil", typeof(NoRecoil)},
+			{"quest", typeof(Quests)},
+			{"stamina", typeof(Stamina)},
+			{"stash", typeof(LootableContainers)},
+			{"thermal", typeof(ThermalVision)},
+			{"wallhack", typeof(Players)},
 		};
 
-		private void Update()
+		protected override void Update()
 		{
 			if (Registered)
+			{
+				base.Update();
 				return;
+			}
 
 			if (!PreloaderUI.Instantiated)
 				return;
 
 			RegisterCommands();
+		}
+
+		private Rect _clientWindowRect;
+		protected override void OnGUIWhenEnabled()
+		{
+			_clientWindowRect = new Rect(X, Y, _clientWindowRect.width, _clientWindowRect.height);
+			_clientWindowRect = GUILayout.Window(0, _clientWindowRect, RenderFeatureWindow, "EFT Trainer", GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true));
+			X = _clientWindowRect.x;
+			Y = _clientWindowRect.y;
+		}
+
+		private void RenderFeatureWindow(int id)
+		{
+			GUILayout.BeginVertical();
+			foreach (var (featureName, featureType) in _features.OrderBy(kvp => kvp.Key))
+			{
+				if (Loader.HookObject.GetComponent(featureType) is not ToggleMonoBehaviour feature)
+					continue;
+
+				var toggleText = " " + GetFeatureHelpText(feature, featureName);
+				feature.Enabled = GUILayout.Toggle(feature.Enabled, toggleText);
+			}
+			GUILayout.EndVertical();
+			GUI.DragWindow();
 		}
 
 		private void RegisterCommands()
@@ -57,7 +95,7 @@ namespace EFT.Trainer.Features
 			if (commands.Count == 0)
 				return;
 
-			foreach (var (featureName, featureType) in _features)
+			foreach (var (featureName, featureType) in _features.OrderByDescending(kvp => kvp.Key))
 			{
 				CreateCommand(commands, $"{featureName} (?<{ValueGroup}>(on)|(off))", m => OnTriggerFeature(featureType, m));
 			}
@@ -86,7 +124,6 @@ namespace EFT.Trainer.Features
 			ConfigurationManager.Load(configFile, features, false);
 
 			Registered = true;
-			Destroy(this);
 		}
 
 		private static void CreateCommand(IList commands, string regex, Action<Match> match)
@@ -117,7 +154,7 @@ namespace EFT.Trainer.Features
 
 		private static void UnTrackLootItem(Match match, LootItems feature)
 		{
-			var matchGroup = match?.Groups[ValueGroup];
+			var matchGroup = match.Groups[ValueGroup];
 			if (matchGroup == null || !matchGroup.Success)
 				return;
 
@@ -126,7 +163,7 @@ namespace EFT.Trainer.Features
 
 		private static void TrackLootItem(Match match, LootItems feature)
 		{
-			var matchGroup = match?.Groups[ValueGroup];
+			var matchGroup = match.Groups[ValueGroup];
 			if (matchGroup == null || !matchGroup.Success)
 				return;
 
@@ -136,7 +173,7 @@ namespace EFT.Trainer.Features
 		private static void ListLootItems(Match match, LootItems feature, ELootRarity rarityFilter = ELootRarity.Not_exist)
 		{
 			var search = string.Empty;
-			var matchGroup = match?.Groups[ValueGroup];
+			var matchGroup = match.Groups[ValueGroup];
 			if (matchGroup != null && matchGroup.Success)
 				search = matchGroup.Value.Trim();
 
@@ -233,9 +270,15 @@ namespace EFT.Trainer.Features
 			}
 		}
 
+		private static string GetFeatureHelpText(ToggleMonoBehaviour feature, string featureName)
+		{
+			var toggleKey = feature.Key != KeyCode.None ? $" ({feature.Key} to toggle)" : string.Empty;
+			return $"{featureName} is {(feature.Enabled ? "on".Green() : "off".Red())}{toggleKey}";
+		}
+
 		private void Status()
 		{
-			foreach (var (featureName, featureType) in _features)
+			foreach (var (featureName, featureType) in _features.OrderByDescending(kvp => kvp.Key))
 			{
 				if (Loader.HookObject.GetComponent(featureType) is not ToggleMonoBehaviour feature)
 				{
@@ -243,8 +286,7 @@ namespace EFT.Trainer.Features
 					continue;
 				}
 
-				var help = feature.Key != KeyCode.None ? $" ({feature.Key} to toggle)" : string.Empty;
-				AddConsoleLog($"{featureName} is {(feature.Enabled ? "on".Green() : "off".Red())}{help}", "status");
+				AddConsoleLog(GetFeatureHelpText(feature, featureName), "status");
 			}
 		}
 
@@ -287,7 +329,7 @@ namespace EFT.Trainer.Features
 
 		public void OnTriggerFeature(Type featureType, Match match)
 		{
-			var matchGroup = match?.Groups[ValueGroup];
+			var matchGroup = match.Groups[ValueGroup];
 			if (matchGroup == null || !matchGroup.Success)
 				return;
 
