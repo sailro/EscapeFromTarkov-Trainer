@@ -8,7 +8,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 `master` branch can build against `EFT 0.12.10.12192`. If you are looking for another version, see [`branches`](https://github.com/sailro/EscapeFromTarkov-Trainer/branches) and [`releases`](https://github.com/sailro/EscapeFromTarkov-Trainer/releases).
 
 > If you want to compile the code yourself, be sure to properly clean your solution when upgrading your EFT/sptarkov bits (even removing `bin` and `obj` folders) and to check all your references.
-> Typical issue when compiling yourself and having something out-of-sync is to have EFT stuck at the loading screen with type/tokens errors in `%LOCALAPPDATA%Low\Battlestate Games\EscapeFromTarkov\output_log.txt`
+> Typical issue when having something out-of-sync is EFT being stuck at the loading screen with type/tokens errors in `%LOCALAPPDATA%Low\Battlestate Games\EscapeFromTarkov\output_log.txt`
 
 ## Features
 
