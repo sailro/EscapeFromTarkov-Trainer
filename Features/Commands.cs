@@ -43,6 +43,7 @@ namespace EFT.Trainer.Features
 			{"hud", typeof(Hud)},
 			{"loot", typeof(LootItems)},
 			{"night", typeof(NightVision)},
+			{"nocoll", typeof(NoCollision)},
 			{"norecoil", typeof(NoRecoil)},
 			{"quest", typeof(Quests)},
 			{"stamina", typeof(Stamina)},

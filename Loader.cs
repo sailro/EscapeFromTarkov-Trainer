@@ -28,6 +28,7 @@ namespace EFT.Trainer
 			HookObject.AddComponent<Features.Players>();
 			HookObject.AddComponent<Features.Doors>();
 			HookObject.AddComponent<Features.NoRecoil>();
+			HookObject.AddComponent<Features.NoCollision>();
 			HookObject.AddComponent<Features.Quests>(); 
 			HookObject.AddComponent<Features.LootItems>();
 			HookObject.AddComponent<Features.LootableContainers>();

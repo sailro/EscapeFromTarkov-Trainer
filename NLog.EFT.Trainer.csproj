@@ -104,6 +104,7 @@
     <Compile Include="Extensions\ThrowableExtensions.cs" />
     <Compile Include="Features\CrossHair.cs" />
     <Compile Include="Features\Grenades.cs" />
+    <Compile Include="Features\NoCollision.cs" />
     <Compile Include="Features\ThermalVision.cs" />
     <Compile Include="Features\NightVision.cs" />
     <Compile Include="Features\AutomaticGun.cs" />
