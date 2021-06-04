@@ -26,7 +26,7 @@ This trainer gives:
 - Thermal and night visions (even combined).
 - Crosshair (off by default) with customizable size, color, thickness and auto-hide feature when aiming.
 - Grenades outline (off by default).
-- No physical collisions, making your immune to bullets, grenades and barbed wires (off by default).
+- No physical collisions, making you immune to bullets, grenades and barbed wires (off by default).
 - Popup window to enable/disable all features (use right-alt or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
 - Load/Save all settings.
 
