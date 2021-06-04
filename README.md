@@ -5,10 +5,10 @@
 
 This is an attempt -for educational purposes only- to alter a Unity game at runtime without patching the binaries (so without using [Cecil](https://github.com/jbevain/cecil) nor [Reflexil](https://github.com/sailro/reflexil)).
 
-`master` branch can build against `EFT 0.12.10.12192`. If you are looking for another version, see [`branches`](https://github.com/sailro/EscapeFromTarkov-Trainer/branches) and [`releases`](https://github.com/sailro/EscapeFromTarkov-Trainer/releases).
+`master` branch can build against `EFT 0.12.10.12528`. If you are looking for another version, see [`branches`](https://github.com/sailro/EscapeFromTarkov-Trainer/branches) and [`releases`](https://github.com/sailro/EscapeFromTarkov-Trainer/releases).
 
-> If you want to compile the code yourself, be sure to properly clean your solution when upgrading your EFT/sptarkov bits (even removing `bin` and `obj` folders) and to check all your references.
-> Typical issue when having something out-of-sync is EFT being stuck at the loading screen with type/tokens errors in `%LOCALAPPDATA%Low\Battlestate Games\EscapeFromTarkov\output_log.txt`
+> If you want to compile the code yourself, make sure you clean up your solution properly after upgrading your EFT/sptarkov bits (even removing `bin` and `obj` folders) and check all your references.
+> The typical issue when something is out of sync is that EFT get stuck at the loading screen with type/tokens errors in `%LOCALAPPDATA%Low\Battlestate Games\EscapeFromTarkov\output_log.txt`
 
 ## Features
 
@@ -26,6 +26,7 @@ This trainer gives:
 - Thermal and night visions (even combined).
 - Crosshair (off by default) with customizable size, color, thickness and auto-hide feature when aiming.
 - Grenades outline (off by default).
+- No physical collisions, making you immune to bullets, grenades and barbed wires (off by default).
 - Popup window to enable/disable all features (use right-alt or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
 - Load/Save all settings.
 
@@ -79,6 +80,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | load      |                     |         | Load settings from `trainer.ini`    |
 | loot      | `on` or `off`       |         | Show/Hide tracked items             |
 | night     | `on` or `off`       | `off`   | Enable/Disable night vision         |
+| nocoll    | `on` or `off`       | `off`   | Disable/Enable physical collisions  |
 | norecoil  | `on` or `off`       | `off`   | Disable/Enable recoil               |
 | quest     | `on` or `off`       | `off`   | Show/Hide quest POI                 |
 | save      |                     |         | Save settings to `trainer.ini`      |
@@ -92,6 +94,8 @@ This trainer hooks into the command system, so you can easily setup features usi
 | wallhack  | `on` or `off`       | `on`    | Show/hide players (on next raid)    |
 
 ## Sample `trainer.ini` configuration file
+
+Please note that there is no need to create this file by yourself. If you want to customize settings, use `save`, edit what you want then use `load`.
 
 ```ini
 ; Be careful when updating this file :)
@@ -146,6 +150,9 @@ EFT.Trainer.Features.LootItems.TrackedNames=["virtex","sg-c10","cofdm","battery"
 
 EFT.Trainer.Features.NightVision.Enabled=false
 EFT.Trainer.Features.NightVision.Key="F11"
+
+EFT.Trainer.Features.NoCollision.Enabled=false
+EFT.Trainer.Features.NoCollision.Key="None"
 
 EFT.Trainer.Features.NoRecoil.Enabled=false
 EFT.Trainer.Features.NoRecoil.Key="F7"
