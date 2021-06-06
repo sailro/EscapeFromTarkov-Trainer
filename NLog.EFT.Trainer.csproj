@@ -105,12 +105,14 @@
     <Compile Include="Features\CrossHair.cs" />
     <Compile Include="Features\Grenades.cs" />
     <Compile Include="Features\NoCollision.cs" />
+    <Compile Include="Features\Aimbot.cs" />
     <Compile Include="Features\ThermalVision.cs" />
     <Compile Include="Features\NightVision.cs" />
     <Compile Include="Features\AutomaticGun.cs" />
     <Compile Include="Features\ToggleMonoBehaviour.cs" />
     <Compile Include="Features\NoRecoil.cs" />
     <Compile Include="Features\Stamina.cs" />
+    <Compile Include="Features\HoldMonoBehaviour.cs" />
     <Compile Include="Features\TriggerMonoBehaviour.cs" />
     <Compile Include="KnownTemplateIds.cs" />
     <Compile Include="Extensions\LootableContainerExtension.cs" />

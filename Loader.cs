@@ -22,6 +22,7 @@ namespace EFT.Trainer
 
 		public static void Load()
 		{
+			HookObject.AddComponent<Features.Aimbot>();
 			HookObject.AddComponent<Features.GameState>();
 			HookObject.AddComponent<Features.ExfiltrationPoints>();
 			HookObject.AddComponent<Features.Hud>();
