@@ -13,6 +13,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 ## Features
 
 This trainer gives:
+- Aimbot (hold `/` -not the keypad one-, or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
 - HUD (ammo left in chamber / magazine, fire mode).
 - Door unlocker (use keypad-period, or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
 - Wallhack (you'll see players / bots / bosses with distinct colors through walls).
