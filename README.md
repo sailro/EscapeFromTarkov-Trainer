@@ -102,6 +102,9 @@ Please note that there is no need to create this file by yourself. If you want t
 ; For keys, use https://docs.unity3d.com/ScriptReference/KeyCode.html
 ; Colors are stored as an array of 'RGBA' floats
 
+EFT.Trainer.Features.Aimbot.Key="Slash"
+EFT.Trainer.Features.Aimbot.MaximumDistance=200.0
+
 EFT.Trainer.Features.AutomaticGun.Enabled=false
 EFT.Trainer.Features.AutomaticGun.Key="None"
 EFT.Trainer.Features.AutomaticGun.Rate=500
@@ -123,6 +126,7 @@ EFT.Trainer.Features.ExfiltrationPoints.CacheTimeInSec=7.0
 EFT.Trainer.Features.ExfiltrationPoints.EligibleColor=[0.0,1.0,0.0,1.0]
 EFT.Trainer.Features.ExfiltrationPoints.Enabled=true
 EFT.Trainer.Features.ExfiltrationPoints.Key="F1"
+EFT.Trainer.Features.ExfiltrationPoints.MaximumDistance=0.0
 EFT.Trainer.Features.ExfiltrationPoints.NotEligibleColor=[1.0,0.921568632,0.0156862754,1.0]
 
 EFT.Trainer.Features.GameState.CacheTimeInSec=2.0
@@ -140,11 +144,13 @@ EFT.Trainer.Features.LootableContainers.CacheTimeInSec=11.0
 EFT.Trainer.Features.LootableContainers.Color=[1.0,1.0,1.0,1.0]
 EFT.Trainer.Features.LootableContainers.Enabled=false
 EFT.Trainer.Features.LootableContainers.Key="F3"
+EFT.Trainer.Features.LootableContainers.MaximumDistance=0.0
 
 EFT.Trainer.Features.LootItems.CacheTimeInSec=3.0
 EFT.Trainer.Features.LootItems.Color=[0.0,1.0,1.0,1.0]
 EFT.Trainer.Features.LootItems.Enabled=true
 EFT.Trainer.Features.LootItems.Key="F4"
+EFT.Trainer.Features.LootItems.MaximumDistance=0.0
 EFT.Trainer.Features.LootItems.SearchInsideContainers=true
 EFT.Trainer.Features.LootItems.TrackedNames=["virtex","sg-c10","cofdm","battery","vpx","ushanka","chat","pilgrim"]
 
@@ -168,6 +174,7 @@ EFT.Trainer.Features.Quests.CacheTimeInSec=5.0
 EFT.Trainer.Features.Quests.Color=[1.0,0.0,1.0,1.0]
 EFT.Trainer.Features.Quests.Enabled=true
 EFT.Trainer.Features.Quests.Key="F6"
+EFT.Trainer.Features.Quests.MaximumDistance=0.0
 
 EFT.Trainer.Features.Stamina.Enabled=true
 EFT.Trainer.Features.Stamina.Key="None"
