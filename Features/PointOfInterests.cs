@@ -1,4 +1,5 @@
 ﻿using System;
+using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
 using UnityEngine;
@@ -10,6 +11,9 @@ namespace EFT.Trainer.Features
 	public abstract class PointOfInterests : CachableMonoBehaviour<PointOfInterest[]>
 	{
 		public static PointOfInterest[] Empty => Array.Empty<PointOfInterest>();
+
+		[ConfigurationProperty]
+		public float MaximumDistance { get; set; } = 0f;
 
 		public override void ProcessDataOnGUI(PointOfInterest[] data)
 		{
@@ -26,6 +30,10 @@ namespace EFT.Trainer.Features
 					continue;
 
 				var distance = Math.Round(Vector3.Distance(camera.transform.position, position));
+
+				if (MaximumDistance > 0 && distance > MaximumDistance)
+					continue;
+
 				Render.DrawString(new Vector2(screenPosition.x - 50f, screenPosition.y), GetCaption(poi, distance), poi.Color);
 			}
 		}
