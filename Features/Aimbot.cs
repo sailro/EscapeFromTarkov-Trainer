@@ -8,7 +8,7 @@ namespace EFT.Trainer.Features
 {
 	public class Aimbot : HoldMonoBehaviour
 	{
-		public override KeyCode Key { get; set; } = KeyCode.RightShift;
+		public override KeyCode Key { get; set; } = KeyCode.Slash;
 
 		[ConfigurationProperty]
 		public float MaximumDistance { get; set; } = 200f;
