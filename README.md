@@ -97,6 +97,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 ## Sample `trainer.ini` configuration file
 
 Please note that there is no need to create this file by yourself. If you want to customize settings, use `save`, edit what you want then use `load`.
+This file is located in `%USERPROFILE%\Documents\Escape from Tarkov\trainer.ini`.
 
 ```ini
 ; Be careful when updating this file :)
