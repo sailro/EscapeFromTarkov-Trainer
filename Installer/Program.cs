@@ -84,13 +84,10 @@ namespace Installer
 						return false;
 					}
 
-					foreach (XmlNode targetNode in targetsNode.ChildNodes)
+					if (targetsNode.ChildNodes.Cast<XmlNode>().Any(targetNode => targetNode.Attributes?["name"].Value == targetName && targetNode.Attributes["xsi:type"].Value == targetName))
 					{
-						if (targetNode.Attributes?["name"].Value == targetName && targetNode.Attributes["xsi:type"].Value == targetName)
-						{
-							AnsiConsole.MarkupLine($"Already patched [green]{Path.GetFileName(configPath)}[/] in [blue]{Path.GetDirectoryName(configPath)}[/].");
-							return true;
-						}
+						AnsiConsole.MarkupLine($"Already patched [green]{Path.GetFileName(configPath)}[/] in [blue]{Path.GetDirectoryName(configPath)}[/].");
+						return true;
 					}
 
 					var entry = doc.CreateElement("target");
