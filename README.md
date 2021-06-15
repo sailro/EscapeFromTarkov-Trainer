@@ -31,17 +31,14 @@ This trainer gives:
 - Popup window to enable/disable all features (use right-alt or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
 - Load/Save all settings.
 
-![Wallhack](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo.jpg)
-![Exfils](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo2.jpg)
-![Colors](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/demo3.jpg)
-![Quests](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/quests.jpg)
-![Stashes](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/stashes.jpg)
-![Track](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/track.jpg)
-![Lootitems](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/lootitems.jpg)
-![ItemInContainers](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/itemcontainers.jpg)
-![NightVision](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/night.jpg)
-![ThermalVision](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/thermal.jpg)
-![Popup](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/popup.jpg)
+![Wallhack](https://user-images.githubusercontent.com/638167/121975075-a6c7ba00-cd35-11eb-8c39-ac27dde7356f.png)
+![Exfils](https://user-images.githubusercontent.com/638167/121975112-b941f380-cd35-11eb-9a2c-3c541d933a62.png)
+![Colors](https://user-images.githubusercontent.com/638167/121975147-c828a600-cd35-11eb-8782-75f5b63eede4.png)
+![Quests](https://user-images.githubusercontent.com/638167/121975175-d8d91c00-cd35-11eb-86cd-6b49360fe370.png)
+![Stashes](https://user-images.githubusercontent.com/638167/121975196-e42c4780-cd35-11eb-8a33-8130f2fadf88.png)
+![Track](https://user-images.githubusercontent.com/638167/121975219-f6a68100-cd35-11eb-9d3a-36ffda3ca568.png)
+![NightVision](https://user-images.githubusercontent.com/638167/121975256-1047c880-cd36-11eb-903a-213d5d187ad4.png)
+![Popup](https://user-images.githubusercontent.com/638167/121975299-1f2e7b00-cd36-11eb-8f12-00de3e7515bd.png)
 
 ## Installation
 
