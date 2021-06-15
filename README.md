@@ -60,7 +60,7 @@ Overwrite the existing `EscapeFromTarkov_Data\Managed\NLog.dll.nlog` using `NLog
 
 ## Configuration
 
-![console](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/console.jpg)
+![console](https://user-images.githubusercontent.com/638167/121975396-63218000-cd36-11eb-9fc6-8c9344fc41fa.png)
 
 This trainer hooks into the command system, so you can easily setup features using the built-in console:
 
@@ -191,25 +191,25 @@ EFT is using:
 Given I was not able to “force push” my code into the EFT AppDomain, I searched a way for my code to be pulled by EFT directly.
 So, using ILSpy, I audited all calls to Assembly.Load* methods, and given EFT is using the NLog framework, I was able to find the following:
 
-![ilspy](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/ilspy1.png)
+![ilspy](https://user-images.githubusercontent.com/638167/121975428-73395f80-cd36-11eb-91a9-cf44263ddbab.png)
 
 NLog is auto-loading all assemblies located in the Managed folder (where the main Nlog.dll is located), if they start with the name NLog.
 
 So from here I was able to load my code, given I copied my NLog.EFT.Trainer.dll to the managed folder:
 
-![process monitor](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/process1.png)
+![process monitor](https://user-images.githubusercontent.com/638167/121975452-7df3f480-cd36-11eb-8867-f4cde0e4b950.png)
 
 After that, I needed a way to have an initial call to my code. In the .NET world you have something named module initializers, but before going this way, I found again another trick using NLog:
 
-![ilspy](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/ilspy2.png)
+![ilspy](https://user-images.githubusercontent.com/638167/121975467-8a784d00-cd36-11eb-927f-b2e98b59383d.png)
 
 If you create a file named “Nlog.dll.nlog” along with the NLog.dll file, it will be auto-loaded by default:
 
-![process monitor](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/process2.png)
+![process monitor](https://user-images.githubusercontent.com/638167/121975490-995eff80-cd36-11eb-8e2c-6b4e66e443f9.png)
 
 So I just crafted a proper config file, making NLog invoking the ctor of my stub Logger Target :
 
-![config](https://github.com/sailro/EscapeFromTarkov-Trainer/raw/master/Images/config.png)
+![config](https://user-images.githubusercontent.com/638167/121975513-a4b22b00-cd36-11eb-81a0-e4bf2adca6b9.png)
 
 ```csharp
 [Target(nameof(EFTTarget))]
