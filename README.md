@@ -8,7 +8,10 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 `master` branch can build against `EFT 0.12.10.12646`. If you are looking for another version, see [`branches`](https://github.com/sailro/EscapeFromTarkov-Trainer/branches) and [`releases`](https://github.com/sailro/EscapeFromTarkov-Trainer/releases).
 
 > If you want to compile the code yourself, make sure you clean up your solution properly after upgrading your EFT/sptarkov bits (even removing `bin` and `obj` folders) and check all your references.
-> The typical issue when something is out of sync is that EFT get stuck at the loading screen with type/tokens errors in `%LOCALAPPDATA%Low\Battlestate Games\EscapeFromTarkov\output_log.txt`
+
+> If you are using `SPT-AKI`, please make sure you have run the game at least once before compiling/installing the trainer. `SPT-AKI` is patching binaries during the first run, and we need to compile against those patched binaries.
+
+> The typical issue when something is out of sync is that the game will freeze at the startup screen with type/tokens errors in `%LOCALAPPDATA%Low\Battlestate Games\EscapeFromTarkov\output_log.txt`
 
 ## Features
 
@@ -40,7 +43,11 @@ This trainer gives:
 ![NightVision](https://user-images.githubusercontent.com/638167/121975256-1047c880-cd36-11eb-903a-213d5d187ad4.png)
 ![Popup](https://user-images.githubusercontent.com/638167/121975299-1f2e7b00-cd36-11eb-8f12-00de3e7515bd.png)
 
-## Installation
+## Easy and automatic installation
+
+Simply use the [Universal Installer](https://github.com/sailro/EscapeFromTarkov-Trainer/releases/tag/installer-1.0).
+
+## Manual installation 
 
 You can try to compile the code yourself (you will need a recent Visual Studio, because we are using CSharp 9). You can use a precompiled release as well.
 
