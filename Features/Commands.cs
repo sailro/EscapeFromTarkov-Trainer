@@ -156,7 +156,7 @@ namespace EFT.Trainer.Features
 		private static void UnTrackLootItem(Match match, LootItems feature)
 		{
 			var matchGroup = match.Groups[ValueGroup];
-			if (matchGroup == null || !matchGroup.Success)
+			if (matchGroup is not {Success: true})
 				return;
 
 			ShowTrackList(feature, feature.UnTrack(matchGroup.Value));
@@ -165,7 +165,7 @@ namespace EFT.Trainer.Features
 		private static void TrackLootItem(Match match, LootItems feature)
 		{
 			var matchGroup = match.Groups[ValueGroup];
-			if (matchGroup == null || !matchGroup.Success)
+			if (matchGroup is not {Success: true})
 				return;
 
 			ShowTrackList(feature, feature.Track(matchGroup.Value));
@@ -175,7 +175,7 @@ namespace EFT.Trainer.Features
 		{
 			var search = string.Empty;
 			var matchGroup = match.Groups[ValueGroup];
-			if (matchGroup != null && matchGroup.Success)
+			if (matchGroup is {Success: true})
 				search = matchGroup.Value.Trim();
 
 			var world = Singleton<GameWorld>.Instance;
@@ -331,7 +331,7 @@ namespace EFT.Trainer.Features
 		public void OnTriggerFeature(Type featureType, Match match)
 		{
 			var matchGroup = match.Groups[ValueGroup];
-			if (matchGroup == null || !matchGroup.Success)
+			if (matchGroup is not {Success: true})
 				return;
 
 			if (Loader.HookObject.GetComponent(featureType) is not ToggleMonoBehaviour feature)

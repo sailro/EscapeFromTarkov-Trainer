@@ -22,24 +22,26 @@ namespace EFT.Trainer
 
 		public static void Load()
 		{
-			HookObject.AddComponent<Features.Aimbot>();
-			HookObject.AddComponent<Features.GameState>();
-			HookObject.AddComponent<Features.ExfiltrationPoints>();
-			HookObject.AddComponent<Features.Hud>();
-			HookObject.AddComponent<Features.Players>();
-			HookObject.AddComponent<Features.Doors>();
-			HookObject.AddComponent<Features.NoRecoil>();
-			HookObject.AddComponent<Features.NoCollision>();
-			HookObject.AddComponent<Features.Quests>(); 
-			HookObject.AddComponent<Features.LootItems>();
-			HookObject.AddComponent<Features.LootableContainers>();
-			HookObject.AddComponent<Features.AutomaticGun>();
-			HookObject.AddComponent<Features.Stamina>();
-			HookObject.AddComponent<Features.NightVision>();
-			HookObject.AddComponent<Features.ThermalVision>();
-			HookObject.AddComponent<Features.CrossHair>();
-			HookObject.AddComponent<Features.Grenades>();
-			HookObject.AddComponent<Features.Commands>();
+			var hookObject = HookObject;
+
+			hookObject.AddComponent<Features.Aimbot>();
+			hookObject.AddComponent<Features.GameState>();
+			hookObject.AddComponent<Features.ExfiltrationPoints>();
+			hookObject.AddComponent<Features.Hud>();
+			hookObject.AddComponent<Features.Players>();
+			hookObject.AddComponent<Features.Doors>();
+			hookObject.AddComponent<Features.NoRecoil>();
+			hookObject.AddComponent<Features.NoCollision>();
+			hookObject.AddComponent<Features.Quests>(); 
+			hookObject.AddComponent<Features.LootItems>();
+			hookObject.AddComponent<Features.LootableContainers>();
+			hookObject.AddComponent<Features.AutomaticGun>();
+			hookObject.AddComponent<Features.Stamina>();
+			hookObject.AddComponent<Features.NightVision>();
+			hookObject.AddComponent<Features.ThermalVision>();
+			hookObject.AddComponent<Features.CrossHair>();
+			hookObject.AddComponent<Features.Grenades>();
+			hookObject.AddComponent<Features.Commands>();
 		}
 	}
 }

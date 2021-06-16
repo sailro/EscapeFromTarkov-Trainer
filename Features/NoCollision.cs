@@ -1,5 +1,4 @@
-﻿using EFT.UI;
-using UnityEngine;
+﻿using UnityEngine;
 
 #nullable enable
 
