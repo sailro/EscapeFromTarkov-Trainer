@@ -104,7 +104,7 @@ namespace EFT.Trainer.Features
 					{
 						records.Add(new PointOfInterest
 						{
-							Name = $"{itemName} (in {containerName})",
+							Name = itemName == containerName ? itemName : $"{itemName} (in {containerName})",
 							Position = position,
 							ScreenPosition = camera.WorldPointToScreenPoint(position),
 							Color = Color
