@@ -7,7 +7,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 
 `master` branch can build against `EFT 0.12.10.12646`. If you are looking for another version, see [`branches`](https://github.com/sailro/EscapeFromTarkov-Trainer/branches) and [`releases`](https://github.com/sailro/EscapeFromTarkov-Trainer/releases).
 
-> If you want to compile the code yourself, make sure you clean up your solution properly after upgrading your EFT/sptarkov bits (even removing `bin` and `obj` folders) and check all your references.
+> If you want to compile the code yourself, make sure you cleaned-up your solution properly after upgrading your EFT/sptarkov bits (even removing `bin` and `obj` folders) and check all your references.
 
 > If you are using `SPT-AKI`, please make sure you have run the game at least once before compiling/installing the trainer. `SPT-AKI` is patching binaries during the first run, and we need to compile against those patched binaries.
 
