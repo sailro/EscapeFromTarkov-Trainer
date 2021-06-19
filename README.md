@@ -169,11 +169,15 @@ EFT.Trainer.Features.NoCollision.Key="None"
 EFT.Trainer.Features.NoRecoil.Enabled=false
 EFT.Trainer.Features.NoRecoil.Key="F7"
 
+EFT.Trainer.Features.Players.BearBorderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.BearColor=[0.0,0.0,1.0,1.0]
+EFT.Trainer.Features.Players.BossBorderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.BossColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.Enabled=true
 EFT.Trainer.Features.Players.Key="F5"
+EFT.Trainer.Features.Players.ScavBorderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.ScavColor=[1.0,0.921568632,0.0156862754,1.0]
+EFT.Trainer.Features.Players.UsecBorderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.UsecColor=[0.0,1.0,0.0,1.0]
 
 EFT.Trainer.Features.Quests.CacheTimeInSec=5.0
