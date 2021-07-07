@@ -43,6 +43,10 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="netstandard">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Battlestate Games\sptarkov\EscapeFromTarkov_Data\Managed\netstandard.dll</HintPath>
+    </Reference>
     <Reference Include="Assembly-CSharp">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Battlestate Games\sptarkov\EscapeFromTarkov_Data\Managed\Assembly-CSharp.dll</HintPath>
