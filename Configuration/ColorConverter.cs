@@ -8,16 +8,19 @@ namespace EFT.Trainer.Configuration
 {
 	public class ColorConverter : JsonConverter
 	{
-		public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
+		public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
 		{
+			if (value is null)
+				return;
+
 			var color = (Color)value;
 			serializer.Serialize(writer, new[] {color.r, color.g, color.b, color.a});
 		}
 
-		public override object ReadJson(JsonReader reader, Type objectType, object existingValue, JsonSerializer serializer)
+		public override object ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)
 		{
 			var array = serializer.Deserialize<float[]>(reader);
-			return new Color(array[0], array[1], array[2], array[3]);
+			return array is null ? Color.clear : new Color(array[0], array[1], array[2], array[3]);
 		}
 
 		public override bool CanConvert(Type objectType)
