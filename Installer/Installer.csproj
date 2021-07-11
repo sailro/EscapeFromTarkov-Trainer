@@ -90,6 +90,7 @@
     </Compile>
     <Compile Include="Compiler.cs" />
     <Compile Include="Installation.cs" />
+    <Compile Include="InstallCommand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UTF8StringWriter.cs" />

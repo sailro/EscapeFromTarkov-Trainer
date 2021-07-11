@@ -61,7 +61,9 @@ namespace Installer
 					continue;
 
 				var reference = match.Groups["reference"].Value;
-				yield return MetadataReference.CreateFromFile(Path.Combine(Installation.Managed, $"{reference}.dll"));
+				var path = Path.Combine(Installation.Managed, $"{reference}.dll");
+				if (File.Exists(path))
+					yield return MetadataReference.CreateFromFile(path);
 			}
 		}
 
