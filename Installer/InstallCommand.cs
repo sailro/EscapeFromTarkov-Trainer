@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
@@ -31,17 +30,6 @@ namespace Installer
 			public string? Branch { get; set; }
 		}
 
-		internal enum ExitCode
-		{
-			Success = 0,
-			NoInstallationFound = 1,
-			CompilationFailed = 2,
-			Canceled = 3,
-			CreateDllFailed = 4,
-			CreateOutlineFailed = 5,
-			Failure = 6,
-		}
-
 		public override async Task<int> ExecuteAsync([NotNull] CommandContext context, [NotNull] Settings settings)
 		{
 			try
@@ -49,7 +37,7 @@ namespace Installer
 				AnsiConsole.MarkupLine("[cyan]-=[[ EscapeFromTarkov-Trainer Universal Installer ]]=-[/]");
 				AnsiConsole.WriteLine();
 
-				var installation = GetTargetInstallation(settings);
+				var installation = Installation.GetTargetInstallation(settings.Path, "Please select where to install the trainer");
 				if (installation == null)
 					return (int)ExitCode.NoInstallationFound;
 
@@ -96,46 +84,6 @@ namespace Installer
 			}
 
 			return (int)ExitCode.Success;
-		}
-
-		private static Installation? GetTargetInstallation(Settings settings)
-		{
-			var installations = new List<Installation>();
-			
-			AnsiConsole
-				.Status()
-				.Start("Discovering [green]Escape From Tarkov[/] installations...", _ =>
-				{
-					installations = Installation
-						.DiscoverInstallations()
-						.Distinct()
-						.ToList();
-				});
-
-			if (settings.Path is not null && Installation.TryDiscoverInstallation(settings.Path, out var installation))
-				installations.Add(installation);
-
-			installations = installations
-				.Distinct()
-				.OrderBy(i => i.Location)
-				.ToList();
-
-			switch (installations.Count)
-			{
-				case 0:
-					AnsiConsole.MarkupLine("[yellow]No [green]EscapeFromTarkov[/] installation found, please re-run this installer, passing the installation path as argument.[/]");
-					return null;
-				case 1:
-					return installations.First();
-				default:
-					var prompt = new SelectionPrompt<Installation>
-					{
-						Converter = i => i.Location,
-						Title = "Please select where to install the trainer"
-					};
-					prompt.AddChoices(installations);
-					return AnsiConsole.Prompt(prompt);
-			}
 		}
 
 		private static async Task<(CSharpCompilation?, ZipArchive?)> GetCompilationAsync(Installation installation, string branch)

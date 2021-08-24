@@ -89,10 +89,12 @@
       <Link>NotNullWhenAttribute.cs</Link>
     </Compile>
     <Compile Include="Compiler.cs" />
+    <Compile Include="ExitCode.cs" />
     <Compile Include="Installation.cs" />
     <Compile Include="InstallCommand.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UninstallCommand.cs" />
     <Compile Include="UTF8StringWriter.cs" />
   </ItemGroup>
   <ItemGroup>

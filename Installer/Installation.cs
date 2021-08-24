@@ -5,6 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using Microsoft.Win32;
+using Spectre.Console;
 
 #nullable enable
 
@@ -40,7 +41,47 @@ namespace Installer
 			return Location.GetHashCode();
 		}
 
-		public static IEnumerable<Installation> DiscoverInstallations()
+		public static Installation? GetTargetInstallation(string? path, string promptTitle)
+		{
+			var installations = new List<Installation>();
+			
+			AnsiConsole
+				.Status()
+				.Start("Discovering [green]Escape From Tarkov[/] installations...", _ =>
+				{
+					installations = Installation
+						.DiscoverInstallations()
+						.Distinct()
+						.ToList();
+				});
+
+			if (path is not null && Installation.TryDiscoverInstallation(path, out var installation))
+				installations.Add(installation);
+
+			installations = installations
+				.Distinct()
+				.OrderBy(i => i.Location)
+				.ToList();
+
+			switch (installations.Count)
+			{
+				case 0:
+					AnsiConsole.MarkupLine("[yellow]No [green]EscapeFromTarkov[/] installation found, please re-run this installer, passing the installation path as argument.[/]");
+					return null;
+				case 1:
+					return installations.First();
+				default:
+					var prompt = new SelectionPrompt<Installation>
+					{
+						Converter = i => i.Location,
+						Title = promptTitle
+					};
+					prompt.AddChoices(installations);
+					return AnsiConsole.Prompt(prompt);
+			}
+		}
+
+		private static IEnumerable<Installation> DiscoverInstallations()
 		{
 			using var hive = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32);
 			using var eft = hive.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\EscapeFromTarkov", false);
@@ -67,7 +108,7 @@ namespace Installer
 			}
 		}
 
-		public static bool TryDiscoverInstallation(string path, [NotNullWhen(true)] out Installation? installation)
+		private static bool TryDiscoverInstallation(string path, [NotNullWhen(true)] out Installation? installation)
 		{
 			installation = null;
 
