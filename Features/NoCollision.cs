@@ -21,7 +21,7 @@ namespace EFT.Trainer.Features
 				if (rigidbody.detectCollisions == !Enabled)
 					continue;
 
-				rigidbody.detectCollisions = !enabled;
+				rigidbody.detectCollisions = !Enabled;
 			}
 		}
 	}
