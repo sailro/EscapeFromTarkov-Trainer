@@ -45,6 +45,7 @@ namespace EFT.Trainer.Features
 			{"night", typeof(NightVision)},
 			{"nocoll", typeof(NoCollision)},
 			{"norecoil", typeof(NoRecoil)},
+			{"novisor", typeof(NoVisor)},
 			{"quest", typeof(Quests)},
 			{"stamina", typeof(Stamina)},
 			{"stash", typeof(LootableContainers)},

@@ -39,6 +39,7 @@ namespace EFT.Trainer
 			hookObject.AddComponent<Features.Stamina>();
 			hookObject.AddComponent<Features.NightVision>();
 			hookObject.AddComponent<Features.ThermalVision>();
+			hookObject.AddComponent<Features.NoVisor>();
 			hookObject.AddComponent<Features.CrossHair>();
 			hookObject.AddComponent<Features.Grenades>();
 			hookObject.AddComponent<Features.Commands>();
