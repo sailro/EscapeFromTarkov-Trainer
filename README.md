@@ -22,6 +22,7 @@ This trainer gives:
 - Wallhack (you'll see players / bots / bosses with distinct colors through walls).
 - Exfiltration points (green for available points, yellow for others).
 - No recoil (off by default).
+- No visor (off by default), so even when using a face shield-visor you won't see it.
 - Locations for taking/placing quest items (off by default). Only items related to your started quests are displayed.
 - Hidden stashes like buried barrels or ground caches (off by default).
 - Ability to list all lootable items and to track any item by name (even in containers).
@@ -87,6 +88,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | night     | `on` or `off`       | `off`   | Enable/Disable night vision         |
 | nocoll    | `on` or `off`       | `off`   | Disable/Enable physical collisions  |
 | norecoil  | `on` or `off`       | `off`   | Disable/Enable recoil               |
+| novisor   | `on` or `off`       | `off`   | Disable/Enable visor                |
 | quest     | `on` or `off`       | `off`   | Show/Hide quest POI                 |
 | save      |                     |         | Save settings to `trainer.ini`      |
 | stamina   | `on` or `off`       | `off`   | Enable/Disable unlimited stamina    |
@@ -168,6 +170,9 @@ EFT.Trainer.Features.NoCollision.Key="None"
 
 EFT.Trainer.Features.NoRecoil.Enabled=false
 EFT.Trainer.Features.NoRecoil.Key="F7"
+
+EFT.Trainer.Features.NoVisor.Enabled=false
+EFT.Trainer.Features.NoVisor.Key="None"
 
 EFT.Trainer.Features.Players.BearBorderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.BearColor=[0.0,0.0,1.0,1.0]
