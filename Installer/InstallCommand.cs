@@ -41,7 +41,7 @@ namespace Installer
 				if (installation == null)
 					return (int)ExitCode.NoInstallationFound;
 
-				AnsiConsole.MarkupLine($"Target [green]EscapeFromTarkov ({installation.Version})[/] installation is [blue]{installation.Location}[/].");
+				AnsiConsole.MarkupLine($"Target [green]EscapeFromTarkov ({installation.Version})[/] in [blue]{installation.Location}[/].");
 
 				var (compilation, archive) = await GetCompilationAsync(installation, "master");
 				if (compilation == null)

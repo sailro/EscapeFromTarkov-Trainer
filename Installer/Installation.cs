@@ -69,7 +69,8 @@ namespace Installer
 					AnsiConsole.MarkupLine("[yellow]No [green]EscapeFromTarkov[/] installation found, please re-run this installer, passing the installation path as argument.[/]");
 					return null;
 				case 1:
-					return installations.First();
+					var first = installations.First();
+					return AnsiConsole.Confirm($"Continue with [green]EscapeFromTarkov ({first.Version})[/] in [blue]{first.Location}[/] ?") ? first : null;
 				default:
 					var prompt = new SelectionPrompt<Installation>
 					{
