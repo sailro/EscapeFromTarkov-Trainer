@@ -17,7 +17,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 
 This trainer gives:
 - Aimbot (hold `/` -not the keypad one-, or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
-- HUD (ammo left in chamber / magazine, fire mode).
+- HUD (compass, ammo left in chamber / magazine, fire mode).
 - Door unlocker (use keypad-period, or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
 - Wallhack (you'll see players / bots / bosses with distinct colors through walls).
 - Exfiltration points (green for available points, yellow for others).
@@ -145,6 +145,7 @@ EFT.Trainer.Features.Grenades.Enabled=true
 EFT.Trainer.Features.Grenades.Key="None"
 
 EFT.Trainer.Features.Hud.Color=[1.0,1.0,1.0,1.0]
+EFT.Trainer.Features.Hud.Compass=true
 EFT.Trainer.Features.Hud.Enabled=true
 EFT.Trainer.Features.Hud.Key="F2"
 
