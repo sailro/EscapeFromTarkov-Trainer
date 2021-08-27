@@ -3,6 +3,7 @@ using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
 using UnityEngine;
+using System;
 
 #nullable enable
 
@@ -12,6 +13,11 @@ namespace EFT.Trainer.Features
 	{
 		[ConfigurationProperty]
 		public Color Color { get; set; } = Color.white;
+
+		[ConfigurationProperty]
+		public bool Compass { get; set; } = true;
+
+		private static string[] Directions = { "N", "NE", "E", "SE", "S", "SW", "W", "NW", "N" };
 
 		protected override void OnGUIWhenEnabled()
 		{
@@ -26,7 +32,16 @@ namespace EFT.Trainer.Features
 			if (mag == null)
 				return;
 
-			var hud = $"{mag.Count}+{weapon.ChamberAmmoCount}/{mag.MaxCount} [{weapon.SelectedFireMode}]";
+			var prefix = "";
+			if (Compass)
+			{
+				var forward = player.Transform.forward;
+				forward.y = 0;
+				var heading = Quaternion.LookRotation(forward).eulerAngles.y;
+				prefix = Directions[(int)Math.Round((double)heading % 360 / 45)] + " - ";
+			}
+
+			var hud = $"{prefix}{mag.Count}+{weapon.ChamberAmmoCount}/{mag.MaxCount} [{weapon.SelectedFireMode}]";
 			Render.DrawString(new Vector2(512, Screen.height - 16f), hud, Color);
 		}
 	}
