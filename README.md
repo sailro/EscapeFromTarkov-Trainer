@@ -20,6 +20,7 @@ This trainer gives:
 - HUD (compass, ammo left in chamber / magazine, fire mode).
 - Door unlocker (use keypad-period, or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
 - Wallhack (you'll see players / bots / bosses with distinct colors through walls).
+- Shoot through walls with maximum penetration and minimal deviation/ricochet.
 - Exfiltration points (green for available points, yellow for others).
 - No recoil (off by default).
 - No visor (off by default), so even when using a face shield-visor you won't see it.
@@ -99,6 +100,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | tracklist |                     |         | Show tracked items                  |
 | untrack   | `[name]` or `*`     |         | Untrack a `name` or `*` for all     |
 | wallhack  | `on` or `off`       | `on`    | Show/hide players (on next raid)    |
+| wallshoot | `on` or `off`       | `on`    | Enable/Disable shoot through walls  |
 
 ## Sample `trainer.ini` configuration file
 
@@ -197,6 +199,10 @@ EFT.Trainer.Features.Stamina.Key="None"
 
 EFT.Trainer.Features.ThermalVision.Enabled=false
 EFT.Trainer.Features.ThermalVision.Key="F12"
+
+EFT.Trainer.Features.WallShoot.CacheTimeInSec=2.0
+EFT.Trainer.Features.WallShoot.Enabled=true
+EFT.Trainer.Features.WallShoot.Key="None"
 ```
 
 ## Mono injection
