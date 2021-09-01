@@ -17,7 +17,7 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty]
 		public bool Compass { get; set; } = true;
 
-		private static string[] Directions = { "N", "NE", "E", "SE", "S", "SW", "W", "NW", "N" };
+		private static readonly string[] Directions = { "N", "NE", "E", "SE", "S", "SW", "W", "NW", "N" };
 
 		protected override void OnGUIWhenEnabled()
 		{
