@@ -32,6 +32,18 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty]
 		public Color BossBorderColor { get; set; } = Color.red;
 
+		[ConfigurationProperty]
+		public Color CultistColor { get; set; } = Color.yellow;
+
+		[ConfigurationProperty]
+		public Color CultistBorderColor { get; set; } = Color.red;
+
+		[ConfigurationProperty]
+		public Color ScavRaiderColor { get; set; } = Color.red;
+
+		[ConfigurationProperty]
+		public Color ScavRaiderBorderColor { get; set; } = Color.red;
+
 		protected override void UpdateWhenEnabled()
 		{
 			var hostiles = GameState.Current?.Hostiles;
@@ -59,11 +71,26 @@ namespace EFT.Trainer.Features
 			}
 
 			var settings = info.Settings;
-			if (settings != null && settings.IsBoss())
+			if (settings != null)
 			{
-				color = BossColor;
-				borderColor = BossBorderColor;
-				return;
+				switch(settings.Role)
+				{
+					case WildSpawnType.pmcBot:
+						color = ScavRaiderColor;
+						borderColor = ScavRaiderBorderColor;
+						return;
+					case WildSpawnType.sectantWarrior:
+						color = CultistColor;
+						borderColor = CultistBorderColor;
+						return;
+				}
+
+				if (settings.IsBoss())
+				{
+					color = BossColor;
+					borderColor = BossBorderColor;
+					return;
+				}
 			}
 
 			// it can still be a bot in sptarkov but let's use the pmc color

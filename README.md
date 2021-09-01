@@ -181,10 +181,14 @@ EFT.Trainer.Features.Players.BearBorderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.BearColor=[0.0,0.0,1.0,1.0]
 EFT.Trainer.Features.Players.BossBorderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.BossColor=[1.0,0.0,0.0,1.0]
+EFT.Trainer.Features.Players.CultistBorderColor=[1.0,0.0,0.0,1.0]
+EFT.Trainer.Features.Players.CultistColor=[1.0,0.921568632,0.0156862754,1.0]
 EFT.Trainer.Features.Players.Enabled=true
 EFT.Trainer.Features.Players.Key="F5"
 EFT.Trainer.Features.Players.ScavBorderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.ScavColor=[1.0,0.921568632,0.0156862754,1.0]
+EFT.Trainer.Features.Players.ScavRaiderBorderColor=[1.0,0.0,0.0,1.0]
+EFT.Trainer.Features.Players.ScavRaiderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.UsecBorderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.UsecColor=[0.0,1.0,0.0,1.0]
 
