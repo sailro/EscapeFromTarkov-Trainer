@@ -51,6 +51,7 @@ namespace EFT.Trainer.Features
 			{"stash", typeof(LootableContainers)},
 			{"thermal", typeof(ThermalVision)},
 			{"wallhack", typeof(Players)},
+			{"wallshoot", typeof(WallShoot)},
 		};
 
 		protected override void Update()
