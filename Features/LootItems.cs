@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Comfort.Common;
 using EFT.Interactive;
+using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using UnityEngine;
@@ -23,6 +24,9 @@ namespace EFT.Trainer.Features
 
 		[ConfigurationProperty] 
 		public bool SearchInsideContainers { get; set; } = true;
+
+		[ConfigurationProperty]
+		public bool SearchInsideCorpses { get; set; } = true;
 
 		public bool Track(string lootname)
 		{
@@ -83,33 +87,39 @@ namespace EFT.Trainer.Features
 				if (!container.IsValid())
 					continue;
 
-				var items = container
-					.ItemOwner?
-					.RootItem?
-					.GetAllItems()?
-					.ToArray();
+				var containerName = container.Template.LocalizedShortName();
+				var position = container.transform.position;
+				FindItemsInRootItem(records, camera, container.ItemOwner?.RootItem, containerName, position);
+			}
+		}
 
-				if (items == null)
+		private void FindItemsInRootItem(List<PointOfInterest> records, Camera camera, Item? rootItem, string name, Vector3 position)
+		{
+			var items = rootItem?
+				.GetAllItems()?
+				.ToArray();
+
+			if (items == null)
+				return;
+
+			foreach (var item in items)
+			{
+				if (!item.IsValid())
 					continue;
 
-				var position = container.transform.position;
-				var containerName = container.Template.LocalizedShortName();
-				foreach (var item in items)
-				{
-					if (!item.IsValid())
-						continue;
+				if (item.IsFiltered())
+					continue;
 
-					var itemName = item.ShortName.Localized();
-					if (TrackedNames.Any(match => itemName.IndexOf(match, StringComparison.OrdinalIgnoreCase) >= 0))
+				var itemName = item.ShortName.Localized();
+				if (TrackedNames.Any(match => itemName.IndexOf(match, StringComparison.OrdinalIgnoreCase) >= 0))
+				{
+					records.Add(new PointOfInterest
 					{
-						records.Add(new PointOfInterest
-						{
-							Name = itemName == containerName ? itemName : $"{itemName} (in {containerName})",
-							Position = position,
-							ScreenPosition = camera.WorldPointToScreenPoint(position),
-							Color = Color
-						});
-					}
+						Name = itemName == name ? itemName : $"{itemName} (in {name})",
+						Position = position,
+						ScreenPosition = camera.WorldPointToScreenPoint(position),
+						Color = Color
+					});
 				}
 			}
 		}
@@ -125,6 +135,14 @@ namespace EFT.Trainer.Features
 
 				var position = lootItem.transform.position;
 				var lootItemName = lootItem.Item.ShortName.Localized();
+
+				if (lootItem is Corpse corpse)
+				{
+					if (SearchInsideCorpses)
+						FindItemsInRootItem(records, camera, corpse.ItemOwner?.RootItem, nameof(Corpse), position);
+
+					continue;
+				}
 
 				if (TrackedNames.Any(match => lootItemName.IndexOf(match, StringComparison.OrdinalIgnoreCase) >= 0))
 				{

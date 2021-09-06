@@ -26,7 +26,7 @@ This trainer gives:
 - No visor (off by default), so even when using a face shield-visor you won't see it.
 - Locations for taking/placing quest items (off by default). Only items related to your started quests are displayed.
 - Hidden stashes like buried barrels or ground caches (off by default).
-- Ability to list all lootable items and to track any item by name (even in containers).
+- Ability to list all lootable items and to track any item by name (even in containers and corpses).
 - Unlimited stamina (off by default).
 - Force all guns (even bolt action guns) to use automatic firing mode with customizable fire rate.
 - Thermal and night visions (even combined).
@@ -163,6 +163,7 @@ EFT.Trainer.Features.LootItems.Enabled=true
 EFT.Trainer.Features.LootItems.Key="F4"
 EFT.Trainer.Features.LootItems.MaximumDistance=0.0
 EFT.Trainer.Features.LootItems.SearchInsideContainers=true
+EFT.Trainer.Features.LootItems.SearchInsideCorpses=true
 EFT.Trainer.Features.LootItems.TrackedNames=["virtex","sg-c10","cofdm","battery","vpx","ushanka","chat","pilgrim"]
 
 EFT.Trainer.Features.NightVision.Enabled=false

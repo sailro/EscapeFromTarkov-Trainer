@@ -186,8 +186,8 @@ namespace EFT.Trainer.Features
 
 			var itemsPerName = new Dictionary<string, List<Item>>();
 
-			// Step 1 - look outside containers (loot items)
-			FindLootItems(world, itemsPerName);
+			// Step 1 - look outside containers and inside corpses (loot items)
+			FindLootItems(world, itemsPerName, feature);
 
 			// Step 2 - look inside containers (items)
 			if (feature.SearchInsideContainers)
@@ -226,20 +226,23 @@ namespace EFT.Trainer.Features
 				if (!container.IsValid())
 					continue;
 
-				var items = container
-					.ItemOwner?
-					.RootItem?
-					.GetAllItems()?
-					.ToArray();
-
-				if (items == null)
-					continue;
-
-				IndexItems(items, itemsPerName);
+				FindItemsInRootItem(itemsPerName, container.ItemOwner?.RootItem);
 			}
 		}
 
-		private static void FindLootItems(GameWorld world, Dictionary<string, List<Item>> itemsPerName)
+		private static void FindItemsInRootItem(Dictionary<string, List<Item>> itemsPerName, Item? rootItem)
+		{
+			var items = rootItem?
+				.GetAllItems()?
+				.ToArray();
+
+			if (items == null)
+				return;
+
+			IndexItems(items, itemsPerName);
+		}
+
+		private static void FindLootItems(GameWorld world, Dictionary<string, List<Item>> itemsPerName, LootItems feature)
 		{
 			var lootItems = world.LootItems;
 			var filteredItems = new List<Item>();
@@ -248,6 +251,14 @@ namespace EFT.Trainer.Features
 				var lootItem = lootItems.GetByIndex(i);
 				if (!lootItem.IsValid())
 					continue;
+
+				if (lootItem is Corpse corpse)
+				{
+					if (feature.SearchInsideCorpses)
+						FindItemsInRootItem(itemsPerName, corpse.ItemOwner?.RootItem);
+
+					continue;
+				}
 
 				filteredItems.Add(lootItem.Item);
 			}
@@ -260,6 +271,9 @@ namespace EFT.Trainer.Features
 			foreach (var item in items)
 			{
 				if (!item.IsValid())
+					continue;
+
+				if (item.IsFiltered())
 					continue;
 
 				var itemName = item.ShortName.Localized();
