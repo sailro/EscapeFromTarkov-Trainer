@@ -29,7 +29,7 @@ namespace EFT.Trainer
 			hookObject.AddComponent<Features.ExfiltrationPoints>();
 			hookObject.AddComponent<Features.Hud>();
 			hookObject.AddComponent<Features.Players>();
-			hookObject.AddComponent<Features.Doors>();
+			hookObject.AddComponent<Features.WorldInteractiveObjects>();
 			hookObject.AddComponent<Features.NoRecoil>();
 			hookObject.AddComponent<Features.NoCollision>();
 			hookObject.AddComponent<Features.Quests>(); 

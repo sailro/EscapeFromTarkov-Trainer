@@ -101,7 +101,7 @@
     <Compile Include="Configuration\KeyCodeConverter.cs" />
     <Compile Include="Extensions\ELootRarityExtensions.cs" />
     <Compile Include="Extensions\ExfiltrationPointExtension.cs" />
-    <Compile Include="Extensions\DoorExtensions.cs" />
+    <Compile Include="Extensions\WorldInteractiveObjectExtensions.cs" />
     <Compile Include="Extensions\ItemExtension.cs" />
     <Compile Include="Extensions\NotNullWhenAttribute.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
@@ -128,7 +128,7 @@
     <Compile Include="Extensions\CameraExtensions.cs" />
     <Compile Include="EFTTarget.cs" />
     <Compile Include="Features\Commands.cs" />
-    <Compile Include="Features\Doors.cs" />
+    <Compile Include="Features\WorldInteractiveObjects.cs" />
     <Compile Include="Features\LootableContainers.cs" />
     <Compile Include="Features\LootItems.cs" />
     <Compile Include="Features\PointOfInterest.cs" />

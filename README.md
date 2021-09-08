@@ -18,7 +18,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 This trainer gives:
 - Aimbot (hold `/` -not the keypad one-, or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
 - HUD (compass, ammo left in chamber / magazine, fire mode).
-- Door unlocker (use keypad-period, or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
+- Door/Keycard reader/Car unlocker (use keypad-period, or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
 - Wallhack (you'll see players / bots / bosses with distinct colors through walls).
 - Shoot through walls with maximum penetration and minimal deviation/ricochet.
 - Exfiltration points (green for available points, yellow for others).
@@ -130,8 +130,6 @@ EFT.Trainer.Features.CrossHair.Key="None"
 EFT.Trainer.Features.CrossHair.Size=10.0
 EFT.Trainer.Features.CrossHair.Thickness=2.0
 
-EFT.Trainer.Features.Doors.Key="KeypadPeriod"
-
 EFT.Trainer.Features.ExfiltrationPoints.CacheTimeInSec=7.0
 EFT.Trainer.Features.ExfiltrationPoints.EligibleColor=[0.0,1.0,0.0,1.0]
 EFT.Trainer.Features.ExfiltrationPoints.Enabled=true
@@ -208,6 +206,8 @@ EFT.Trainer.Features.ThermalVision.Key="F12"
 EFT.Trainer.Features.WallShoot.CacheTimeInSec=2.0
 EFT.Trainer.Features.WallShoot.Enabled=true
 EFT.Trainer.Features.WallShoot.Key="None"
+
+EFT.Trainer.Features.WorldInteractiveObjects.Key="KeypadPeriod"
 ```
 
 ## Mono injection
