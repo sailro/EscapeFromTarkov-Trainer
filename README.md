@@ -47,7 +47,7 @@ This trainer gives:
 
 ## Easy and automatic installation
 
-Simply use the [Universal Installer](https://github.com/sailro/EscapeFromTarkov-Trainer/releases/tag/installer-1.0).
+Simply use the [Universal Installer](https://github.com/sailro/EscapeFromTarkov-Trainer/releases).
 
 ## Manual installation 
 
