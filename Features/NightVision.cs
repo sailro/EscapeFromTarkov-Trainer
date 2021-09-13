@@ -1,5 +1,7 @@
 ﻿#nullable enable
 
+using UnityEngine;
+
 namespace EFT.Trainer.Features
 {
 	public class NightVision : ToggleMonoBehaviour
@@ -19,6 +21,16 @@ namespace EFT.Trainer.Features
 				return;
 
 			component.StartSwitch(Enabled);
+			if (Enabled)
+			{
+				component.DiffuseIntensity = 0f;
+				component.Intensity = 0f;
+				component.NoiseIntensity = 0f;
+
+				component.TextureMask.Color = new Color(0f, 0f, 0f, 0f);
+				component.TextureMask.Stretch = false;
+				component.TextureMask.Size = 0f;
+			}
 		}
 	}
 }
