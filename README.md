@@ -20,7 +20,7 @@ This trainer gives:
 - HUD (compass, ammo left in chamber / magazine, fire mode).
 - Door/Keycard reader/Car unlocker (use keypad-period, or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
 - Wallhack (you'll see players / bots / bosses with distinct colors through walls).
-- Shoot through walls with maximum penetration and minimal deviation/ricochet.
+- Shoot through wall/helmet/vest/material with maximum penetration and minimal deviation/ricochet.
 - Exfiltration points (green for available points, yellow for others).
 - No recoil (off by default).
 - No visor (off by default), so even when using a face shield-visor you won't see it.
