@@ -1,5 +1,7 @@
-﻿using Comfort.Common;
+﻿using System.Linq;
+using Comfort.Common;
 using EFT.Ballistics;
+using EFT.Trainer.Extensions;
 
 namespace EFT.Trainer.Features
 {
@@ -9,7 +11,18 @@ namespace EFT.Trainer.Features
 
 		public override BallisticCollider[] RefreshData()
 		{
-			return FindObjectsOfType<BallisticCollider>();
+			var colliders = FindObjectsOfType<BallisticCollider>();
+
+			var player = GameState.Current?.LocalPlayer;
+			if (!player.IsValid())
+				return colliders;
+
+			// Exclude our own BallisticColliders from being penetrated
+			var exclude = player.GetComponentsInChildren<BallisticCollider>();
+
+			return colliders
+				.Except(exclude)
+				.ToArray();
 		}
 
 		public override void ProcessData(BallisticCollider[] data)
@@ -25,7 +38,14 @@ namespace EFT.Trainer.Features
 			for (int shotIndex = 0; shotIndex < sbc.ActiveShotsCount; shotIndex++)
 			{
 				var shot = sbc.GetActiveShot(shotIndex);
+				if (shot == null)
+					continue;
+
 				if (shot.IsShotFinished)
+					continue;
+
+				// Make sur we are not enhancing ennemy shots
+				if (shot.Player.IsValid() && !shot.Player.IsYourPlayer)
 					continue;
 
 				shot.IsForwardHit = false;
@@ -34,6 +54,9 @@ namespace EFT.Trainer.Features
 
 			foreach(var bc in data)
 			{
+				if (bc == null)
+					continue;
+
 				bc.PenetrationChance = 1.0f;
 				bc.PenetrationLevel = 0.0f;
 				bc.RicochetChance = 0.0f;
