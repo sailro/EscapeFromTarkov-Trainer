@@ -10,12 +10,14 @@ namespace EFT.Trainer.Configuration
 	{
 		public override void WriteJson(JsonWriter writer, object? value, JsonSerializer serializer)
 		{
+			value ??= KeyCode.None;
 			serializer.Serialize(writer, Enum.GetName(typeof(KeyCode), value));
 		}
 
 		public override object ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)
 		{
-			return Enum.Parse(typeof(KeyCode), serializer.Deserialize<string>(reader));
+			var value = serializer.Deserialize<string>(reader);
+			return value == null ? KeyCode.None : Enum.Parse(typeof(KeyCode), value);
 		}
 
 		public override bool CanConvert(Type objectType)

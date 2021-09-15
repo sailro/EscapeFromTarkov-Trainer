@@ -3,6 +3,8 @@ using Comfort.Common;
 using EFT.Ballistics;
 using EFT.Trainer.Extensions;
 
+#nullable enable
+
 namespace EFT.Trainer.Features
 {
 	public class WallShoot : CachableMonoBehaviour<BallisticCollider[]>
@@ -54,9 +56,6 @@ namespace EFT.Trainer.Features
 
 			foreach(var bc in data)
 			{
-				if (bc == null)
-					continue;
-
 				bc.PenetrationChance = 1.0f;
 				bc.PenetrationLevel = 0.0f;
 				bc.RicochetChance = 0.0f;

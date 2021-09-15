@@ -98,10 +98,10 @@ namespace Installer
 			if (string.IsNullOrEmpty(path) || !Directory.Exists(path))
 				yield break;
 
-			if (TryDiscoverInstallation(path!, out var installation))
+			if (TryDiscoverInstallation(path, out var installation))
 				yield return installation;
 
-			var subFolders = Directory.EnumerateDirectories(Path.Combine(path!, ".."));
+			var subFolders = Directory.EnumerateDirectories(Path.Combine(path, ".."));
 			foreach (var folder in subFolders)
 			{
 				if (TryDiscoverInstallation(folder, out installation))

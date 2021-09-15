@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -30,7 +29,7 @@ namespace Installer
 			public string? Branch { get; set; }
 		}
 
-		public override async Task<int> ExecuteAsync([NotNull] CommandContext context, [NotNull] Settings settings)
+		public override async Task<int> ExecuteAsync(CommandContext context, Settings settings)
 		{
 			try
 			{
@@ -111,7 +110,7 @@ namespace Installer
 					}
 					else
 					{
-						AnsiConsole.MarkupLine($"Compilation [green]succeded[/] for [blue]{branch}[/] branch.");
+						AnsiConsole.MarkupLine($"Compilation [green]succeed[/] for [blue]{branch}[/] branch.");
 					}
 				});
 

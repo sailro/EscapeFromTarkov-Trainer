@@ -1,7 +1,7 @@
-﻿#nullable enable
-
-using System;
+﻿using System;
 using UnityEngine;
+
+#nullable enable
 
 namespace EFT.Trainer.Features
 {
@@ -17,7 +17,7 @@ namespace EFT.Trainer.Features
 			if (camera == null)
 				return;
 
-			var component = camera.GetComponent<global::VisorEffect>();
+			var component = camera.GetComponent<VisorEffect>();
 			if (component == null || Mathf.Abs(component.Intensity - Convert.ToInt32(!Enabled)) < Mathf.Epsilon )
 				return;
 

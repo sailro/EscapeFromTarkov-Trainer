@@ -16,7 +16,7 @@ namespace EFT.Trainer.Features
 			if (!player.IsValid())
 				return;
 
-			var objects = LocationScene.GetAllObjects<Interactive.WorldInteractiveObject>();
+			var objects = LocationScene.GetAllObjects<WorldInteractiveObject>();
 			foreach (var obj in objects)
 			{
 				if (!obj.IsValid())

@@ -1,6 +1,6 @@
-﻿#nullable enable
+﻿using UnityEngine;
 
-using UnityEngine;
+#nullable enable
 
 namespace EFT.Trainer.Features
 {
@@ -21,18 +21,19 @@ namespace EFT.Trainer.Features
 				return;
 
 			component.StartSwitch(Enabled);
-			if (Enabled)
-			{
-				component.IsFpsStuck = false;
-				component.IsGlitch = false;
-				component.IsMotionBlurred = false;
-				component.IsNoisy = false;
-				component.IsPixelated = false;
+			
+			if (!Enabled) 
+				return;
 
-				component.TextureMask.Color = new Color(0f, 0f, 0f, 0f);
-				component.TextureMask.Stretch = false;
-				component.TextureMask.Size = 0f;
-			}
+			component.IsFpsStuck = false;
+			component.IsGlitch = false;
+			component.IsMotionBlurred = false;
+			component.IsNoisy = false;
+			component.IsPixelated = false;
+
+			component.TextureMask.Color = new Color(0f, 0f, 0f, 0f);
+			component.TextureMask.Stretch = false;
+			component.TextureMask.Size = 0f;
 		}
 	}
 }

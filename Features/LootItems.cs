@@ -93,7 +93,7 @@ namespace EFT.Trainer.Features
 			}
 		}
 
-		private void FindItemsInRootItem(List<PointOfInterest> records, Camera camera, Item? rootItem, string name, Vector3 position)
+		private void FindItemsInRootItem(List<PointOfInterest> records, Camera camera, Item? rootItem, string displayName, Vector3 position)
 		{
 			var items = rootItem?
 				.GetAllItems()?
@@ -115,7 +115,7 @@ namespace EFT.Trainer.Features
 				{
 					records.Add(new PointOfInterest
 					{
-						Name = itemName == name ? itemName : $"{itemName} (in {name})",
+						Name = itemName == displayName ? itemName : $"{itemName} (in {displayName})",
 						Position = position,
 						ScreenPosition = camera.WorldPointToScreenPoint(position),
 						Color = Color

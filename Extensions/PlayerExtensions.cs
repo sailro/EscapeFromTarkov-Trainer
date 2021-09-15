@@ -22,7 +22,7 @@ namespace EFT.Trainer.Extensions
 			if (!IsValid(player))
 				return false;
 
-			return player.HealthController != null && player.HealthController.IsAlive;
+			return player.HealthController is {IsAlive: true};
 		}
 	}
 }
