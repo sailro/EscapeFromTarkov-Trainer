@@ -14,7 +14,7 @@ namespace Installer
 	internal class Installation
 	{
 		public Version Version { get; }
-		public Version? SptAkiVersion { get; private set; }
+		public bool UsingSptAki { get; private set; }
 		public string Location { get; }
 		public string Data => Path.Combine(Location, "EscapeFromTarkov_Data");
 		public string Managed => Path.Combine(Data, "Managed");
@@ -126,13 +126,8 @@ namespace Installer
 				if (!Directory.Exists(installation.Managed))
 					return false;
 
-				var patchFolder = Path.Combine(path, "Aki_Data", "Launcher", "Patches");
-				if (Directory.Exists(patchFolder))
-				{
-					installation.SptAkiVersion = Directory.EnumerateFiles(patchFolder, "*.bpf")
-						.Select(n => Version.TryParse(Path.GetFileNameWithoutExtension(n), out var version) ? version : default)
-						.FirstOrDefault();
-				}
+				var akiFolder = Path.Combine(path, "Aki_Data");
+				installation.UsingSptAki = Directory.Exists(akiFolder);
 
 				return true;
 			}

@@ -58,7 +58,7 @@ namespace Installer
 					return (int)ExitCode.CompilationFailed;
 				}
 
-				if (installation.SptAkiVersion != null)
+				if (installation.UsingSptAki)
 				{
 					AnsiConsole.MarkupLine("[yellow]SPT-AKI detected. Please make sure you have run the game at least once before installing the trainer.[/]");
 					AnsiConsole.MarkupLine("[yellow]SPT-AKI is patching binaries during the first run, and we [underline]need[/] to compile against those patched binaries.[/]");
