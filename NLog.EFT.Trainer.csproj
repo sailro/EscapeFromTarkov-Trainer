@@ -106,6 +106,7 @@
     <Compile Include="Extensions\NotNullWhenAttribute.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Extensions\ThrowableExtensions.cs" />
+    <Compile Include="Features\ShaderCache.cs" />
     <Compile Include="Features\CrossHair.cs" />
     <Compile Include="Features\Grenades.cs" />
     <Compile Include="Features\NoCollision.cs" />

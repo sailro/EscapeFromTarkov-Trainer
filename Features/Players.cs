@@ -1,4 +1,5 @@
-﻿using EFT.Trainer.Configuration;
+﻿using System.Collections.Generic;
+using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using UnityEngine;
 
@@ -44,20 +45,37 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty]
 		public Color ScavRaiderBorderColor { get; set; } = Color.red;
 
-		protected override void UpdateWhenEnabled()
+		protected override void Update()
 		{
+			base.Update();
+
 			var hostiles = GameState.Current?.Hostiles;
 			if (hostiles == null)
 				return;
 
-			foreach (var ennemy in hostiles)
-			{
-				if (!ennemy.IsValid())
-					continue;
+			var player = GameState.Current?.LocalPlayer;
+			if (player == null)
+				return;
 
-				GetPlayerColors(ennemy, out var color, out var borderColor);
-				SetShaders(ennemy, GameState.OutlineShader, color, borderColor);
+			var cacheComponent = player.GetOrAddComponent<ShaderCache>();
+			var cache = cacheComponent.Cache;
+
+			if (Enabled)
+			{
+				foreach (var ennemy in hostiles)
+				{
+					if (!ennemy.IsValid())
+						continue;
+
+					GetPlayerColors(ennemy, out var color, out var borderColor);
+					SetShaders(ennemy, GameState.OutlineShader, color, borderColor, cache);
+				}
 			}
+			else
+			{
+				ResetShaders(cache);
+			}
+
 		}
 
 		private void GetPlayerColors(Player player, out Color color, out Color borderColor)
@@ -111,7 +129,7 @@ namespace EFT.Trainer.Features
 			}
 		}
 
-		private static void SetShaders(Player player, Shader shader, Color color, Color borderColor)
+		private static void SetShaders(Player player, Shader shader, Color color, Color borderColor, Dictionary<Material, Shader?> cache)
 		{
 			var skins = player.PlayerBody.BodySkins;
 			foreach (var skin in skins.Values)
@@ -131,6 +149,7 @@ namespace EFT.Trainer.Features
 					if (material.shader != null && material.shader == shader)
 						continue;
 
+					cache[material] = material.shader;
 					material.shader = shader;
 
 					material.SetColor("_FirstOutlineColor", borderColor);
@@ -140,5 +159,23 @@ namespace EFT.Trainer.Features
 				}
 			}
 		}
+
+		private static void ResetShaders(Dictionary<Material, Shader?> cache)
+		{
+			var hits = 0;
+			foreach (var key in cache.Keys)
+			{
+				var shader = cache[key];
+				if (key.shader == shader) 
+					continue;
+
+				key.shader = shader;
+				hits++;
+			}
+
+			if (hits == 0 && cache.Count > 0)
+				cache.Clear();
+		}
+
 	}
 }
