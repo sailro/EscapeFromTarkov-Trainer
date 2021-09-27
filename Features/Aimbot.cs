@@ -13,6 +13,9 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty]
 		public float MaximumDistance { get; set; } = 200f;
 
+		[ConfigurationProperty]
+		public float Smoothness { get; set; } = 0.085f;
+
 		protected override void UpdateWhenHold()
 		{
 			var state = GameState.Current;
@@ -63,18 +66,51 @@ namespace EFT.Trainer.Features
 			}
 
 			if (nearestTarget != Vector3.zero)
-				AimAtPosition(localPlayer, nearestTarget);
+				AimAtPosition(localPlayer, nearestTarget, Smoothness);
 		}
 
-		private static void AimAtPosition(Player player, Vector3 position)
+		private static void AimAtPosition(Player player, Vector3 targetPosition, float smoothness)
 		{
-			var delta = player.Fireport.position - player.Fireport.up * 1f;
-			var eulerAngles = Quaternion.LookRotation((position - delta).normalized).eulerAngles;
+			var firingAngle = player.Fireport.position - player.Fireport.up * 1f;
+			var normalized = (targetPosition - firingAngle).normalized;
+			var quaternion = Quaternion.LookRotation(normalized);
+			var euler = quaternion.eulerAngles;
 
-			if (eulerAngles.x > 180f)
-				eulerAngles.x -= 360f;
+			//This is necessary due to crossing Y plane with target
+			if (euler.x > 180f)
+				euler.x -= 360f;
 
-			player.MovementContext.Rotation = new Vector2(eulerAngles.y, eulerAngles.x);
+			var playerRotation = player.MovementContext.Rotation;
+			var smoothAngle = GetSmoothAngle(playerRotation, new Vector2(euler.y, euler.x), smoothness);
+			player.MovementContext.Rotation = smoothAngle;
+		}
+
+		public static Vector2 GetSmoothAngle(Vector2 fromAngle, Vector2 toAngle, float smoothness)
+		{
+			var delta = fromAngle - toAngle;
+			NormalizeAngle(ref delta);
+			var smoothedDelta = Vector2.Scale(delta, new Vector2(smoothness, smoothness));
+			toAngle = fromAngle - smoothedDelta;
+			return toAngle;
+		}
+
+		public static void NormalizeAngle(ref Vector2 angle)
+		{
+			var newX = angle.x switch
+			{
+				<= -180f => angle.x + 360f,
+				> 180f => angle.x - 360f,
+				_ => angle.x
+			};
+
+			var newY = angle.y switch
+			{
+				> 90f => angle.y - 180f,
+				<= -90f => angle.y + 180f,
+				_ => angle.y
+			};
+
+			angle = new Vector2(newX, newY);
 		}
 
 		public static Vector3 GetHeadPosition(Player player)
