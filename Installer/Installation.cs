@@ -84,6 +84,12 @@ namespace Installer
 
 		private static IEnumerable<Installation> DiscoverInstallations()
 		{
+			if (TryDiscoverInstallation(Environment.CurrentDirectory, out var installation))
+				yield return installation;
+
+			if (TryDiscoverInstallation(Path.GetDirectoryName(typeof(Installation).Assembly.Location)!, out installation))
+				yield return installation;
+
 			using var hive = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32);
 			using var eft = hive.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\EscapeFromTarkov", false);
 
@@ -98,7 +104,7 @@ namespace Installer
 			if (string.IsNullOrEmpty(path) || !Directory.Exists(path))
 				yield break;
 
-			if (TryDiscoverInstallation(path, out var installation))
+			if (TryDiscoverInstallation(path, out installation))
 				yield return installation;
 
 			var subFolders = Directory.EnumerateDirectories(Path.Combine(path, ".."));
