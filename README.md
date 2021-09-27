@@ -114,6 +114,7 @@ This file is located in `%USERPROFILE%\Documents\Escape from Tarkov\trainer.ini`
 
 EFT.Trainer.Features.Aimbot.Key="Slash"
 EFT.Trainer.Features.Aimbot.MaximumDistance=200.0
+EFT.Trainer.Features.Aimbot.Smoothness=0.085
 
 EFT.Trainer.Features.AutomaticGun.Enabled=false
 EFT.Trainer.Features.AutomaticGun.Key="None"
