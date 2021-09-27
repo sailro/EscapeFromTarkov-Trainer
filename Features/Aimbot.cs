@@ -85,7 +85,7 @@ namespace EFT.Trainer.Features
 			player.MovementContext.Rotation = smoothAngle;
 		}
 
-		public static Vector2 GetSmoothAngle(Vector2 fromAngle, Vector2 toAngle, float smoothness)
+		private static Vector2 GetSmoothAngle(Vector2 fromAngle, Vector2 toAngle, float smoothness)
 		{
 			var delta = fromAngle - toAngle;
 			NormalizeAngle(ref delta);
@@ -94,7 +94,7 @@ namespace EFT.Trainer.Features
 			return toAngle;
 		}
 
-		public static void NormalizeAngle(ref Vector2 angle)
+		private static void NormalizeAngle(ref Vector2 angle)
 		{
 			var newX = angle.x switch
 			{
@@ -113,7 +113,7 @@ namespace EFT.Trainer.Features
 			angle = new Vector2(newX, newY);
 		}
 
-		public static Vector3 GetHeadPosition(Player player)
+		private static Vector3 GetHeadPosition(Player player)
 		{
 			var bones = player.PlayerBones;
 			if (bones == null)
