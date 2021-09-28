@@ -87,13 +87,12 @@ namespace EFT.Trainer.Features
 				if (!container.IsValid())
 					continue;
 
-				var containerName = container.Template.LocalizedShortName();
 				var position = container.transform.position;
-				FindItemsInRootItem(records, camera, container.ItemOwner?.RootItem, containerName, position);
+				FindItemsInRootItem(records, camera, container.ItemOwner?.RootItem, position);
 			}
 		}
 
-		private void FindItemsInRootItem(List<PointOfInterest> records, Camera camera, Item? rootItem, string displayName, Vector3 position)
+		private void FindItemsInRootItem(List<PointOfInterest> records, Camera camera, Item? rootItem, Vector3 position)
 		{
 			var items = rootItem?
 				.GetAllItems()?
@@ -113,9 +112,12 @@ namespace EFT.Trainer.Features
 				var itemName = item.ShortName.Localized();
 				if (TrackedNames.Any(match => itemName.IndexOf(match, StringComparison.OrdinalIgnoreCase) >= 0))
 				{
+					var owner =  item.Owner?.ContainerName?.Localized();
+
 					records.Add(new PointOfInterest
 					{
-						Name = itemName == displayName ? itemName : $"{itemName} (in {displayName})",
+						Name = itemName,
+						Owner = string.Equals(itemName, owner, StringComparison.OrdinalIgnoreCase) ? null : owner,
 						Position = position,
 						ScreenPosition = camera.WorldPointToScreenPoint(position),
 						Color = Color
@@ -139,7 +141,7 @@ namespace EFT.Trainer.Features
 				if (lootItem is Corpse corpse)
 				{
 					if (SearchInsideCorpses)
-						FindItemsInRootItem(records, camera, corpse.ItemOwner?.RootItem, nameof(Corpse), position);
+						FindItemsInRootItem(records, camera, corpse.ItemOwner?.RootItem, position);
 
 					continue;
 				}

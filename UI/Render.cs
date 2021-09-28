@@ -14,18 +14,24 @@ namespace EFT.Trainer.UI
             set { GUI.color = value; }
         }
 
-        public static void DrawString(Vector2 position, string label, Color color, bool centered = true)
+        public static Vector2 DrawString(Vector2 position, string label, Color color, bool centered = true)
         {
             Color = color;
-            DrawString(position, label, centered);
+            return DrawString(position, label, centered);
         }
 
-        public static void DrawString(Vector2 position, string label, bool centered = true)
+        public static void GetContentAndSize(string label, out GUIContent content, out Vector2 size)
         {
-            var content = new GUIContent(label);
-            var size = StringStyle.CalcSize(content);
+	        content = new GUIContent(label);
+	        size = StringStyle.CalcSize(content);
+        }
+
+        public static Vector2 DrawString(Vector2 position, string label, bool centered = true)
+        {
+	        GetContentAndSize(label, out var content, out var size);
             var upperLeft = centered ? position - size / 2f : position;
             GUI.Label(new Rect(upperLeft, size), content);
+            return size;
         }
 
         public static void DrawCrosshair(Vector2 position, float size, Color color, float thickness)

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using System.Text;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
@@ -21,26 +23,76 @@ namespace EFT.Trainer.Features
 			if (camera == null)
 				return;
 
-			foreach (var poi in data)
+			var poiPerPosition = data.GroupBy(poi => poi.Position);
+			foreach (var positionGroup in poiPerPosition)
 			{
-				var position = poi.Position;
-
+				var position = positionGroup.Key;
 				var screenPosition = camera.WorldPointToScreenPoint(position);
 				if (!camera.IsScreenPointVisible(screenPosition))
 					continue;
 
 				var distance = Math.Round(Vector3.Distance(camera.transform.position, position));
-
 				if (MaximumDistance > 0 && distance > MaximumDistance)
 					continue;
 
-				Render.DrawString(new Vector2(screenPosition.x - 50f, screenPosition.y), GetCaption(poi, distance), poi.Color);
+				var drawPosition = screenPosition;
+
+				var poiPerOwner = positionGroup.GroupBy(poi => poi.Owner);
+				foreach (var ownerGroup in poiPerOwner)
+				{
+					var distinctGroup = ownerGroup
+						.DistinctBy(poi => poi.Name)
+						.ToList();
+
+					var owner = ownerGroup.Key;
+					var useHeader = owner != null && distinctGroup.Count > 1;
+					var flags = useHeader ? GetCaptionFlags.Name : GetCaptionFlags.All;
+
+					foreach (var poi in distinctGroup)
+					{
+						if (useHeader)
+						{
+							drawPosition = new Vector2(drawPosition.x, drawPosition.y + Render.DrawString(drawPosition, $">> In {owner} [{distance}m]", poi.Color, false).y);
+							useHeader = false;
+						}
+
+						drawPosition = new Vector2(drawPosition.x, drawPosition.y + Render.DrawString(drawPosition, GetCaption(poi, distance, flags), poi.Color, flags == GetCaptionFlags.All).y);
+					}
+				}
 			}
 		}
 
-		public virtual string GetCaption(PointOfInterest poi, double distance)
+		[Flags]
+		public enum GetCaptionFlags
 		{
-			return $"{poi.Name} [{distance}m]";
+			Name = 1,
+			Owner = 2,
+			Distance = 4,
+			All = Name | Owner | Distance
+		}
+
+		public virtual string GetCaption(PointOfInterest poi, double distance, GetCaptionFlags flags = GetCaptionFlags.All)
+		{
+			var result = new StringBuilder();
+
+			if ((flags & GetCaptionFlags.Name) != 0)
+			{
+				result.Append(poi.Name);
+				result.Append(" ");
+			}
+
+			if (poi.Owner != null && (flags & GetCaptionFlags.Owner) != 0)
+			{
+				result.Append($"(in {poi.Owner})");
+				result.Append(" ");
+			}
+
+			if ((flags & GetCaptionFlags.Distance) != 0)
+			{
+				result.Append($"[{distance}m]");
+			}
+
+			return result.ToString();
 		}
 	}
 }
