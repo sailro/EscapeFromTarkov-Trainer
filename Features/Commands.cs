@@ -33,6 +33,7 @@ namespace EFT.Trainer.Features
 
 		public bool Registered { get; set; } = false;
 		public const string ValueGroup = "value";
+		public const string ExtraGroup = "extra";
 		public string UserPath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Escape from Tarkov");
 		private readonly Dictionary<string, Type> _features = new()
 		{
@@ -113,8 +114,8 @@ namespace EFT.Trainer.Features
 				CreateCommand(commands, $"listr {{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature, ELootRarity.Rare));
 				CreateCommand(commands, $"listsr {{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature, ELootRarity.Superrare));
 
-				CreateCommand(commands, $"track (?<{ValueGroup}>.*)", m => TrackLootItem(m, feature));
-				CreateCommand(commands, $"untrack (?<{ValueGroup}>.*)", m => UnTrackLootItem(m, feature));
+				CreateCommand(commands, $"track (?<value>.+?)(?<extra> ({string.Join("|", ColorConverter.ColorNames())}|\\[[\\.,\\d ]*\\]{{1}}))?", m => TrackLootItem(m, feature));
+				CreateCommand(commands, $"untrack (?<{ValueGroup}>.+)", m => UnTrackLootItem(m, feature));
 				CreateCommand(commands, "tracklist", _ => ShowTrackList(feature));
 			}
 
@@ -152,7 +153,12 @@ namespace EFT.Trainer.Features
 				AddConsoleLog("Tracking list updated...", "tracker");
 
 			foreach (var item in feature.TrackedNames)
-				AddConsoleLog($"Tracking: {item}", "tracker");
+			{
+				if (item.Color.HasValue)
+					AddConsoleLog($"Tracking: {item.Name.Color(item.Color.Value)}", "tracker");
+				else
+					AddConsoleLog($"Tracking: {item.Name}", "tracker");
+			}
 		}
 
 		private static void UnTrackLootItem(Match match, LootItems feature)
@@ -170,7 +176,12 @@ namespace EFT.Trainer.Features
 			if (matchGroup is not {Success: true})
 				return;
 
-			ShowTrackList(feature, feature.Track(matchGroup.Value));
+			Color? color = null;
+			var extraGroup = match.Groups[ExtraGroup];
+			if (extraGroup is {Success: true})
+				color = ColorConverter.Parse(extraGroup.Value);
+
+			ShowTrackList(feature, feature.Track(matchGroup.Value, color));
 		}
 
 		private static void ListLootItems(Match match, LootItems feature, ELootRarity rarityFilter = ELootRarity.Not_exist)

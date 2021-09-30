@@ -6,7 +6,7 @@ namespace EFT.Trainer.Extensions
 {
 	public static class StringExtensions
 	{
-		private static string Color(this string str, Color color)
+		public static string Color(this string str, Color color)
 		{
 			return $"<color=#{color.GetHexColor()}>{str}</color>";
 		}

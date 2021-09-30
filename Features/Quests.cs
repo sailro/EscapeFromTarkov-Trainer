@@ -18,6 +18,7 @@ namespace EFT.Trainer.Features
 
 		public override float CacheTimeInSec { get; set; } = 5f;
 		public override bool Enabled { get; set; } = false;
+		public override Color GroupingColor => Color;
 
 		public override PointOfInterest[] RefreshData()
 		{

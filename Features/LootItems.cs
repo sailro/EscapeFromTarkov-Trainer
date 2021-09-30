@@ -17,10 +17,8 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty]
 		public Color Color { get; set; } = Color.cyan;
 
-		public override float CacheTimeInSec { get; set; } = 3f;
-
 		[ConfigurationProperty]
-		public List<string> TrackedNames { get; set; } = new();
+		public List<TrackedItem> TrackedNames { get; set; } = new();
 
 		[ConfigurationProperty] 
 		public bool SearchInsideContainers { get; set; } = true;
@@ -28,26 +26,32 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty]
 		public bool SearchInsideCorpses { get; set; } = true;
 
-		public bool Track(string lootname)
-		{
-			if (!TrackedNames.Contains(lootname))
-			{
-				TrackedNames.Add(lootname);
-				return true;
-			}
+		public override float CacheTimeInSec { get; set; } = 3f;
+		public override Color GroupingColor => Color;
 
-			return false;
+		public bool Track(string lootname, Color? color)
+		{
+			lootname = lootname.Trim();
+
+			if (TrackedNames.Any(t => t.Name == lootname))
+				return false;
+
+			TrackedNames.Add(new TrackedItem(lootname, color));
+			return true;
+
 		}
 
 		public bool UnTrack(string lootname)
 		{
+			lootname = lootname.Trim();
+
 			if (lootname == "*" && TrackedNames.Count > 0)
 			{
 				TrackedNames.Clear();
 				return true;
 			}
 			
-			return TrackedNames.Remove(lootname);
+			return TrackedNames.RemoveAll(t => t.Name == lootname) > 0;
 		}
 
 		public override PointOfInterest[] RefreshData()
@@ -110,7 +114,7 @@ namespace EFT.Trainer.Features
 					continue;
 
 				var itemName = item.ShortName.Localized();
-				if (TrackedNames.Any(match => itemName.IndexOf(match, StringComparison.OrdinalIgnoreCase) >= 0))
+				if (IsTracked(itemName, out var color))
 				{
 					var owner =  item.Owner?.ContainerName?.Localized();
 
@@ -120,7 +124,7 @@ namespace EFT.Trainer.Features
 						Owner = string.Equals(itemName, owner, StringComparison.OrdinalIgnoreCase) ? null : owner,
 						Position = position,
 						ScreenPosition = camera.WorldPointToScreenPoint(position),
-						Color = Color
+						Color = color
 					});
 				}
 			}
@@ -146,17 +150,30 @@ namespace EFT.Trainer.Features
 					continue;
 				}
 
-				if (TrackedNames.Any(match => lootItemName.IndexOf(match, StringComparison.OrdinalIgnoreCase) >= 0))
+				if (IsTracked(lootItemName, out var color))
 				{
 					records.Add(new PointOfInterest
 					{
 						Name = lootItemName,
 						Position = position,
 						ScreenPosition = camera.WorldPointToScreenPoint(position),
-						Color = Color
+						Color = color
 					});
 				}
 			}
+		}
+
+		private bool IsTracked(string lootItemName, out Color color)
+		{
+			var result = TrackedNames.Find(t => t.Name == "*" || lootItemName.IndexOf(t.Name, StringComparison.OrdinalIgnoreCase) >= 0);
+			if (result != null)
+			{
+				color = result.Color ?? Color;
+				return true;
+			}
+
+			color = Color;
+			return false;
 		}
 	}
 }

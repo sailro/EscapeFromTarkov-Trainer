@@ -19,6 +19,7 @@ namespace EFT.Trainer.Features
 		public Color NotEligibleColor { get; set; } = Color.yellow;
 
 		public override float CacheTimeInSec { get; set; } = 7f;
+		public override Color GroupingColor => EligibleColor;
 
 		public override PointOfInterest[] RefreshData()
 		{
