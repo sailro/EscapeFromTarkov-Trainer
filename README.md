@@ -97,8 +97,8 @@ This trainer hooks into the command system, so you can easily setup features usi
 | status    |                     |         | Show status of all features         |
 | thermal   | `on` or `off`       | `off`   | Enable/Disable thermal vision       |
 | track     | `[name]` or `*`     |         | Track all items matching `name`     |
-| track     | `[name]` `<color>`  |         | Ex: track `roler` red               |
-| track     | `[name]` `<rgba>`   |         | Ex: track 'roler' `[1,1,1,0.5]`     |
+| track     | `[name]` `<color>`  |         | Ex: track `roler` `red`             |
+| track     | `[name]` `<rgba>`   |         | Ex: track `roler` `[1,1,1,0.5]`     |
 | tracklist |                     |         | Show tracked items                  |
 | untrack   | `[name]` or `*`     |         | Untrack a `name` or `*` for all     |
 | wallhack  | `on` or `off`       | `on`    | Show/hide players                   |
