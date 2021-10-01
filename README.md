@@ -36,14 +36,14 @@ This trainer gives:
 - Popup window to enable/disable all features (use right-alt or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
 - Load/Save all settings.
 
-![Wallhack](https://user-images.githubusercontent.com/638167/121975075-a6c7ba00-cd35-11eb-8c39-ac27dde7356f.png)
-![Exfils](https://user-images.githubusercontent.com/638167/121975112-b941f380-cd35-11eb-9a2c-3c541d933a62.png)
-![Colors](https://user-images.githubusercontent.com/638167/121975147-c828a600-cd35-11eb-8782-75f5b63eede4.png)
+![Wallhack](https://user-images.githubusercontent.com/638167/135586841-a43bfc26-b5bc-4ed6-8c83-a23903c23e0e.png)
+![Exfils](https://user-images.githubusercontent.com/638167/135586735-143ab160-ca20-4ec9-8ad4-9ce7bde58295.png)
+![Loot](https://user-images.githubusercontent.com/638167/135587083-938a3d9b-2082-4231-9fa8-e7807ad4a3d1.png)
 ![Quests](https://user-images.githubusercontent.com/638167/121975175-d8d91c00-cd35-11eb-86cd-6b49360fe370.png)
-![Stashes](https://user-images.githubusercontent.com/638167/121975196-e42c4780-cd35-11eb-8a33-8130f2fadf88.png)
-![Track](https://user-images.githubusercontent.com/638167/121975219-f6a68100-cd35-11eb-9d3a-36ffda3ca568.png)
-![NightVision](https://user-images.githubusercontent.com/638167/121975256-1047c880-cd36-11eb-903a-213d5d187ad4.png)
-![Popup](https://user-images.githubusercontent.com/638167/121975299-1f2e7b00-cd36-11eb-8f12-00de3e7515bd.png)
+![Stashes](https://user-images.githubusercontent.com/638167/135586933-4cf57740-aff2-47c8-9cec-94e2eb062dd0.png)
+![Track](https://user-images.githubusercontent.com/638167/135586489-c4214794-21c9-4493-9699-dcca6c3dd00e.png)
+![NightVision](https://user-images.githubusercontent.com/638167/135586268-c175e999-a60d-40db-9960-06cdf5fe27d7.png)
+![Popup](https://user-images.githubusercontent.com/638167/135586349-d04b410a-0992-4e23-bf2b-02319dd6caca.png)
 
 ## Easy and automatic installation
 
