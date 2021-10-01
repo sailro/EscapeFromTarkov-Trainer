@@ -69,7 +69,7 @@ Overwrite the existing `EscapeFromTarkov_Data\Managed\NLog.dll.nlog` using `NLog
 
 ## Configuration
 
-![console](https://user-images.githubusercontent.com/638167/121975396-63218000-cd36-11eb-9fc6-8c9344fc41fa.png)
+![console](https://user-images.githubusercontent.com/638167/135587741-e27074f8-664d-4edd-b934-3e8af4a0d1c4.png)
 
 This trainer hooks into the command system, so you can easily setup features using the built-in console:
 
