@@ -1,7 +1,9 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Comfort.Common;
 using EFT.Ballistics;
 using EFT.Trainer.Extensions;
+using UnityEngine;
 
 #nullable enable
 
@@ -9,15 +11,18 @@ namespace EFT.Trainer.Features
 {
 	public class WallShoot : CachableMonoBehaviour<BallisticCollider[]>
 	{
-		public override float CacheTimeInSec { get; set; } = 2f;
+		public override float CacheTimeInSec { get; set; } = 5.5f;
 
 		public override BallisticCollider[] RefreshData()
 		{
-			var colliders = FindObjectsOfType<BallisticCollider>();
+			// var colliders = FindObjectsOfType<BallisticCollider>();
+			var colliders = FindObjectsOfType<Collider>()
+				.SelectMany(c => c.GetComponentsInChildren<BallisticCollider>())
+				.Distinct();
 
 			var player = GameState.Current?.LocalPlayer;
 			if (!player.IsValid())
-				return colliders;
+				return colliders.ToArray();
 
 			// Exclude our own BallisticColliders from being penetrated
 			var exclude = player.GetComponentsInChildren<BallisticCollider>();
