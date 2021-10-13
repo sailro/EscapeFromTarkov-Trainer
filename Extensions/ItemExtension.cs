@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using EFT.InventoryLogic;
+using EFT.UI.DragAndDrop;
 
 #nullable enable
 
@@ -17,10 +18,16 @@ namespace EFT.Trainer.Extensions
 			if (string.IsNullOrEmpty(item.TemplateId))
 				return true;
 
+			if (ItemViewFactory.IsSecureContainer(item))
+				return true;
+
 			return item.TemplateId switch
 			{
-				KnownTemplateIds.Dollars or KnownTemplateIds.Euros or KnownTemplateIds.Roubles => false,
-				_ => item.Weight <= 0f,// easy way to remove special items like "Pockets" or "Default Inventory"
+				KnownTemplateIds.DefaultInventory or KnownTemplateIds.Pockets => true,
+				_ => false
+				// KnownTemplateIds.Dollars or KnownTemplateIds.Euros or KnownTemplateIds.Roubles => false,
+				// Incompatible with extra mods like AllInOne, setting item weight to zero
+				//_ => item.Weight <= 0f,// easy way to remove special items like "Pockets" or "Default Inventory"
 			};
 		}
 	}
