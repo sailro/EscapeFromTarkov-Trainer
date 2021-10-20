@@ -1,4 +1,5 @@
-﻿using EFT.Trainer.Configuration;
+﻿using EFT.InventoryLogic;
+using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using UnityEngine;
 
@@ -53,7 +54,10 @@ namespace EFT.Trainer.Features
 				if (distance >= nearestTargetDistance)
 					continue;
 
-				var template = localPlayer.Weapon?.CurrentAmmoTemplate;
+				if (localPlayer.HandsController == null || localPlayer.HandsController.Item is not Weapon weapon)
+					continue;
+
+				var template = weapon.CurrentAmmoTemplate;
 				if (template == null)
 					continue;
 
