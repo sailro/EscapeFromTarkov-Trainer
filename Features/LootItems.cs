@@ -26,6 +26,9 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty]
 		public bool SearchInsideCorpses { get; set; } = true;
 
+		[ConfigurationProperty]
+		public bool ShowPrices { get; set; } = true;
+
 		public override float CacheTimeInSec { get; set; } = 3f;
 		public override Color GroupingColor => Color;
 
@@ -120,7 +123,7 @@ namespace EFT.Trainer.Features
 
 					records.Add(new PointOfInterest
 					{
-						Name = itemName,
+						Name = FormatName(itemName, item),
 						Owner = string.Equals(itemName, owner, StringComparison.OrdinalIgnoreCase) ? null : owner,
 						Position = position,
 						ScreenPosition = camera.WorldPointToScreenPoint(position),
@@ -154,13 +157,22 @@ namespace EFT.Trainer.Features
 				{
 					records.Add(new PointOfInterest
 					{
-						Name = lootItemName,
+						Name = FormatName(lootItemName, lootItem.Item),
 						Position = position,
 						ScreenPosition = camera.WorldPointToScreenPoint(position),
 						Color = color
 					});
 				}
 			}
+		}
+
+		private string FormatName(string itemName, Item item)
+		{
+			var price = item.Template.CreditsPrice;
+			if (!ShowPrices || price < 1000)
+				return itemName;
+
+			return $"{itemName} {price / 1000}K";
 		}
 
 		private bool IsTracked(string lootItemName, out Color color)
