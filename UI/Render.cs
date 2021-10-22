@@ -37,8 +37,19 @@ namespace EFT.Trainer.UI
         public static void DrawCrosshair(Vector2 position, float size, Color color, float thickness)
         {
 	        Color = color;
-	        GUI.DrawTexture(new Rect(position.x - size, position.y, size * 2 + thickness, thickness), Texture2D.whiteTexture);
-	        GUI.DrawTexture(new Rect(position.x, position.y - size, thickness, size * 2 + thickness), Texture2D.whiteTexture);
+	        var texture = Texture2D.whiteTexture;
+	        GUI.DrawTexture(new Rect(position.x - size, position.y, size * 2 + thickness, thickness), texture);
+	        GUI.DrawTexture(new Rect(position.x, position.y - size, thickness, size * 2 + thickness), texture);
         }
-	}
+
+        public static void DrawBox(float x, float y, float w, float h, float thickness, Color color)
+        {
+	        Color = color;
+	        var texture = Texture2D.whiteTexture;
+	        GUI.DrawTexture(new Rect(x,y, w + thickness, thickness), texture);
+	        GUI.DrawTexture(new Rect(x,y, thickness, h + thickness), texture);
+	        GUI.DrawTexture(new Rect(x + w,y, thickness, h + thickness), texture);
+	        GUI.DrawTexture(new Rect(x,y + h, w + thickness, thickness), texture);
+        }
+    }
 }

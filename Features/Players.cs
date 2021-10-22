@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.UI;
 using UnityEngine;
 
 #nullable enable
@@ -45,16 +47,33 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty]
 		public Color ScavRaiderBorderColor { get; set; } = Color.red;
 
-		protected override void Update()
-		{
-			base.Update();
+		[ConfigurationProperty]
+		public bool ShowCharms { get; set; } = true;
 
+		[ConfigurationProperty]
+		public bool ShowBox { get; set; } = true;
+
+		[ConfigurationProperty]
+		public float BoxThickness { get; set; } = 2f;
+
+		[ConfigurationProperty]
+		public bool ShowInfos { get; set; } = true;
+
+		[ConfigurationProperty]
+		public float MaximumDistance { get; set; } = 0f;
+
+		protected void OnGUI()
+		{
 			var hostiles = GameState.Current?.Hostiles;
 			if (hostiles == null)
 				return;
 
 			var player = GameState.Current?.LocalPlayer;
 			if (player == null)
+				return;
+
+			var camera = GameState.Current?.Camera;
+			if (camera == null)
 				return;
 
 			var cacheComponent = player.GetOrAddComponent<ShaderCache>();
@@ -68,7 +87,51 @@ namespace EFT.Trainer.Features
 						continue;
 
 					GetPlayerColors(ennemy, out var color, out var borderColor);
-					SetShaders(ennemy, GameState.OutlineShader, color, borderColor, cache);
+
+					if (ShowCharms)
+						SetShaders(ennemy, GameState.OutlineShader, color, borderColor, cache);
+
+					var position = ennemy.Transform.position;
+					var screenPosition = camera.WorldPointToScreenPoint(position);
+					if (!camera.IsScreenPointVisible(screenPosition))
+						continue;
+
+					var distance = Mathf.Round(Vector3.Distance(camera.transform.position, position));
+					if (MaximumDistance > 0 && distance > MaximumDistance)
+						continue;
+
+					var playerBones = ennemy.PlayerBones;
+					if (playerBones == null)
+						continue;
+
+					var headScreenPosition = camera.WorldPointToScreenPoint(playerBones.Head.position);
+					var leftShoulderScreenPosition = camera.WorldPointToScreenPoint(playerBones.LeftShoulder.position);
+					var heightOffset = Mathf.Abs(headScreenPosition.y - leftShoulderScreenPosition.y);
+
+					var boxHeight = Mathf.Abs(headScreenPosition.y - screenPosition.y) + heightOffset * 3f;
+					var boxWidth = boxHeight * 0.62f;
+
+					var boxPositionX = screenPosition.x - boxWidth / 2f;
+					var boxPositionY = headScreenPosition.y - heightOffset * 2f;
+
+					if (ShowBox)
+					{
+						Render.DrawBox(boxPositionX, boxPositionY, boxWidth, boxHeight, BoxThickness, color);
+					}
+
+					var ennemyHealthController = ennemy.HealthController;
+					var ennemyHandController = ennemy.HandsController;
+					if (ShowInfos && ennemyHealthController is {IsAlive: true})
+					{
+						var bodyPartHealth = ennemyHealthController.GetBodyPartHealth(EBodyPart.Common);
+						var currentPlayerHealth = bodyPartHealth.Current;
+						var maximumPlayerHealth = bodyPartHealth.Maximum;
+
+						var weaponText = ennemyHandController != null && ennemyHandController.Item is Weapon weapon ? weapon.ShortName.Localized() : string.Empty;
+						var infoText = $"{weaponText} {Mathf.Round(currentPlayerHealth * 100 / maximumPlayerHealth)}% [{distance}m]".Trim();
+
+						Render.DrawString(new Vector2(boxPositionX, boxPositionY - 20f), infoText, color, false);
+					}
 				}
 			}
 			else
@@ -131,7 +194,14 @@ namespace EFT.Trainer.Features
 
 		private static void SetShaders(Player player, Shader shader, Color color, Color borderColor, Dictionary<Material, Shader?> cache)
 		{
-			var skins = player.PlayerBody.BodySkins;
+			var playerBody = player.PlayerBody;
+			if (playerBody == null)
+				return;
+
+			var skins = playerBody.BodySkins;
+			if (skins == null)
+				return;
+
 			foreach (var skin in skins.Values)
 			{
 				if (skin == null)
