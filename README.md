@@ -36,7 +36,7 @@ This trainer gives:
 - Popup window to enable/disable all features (use right-alt or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
 - Load/Save all settings.
 
-![Wallhack](https://user-images.githubusercontent.com/638167/135586841-a43bfc26-b5bc-4ed6-8c83-a23903c23e0e.png)
+![Wallhack](https://user-images.githubusercontent.com/638167/138436846-9736fc13-ff23-43a3-853a-7ba3050999ed.png)
 ![Exfils](https://user-images.githubusercontent.com/638167/135586735-143ab160-ca20-4ec9-8ad4-9ce7bde58295.png)
 ![Loot](https://user-images.githubusercontent.com/638167/135587083-938a3d9b-2082-4231-9fa8-e7807ad4a3d1.png)
 ![Quests](https://user-images.githubusercontent.com/638167/121975175-d8d91c00-cd35-11eb-86cd-6b49360fe370.png)
@@ -183,14 +183,19 @@ EFT.Trainer.Features.Players.BearBorderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.BearColor=[0.0,0.0,1.0,1.0]
 EFT.Trainer.Features.Players.BossBorderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.BossColor=[1.0,0.0,0.0,1.0]
+EFT.Trainer.Features.Players.BoxThickness=2.0
 EFT.Trainer.Features.Players.CultistBorderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.CultistColor=[1.0,0.921568632,0.0156862754,1.0]
 EFT.Trainer.Features.Players.Enabled=true
 EFT.Trainer.Features.Players.Key="F5"
+EFT.Trainer.Features.Players.MaximumDistance=0.0
 EFT.Trainer.Features.Players.ScavBorderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.ScavColor=[1.0,0.921568632,0.0156862754,1.0]
 EFT.Trainer.Features.Players.ScavRaiderBorderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.ScavRaiderColor=[1.0,0.0,0.0,1.0]
+EFT.Trainer.Features.Players.ShowBox=true
+EFT.Trainer.Features.Players.ShowCharms=true
+EFT.Trainer.Features.Players.ShowInfos=true
 EFT.Trainer.Features.Players.UsecBorderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.UsecColor=[0.0,1.0,0.0,1.0]
 
