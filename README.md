@@ -165,6 +165,7 @@ EFT.Trainer.Features.LootItems.Key="F4"
 EFT.Trainer.Features.LootItems.MaximumDistance=0.0
 EFT.Trainer.Features.LootItems.SearchInsideContainers=true
 EFT.Trainer.Features.LootItems.SearchInsideCorpses=true
+EFT.Trainer.Features.LootItems.ShowPrices=true
 EFT.Trainer.Features.LootItems.TrackedNames=["virtex","sg-c10","cofdm","battery","vpx","ushanka","chat","pilgrim"]
 
 EFT.Trainer.Features.NightVision.Enabled=false
