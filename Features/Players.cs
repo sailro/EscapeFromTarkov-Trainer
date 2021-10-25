@@ -51,13 +51,19 @@ namespace EFT.Trainer.Features
 		public bool ShowCharms { get; set; } = true;
 
 		[ConfigurationProperty]
-		public bool ShowBox { get; set; } = true;
+		public bool ShowBoxes { get; set; } = true;
 
 		[ConfigurationProperty]
 		public float BoxThickness { get; set; } = 2f;
 
 		[ConfigurationProperty]
 		public bool ShowInfos { get; set; } = true;
+
+		[ConfigurationProperty]
+		public bool ShowSkeletons { get; set; } = false;
+
+		[ConfigurationProperty]
+		public float SkeletonThickness { get; set; } = 2;
 
 		[ConfigurationProperty]
 		public float MaximumDistance { get; set; } = 0f;
@@ -114,10 +120,8 @@ namespace EFT.Trainer.Features
 					var boxPositionX = screenPosition.x - boxWidth / 2f;
 					var boxPositionY = headScreenPosition.y - heightOffset * 2f;
 
-					if (ShowBox)
-					{
+					if (ShowBoxes)
 						Render.DrawBox(boxPositionX, boxPositionY, boxWidth, boxHeight, BoxThickness, color);
-					}
 
 					var ennemyHealthController = ennemy.HealthController;
 					var ennemyHandController = ennemy.HandsController;
@@ -132,6 +136,9 @@ namespace EFT.Trainer.Features
 
 						Render.DrawString(new Vector2(boxPositionX, boxPositionY - 20f), infoText, color, false);
 					}
+
+					if (ShowSkeletons)
+						Bones.RenderBones(ennemy, SkeletonThickness, color, camera);
 				}
 			}
 			else
@@ -246,6 +253,5 @@ namespace EFT.Trainer.Features
 			if (hits == 0 && cache.Count > 0)
 				cache.Clear();
 		}
-
 	}
 }
