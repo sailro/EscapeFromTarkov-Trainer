@@ -197,6 +197,8 @@ EFT.Trainer.Features.Players.ScavRaiderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.ShowBox=true
 EFT.Trainer.Features.Players.ShowCharms=true
 EFT.Trainer.Features.Players.ShowInfos=true
+EFT.Trainer.Features.Players.ShowSkeletons=false
+EFT.Trainer.Features.Players.SkeletonThickness=2.0
 EFT.Trainer.Features.Players.UsecBorderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.UsecColor=[0.0,1.0,0.0,1.0]
 
