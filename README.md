@@ -37,6 +37,7 @@ This trainer gives:
 - Load/Save all settings.
 
 ![Wallhack](https://user-images.githubusercontent.com/638167/138436846-9736fc13-ff23-43a3-853a-7ba3050999ed.png)
+![Skeleton](https://user-images.githubusercontent.com/638167/138731215-d3ec58a6-38c5-49e4-9920-090c98fa79ef.png)
 ![Exfils](https://user-images.githubusercontent.com/638167/135586735-143ab160-ca20-4ec9-8ad4-9ce7bde58295.png)
 ![Loot](https://user-images.githubusercontent.com/638167/135587083-938a3d9b-2082-4231-9fa8-e7807ad4a3d1.png)
 ![Quests](https://user-images.githubusercontent.com/638167/121975175-d8d91c00-cd35-11eb-86cd-6b49360fe370.png)
