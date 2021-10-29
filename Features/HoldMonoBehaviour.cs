@@ -7,7 +7,7 @@ namespace EFT.Trainer.Features
 {
 	public class HoldMonoBehaviour : MonoBehaviour
 	{
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 2)]
 		public virtual KeyCode Key { get; set; } = KeyCode.None;
 
 		private void Update()

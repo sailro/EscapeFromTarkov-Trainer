@@ -9,7 +9,7 @@ namespace EFT.Trainer.Features
 {
 	public abstract class CachableMonoBehaviour<T> : ToggleMonoBehaviour
 	{
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 3)]
 		public abstract float CacheTimeInSec { get; set; }
 
 		private T? _data;

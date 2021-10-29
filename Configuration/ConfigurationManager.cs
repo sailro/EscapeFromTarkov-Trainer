@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -35,20 +36,17 @@ namespace EFT.Trainer.Configuration
 			foreach (var feature in features)
 			{
 				var featureType = feature.GetType();
-				var properties = featureType.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy);
-				foreach (var property in properties)
-				{
-					var attribute = property.GetCustomAttribute<ConfigurationPropertyAttribute>(true);
-					if (attribute == null || attribute.Skip)
-						continue;
+				var properties = GetOrderedProperties(featureType);
 
-					var key = $"{featureType.FullName}.{property.Name}=";
+				foreach (var op in properties)
+				{
+					var key = $"{featureType.FullName}.{op.Property.Name}=";
 					var line = lines.FirstOrDefault(l => l.StartsWith(key));
 					if (line == null)
 						continue;
 
-					var value = JsonConvert.DeserializeObject(line.Substring(key.Length), property.PropertyType, Converters);
-					property.SetValue(feature, value);
+					var value = JsonConvert.DeserializeObject(line.Substring(key.Length), op.Property.PropertyType, Converters);
+					op.Property.SetValue(feature, value);
 				}
 			}
 
@@ -66,29 +64,51 @@ namespace EFT.Trainer.Configuration
 			foreach (var feature in features.OrderBy(f => f.GetType().FullName))
 			{
 				var featureType = feature.GetType();
-				var properties = featureType.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy);
+				var properties = GetOrderedProperties(featureType);
 
-				bool matches = false;
-				foreach (var property in properties.OrderBy(p => p.Name))
+				foreach (var op in properties)
 				{
-					var attribute = property.GetCustomAttribute<ConfigurationPropertyAttribute>(true);
-					if (attribute == null || attribute.Skip)
-						continue;
+					var key = $"{featureType.FullName}.{op.Property.Name}";
+					var value = JsonConvert.SerializeObject(op.Property.GetValue(feature), Formatting.None, Converters);
 
-					matches = true;
-
-					var key = $"{featureType.FullName}.{property.Name}";
-					var value = JsonConvert.SerializeObject(property.GetValue(feature), Formatting.None, Converters);
+					var comment = op.Attribute.Comment;
+					if (!string.IsNullOrEmpty(comment)) 
+						content.AppendLine($"; {comment}");
 
 					content.AppendLine($"{key}={value}");
 				}
 
-				if (matches)
+				if (properties.Any())
 					content.AppendLine();
 			}
 
 			File.WriteAllText(filename, content.ToString());
 			AddConsoleLog($"Saved {filename}");
+		}
+
+		private static OrderedProperty[] GetOrderedProperties(Type featureType)
+		{
+			var properties = featureType.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy);
+
+			return properties
+				.Select(p => new {property = p, attribute = p.GetCustomAttribute<ConfigurationPropertyAttribute>(true)})
+				.Where(p => p.attribute is {Skip: false})
+				.Select(op => new OrderedProperty(op.attribute, op.property))
+				.OrderBy(op => op.Attribute.Order)
+				.ThenBy(op => op.Property.Name)
+				.ToArray();
+		}
+
+		private class OrderedProperty
+		{
+			public ConfigurationPropertyAttribute Attribute { get; }
+			public PropertyInfo Property { get; }
+
+			public OrderedProperty(ConfigurationPropertyAttribute attribute, PropertyInfo property)
+			{
+				Attribute = attribute;
+				Property = property;
+			}
 		}
 	}
 }

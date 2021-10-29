@@ -12,10 +12,10 @@ namespace EFT.Trainer.Features
 {
 	public class ExfiltrationPoints : PointOfInterests
 	{
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 10)]
 		public Color EligibleColor { get; set; } = Color.green;
 		
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 10)]
 		public Color NotEligibleColor { get; set; } = Color.yellow;
 
 		public override float CacheTimeInSec { get; set; } = 7f;

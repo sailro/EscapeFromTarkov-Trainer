@@ -11,61 +11,61 @@ namespace EFT.Trainer.Features
 {
 	public class Players : ToggleMonoBehaviour
 	{
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 10)]
 		public Color BearColor { get; set; } = Color.blue;
 
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 10)]
 		public Color BearBorderColor { get; set; } = Color.red;
 
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 10)]
 		public Color UsecColor { get; set; } = Color.green;
 
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 10)]
 		public Color UsecBorderColor { get; set; } = Color.red;
 
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 10)]
 		public Color ScavColor { get; set; } = Color.yellow;
 
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 10)]
 		public Color ScavBorderColor { get; set; } = Color.red;
 		
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 10)]
 		public Color BossColor { get; set; } = Color.red;
 
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 10)]
 		public Color BossBorderColor { get; set; } = Color.red;
 
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 10)]
 		public Color CultistColor { get; set; } = Color.yellow;
 
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 10)]
 		public Color CultistBorderColor { get; set; } = Color.red;
 
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 10)]
 		public Color ScavRaiderColor { get; set; } = Color.red;
 
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 10)]
 		public Color ScavRaiderBorderColor { get; set; } = Color.red;
 
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 30)]
 		public bool ShowCharms { get; set; } = true;
 
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 20)]
 		public bool ShowBoxes { get; set; } = true;
 
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 21)]
 		public float BoxThickness { get; set; } = 2f;
 
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 40)]
 		public bool ShowInfos { get; set; } = true;
 
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 50)]
 		public bool ShowSkeletons { get; set; } = false;
 
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 51)]
 		public float SkeletonThickness { get; set; } = 2;
 
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 19)]
 		public float MaximumDistance { get; set; } = 0f;
 
 		protected void OnGUI()

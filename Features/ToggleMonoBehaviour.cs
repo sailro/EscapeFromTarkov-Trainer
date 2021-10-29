@@ -7,10 +7,10 @@ namespace EFT.Trainer.Features
 {
 	public abstract class ToggleMonoBehaviour : MonoBehaviour
 	{
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 1)]
 		public virtual bool Enabled { get; set; } = true;
 
-		[ConfigurationProperty]
+		[ConfigurationProperty(Order = 2)]
 		public virtual KeyCode Key { get; set; } = KeyCode.None;
 
 		protected virtual void Update()

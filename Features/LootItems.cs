@@ -17,7 +17,7 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty]
 		public Color Color { get; set; } = Color.cyan;
 
-		[ConfigurationProperty]
+		[ConfigurationProperty(Comment = @"Example: [""foo"", ""bar""] or with color tracking: [{""Name"":""foo"",""Color"":[1.0,0.0,0.0,1.0]},{""Name"":""bar"",""Color"":[1.0,1.0,1.0,0.8]}]")]
 		public List<TrackedItem> TrackedNames { get; set; } = new();
 
 		[ConfigurationProperty] 

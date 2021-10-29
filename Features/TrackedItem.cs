@@ -8,11 +8,6 @@ namespace EFT.Trainer.Features
 {
 	public class TrackedItem
 	{
-		public TrackedItem()
-		{
-			Name = string.Empty;
-		}
-
 		public TrackedItem(string name, Color? color = null)
 		{
 			Name = name;
