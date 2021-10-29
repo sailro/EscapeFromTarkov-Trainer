@@ -48,6 +48,7 @@ namespace EFT.Trainer.Features
 			{"norecoil", typeof(NoRecoil)},
 			{"novisor", typeof(NoVisor)},
 			{"quest", typeof(Quests)},
+			{"speed", typeof(Speed)},
 			{"stamina", typeof(Stamina)},
 			{"stash", typeof(LootableContainers)},
 			{"thermal", typeof(ThermalVision)},

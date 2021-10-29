@@ -124,6 +124,7 @@
     <Compile Include="Features\TrackedItem.cs" />
     <Compile Include="Features\TriggerMonoBehaviour.cs" />
     <Compile Include="Features\WallShoot.cs" />
+    <Compile Include="Features\Speed.cs" />
     <Compile Include="KnownTemplateIds.cs" />
     <Compile Include="Extensions\LootableContainerExtension.cs" />
     <Compile Include="Extensions\LootItemExtension.cs" />

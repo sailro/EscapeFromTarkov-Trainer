@@ -43,6 +43,7 @@ namespace EFT.Trainer
 			hookObject.AddComponent<Features.CrossHair>();
 			hookObject.AddComponent<Features.Grenades>();
 			hookObject.AddComponent<Features.WallShoot>();
+			hookObject.AddComponent<Features.Speed>();
 			hookObject.AddComponent<Features.Commands>();
 		}
 	}
