@@ -21,6 +21,10 @@ namespace EFT.Trainer.Features
 			parameters.AimDrainRate = 0f;
 			parameters.SprintDrainRate = 0f;
 			parameters.JumpConsumption = 0f;
+			parameters.ProneConsumption = 0f;
+			parameters.SitToStandConsumption = 0f;
+
+			parameters.OxygenRestoration = 10000f;
 			parameters.ExhaustedMeleeSpeed = 10000f;
 		}
 	}
