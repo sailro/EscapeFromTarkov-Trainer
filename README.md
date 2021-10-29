@@ -124,100 +124,101 @@ EFT.Trainer.Features.AutomaticGun.Key="None"
 EFT.Trainer.Features.AutomaticGun.Rate=500
 
 EFT.Trainer.Features.Commands.Key="RightAlt"
-EFT.Trainer.Features.Commands.X=20.0
-EFT.Trainer.Features.Commands.Y=40.0
+EFT.Trainer.Features.Commands.X=40.0
+EFT.Trainer.Features.Commands.Y=20.0
 
-EFT.Trainer.Features.CrossHair.Color=[1.0,0.0,0.0,1.0]
-EFT.Trainer.Features.CrossHair.Enabled=true
-EFT.Trainer.Features.CrossHair.HideWhenAiming=true
+EFT.Trainer.Features.CrossHair.Enabled=false
 EFT.Trainer.Features.CrossHair.Key="None"
+EFT.Trainer.Features.CrossHair.Color=[1.0,0.0,0.0,1.0]
+EFT.Trainer.Features.CrossHair.HideWhenAiming=true
 EFT.Trainer.Features.CrossHair.Size=10.0
 EFT.Trainer.Features.CrossHair.Thickness=2.0
 
+EFT.Trainer.Features.ExfiltrationPoints.Enabled=true
+EFT.Trainer.Features.ExfiltrationPoints.Key="None"
 EFT.Trainer.Features.ExfiltrationPoints.CacheTimeInSec=7.0
 EFT.Trainer.Features.ExfiltrationPoints.EligibleColor=[0.0,1.0,0.0,1.0]
-EFT.Trainer.Features.ExfiltrationPoints.Enabled=true
-EFT.Trainer.Features.ExfiltrationPoints.Key="F1"
-EFT.Trainer.Features.ExfiltrationPoints.MaximumDistance=0.0
 EFT.Trainer.Features.ExfiltrationPoints.NotEligibleColor=[1.0,0.921568632,0.0156862754,1.0]
+EFT.Trainer.Features.ExfiltrationPoints.MaximumDistance=0.0
 
 EFT.Trainer.Features.GameState.CacheTimeInSec=2.0
 
+EFT.Trainer.Features.Grenades.Enabled=false
+EFT.Trainer.Features.Grenades.Key="None"
 EFT.Trainer.Features.Grenades.CacheTimeInSec=0.25
 EFT.Trainer.Features.Grenades.Color=[1.0,0.0,0.0,1.0]
-EFT.Trainer.Features.Grenades.Enabled=true
-EFT.Trainer.Features.Grenades.Key="None"
 
+EFT.Trainer.Features.Hud.Enabled=true
+EFT.Trainer.Features.Hud.Key="None"
 EFT.Trainer.Features.Hud.Color=[1.0,1.0,1.0,1.0]
 EFT.Trainer.Features.Hud.Compass=true
-EFT.Trainer.Features.Hud.Enabled=true
-EFT.Trainer.Features.Hud.Key="F2"
 
+EFT.Trainer.Features.LootableContainers.Enabled=false
+EFT.Trainer.Features.LootableContainers.Key="None"
 EFT.Trainer.Features.LootableContainers.CacheTimeInSec=11.0
 EFT.Trainer.Features.LootableContainers.Color=[1.0,1.0,1.0,1.0]
-EFT.Trainer.Features.LootableContainers.Enabled=false
-EFT.Trainer.Features.LootableContainers.Key="F3"
 EFT.Trainer.Features.LootableContainers.MaximumDistance=0.0
 
+EFT.Trainer.Features.LootItems.Enabled=true
+EFT.Trainer.Features.LootItems.Key="None"
 EFT.Trainer.Features.LootItems.CacheTimeInSec=3.0
 EFT.Trainer.Features.LootItems.Color=[0.0,1.0,1.0,1.0]
-EFT.Trainer.Features.LootItems.Enabled=true
-EFT.Trainer.Features.LootItems.Key="F4"
 EFT.Trainer.Features.LootItems.MaximumDistance=0.0
 EFT.Trainer.Features.LootItems.SearchInsideContainers=true
 EFT.Trainer.Features.LootItems.SearchInsideCorpses=true
 EFT.Trainer.Features.LootItems.ShowPrices=true
-EFT.Trainer.Features.LootItems.TrackedNames=["virtex","sg-c10","cofdm","battery","vpx","ushanka","chat","pilgrim"]
+; Example: ["foo", "bar"] or with color tracking: [{"Name":"foo","Color":[1.0,0.0,0.0,1.0]},{"Name":"bar","Color":[1.0,1.0,1.0,0.8]}]
+EFT.Trainer.Features.LootItems.TrackedNames=[]
 
 EFT.Trainer.Features.NightVision.Enabled=false
-EFT.Trainer.Features.NightVision.Key="F11"
+EFT.Trainer.Features.NightVision.Key="None"
 
 EFT.Trainer.Features.NoCollision.Enabled=false
 EFT.Trainer.Features.NoCollision.Key="None"
 
 EFT.Trainer.Features.NoRecoil.Enabled=false
-EFT.Trainer.Features.NoRecoil.Key="F7"
+EFT.Trainer.Features.NoRecoil.Key="None"
 
 EFT.Trainer.Features.NoVisor.Enabled=false
 EFT.Trainer.Features.NoVisor.Key="None"
 
+EFT.Trainer.Features.Players.Enabled=true
+EFT.Trainer.Features.Players.Key="None"
 EFT.Trainer.Features.Players.BearBorderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.BearColor=[0.0,0.0,1.0,1.0]
 EFT.Trainer.Features.Players.BossBorderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.BossColor=[1.0,0.0,0.0,1.0]
-EFT.Trainer.Features.Players.BoxThickness=2.0
 EFT.Trainer.Features.Players.CultistBorderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.CultistColor=[1.0,0.921568632,0.0156862754,1.0]
-EFT.Trainer.Features.Players.Enabled=true
-EFT.Trainer.Features.Players.Key="F5"
-EFT.Trainer.Features.Players.MaximumDistance=0.0
 EFT.Trainer.Features.Players.ScavBorderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.ScavColor=[1.0,0.921568632,0.0156862754,1.0]
 EFT.Trainer.Features.Players.ScavRaiderBorderColor=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.Players.ScavRaiderColor=[1.0,0.0,0.0,1.0]
+EFT.Trainer.Features.Players.UsecBorderColor=[1.0,0.0,0.0,1.0]
+EFT.Trainer.Features.Players.UsecColor=[0.0,1.0,0.0,1.0]
+EFT.Trainer.Features.Players.MaximumDistance=0.0
 EFT.Trainer.Features.Players.ShowBoxes=true
+EFT.Trainer.Features.Players.BoxThickness=2.0
 EFT.Trainer.Features.Players.ShowCharms=true
 EFT.Trainer.Features.Players.ShowInfos=true
 EFT.Trainer.Features.Players.ShowSkeletons=false
 EFT.Trainer.Features.Players.SkeletonThickness=2.0
-EFT.Trainer.Features.Players.UsecBorderColor=[1.0,0.0,0.0,1.0]
-EFT.Trainer.Features.Players.UsecColor=[0.0,1.0,0.0,1.0]
 
+EFT.Trainer.Features.Quests.Enabled=false
+EFT.Trainer.Features.Quests.Key="None"
 EFT.Trainer.Features.Quests.CacheTimeInSec=5.0
 EFT.Trainer.Features.Quests.Color=[1.0,0.0,1.0,1.0]
-EFT.Trainer.Features.Quests.Enabled=true
-EFT.Trainer.Features.Quests.Key="F6"
 EFT.Trainer.Features.Quests.MaximumDistance=0.0
 
-EFT.Trainer.Features.Stamina.Enabled=true
+EFT.Trainer.Features.Stamina.Enabled=false
 EFT.Trainer.Features.Stamina.Key="None"
 
 EFT.Trainer.Features.ThermalVision.Enabled=false
-EFT.Trainer.Features.ThermalVision.Key="F12"
+EFT.Trainer.Features.ThermalVision.Key="None"
 
-EFT.Trainer.Features.WallShoot.CacheTimeInSec=2.0
 EFT.Trainer.Features.WallShoot.Enabled=true
 EFT.Trainer.Features.WallShoot.Key="None"
+EFT.Trainer.Features.WallShoot.CacheTimeInSec=5.5
 
 EFT.Trainer.Features.WorldInteractiveObjects.Key="KeypadPeriod"
 ```
