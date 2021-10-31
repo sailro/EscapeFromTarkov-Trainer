@@ -59,16 +59,37 @@ namespace EFT.Trainer.Features
 					continue;
 
 				var position = point.transform.position;
+				var isEligible = eligiblePoints.Contains(point);
 				records.Add(new PointOfInterest
 				{
-					Name = point.Settings.Name.Localized(),
+					Name = GetName(point, isEligible),
 					Position = position,
 					ScreenPosition = camera.WorldPointToScreenPoint(position),
-					Color = eligiblePoints.Contains(point) ? EligibleColor : NotEligibleColor
+					Color = isEligible ? EligibleColor : NotEligibleColor
 				});
 			}
 
 			return records.ToArray();
+		}
+
+		private static string GetName(ExfiltrationPoint point, bool isEligible)
+		{
+			var localizedName = point.Settings.Name.Localized();
+			return !isEligible ? localizedName : $"{localizedName} ({GetStatus(point.Status)})";
+		}
+
+		public static string GetStatus(EExfiltrationStatus status)
+		{
+			return status switch
+			{
+				EExfiltrationStatus.AwaitsManualActivation => "Activate",
+				EExfiltrationStatus.Countdown => "Timer",
+				EExfiltrationStatus.NotPresent => "Closed",
+				EExfiltrationStatus.Pending => "Pending",
+				EExfiltrationStatus.RegularMode => "Open",
+				EExfiltrationStatus.UncompleteRequirements => "Requirement",
+				_ => string.Empty
+			};
 		}
 
 		private static ExfiltrationPoint[]? GetExfiltrationPoints(EPlayerSide side, GameWorld world)
