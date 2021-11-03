@@ -53,7 +53,7 @@ namespace EFT.Trainer.Features
 			}
 		}
 
-		private static void SetShaders(Throwable throwable, Shader shader, Color color)
+		private static void SetShaders(Throwable throwable, Shader? shader, Color color)
 		{
 			var transform = throwable.transform;
 			foreach (var renderer in transform.GetComponentsInChildren<Renderer>())

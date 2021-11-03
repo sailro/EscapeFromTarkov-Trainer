@@ -199,7 +199,7 @@ namespace EFT.Trainer.Features
 			}
 		}
 
-		private static void SetShaders(Player player, Shader shader, Color color, Color borderColor, Dictionary<Material, Shader?> cache)
+		private static void SetShaders(Player player, Shader? shader, Color color, Color borderColor, Dictionary<Material, Shader?> cache)
 		{
 			var playerBody = player.PlayerBody;
 			if (playerBody == null)

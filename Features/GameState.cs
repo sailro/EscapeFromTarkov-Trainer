@@ -22,11 +22,22 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty(Skip = true)] // we do not want to offer save/load support for this
 		public override KeyCode Key { get; set; } = KeyCode.None;
 
-		public static Shader OutlineShader { get; private set; }
+		public static Shader? OutlineShader { get; private set; }
 
 		private void Awake()
 		{
-			var bundle = AssetBundle.LoadFromFile(Path.Combine(Application.dataPath, "outline"));
+			// if we are not able to load our dedicated shader, we'll have OutlineShader==null => Unity will use the magenta-debug-shader, which is a nice fallback
+			if (OutlineShader != null)
+				return;
+
+			var filename = Path.Combine(Application.dataPath, "outline");
+			if (!File.Exists(filename))
+				return;
+
+			var bundle = AssetBundle.LoadFromFile(filename);
+			if (bundle == null)
+				return;
+
 			OutlineShader = bundle.LoadAsset<Shader>("assets/outline.shader");
 		}
 
