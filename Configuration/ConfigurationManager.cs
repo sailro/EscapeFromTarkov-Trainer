@@ -61,7 +61,7 @@ namespace EFT.Trainer.Configuration
 
 				AddConsoleLog($"Loaded {filename}");
 			}
-			catch (IOException ioe)
+			catch (Exception ioe)
 			{
 				AddConsoleLog($"Unable to load {filename}. {ioe.Message}".Red());
 			}
@@ -101,7 +101,7 @@ namespace EFT.Trainer.Configuration
 				File.WriteAllText(filename, content.ToString());
 				AddConsoleLog($"Saved {filename}");
 			}
-			catch (IOException ioe)
+			catch (Exception ioe)
 			{
 				AddConsoleLog($"Unable to save {filename}. {ioe.Message}".Red());
 			}
