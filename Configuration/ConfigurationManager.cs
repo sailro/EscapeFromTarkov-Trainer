@@ -23,67 +23,88 @@ namespace EFT.Trainer.Configuration
 
 		public static void Load(string filename, Component[] features, bool warnIfNotExists = true)
 		{
-			if (!File.Exists(filename))
+			try
 			{
-				if (warnIfNotExists)
-					AddConsoleLog($"{filename} not found!");
-
-				return;
-			}
-
-			var lines = File.ReadAllLines(filename);
-
-			foreach (var feature in features)
-			{
-				var featureType = feature.GetType();
-				var properties = GetOrderedProperties(featureType);
-
-				foreach (var op in properties)
+				if (!File.Exists(filename))
 				{
-					var key = $"{featureType.FullName}.{op.Property.Name}=";
-					var line = lines.FirstOrDefault(l => l.StartsWith(key));
-					if (line == null)
-						continue;
+					if (warnIfNotExists)
+						AddConsoleLog($"{filename} not found!");
 
-					var value = JsonConvert.DeserializeObject(line.Substring(key.Length), op.Property.PropertyType, Converters);
-					op.Property.SetValue(feature, value);
+					return;
 				}
-			}
 
-			AddConsoleLog($"Loaded {filename}");
+				var lines = File.ReadAllLines(filename);
+
+				foreach (var feature in features)
+				{
+					var featureType = feature.GetType();
+					var properties = GetOrderedProperties(featureType);
+
+					foreach (var op in properties)
+					{
+						var key = $"{featureType.FullName}.{op.Property.Name}=";
+						try
+						{
+							var line = lines.FirstOrDefault(l => l.StartsWith(key));
+							if (line == null)
+								continue;
+
+							var value = JsonConvert.DeserializeObject(line.Substring(key.Length), op.Property.PropertyType, Converters);
+							op.Property.SetValue(feature, value);
+						}
+						catch (JsonException)
+						{
+							AddConsoleLog($"{key} seems corrupted in {filename}. Please fix.".Red());
+						}
+					}
+				}
+
+				AddConsoleLog($"Loaded {filename}");
+			}
+			catch (IOException ioe)
+			{
+				AddConsoleLog($"Unable to load {filename}. {ioe.Message}".Red());
+			}
 		}
 
 		public static void Save(string filename, Component[] features)
 		{
-			var content = new StringBuilder();
-			content.AppendLine("; Be careful when updating this file :)");
-			content.AppendLine("; For keys, use https://docs.unity3d.com/ScriptReference/KeyCode.html");
-			content.AppendLine("; Colors are stored as an array of 'RGBA' floats");
-			content.AppendLine();
-
-			foreach (var feature in features.OrderBy(f => f.GetType().FullName))
+			try
 			{
-				var featureType = feature.GetType();
-				var properties = GetOrderedProperties(featureType);
+				var content = new StringBuilder();
+				content.AppendLine("; Be careful when updating this file :)");
+				content.AppendLine("; For keys, use https://docs.unity3d.com/ScriptReference/KeyCode.html");
+				content.AppendLine("; Colors are stored as an array of 'RGBA' floats");
+				content.AppendLine();
 
-				foreach (var op in properties)
+				foreach (var feature in features.OrderBy(f => f.GetType().FullName))
 				{
-					var key = $"{featureType.FullName}.{op.Property.Name}";
-					var value = JsonConvert.SerializeObject(op.Property.GetValue(feature), Formatting.None, Converters);
+					var featureType = feature.GetType();
+					var properties = GetOrderedProperties(featureType);
 
-					var comment = op.Attribute.Comment;
-					if (!string.IsNullOrEmpty(comment)) 
-						content.AppendLine($"; {comment}");
+					foreach (var op in properties)
+					{
+						var key = $"{featureType.FullName}.{op.Property.Name}";
+						var value = JsonConvert.SerializeObject(op.Property.GetValue(feature), Formatting.None, Converters);
 
-					content.AppendLine($"{key}={value}");
+						var comment = op.Attribute.Comment;
+						if (!string.IsNullOrEmpty(comment)) 
+							content.AppendLine($"; {comment}");
+
+						content.AppendLine($"{key}={value}");
+					}
+
+					if (properties.Any())
+						content.AppendLine();
 				}
 
-				if (properties.Any())
-					content.AppendLine();
+				File.WriteAllText(filename, content.ToString());
+				AddConsoleLog($"Saved {filename}");
 			}
-
-			File.WriteAllText(filename, content.ToString());
-			AddConsoleLog($"Saved {filename}");
+			catch (IOException ioe)
+			{
+				AddConsoleLog($"Unable to save {filename}. {ioe.Message}".Red());
+			}
 		}
 
 		private static OrderedProperty[] GetOrderedProperties(Type featureType)
