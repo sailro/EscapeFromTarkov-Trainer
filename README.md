@@ -103,6 +103,8 @@ This trainer hooks into the command system, so you can easily setup features usi
 | track     | `[name]` or `*`     |         | Track all items matching `name`     |
 | track     | `[name]` `<color>`  |         | Ex: track `roler` `red`             |
 | track     | `[name]` `<rgba>`   |         | Ex: track `roler` `[1,1,1,0.5]`     |
+| tracks    | same as `track`     |         | Track rare items only               |
+| tracksr   | same as `track`     |         | Track super rare items only         |
 | tracklist |                     |         | Show tracked items                  |
 | untrack   | `[name]` or `*`     |         | Untrack a `name` or `*` for all     |
 | wallhack  | `on` or `off`       | `on`    | Show/hide players                   |
@@ -170,7 +172,7 @@ EFT.Trainer.Features.LootItems.MaximumDistance=0.0
 EFT.Trainer.Features.LootItems.SearchInsideContainers=true
 EFT.Trainer.Features.LootItems.SearchInsideCorpses=true
 EFT.Trainer.Features.LootItems.ShowPrices=true
-; Example: ["foo", "bar"] or with color tracking: [{"Name":"foo","Color":[1.0,0.0,0.0,1.0]},{"Name":"bar","Color":[1.0,1.0,1.0,0.8]}]
+; Example: ["foo", "bar"] or with or with extended properties: [{"Name":"foo","Color":[1.0,0.0,0.0,1.0]},{"Name":"bar","Color":[1.0,1.0,1.0,0.8],"Rarity":"Rare"}]
 EFT.Trainer.Features.LootItems.TrackedNames=[]
 
 EFT.Trainer.Features.NightVision.Enabled=false
