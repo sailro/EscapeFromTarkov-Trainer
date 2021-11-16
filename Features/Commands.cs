@@ -115,7 +115,11 @@ namespace EFT.Trainer.Features
 				CreateCommand(commands, $"listr {{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature, ELootRarity.Rare));
 				CreateCommand(commands, $"listsr {{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature, ELootRarity.Superrare));
 
-				CreateCommand(commands, $"track (?<value>.+?)(?<extra> ({string.Join("|", ColorConverter.ColorNames())}|\\[[\\.,\\d ]*\\]{{1}}))?", m => TrackLootItem(m, feature));
+				var colorNames = string.Join("|", ColorConverter.ColorNames());
+				CreateCommand(commands, $"track (?<value>.+?)(?<extra> ({colorNames}|\\[[\\.,\\d ]*\\]{{1}}))?", m => TrackLootItem(m, feature));
+				CreateCommand(commands, $"trackr (?<value>.+?)(?<extra> ({colorNames}|\\[[\\.,\\d ]*\\]{{1}}))?", m => TrackLootItem(m, feature, ELootRarity.Rare));
+				CreateCommand(commands, $"tracksr (?<value>.+?)(?<extra> ({colorNames}|\\[[\\.,\\d ]*\\]{{1}}))?", m => TrackLootItem(m, feature, ELootRarity.Superrare));
+
 				CreateCommand(commands, $"untrack (?<{ValueGroup}>.+)", m => UnTrackLootItem(m, feature));
 				CreateCommand(commands, "tracklist", _ => ShowTrackList(feature));
 			}
@@ -155,8 +159,10 @@ namespace EFT.Trainer.Features
 
 			foreach (var item in feature.TrackedNames)
 			{
+				var extra = item.Rarity.HasValue ? $" ({item.Rarity.Value.Color()})" : string.Empty;
+
 				if (item.Color.HasValue)
-					AddConsoleLog($"Tracking: {item.Name.Color(item.Color.Value)}", "tracker");
+					AddConsoleLog($"Tracking: {item.Name.Color(item.Color.Value)}{extra}", "tracker");
 				else
 					AddConsoleLog($"Tracking: {item.Name}", "tracker");
 			}
@@ -171,7 +177,7 @@ namespace EFT.Trainer.Features
 			ShowTrackList(feature, feature.UnTrack(matchGroup.Value));
 		}
 
-		private static void TrackLootItem(Match match, LootItems feature)
+		private static void TrackLootItem(Match match, LootItems feature, ELootRarity? rarity = null)
 		{
 			var matchGroup = match.Groups[ValueGroup];
 			if (matchGroup is not {Success: true})
@@ -182,10 +188,10 @@ namespace EFT.Trainer.Features
 			if (extraGroup is {Success: true})
 				color = ColorConverter.Parse(extraGroup.Value);
 
-			ShowTrackList(feature, feature.Track(matchGroup.Value, color));
+			ShowTrackList(feature, feature.Track(matchGroup.Value, color, rarity));
 		}
 
-		private static void ListLootItems(Match match, LootItems feature, ELootRarity rarityFilter = ELootRarity.Not_exist)
+		private static void ListLootItems(Match match, LootItems feature, ELootRarity? rarityFilter = null)
 		{
 			var search = string.Empty;
 			var matchGroup = match.Groups[ValueGroup];
@@ -217,7 +223,7 @@ namespace EFT.Trainer.Features
 
 				var list = itemsPerName[itemName];
 				var rarity = list.First().Template.Rarity;
-				if (rarityFilter != ELootRarity.Not_exist && rarityFilter != rarity)
+				if (rarityFilter.HasValue && rarityFilter.Value != rarity)
 					continue;
 
 				var extra = rarity != ELootRarity.Not_exist ? $" ({rarity.Color()})" : string.Empty;

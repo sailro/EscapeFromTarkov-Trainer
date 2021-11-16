@@ -14,7 +14,7 @@ namespace EFT.Trainer.Configuration
 			if (value is not TrackedItem item)
 				return;
 
-			if (item.Color.HasValue)
+			if (item.Color.HasValue | item.Rarity.HasValue)
 				serializer.Serialize(writer, JObject.FromObject(item));
 			else
 				serializer.Serialize(writer, item.Name);

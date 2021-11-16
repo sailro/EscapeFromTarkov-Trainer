@@ -6,6 +6,7 @@ using EFT.Interactive;
 using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using JsonType;
 using UnityEngine;
 
 #nullable enable
@@ -17,7 +18,7 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty]
 		public Color Color { get; set; } = Color.cyan;
 
-		[ConfigurationProperty(Comment = @"Example: [""foo"", ""bar""] or with color tracking: [{""Name"":""foo"",""Color"":[1.0,0.0,0.0,1.0]},{""Name"":""bar"",""Color"":[1.0,1.0,1.0,0.8]}]")]
+		[ConfigurationProperty(Comment = @"Example: [""foo"", ""bar""] or with extended properties: [{""Name"":""foo"",""Color"":[1.0,0.0,0.0,1.0]},{""Name"":""bar"",""Color"":[1.0,1.0,1.0,0.8],""Rarity"":""Rare""}]")]
 		public List<TrackedItem> TrackedNames { get; set; } = new();
 
 		[ConfigurationProperty] 
@@ -32,14 +33,14 @@ namespace EFT.Trainer.Features
 		public override float CacheTimeInSec { get; set; } = 3f;
 		public override Color GroupingColor => Color;
 
-		public bool Track(string lootname, Color? color)
+		public bool Track(string lootname, Color? color, ELootRarity? rarity)
 		{
 			lootname = lootname.Trim();
 
 			if (TrackedNames.Any(t => t.Name == lootname))
 				return false;
 
-			TrackedNames.Add(new TrackedItem(lootname, color));
+			TrackedNames.Add(new TrackedItem(lootname, color, rarity));
 			return true;
 
 		}
@@ -117,7 +118,7 @@ namespace EFT.Trainer.Features
 					continue;
 
 				var itemName = item.ShortName.Localized();
-				if (IsTracked(itemName, out var color))
+				if (IsTracked(itemName, item.Template.Rarity, out var color))
 				{
 					var owner =  item.Owner?.ContainerName?.Localized();
 
@@ -153,7 +154,7 @@ namespace EFT.Trainer.Features
 					continue;
 				}
 
-				if (IsTracked(lootItemName, out var color))
+				if (IsTracked(lootItemName, lootItem.Item.Template.Rarity, out var color))
 				{
 					records.Add(new PointOfInterest
 					{
@@ -175,10 +176,10 @@ namespace EFT.Trainer.Features
 			return $"{itemName} {price / 1000}K";
 		}
 
-		private bool IsTracked(string lootItemName, out Color color)
+		private bool IsTracked(string lootItemName, ELootRarity rarity, out Color color)
 		{
 			var result = TrackedNames.Find(t => t.Name == "*" || lootItemName.IndexOf(t.Name, StringComparison.OrdinalIgnoreCase) >= 0);
-			if (result != null)
+			if (result != null && RarityMatches(rarity, result.Rarity))
 			{
 				color = result.Color ?? Color;
 				return true;
@@ -186,6 +187,14 @@ namespace EFT.Trainer.Features
 
 			color = Color;
 			return false;
+		}
+
+		private static bool RarityMatches(ELootRarity itemRarity, ELootRarity? trackedRarity)
+		{
+			if (!trackedRarity.HasValue)
+				return true;
+
+			return trackedRarity.Value == itemRarity;
 		}
 	}
 }
