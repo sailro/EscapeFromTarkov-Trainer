@@ -26,6 +26,8 @@ namespace EFT.Trainer.Features
 
 			parameters.OxygenRestoration = 10000f;
 			parameters.ExhaustedMeleeSpeed = 10000f;
+
+			parameters.BaseRestorationRate = parameters.Capacity;
 		}
 	}
 }
