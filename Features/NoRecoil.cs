@@ -4,8 +4,10 @@
 
 namespace EFT.Trainer.Features
 {
-	public class NoRecoil : ToggleMonoBehaviour
+	internal class NoRecoil : ToggleFeature
 	{
+		public override string Name => "norecoil";
+
 		public override bool Enabled { get; set; } = false;
 
 		protected override void UpdateWhenEnabled()

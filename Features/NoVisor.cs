@@ -5,8 +5,10 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class NoVisor : ToggleMonoBehaviour
+	internal class NoVisor : ToggleFeature
 	{
+		public override string Name => "novisor";
+
 		public override bool Enabled { get; set; } = false;
 
 		protected override void Update()

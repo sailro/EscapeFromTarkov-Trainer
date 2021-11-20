@@ -4,7 +4,7 @@
 
 namespace EFT.Trainer.Features
 {
-	public struct PointOfInterest
+	internal struct PointOfInterest
 	{
 		public string Name { get; set; }
 		public string? Owner { get; set; }

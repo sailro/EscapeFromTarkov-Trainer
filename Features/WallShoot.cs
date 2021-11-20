@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using Comfort.Common;
 using EFT.Ballistics;
 using EFT.Trainer.Extensions;
@@ -9,8 +8,10 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class WallShoot : CachableMonoBehaviour<BallisticCollider[]>
+	internal class WallShoot : CachableFeature<BallisticCollider[]>
 	{
+		public override string Name => "wallshoot";
+
 		public override float CacheTimeInSec { get; set; } = 5.5f;
 
 		public override BallisticCollider[] RefreshData()

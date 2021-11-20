@@ -3,15 +3,15 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using EFT.Trainer.Features;
 using EFT.UI;
 using Newtonsoft.Json;
-using UnityEngine;
 
 #nullable enable
 
 namespace EFT.Trainer.Configuration
 {
-	public static class ConfigurationManager
+	internal static class ConfigurationManager
 	{
 		public static JsonConverter[] Converters => new JsonConverter[]{new TrackedItemConverter(), new ColorConverter(), new KeyCodeConverter()};
 
@@ -21,7 +21,7 @@ namespace EFT.Trainer.Configuration
 				PreloaderUI.Instance.Console.AddLog(log, from);
 		}
 
-		public static void Load(string filename, Component[] features, bool warnIfNotExists = true)
+		public static void Load(string filename, Feature[] features, bool warnIfNotExists = true)
 		{
 			try
 			{
@@ -67,7 +67,7 @@ namespace EFT.Trainer.Configuration
 			}
 		}
 
-		public static void Save(string filename, Component[] features)
+		public static void Save(string filename, Feature[] features)
 		{
 			try
 			{

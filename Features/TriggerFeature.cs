@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class TriggerMonoBehaviour : MonoBehaviour
+	internal abstract class TriggerFeature : Feature
 	{
 		[ConfigurationProperty(Order = 2)]
 		public virtual KeyCode Key { get; set; } = KeyCode.None;

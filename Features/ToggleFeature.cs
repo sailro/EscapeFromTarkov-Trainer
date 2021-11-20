@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public abstract class ToggleMonoBehaviour : MonoBehaviour
+	internal abstract class ToggleFeature : Feature
 	{
 		[ConfigurationProperty(Order = 1)]
 		public virtual bool Enabled { get; set; } = true;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -18,8 +19,10 @@ using UnityEngine.SceneManagement;
 
 namespace EFT.Trainer.Features
 {
-	public class Commands : ToggleMonoBehaviour
+	internal class Commands : ToggleFeature
 	{
+		public override string Name => "commands";
+
 		[ConfigurationProperty(Skip = true)] // we do not want to offer save/load support for this
 		public override bool Enabled { get; set; } = false;
 
@@ -35,26 +38,6 @@ namespace EFT.Trainer.Features
 		public const string ValueGroup = "value";
 		public const string ExtraGroup = "extra";
 		public string UserPath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Escape from Tarkov");
-		private readonly Dictionary<string, Type> _features = new()
-		{
-			{"autogun", typeof(AutomaticGun)},
-			{"crosshair", typeof(CrossHair)},
-			{"exfil", typeof(ExfiltrationPoints)},
-			{"grenade", typeof(Grenades)},
-			{"hud", typeof(Hud)},
-			{"loot", typeof(LootItems)},
-			{"night", typeof(NightVision)},
-			{"nocoll", typeof(NoCollision)},
-			{"norecoil", typeof(NoRecoil)},
-			{"novisor", typeof(NoVisor)},
-			{"quest", typeof(Quests)},
-			{"speed", typeof(Speed)},
-			{"stamina", typeof(Stamina)},
-			{"stash", typeof(LootableContainers)},
-			{"thermal", typeof(ThermalVision)},
-			{"wallhack", typeof(Players)},
-			{"wallshoot", typeof(WallShoot)},
-		};
 
 		protected override void Update()
 		{
@@ -79,15 +62,15 @@ namespace EFT.Trainer.Features
 			Y = _clientWindowRect.y;
 		}
 
-		private void RenderFeatureWindow(int id)
+		private static void RenderFeatureWindow(int id)
 		{
 			GUILayout.BeginVertical();
-			foreach (var (featureName, featureType) in _features.OrderBy(kvp => kvp.Key))
+			foreach (var feature in FeatureFactory.GetAllToggleableFeatures().OrderBy(f => f.Name))
 			{
-				if (Loader.HookObject.GetComponent(featureType) is not ToggleMonoBehaviour feature)
+				if (feature is Commands or GameState)
 					continue;
 
-				var toggleText = " " + GetFeatureHelpText(feature, featureName);
+				var toggleText = " " + GetFeatureHelpText(feature);
 				feature.Enabled = GUILayout.Toggle(feature.Enabled, toggleText);
 			}
 			GUILayout.EndVertical();
@@ -100,32 +83,34 @@ namespace EFT.Trainer.Features
 			if (commands.Count == 0)
 				return;
 
-			foreach (var (featureName, featureType) in _features.OrderByDescending(kvp => kvp.Key))
+			foreach(var feature in FeatureFactory.GetAllToggleableFeatures())
 			{
-				CreateCommand(commands, $"{featureName} (?<{ValueGroup}>(on)|(off))", m => OnTriggerFeature(featureType, m));
+				if (feature is Commands or GameState)
+					continue;
+
+				CreateCommand(commands, $"{feature.Name} (?<{ValueGroup}>(on)|(off))", m => OnToggleFeature(feature, m));
+
+				if (feature is not LootItems liFeature) 
+					continue;
+
+				CreateCommand(commands, $"list {{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, liFeature));
+				CreateCommand(commands, $"listr {{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, liFeature, ELootRarity.Rare));
+				CreateCommand(commands, $"listsr {{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, liFeature, ELootRarity.Superrare));
+
+				var colorNames = string.Join("|", ColorConverter.ColorNames());
+				CreateCommand(commands, $"track (?<value>.+?)(?<extra> ({colorNames}|\\[[\\.,\\d ]*\\]{{1}}))?", m => TrackLootItem(m, liFeature));
+				CreateCommand(commands, $"trackr (?<value>.+?)(?<extra> ({colorNames}|\\[[\\.,\\d ]*\\]{{1}}))?", m => TrackLootItem(m, liFeature, ELootRarity.Rare));
+				CreateCommand(commands, $"tracksr (?<value>.+?)(?<extra> ({colorNames}|\\[[\\.,\\d ]*\\]{{1}}))?", m => TrackLootItem(m, liFeature, ELootRarity.Superrare));
+
+				CreateCommand(commands, $"untrack (?<{ValueGroup}>.+)", m => UnTrackLootItem(m, liFeature));
+				CreateCommand(commands, "tracklist", _ => ShowTrackList(liFeature));
 			}
 
 			CreateCommand(commands, "dump", _ => Dump());
 			CreateCommand(commands, "status", _ => Status());
 
-			var feature = Loader.HookObject.GetComponent<LootItems>();
-			if (feature != null)
-			{
-				CreateCommand(commands, $"list {{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature));
-				CreateCommand(commands, $"listr {{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature, ELootRarity.Rare));
-				CreateCommand(commands, $"listsr {{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, feature, ELootRarity.Superrare));
-
-				var colorNames = string.Join("|", ColorConverter.ColorNames());
-				CreateCommand(commands, $"track (?<value>.+?)(?<extra> ({colorNames}|\\[[\\.,\\d ]*\\]{{1}}))?", m => TrackLootItem(m, feature));
-				CreateCommand(commands, $"trackr (?<value>.+?)(?<extra> ({colorNames}|\\[[\\.,\\d ]*\\]{{1}}))?", m => TrackLootItem(m, feature, ELootRarity.Rare));
-				CreateCommand(commands, $"tracksr (?<value>.+?)(?<extra> ({colorNames}|\\[[\\.,\\d ]*\\]{{1}}))?", m => TrackLootItem(m, feature, ELootRarity.Superrare));
-
-				CreateCommand(commands, $"untrack (?<{ValueGroup}>.+)", m => UnTrackLootItem(m, feature));
-				CreateCommand(commands, "tracklist", _ => ShowTrackList(feature));
-			}
-
 			var configFile = Path.Combine(UserPath, "trainer.ini");
-			var features = Loader.HookObject.GetComponents(typeof(MonoBehaviour));
+			var features = FeatureFactory.GetAllFeatures();
 			CreateCommand(commands, "load", _ => ConfigurationManager.Load(configFile, features));
 			CreateCommand(commands, "save", _ => ConfigurationManager.Save(configFile, features));
 
@@ -305,23 +290,20 @@ namespace EFT.Trainer.Features
 			}
 		}
 
-		private static string GetFeatureHelpText(ToggleMonoBehaviour feature, string featureName)
+		private static string GetFeatureHelpText(ToggleFeature feature)
 		{
 			var toggleKey = feature.Key != KeyCode.None ? $" ({feature.Key} to toggle)" : string.Empty;
-			return $"{featureName} is {(feature.Enabled ? "on".Green() : "off".Red())}{toggleKey}";
+			return $"{feature.Name} is {(feature.Enabled ? "on".Green() : "off".Red())}{toggleKey}";
 		}
 
-		private void Status()
+		private static void Status()
 		{
-			foreach (var (featureName, featureType) in _features.OrderByDescending(kvp => kvp.Key))
+			foreach (var feature in FeatureFactory.GetAllToggleableFeatures().OrderByDescending(f => f.Name))
 			{
-				if (Loader.HookObject.GetComponent(featureType) is not ToggleMonoBehaviour feature)
-				{
-					AddConsoleLog($"{featureName} is not loaded!".Red(), "status");
+				if (feature is Commands or GameState)
 					continue;
-				}
 
-				AddConsoleLog(GetFeatureHelpText(feature, featureName), "status");
+				AddConsoleLog(GetFeatureHelpText(feature), "status");
 			}
 		}
 
@@ -362,13 +344,10 @@ namespace EFT.Trainer.Features
 			return string.Join("_", filename.Split(Path.GetInvalidFileNameChars()));  	
 		}
 
-		public void OnTriggerFeature(Type featureType, Match match)
+		public void OnToggleFeature(ToggleFeature feature, Match match)
 		{
 			var matchGroup = match.Groups[ValueGroup];
 			if (matchGroup is not {Success: true})
-				return;
-
-			if (Loader.HookObject.GetComponent(featureType) is not ToggleMonoBehaviour feature)
 				return;
 
 			feature.Enabled = matchGroup.Value switch

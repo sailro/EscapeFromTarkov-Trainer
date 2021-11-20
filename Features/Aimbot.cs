@@ -7,8 +7,10 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class Aimbot : HoldMonoBehaviour
+	internal class Aimbot : HoldFeature
 	{
+		public override string Name => "aimbot";
+
 		public override KeyCode Key { get; set; } = KeyCode.Slash;
 
 		[ConfigurationProperty]

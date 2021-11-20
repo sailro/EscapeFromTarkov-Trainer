@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class ShaderCache : MonoBehaviour
+	internal class ShaderCache : MonoBehaviour
 	{
 		public Dictionary<Material, Shader?> Cache { get; } = new();
 

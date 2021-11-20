@@ -10,8 +10,10 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class GameState : CachableMonoBehaviour<GameStateSnapshot>
+	internal class GameState : CachableFeature<GameStateSnapshot>
 	{
+		public override string Name => "gamestate";
+
 		public static GameStateSnapshot? Current { get; private set; }
 
 		public override float CacheTimeInSec { get; set; } = 2f;

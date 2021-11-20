@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class TrackedItem
+	internal class TrackedItem
 	{
 		public TrackedItem(string name, Color? color = null, ELootRarity? rarity = null)
 		{

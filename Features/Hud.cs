@@ -9,8 +9,10 @@ using System;
 
 namespace EFT.Trainer.Features
 {
-	public class Hud : ToggleMonoBehaviour
+	internal class Hud : ToggleFeature
 	{
+		public override string Name => "hud";
+
 		[ConfigurationProperty]
 		public Color Color { get; set; } = Color.white;
 

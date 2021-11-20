@@ -7,8 +7,10 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class Speed : HoldMonoBehaviour
+	internal class Speed : HoldFeature
 	{
+		public override string Name => "speed";
+
 		public override KeyCode Key { get; set; } = KeyCode.None;
 
 		[ConfigurationProperty]

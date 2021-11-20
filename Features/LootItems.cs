@@ -13,8 +13,10 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class LootItems : PointOfInterests
+	internal class LootItems : PointOfInterests
 	{
+		public override string Name => "loot";
+
 		[ConfigurationProperty]
 		public Color Color { get; set; } = Color.cyan;
 

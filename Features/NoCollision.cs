@@ -4,8 +4,10 @@
 
 namespace EFT.Trainer.Features
 {
-	public class NoCollision : ToggleMonoBehaviour
+	internal class NoCollision : ToggleFeature
 	{
+		public override string Name => "nocoll";
+
 		public override bool Enabled { get; set; } = false;
 
 		protected override void Update()

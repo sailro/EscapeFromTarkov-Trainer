@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 namespace EFT.Trainer.Features
 {
-	public class SceneDumper
+	internal class SceneDumper
 	{
 		[Serializable]
 		public class NamedData

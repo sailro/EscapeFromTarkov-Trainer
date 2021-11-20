@@ -9,8 +9,10 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class LootableContainers : PointOfInterests
+	internal class LootableContainers : PointOfInterests
 	{
+		public override string Name => "stash";
+
 		[ConfigurationProperty]
 		public Color Color { get; set; } = Color.white;
 

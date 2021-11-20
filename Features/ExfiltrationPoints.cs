@@ -10,8 +10,10 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class ExfiltrationPoints : PointOfInterests
+	internal class ExfiltrationPoints : PointOfInterests
 	{
+		public override string Name => "exfil";
+
 		[ConfigurationProperty(Order = 10)]
 		public Color EligibleColor { get; set; } = Color.green;
 		

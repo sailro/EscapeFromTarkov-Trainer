@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public abstract class CachableMonoBehaviour<T> : ToggleMonoBehaviour
+	internal abstract class CachableFeature<T> : ToggleFeature
 	{
 		[ConfigurationProperty(Order = 3)]
 		public abstract float CacheTimeInSec { get; set; }

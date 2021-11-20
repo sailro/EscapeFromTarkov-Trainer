@@ -4,8 +4,10 @@
 
 namespace EFT.Trainer.Features
 {
-	public class ThermalVision : ToggleMonoBehaviour
+	internal class ThermalVision : ToggleFeature
 	{
+		public override string Name => "thermal";
+
 		public override bool Enabled { get; set; } = false;
 
 		protected override void Update()

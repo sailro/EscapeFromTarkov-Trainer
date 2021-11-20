@@ -6,8 +6,10 @@ using EFT.Trainer.Extensions;
 
 namespace EFT.Trainer.Features
 {
-	public class AutomaticGun : ToggleMonoBehaviour
+	internal class AutomaticGun : ToggleFeature
 	{
+		public override string Name => "autogun";
+
 		public override bool Enabled { get; set; } = false;
 
 		[ConfigurationProperty]

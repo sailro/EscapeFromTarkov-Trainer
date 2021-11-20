@@ -4,8 +4,10 @@
 
 namespace EFT.Trainer.Features
 {
-	public class NightVision : ToggleMonoBehaviour
+	internal class NightVision : ToggleFeature
 	{
+		public override string Name => "night";
+
 		public override bool Enabled { get; set; } = false;
 
 		protected override void Update()

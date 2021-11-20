@@ -9,8 +9,10 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class Players : ToggleMonoBehaviour
+	internal class Players : ToggleFeature
 	{
+		public override string Name => "wallhack";
+
 		[ConfigurationProperty(Order = 10)]
 		public Color BearColor { get; set; } = Color.blue;
 

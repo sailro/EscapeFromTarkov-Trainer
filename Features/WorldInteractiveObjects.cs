@@ -6,8 +6,10 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class WorldInteractiveObjects : TriggerMonoBehaviour
+	internal class WorldInteractiveObjects : TriggerFeature
 	{
+		public override string Name => "opener";
+
 		public override KeyCode Key { get; set; } = KeyCode.KeypadPeriod;
 
 		protected override void UpdateWhenTriggered()

@@ -10,7 +10,7 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public abstract class PointOfInterests : CachableMonoBehaviour<PointOfInterest[]>
+	internal abstract class PointOfInterests : CachableFeature<PointOfInterest[]>
 	{
 		public static PointOfInterest[] Empty => Array.Empty<PointOfInterest>();
 

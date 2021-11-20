@@ -52,7 +52,7 @@
     <Reference Include="netstandard">
       <HintPath>$(EFTManagedPath)\netstandard.dll</HintPath>
     </Reference>
-	<!-- Game assemblies -->
+    <!-- Game assemblies -->
     <Reference Include="Assembly-CSharp">
       <HintPath>$(EFTManagedPath)\Assembly-CSharp.dll</HintPath>
     </Reference>
@@ -71,7 +71,7 @@
     <Reference Include="NLog">
       <HintPath>$(EFTManagedPath)\NLog.dll</HintPath>
     </Reference>
-	<!-- Unity -->
+    <!-- Unity -->
     <Reference Include="UnityEngine.AssetBundleModule">
       <HintPath>$(EFTManagedPath)\UnityEngine.AssetBundleModule.dll</HintPath>
     </Reference>
@@ -94,7 +94,7 @@
   </ItemGroup>
   <!-- Only to work with legacy installer regex parsing -->
   <ItemGroup Condition="Exists('$(EFTManagedPath)\UnityEngine.InputLegacyModule.dll')">
-    <Reference Include="UnityEngine.InputLegacyModule" >
+    <Reference Include="UnityEngine.InputLegacyModule">
       <HintPath>$(EFTManagedPath)\UnityEngine.InputLegacyModule.dll</HintPath>
     </Reference>
   </ItemGroup>
@@ -118,13 +118,15 @@
     <Compile Include="Features\Aimbot.cs" />
     <Compile Include="Features\AutomaticGun.cs" />
     <Compile Include="Features\Bones.cs" />
-    <Compile Include="Features\CachableMonoBehaviour.cs" />
+    <Compile Include="Features\CachableFeature.cs" />
     <Compile Include="Features\Commands.cs" />
     <Compile Include="Features\CrossHair.cs" />
     <Compile Include="Features\ExfiltrationPoints.cs" />
+    <Compile Include="Features\Feature.cs" />
+    <Compile Include="Features\FeatureFactory.cs" />
     <Compile Include="Features\GameState.cs" />
     <Compile Include="Features\Grenades.cs" />
-    <Compile Include="Features\HoldMonoBehaviour.cs" />
+    <Compile Include="Features\HoldFeature.cs" />
     <Compile Include="Features\Hud.cs" />
     <Compile Include="Features\LootItems.cs" />
     <Compile Include="Features\LootableContainers.cs" />
@@ -141,9 +143,9 @@
     <Compile Include="Features\Speed.cs" />
     <Compile Include="Features\Stamina.cs" />
     <Compile Include="Features\ThermalVision.cs" />
-    <Compile Include="Features\ToggleMonoBehaviour.cs" />
+    <Compile Include="Features\ToggleFeature.cs" />
     <Compile Include="Features\TrackedItem.cs" />
-    <Compile Include="Features\TriggerMonoBehaviour.cs" />
+    <Compile Include="Features\TriggerFeature.cs" />
     <Compile Include="Features\WallShoot.cs" />
     <Compile Include="Features\WorldInteractiveObjects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

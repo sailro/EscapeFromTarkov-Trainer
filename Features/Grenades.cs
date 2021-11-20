@@ -9,8 +9,10 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class Grenades : CachableMonoBehaviour<Throwable[]>
+	internal class Grenades : CachableFeature<Throwable[]>
 	{
+		public override string Name => "grenade";
+
 		[ConfigurationProperty]
 		public Color Color { get; set; } = Color.red;
 

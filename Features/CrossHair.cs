@@ -7,8 +7,10 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class CrossHair : ToggleMonoBehaviour
+	internal class CrossHair : ToggleFeature
 	{
+		public override string Name => "crosshair";
+
 		public override bool Enabled { get; set; } = false;
 
 		[ConfigurationProperty]

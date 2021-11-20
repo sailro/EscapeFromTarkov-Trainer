@@ -4,8 +4,10 @@
 
 namespace EFT.Trainer.Features
 {
-	public class Stamina : ToggleMonoBehaviour
+	internal class Stamina : ToggleFeature
 	{
+		public override string Name => "stamina";
+
 		public override bool Enabled { get; set; } = false;
 
 		protected override void UpdateWhenEnabled()

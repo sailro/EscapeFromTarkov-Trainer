@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class HoldMonoBehaviour : MonoBehaviour
+	internal abstract class HoldFeature : Feature
 	{
 		[ConfigurationProperty(Order = 2)]
 		public virtual KeyCode Key { get; set; } = KeyCode.None;

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public static class Bones
+	internal static class Bones
 	{
 		public const string Pelvis = "Root_Joint/Base HumanPelvis";
 		public const string Spine1 = Pelvis + "/Base HumanSpine1";

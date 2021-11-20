@@ -11,8 +11,10 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	public class Quests : PointOfInterests
+	internal class Quests : PointOfInterests
 	{
+		public override string Name => "quest";
+
 		[ConfigurationProperty]
 		public Color Color { get; set; } = Color.magenta;
 
