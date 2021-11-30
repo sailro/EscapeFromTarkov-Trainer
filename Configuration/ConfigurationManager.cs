@@ -107,7 +107,7 @@ namespace EFT.Trainer.Configuration
 			}
 		}
 
-		private static OrderedProperty[] GetOrderedProperties(Type featureType)
+		public static OrderedProperty[] GetOrderedProperties(Type featureType)
 		{
 			var properties = featureType.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy);
 
@@ -118,18 +118,6 @@ namespace EFT.Trainer.Configuration
 				.OrderBy(op => op.Attribute.Order)
 				.ThenBy(op => op.Property.Name)
 				.ToArray();
-		}
-
-		private class OrderedProperty
-		{
-			public ConfigurationPropertyAttribute Attribute { get; }
-			public PropertyInfo Property { get; }
-
-			public OrderedProperty(ConfigurationPropertyAttribute attribute, PropertyInfo property)
-			{
-				Attribute = attribute;
-				Property = property;
-			}
 		}
 	}
 }

@@ -9,6 +9,7 @@ using EFT.Interactive;
 using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.UI;
 using EFT.UI;
 using JsonType;
 using UnityEngine;
@@ -33,10 +34,18 @@ namespace EFT.Trainer.Features
 
 		public override KeyCode Key { get; set; } = KeyCode.RightAlt;
 
-		public bool Registered { get; set; } = false;
-		public const string ValueGroup = "value";
-		public const string ExtraGroup = "extra";
-		public string UserPath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Escape from Tarkov");
+		private bool Registered { get; set; } = false;
+		private const string ValueGroup = "value";
+		private const string ExtraGroup = "extra";
+
+		private static string UserPath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Escape from Tarkov");
+		private static string ConfigFile => Path.Combine(UserPath, "trainer.ini");
+
+		private static Lazy<Feature[]> Features => new(() => FeatureFactory.GetAllFeatures().OrderBy(f => f.Name).ToArray());
+		private static Lazy<ToggleFeature[]> ToggleableFeatures => new(() => FeatureFactory.GetAllToggleableFeatures().OrderByDescending(f => f.Name).ToArray());
+
+		private static GUIStyle LabelStyle => new() {wordWrap = false, normal = {textColor = Color.white}, margin = new RectOffset(8,0,8,0), fixedWidth = 150f, stretchWidth = false};
+		private static GUIStyle BoxStyle => new(GUI.skin.box) {normal = {background = Texture2D.whiteTexture, textColor = Color.white}};
 
 		protected override void Update()
 		{
@@ -52,28 +61,186 @@ namespace EFT.Trainer.Features
 			RegisterCommands();
 		}
 
+		internal class ColorSelectionContext
+		{
+			public ColorSelectionContext(Feature feature, OrderedProperty orderedProperty, float parentX, float parentY)
+			{
+				Feature = feature;
+				OrderedProperty = orderedProperty;
+				ColorPicker = new ColorPicker((Color)orderedProperty.Property.GetValue(feature));
+				
+				var position = Event.current.mousePosition;
+				ColorPicker.SetWindowPosition(parentX + LabelStyle.fixedWidth * 3 + LabelStyle.margin.left * 6, position.y + parentY - 32f);
+			}
+
+			public Feature Feature { get; }
+			public OrderedProperty OrderedProperty { get; }
+			public ColorPicker ColorPicker { get; }
+			
+		}
+
 		private Rect _clientWindowRect;
+
+		private ColorSelectionContext? _colorSelectionContext = null;
 		protected override void OnGUIWhenEnabled()
 		{
 			_clientWindowRect = new Rect(X, Y, _clientWindowRect.width, _clientWindowRect.height);
 			_clientWindowRect = GUILayout.Window(0, _clientWindowRect, RenderFeatureWindow, "EFT Trainer", GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true));
 			X = _clientWindowRect.x;
 			Y = _clientWindowRect.y;
+
+			if (_colorSelectionContext == null) 
+				return;
+
+			var property = _colorSelectionContext.OrderedProperty.Property;
+			var colorPicker = _colorSelectionContext.ColorPicker;
+
+			colorPicker.DrawWindow(1, property.Name);
+			property.SetValue(_colorSelectionContext.Feature, colorPicker.Color);
 		}
 
-		private static void RenderFeatureWindow(int id)
+		private int _selectedTabIndex = 0;
+		private void RenderFeatureWindow(int id)
 		{
-			GUILayout.BeginVertical();
-			foreach (var feature in FeatureFactory.GetAllToggleableFeatures().OrderBy(f => f.Name))
-			{
-				if (feature is Commands or GameState)
-					continue;
+			var fixedTabs = new[] {"[summary]"};
 
-				var toggleText = " " + GetFeatureHelpText(feature);
-				feature.Enabled = GUILayout.Toggle(feature.Enabled, toggleText);
+			var tabs = fixedTabs
+				.Concat
+				(
+					Features
+					.Value
+					.Select(RenderFeatureText)
+				)
+				.ToArray();
+
+			var style = new GUIStyle {wordWrap = false, normal = {textColor = Color.white}, alignment = TextAnchor.UpperLeft, fixedHeight = 1, stretchHeight = true};
+
+			GUILayout.BeginHorizontal();
+			var lastIndex = _selectedTabIndex;
+			_selectedTabIndex = GUILayout.SelectionGrid(_selectedTabIndex, tabs, 1, GUILayout.Width(LabelStyle.fixedWidth));
+
+			if (lastIndex != _selectedTabIndex)
+			{
+				_colorSelectionContext = null;
+			}
+
+			GUILayout.BeginVertical(style);
+
+			switch (_selectedTabIndex)
+			{
+				case 0:
+					RenderSummary();
+					break;
+				default:
+					var feature = Features.Value[_selectedTabIndex - fixedTabs.Length];
+					RenderFeature(feature);
+
+					break;
+
 			}
 			GUILayout.EndVertical();
+			GUILayout.EndHorizontal();
 			GUI.DragWindow();
+		}
+
+		private static string RenderFeatureText(Feature feature)
+		{
+			if (feature is Commands or GameState || feature is not ToggleFeature toggleFeature)
+				return feature.Name;
+
+			return $"{toggleFeature.Name} is {(toggleFeature.Enabled ? "on".Green() : "off".Red())}";
+		}
+
+		private static void RenderSummary()
+		{
+			GUILayout.FlexibleSpace();
+			if (GUILayout.Button("Load settings"))
+				ConfigurationManager.Load(ConfigFile, Features.Value);
+
+			if (GUILayout.Button("Save settings"))
+				ConfigurationManager.Save(ConfigFile, Features.Value);
+		}
+
+		private void RenderFeature(Feature feature)
+		{
+			var orderedProperties = ConfigurationManager.GetOrderedProperties(feature.GetType());
+
+			foreach (var property in orderedProperties)
+				RenderFeatureProperty(feature, property);
+		}
+
+		private void RenderFeatureProperty(Feature feature, OrderedProperty orderedProperty)
+		{
+			var property = orderedProperty.Property;
+			var propertyType = property.PropertyType;
+
+			GUILayout.FlexibleSpace();
+			GUILayout.BeginHorizontal();
+
+			GUILayout.Label(property.Name, LabelStyle);
+			GUILayout.FlexibleSpace();
+
+			var width = GUILayout.Width(LabelStyle.fixedWidth);
+
+			var controlName = $"{feature.Name}.{property.Name}-{propertyType.Name}";
+			GUI.SetNextControlName(controlName);
+			object currentValue = property.GetValue(feature);
+			object newValue = currentValue;
+
+			if (currentValue == null)
+				return;
+			
+			switch (propertyType.Name)
+			{
+				case nameof(Boolean):
+					newValue = GUILayout.Toggle((bool)currentValue, string.Empty, width);
+					break;
+
+				case nameof(KeyCode):
+					GUILayout.TextField(currentValue.ToString(), width);
+					break;
+
+				case nameof(Single):
+					if (float.TryParse(GUILayout.TextField(currentValue.ToString(), width), out var floatValue))
+						newValue = floatValue;
+					break;
+
+				case nameof(Int32):
+					if (int.TryParse(GUILayout.TextField(currentValue.ToString(), width), out var intValue))
+						newValue = intValue;
+					break;
+
+				case nameof(Color):
+					var currentBackgroundColor = GUI.backgroundColor;
+					GUI.backgroundColor = (Color)currentValue;
+					if (GUILayout.Button(string.Empty, BoxStyle, width, GUILayout.Height(24f)))
+					{
+						_colorSelectionContext = new ColorSelectionContext(feature, orderedProperty, X, Y);
+						GUI.FocusControl(controlName);
+					}
+					GUI.backgroundColor = currentBackgroundColor;
+
+					break;
+
+				default:
+					GUILayout.Label($"Unsupported type: {propertyType.FullName}");
+					break;
+			}
+
+			if (currentValue != newValue)
+			{
+				GUI.FocusControl(controlName);
+				property.SetValue(feature, newValue);
+			}
+
+			var focused = GUI.GetNameOfFocusedControl();
+			if (!string.IsNullOrEmpty(focused) && !focused.EndsWith($"-{nameof(Color)}") && _colorSelectionContext != null)
+			{
+				AddConsoleLog($"focused control is {focused}, reseting color context");
+				_colorSelectionContext = null;
+			}
+
+			GUILayout.EndHorizontal();
 		}
 
 		private void RegisterCommands()
@@ -82,7 +249,7 @@ namespace EFT.Trainer.Features
 			if (commands.Count == 0)
 				return;
 
-			foreach(var feature in FeatureFactory.GetAllToggleableFeatures())
+			foreach(var feature in ToggleableFeatures.Value)
 			{
 				if (feature is Commands or GameState)
 					continue;
@@ -108,13 +275,12 @@ namespace EFT.Trainer.Features
 			CreateCommand(commands, "dump", _ => Dump());
 			CreateCommand(commands, "status", _ => Status());
 
-			var configFile = Path.Combine(UserPath, "trainer.ini");
-			var features = FeatureFactory.GetAllFeatures();
-			CreateCommand(commands, "load", _ => ConfigurationManager.Load(configFile, features));
-			CreateCommand(commands, "save", _ => ConfigurationManager.Save(configFile, features));
+			var features = Features.Value;
+			CreateCommand(commands, "load", _ => ConfigurationManager.Load(ConfigFile, features));
+			CreateCommand(commands, "save", _ => ConfigurationManager.Save(ConfigFile, features));
 
 			// Load default configuration
-			ConfigurationManager.Load(configFile, features, false);
+			ConfigurationManager.Load(ConfigFile, features, false);
 
 			Registered = true;
 		}
@@ -293,7 +459,7 @@ namespace EFT.Trainer.Features
 
 		private static void Status()
 		{
-			foreach (var feature in FeatureFactory.GetAllToggleableFeatures().OrderByDescending(f => f.Name))
+			foreach (var feature in ToggleableFeatures.Value)
 			{
 				if (feature is Commands or GameState)
 					continue;
