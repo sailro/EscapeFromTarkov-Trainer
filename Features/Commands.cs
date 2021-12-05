@@ -201,8 +201,15 @@ namespace EFT.Trainer.Features
 					break;
 
 				case nameof(Single):
-					if (float.TryParse(GUILayout.TextField(currentValue.ToString(), width), out var floatValue))
+					if (string.IsNullOrEmpty(orderedProperty.AsString))
+						orderedProperty.AsString = currentValue.ToString();
+
+					orderedProperty.AsString = GUILayout.TextField(orderedProperty.AsString, width);
+					if (float.TryParse(orderedProperty.AsString, out var floatValue))
+					{
 						newValue = floatValue;
+						orderedProperty.AsString = newValue.ToString();
+					}
 					break;
 
 				case nameof(Int32):
@@ -229,7 +236,7 @@ namespace EFT.Trainer.Features
 
 			if (currentValue != newValue)
 			{
-				GUI.FocusControl(controlName);
+				//GUI.FocusControl(controlName);
 				property.SetValue(feature, newValue);
 			}
 
