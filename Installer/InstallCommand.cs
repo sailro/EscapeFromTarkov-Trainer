@@ -33,7 +33,7 @@ namespace Installer
 		{
 			try
 			{
-				AnsiConsole.MarkupLine("[cyan]-=[[ EscapeFromTarkov-Trainer Universal Installer ]]=-[/]");
+				AnsiConsole.MarkupLine("-=[[ [cyan]EscapeFromTarkov-Trainer Universal Installer[/] - [blue]https://github.com/sailro [/]]]=-");
 				AnsiConsole.WriteLine();
 
 				var installation = Installation.GetTargetInstallation(settings.Path, "Please select where to install the trainer");
