@@ -40,7 +40,7 @@ namespace Installer
 				if (installation == null)
 					return (int)ExitCode.NoInstallationFound;
 
-				AnsiConsole.MarkupLine($"Target [green]EscapeFromTarkov ({installation.Version})[/] in [blue]{installation.Location}[/].");
+				AnsiConsole.MarkupLine($"Target [green]EscapeFromTarkov ({installation.Version})[/] in [blue]{installation.Location.EscapeMarkup()}[/].");
 
 				var (compilation, archive) = await GetCompilationAsync(installation, "master");
 				if (compilation == null)
@@ -78,7 +78,7 @@ namespace Installer
 			}
 			catch (Exception ex)
 			{
-				AnsiConsole.MarkupLine($"[red]Error: {ex.Message}. Please file an issue here : https://github.com/sailro/EscapeFromTarkov-Trainer/issues [/]");
+				AnsiConsole.MarkupLine($"[red]Error: {ex.Message.EscapeMarkup()}. Please file an issue here : https://github.com/sailro/EscapeFromTarkov-Trainer/issues [/]");
 				return (int)ExitCode.Failure;
 			}
 
@@ -105,12 +105,12 @@ namespace Installer
 
 					if (errors.Any())
 					{
-						AnsiConsole.MarkupLine($"[yellow]Compilation failed for {branch} branch.[/]");
+						AnsiConsole.MarkupLine($"[yellow]Compilation failed for {branch.EscapeMarkup()} branch.[/]");
 						compilation = null;
 					}
 					else
 					{
-						AnsiConsole.MarkupLine($"Compilation [green]succeed[/] for [blue]{branch}[/] branch.");
+						AnsiConsole.MarkupLine($"Compilation [green]succeed[/] for [blue]{branch.EscapeMarkup()}[/] branch.");
 					}
 				});
 
@@ -141,7 +141,7 @@ namespace Installer
 			}
 			catch (Exception ex)
 			{
-				AnsiConsole.MarkupLine(ex is WebException {Response: HttpWebResponse {StatusCode: HttpStatusCode.NotFound}} ? $"[yellow]Branch {branch} not found.[/]" : $"[red]Error: {ex.Message}[/]");
+				AnsiConsole.MarkupLine(ex is WebException {Response: HttpWebResponse {StatusCode: HttpStatusCode.NotFound}} ? $"[yellow]Branch {branch.EscapeMarkup()} not found.[/]" : $"[red]Error: {ex.Message.EscapeMarkup()}[/]");
 			}
 
 			return result;
@@ -163,13 +163,13 @@ namespace Installer
 
 					if (nlogNode is not {Name: "nlog"} || targetsNode is not {Name: "targets"})
 					{
-						AnsiConsole.MarkupLine($"[red]Unable to patch {configPath}, unexpected xml structure.[/]");
+						AnsiConsole.MarkupLine($"[red]Unable to patch {configPath.EscapeMarkup()}, unexpected xml structure.[/]");
 						return;
 					}
 
 					if (targetsNode.ChildNodes.Cast<XmlNode>().Any(targetNode => targetNode.Attributes?["name"].Value == targetName && targetNode.Attributes["xsi:type"].Value == targetName))
 					{
-						AnsiConsole.MarkupLine($"Already patched [green]{Path.GetFileName(configPath)}[/] in [blue]{Path.GetDirectoryName(configPath)}[/].");
+						AnsiConsole.MarkupLine($"Already patched [green]{Path.GetFileName(configPath).EscapeMarkup()}[/] in [blue]{Path.GetDirectoryName(configPath).EscapeMarkup()}[/].");
 						return;
 					}
 
@@ -188,7 +188,7 @@ namespace Installer
 					builder.Replace(" xmlns=\"\"", string.Empty);
 					File.WriteAllText(configPath, builder.ToString());
 
-					AnsiConsole.MarkupLine($"Patched [green]{Path.GetFileName(configPath)}[/] in [blue]{Path.GetDirectoryName(configPath)}[/].");
+					AnsiConsole.MarkupLine($"Patched [green]{Path.GetFileName(configPath).EscapeMarkup()}[/] in [blue]{Path.GetDirectoryName(configPath).EscapeMarkup()}[/].");
 					return;
 				}
 
@@ -199,11 +199,11 @@ namespace Installer
   </targets>
 </nlog>";
 				File.WriteAllText(configPath, content);
-				AnsiConsole.MarkupLine($"Created [green]{Path.GetFileName(configPath)}[/] in [blue]{Path.GetDirectoryName(configPath)}[/].");
+				AnsiConsole.MarkupLine($"Created [green]{Path.GetFileName(configPath).EscapeMarkup()}[/] in [blue]{Path.GetDirectoryName(configPath).EscapeMarkup()}[/].");
 			}
 			catch (Exception ex)
 			{
-				AnsiConsole.MarkupLine($"[red]Unable to patch or create {configPath}: {ex.Message}.[/]");
+				AnsiConsole.MarkupLine($"[red]Unable to patch or create {configPath.EscapeMarkup()}: {ex.Message.EscapeMarkup()}.[/]");
 			}
 		}
 
@@ -223,12 +223,12 @@ namespace Installer
 				using var output = File.Create(outlinePath);
 				input.CopyToAsync(output);
 
-				AnsiConsole.MarkupLine($"Created [green]{Path.GetFileName(outlinePath)}[/] in [blue]{Path.GetDirectoryName(outlinePath)}[/].");
+				AnsiConsole.MarkupLine($"Created [green]{Path.GetFileName(outlinePath).EscapeMarkup()}[/] in [blue]{Path.GetDirectoryName(outlinePath).EscapeMarkup()}[/].");
 				return true;
 			}
 			catch (Exception ex)
 			{
-				AnsiConsole.MarkupLine($"[red]Unable to create {outlinePath}: {ex.Message}.[/]");
+				AnsiConsole.MarkupLine($"[red]Unable to create {outlinePath.EscapeMarkup()}: {ex.Message.EscapeMarkup()}.[/]");
 				return false;
 			}
 		}
@@ -239,12 +239,12 @@ namespace Installer
 			try
 			{
 				compilation.Emit(dllPath);
-				AnsiConsole.MarkupLine($"Created [green]{Path.GetFileName(dllPath)}[/] in [blue]{Path.GetDirectoryName(dllPath)}[/].");
+				AnsiConsole.MarkupLine($"Created [green]{Path.GetFileName(dllPath).EscapeMarkup()}[/] in [blue]{Path.GetDirectoryName(dllPath).EscapeMarkup()}[/].");
 				return true;
 			}
 			catch (Exception ex)
 			{
-				AnsiConsole.MarkupLine($"[red]Unable to create {dllPath}: {ex.Message} [/]");
+				AnsiConsole.MarkupLine($"[red]Unable to create {dllPath.EscapeMarkup()}: {ex.Message.EscapeMarkup()} [/]");
 				return false;
 			}
 		}

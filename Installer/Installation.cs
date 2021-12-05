@@ -49,13 +49,12 @@ namespace Installer
 				.Status()
 				.Start("Discovering [green]Escape From Tarkov[/] installations...", _ =>
 				{
-					installations = Installation
-						.DiscoverInstallations()
+					installations = DiscoverInstallations()
 						.Distinct()
 						.ToList();
 				});
 
-			if (path is not null && Installation.TryDiscoverInstallation(path, out var installation))
+			if (path is not null && TryDiscoverInstallation(path, out var installation))
 				installations.Add(installation);
 
 			installations = installations
@@ -70,11 +69,11 @@ namespace Installer
 					return null;
 				case 1:
 					var first = installations.First();
-					return AnsiConsole.Confirm($"Continue with [green]EscapeFromTarkov ({first.Version})[/] in [blue]{first.Location}[/] ?") ? first : null;
+					return AnsiConsole.Confirm($"Continue with [green]EscapeFromTarkov ({first.Version})[/] in [blue]{first.Location.EscapeMarkup()}[/] ?") ? first : null;
 				default:
 					var prompt = new SelectionPrompt<Installation>
 					{
-						Converter = i => i.Location,
+						Converter = i => i.Location.EscapeMarkup(),
 						Title = promptTitle
 					};
 					prompt.AddChoices(installations);

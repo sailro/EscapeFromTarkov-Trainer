@@ -32,7 +32,7 @@ namespace Installer
 				if (installation == null)
 					return (int)ExitCode.NoInstallationFound;
 
-				AnsiConsole.MarkupLine($"Target [green]EscapeFromTarkov ({installation.Version})[/] in [blue]{installation.Location}[/].");
+				AnsiConsole.MarkupLine($"Target [green]EscapeFromTarkov ({installation.Version})[/] in [blue]{installation.Location.EscapeMarkup()}[/].");
 
 				if (!RemoveFile(Path.Combine(installation.Managed, "NLog.EFT.Trainer.dll")))
 					return (int)ExitCode.RemoveDllFailed;
@@ -44,7 +44,7 @@ namespace Installer
 			}
 			catch (Exception ex)
 			{
-				AnsiConsole.MarkupLine($"[red]Error: {ex.Message}. Please file an issue here : https://github.com/sailro/EscapeFromTarkov-Trainer/issues [/]");
+				AnsiConsole.MarkupLine($"[red]Error: {ex.Message.EscapeMarkup()}. Please file an issue here : https://github.com/sailro/EscapeFromTarkov-Trainer/issues [/]");
 				return (int)ExitCode.Failure;
 			}
 
@@ -57,19 +57,19 @@ namespace Installer
 			{
 				if (!File.Exists(filename))
 				{
-					AnsiConsole.MarkupLine($"No [green]{Path.GetFileName(filename)}[/] in [blue]{Path.GetDirectoryName(filename)}[/].");
+					AnsiConsole.MarkupLine($"No [green]{Path.GetFileName(filename).EscapeMarkup()}[/] in [blue]{Path.GetDirectoryName(filename).EscapeMarkup()}[/].");
 				}
 				else
 				{
 					File.Delete(filename);
-					AnsiConsole.MarkupLine($"Removed [green]{Path.GetFileName(filename)}[/] in [blue]{Path.GetDirectoryName(filename)}[/].");
+					AnsiConsole.MarkupLine($"Removed [green]{Path.GetFileName(filename).EscapeMarkup()}[/] in [blue]{Path.GetDirectoryName(filename).EscapeMarkup()}[/].");
 				}
 
 				return true;
 			}
 			catch (Exception ex)
 			{
-				AnsiConsole.MarkupLine($"[red]Unable to remove {filename}: {ex.Message} [/]");
+				AnsiConsole.MarkupLine($"[red]Unable to remove {filename.EscapeMarkup()}: {ex.Message.EscapeMarkup()} [/]");
 				return false;
 			}
 		}
@@ -95,7 +95,7 @@ namespace Installer
 
 				if (nlogNode is not {Name: "nlog"} || targetsNode is not {Name: "targets"})
 				{
-					AnsiConsole.MarkupLine($"[red]Unable to unpatch {configPath}, unexpected xml structure.[/]");
+					AnsiConsole.MarkupLine($"[red]Unable to unpatch {configPath.EscapeMarkup()}, unexpected xml structure.[/]");
 					return;
 				}
 
@@ -107,7 +107,7 @@ namespace Installer
 
 				if (removeNodes.Count == 0)
 				{
-					AnsiConsole.MarkupLine($"Not patched [green]{Path.GetFileName(configPath)}[/] in [blue]{Path.GetDirectoryName(configPath)}[/].");
+					AnsiConsole.MarkupLine($"Not patched [green]{Path.GetFileName(configPath).EscapeMarkup()}[/] in [blue]{Path.GetDirectoryName(configPath).EscapeMarkup()}[/].");
 					return;
 				}
 
@@ -122,7 +122,7 @@ namespace Installer
 					builder.Replace(" xmlns=\"\"", string.Empty);
 					File.WriteAllText(configPath, builder.ToString());
 
-					AnsiConsole.MarkupLine($"Unpatched [green]{Path.GetFileName(configPath)}[/] in [blue]{Path.GetDirectoryName(configPath)}[/].");
+					AnsiConsole.MarkupLine($"Unpatched [green]{Path.GetFileName(configPath).EscapeMarkup()}[/] in [blue]{Path.GetDirectoryName(configPath).EscapeMarkup()}[/].");
 				}
 				else
 				{
@@ -131,7 +131,7 @@ namespace Installer
 			}
 			catch (Exception ex)
 			{
-				AnsiConsole.MarkupLine($"[red]Unable to unpatch or remove {configPath}: {ex.Message}.[/]");
+				AnsiConsole.MarkupLine($"[red]Unable to unpatch or remove {configPath.EscapeMarkup()}: {ex.Message.EscapeMarkup()}.[/]");
 			}
 		}
 	}
