@@ -20,7 +20,7 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty]
 		public Color Color { get; set; } = Color.cyan;
 
-		[ConfigurationProperty(Comment = @"Example: [""foo"", ""bar""] or with extended properties: [{""Name"":""foo"",""Color"":[1.0,0.0,0.0,1.0]},{""Name"":""bar"",""Color"":[1.0,1.0,1.0,0.8],""Rarity"":""Rare""}]")]
+		[ConfigurationProperty(Browsable = false, Comment = @"Example: [""foo"", ""bar""] or with extended properties: [{""Name"":""foo"",""Color"":[1.0,0.0,0.0,1.0]},{""Name"":""bar"",""Color"":[1.0,1.0,1.0,0.8],""Rarity"":""Rare""}]")]
 		public List<TrackedItem> TrackedNames { get; set; } = new();
 
 		[ConfigurationProperty] 

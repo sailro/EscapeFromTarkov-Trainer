@@ -103,6 +103,7 @@
     <Compile Include="Configuration\ConfigurationManager.cs" />
     <Compile Include="Configuration\ConfigurationPropertyAttribute.cs" />
     <Compile Include="Configuration\KeyCodeConverter.cs" />
+    <Compile Include="Configuration\OrderedProperty.cs" />
     <Compile Include="Configuration\TrackedItemConverter.cs" />
     <Compile Include="Extensions\CameraExtensions.cs" />
     <Compile Include="Extensions\ELootRarityExtensions.cs" />
@@ -150,6 +151,10 @@
     <Compile Include="Features\Skills.cs" />
     <Compile Include="Features\WorldInteractiveObjects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\Picker.cs" />
+    <Compile Include="UI\EnumPicker.cs" />
+    <Compile Include="UI\ColorPicker.cs" />
+    <Compile Include="UI\ColorUtil.cs" />
     <Compile Include="UI\Render.cs" />
     <Compile Include="EFTTarget.cs" />
     <Compile Include="KnownTemplateIds.cs" />
