@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 
 #nullable enable
@@ -9,6 +10,7 @@ namespace EFT.Trainer.Features
 	{
 		public Dictionary<Material, Shader?> Cache { get; } = new();
 
+		[UsedImplicitly]
 		public void OnDestroy()
 		{
 			Cache.Clear();

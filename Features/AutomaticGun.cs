@@ -1,11 +1,13 @@
 ﻿using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using JetBrains.Annotations;
 
 #nullable enable
 
 namespace EFT.Trainer.Features
 {
+	[UsedImplicitly]
 	internal class AutomaticGun : ToggleFeature
 	{
 		public override string Name => "autogun";

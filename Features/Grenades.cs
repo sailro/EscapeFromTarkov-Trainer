@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using Comfort.Common;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using JetBrains.Annotations;
 using UnityEngine;
 
 #nullable enable
 
 namespace EFT.Trainer.Features
 {
+	[UsedImplicitly]
 	internal class Grenades : CachableFeature<Throwable[]>
 	{
 		public override string Name => "grenade";

@@ -2,12 +2,14 @@
 using Comfort.Common;
 using EFT.Ballistics;
 using EFT.Trainer.Extensions;
+using JetBrains.Annotations;
 using UnityEngine;
 
 #nullable enable
 
 namespace EFT.Trainer.Features
 {
+	[UsedImplicitly]
 	internal class WallShoot : CachableFeature<BallisticCollider[]>
 	{
 		public override string Name => "wallshoot";

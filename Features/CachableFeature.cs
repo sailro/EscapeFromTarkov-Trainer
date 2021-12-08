@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using EFT.Trainer.Configuration;
-using EFT.UI;
+using JetBrains.Annotations;
 using UnityEngine;
 
 #nullable enable
@@ -19,16 +19,19 @@ namespace EFT.Trainer.Features
 		private readonly System.Diagnostics.Stopwatch _stopwatch = new();
 #endif
 
+		[UsedImplicitly]
 		private void Start()
 		{
 			StartCoroutine(RefreshDataScheduler());
 		}
 
+#if DEBUG_PERFORMANCE
 		protected static void AddConsoleLog(string log, string from = "scheduler")
 		{
-			if (PreloaderUI.Instantiated)
-				PreloaderUI.Instance.Console.AddLog(log, from);
+			if (EFT.UI.PreloaderUI.Instantiated)
+				EFT.UI.PreloaderUI.Instance.Console.AddLog(log, from);
 		}
+#endif
 
 		private IEnumerator RefreshDataScheduler()
 		{

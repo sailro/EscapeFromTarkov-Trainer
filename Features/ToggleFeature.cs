@@ -1,4 +1,5 @@
 ﻿using EFT.Trainer.Configuration;
+using JetBrains.Annotations;
 using UnityEngine;
 
 #nullable enable
@@ -22,6 +23,7 @@ namespace EFT.Trainer.Features
 				UpdateWhenEnabled();
 		}
 
+		[UsedImplicitly]
 		private void OnGUI()
 		{
 			if (Enabled)

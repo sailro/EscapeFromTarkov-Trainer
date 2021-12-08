@@ -3,12 +3,14 @@ using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
+using JetBrains.Annotations;
 using UnityEngine;
 
 #nullable enable
 
 namespace EFT.Trainer.Features
 {
+	[UsedImplicitly]
 	internal class Players : ToggleFeature
 	{
 		public override string Name => "wallhack";
@@ -70,6 +72,7 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty(Order = 19)]
 		public float MaximumDistance { get; set; } = 0f;
 
+		[UsedImplicitly]
 		protected void OnGUI()
 		{
 			var hostiles = GameState.Current?.Hostiles;

@@ -4,6 +4,7 @@ using System.IO;
 using Comfort.Common;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using JetBrains.Annotations;
 using UnityEngine;
 
 #nullable enable
@@ -26,6 +27,7 @@ namespace EFT.Trainer.Features
 
 		public static Shader? OutlineShader { get; private set; }
 
+		[UsedImplicitly]
 		private void Awake()
 		{
 			// if we are not able to load our dedicated shader, we'll have OutlineShader==null => Unity will use the magenta-debug-shader, which is a nice fallback

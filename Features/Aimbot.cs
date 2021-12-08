@@ -1,12 +1,14 @@
 ﻿using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using JetBrains.Annotations;
 using UnityEngine;
 
 #nullable enable
 
 namespace EFT.Trainer.Features
 {
+	[UsedImplicitly]
 	internal class Aimbot : HoldFeature
 	{
 		public override string Name => "aimbot";
@@ -65,8 +67,8 @@ namespace EFT.Trainer.Features
 
 				nearestTargetDistance = distance;
 				var travelTime = distance / template.InitialSpeed;
-				destination.x += (player.Velocity.x * travelTime);
-				destination.y += (player.Velocity.y * travelTime);
+				destination.x += player.Velocity.x * travelTime;
+				destination.y += player.Velocity.y * travelTime;
 
 				nearestTarget = destination;
 			}

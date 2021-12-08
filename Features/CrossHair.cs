@@ -1,12 +1,14 @@
 ﻿using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
+using JetBrains.Annotations;
 using UnityEngine;
 
 #nullable enable
 
 namespace EFT.Trainer.Features
 {
+	[UsedImplicitly]
 	internal class CrossHair : ToggleFeature
 	{
 		public override string Name => "crosshair";

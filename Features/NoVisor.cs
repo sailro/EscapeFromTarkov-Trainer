@@ -1,10 +1,12 @@
 ﻿using System;
+using JetBrains.Annotations;
 using UnityEngine;
 
 #nullable enable
 
 namespace EFT.Trainer.Features
 {
+	[UsedImplicitly]
 	internal class NoVisor : ToggleFeature
 	{
 		public override string Name => "novisor";

@@ -1,9 +1,11 @@
 ﻿using EFT.Trainer.Extensions;
+using JetBrains.Annotations;
 
 #nullable enable
 
 namespace EFT.Trainer.Features
 {
+	[UsedImplicitly]
 	internal class NoRecoil : ToggleFeature
 	{
 		public override string Name => "norecoil";

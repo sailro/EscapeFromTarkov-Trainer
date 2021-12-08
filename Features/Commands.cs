@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -145,11 +144,7 @@ namespace EFT.Trainer.Features
 			foreach (var item in feature.TrackedNames)
 			{
 				var extra = item.Rarity.HasValue ? $" ({item.Rarity.Value.Color()})" : string.Empty;
-
-				if (item.Color.HasValue)
-					AddConsoleLog($"Tracking: {item.Name.Color(item.Color.Value)}{extra}", "tracker");
-				else
-					AddConsoleLog($"Tracking: {item.Name}", "tracker");
+				AddConsoleLog(item.Color.HasValue ? $"Tracking: {item.Name.Color(item.Color.Value)}{extra}" : $"Tracking: {item.Name}", "tracker");
 			}
 		}
 

@@ -4,11 +4,13 @@ using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
 using UnityEngine;
 using System;
+using JetBrains.Annotations;
 
 #nullable enable
 
 namespace EFT.Trainer.Features
 {
+	[UsedImplicitly]
 	internal class Hud : ToggleFeature
 	{
 		public override string Name => "hud";
