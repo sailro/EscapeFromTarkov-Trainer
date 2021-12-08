@@ -21,7 +21,7 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty]
 		public bool Compass { get; set; } = true;
 
-		private static readonly string[] Directions = { "N", "NE", "E", "SE", "S", "SW", "W", "NW", "N" };
+		private static readonly string[] _directions = { "N", "NE", "E", "SE", "S", "SW", "W", "NW", "N" };
 
 		protected override void OnGUIWhenEnabled()
 		{
@@ -42,7 +42,7 @@ namespace EFT.Trainer.Features
 				var forward = player.Transform.forward;
 				forward.y = 0;
 				var heading = Quaternion.LookRotation(forward).eulerAngles.y;
-				prefix = Directions[(int)Math.Round((double)heading % 360 / 45)] + " - ";
+				prefix = _directions[(int)Math.Round((double)heading % 360 / 45)] + " - ";
 			}
 
 			var hud = $"{prefix}{mag.Count}+{weapon.ChamberAmmoCount}/{mag.MaxCount} [{weapon.SelectedFireMode}]";

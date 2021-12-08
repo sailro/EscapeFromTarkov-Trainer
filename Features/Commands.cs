@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
@@ -61,42 +62,70 @@ namespace EFT.Trainer.Features
 			RegisterCommands();
 		}
 
-		internal class ColorSelectionContext
+		internal abstract class SelectionContext<T>
 		{
-			public ColorSelectionContext(Feature feature, OrderedProperty orderedProperty, float parentX, float parentY)
+			protected SelectionContext(Feature feature, OrderedProperty orderedProperty, float parentX, float parentY, Func<T, Picker<T>> builder)
 			{
 				Feature = feature;
 				OrderedProperty = orderedProperty;
-				ColorPicker = new ColorPicker((Color)orderedProperty.Property.GetValue(feature));
+				Picker = builder((T)orderedProperty.Property.GetValue(feature));
 				
 				var position = Event.current.mousePosition;
-				ColorPicker.SetWindowPosition(parentX + LabelStyle.fixedWidth * 3 + LabelStyle.margin.left * 6, position.y + parentY - 32f);
+				Picker.SetWindowPosition(parentX + LabelStyle.fixedWidth * 3 + LabelStyle.margin.left * 6, position.y + parentY - 32f);
 			}
 
 			public Feature Feature { get; }
 			public OrderedProperty OrderedProperty { get; }
-			public ColorPicker ColorPicker { get; }
-			
+			public Picker<T> Picker { get; }
+			public abstract int Id { get; }
+		}
+
+		internal class ColorSelectionContext : SelectionContext<Color>
+		{
+			public ColorSelectionContext(Feature feature, OrderedProperty orderedProperty, float parentX, float parentY) : base(feature, orderedProperty, parentX, parentY, color => new ColorPicker(color))
+			{
+			}
+
+			public override int Id => 1;
+		}
+
+		internal class KeyCodeSelectionContext : SelectionContext<KeyCode>
+		{
+			public KeyCodeSelectionContext(Feature feature, OrderedProperty orderedProperty, float parentX, float parentY) : base(feature, orderedProperty, parentX, parentY, color => new EnumPicker<KeyCode>(color))
+			{
+			}
+
+			public override int Id => 2;
 		}
 
 		private Rect _clientWindowRect;
-
 		private ColorSelectionContext? _colorSelectionContext = null;
+		private KeyCodeSelectionContext? _keyCodeSelectionContext = null;
 		protected override void OnGUIWhenEnabled()
 		{
-			_clientWindowRect = new Rect(X, Y, _clientWindowRect.width, _clientWindowRect.height);
+			_clientWindowRect = new Rect(X, Y, 490, _clientWindowRect.height);
 			_clientWindowRect = GUILayout.Window(0, _clientWindowRect, RenderFeatureWindow, "EFT Trainer", GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true));
 			X = _clientWindowRect.x;
 			Y = _clientWindowRect.y;
 
-			if (_colorSelectionContext == null) 
-				return;
+			HandleSelectionContext(_colorSelectionContext);
 
-			var property = _colorSelectionContext.OrderedProperty.Property;
-			var colorPicker = _colorSelectionContext.ColorPicker;
+			if (HandleSelectionContext(_keyCodeSelectionContext))
+				_keyCodeSelectionContext = null;
+		}
 
-			colorPicker.DrawWindow(1, property.Name);
-			property.SetValue(_colorSelectionContext.Feature, colorPicker.Color);
+		private static bool HandleSelectionContext<T>(SelectionContext<T>? context)
+		{
+			if (context == null) 
+				return false;
+
+			var property = context.OrderedProperty.Property;
+			var picker = context.Picker;
+
+			picker.DrawWindow(context.Id, property.Name);
+			property.SetValue(context.Feature, picker.Value);
+
+			return picker.IsSelected;
 		}
 
 		private int _selectedTabIndex = 0;
@@ -122,9 +151,11 @@ namespace EFT.Trainer.Features
 			if (lastIndex != _selectedTabIndex)
 			{
 				_colorSelectionContext = null;
+				_keyCodeSelectionContext = null;
 			}
 
 			GUILayout.BeginVertical(style);
+			GUILayout.Space(4);
 
 			switch (_selectedTabIndex)
 			{
@@ -151,14 +182,33 @@ namespace EFT.Trainer.Features
 			return $"{toggleFeature.Name} is {(toggleFeature.Enabled ? "on".Green() : "off".Red())}";
 		}
 
-		private static void RenderSummary()
+		private void RenderSummary()
 		{
-			GUILayout.FlexibleSpace();
 			if (GUILayout.Button("Load settings"))
-				ConfigurationManager.Load(ConfigFile, Features.Value);
+				LoadSettings();
 
 			if (GUILayout.Button("Save settings"))
-				ConfigurationManager.Save(ConfigFile, Features.Value);
+				SaveSettings();
+		}
+
+		private static void SaveSettings()
+		{
+			ConfigurationManager.Save(ConfigFile, Features.Value);
+		}
+
+		private void LoadSettings(bool warnIfNotExists = true)
+		{
+			var cx = X;
+			var cy = Y;
+
+			ConfigurationManager.Load(ConfigFile, Features.Value, warnIfNotExists);
+			_controlValues.Clear();
+
+			if (!Enabled)
+				return;
+
+			X = cx;
+			Y = cy;
 		}
 
 		private void RenderFeature(Feature feature)
@@ -169,6 +219,7 @@ namespace EFT.Trainer.Features
 				RenderFeatureProperty(feature, property);
 		}
 
+		private static readonly Dictionary<string, string> _controlValues = new();
 		private void RenderFeatureProperty(Feature feature, OrderedProperty orderedProperty)
 		{
 			var property = orderedProperty.Property;
@@ -184,8 +235,10 @@ namespace EFT.Trainer.Features
 
 			var controlName = $"{feature.Name}.{property.Name}-{propertyType.Name}";
 			GUI.SetNextControlName(controlName);
-			object currentValue = property.GetValue(feature);
-			object newValue = currentValue;
+
+			var currentValue = property.GetValue(feature);
+			var newValue = currentValue;
+			var currentBackgroundColor = GUI.backgroundColor;
 
 			if (currentValue == null)
 				return;
@@ -193,40 +246,23 @@ namespace EFT.Trainer.Features
 			switch (propertyType.Name)
 			{
 				case nameof(Boolean):
-					newValue = GUILayout.Toggle((bool)currentValue, string.Empty, width);
+					newValue = RenderBooleanProperty(currentValue, width);
 					break;
 
 				case nameof(KeyCode):
-					GUILayout.TextField(currentValue.ToString(), width);
+					RenderKeyCodeProperty(currentValue, controlName, feature, orderedProperty, width);
 					break;
 
 				case nameof(Single):
-					if (string.IsNullOrEmpty(orderedProperty.AsString))
-						orderedProperty.AsString = currentValue.ToString();
-
-					orderedProperty.AsString = GUILayout.TextField(orderedProperty.AsString, width);
-					if (float.TryParse(orderedProperty.AsString, out var floatValue))
-					{
-						newValue = floatValue;
-						orderedProperty.AsString = newValue.ToString();
-					}
+					newValue = RenderFloatProperty(currentValue, controlName, width);
 					break;
 
 				case nameof(Int32):
-					if (int.TryParse(GUILayout.TextField(currentValue.ToString(), width), out var intValue))
-						newValue = intValue;
+					newValue = RenderIntProperty(currentValue, width);
 					break;
 
 				case nameof(Color):
-					var currentBackgroundColor = GUI.backgroundColor;
-					GUI.backgroundColor = (Color)currentValue;
-					if (GUILayout.Button(string.Empty, BoxStyle, width, GUILayout.Height(24f)))
-					{
-						_colorSelectionContext = new ColorSelectionContext(feature, orderedProperty, X, Y);
-						GUI.FocusControl(controlName);
-					}
-					GUI.backgroundColor = currentBackgroundColor;
-
+					RenderColorProperty(currentValue, controlName, feature, orderedProperty, width);
 					break;
 
 				default:
@@ -235,19 +271,96 @@ namespace EFT.Trainer.Features
 			}
 
 			if (currentValue != newValue)
-			{
-				//GUI.FocusControl(controlName);
 				property.SetValue(feature, newValue);
-			}
 
 			var focused = GUI.GetNameOfFocusedControl();
-			if (!string.IsNullOrEmpty(focused) && !focused.EndsWith($"-{nameof(Color)}") && _colorSelectionContext != null)
-			{
-				AddConsoleLog($"focused control is {focused}, reseting color context");
+
+			if (ShouldResetSelectionContext(focused, _colorSelectionContext))
 				_colorSelectionContext = null;
+
+			if (ShouldResetSelectionContext(focused, _keyCodeSelectionContext))
+				_keyCodeSelectionContext = null;
+
+			GUI.backgroundColor = currentBackgroundColor;
+			GUILayout.EndHorizontal();
+		}
+
+		private static bool ShouldResetSelectionContext<T>(string focused, SelectionContext<T>? context)
+		{
+			return !string.IsNullOrEmpty(focused)
+			       && !focused.EndsWith($"-{typeof(T).Name}")
+			       && context != null;
+		}
+
+		private static object RenderIntProperty(object currentValue, GUILayoutOption option)
+		{
+			object newValue = currentValue;
+
+			if (int.TryParse(GUILayout.TextField(currentValue.ToString(), option), out var intValue))
+				newValue = intValue;
+
+			return newValue;
+		}
+
+		private void RenderKeyCodeProperty(object currentValue, string controlName, Feature feature, OrderedProperty orderedProperty, GUILayoutOption option)
+		{
+			if (!GUILayout.Button(currentValue.ToString(), option))
+				return;
+
+			_keyCodeSelectionContext = new KeyCodeSelectionContext(feature, orderedProperty, X, Y);
+			GUI.FocusControl(controlName);
+		}
+
+		private void RenderColorProperty(object currentValue, string controlName, Feature feature, OrderedProperty orderedProperty, GUILayoutOption option)
+		{
+			GUI.backgroundColor = (Color) currentValue;
+
+			if (!GUILayout.Button(string.Empty, BoxStyle, option, GUILayout.Height(22f)))
+				return;
+
+			_colorSelectionContext = new ColorSelectionContext(feature, orderedProperty, X, Y);
+			GUI.FocusControl(controlName);
+		}
+
+		private static object RenderFloatProperty(object currentValue, string controlName, GUILayoutOption width)
+		{
+			const string decimalSeparator = ".";
+			const string altDecimalSeparator = ",";
+
+			var culture = CultureInfo.InvariantCulture;
+			var newValue = currentValue;
+
+			if (!_controlValues.TryGetValue(controlName, out var controlText))
+				controlText = currentValue.ToString();
+
+			if (controlText != currentValue.ToString())
+				GUI.backgroundColor = Color.red;
+
+			controlText = GUILayout
+				.TextField(controlText, width)
+				.Replace(altDecimalSeparator, decimalSeparator);
+
+			if (!controlText.EndsWith(decimalSeparator) && float.TryParse(controlText, NumberStyles.Float, culture, out var floatValue))
+			{
+				newValue = floatValue;
+				controlText = newValue.ToString();
 			}
 
-			GUILayout.EndHorizontal();
+			_controlValues[controlName] = controlText;
+			return newValue;
+		}
+
+		private object RenderBooleanProperty(object currentValue, GUILayoutOption option)
+		{
+			var boolValue = (bool) currentValue;
+			var newValue = GUILayout.Toggle(boolValue, string.Empty, option);
+			if (newValue != boolValue)
+			{
+				_colorSelectionContext = null;
+				_keyCodeSelectionContext = null;
+			}
+
+			return newValue;
 		}
 
 		private void RegisterCommands()
@@ -282,12 +395,11 @@ namespace EFT.Trainer.Features
 			CreateCommand(commands, "dump", _ => Dump());
 			CreateCommand(commands, "status", _ => Status());
 
-			var features = Features.Value;
-			CreateCommand(commands, "load", _ => ConfigurationManager.Load(ConfigFile, features));
-			CreateCommand(commands, "save", _ => ConfigurationManager.Save(ConfigFile, features));
+			CreateCommand(commands, "load", _ => LoadSettings());
+			CreateCommand(commands, "save", _ => SaveSettings());
 
 			// Load default configuration
-			ConfigurationManager.Load(ConfigFile, features, false);
+			LoadSettings(false);
 
 			Registered = true;
 		}

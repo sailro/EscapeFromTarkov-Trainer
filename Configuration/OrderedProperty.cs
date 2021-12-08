@@ -8,13 +8,11 @@ namespace EFT.Trainer.Configuration
 	{
 		public ConfigurationPropertyAttribute Attribute { get; }
 		public PropertyInfo Property { get; }
-		public string AsString { get; set; }
 
-		public OrderedProperty(ConfigurationPropertyAttribute attribute, PropertyInfo property, string asString = "")
+		public OrderedProperty(ConfigurationPropertyAttribute attribute, PropertyInfo property)
 		{
 			Attribute = attribute;
 			Property = property;
-			AsString = asString;
 		}
 	}
 }
