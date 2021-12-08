@@ -147,6 +147,7 @@
     <Compile Include="Features\TrackedItem.cs" />
     <Compile Include="Features\TriggerFeature.cs" />
     <Compile Include="Features\WallShoot.cs" />
+    <Compile Include="Features\Skills.cs" />
     <Compile Include="Features\WorldInteractiveObjects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\Render.cs" />
