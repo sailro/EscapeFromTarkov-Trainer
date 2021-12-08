@@ -35,7 +35,8 @@ This trainer gives:
 - Crosshair (off by default) with customizable size, color, thickness and auto-hide feature when aiming.
 - Grenades outline (off by default).
 - No physical collisions, making you immune to bullets, grenades and barbed wires (off by default).
-- Speed boost to be able to go through walls/objects, or to move faster. Be careful to not kill yourself. setup your key in [trainer.ini](#sample-trainerini-configuration-file).
+- Speed boost to be able to go through walls/objects, or to move faster. Be careful to not kill yourself. Setup your key in [trainer.ini](#sample-trainerini-configuration-file).
+- All skills to Elite level (51) and all weapons mastering to level 3. Setup your key in [trainer.ini](#sample-trainerini-configuration-file).
 - Popup window to enable/disable all features (use right-alt or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
 - Load/Save all settings.
 
@@ -214,6 +215,8 @@ EFT.Trainer.Features.Quests.Key="None"
 EFT.Trainer.Features.Quests.CacheTimeInSec=5.0
 EFT.Trainer.Features.Quests.Color=[1.0,0.0,1.0,1.0]
 EFT.Trainer.Features.Quests.MaximumDistance=0.0
+
+EFT.Trainer.Features.Skills.Key="None"
 
 EFT.Trainer.Features.Speed.Key="None"
 EFT.Trainer.Features.Speed.Intensity=50.0
