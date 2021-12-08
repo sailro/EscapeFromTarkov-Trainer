@@ -222,6 +222,9 @@ namespace EFT.Trainer.Features
 		private static readonly Dictionary<string, string> _controlValues = new();
 		private void RenderFeatureProperty(Feature feature, OrderedProperty orderedProperty)
 		{
+			if (!orderedProperty.Attribute.Browsable)
+				return;
+
 			var property = orderedProperty.Property;
 			var propertyType = property.PropertyType;
 
