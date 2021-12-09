@@ -48,7 +48,7 @@ This trainer gives:
 ![Stashes](https://user-images.githubusercontent.com/638167/135586933-4cf57740-aff2-47c8-9cec-94e2eb062dd0.png)
 ![Track](https://user-images.githubusercontent.com/638167/135586489-c4214794-21c9-4493-9699-dcca6c3dd00e.png)
 ![NightVision](https://user-images.githubusercontent.com/638167/135586268-c175e999-a60d-40db-9960-06cdf5fe27d7.png)
-![Popup](https://user-images.githubusercontent.com/638167/135586349-d04b410a-0992-4e23-bf2b-02319dd6caca.png)
+![Popup](https://user-images.githubusercontent.com/638167/145362848-0989edba-a908-4722-b9aa-2f28acff5733.png)
 
 ## Easy and automatic installation
 
