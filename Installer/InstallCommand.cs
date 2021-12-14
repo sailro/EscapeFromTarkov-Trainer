@@ -42,18 +42,38 @@ namespace Installer
 
 				AnsiConsole.MarkupLine($"Target [green]EscapeFromTarkov ({installation.Version})[/] in [blue]{installation.Location.EscapeMarkup()}[/].");
 
-				var (compilation, archive) = await GetCompilationAsync(installation, "master");
+				// Try first to compile against master
+				var @try = 0;
+				var (compilation, archive, errors) = await GetCompilationAsync(++@try, installation, "master");
+				var files = errors
+					.Select(d => d.Location.SourceTree?.FilePath)
+					.Where(s => s is not null)
+					.Distinct()
+					.ToArray();
+
 				if (compilation == null)
 				{
+					// Failure, so try with a dedicated branch if exists
 					var branch = settings.Branch ?? installation.Version.ToString();
 					if (!branch.StartsWith("dev-"))
 						branch = "dev-" + branch;
 
-					(compilation, archive) = await GetCompilationAsync(installation, branch);
+					(compilation, archive, _) = await GetCompilationAsync(++@try, installation, branch);
+				}
+
+				if (compilation == null && files.Any() && files.All(f => f!.StartsWith("Features")))
+				{
+					// Failure, retry by removing faulting features if possible
+					AnsiConsole.MarkupLine($"[yellow]Trying to disable faulting feature(s): [red]{string.Join(", ", files.Select(Path.GetFileNameWithoutExtension))}[/].[/]");
+					(compilation, archive, errors) = await GetCompilationAsync(++@try, installation, "master", files!);
+
+					if (!errors.Any())
+						AnsiConsole.MarkupLine("[yellow]We found a fallback! But please file an issue here : https://github.com/sailro/EscapeFromTarkov-Trainer/issues [/]");
 				}
 
 				if (compilation == null)
 				{
+					// Failure
 					AnsiConsole.MarkupLine($"[red]Unable to compile trainer for version {installation.Version}. Please file an issue here : https://github.com/sailro/EscapeFromTarkov-Trainer/issues [/]");
 					return (int)ExitCode.CompilationFailed;
 				}
@@ -85,39 +105,41 @@ namespace Installer
 			return (int)ExitCode.Success;
 		}
 
-		private static async Task<(CSharpCompilation?, ZipArchive?)> GetCompilationAsync(Installation installation, string branch)
+		private static async Task<(CSharpCompilation?, ZipArchive?, Diagnostic[])> GetCompilationAsync(int @try, Installation installation, string branch, params string[] exclude)
 		{
-			var archive = await GetSnapshotAsync(branch);
+			var errors = Array.Empty<Diagnostic>();
+
+			var archive = await GetSnapshotAsync(@try, branch);
 			if (archive == null)
-				return (null, null);
+				return (null, null, errors);
 
 			CSharpCompilation? compilation = null;
 			AnsiConsole
 				.Status()
 				.Start("Compiling trainer", _ =>
 				{
-					var compiler = new Compiler(archive, installation);
+					var compiler = new Compiler(archive, installation, exclude);
 					compilation = compiler.Compile();
-					var errors = compilation
+					errors = compilation
 						.GetDiagnostics()
 						.Where(d => d.Severity == DiagnosticSeverity.Error)
-						.ToList();
+						.ToArray();
 
 					if (errors.Any())
 					{
-						AnsiConsole.MarkupLine($"[yellow]Compilation failed for {branch.EscapeMarkup()} branch.[/]");
+						AnsiConsole.MarkupLine($">> [blue]Try #{@try}[/] [yellow]Compilation failed for {branch.EscapeMarkup()} branch.[/]");
 						compilation = null;
 					}
 					else
 					{
-						AnsiConsole.MarkupLine($"Compilation [green]succeed[/] for [blue]{branch.EscapeMarkup()}[/] branch.");
+						AnsiConsole.MarkupLine($">> [blue]Try #{@try}[/] Compilation [green]succeed[/] for [blue]{branch.EscapeMarkup()}[/] branch.");
 					}
 				});
 
-			return (compilation, archive);
+			return (compilation, archive, errors);
 		}
 
-		private static async Task<ZipArchive?> GetSnapshotAsync(string branch)
+		private static async Task<ZipArchive?> GetSnapshotAsync(int @try, string branch)
 		{
 			var status = $"Downloading repository snapshot ({branch} branch)...";
 			ZipArchive? result = null;
@@ -141,7 +163,7 @@ namespace Installer
 			}
 			catch (Exception ex)
 			{
-				AnsiConsole.MarkupLine(ex is WebException {Response: HttpWebResponse {StatusCode: HttpStatusCode.NotFound}} ? $"[yellow]Branch {branch.EscapeMarkup()} not found.[/]" : $"[red]Error: {ex.Message.EscapeMarkup()}[/]");
+				AnsiConsole.MarkupLine(ex is WebException {Response: HttpWebResponse {StatusCode: HttpStatusCode.NotFound}} ? $">> [blue]Try #{@try}[/] [yellow]Branch {branch.EscapeMarkup()} not found.[/]" : $"[red]Error: {ex.Message.EscapeMarkup()}[/]");
 			}
 
 			return result;

@@ -18,16 +18,18 @@ namespace Installer
 		public ZipArchive ProjectArchive { get; }
 		public Installation Installation { get; }
 		public string ProjectContent { get; } = string.Empty;
+		public string[] Exclude;
 
 		public static readonly CSharpCompilationOptions CompilationOptions =
 			new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary)
 				.WithOverflowChecks(true)
 				.WithOptimizationLevel(OptimizationLevel.Release);
 
-		public Compiler(ZipArchive projectArchive, Installation installation)
+		public Compiler(ZipArchive projectArchive, Installation installation, params string[] exclude)
 		{
 			ProjectArchive = projectArchive;
 			Installation = installation;
+			Exclude = exclude;
 
 			var entry = projectArchive.Entries.FirstOrDefault(e => e.Name == "NLog.EFT.Trainer.csproj");
 			if (entry == null) 
@@ -44,8 +46,12 @@ namespace Installer
 
 			foreach (Match match in matches)
 			{
-				if (match.Success)
-					yield return match.Groups["file"].Value;
+				if (!match.Success)
+					continue;
+
+				var file = match.Groups["file"].Value;
+				if (!Exclude.Contains(file))
+					yield return file;
 			}
 		}
 
