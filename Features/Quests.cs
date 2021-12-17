@@ -39,45 +39,20 @@ namespace EFT.Trainer.Features
 				return Empty;
 
 			var profile = player.Profile;
-			var triggers = FindObjectsOfType<PlaceItemTrigger>();
-			var source = profile
-				.Inventory
-				.AllPlayerItems
-				.ToArray();
-
 			var records = new List<PointOfInterest>();
 
 			// Step 1: find all locations to place quest items we have in the player inventory
-			foreach (var trigger in triggers)
-			{
-				var ìtems = profile.
-					Quests.
-					GetConditionHandlersByZone<ConditionZone>(trigger.Id)
-					.ToArray();
-
-				foreach (var item in ìtems)
-				{
-					var conditionZone = (ConditionZone)item.Condition;
-					var result = source.FirstOrDefault(x => conditionZone.target.Contains(x.TemplateId));
-					if (result == null)
-						continue;
-
-					var isMultitool = result.TemplateId == KnownTemplateIds.MultiTool;
-					var position = trigger.transform.position;
-					records.Add(new PointOfInterest
-					{
-						Name = isMultitool ? "Repair" : $"Place {result.Template.NameLocalizationKey.Localized()}",
-						Position = position,
-						ScreenPosition = camera.WorldPointToScreenPoint(position),
-						Color = Color
-					});
-					break;
-				}
-			}
+			RefreshPlaceItemLocations(profile, records, camera);
 
 			// Step 2: search for all lootItems related to quests
-			var lootItems = world.LootItems;
+			RefreshFindItemLocations(world, profile, records, camera);
 
+			return records.ToArray();
+		}
+
+		private void RefreshFindItemLocations(GameWorld world, Profile profile, List<PointOfInterest> records, Camera camera)
+		{
+			var lootItems = world.LootItems;
 			var startedQuests = profile
 				.Quests
 				.LoadedList
@@ -97,7 +72,8 @@ namespace EFT.Trainer.Features
 				{
 					foreach (var condition in quest.GetConditions<ConditionFindItem>(EQuestStatus.AvailableForFinish))
 					{
-						if (condition.target.Contains(lootItem.Item.TemplateId) && !quest.ConditionHandlers[condition].Test() && !quest.CompletedConditions.Contains(condition.id))
+						if (condition.target.Contains(lootItem.Item.TemplateId) && !quest.ConditionHandlers[condition].Test() &&
+						    !quest.CompletedConditions.Contains(condition.id))
 						{
 							var position = lootItem.transform.position;
 							records.Add(new PointOfInterest
@@ -111,8 +87,40 @@ namespace EFT.Trainer.Features
 					}
 				}
 			}
+		}
 
-			return records.ToArray();
+		private void RefreshPlaceItemLocations(Profile profile, List<PointOfInterest> records, Camera camera)
+		{
+			var triggers = FindObjectsOfType<PlaceItemTrigger>();
+			var source = profile
+				.Inventory
+				.AllPlayerItems
+				.ToArray();
+
+			foreach (var trigger in triggers)
+			{
+				var ìtems = profile.Quests.GetConditionHandlersByZone<ConditionZone>(trigger.Id)
+					.ToArray();
+
+				foreach (var item in ìtems)
+				{
+					var conditionZone = (ConditionZone) item.Condition;
+					var result = source.FirstOrDefault(x => conditionZone.target.Contains(x.TemplateId));
+					if (result == null)
+						continue;
+
+					var isMultitool = result.TemplateId == KnownTemplateIds.MultiTool;
+					var position = trigger.transform.position;
+					records.Add(new PointOfInterest
+					{
+						Name = isMultitool ? "Repair" : $"Place {result.Template.NameLocalizationKey.Localized()}",
+						Position = position,
+						ScreenPosition = camera.WorldPointToScreenPoint(position),
+						Color = Color
+					});
+					break;
+				}
+			}
 		}
 	}
 }
