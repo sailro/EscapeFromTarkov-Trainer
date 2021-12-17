@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using Comfort.Common;
 using EFT.Interactive;
 using EFT.Quests;
@@ -39,25 +40,35 @@ namespace EFT.Trainer.Features
 				return Empty;
 
 			var profile = player.Profile;
+			var questController = new QuestController(profile);
+			if (!questController.IsValid)
+				return Empty;
+
 			var records = new List<PointOfInterest>();
 
-			// Step 1: find all locations to place quest items we have in the player inventory
-			RefreshPlaceItemLocations(profile, records, camera);
+			try
+			{
+				// Step 1: find all locations to place quest items we have in the player inventory
+				RefreshPlaceItemLocations(questController, records, camera);
 
-			// Step 2: search for all lootItems related to quests
-			RefreshFindItemLocations(world, profile, records, camera);
+				// Step 2: search for all lootItems related to quests
+				RefreshFindItemLocations(world, questController, records, camera);
+			}
+			catch
+			{
+				// we are using dynamic objects here, so we can hit MissingMemberException in case the member names/scope change.
+#if DEBUG
+				throw;
+#endif
+			}
 
 			return records.ToArray();
 		}
 
-		private void RefreshFindItemLocations(GameWorld world, Profile profile, List<PointOfInterest> records, Camera camera)
+		private void RefreshFindItemLocations(GameWorld world, QuestController questController, List<PointOfInterest> records, Camera camera)
 		{
 			var lootItems = world.LootItems;
-			var startedQuests = profile
-				.Quests
-				.LoadedList
-				.Where(q => q.QuestStatus == EQuestStatus.Started)
-				.ToArray();
+			var startedQuests = questController.GetStartedQuests();
 
 			for (var i = 0; i < lootItems.Count; i++)
 			{
@@ -70,7 +81,7 @@ namespace EFT.Trainer.Features
 
 				foreach (var quest in startedQuests)
 				{
-					foreach (var condition in quest.GetConditions<ConditionFindItem>(EQuestStatus.AvailableForFinish))
+					foreach (ConditionFindItem condition in quest.GetConditions<ConditionFindItem>(EQuestStatus.AvailableForFinish))
 					{
 						if (condition.target.Contains(lootItem.Item.TemplateId) && !quest.ConditionHandlers[condition].Test() &&
 						    !quest.CompletedConditions.Contains(condition.id))
@@ -78,7 +89,7 @@ namespace EFT.Trainer.Features
 							var position = lootItem.transform.position;
 							records.Add(new PointOfInterest
 							{
-								Name = lootItem.Item.ShortName.Localized(),
+								Name = $"{lootItem.Item.ShortName.Localized()} ({quest.Template.Name})",
 								Position = position,
 								ScreenPosition = camera.WorldPointToScreenPoint(position),
 								Color = Color
@@ -89,23 +100,25 @@ namespace EFT.Trainer.Features
 			}
 		}
 
-		private void RefreshPlaceItemLocations(Profile profile, List<PointOfInterest> records, Camera camera)
+		private void RefreshPlaceItemLocations(QuestController questController, List<PointOfInterest> records, Camera camera)
 		{
 			var triggers = FindObjectsOfType<PlaceItemTrigger>();
-			var source = profile
+			var profile = questController.Profile;
+			var allPlayerItems = profile
 				.Inventory
 				.AllPlayerItems
 				.ToArray();
 
 			foreach (var trigger in triggers)
 			{
-				var ìtems = profile.Quests.GetConditionHandlersByZone<ConditionZone>(trigger.Id)
-					.ToArray();
+				var items = questController
+					.Quests
+					.GetConditionHandlersByZone<ConditionZone>(trigger.Id);
 
-				foreach (var item in ìtems)
+				foreach (var item in items)
 				{
 					var conditionZone = (ConditionZone) item.Condition;
-					var result = source.FirstOrDefault(x => conditionZone.target.Contains(x.TemplateId));
+					var result = allPlayerItems.FirstOrDefault(x => conditionZone.target.Contains(x.TemplateId));
 					if (result == null)
 						continue;
 
@@ -120,6 +133,49 @@ namespace EFT.Trainer.Features
 					});
 					break;
 				}
+			}
+		}
+
+		internal class QuestController
+		{
+			private readonly dynamic? _instance;
+			public Profile Profile { get; }
+
+			public QuestController(Profile profile)
+			{
+				Profile = profile;
+
+				// before 12.12, it's a public field
+				var field = typeof(Profile).GetField("Quests", BindingFlags.Instance | BindingFlags.Public);
+				if (field != null)
+					_instance = profile; // in this case link directly to the Profile
+
+				// after 12.12, it' s a non public field to a controller
+				field = typeof(Profile).GetField("_questController", BindingFlags.Instance | BindingFlags.NonPublic);
+				if (field != null)
+					_instance = field.GetValue(profile);  // in this case link to the Quest controller
+			}
+
+			public bool IsValid => _instance != null;
+
+			public dynamic Quests => _instance!.Quests;
+
+			public IList<dynamic> GetStartedQuests()
+			{
+				var result = new List<dynamic>();
+
+				foreach (var quest in Quests)
+				{
+					if (quest.Template == null)
+						continue;
+
+					if (quest.QuestStatus != EQuestStatus.Started)
+						continue;
+
+					result.Add(quest);
+				}
+
+				return result;
 			}
 		}
 	}

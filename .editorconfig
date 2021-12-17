@@ -159,3 +159,7 @@ end_of_line = lf
 
 [*.{cmd, bat}]
 end_of_line = crlf
+
+[Microsoft/**.cs]
+exclude = true
+generated_code = true
