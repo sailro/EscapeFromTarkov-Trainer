@@ -268,6 +268,10 @@ namespace EFT.Trainer.Features
 					RenderColorProperty(currentValue, controlName, feature, orderedProperty, width);
 					break;
 
+				case nameof(String):
+					newValue = RenderStringProperty(currentValue, width);
+					break;
+
 				default:
 					GUILayout.Label($"Unsupported type: {propertyType.FullName}");
 					break;
@@ -303,6 +307,11 @@ namespace EFT.Trainer.Features
 				newValue = intValue;
 
 			return newValue;
+		}
+
+		private static object RenderStringProperty(object currentValue, GUILayoutOption width)
+		{
+			return GUILayout.TextField(currentValue.ToString(), width);
 		}
 
 		private void RenderKeyCodeProperty(object currentValue, string controlName, Feature feature, OrderedProperty orderedProperty, GUILayoutOption option)

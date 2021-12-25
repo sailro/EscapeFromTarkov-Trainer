@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Comfort.Common;
 using EFT.Interactive;
@@ -21,6 +22,15 @@ namespace EFT.Trainer.Features
 		
 		[ConfigurationProperty(Order = 10)]
 		public Color NotEligibleColor { get; set; } = Color.yellow;
+
+		[ConfigurationProperty(Order = 20)]
+		public bool ShowEligible { get; set; } = true;
+
+		[ConfigurationProperty(Order = 20)]
+		public bool ShowNotEligible { get; set; } = true;
+
+		[ConfigurationProperty(Order = 20)]
+		public string StatusFilter { get; set; } = string.Empty;
 
 		public override float CacheTimeInSec { get; set; } = 7f;
 		public override Color GroupingColor => EligibleColor;
@@ -64,6 +74,16 @@ namespace EFT.Trainer.Features
 
 				var position = point.transform.position;
 				var isEligible = eligiblePoints.Contains(point);
+
+				if (!ShowEligible && isEligible)
+					continue;
+
+				if (!ShowNotEligible && !isEligible)
+					continue;
+
+				if (!string.IsNullOrEmpty(StatusFilter) && StatusFilter.IndexOf(GetStatus(point.Status), StringComparison.OrdinalIgnoreCase) >= 0)
+					continue;
+
 				records.Add(new PointOfInterest
 				{
 					Name = GetName(point, isEligible),
