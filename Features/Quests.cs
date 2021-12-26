@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Comfort.Common;
@@ -138,7 +139,7 @@ namespace EFT.Trainer.Features
 
 		internal class QuestController
 		{
-			private readonly dynamic? _instance;
+			private readonly object? _instance;
 			public Profile Profile { get; }
 
 			public QuestController(Profile profile)
@@ -158,7 +159,16 @@ namespace EFT.Trainer.Features
 
 			public bool IsValid => _instance != null;
 
-			public dynamic Quests => _instance!.Quests;
+			public dynamic Quests
+			{
+				get
+				{
+					if (!IsValid)
+						return Array.Empty<object>();
+
+					return ((dynamic) _instance!).Quests;
+				}
+			} 
 
 			public IList<dynamic> GetStartedQuests()
 			{
