@@ -144,15 +144,16 @@ namespace EFT.Trainer.Features
 
 			public QuestController(Profile profile)
 			{
+				const BindingFlags bindingFlags = BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic;
 				Profile = profile;
 
 				// before 12.12, it's a public field
-				var field = typeof(Profile).GetField("Quests", BindingFlags.Instance | BindingFlags.Public);
+				var field = typeof(Profile).GetField("Quests", bindingFlags);
 				if (field != null)
 					_instance = profile; // in this case link directly to the Profile
 
 				// after 12.12, it' s a non public field to a controller
-				field = typeof(Profile).GetField("_questController", BindingFlags.Instance | BindingFlags.NonPublic);
+				field = typeof(Profile).GetField("_questController", bindingFlags);
 				if (field != null)
 					_instance = field.GetValue(profile);  // in this case link to the Quest controller
 			}
