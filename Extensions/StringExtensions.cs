@@ -8,7 +8,7 @@ namespace EFT.Trainer.Extensions
 	{
 		public static string Color(this string str, Color color)
 		{
-			return $"<color=#{color.GetHexColor()}>{str}</color>";
+			return $"<color=#{ColorUtility.ToHtmlStringRGB(color)}>{str}</color>";
 		}
 
 		public static string Blue(this string str)
