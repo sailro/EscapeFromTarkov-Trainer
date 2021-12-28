@@ -80,7 +80,7 @@ namespace EFT.Trainer.Features
 
 				foreach (var quest in startedQuests)
 				{
-					foreach (ConditionFindItem condition in quest.GetConditions<ConditionFindItem>(EQuestStatus.AvailableForFinish))
+					foreach (var condition in quest.GetConditions<ConditionFindItem>(EQuestStatus.AvailableForFinish))
 					{
 						if (condition.target.Contains(lootItem.Item.TemplateId) && !quest.ConditionHandlers[condition].Test() &&
 						    !quest.CompletedConditions.Contains(condition.id))
