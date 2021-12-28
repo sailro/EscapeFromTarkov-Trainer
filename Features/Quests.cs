@@ -41,21 +41,11 @@ namespace EFT.Trainer.Features
 			var profile = player.Profile;
 			var records = new List<PointOfInterest>();
 
-			try
-			{
-				// Step 1: find all locations to place quest items we have in the player inventory
-				RefreshPlaceItemLocations(profile, records, camera);
+			// Step 1: find all locations to place quest items we have in the player inventory
+			RefreshPlaceItemLocations(profile, records, camera);
 
-				// Step 2: search for all lootItems related to quests
-				RefreshFindItemLocations(world, profile, records, camera);
-			}
-			catch
-			{
-				// we are using dynamic objects here, so we can hit MissingMemberException in case the member names/scope change.
-#if DEBUG
-				throw;
-#endif
-			}
+			// Step 2: search for all lootItems related to quests
+			RefreshFindItemLocations(world, profile, records, camera);
 
 			return records.ToArray();
 		}
