@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Text;
+using Spectre.Console;
 
 #nullable enable
 
@@ -19,6 +20,7 @@ namespace Installer
 		public Installation Installation { get; }
 		public string ProjectContent { get; } = string.Empty;
 		public string[] Exclude;
+		public string[] Defines = Array.Empty<string>();
 
 		public static readonly CSharpCompilationOptions CompilationOptions =
 			new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary)
@@ -30,6 +32,12 @@ namespace Installer
 			ProjectArchive = projectArchive;
 			Installation = installation;
 			Exclude = exclude;
+
+			// When using sptarkov we have support for patching IL code using 0Harmony.dll
+			if (TryGetAssemblyPath("0Harmony", out _))
+				Defines = new[] {"HARMONY"};
+			else 
+				AnsiConsole.MarkupLine("[yellow]'Harmony' support for patching code at runtime disabled.[/]");
 
 			var entry = projectArchive.Entries.FirstOrDefault(e => e.Name == "NLog.EFT.Trainer.csproj");
 			if (entry == null) 
@@ -55,20 +63,25 @@ namespace Installer
 			}
 		}
 
+		public bool TryGetAssemblyPath(string assemblyName, out string path)
+		{
+			path = Path.Combine(Installation.Managed, $"{assemblyName}.dll");
+			return File.Exists(path);
+		}
+
 		public IEnumerable<MetadataReference> GetReferences()
 		{
 			yield return MetadataReference.CreateFromFile(Path.Combine(Installation.Managed, "mscorlib.dll"));
 
-			var matches = Regex.Matches(ProjectContent, "<Reference\\s+Include=\"(?<reference>.*)\"\\s*/?>");
+			var matches = Regex.Matches(ProjectContent, "<Reference\\s+Include=\"(?<assemblyName>.*)\"\\s*/?>");
 
 			foreach (Match match in matches)
 			{
 				if (!match.Success)
 					continue;
 
-				var reference = match.Groups["reference"].Value;
-				var path = Path.Combine(Installation.Managed, $"{reference}.dll");
-				if (File.Exists(path))
+				var assemblyName = match.Groups["assemblyName"].Value;
+				if (TryGetAssemblyPath(assemblyName, out var path))
 					yield return MetadataReference.CreateFromFile(path);
 			}
 		}
@@ -77,7 +90,8 @@ namespace Installer
 		{
 			var options = CSharpParseOptions
 				.Default
-				.WithLanguageVersion(LanguageVersion.CSharp9);
+				.WithLanguageVersion(LanguageVersion.CSharp9)
+				.WithPreprocessorSymbols(Defines);
 
 			foreach (var file in GetSourceFiles())
 			{
