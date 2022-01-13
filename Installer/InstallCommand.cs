@@ -125,6 +125,11 @@ namespace Installer
 						.Where(d => d.Severity == DiagnosticSeverity.Error)
 						.ToArray();
 
+#if DEBUG
+					foreach (var error in errors)
+						AnsiConsole.MarkupLine($">> {error.Id} [[{error.Location.SourceTree?.FilePath}]]: {error.GetMessage()}");
+#endif
+
 					if (errors.Any())
 					{
 						AnsiConsole.MarkupLine($">> [blue]Try #{@try}[/] [yellow]Compilation failed for {branch.EscapeMarkup()} branch.[/]");
