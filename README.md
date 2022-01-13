@@ -35,6 +35,7 @@ This trainer gives:
 - Crosshair (off by default) with customizable size, color, thickness and auto-hide feature when aiming.
 - Grenades outline (off by default).
 - No physical collisions, making you immune to bullets, grenades and barbed wires (off by default).
+- Full health, prevent any damage (so even when falling), keep energy and hydration at maximum (off by default).
 - Speed boost to be able to go through walls/objects, or to move faster. Be careful to not kill yourself. Setup your key in [trainer.ini](#sample-trainerini-configuration-file).
 - All skills to Elite level (51) and all weapons mastering to level 3. Setup your key in [trainer.ini](#sample-trainerini-configuration-file).
 - Popup window to enable/disable all features (use right-alt or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
@@ -85,6 +86,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | dump      |                     |         | Dump game state for analysis        |
 | exfil     | `on` or `off`       | `on`    | Show/Hide exfiltration points       |
 | grenade   | `on` or `off`       | `off`   | Show/Hide grenades                  |
+| health    | `on` or `off`       | `off`   | Enable/Disable full health          |
 | hud       | `on` or `off`       | `on`    | Show/Hide hud                       |
 | list      | `<optional filter>` |         | List lootable items                 |
 | listr     | `<optional filter>` |         | List only rare lootable items       |
@@ -153,6 +155,9 @@ EFT.Trainer.Features.Grenades.Enabled=false
 EFT.Trainer.Features.Grenades.Key="None"
 EFT.Trainer.Features.Grenades.CacheTimeInSec=0.25
 EFT.Trainer.Features.Grenades.Color=[1.0,0.0,0.0,1.0]
+
+EFT.Trainer.Features.Health.Enabled=false
+EFT.Trainer.Features.Health.Key="None"
 
 EFT.Trainer.Features.Hud.Enabled=true
 EFT.Trainer.Features.Hud.Key="None"
