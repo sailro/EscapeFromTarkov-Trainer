@@ -45,6 +45,9 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
+  <PropertyGroup Condition="Exists('$(EFTManagedPath)\0Harmony.dll')">
+    <DefineConstants>HARMONY;$(DefineConstants)</DefineConstants>
+  </PropertyGroup>
   <ItemGroup>
     <!-- Framework -->
     <Reference Include="System" />
@@ -98,6 +101,11 @@
       <HintPath>$(EFTManagedPath)\UnityEngine.InputLegacyModule.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup Condition="Exists('$(EFTManagedPath)\0Harmony.dll')">
+    <Reference Include="0Harmony">
+      <HintPath>$(EFTManagedPath)\0Harmony.dll</HintPath>
+    </Reference>
+  </ItemGroup>
   <ItemGroup>
     <Compile Include="Configuration\ColorConverter.cs" />
     <Compile Include="Configuration\ConfigurationManager.cs" />
@@ -142,6 +150,7 @@
     <Compile Include="Features\SceneDumper.cs" />
     <Compile Include="Features\ShaderCache.cs" />
     <Compile Include="Features\Speed.cs" />
+    <Compile Include="Features\Health.cs" />
     <Compile Include="Features\Stamina.cs" />
     <Compile Include="Features\ThermalVision.cs" />
     <Compile Include="Features\ToggleFeature.cs" />
