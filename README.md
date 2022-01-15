@@ -146,10 +146,10 @@ EFT.Trainer.Features.CrossHair.Thickness=2.0
 
 EFT.Trainer.Features.FreeCamera.Enabled=false
 EFT.Trainer.Features.FreeCamera.Key="None"
-EFT.Trainer.Features.FreeCamera.CameraForward="UpArrow"
-EFT.Trainer.Features.FreeCamera.CameraBackward="DownArrow"
-EFT.Trainer.Features.FreeCamera.CameraLeft="LeftArrow"
-EFT.Trainer.Features.FreeCamera.CameraRight="RightArrow"
+EFT.Trainer.Features.FreeCamera.Forward="UpArrow"
+EFT.Trainer.Features.FreeCamera.Backward="DownArrow"
+EFT.Trainer.Features.FreeCamera.Left="LeftArrow"
+EFT.Trainer.Features.FreeCamera.Right="RightArrow"
 EFT.Trainer.Features.FreeCamera.FastMode="RightShift"
 EFT.Trainer.Features.FreeCamera.Teleport="T"
 EFT.Trainer.Features.FreeCamera.FreeLookSensitivity=3.0
