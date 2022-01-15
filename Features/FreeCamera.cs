@@ -18,16 +18,16 @@ namespace EFT.Trainer.Features
 		public override bool Enabled { get; set; } = false;
 
 		[ConfigurationProperty(Order = 20)]
-		public KeyCode CameraForward { get; set; } = KeyCode.UpArrow;
+		public KeyCode Forward { get; set; } = KeyCode.UpArrow;
 
 		[ConfigurationProperty(Order = 21)]
-		public KeyCode CameraBackward { get; set; } = KeyCode.DownArrow;
+		public KeyCode Backward { get; set; } = KeyCode.DownArrow;
 
 		[ConfigurationProperty(Order = 22)]
-		public KeyCode CameraLeft { get; set; } = KeyCode.LeftArrow;
+		public KeyCode Left { get; set; } = KeyCode.LeftArrow;
 
 		[ConfigurationProperty(Order = 23)]
-		public KeyCode CameraRight { get; set; } = KeyCode.RightArrow;
+		public KeyCode Right { get; set; } = KeyCode.RightArrow;
 
 		[ConfigurationProperty(Order = 24)]
 		public KeyCode FastMode { get; set; } = KeyCode.RightShift;
@@ -54,8 +54,8 @@ namespace EFT.Trainer.Features
 				return;
 
 			var playerGameObject = player.gameObject;
-			if (playerGameObject.activeSelf && Enabled)
-				playerGameObject.SetActive(false);
+			if (playerGameObject.activeSelf == Enabled)
+				playerGameObject.SetActive(!Enabled);
 		}
 
 		protected override void UpdateWhenEnabled()
@@ -70,16 +70,16 @@ namespace EFT.Trainer.Features
             var heading = Vector3.zero;
             var cameraTransform = camera.transform;
 
-            if (Input.GetKey(CameraLeft))
+            if (Input.GetKey(Left))
 	            heading = -cameraTransform.right;
 
-            if (Input.GetKey(CameraRight))
+            if (Input.GetKey(Right))
 	            heading = cameraTransform.right;
 
-            if (Input.GetKey(CameraForward))
+            if (Input.GetKey(Forward))
 	            heading = cameraTransform.forward;
 
-            if (Input.GetKey(CameraBackward))
+            if (Input.GetKey(Backward))
 	            heading = -cameraTransform.forward;
 
 			if (heading != Vector3.zero)
