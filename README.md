@@ -50,7 +50,7 @@ This trainer gives:
 ![Stashes](https://user-images.githubusercontent.com/638167/135586933-4cf57740-aff2-47c8-9cec-94e2eb062dd0.png)
 ![Track](https://user-images.githubusercontent.com/638167/135586489-c4214794-21c9-4493-9699-dcca6c3dd00e.png)
 ![NightVision](https://user-images.githubusercontent.com/638167/135586268-c175e999-a60d-40db-9960-06cdf5fe27d7.png)
-![Popup](https://user-images.githubusercontent.com/638167/145362848-0989edba-a908-4722-b9aa-2f28acff5733.png)
+![Popup](https://user-images.githubusercontent.com/638167/149630873-bf921e51-fb02-4249-bc7e-ddf2e8877fa0.png)
 
 ## Easy and automatic installation
 
@@ -76,7 +76,7 @@ Overwrite the existing `EscapeFromTarkov_Data\Managed\NLog.dll.nlog` using `NLog
 
 ## Configuration
 
-![console](https://user-images.githubusercontent.com/638167/135587741-e27074f8-664d-4edd-b934-3e8af4a0d1c4.png)
+![console](https://user-images.githubusercontent.com/638167/149630825-7d76b102-0836-4eb9-a27f-d33fb519452f.png)
 
 This trainer hooks into the command system, so you can easily setup features using the built-in console:
 
