@@ -115,10 +115,10 @@
     <Compile Include="Configuration\TrackedItemConverter.cs" />
     <Compile Include="Extensions\CameraExtensions.cs" />
     <Compile Include="Extensions\ELootRarityExtensions.cs" />
-    <Compile Include="Extensions\ExfiltrationPointExtension.cs" />
-    <Compile Include="Extensions\ItemExtension.cs" />
-    <Compile Include="Extensions\LootItemExtension.cs" />
-    <Compile Include="Extensions\LootableContainerExtension.cs" />
+    <Compile Include="Extensions\ExfiltrationPointExtensions.cs" />
+    <Compile Include="Extensions\ItemExtensions.cs" />
+    <Compile Include="Extensions\LootItemExtensions.cs" />
+    <Compile Include="Extensions\LootableContainerExtensions.cs" />
     <Compile Include="Extensions\NotNullWhenAttribute.cs" />
     <Compile Include="Extensions\PlayerExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
@@ -135,6 +135,7 @@
     <Compile Include="Features\FeatureFactory.cs" />
     <Compile Include="Features\GameState.cs" />
     <Compile Include="Features\Grenades.cs" />
+    <Compile Include="Features\FreeCamera.cs" />
     <Compile Include="Features\HoldFeature.cs" />
     <Compile Include="Features\Hud.cs" />
     <Compile Include="Features\LootItems.cs" />

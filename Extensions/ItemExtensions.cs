@@ -6,7 +6,7 @@ using EFT.UI.DragAndDrop;
 
 namespace EFT.Trainer.Extensions
 {
-	public static class ItemExtension
+	public static class ItemExtensions
 	{
 		public static bool IsValid([NotNullWhen(true)] this Item? item)
 		{

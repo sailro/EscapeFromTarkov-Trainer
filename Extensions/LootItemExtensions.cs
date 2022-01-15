@@ -5,7 +5,7 @@ using EFT.Interactive;
 
 namespace EFT.Trainer.Extensions
 {
-	public static class LootItemExtension
+	public static class LootItemExtensions
 	{
 		public static bool IsValid([NotNullWhen(true)] this LootItem? lootItem)
 		{

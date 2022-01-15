@@ -5,7 +5,7 @@ using EFT.Interactive;
 
 namespace EFT.Trainer.Extensions
 {
-	public static class ExfiltrationPointExtension
+	public static class ExfiltrationPointExtensions
 	{
 		public static bool IsValid([NotNullWhen(true)] this ExfiltrationPoint? point)
 		{

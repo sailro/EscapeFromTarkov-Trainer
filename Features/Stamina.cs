@@ -13,13 +13,48 @@ namespace EFT.Trainer.Features
 
 		public override bool Enabled { get; set; } = false;
 
+#if HARMONY
+		[UsedImplicitly]
+		protected static bool ConsumePrefix()
+		{
+			var feature = FeatureFactory.GetFeature<Stamina>();
+			if (feature == null || !feature.Enabled)
+				return true; // keep using original code, we are not enabled
+
+			return false;  // skip the original code and all other prefix methods 
+		}
+#endif
+
 		protected override void UpdateWhenEnabled()
 		{
 			var player = GameState.Current?.LocalPlayer;
 			if (!player.IsValid())
 				return;
 
-			var parameters = player.Physical?.StaminaParameters;
+			var playerPhysical = player.Physical;
+			if (playerPhysical == null)
+				return;
+
+#if HARMONY
+			HarmonyPatchOnce(harmony =>
+			{
+				var playerPhysicalStamina = playerPhysical.Stamina;
+				if (playerPhysicalStamina == null)
+					return;
+
+				var original = HarmonyLib.AccessTools.Method(playerPhysicalStamina.GetType(), nameof(playerPhysicalStamina.Consume));
+				if (original == null)
+					return;
+
+				var prefix = HarmonyLib.AccessTools.Method(GetType(), nameof(ConsumePrefix));
+				if (prefix == null)
+					return;
+
+				harmony.Patch(original, new HarmonyLib.HarmonyMethod(prefix));
+			});
+#endif
+
+			var parameters = playerPhysical.StaminaParameters;
 			if (parameters == null)
 				return;
 

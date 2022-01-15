@@ -25,14 +25,6 @@ namespace EFT.Trainer.Features
 			StartCoroutine(RefreshDataScheduler());
 		}
 
-#if DEBUG_PERFORMANCE
-		protected static void AddConsoleLog(string log, string from = "scheduler")
-		{
-			if (EFT.UI.PreloaderUI.Instantiated)
-				EFT.UI.PreloaderUI.Instance.Console.AddLog(log, from);
-		}
-#endif
-
 		private IEnumerator RefreshDataScheduler()
 		{
 			if (Enabled)

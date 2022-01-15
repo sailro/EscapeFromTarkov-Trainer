@@ -433,7 +433,7 @@ namespace EFT.Trainer.Features
 			commands.Add(command);
 		}
 
-		private static void ShowTrackList(LootItems feature, bool changed = false)
+		private void ShowTrackList(LootItems feature, bool changed = false)
 		{
 			if (changed)
 				AddConsoleLog("Tracking list updated...", "tracker");
@@ -445,7 +445,7 @@ namespace EFT.Trainer.Features
 			}
 		}
 
-		private static void UnTrackLootItem(Match match, LootItems feature)
+		private void UnTrackLootItem(Match match, LootItems feature)
 		{
 			var matchGroup = match.Groups[ValueGroup];
 			if (matchGroup is not {Success: true})
@@ -454,7 +454,7 @@ namespace EFT.Trainer.Features
 			ShowTrackList(feature, feature.UnTrack(matchGroup.Value));
 		}
 
-		private static void TrackLootItem(Match match, LootItems feature, ELootRarity? rarity = null)
+		private void TrackLootItem(Match match, LootItems feature, ELootRarity? rarity = null)
 		{
 			var matchGroup = match.Groups[ValueGroup];
 			if (matchGroup is not {Success: true})
@@ -468,7 +468,7 @@ namespace EFT.Trainer.Features
 			ShowTrackList(feature, feature.Track(matchGroup.Value, color, rarity));
 		}
 
-		private static void ListLootItems(Match match, LootItems feature, ELootRarity? rarityFilter = null)
+		private void ListLootItems(Match match, LootItems feature, ELootRarity? rarityFilter = null)
 		{
 			var search = string.Empty;
 			var matchGroup = match.Groups[ValueGroup];
@@ -588,7 +588,7 @@ namespace EFT.Trainer.Features
 			return $"{feature.Name} is {(feature.Enabled ? "on".Green() : "off".Red())}{toggleKey}";
 		}
 
-		private static void Status()
+		private void Status()
 		{
 			foreach (var feature in ToggleableFeatures.Value)
 			{
@@ -648,12 +648,6 @@ namespace EFT.Trainer.Features
 				"off" => false,
 				_ => feature.Enabled
 			};
-		}
-
-		private static void AddConsoleLog(string log, string from = "scheduler")
-		{
-			if (PreloaderUI.Instantiated)
-				PreloaderUI.Instance.Console.AddLog(log, from);
 		}
 	}
 }

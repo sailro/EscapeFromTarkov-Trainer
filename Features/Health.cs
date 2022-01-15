@@ -16,8 +16,6 @@ namespace EFT.Trainer.Features
 		private static readonly Array _bodyParts = Enum.GetValues(typeof(EBodyPart));
 
 #if HARMONY
-		private static readonly string _harmonyId = typeof(Health).FullName;
-
 		[UsedImplicitly]
 		protected static bool ApplyDamagePrefix(object __instance, ref float __result)
 		{
@@ -44,9 +42,8 @@ namespace EFT.Trainer.Features
 				return;
 
 #if HARMONY
-			if (!HarmonyLib.Harmony.HasAnyPatches(_harmonyId))
+			HarmonyPatchOnce(harmony =>
 			{
-				var harmony = new HarmonyLib.Harmony(_harmonyId);
 				var original = HarmonyLib.AccessTools.Method(healthController.GetType(), nameof(healthController.ApplyDamage));
 				if (original == null)
 					return;
@@ -56,7 +53,7 @@ namespace EFT.Trainer.Features
 					return;
 
 				harmony.Patch(original, new HarmonyLib.HarmonyMethod(prefix));
-			}
+			});
 #endif
 
 			foreach (EBodyPart bodyPart in _bodyParts)
