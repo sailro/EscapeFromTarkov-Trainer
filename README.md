@@ -38,6 +38,7 @@ This trainer gives:
 - Full health, prevent any damage (so even when falling), keep energy and hydration at maximum (off by default).
 - Speed boost to be able to go through walls/objects, or to move faster. Be careful to not kill yourself. Setup your key in [trainer.ini](#sample-trainerini-configuration-file).
 - All skills to Elite level (51) and all weapons mastering to level 3. Setup your key in [trainer.ini](#sample-trainerini-configuration-file).
+- Free camera and teleportation.
 - Popup window to enable/disable all features (use right-alt or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
 - Load/Save all settings.
 
@@ -82,6 +83,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | Command   | Values              | Default | Description                         |
 |-----------|---------------------|---------|-------------------------------------|
 | autogun   | `on` or `off`       | `off`   | Enable/Disable automatic gun mode   |
+| camera    | `on` or `off`       | `off`   | Enable/Disable free camera mode     |
 | crosshair | `on` or `off`       | `off`   | Show/Hide crosshair                 |
 | dump      |                     |         | Dump game state for analysis        |
 | exfil     | `on` or `off`       | `on`    | Show/Hide exfiltration points       |
@@ -141,6 +143,18 @@ EFT.Trainer.Features.CrossHair.Color=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.CrossHair.HideWhenAiming=true
 EFT.Trainer.Features.CrossHair.Size=10.0
 EFT.Trainer.Features.CrossHair.Thickness=2.0
+
+EFT.Trainer.Features.FreeCamera.Enabled=false
+EFT.Trainer.Features.FreeCamera.Key="None"
+EFT.Trainer.Features.FreeCamera.CameraForward="UpArrow"
+EFT.Trainer.Features.FreeCamera.CameraBackward="DownArrow"
+EFT.Trainer.Features.FreeCamera.CameraLeft="LeftArrow"
+EFT.Trainer.Features.FreeCamera.CameraRight="RightArrow"
+EFT.Trainer.Features.FreeCamera.FastMode="RightShift"
+EFT.Trainer.Features.FreeCamera.Teleport="T"
+EFT.Trainer.Features.FreeCamera.FreeLookSensitivity=3.0
+EFT.Trainer.Features.FreeCamera.MovementSpeed=10.0
+EFT.Trainer.Features.FreeCamera.FastMovementSpeed=100.0
 
 EFT.Trainer.Features.ExfiltrationPoints.Enabled=true
 EFT.Trainer.Features.ExfiltrationPoints.Key="None"
