@@ -27,7 +27,7 @@ namespace EFT.Trainer.Features
 		public KeyCode CameraLeft { get; set; } = KeyCode.LeftArrow;
 
 		[ConfigurationProperty(Order = 23)]
-		public KeyCode CameraRight { get; set; } = KeyCode.LeftArrow;
+		public KeyCode CameraRight { get; set; } = KeyCode.RightArrow;
 
 		[ConfigurationProperty(Order = 24)]
 		public KeyCode FastMode { get; set; } = KeyCode.RightShift;
