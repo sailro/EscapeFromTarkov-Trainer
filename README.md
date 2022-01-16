@@ -83,7 +83,6 @@ This trainer hooks into the command system, so you can easily setup features usi
 | Command   | Values              | Default | Description                         |
 |-----------|---------------------|---------|-------------------------------------|
 | autogun   | `on` or `off`       | `off`   | Enable/Disable automatic gun mode   |
-| camera    | `on` or `off`       | `off`   | Enable/Disable free camera mode     |
 | crosshair | `on` or `off`       | `off`   | Show/Hide crosshair                 |
 | dump      |                     |         | Dump game state for analysis        |
 | exfil     | `on` or `off`       | `on`    | Show/Hide exfiltration points       |
@@ -144,7 +143,6 @@ EFT.Trainer.Features.CrossHair.HideWhenAiming=true
 EFT.Trainer.Features.CrossHair.Size=10.0
 EFT.Trainer.Features.CrossHair.Thickness=2.0
 
-EFT.Trainer.Features.FreeCamera.Enabled=false
 EFT.Trainer.Features.FreeCamera.Key="None"
 EFT.Trainer.Features.FreeCamera.Forward="UpArrow"
 EFT.Trainer.Features.FreeCamera.Backward="DownArrow"
