@@ -13,7 +13,7 @@ namespace EFT.Trainer.Features
 
 		public override KeyCode Key { get; set; } = KeyCode.None;
 
-		protected override void UpdateWhenTriggered()
+		protected override void UpdateOnceWhenTriggered()
 		{
 			var player = GameState.Current?.LocalPlayer;
 			if (!player.IsValid())

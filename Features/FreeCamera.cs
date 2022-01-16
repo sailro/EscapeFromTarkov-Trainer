@@ -15,6 +15,7 @@ namespace EFT.Trainer.Features
 
 		public override string Name => "camera";
 
+		[ConfigurationProperty(Skip = true)] // we do not want to offer save/load support for this
 		public override bool Enabled { get; set; } = false;
 
 		[ConfigurationProperty(Order = 20)]
@@ -45,10 +46,8 @@ namespace EFT.Trainer.Features
 		public float FastMovementSpeed { get; set; } = 100f;
 
 
-		protected override void Update()
+		private void TogglePlayerActiveStatus()
 		{
-			base.Update();
-
 			var player = GameState.Current?.LocalPlayer;
 			if (!player.IsValid())
 				return;
@@ -56,6 +55,16 @@ namespace EFT.Trainer.Features
 			var playerGameObject = player.gameObject;
 			if (playerGameObject.activeSelf == Enabled)
 				playerGameObject.SetActive(!Enabled);
+		}
+
+		protected override void UpdateOnceBeforeDisabling()
+		{
+			TogglePlayerActiveStatus();
+		}
+
+		protected override void UpdateOnceBeforeEnabling()
+		{
+			TogglePlayerActiveStatus();
 		}
 
 		protected override void UpdateWhenEnabled()
@@ -100,7 +109,7 @@ namespace EFT.Trainer.Features
 	            var playerGameObject = player.gameObject;
 
 	            playerGameObject.transform.SetPositionAndRotation(position, cameraTransform.rotation);
-	            playerGameObject.SetActive(true);
+	            UpdateOnceBeforeDisabling();
 	            Enabled = false;
             }
 		}
