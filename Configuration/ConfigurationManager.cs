@@ -107,6 +107,21 @@ namespace EFT.Trainer.Configuration
 			}
 		}
 
+		public static bool IsSkippedProperty(Feature feature, string name)
+		{
+			return IsSkippedProperty(feature.GetType(), name);
+		}
+
+		public static bool IsSkippedProperty(Type featureType, string name)
+		{
+			var property = featureType.GetProperty(name, BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy);
+			if (property == null)
+				return false;
+
+			var attribute = property.GetCustomAttribute<ConfigurationPropertyAttribute>(true);
+			return attribute is {Skip: true};
+		}
+
 		public static OrderedProperty[] GetOrderedProperties(Type featureType)
 		{
 			var properties = featureType.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy);

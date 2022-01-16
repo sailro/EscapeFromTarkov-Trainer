@@ -17,14 +17,7 @@ namespace EFT.Trainer.Features
 		protected virtual void Update()
 		{
 			if (Key != KeyCode.None && Input.GetKeyUp(Key))
-			{
-				if (Enabled)
-					UpdateOnceBeforeDisabling();
-				else
-					UpdateOnceBeforeEnabling();
-
 				Enabled = !Enabled;
-			}
 
 			if (Enabled)
 				UpdateWhenEnabled();
@@ -37,9 +30,7 @@ namespace EFT.Trainer.Features
 				OnGUIWhenEnabled();
 		}
 
-		protected virtual void UpdateOnceBeforeEnabling() {}
 		protected virtual void UpdateWhenEnabled() {}
-		protected virtual void UpdateOnceBeforeDisabling() {}
 		protected virtual void OnGUIWhenEnabled() {}
 	}
 }

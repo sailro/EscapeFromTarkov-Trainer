@@ -46,7 +46,7 @@ namespace EFT.Trainer.Features
 		public float FastMovementSpeed { get; set; } = 100f;
 
 
-		private void TogglePlayerActiveStatus()
+		private void TogglePlayerActiveStatusIfNeeded()
 		{
 			var player = GameState.Current?.LocalPlayer;
 			if (!player.IsValid())
@@ -57,14 +57,11 @@ namespace EFT.Trainer.Features
 				playerGameObject.SetActive(!Enabled);
 		}
 
-		protected override void UpdateOnceBeforeDisabling()
+		protected override void Update()
 		{
-			TogglePlayerActiveStatus();
-		}
+			base.Update();
 
-		protected override void UpdateOnceBeforeEnabling()
-		{
-			TogglePlayerActiveStatus();
+			TogglePlayerActiveStatusIfNeeded();
 		}
 
 		protected override void UpdateWhenEnabled()
@@ -109,7 +106,7 @@ namespace EFT.Trainer.Features
 	            var playerGameObject = player.gameObject;
 
 	            playerGameObject.transform.SetPositionAndRotation(position, cameraTransform.rotation);
-	            UpdateOnceBeforeDisabling();
+	            playerGameObject.SetActive(true);
 	            Enabled = false;
             }
 		}

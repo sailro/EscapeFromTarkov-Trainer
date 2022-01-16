@@ -176,7 +176,7 @@ namespace EFT.Trainer.Features
 
 		private static string RenderFeatureText(Feature feature)
 		{
-			if (feature is Commands or GameState || feature is not ToggleFeature toggleFeature)
+			if (feature is not ToggleFeature toggleFeature || ConfigurationManager.IsSkippedProperty(feature, nameof(Enabled)))
 				return feature.Name;
 
 			return $"{toggleFeature.Name} is {(toggleFeature.Enabled ? "on".Green() : "off".Red())}";
