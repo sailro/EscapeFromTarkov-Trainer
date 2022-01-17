@@ -8,6 +8,8 @@ namespace EFT.Trainer.UI
 	{
 		public static GUIStyle StringStyle { get; set; } = new(GUI.skin.label);
 
+		public static Vector2 ScreenCenter => new(Screen.width / 2f, Screen.height / 2f);
+
 		public static Color Color
 		{
 			get { return GUI.color; }

@@ -1,6 +1,7 @@
 ﻿using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.UI;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -14,6 +15,18 @@ namespace EFT.Trainer.Features
 		public override string Name => "aimbot";
 
 		public override KeyCode Key { get; set; } = KeyCode.Slash;
+
+		[ConfigurationProperty(Order = 20)]
+		public float FovRadius { get; set; } = 0f;
+
+		[ConfigurationProperty(Order = 21)]
+		public bool DrawFov { get; set; } = false;
+
+		[ConfigurationProperty(Order = 22)]
+		public Color FovCircleColor { get; set; } = Color.white;
+
+		[ConfigurationProperty(Order = 23)]
+		public float FovCircleThickness { get; set; } = 1f;
 
 		[ConfigurationProperty]
 		public float MaximumDistance { get; set; } = 200f;
@@ -51,6 +64,9 @@ namespace EFT.Trainer.Features
 				if (!camera.IsScreenPointVisible(screenPosition))
 					continue;
 
+				if (!IsInFieldOfView(screenPosition))
+					continue;
+
 				var distance = Vector3.Distance(camera.transform.position, player.Transform.position);
 				if (distance > MaximumDistance)
 					continue;
@@ -75,6 +91,31 @@ namespace EFT.Trainer.Features
 
 			if (nearestTarget != Vector3.zero)
 				AimAtPosition(localPlayer, nearestTarget, Smoothness);
+		}
+
+		[UsedImplicitly]
+		protected void OnGUI()
+		{
+			if (!DrawFov || FovRadius <= 0) 
+				return;
+
+			var player = GameState.Current?.LocalPlayer;
+			if (!player.IsValid())
+				return;
+
+			if (player.HandsController == null || player.HandsController.Item is not Weapon)
+				return;
+
+			Render.DrawCircle(Render.ScreenCenter, FovRadius, FovCircleColor, FovCircleThickness, 48);
+		}
+
+		private bool IsInFieldOfView(Vector3 screenPosition)
+		{
+			if (FovRadius <= 0f)
+				return true;
+
+			var distance = Vector2.Distance(Render.ScreenCenter, new Vector2(screenPosition.x, screenPosition.y));
+			return distance <= FovRadius;
 		}
 
 		private static void AimAtPosition(Player player, Vector3 targetPosition, float smoothness)
