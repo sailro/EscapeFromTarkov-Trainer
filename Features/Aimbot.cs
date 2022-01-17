@@ -20,7 +20,7 @@ namespace EFT.Trainer.Features
 		public float FovRadius { get; set; } = 0f;
 
 		[ConfigurationProperty(Order = 21)]
-		public bool DrawFov { get; set; } = false;
+		public bool ShowFovCircle { get; set; } = false;
 
 		[ConfigurationProperty(Order = 22)]
 		public Color FovCircleColor { get; set; } = Color.white;
@@ -96,7 +96,7 @@ namespace EFT.Trainer.Features
 		[UsedImplicitly]
 		protected void OnGUI()
 		{
-			if (!DrawFov || FovRadius <= 0) 
+			if (!ShowFovCircle || FovRadius <= 0) 
 				return;
 
 			var player = GameState.Current?.LocalPlayer;

@@ -126,7 +126,7 @@ This file is located in `%USERPROFILE%\Documents\Escape from Tarkov\trainer.ini`
 
 EFT.Trainer.Features.Aimbot.Key="Slash"
 EFT.Trainer.Features.Aimbot.FovRadius=0.0
-EFT.Trainer.Features.Aimbot.DrawFov=false
+EFT.Trainer.Features.Aimbot.ShowFovCircle=false
 EFT.Trainer.Features.Aimbot.FovCircleColor=[1.0,1.0,1.0,1.0]
 EFT.Trainer.Features.Aimbot.FovCircleThickness=1.0
 EFT.Trainer.Features.Aimbot.MaximumDistance=200.0
