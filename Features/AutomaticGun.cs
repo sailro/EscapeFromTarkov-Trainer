@@ -32,8 +32,7 @@ namespace EFT.Trainer.Features
 
 			fireModeComponent.FireMode = Weapon.EFireMode.fullauto;
 
-			var firearmController = player.GetComponent<Player.FirearmController>();
-			if (firearmController == null)
+			if (!player.TryGetComponent<Player.FirearmController>(out var firearmController))
 				return;
 
 			var template = firearmController.Item?.Template;
