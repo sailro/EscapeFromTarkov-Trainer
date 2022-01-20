@@ -1,4 +1,6 @@
-﻿using EFT.InventoryLogic;
+﻿using System.Diagnostics.CodeAnalysis;
+using EFT.Ballistics;
+using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
@@ -16,6 +18,12 @@ namespace EFT.Trainer.Features
 
 		public override KeyCode Key { get; set; } = KeyCode.Slash;
 
+		[ConfigurationProperty(Order = 10)]
+		public float MaximumDistance { get; set; } = 200f;
+
+		[ConfigurationProperty(Order = 11)]
+		public float Smoothness { get; set; } = 0.085f;
+
 		[ConfigurationProperty(Order = 20)]
 		public float FovRadius { get; set; } = 0f;
 
@@ -28,38 +36,131 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty(Order = 23)]
 		public float FovCircleThickness { get; set; } = 1f;
 
-		[ConfigurationProperty]
-		public float MaximumDistance { get; set; } = 200f;
+		[ConfigurationProperty(Order = 30)]
+		public bool SilentAim { get; set; } = false;
 
-		[ConfigurationProperty]
-		public float Smoothness { get; set; } = 0.085f;
+		[ConfigurationProperty(Order = 31)]
+		public float SilentAimNextShotDelay { get; set; } = 0.25f;
+
+		[ConfigurationProperty(Order = 32)]
+		public float SilentAimSpeedFactor { get; set; } = 100f;
+
+#if HARMONY
+#pragma warning disable IDE0060
+		[UsedImplicitly]
+		protected static bool CreateShotPrefix(object ammo, Vector3 origin, ref Vector3 direction, int fireIndex, Player player, Item weapon, ref float speedFactor, int fragmentIndex)
+		{
+			var feature = FeatureFactory.GetFeature<Aimbot>();
+			if (feature == null || !feature.SilentAim || feature._silentAimTarget == null)
+				return true; // keep using original code, we are not enabled
+
+			direction = (feature._silentAimTarget.position - origin).normalized;
+			speedFactor = feature.SilentAimSpeedFactor;
+
+			return true; // call the original code with updated direction and speedFactor
+		}
+#pragma warning restore IDE0060
+#endif
+
+		private Transform? _silentAimTarget = null;
+		private float _silentAimNextShotTime = 0f;
+		protected override void Update()
+		{
+			base.Update();
+
+			if (!SilentAim) 
+				return;
+
+#if HARMONY
+#pragma warning disable UNT0018
+			HarmonyPatchOnce(harmony =>
+			{
+				var original = HarmonyLib.AccessTools.Method(typeof(BallisticsCalculator), nameof(BallisticsCalculator.CreateShot));
+				if (original == null)
+					return;
+
+				var prefix = HarmonyLib.AccessTools.Method(GetType(), nameof(CreateShotPrefix));
+				if (prefix == null)
+					return;
+
+				harmony.Patch(original, new HarmonyLib.HarmonyMethod(prefix));
+			});
+#pragma warning restore UNT0018
+#endif
+
+			if (!TryGetNearestTarget(out var player, out var camera, out var nearestTarget))
+				return;
+
+			if (player.IsInventoryOpened)
+				return;
+
+			if (!player.TryGetComponent<Player.FirearmController>(out var controller)) 
+				return;
+
+			if (!camera.IsTransformVisible(nearestTarget))
+			{
+				_silentAimTarget = null;
+				return;
+			}
+
+			_silentAimTarget = nearestTarget;
+
+			if (_silentAimNextShotTime > Time.time)
+			{
+				return;
+			}
+
+			controller.SetTriggerPressed(true);
+			_silentAimNextShotTime = Time.time + SilentAimNextShotDelay;
+			controller.SetTriggerPressed(false);
+		}
 
 		protected override void UpdateWhenHold()
 		{
-			var state = GameState.Current;
-			if (state == null)
+			if (!TryGetNearestTarget(out var player, out _, out var nearestTarget))
 				return;
 
-			var camera = state.Camera;
-			if (camera == null)
-				return;
+			AimAtPosition(player, nearestTarget.position, Smoothness);
+		}
 
-			var localPlayer = state.LocalPlayer;
-			if (localPlayer == null)
-				return;
-
-			var nearestTarget = Vector3.zero;
+		private bool TryGetNearestTarget([NotNullWhen(true)] out Player? localPlayer, [NotNullWhen(true)] out Camera? camera, [NotNullWhen(true)] out Transform? nearestTarget)
+		{
+			localPlayer = null;
+			camera = null;
+			nearestTarget = null;
 			var nearestTargetDistance = float.MaxValue;
 
-			foreach (var player in state.Hostiles)
+			var state = GameState.Current;
+			if (state == null)
+				return false;
+
+			camera = state.Camera;
+			if (camera == null)
+				return false;
+
+			localPlayer = state.LocalPlayer;
+			if (localPlayer == null)
+				return false;
+
+			if (localPlayer.HandsController == null || localPlayer.HandsController.Item is not Weapon weapon)
+				return false;
+
+			var template = weapon.CurrentAmmoTemplate;
+			if (template == null)
+				return false;
+
+			foreach (var hostile in state.Hostiles)
 			{
-				if (player == null)
+				if (hostile == null)
 					continue;
 
-				var destination = GetHeadPosition(player);
-				if (destination == Vector3.zero)
+				if (!hostile.IsAlive())
 					continue;
 
+				if (!TryGetHeadTransform(hostile, out var hostileTransform))
+					continue;
+
+				var destination = hostileTransform.position;
 				var screenPosition = camera.WorldPointToScreenPoint(destination);
 				if (!camera.IsScreenPointVisible(screenPosition))
 					continue;
@@ -67,30 +168,22 @@ namespace EFT.Trainer.Features
 				if (!IsInFieldOfView(screenPosition))
 					continue;
 
-				var distance = Vector3.Distance(camera.transform.position, player.Transform.position);
+				var distance = Vector3.Distance(camera.transform.position, destination);
 				if (distance > MaximumDistance)
 					continue;
 
 				if (distance >= nearestTargetDistance)
 					continue;
 
-				if (localPlayer.HandsController == null || localPlayer.HandsController.Item is not Weapon weapon)
-					continue;
-
-				var template = weapon.CurrentAmmoTemplate;
-				if (template == null)
-					continue;
-
 				nearestTargetDistance = distance;
 				var travelTime = distance / template.InitialSpeed;
-				destination.x += player.Velocity.x * travelTime;
-				destination.y += player.Velocity.y * travelTime;
+				destination.x += hostile.Velocity.x * travelTime;
+				destination.y += hostile.Velocity.y * travelTime;
 
-				nearestTarget = destination;
+				nearestTarget = hostileTransform;
 			}
 
-			if (nearestTarget != Vector3.zero)
-				AimAtPosition(localPlayer, nearestTarget, Smoothness);
+			return nearestTarget != null;
 		}
 
 		[UsedImplicitly]
@@ -162,14 +255,16 @@ namespace EFT.Trainer.Features
 			angle = new Vector2(newX, newY);
 		}
 
-		private static Vector3 GetHeadPosition(Player player)
+		private static bool TryGetHeadTransform(Player player, [NotNullWhen(true)] out Transform? transform)
 		{
+			transform = null;
+
 			var bones = player.PlayerBones;
 			if (bones == null)
-				return Vector3.zero;
+				return false;
 
-			var head = bones.Head;
-			return head?.position ?? Vector3.zero;
+			transform = bones.Head.Original;
+			return true;
 		}
 	}
 }

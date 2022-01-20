@@ -12,7 +12,7 @@ namespace EFT.Trainer.Features
 		public virtual KeyCode Key { get; set; } = KeyCode.None;
 
 		[UsedImplicitly]
-		private void Update()
+		protected virtual void Update()
 		{
 			if (Key != KeyCode.None && Input.GetKey(Key))
 				UpdateWhenHold();
