@@ -18,7 +18,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 ## Features
 
 This trainer gives:
-- Aimbot (hold `/` -not the keypad one-, or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
+- Aimbot (hold `/` -not the keypad one-, or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)). Or simply use SilentAim for automatic firing.
 - HUD (compass, ammo left in chamber / magazine, fire mode).
 - Door/Keycard reader/Car unlocker (use keypad-period, or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
 - Wallhack (you'll see players / bots / bosses with distinct colors through walls).
@@ -125,12 +125,15 @@ This file is located in `%USERPROFILE%\Documents\Escape from Tarkov\trainer.ini`
 ; Colors are stored as an array of 'RGBA' floats
 
 EFT.Trainer.Features.Aimbot.Key="Slash"
+EFT.Trainer.Features.Aimbot.MaximumDistance=200.0
+EFT.Trainer.Features.Aimbot.Smoothness=0.085
 EFT.Trainer.Features.Aimbot.FovRadius=0.0
 EFT.Trainer.Features.Aimbot.ShowFovCircle=false
 EFT.Trainer.Features.Aimbot.FovCircleColor=[1.0,1.0,1.0,1.0]
 EFT.Trainer.Features.Aimbot.FovCircleThickness=1.0
-EFT.Trainer.Features.Aimbot.MaximumDistance=200.0
-EFT.Trainer.Features.Aimbot.Smoothness=0.085
+EFT.Trainer.Features.Aimbot.SilentAim=false
+EFT.Trainer.Features.Aimbot.SilentAimNextShotDelay=0.25
+EFT.Trainer.Features.Aimbot.SilentAimSpeedFactor=100.0
 
 EFT.Trainer.Features.AutomaticGun.Enabled=false
 EFT.Trainer.Features.AutomaticGun.Key="None"
