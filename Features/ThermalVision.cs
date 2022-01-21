@@ -16,6 +16,9 @@ namespace EFT.Trainer.Features
 		{
 			base.Update();
 
+			if (GameState.Current?.LocalPlayer is HideoutPlayer)
+				return;
+
 			var camera = GameState.Current?.Camera;
 			if (camera == null)
 				return;
