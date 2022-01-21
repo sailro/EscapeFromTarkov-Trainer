@@ -17,30 +17,33 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 
 ## Features
 
-This trainer gives:
-- Aimbot (hold `/` -not the keypad one-, or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)). Or simply use SilentAim for automatic firing.
-- HUD (compass, ammo left in chamber / magazine, fire mode).
-- Door/Keycard reader/Car unlocker (use keypad-period, or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
-- Wallhack (you'll see players / bots / bosses with distinct colors through walls).
-- Shoot through wall/helmet/vest/material with maximum penetration and minimal deviation/ricochet.
-- Exfiltration points (green for available points, yellow for others).
-- No recoil (off by default).
-- No visor (off by default), so even when using a face shield-visor you won't see it.
-- Locations for taking/placing quest items (off by default). Only items related to your started quests are displayed.
-- Hidden stashes like buried barrels or ground caches (off by default).
-- Ability to list all lootable items and to track any item by name (even in containers and corpses).
-- Unlimited stamina (off by default).
-- Force all guns (even bolt action guns) to use automatic firing mode with customizable fire rate.
-- Thermal and night visions (even combined).
-- Crosshair (off by default) with customizable size, color, thickness and auto-hide feature when aiming.
-- Grenades outline (off by default).
-- No physical collisions, making you immune to bullets, grenades and barbed wires (off by default).
-- Full health, prevent any damage (so even when falling), keep energy and hydration at maximum (off by default).
-- Speed boost to be able to go through walls/objects, or to move faster. Be careful to not kill yourself. Setup your key in [trainer.ini](#sample-trainerini-configuration-file).
-- All skills to Elite level (51) and all weapons mastering to level 3. Setup your key in [trainer.ini](#sample-trainerini-configuration-file).
-- Free camera and teleportation.
-- Popup window to enable/disable all features (use right-alt or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)).
-- Load/Save all settings.
+| trainer.ini section       | Description |
+|---------------------------|-------------|
+| `Aimbot`                  | Aimbot (distance, smoothness, silent aim with speed factor and shot delay, fov radius, fov circle). |
+| `AutomaticGun`            | Force all guns (even bolt action guns) to use automatic firing mode with customizable fire rate. |
+| `Commands`                | Popup window to enable/disable all features (use right-alt or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)). |
+| `CrossHair`               | Crosshair with customizable size, color, thickness and auto-hide feature when aiming. |
+| `ExfiltrationPoints`      | Exfiltration points with customizable colors given eligibility, status filter, distance. |
+| `FreeCamera`              | Free camera with fast mode and teleportation. |
+| `Grenades`                | Grenades outline. |
+| `Health`                  | Full health, prevent any damage (so even when falling), keep energy and hydration at maximum. |
+| `Hud`                     | HUD (compass, ammo left in chamber / magazine, fire mode). |
+| `LootableContainers`      | Hidden stashes like buried barrels or ground caches. |
+| `LootItems`               | List all lootable items and track any item by name or rarity in raid (even in containers and corpses), with prices. |
+| `NightVision`             | Night vision. |
+| `NoCollision`             | No physical collisions, making you immune to bullets, grenades and barbed wires. |
+| `NoRecoil`                | No recoil. |
+| `NoVisor`                 | No visor, so even when using a face shield-visor you won't see it. |
+| `Players`                 | Wallhack (you'll see Bear/Boss/Cultist/Scav/Usec with configurable colors through walls). Charms, boxes, info (weapon and health), skeletons and distance. |
+| `Quests`                  | Locations for taking/placing quest items. Only items related to your started quests are displayed. |
+| `Skills`                  | All skills to Elite level (51) and all weapons mastering to level 3. |
+| `Speed`                   | Speed boost to be able to go through walls/objects, or to move faster. Be careful to not kill yourself. |
+| `Stamina`                 | Unlimited stamina. |
+| `ThermalVision`           | Thermal vision. |
+| `WallShoot`               | Shoot through wall/helmet/vest/material with maximum penetration and minimal deviation/ricochet. |
+| `WorldInteractiveObjects` | Door/Keycard reader/Car unlocker. |
+
+You can Load/Save all settings using the `console` or the `GUI`.
 
 ![Wallhack](https://user-images.githubusercontent.com/638167/138436846-9736fc13-ff23-43a3-853a-7ba3050999ed.png)
 ![Skeleton](https://user-images.githubusercontent.com/638167/138731215-d3ec58a6-38c5-49e4-9920-090c98fa79ef.png)
