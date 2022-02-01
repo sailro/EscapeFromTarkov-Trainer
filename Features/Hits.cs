@@ -45,13 +45,7 @@ namespace EFT.Trainer.Features
 		{
 			public float ElapsedTime { get; set; } = 0.0f;
 			public DamageInfo DamageInfo { get; set; }
-			public Player Player { get; set; }
 			public bool IsTaggedForDeletion { get; set; } = false;
-
-			public HitMarker(Player player)
-			{
-				Player = player;
-			}
 		}
 
 		private static readonly HashSet<HitMarker> _hitMarkers = new();
@@ -76,7 +70,7 @@ namespace EFT.Trainer.Features
 			if (shooter == null || !shooter.IsYourPlayer)
 				return;
 
-			var marker = new HitMarker(victim) {DamageInfo = damageInfo};
+			var marker = new HitMarker {DamageInfo = damageInfo};
 			_hitMarkers.Add(marker);
 		}
 #pragma warning restore IDE0060 
