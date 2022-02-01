@@ -136,6 +136,7 @@
     <Compile Include="Features\GameState.cs" />
     <Compile Include="Features\Grenades.cs" />
     <Compile Include="Features\FreeCamera.cs" />
+    <Compile Include="Features\Hits.cs" />
     <Compile Include="Features\HoldFeature.cs" />
     <Compile Include="Features\Hud.cs" />
     <Compile Include="Features\LootItems.cs" />
