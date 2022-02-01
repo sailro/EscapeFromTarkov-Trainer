@@ -27,6 +27,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 | `FreeCamera`              | Free camera with fast mode and teleportation. |
 | `Grenades`                | Grenades outline. |
 | `Health`                  | Full health, prevent any damage (so even when falling), keep energy and hydration at maximum. |
+| `Hits`                    | Hit markers (hit, armor, health with configurable colors). |
 | `Hud`                     | HUD (compass, ammo left in chamber / magazine, fire mode). |
 | `LootableContainers`      | Hidden stashes like buried barrels or ground caches. |
 | `LootItems`               | List all lootable items and track any item by name or rarity in raid (even in containers and corpses), with prices. |
@@ -91,6 +92,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | exfil     | `on` or `off`       | `on`    | Show/Hide exfiltration points       |
 | grenade   | `on` or `off`       | `off`   | Show/Hide grenades                  |
 | health    | `on` or `off`       | `off`   | Enable/Disable full health          |
+| hits      | `on` or `off`       | `off`   | Show/Hide hit markers               |
 | hud       | `on` or `off`       | `on`    | Show/Hide hud                       |
 | list      | `<optional filter>` |         | List lootable items                 |
 | listr     | `<optional filter>` |         | List only rare lootable items       |
@@ -180,6 +182,17 @@ EFT.Trainer.Features.Grenades.Color=[1.0,0.0,0.0,1.0]
 
 EFT.Trainer.Features.Health.Enabled=false
 EFT.Trainer.Features.Health.Key="None"
+
+EFT.Trainer.Features.Hits.Enabled=false
+EFT.Trainer.Features.Hits.Key="None"
+EFT.Trainer.Features.Hits.HitMarkerColor=[0.882352948,0.258823544,0.129411772,1.0]
+EFT.Trainer.Features.Hits.ArmorDamageColor=[0.0,0.494117647,1.0,1.0]
+EFT.Trainer.Features.Hits.HealthDamageColor=[1.0,0.129411772,0.129411772,1.0]
+EFT.Trainer.Features.Hits.DisplayTime=2.0
+EFT.Trainer.Features.Hits.FadeOutTime=1.0
+EFT.Trainer.Features.Hits.ShowHitMarker=true
+EFT.Trainer.Features.Hits.ShowArmorDamage=true
+EFT.Trainer.Features.Hits.ShowHealthDamage=true
 
 EFT.Trainer.Features.Hud.Enabled=true
 EFT.Trainer.Features.Hud.Key="None"
