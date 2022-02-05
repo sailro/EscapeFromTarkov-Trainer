@@ -53,11 +53,9 @@ namespace EFT.Trainer.Features
 		private void RefreshFindItemLocations(GameWorld world, Profile profile, List<PointOfInterest> records, Camera camera)
 		{
 			var lootItems = world.LootItems;
-			var startedQuests = profile
-				.Quests
-				.LoadedList
-				.Where(q => q.QuestStatus == EQuestStatus.Started)
-				.ToArray();
+			var startedQuests = profile.QuestsData
+				.Where(q => q.Status == EQuestStatus.Started && q.Template != null)
+				.ToList();
 
 			for (var i = 0; i < lootItems.Count; i++)
 			{
@@ -70,10 +68,9 @@ namespace EFT.Trainer.Features
 
 				foreach (var quest in startedQuests)
 				{
-					foreach (var condition in quest.GetConditions<ConditionFindItem>(EQuestStatus.AvailableForFinish))
+					foreach (ConditionFindItem condition in quest.Template!.GetConditions<ConditionFindItem>(EQuestStatus.AvailableForFinish))
 					{
-						if (condition.target.Contains(lootItem.Item.TemplateId) && !quest.ConditionHandlers[condition].Test() &&
-						    !quest.CompletedConditions.Contains(condition.id))
+						if (condition.target.Contains(lootItem.Item.TemplateId) && !quest.CompletedConditions.Contains(condition.id))
 						{
 							var position = lootItem.transform.position;
 							records.Add(new PointOfInterest
@@ -99,13 +96,9 @@ namespace EFT.Trainer.Features
 
 			foreach (var trigger in triggers)
 			{
-				var items = profile
-					.Quests
-					.GetConditionHandlersByZone<ConditionZone>(trigger.Id);
-
-				foreach (var item in items)
+				var conditionZones = GetConditionZones<ConditionZone>(profile, trigger.Id);
+				foreach (var conditionZone in conditionZones)
 				{
-					var conditionZone = (ConditionZone) item.Condition;
 					var result = allPlayerItems.FirstOrDefault(x => conditionZone.target.Contains(x.TemplateId));
 					if (result == null)
 						continue;
@@ -122,6 +115,15 @@ namespace EFT.Trainer.Features
 					break;
 				}
 			}
+		}
+
+		public IEnumerable<T> GetConditionZones<T>(Profile profile, string zoneId) where T : ConditionZone
+		{
+			return profile.QuestsData
+				.Where(q => q.Status is EQuestStatus.Started or EQuestStatus.AvailableForFinish && q.Template != null)
+				.SelectMany(q => q.Template!.GetConditions<T>(EQuestStatus.AvailableForFinish).Where(qz => !q.CompletedConditions.Contains(qz.id) && qz.zoneId == zoneId) )
+				.Where(qz => qz.zoneId == zoneId)
+				.ToArray();
 		}
 	}
 }
