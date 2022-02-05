@@ -68,19 +68,19 @@ namespace EFT.Trainer.Features
 
 				foreach (var quest in startedQuests)
 				{
-					foreach (ConditionFindItem condition in quest.Template!.GetConditions<ConditionFindItem>(EQuestStatus.AvailableForFinish))
+					foreach (var condition in quest.Template!.GetConditions<ConditionFindItem>(EQuestStatus.AvailableForFinish))
 					{
-						if (condition.target.Contains(lootItem.Item.TemplateId) && !quest.CompletedConditions.Contains(condition.id))
+						if (!condition.target.Contains(lootItem.Item.TemplateId) || quest.CompletedConditions.Contains(condition.id)) 
+							continue;
+
+						var position = lootItem.transform.position;
+						records.Add(new PointOfInterest
 						{
-							var position = lootItem.transform.position;
-							records.Add(new PointOfInterest
-							{
-								Name = $"{lootItem.Item.ShortName.Localized()} ({quest.Template.Name})",
-								Position = position,
-								ScreenPosition = camera.WorldPointToScreenPoint(position),
-								Color = Color
-							});
-						}
+							Name = $"{lootItem.Item.ShortName.Localized()} ({quest.Template.Name})",
+							Position = position,
+							ScreenPosition = camera.WorldPointToScreenPoint(position),
+							Color = Color
+						});
 					}
 				}
 			}
@@ -117,12 +117,11 @@ namespace EFT.Trainer.Features
 			}
 		}
 
-		public IEnumerable<T> GetConditionZones<T>(Profile profile, string zoneId) where T : ConditionZone
+		public T[] GetConditionZones<T>(Profile profile, string zoneId) where T : ConditionZone
 		{
 			return profile.QuestsData
 				.Where(q => q.Status is EQuestStatus.Started or EQuestStatus.AvailableForFinish && q.Template != null)
-				.SelectMany(q => q.Template!.GetConditions<T>(EQuestStatus.AvailableForFinish).Where(qz => !q.CompletedConditions.Contains(qz.id) && qz.zoneId == zoneId) )
-				.Where(qz => qz.zoneId == zoneId)
+				.SelectMany(q => q.Template!.GetConditions<T>(EQuestStatus.AvailableForFinish).Where(qz => !q.CompletedConditions.Contains(qz.id) && qz.zoneId == zoneId))
 				.ToArray();
 		}
 	}
