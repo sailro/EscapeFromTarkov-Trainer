@@ -120,7 +120,7 @@ namespace EFT.Trainer.Features
 					continue;
 
 				var itemName = item.ShortName.Localized();
-				if (IsTracked(itemName, item.Template.Rarity, out var color))
+				if (IsTracked(itemName, item.Template.GetEstimatedRarity(), out var color))
 				{
 					var owner =  item.Owner?.ContainerName?.Localized();
 
@@ -156,7 +156,7 @@ namespace EFT.Trainer.Features
 					continue;
 				}
 
-				if (IsTracked(lootItemName, lootItem.Item.Template.Rarity, out var color))
+				if (IsTracked(lootItemName, lootItem.Item.Template.GetEstimatedRarity(), out var color))
 				{
 					records.Add(new PointOfInterest
 					{

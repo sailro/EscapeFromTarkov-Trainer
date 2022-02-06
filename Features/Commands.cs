@@ -499,7 +499,7 @@ namespace EFT.Trainer.Features
 					continue;
 
 				var list = itemsPerName[itemName];
-				var rarity = list.First().Template.Rarity;
+				var rarity = list.First().Template.GetEstimatedRarity();
 				if (rarityFilter.HasValue && rarityFilter.Value != rarity)
 					continue;
 
