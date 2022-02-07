@@ -204,7 +204,7 @@ namespace EFT.Trainer.Features
 			}
 		}
 
-		private static void SetShaders(Player player, Shader? shader, Color color, Color borderColor, Dictionary<Material, Shader?> cache)
+		private static void SetShaders(Player player, Shader? shader, Color color, Color borderColor, Dictionary<Renderer, Shader?> cache)
 		{
 			var playerBody = player.PlayerBody;
 			if (playerBody == null)
@@ -231,7 +231,7 @@ namespace EFT.Trainer.Features
 					if (material.shader != null && material.shader == shader)
 						continue;
 
-					cache[material] = material.shader;
+					cache[renderer] = material.shader;
 					material.shader = shader;
 
 					material.SetColor("_FirstOutlineColor", borderColor);
@@ -242,16 +242,19 @@ namespace EFT.Trainer.Features
 			}
 		}
 
-		private static void ResetShaders(Dictionary<Material, Shader?> cache)
+		private static void ResetShaders(Dictionary<Renderer, Shader?> cache)
 		{
 			var hits = 0;
 			foreach (var key in cache.Keys)
 			{
 				var shader = cache[key];
-				if (key.shader == shader) 
+				if (key.material == null)
 					continue;
 
-				key.shader = shader;
+				if (key.material.shader == shader) 
+					continue;
+
+				key.material.shader = shader;
 				hits++;
 			}
 
