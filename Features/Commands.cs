@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -13,6 +14,7 @@ using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
 using EFT.UI;
 using JsonType;
+using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -402,6 +404,8 @@ namespace EFT.Trainer.Features
 
 				CreateCommand(commands, $"untrack (?<{ValueGroup}>.+)", m => UnTrackLootItem(m, liFeature));
 				CreateCommand(commands, "tracklist", _ => ShowTrackList(liFeature));
+				CreateCommand(commands, $"loadtl (?<{ValueGroup}>.+)", m => LoadTrackList(m, liFeature));
+				CreateCommand(commands, $"savetl (?<{ValueGroup}>.+)", m => SaveTrackList(m, liFeature));
 			}
 
 			CreateCommand(commands, "dump", _ => Dump());
@@ -443,6 +447,41 @@ namespace EFT.Trainer.Features
 				var extra = item.Rarity.HasValue ? $" ({item.Rarity.Value.Color()})" : string.Empty;
 				AddConsoleLog(item.Color.HasValue ? $"Tracking: {item.Name.Color(item.Color.Value)}{extra}" : $"Tracking: {item.Name}", "tracker");
 			}
+		}
+
+		private static bool TryGetTrackListFilename(Match match, [NotNullWhen(true)] out string? filename)
+		{
+			filename = null;
+
+			var matchGroup = match.Groups[ValueGroup];
+			if (matchGroup is not {Success: true})
+				return false;
+
+			filename = matchGroup.Value;
+
+			if (!Path.IsPathRooted(filename))
+				filename = Path.Combine(UserPath, filename);
+
+			if (!Path.HasExtension(filename))
+				filename += ".tl";
+
+			return true;
+		}
+
+		private void LoadTrackList(Match match, LootItems feature)
+		{
+			if (!TryGetTrackListFilename(match, out var filename))
+				return;
+
+			ConfigurationManager.LoadPropertyValue(filename, feature, nameof(LootItems.TrackedNames));
+		}
+
+		private void SaveTrackList(Match match, LootItems feature)
+		{
+			if (!TryGetTrackListFilename(match, out var filename))
+				return;
+
+			ConfigurationManager.SavePropertyValue(filename, feature, nameof(LootItems.TrackedNames));
 		}
 
 		private void UnTrackLootItem(Match match, LootItems feature)

@@ -119,20 +119,7 @@ namespace EFT.Trainer.Features
 				if (item.IsFiltered())
 					continue;
 
-				var itemName = item.ShortName.Localized();
-				if (IsTracked(itemName, item.Template.GetEstimatedRarity(), out var color))
-				{
-					var owner =  item.Owner?.ContainerName?.Localized();
-
-					records.Add(new PointOfInterest
-					{
-						Name = FormatName(itemName, item),
-						Owner = string.Equals(itemName, owner, StringComparison.OrdinalIgnoreCase) ? null : owner,
-						Position = position,
-						ScreenPosition = camera.WorldPointToScreenPoint(position),
-						Color = color
-					});
-				}
+				TryAddRecordIfTracked(item, records, camera, position, item.Owner?.ContainerName?.Localized());
 			}
 		}
 
@@ -146,7 +133,6 @@ namespace EFT.Trainer.Features
 					continue;
 
 				var position = lootItem.transform.position;
-				var lootItemName = lootItem.Item.ShortName.Localized();
 
 				if (lootItem is Corpse corpse)
 				{
@@ -156,16 +142,7 @@ namespace EFT.Trainer.Features
 					continue;
 				}
 
-				if (IsTracked(lootItemName, lootItem.Item.Template.GetEstimatedRarity(), out var color))
-				{
-					records.Add(new PointOfInterest
-					{
-						Name = FormatName(lootItemName, lootItem.Item),
-						Position = position,
-						ScreenPosition = camera.WorldPointToScreenPoint(position),
-						Color = color
-					});
-				}
+				TryAddRecordIfTracked(lootItem.Item, records, camera, position);
 			}
 		}
 
@@ -178,17 +155,27 @@ namespace EFT.Trainer.Features
 			return $"{itemName} {price / 1000}K";
 		}
 
-		private bool IsTracked(string lootItemName, ELootRarity rarity, out Color color)
+		private void TryAddRecordIfTracked(Item item, List<PointOfInterest> records, Camera camera, Vector3 position, string? owner = null)
 		{
-			var result = TrackedNames.Find(t => t.Name == "*" || lootItemName.IndexOf(t.Name, StringComparison.OrdinalIgnoreCase) >= 0);
-			if (result != null && RarityMatches(rarity, result.Rarity))
-			{
-				color = result.Color ?? Color;
-				return true;
-			}
+			var itemName = item.ShortName.Localized();
+			var template = item.Template;
+			var trackedItem = TrackedNames.Find(t => t.Name == "*"
+			                                         || itemName.IndexOf(t.Name, StringComparison.OrdinalIgnoreCase) >= 0
+			                                         || string.Equals(template._id, t.Name, StringComparison.OrdinalIgnoreCase));
 
-			color = Color;
-			return false;
+			var rarity = template.GetEstimatedRarity();
+			if (trackedItem == null || !RarityMatches(rarity, trackedItem.Rarity))
+				return;
+
+			var color = trackedItem.Color ?? Color;
+			records.Add(new PointOfInterest
+			{
+				Name = FormatName(itemName, item),
+				Owner = string.Equals(itemName, owner, StringComparison.OrdinalIgnoreCase) ? null : owner,
+				Position = position,
+				ScreenPosition = camera.WorldPointToScreenPoint(position),
+				Color = color
+			});
 		}
 
 		private static bool RarityMatches(ELootRarity itemRarity, ELootRarity? trackedRarity)

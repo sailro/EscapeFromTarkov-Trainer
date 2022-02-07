@@ -67,6 +67,39 @@ namespace EFT.Trainer.Configuration
 			}
 		}
 
+		public static void LoadPropertyValue(string filename, Feature feature, string propertyName)
+		{
+			try
+			{
+				if (!File.Exists(filename))
+				{
+					AddConsoleLog($"{filename} not found!");
+					return;
+				}
+
+				var text = File.ReadAllText(filename);
+
+				var tlProperty = GetOrderedProperties(feature.GetType())
+					.First(p => p.Property.Name == propertyName);
+
+				try
+				{
+					var value = JsonConvert.DeserializeObject(text, tlProperty.Property.PropertyType, Converters);
+					tlProperty.Property.SetValue(feature, value);
+				}
+				catch (JsonException)
+				{
+					AddConsoleLog($"{filename} seems corrupted. Please fix.".Red());
+				}
+
+				AddConsoleLog($"Loaded {filename}");
+			}
+			catch (Exception ioe)
+			{
+				AddConsoleLog($"Unable to load {filename}. {ioe.Message}".Red());
+			}
+		}
+
 		public static void Save(string filename, Feature[] features)
 		{
 			try
@@ -99,6 +132,24 @@ namespace EFT.Trainer.Configuration
 				}
 
 				File.WriteAllText(filename, content.ToString());
+				AddConsoleLog($"Saved {filename}");
+			}
+			catch (Exception ioe)
+			{
+				AddConsoleLog($"Unable to save {filename}. {ioe.Message}".Red());
+			}
+		}
+
+		public static void SavePropertyValue(string filename, Feature feature, string propertyName)
+		{
+			try
+			{
+				var tlProperty = GetOrderedProperties(feature.GetType())
+					.First(p => p.Property.Name == propertyName);
+
+				var content = JsonConvert.SerializeObject(tlProperty.Property.GetValue(feature), Formatting.Indented, Converters);
+				File.WriteAllText(filename, content);
+
 				AddConsoleLog($"Saved {filename}");
 			}
 			catch (Exception ioe)
