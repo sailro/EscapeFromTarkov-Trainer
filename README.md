@@ -23,6 +23,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 | `AutomaticGun`            | Force all guns (even bolt action guns) to use automatic firing mode with customizable fire rate. |
 | `Commands`                | Popup window to enable/disable all features (use right-alt or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)). |
 | `CrossHair`               | Crosshair with customizable size, color, thickness and auto-hide feature when aiming. |
+| `Examine`                 | All items already examined. |
 | `ExfiltrationPoints`      | Exfiltration points with customizable colors given eligibility, status filter, distance. |
 | `FreeCamera`              | Free camera with fast mode and teleportation. |
 | `Grenades`                | Grenades outline. |
@@ -89,6 +90,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | autogun   | `on` or `off`       | `off`   | Enable/Disable automatic gun mode   |
 | crosshair | `on` or `off`       | `off`   | Show/Hide crosshair                 |
 | dump      |                     |         | Dump game state for analysis        |
+| examine   | `on` or `off`       | `off`   | Enable/Disable all item examined    |
 | exfil     | `on` or `off`       | `on`    | Show/Hide exfiltration points       |
 | grenade   | `on` or `off`       | `off`   | Show/Hide grenades                  |
 | health    | `on` or `off`       | `off`   | Enable/Disable full health          |
@@ -154,6 +156,9 @@ EFT.Trainer.Features.CrossHair.Color=[1.0,0.0,0.0,1.0]
 EFT.Trainer.Features.CrossHair.HideWhenAiming=true
 EFT.Trainer.Features.CrossHair.Size=10.0
 EFT.Trainer.Features.CrossHair.Thickness=2.0
+
+EFT.Trainer.Features.Examine.Enabled=false
+EFT.Trainer.Features.Examine.Key="None"
 
 EFT.Trainer.Features.FreeCamera.Key="None"
 EFT.Trainer.Features.FreeCamera.Forward="UpArrow"
