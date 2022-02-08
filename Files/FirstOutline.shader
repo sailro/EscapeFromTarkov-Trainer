@@ -14,6 +14,8 @@ Shader "Outlined/UltimateOutline"
 		_SecondOutlineWidth("Outlines width", Range(0.0, 2.0)) = 0.025
 
 		_Angle("Switch shader on angle", Range(0.0, 180.0)) = 89
+		
+		[Enum(UnityEngine.Rendering.CompareFunction)] _ZTest("ZTest", Float) = 8 //"Always"
 	}
 
 		CGINCLUDE
@@ -42,7 +44,7 @@ Shader "Outlined/UltimateOutline"
 				Tags{ "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
 				Blend SrcAlpha OneMinusSrcAlpha
 				ZWrite Off
-				ZTest Always
+				ZTest [_ZTest]
 				Cull Back
 				CGPROGRAM
 
@@ -86,7 +88,7 @@ Pass{
 	Tags{ "Queue" = "Transparent" "IgnoreProjector" = "True" "RenderType" = "Transparent" }
 	Blend SrcAlpha OneMinusSrcAlpha
 	ZWrite Off
-	ZTest Always
+	ZTest [_ZTest]
 	Cull Back
 	CGPROGRAM
 

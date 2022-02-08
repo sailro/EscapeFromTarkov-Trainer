@@ -78,6 +78,7 @@ namespace EFT.Trainer.Features
 				material.SetFloat("_FirstOutlineWidth", 0.02f);
 				material.SetColor("_SecondOutlineColor", color);
 				material.SetFloat("_SecondOutlineWidth", 0.0025f);
+				material.SetFloat("_ZTest", (float)UnityEngine.Rendering.CompareFunction.Always);
 			}
 		}
 	}
