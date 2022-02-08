@@ -95,11 +95,11 @@ namespace EFT.Trainer.Features
 
 			var cacheComponent = player.GetOrAddComponent<ShaderCache>();
 			var cache = cacheComponent.Cache;
-			var didXRayVisionChanged = XRayVision != _lastXRayVision;
-			_lastXRayVision = XRayVision;
 
-			if (!Enabled || didXRayVisionChanged)
+			if (!Enabled || XRayVision != _lastXRayVision)
 			{
+				_lastXRayVision = XRayVision;
+
 				if (cache.Count > 0)
 					ResetShaders(cache);
 
