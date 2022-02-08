@@ -253,6 +253,7 @@ EFT.Trainer.Features.Players.MaximumDistance=0.0
 EFT.Trainer.Features.Players.ShowBoxes=true
 EFT.Trainer.Features.Players.BoxThickness=2.0
 EFT.Trainer.Features.Players.ShowCharms=true
+EFT.Trainer.Features.Players.XRayVision=true
 EFT.Trainer.Features.Players.ShowInfos=true
 EFT.Trainer.Features.Players.ShowSkeletons=false
 EFT.Trainer.Features.Players.SkeletonThickness=2.0
