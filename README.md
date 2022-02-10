@@ -204,7 +204,8 @@ EFT.Trainer.Features.Hits.ShowHealthDamage=true
 EFT.Trainer.Features.Hud.Enabled=true
 EFT.Trainer.Features.Hud.Key="None"
 EFT.Trainer.Features.Hud.Color=[1.0,1.0,1.0,1.0]
-EFT.Trainer.Features.Hud.Compass=true
+EFT.Trainer.Features.Hud.ShowCompass=true
+EFT.Trainer.Features.Hud.ShowCoordinates=true
 
 EFT.Trainer.Features.LootableContainers.Enabled=false
 EFT.Trainer.Features.LootableContainers.Key="None"
