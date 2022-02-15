@@ -17,33 +17,33 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 
 ## Features
 
-| trainer.ini section       | Description |
-|---------------------------|-------------|
-| `Aimbot`                  | Aimbot (distance, smoothness, silent aim with speed factor and shot delay, fov radius, fov circle). |
-| `AutomaticGun`            | Force all guns (even bolt action guns) to use automatic firing mode with customizable fire rate. |
-| `Commands`                | Popup window to enable/disable all features (use right-alt or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)). |
-| `CrossHair`               | Crosshair with customizable size, color, thickness and auto-hide feature when aiming. |
-| `Examine`                 | All items already examined. |
-| `ExfiltrationPoints`      | Exfiltration points with customizable colors given eligibility, status filter, distance. |
-| `FreeCamera`              | Free camera with fast mode and teleportation. |
-| `Grenades`                | Grenades outline. |
-| `Health`                  | Full health, prevent any damage (so even when falling), keep energy and hydration at maximum. |
-| `Hits`                    | Hit markers (hit, armor, health with configurable colors). |
-| `Hud`                     | HUD (compass, ammo left in chamber / magazine, fire mode). |
-| `LootableContainers`      | Hidden stashes like buried barrels or ground caches. |
-| `LootItems`               | List all lootable items and track any item by name or rarity in raid (even in containers and corpses), with prices. |
-| `NightVision`             | Night vision. |
-| `NoCollision`             | No physical collisions, making you immune to bullets, grenades and barbed wires. |
-| `NoRecoil`                | No recoil. |
-| `NoVisor`                 | No visor, so even when using a face shield-visor you won't see it. |
-| `Players`                 | Wallhack (you'll see Bear/Boss/Cultist/Scav/Usec with configurable colors through walls). Charms, boxes, info (weapon and health), skeletons and distance. |
-| `Quests`                  | Locations for taking/placing quest items. Only items related to your started quests are displayed. |
-| `Skills`                  | All skills to Elite level (51) and all weapons mastering to level 3. |
-| `Speed`                   | Speed boost to be able to go through walls/objects, or to move faster. Be careful to not kill yourself. |
-| `Stamina`                 | Unlimited stamina. |
-| `ThermalVision`           | Thermal vision. |
-| `WallShoot`               | Shoot through wall/helmet/vest/material with maximum penetration and minimal deviation/ricochet. |
-| `WorldInteractiveObjects` | Door/Keycard reader/Car unlocker. |
+| trainer.ini section       | GUI/console | Description |
+|---------------------------|-------------|-------------|
+| `Aimbot`                  | `aimbot`    | Aimbot (distance, smoothness, silent aim with speed factor and shot delay, fov radius, fov circle). |
+| `AutomaticGun`            | `autogun`   | Force all guns (even bolt action guns) to use automatic firing mode with customizable fire rate. |
+| `Commands`                | `commands`  | Popup window to enable/disable all features (use right-alt or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)). |
+| `CrossHair`               | `crosshair` | Crosshair with customizable size, color, thickness and auto-hide feature when aiming. |
+| `Examine`                 | `examine`   | All items already examined. |
+| `ExfiltrationPoints`      | `exfil`     | Exfiltration points with customizable colors given eligibility, status filter, distance. |
+| `FreeCamera`              | `camera`    | Free camera with fast mode and teleportation. |
+| `Grenades`                | `grenade`   | Grenades outline. |
+| `Health`                  | `health`    | Full health, prevent any damage (so even when falling), keep energy and hydration at maximum. |
+| `Hits`                    | `hits`      | Hit markers (hit, armor, health with configurable colors). |
+| `Hud`                     | `hud`       | HUD (compass, ammo left in chamber / magazine, fire mode, coordinates). |
+| `LootableContainers`      | `stash`     | Hidden stashes like buried barrels or ground caches. |
+| `LootItems`               | `loot`      | List all lootable items and track any item by name or rarity in raid (even in containers and corpses), with prices. |
+| `NightVision`             | `night`     | Night vision. |
+| `NoCollision`             | `nocoll`    | No physical collisions, making you immune to bullets, grenades and barbed wires. |
+| `NoRecoil`                | `norecoil`  | No recoil. |
+| `NoVisor`                 | `novisor`   | No visor, so even when using a face shield-visor you won't see it. |
+| `Players`                 | `wallhack`  | Wallhack (you'll see Bear/Boss/Cultist/Scav/Usec with configurable colors through walls). Charms, boxes, info (weapon and health), skeletons and distance. |
+| `Quests`                  | `quest`     | Locations for taking/placing quest items. Only items related to your started quests are displayed. |
+| `Skills`                  | `skills`    | All skills to Elite level (51) and all weapons mastering to level 3. |
+| `Speed`                   | `speed`     | Speed boost to be able to go through walls/objects, or to move faster. Be careful to not kill yourself. |
+| `Stamina`                 | `stamina`   | Unlimited stamina. |
+| `ThermalVision`           | `thermal`   | Thermal vision. |
+| `WallShoot`               | `wallshoot` | Shoot through wall/helmet/vest/material with maximum penetration and minimal deviation/ricochet. |
+| `WorldInteractiveObjects` | `opener`    | Door/Keycard reader/Car unlocker. |
 
 You can Load/Save all settings using the `console` or the `GUI`.
 
