@@ -77,6 +77,7 @@ namespace EFT.Trainer.Features
 		public float MaximumDistance { get; set; } = 0f;
 
 		private static bool _lastXRayVision = true;
+		private static bool _lastShowCharms = true;
 
 		[UsedImplicitly]
 		protected void OnGUI()
@@ -96,9 +97,10 @@ namespace EFT.Trainer.Features
 			var cacheComponent = player.GetOrAddComponent<ShaderCache>();
 			var cache = cacheComponent.Cache;
 
-			if (!Enabled || XRayVision != _lastXRayVision)
+			if (!Enabled || XRayVision != _lastXRayVision || ShowCharms != _lastShowCharms)
 			{
 				_lastXRayVision = XRayVision;
+				_lastShowCharms = ShowCharms;
 
 				if (cache.Count > 0)
 					ResetShaders(cache);
