@@ -6,10 +6,14 @@
 		NoInstallationFound = 1,
 		CompilationFailed = 2,
 		Canceled = 3,
-		CreateDllFailed = 4,
-		CreateOutlineFailed = 5,
 		Failure = 6,
-		RemoveDllFailed = 7,
-		RemoveOutlineFailed = 8,
+
+		CreateDllFailed = 10,
+		CreateOutlineFailed = 11,
+		CreateHarmonyDllFailed = 12,
+
+		RemoveDllFailed = 20,
+		RemoveOutlineFailed = 21,
+		RemoveHarmonyDllFailed = 22,
 	}
 }

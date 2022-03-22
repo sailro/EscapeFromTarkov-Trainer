@@ -7,6 +7,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using Installer.Properties;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Spectre.Console;
@@ -88,8 +89,11 @@ namespace Installer
 						return (int)ExitCode.Canceled;
 				}
 
-				if (!CreateDll(installation, compilation))
+				if (!CreateDll(installation, "NLog.EFT.Trainer.dll", (dllPath) => compilation.Emit(dllPath)))
 					return (int)ExitCode.CreateDllFailed;
+
+				if (!CreateDll(installation, "0Harmony.dll", (dllPath) => File.WriteAllBytes(dllPath, Resources._0Harmony), false))
+					return (int)ExitCode.CreateHarmonyDllFailed;
 
 				if (!CreateOutline(installation, archive!))
 					return (int)ExitCode.CreateOutlineFailed;
@@ -260,13 +264,17 @@ namespace Installer
 			}
 		}
 
-		private static bool CreateDll(Installation installation, CSharpCompilation compilation)
+		private static bool CreateDll(Installation installation, string filename, Action<string> creator, bool overwrite = true)
 		{
-			var dllPath = Path.Combine(installation.Managed, "NLog.EFT.Trainer.dll");
+			var dllPath = Path.Combine(installation.Managed, filename);
 			try
 			{
-				compilation.Emit(dllPath);
+				if (!overwrite && File.Exists(dllPath))
+					return true;
+
+				creator(dllPath);
 				AnsiConsole.MarkupLine($"Created [green]{Path.GetFileName(dllPath).EscapeMarkup()}[/] in [blue]{Path.GetDirectoryName(dllPath).EscapeMarkup()}[/].");
+
 				return true;
 			}
 			catch (Exception ex)

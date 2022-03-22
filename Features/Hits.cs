@@ -50,7 +50,6 @@ namespace EFT.Trainer.Features
 
 		private static readonly HashSet<HitMarker> _hitMarkers = new();
 
-#if HARMONY
 #pragma warning disable IDE0060 
 		[UsedImplicitly]
 		protected static void ApplyDamagePostfix(EBodyPart bodyPart, float damage, DamageInfo damageInfo, object __instance)
@@ -74,7 +73,6 @@ namespace EFT.Trainer.Features
 			_hitMarkers.Add(marker);
 		}
 #pragma warning restore IDE0060 
-#endif
 
 		protected override void OnGUIWhenEnabled()
 		{
@@ -129,7 +127,6 @@ namespace EFT.Trainer.Features
 			if (healthController == null)
 				return;
 
-#if HARMONY
 			HarmonyPatchOnce(harmony =>
 			{
 				var original = HarmonyLib.AccessTools.Method(healthController.GetType(), nameof(healthController.ApplyDamage));
@@ -142,7 +139,6 @@ namespace EFT.Trainer.Features
 
 				harmony.Patch(original, null, new HarmonyLib.HarmonyMethod(postfix));
 			});
-#endif
 		}
 	}
 }
