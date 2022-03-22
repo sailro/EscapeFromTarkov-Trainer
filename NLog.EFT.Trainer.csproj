@@ -45,9 +45,6 @@
     <PlatformTarget>AnyCPU</PlatformTarget>
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
-  <PropertyGroup Condition="Exists('$(EFTManagedPath)\0Harmony.dll')">
-    <DefineConstants>HARMONY;$(DefineConstants)</DefineConstants>
-  </PropertyGroup>
   <ItemGroup>
     <!-- Framework -->
     <Reference Include="System" />
@@ -94,16 +91,14 @@
     <Reference Include="UnityEngine.TextRenderingModule">
       <HintPath>$(EFTManagedPath)\UnityEngine.TextRenderingModule.dll</HintPath>
     </Reference>
+    <Reference Include="0Harmony">
+      <HintPath>Installer\Resources\0Harmony.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <!-- Only to work with legacy installer regex parsing -->
   <ItemGroup Condition="Exists('$(EFTManagedPath)\UnityEngine.InputLegacyModule.dll')">
     <Reference Include="UnityEngine.InputLegacyModule">
       <HintPath>$(EFTManagedPath)\UnityEngine.InputLegacyModule.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup Condition="Exists('$(EFTManagedPath)\0Harmony.dll')">
-    <Reference Include="0Harmony">
-      <HintPath>$(EFTManagedPath)\0Harmony.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

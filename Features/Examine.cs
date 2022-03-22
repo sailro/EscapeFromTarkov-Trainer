@@ -12,7 +12,6 @@ namespace EFT.Trainer.Features
 
 		public override bool Enabled { get; set; } = false;
 
-#if HARMONY
 		[UsedImplicitly]
 		protected static bool ExaminedPrefix(ref bool __result)
 		{
@@ -23,11 +22,9 @@ namespace EFT.Trainer.Features
 			__result = true;
 			return false;  // skip the original code and all other prefix methods 
 		}
-#endif
 
 		protected override void UpdateWhenEnabled()
 		{
-#if HARMONY
 			HarmonyPatchOnce(harmony =>
 			{
 				var originalString = HarmonyLib.AccessTools.Method(typeof(Profile), nameof(Profile.Examined), new[] {typeof(string)});
@@ -45,7 +42,6 @@ namespace EFT.Trainer.Features
 				harmony.Patch(originalString, new HarmonyLib.HarmonyMethod(prefix));
 				harmony.Patch(originalItem, new HarmonyLib.HarmonyMethod(prefix));
 			});
-#endif
 		}
 	}
 }

@@ -13,7 +13,6 @@ namespace EFT.Trainer.Features
 
 		public override bool Enabled { get; set; } = false;
 
-#if HARMONY
 		[UsedImplicitly]
 		protected static bool ConsumePrefix()
 		{
@@ -23,7 +22,6 @@ namespace EFT.Trainer.Features
 
 			return false;  // skip the original code and all other prefix methods 
 		}
-#endif
 
 		protected override void UpdateWhenEnabled()
 		{
@@ -35,7 +33,6 @@ namespace EFT.Trainer.Features
 			if (playerPhysical == null)
 				return;
 
-#if HARMONY
 			HarmonyPatchOnce(harmony =>
 			{
 				var playerPhysicalStamina = playerPhysical.Stamina;
@@ -52,7 +49,6 @@ namespace EFT.Trainer.Features
 
 				harmony.Patch(original, new HarmonyLib.HarmonyMethod(prefix));
 			});
-#endif
 
 			var parameters = playerPhysical.StaminaParameters;
 			if (parameters == null)

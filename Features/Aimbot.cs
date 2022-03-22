@@ -45,7 +45,6 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty(Order = 32)]
 		public float SilentAimSpeedFactor { get; set; } = 100f;
 
-#if HARMONY
 #pragma warning disable IDE0060
 		[UsedImplicitly]
 		protected static bool CreateShotPrefix(object ammo, Vector3 origin, ref Vector3 direction, int fireIndex, Player player, Item weapon, ref float speedFactor, int fragmentIndex)
@@ -60,7 +59,6 @@ namespace EFT.Trainer.Features
 			return true; // call the original code with updated direction and speedFactor
 		}
 #pragma warning restore IDE0060
-#endif
 
 		private Transform? _silentAimTarget = null;
 		private float _silentAimNextShotTime = 0f;
@@ -71,7 +69,6 @@ namespace EFT.Trainer.Features
 			if (!SilentAim) 
 				return;
 
-#if HARMONY
 #pragma warning disable UNT0018
 			HarmonyPatchOnce(harmony =>
 			{
@@ -86,7 +83,6 @@ namespace EFT.Trainer.Features
 				harmony.Patch(original, new HarmonyLib.HarmonyMethod(prefix));
 			});
 #pragma warning restore UNT0018
-#endif
 
 			if (!TryGetNearestTarget(out var player, out var camera, out var nearestTarget))
 				return;

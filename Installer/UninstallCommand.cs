@@ -37,6 +37,13 @@ namespace Installer
 				if (!RemoveFile(Path.Combine(installation.Managed, "NLog.EFT.Trainer.dll")))
 					return (int)ExitCode.RemoveDllFailed;
 
+				// MonoMod.RuntimeDetour is a dependency used by the non-ilmerged 0Harmony.dll used by legacy spt-aki. In this case we are not handling the removal
+				if (!File.Exists(Path.Combine(installation.Managed, "MonoMod.RuntimeDetour.dll")))
+				{
+					if (!RemoveFile(Path.Combine(installation.Managed, "0Harmony.dll")))
+						return (int)ExitCode.RemoveHarmonyDllFailed;
+				}
+
 				if (!RemoveFile(Path.Combine(installation.Data, "outline")))
 					return (int)ExitCode.RemoveOutlineFailed;
 

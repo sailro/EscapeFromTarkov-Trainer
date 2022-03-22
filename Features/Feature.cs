@@ -10,7 +10,6 @@ namespace EFT.Trainer.Features
 	{
 		public abstract string Name { get; }
 
-#if HARMONY
 		private string? _harmonyId = null;
 
 		public void HarmonyPatchOnce(Action<HarmonyLib.Harmony> action)
@@ -22,7 +21,6 @@ namespace EFT.Trainer.Features
 			var harmony = new HarmonyLib.Harmony(_harmonyId);
 			action(harmony);
 		}
-#endif
 
 		protected void AddConsoleLog(string log, string? from = null)
 		{
