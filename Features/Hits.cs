@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Model;
 using EFT.Trainer.UI;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -43,8 +44,13 @@ namespace EFT.Trainer.Features
 
 		internal class HitMarker
 		{
+			public HitMarker(DamageInfoWrapper damageInfo)
+			{
+				DamageInfo = damageInfo;
+			}
+
 			public float ElapsedTime { get; set; } = 0.0f;
-			public DamageInfo DamageInfo { get; set; }
+			public DamageInfoWrapper DamageInfo { get; set; }
 			public bool IsTaggedForDeletion { get; set; } = false;
 		}
 
@@ -52,24 +58,27 @@ namespace EFT.Trainer.Features
 
 #pragma warning disable IDE0060 
 		[UsedImplicitly]
-		protected static void ApplyDamagePostfix(EBodyPart bodyPart, float damage, DamageInfo damageInfo, object __instance)
+		protected static void ApplyDamagePostfix(EBodyPart bodyPart, float damage, object damageInfo, object? __instance)
 		{
 			var feature = FeatureFactory.GetFeature<Health>();
 			if (feature == null || !feature.Enabled)
-				return; 
+				return;
 
-			if (__instance is not IHealthController healthController)
-				return; 
+			if (__instance == null)
+				return;
 
-			var victim = healthController.Player;
+			var healthControllerWrapper = new HealthControllerWrapper(__instance);
+
+			var victim = healthControllerWrapper.Player;
 			if (victim == null || victim.IsYourPlayer)
 				return;
 
-			var shooter = damageInfo.Player;
+			var damageInfoWrapper = new DamageInfoWrapper(damageInfo);
+			var shooter = damageInfoWrapper.Player;
 			if (shooter == null || !shooter.IsYourPlayer)
 				return;
 
-			var marker = new HitMarker {DamageInfo = damageInfo};
+			var marker = new HitMarker(damageInfoWrapper);
 			_hitMarkers.Add(marker);
 		}
 #pragma warning restore IDE0060 

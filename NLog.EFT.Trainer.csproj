@@ -158,6 +158,9 @@
     <Compile Include="Features\WallShoot.cs" />
     <Compile Include="Features\Skills.cs" />
     <Compile Include="Features\WorldInteractiveObjects.cs" />
+    <Compile Include="Model\DamageInfoWrapper.cs" />
+    <Compile Include="Model\HealthControllerWrapper.cs" />
+    <Compile Include="Model\ReflectionWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\Picker.cs" />
     <Compile Include="UI\EnumPicker.cs" />

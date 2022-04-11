@@ -1,5 +1,6 @@
 ﻿using System;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Model;
 using JetBrains.Annotations;
 
 #nullable enable
@@ -16,13 +17,15 @@ namespace EFT.Trainer.Features
 		private static readonly Array _bodyParts = Enum.GetValues(typeof(EBodyPart));
 
 		[UsedImplicitly]
-		protected static bool ApplyDamagePrefix(object __instance, ref float __result)
+		protected static bool ApplyDamagePrefix(object? __instance, ref float __result)
 		{
 			var feature = FeatureFactory.GetFeature<Health>();
-			if (feature == null || !feature.Enabled)
+			if (feature == null || !feature.Enabled || __instance == null)
 				return true; // keep using original code, we are not enabled
 
-			if (__instance is IHealthController {Player: {IsYourPlayer: false}})
+			var healthControllerWrapper = new HealthControllerWrapper(__instance);
+
+			if (healthControllerWrapper.Player != null && !healthControllerWrapper.Player.IsYourPlayer)
 				return true; // keep using original code, apply damage to others
 
 			__result = 0f;
