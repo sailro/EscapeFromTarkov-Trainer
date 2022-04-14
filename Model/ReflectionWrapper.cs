@@ -48,7 +48,7 @@ namespace EFT.Trainer.Model
 		protected void AddConsoleLog(string log, string? from = null)
 		{
 			if (PreloaderUI.Instantiated)
-				PreloaderUI.Instance.Console.AddLog(log, from ?? nameof(ReflectionWrapper));
+				PreloaderUI.Instance.Console.AddLog(log, from ?? "wrapper");
 		}
 
 		public ReflectionWrapper(object instance)
