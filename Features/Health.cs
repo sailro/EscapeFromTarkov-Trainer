@@ -24,8 +24,9 @@ namespace EFT.Trainer.Features
 				return true; // keep using original code, we are not enabled
 
 			var healthControllerWrapper = new HealthControllerWrapper(__instance);
+			var player = healthControllerWrapper.Player;
 
-			if (healthControllerWrapper.Player != null && !healthControllerWrapper.Player.IsYourPlayer)
+			if (player == null || !player.IsYourPlayer)
 				return true; // keep using original code, apply damage to others
 
 			__result = 0f;

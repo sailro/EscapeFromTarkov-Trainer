@@ -10,7 +10,6 @@ using Installer.Properties;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Text;
-using Spectre.Console;
 
 #nullable enable
 
