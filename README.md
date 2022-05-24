@@ -116,7 +116,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | track     | `[name]` or `*`     |         | Track all items matching `name`     |
 | track     | `[name]` `<color>`  |         | Ex: track `roler` `red`             |
 | track     | `[name]` `<rgba>`   |         | Ex: track `roler` `[1,1,1,0.5]`     |
-| tracks    | same as `track`     |         | Track rare items only               |
+| trackr    | same as `track`     |         | Track rare items only               |
 | tracksr   | same as `track`     |         | Track super rare items only         |
 | tracklist |                     |         | Show tracked items                  |
 | untrack   | `[name]` or `*`     |         | Untrack a `name` or `*` for all     |
