@@ -45,10 +45,10 @@ namespace EFT.Trainer.Model
 			return result;
 		}
 
-		protected void AddConsoleLog(string log, string? from = null)
+		protected void AddConsoleLog(string log)
 		{
 			if (PreloaderUI.Instantiated)
-				PreloaderUI.Instance.Console.AddLog(log, from ?? "wrapper");
+				ConsoleScreen.Log(log);
 		}
 
 		public ReflectionWrapper(object instance)

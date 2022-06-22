@@ -15,10 +15,10 @@ namespace EFT.Trainer.Configuration
 	{
 		public static JsonConverter[] Converters => new JsonConverter[]{new TrackedItemConverter(), new ColorConverter(), new KeyCodeConverter()};
 
-		private static void AddConsoleLog(string log, string from = "config")
+		private static void AddConsoleLog(string log)
 		{
 			if (PreloaderUI.Instantiated)
-				PreloaderUI.Instance.Console.AddLog(log, from);
+				ConsoleScreen.Log(log);
 		}
 
 		public static void Load(string filename, Feature[] features, bool warnIfNotExists = true)

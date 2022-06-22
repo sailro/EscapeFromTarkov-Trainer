@@ -22,10 +22,10 @@ namespace EFT.Trainer.Features
 			action(harmony);
 		}
 
-		protected void AddConsoleLog(string log, string? from = null)
+		protected void AddConsoleLog(string log)
 		{
 			if (PreloaderUI.Instantiated)
-				PreloaderUI.Instance.Console.AddLog(log, from ?? Name);
+				ConsoleScreen.Log(log);
 		}
 	}
 }

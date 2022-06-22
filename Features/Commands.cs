@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
@@ -14,7 +13,6 @@ using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
 using EFT.UI;
 using JsonType;
-using Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -379,42 +377,38 @@ namespace EFT.Trainer.Features
 
 		private void RegisterCommands()
 		{
-			var commands = ConsoleScreen.Commands;
-			if (commands.Count == 0)
-				return;
-
 			foreach(var feature in ToggleableFeatures.Value)
 			{
 				if (feature is Commands or GameState)
 					continue;
 
-				CreateCommand(commands, $"{feature.Name} (?<{ValueGroup}>(on)|(off))", m => OnToggleFeature(feature, m));
+				CreateCommand("{feature.Name}", $"(?<{ValueGroup}>(on)|(off))", m => OnToggleFeature(feature, m));
 
 				if (feature is not LootItems liFeature) 
 					continue;
 
-				CreateCommand(commands, $"list {{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, liFeature));
-				CreateCommand(commands, $"listr {{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, liFeature, ELootRarity.Rare));
-				CreateCommand(commands, $"listsr {{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, liFeature, ELootRarity.Superrare));
+				CreateCommand("list", $"{{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, liFeature));
+				CreateCommand("listr", $"{{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, liFeature, ELootRarity.Rare));
+				CreateCommand("listsr", $"{{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, liFeature, ELootRarity.Superrare));
 
 				var colorNames = string.Join("|", ColorConverter.ColorNames());
-				CreateCommand(commands, $"track (?<value>.+?)(?<extra> ({colorNames}|\\[[\\.,\\d ]*\\]{{1}}))?", m => TrackLootItem(m, liFeature));
-				CreateCommand(commands, $"trackr (?<value>.+?)(?<extra> ({colorNames}|\\[[\\.,\\d ]*\\]{{1}}))?", m => TrackLootItem(m, liFeature, ELootRarity.Rare));
-				CreateCommand(commands, $"tracksr (?<value>.+?)(?<extra> ({colorNames}|\\[[\\.,\\d ]*\\]{{1}}))?", m => TrackLootItem(m, liFeature, ELootRarity.Superrare));
+				CreateCommand("track", $"(?<value>.+?)(?<extra> ({colorNames}|\\[[\\.,\\d ]*\\]{{1}}))?", m => TrackLootItem(m, liFeature));
+				CreateCommand("trackr", $"(?<value>.+?)(?<extra> ({colorNames}|\\[[\\.,\\d ]*\\]{{1}}))?", m => TrackLootItem(m, liFeature, ELootRarity.Rare));
+				CreateCommand("tracksr", $"(?<value>.+?)(?<extra> ({colorNames}|\\[[\\.,\\d ]*\\]{{1}}))?", m => TrackLootItem(m, liFeature, ELootRarity.Superrare));
 
-				CreateCommand(commands, $"untrack (?<{ValueGroup}>.+)", m => UnTrackLootItem(m, liFeature));
-				CreateCommand(commands, $"loadtl (?<{ValueGroup}>.+)", m => LoadTrackList(m, liFeature));
-				CreateCommand(commands, $"savetl (?<{ValueGroup}>.+)", m => SaveTrackList(m, liFeature));
+				CreateCommand("untrack", $"(?<{ValueGroup}>.+)", m => UnTrackLootItem(m, liFeature));
+				CreateCommand("loadtl", $"(?<{ValueGroup}>.+)", m => LoadTrackList(m, liFeature));
+				CreateCommand("savetl", $"(?<{ValueGroup}>.+)", m => SaveTrackList(m, liFeature));
 
-				CreateCommand(commands, "tracklist", _ => ShowTrackList(liFeature));
-				CreateCommand(commands, "loadwl", _ => LoadWishList(liFeature));
+				CreateCommand("tracklist", () => ShowTrackList(liFeature));
+				CreateCommand("loadwl", () => LoadWishList(liFeature));
 			}
 
-			CreateCommand(commands, "dump", _ => Dump());
-			CreateCommand(commands, "status", _ => Status());
+			CreateCommand("dump", Dump);
+			CreateCommand("status", Status);
 
-			CreateCommand(commands, "load", _ => LoadSettings());
-			CreateCommand(commands, "save", _ => SaveSettings());
+			CreateCommand("load", () => LoadSettings());
+			CreateCommand("save", SaveSettings);
 
 			// Load default configuration
 			LoadSettings(false);
@@ -422,32 +416,36 @@ namespace EFT.Trainer.Features
 			Registered = true;
 		}
 
-		private static void CreateCommand(IList commands, string regex, Action<Match> match)
+		private static void CreateCommand(string name, Action action)
 		{
-			// 'commands' field is a List<?> where ? is an obfuscated type, distinct for every EFT build
-			// so use reflection instead of breaking the build every time
-			// and use the non generic IList interface to add a new item
-			var listType = commands.GetType();
-			var commandType = listType.GetGenericArguments().FirstOrDefault();
-			if (commandType == null)
-				return;
+			ConsoleScreen.Processor.RegisterCommand(name, action);
+		}
 
-			var command = Activator.CreateInstance(commandType, regex, match);
-			if (command == null)
-				return;
-
-			commands.Add(command);
+		private static void CreateCommand(string name, string regex, Action<Match> action)
+		{
+			ConsoleScreen.Processor.RegisterCommand(name, (string args) =>
+			{
+				var match = Regex.Match(args, regex);
+				if (match.Success)
+				{
+					action(match);
+				}
+				else
+				{
+					ConsoleScreen.LogError("Invalid arguments");
+				}
+			});
 		}
 
 		private void ShowTrackList(LootItems feature, bool changed = false)
 		{
 			if (changed)
-				AddConsoleLog("Tracking list updated...", "tracker");
+				AddConsoleLog("Tracking list updated...");
 
 			foreach (var item in feature.TrackedNames)
 			{
 				var extra = item.Rarity.HasValue ? $" ({item.Rarity.Value.Color()})" : string.Empty;
-				AddConsoleLog(item.Color.HasValue ? $"Tracking: {item.Name.Color(item.Color.Value)}{extra}" : $"Tracking: {item.Name}", "tracker");
+				AddConsoleLog(item.Color.HasValue ? $"Tracking: {item.Name.Color(item.Color.Value)}{extra}" : $"Tracking: {item.Name}");
 			}
 		}
 
@@ -559,13 +557,13 @@ namespace EFT.Trainer.Features
 					continue;
 
 				var extra = rarity != ELootRarity.Not_exist ? $" ({rarity.Color()})" : string.Empty;
-				AddConsoleLog($"{itemName} [{list.Count.ToString().Cyan()}]{extra}", "list");
+				AddConsoleLog($"{itemName} [{list.Count.ToString().Cyan()}]{extra}");
 
 				count += list.Count;
 			}
 
-			AddConsoleLog("------", "list");
-			AddConsoleLog($"found {count.ToString().Cyan()} items", "list");
+			AddConsoleLog("------");
+			AddConsoleLog($"found {count.ToString().Cyan()} items");
 		}
 
 		private static void FindItemsInContainers(Dictionary<string, List<Item>> itemsPerName)
@@ -650,7 +648,7 @@ namespace EFT.Trainer.Features
 				if (feature is Commands or GameState)
 					continue;
 
-				AddConsoleLog(GetFeatureHelpText(feature), "status");
+				AddConsoleLog(GetFeatureHelpText(feature));
 			}
 		}
 
@@ -661,7 +659,7 @@ namespace EFT.Trainer.Features
 
 			Directory.CreateDirectory(thisDump);
 
-			AddConsoleLog("Dumping scenes...", "dump");
+			AddConsoleLog("Dumping scenes...");
 			for (int i = 0; i < SceneManager.sceneCount; i++) 
 			{
 				var scene = SceneManager.GetSceneAt(i);
@@ -672,7 +670,7 @@ namespace EFT.Trainer.Features
 				File.WriteAllText(Path.Combine(thisDump, GetSafeFilename($"@scene - {scene.name}.txt")), json);
 			}
 
-			AddConsoleLog("Dumping game objects...", "dump");
+			AddConsoleLog("Dumping game objects...");
 			foreach (var go in FindObjectsOfType<GameObject>())
 			{
 				if (go == null || go.transform.parent != null || !go.activeSelf) 
@@ -683,7 +681,7 @@ namespace EFT.Trainer.Features
 				File.WriteAllText(Path.Combine(thisDump, filename), json);
 			}
 
-			AddConsoleLog($"Dump created in {thisDump}", "dump");
+			AddConsoleLog($"Dump created in {thisDump}");
 		}
 
 		private static string GetSafeFilename(string filename)
