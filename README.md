@@ -100,7 +100,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | listr     | `[name]` or `*`     |         | List only rare lootable items       |
 | listsr    | `[name]` or `*`     |         | List only super rare lootable items |
 | load      |                     |         | Load settings from `trainer.ini`    |
-| loadtl    | `filename`          |         | Load current tracklist from file    |
+| loadtl    | `[filename]`        |         | Load current tracklist from file    |
 | loadwl    |                     |         | Load tracklist from your wishlist   |
 | loot      | `on` or `off`       |         | Show/Hide tracked items             |
 | night     | `on` or `off`       | `off`   | Enable/Disable night vision         |
@@ -109,7 +109,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | novisor   | `on` or `off`       | `off`   | Disable/Enable visor                |
 | quest     | `on` or `off`       | `off`   | Show/Hide quest POI                 |
 | save      |                     |         | Save settings to `trainer.ini`      |
-| savetl    | `filename`          |         | Save current tracklist to file      |
+| savetl    | `[filename]`        |         | Save current tracklist to file      |
 | stamina   | `on` or `off`       | `off`   | Enable/Disable unlimited stamina    |
 | stash     | `on` or `off`       | `off`   | Show/Hide stashes                   |
 | status    |                     |         | Show status of all features         |
