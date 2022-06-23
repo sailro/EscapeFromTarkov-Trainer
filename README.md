@@ -96,11 +96,12 @@ This trainer hooks into the command system, so you can easily setup features usi
 | health    | `on` or `off`       | `off`   | Enable/Disable full health          |
 | hits      | `on` or `off`       | `off`   | Show/Hide hit markers               |
 | hud       | `on` or `off`       | `on`    | Show/Hide hud                       |
-| list      | `<optional filter>` |         | List lootable items                 |
-| listr     | `<optional filter>` |         | List only rare lootable items       |
-| listsr    | `<optional filter>` |         | List only super rare lootable items |
+| list      | `[name]` or `*`     |         | List lootable items                 |
+| listr     | `[name]` or `*`     |         | List only rare lootable items       |
+| listsr    | `[name]` or `*`     |         | List only super rare lootable items |
 | load      |                     |         | Load settings from `trainer.ini`    |
 | loadtl    | `filename`          |         | Load current tracklist from file    |
+| loadwl    |                     |         | Load tracklist from your wishlist   |
 | loot      | `on` or `off`       |         | Show/Hide tracked items             |
 | night     | `on` or `off`       | `off`   | Enable/Disable night vision         |
 | nocoll    | `on` or `off`       | `off`   | Disable/Enable physical collisions  |

@@ -387,9 +387,9 @@ namespace EFT.Trainer.Features
 				if (feature is not LootItems liFeature) 
 					continue;
 
-				CreateCommand("list", $"{{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, liFeature));
-				CreateCommand("listr", $"{{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, liFeature, ELootRarity.Rare));
-				CreateCommand("listsr", $"{{0}}( (?<{ValueGroup}>.*))?", m => ListLootItems(m, liFeature, ELootRarity.Superrare));
+				CreateCommand("list", $"(?<{ValueGroup}>.*)", m => ListLootItems(m, liFeature));
+				CreateCommand("listr", $"(?<{ValueGroup}>.*)", m => ListLootItems(m, liFeature, ELootRarity.Rare));
+				CreateCommand("listsr", $"(?<{ValueGroup}>.*)", m => ListLootItems(m, liFeature, ELootRarity.Superrare));
 
 				var colorNames = string.Join("|", ColorConverter.ColorNames());
 				CreateCommand("track", $"(?<value>.+?)(?<extra> ({colorNames}|\\[[\\.,\\d ]*\\]{{1}}))?", m => TrackLootItem(m, liFeature));
@@ -421,14 +421,14 @@ namespace EFT.Trainer.Features
 			ConsoleScreen.Processor.RegisterCommand(name, action);
 		}
 
-		private static void CreateCommand(string name, string regex, Action<Match> action)
+		private static void CreateCommand(string name, string pattern, Action<Match> action)
 		{
 			ConsoleScreen.Processor.RegisterCommand(name, (string args) =>
 			{
-				var match = Regex.Match(args, regex);
-				if (match.Success)
+				var regex = new Regex("^" + pattern + "$");
+				if (regex.IsMatch(args))
 				{
-					action(match);
+					action(regex.Match(args));
 				}
 				else
 				{
@@ -482,7 +482,7 @@ namespace EFT.Trainer.Features
 			return true;
 		}
 
-		private void LoadTrackList(Match match, LootItems feature)
+		private static void LoadTrackList(Match match, LootItems feature)
 		{
 			if (!TryGetTrackListFilename(match, out var filename))
 				return;
@@ -490,7 +490,7 @@ namespace EFT.Trainer.Features
 			ConfigurationManager.LoadPropertyValue(filename, feature, nameof(LootItems.TrackedNames));
 		}
 
-		private void SaveTrackList(Match match, LootItems feature)
+		private static void SaveTrackList(Match match, LootItems feature)
 		{
 			if (!TryGetTrackListFilename(match, out var filename))
 				return;
@@ -526,7 +526,11 @@ namespace EFT.Trainer.Features
 			var search = string.Empty;
 			var matchGroup = match.Groups[ValueGroup];
 			if (matchGroup is {Success: true})
+			{
 				search = matchGroup.Value.Trim();
+				if (search == "*")
+					search = string.Empty;
+			}
 
 			var world = Singleton<GameWorld>.Instance;
 			if (world == null)
