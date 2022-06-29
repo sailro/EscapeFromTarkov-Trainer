@@ -60,7 +60,7 @@ namespace EFT.Trainer.Features
 		[UsedImplicitly]
 		protected static void ApplyDamagePostfix(EBodyPart bodyPart, float damage, object damageInfo, object? __instance)
 		{
-			var feature = FeatureFactory.GetFeature<Health>();
+			var feature = FeatureFactory.GetFeature<Hits>();
 			if (feature == null || !feature.Enabled)
 				return;
 
