@@ -34,6 +34,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 | `LootItems`               | `loot`      | List all lootable items and track any item by name or rarity in raid (even in containers and corpses), with prices. |
 | `NightVision`             | `night`     | Night vision. |
 | `NoCollision`             | `nocoll`    | No physical collisions, making you immune to bullets, grenades and barbed wires. |
+| `NoMalfunctions`          | `nomal`     | No weapon malfunctions: no misfires or failures to eject or feed. No jammed bolts or overheating. |
 | `NoRecoil`                | `norecoil`  | No recoil. |
 | `NoVisor`                 | `novisor`   | No visor, so even when using a face shield-visor you won't see it. |
 | `Players`                 | `wallhack`  | Wallhack (you'll see Bear/Boss/Cultist/Scav/Usec with configurable colors through walls). Charms, boxes, info (weapon and health), skeletons and distance. |
@@ -105,6 +106,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | loot      | `on` or `off`       |         | Show/Hide tracked items             |
 | night     | `on` or `off`       | `off`   | Enable/Disable night vision         |
 | nocoll    | `on` or `off`       | `off`   | Disable/Enable physical collisions  |
+| nomal     | `on` or `off`       | `off`   | Disable/Enable weapon malfunctions  |
 | norecoil  | `on` or `off`       | `off`   | Disable/Enable recoil               |
 | novisor   | `on` or `off`       | `off`   | Disable/Enable visor                |
 | quest     | `on` or `off`       | `off`   | Show/Hide quest POI                 |
@@ -230,6 +232,9 @@ EFT.Trainer.Features.NightVision.Key="None"
 
 EFT.Trainer.Features.NoCollision.Enabled=false
 EFT.Trainer.Features.NoCollision.Key="None"
+
+EFT.Trainer.Features.NoMalfunctions.Enabled=false
+EFT.Trainer.Features.NoMalfunctions.Key="None"
 
 EFT.Trainer.Features.NoRecoil.Enabled=false
 EFT.Trainer.Features.NoRecoil.Key="None"
