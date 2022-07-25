@@ -32,7 +32,7 @@ namespace EFT.Trainer.Features
 			if (!Enabled) 
 				return;
 
-			component.DiffuseIntensity = 0f;
+			// component.DiffuseIntensity = 0f; removed with 0.12.12.19078
 			component.Intensity = 0f;
 			component.NoiseIntensity = 0f;
 
