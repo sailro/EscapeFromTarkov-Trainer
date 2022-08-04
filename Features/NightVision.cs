@@ -15,7 +15,23 @@ namespace EFT.Trainer.Features
 		protected override void Update()
 		{
 			base.Update();
+		}
 
+		protected override void UpdateWhenEnabled()
+		{
+			base.UpdateWhenEnabled();
+
+			SwitchNV();
+		}
+
+		protected override void OnDisableFeature()
+		{
+			base.OnDisableFeature();
+			SwitchNV();
+		}
+
+		protected void SwitchNV()
+		{
 			if (GameState.Current?.LocalPlayer is HideoutPlayer)
 				return;
 
@@ -29,7 +45,7 @@ namespace EFT.Trainer.Features
 
 			component.StartSwitch(Enabled);
 
-			if (!Enabled) 
+			if (!Enabled)
 				return;
 
 			// component.DiffuseIntensity = 0f; removed with 0.12.12.19078

@@ -15,7 +15,22 @@ namespace EFT.Trainer.Features
 		protected override void Update()
 		{
 			base.Update();
+			SwitchTV();
+		}
 
+		protected override void UpdateWhenEnabled()
+		{
+			base.UpdateWhenEnabled();
+		}
+
+		protected override void OnDisableFeature()
+		{
+			base.OnDisableFeature();
+			SwitchTV();
+		}
+
+		protected void SwitchTV()
+		{
 			if (GameState.Current?.LocalPlayer is HideoutPlayer)
 				return;
 
@@ -28,8 +43,8 @@ namespace EFT.Trainer.Features
 				return;
 
 			component.StartSwitch(Enabled);
-			
-			if (!Enabled) 
+
+			if (!Enabled)
 				return;
 
 			component.IsFpsStuck = false;
