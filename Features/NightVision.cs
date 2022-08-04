@@ -20,7 +20,6 @@ namespace EFT.Trainer.Features
 		protected override void UpdateWhenEnabled()
 		{
 			base.UpdateWhenEnabled();
-
 			SwitchNV();
 		}
 

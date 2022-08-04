@@ -15,12 +15,12 @@ namespace EFT.Trainer.Features
 		protected override void Update()
 		{
 			base.Update();
-			SwitchTV();
 		}
 
 		protected override void UpdateWhenEnabled()
 		{
 			base.UpdateWhenEnabled();
+			SwitchTV();
 		}
 
 		protected override void OnDisableFeature()
