@@ -1,4 +1,6 @@
-﻿using JetBrains.Annotations;
+﻿using EFT.InventoryLogic;
+using EFT.Trainer.Extensions;
+using JetBrains.Annotations;
 using UnityEngine;
 
 #nullable enable
@@ -16,7 +18,9 @@ namespace EFT.Trainer.Features
 		{
 			base.Update();
 
-			if (GameState.Current?.LocalPlayer is HideoutPlayer)
+			// Do not interact while in hideout or if the player is already wearing compatible equipment
+			var player = GameState.Current?.LocalPlayer;
+			if (player == null || player is HideoutPlayer || player.HasItemComponentInSlot<ThermalVisionComponent>(EquipmentSlot.Headwear))
 				return;
 
 			var camera = GameState.Current?.Camera;
