@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using EFT.InventoryLogic;
 
 #nullable enable
 
@@ -23,6 +25,21 @@ namespace EFT.Trainer.Extensions
 				return false;
 
 			return player.HealthController is {IsAlive: true};
+		}
+
+		public static bool HasItemComponentInSlot<T>(this Player? player, EquipmentSlot slot) where T : class, IItemComponent
+		{
+			if (!IsValid(player))
+				return false;
+
+			var playerSlotItem = player.Profile?.Inventory?.Equipment?.GetSlot(slot)?.ContainedItem;
+			if (playerSlotItem == null)
+				return false;
+
+			return playerSlotItem
+				.GetAllItems()
+				.GetComponents<T>()
+				.Any();
 		}
 	}
 }
