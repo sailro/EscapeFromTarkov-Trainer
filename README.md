@@ -25,7 +25,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 | `CrossHair`               | `crosshair`  | Crosshair with customizable size, color, thickness and auto-hide feature when aiming. |
 | `Examine`                 | `examine`    | All items already examined. |
 | `ExfiltrationPoints`      | `exfil`      | Exfiltration points with customizable colors given eligibility, status filter, distance. |
-| `FreeCamera`              | `fovchanger` | Change Field Of View (FOV). |
+| `FovChanger`              | `fovchanger` | Change Field Of View (FOV). |
 | `FreeCamera`              | `camera`     | Free camera with fast mode and teleportation. |
 | `Grenades`                | `grenade`    | Grenades outline. |
 | `Health`                  | `health`     | Full health, prevent any damage (so even when falling), keep energy and hydration at maximum. |
