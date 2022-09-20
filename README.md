@@ -17,34 +17,35 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 
 ## Features
 
-| trainer.ini section       | GUI/console | Description |
-|---------------------------|-------------|-------------|
-| `Aimbot`                  | `aimbot`    | Aimbot (distance, smoothness, silent aim with speed factor and shot delay, fov radius, fov circle). |
-| `AutomaticGun`            | `autogun`   | Force all guns (even bolt action guns) to use automatic firing mode with customizable fire rate. |
-| `Commands`                | `commands`  | Popup window to enable/disable all features (use right-alt or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)). |
-| `CrossHair`               | `crosshair` | Crosshair with customizable size, color, thickness and auto-hide feature when aiming. |
-| `Examine`                 | `examine`   | All items already examined. |
-| `ExfiltrationPoints`      | `exfil`     | Exfiltration points with customizable colors given eligibility, status filter, distance. |
-| `FreeCamera`              | `camera`    | Free camera with fast mode and teleportation. |
-| `Grenades`                | `grenade`   | Grenades outline. |
-| `Health`                  | `health`    | Full health, prevent any damage (so even when falling), keep energy and hydration at maximum. |
-| `Hits`                    | `hits`      | Hit markers (hit, armor, health with configurable colors). |
-| `Hud`                     | `hud`       | HUD (compass, ammo left in chamber / magazine, fire mode, coordinates). |
-| `LootableContainers`      | `stash`     | Hidden stashes like buried barrels or ground caches. |
-| `LootItems`               | `loot`      | List all lootable items and track any item by name or rarity in raid (even in containers and corpses), with prices. |
-| `NightVision`             | `night`     | Night vision. |
-| `NoCollision`             | `nocoll`    | No physical collisions, making you immune to bullets, grenades and barbed wires. |
-| `NoMalfunctions`          | `nomal`     | No weapon malfunctions: no misfires or failures to eject or feed. No jammed bolts or overheating. |
-| `NoRecoil`                | `norecoil`  | No recoil. |
-| `NoVisor`                 | `novisor`   | No visor, so even when using a face shield-visor you won't see it. |
-| `Players`                 | `wallhack`  | Wallhack (you'll see Bear/Boss/Cultist/Scav/Usec with configurable colors through walls). Charms, boxes, info (weapon and health), skeletons and distance. |
-| `Quests`                  | `quest`     | Locations for taking/placing quest items. Only items related to your started quests are displayed. |
-| `Skills`                  | `skills`    | All skills to Elite level (51) and all weapons mastering to level 3. |
-| `Speed`                   | `speed`     | Speed boost to be able to go through walls/objects, or to move faster. Be careful to not kill yourself. |
-| `Stamina`                 | `stamina`   | Unlimited stamina. |
-| `ThermalVision`           | `thermal`   | Thermal vision. |
-| `WallShoot`               | `wallshoot` | Shoot through wall/helmet/vest/material with maximum penetration and minimal deviation/ricochet. |
-| `WorldInteractiveObjects` | `opener`    | Door/Keycard reader/Car unlocker. |
+| trainer.ini section       | GUI/console  | Description |
+|---------------------------|--------------|-------------|
+| `Aimbot`                  | `aimbot`     | Aimbot (distance, smoothness, silent aim with speed factor and shot delay, fov radius, fov circle). |
+| `AutomaticGun`            | `autogun`    | Force all guns (even bolt action guns) to use automatic firing mode with customizable fire rate. |
+| `Commands`                | `commands`   | Popup window to enable/disable all features (use right-alt or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)). |
+| `CrossHair`               | `crosshair`  | Crosshair with customizable size, color, thickness and auto-hide feature when aiming. |
+| `Examine`                 | `examine`    | All items already examined. |
+| `ExfiltrationPoints`      | `exfil`      | Exfiltration points with customizable colors given eligibility, status filter, distance. |
+| `FreeCamera`              | `fovchanger` | Change Field Of View (FOV). |
+| `FreeCamera`              | `camera`     | Free camera with fast mode and teleportation. |
+| `Grenades`                | `grenade`    | Grenades outline. |
+| `Health`                  | `health`     | Full health, prevent any damage (so even when falling), keep energy and hydration at maximum. |
+| `Hits`                    | `hits`       | Hit markers (hit, armor, health with configurable colors). |
+| `Hud`                     | `hud`        | HUD (compass, ammo left in chamber / magazine, fire mode, coordinates). |
+| `LootableContainers`      | `stash`      | Hidden stashes like buried barrels or ground caches. |
+| `LootItems`               | `loot`       | List all lootable items and track any item by name or rarity in raid (even in containers and corpses), with prices. |
+| `NightVision`             | `night`      | Night vision. |
+| `NoCollision`             | `nocoll`     | No physical collisions, making you immune to bullets, grenades and barbed wires. |
+| `NoMalfunctions`          | `nomal`      | No weapon malfunctions: no misfires or failures to eject or feed. No jammed bolts or overheating. |
+| `NoRecoil`                | `norecoil`   | No recoil. |
+| `NoVisor`                 | `novisor`    | No visor, so even when using a face shield-visor you won't see it. |
+| `Players`                 | `wallhack`   | Wallhack (you'll see Bear/Boss/Cultist/Scav/Usec with configurable colors through walls). Charms, boxes, info (weapon and health), skeletons and distance. |
+| `Quests`                  | `quest`      | Locations for taking/placing quest items. Only items related to your started quests are displayed. |
+| `Skills`                  | `skills`     | All skills to Elite level (51) and all weapons mastering to level 3. |
+| `Speed`                   | `speed`      | Speed boost to be able to go through walls/objects, or to move faster. Be careful to not kill yourself. |
+| `Stamina`                 | `stamina`    | Unlimited stamina. |
+| `ThermalVision`           | `thermal`    | Thermal vision. |
+| `WallShoot`               | `wallshoot`  | Shoot through wall/helmet/vest/material with maximum penetration and minimal deviation/ricochet. |
+| `WorldInteractiveObjects` | `opener`     | Door/Keycard reader/Car unlocker. |
 
 You can Load/Save all settings using the `console` or the `GUI`.
 
@@ -86,45 +87,46 @@ Overwrite the existing `EscapeFromTarkov_Data\Managed\NLog.dll.nlog` using `NLog
 
 This trainer hooks into the command system, so you can easily setup features using the built-in console:
 
-| Command   | Values              | Default | Description                         |
-|-----------|---------------------|---------|-------------------------------------|
-| autogun   | `on` or `off`       | `off`   | Enable/Disable automatic gun mode   |
-| crosshair | `on` or `off`       | `off`   | Show/Hide crosshair                 |
-| dump      |                     |         | Dump game state for analysis        |
-| examine   | `on` or `off`       | `off`   | Enable/Disable all item examined    |
-| exfil     | `on` or `off`       | `on`    | Show/Hide exfiltration points       |
-| grenade   | `on` or `off`       | `off`   | Show/Hide grenades                  |
-| health    | `on` or `off`       | `off`   | Enable/Disable full health          |
-| hits      | `on` or `off`       | `off`   | Show/Hide hit markers               |
-| hud       | `on` or `off`       | `on`    | Show/Hide hud                       |
-| list      | `[name]` or `*`     |         | List lootable items                 |
-| listr     | `[name]` or `*`     |         | List only rare lootable items       |
-| listsr    | `[name]` or `*`     |         | List only super rare lootable items |
-| load      |                     |         | Load settings from `trainer.ini`    |
-| loadtl    | `[filename]`        |         | Load current tracklist from file    |
-| loadwl    |                     |         | Load tracklist from your wishlist   |
-| loot      | `on` or `off`       |         | Show/Hide tracked items             |
-| night     | `on` or `off`       | `off`   | Enable/Disable night vision         |
-| nocoll    | `on` or `off`       | `off`   | Disable/Enable physical collisions  |
-| nomal     | `on` or `off`       | `off`   | Disable/Enable weapon malfunctions  |
-| norecoil  | `on` or `off`       | `off`   | Disable/Enable recoil               |
-| novisor   | `on` or `off`       | `off`   | Disable/Enable visor                |
-| quest     | `on` or `off`       | `off`   | Show/Hide quest POI                 |
-| save      |                     |         | Save settings to `trainer.ini`      |
-| savetl    | `[filename]`        |         | Save current tracklist to file      |
-| stamina   | `on` or `off`       | `off`   | Enable/Disable unlimited stamina    |
-| stash     | `on` or `off`       | `off`   | Show/Hide stashes                   |
-| status    |                     |         | Show status of all features         |
-| thermal   | `on` or `off`       | `off`   | Enable/Disable thermal vision       |
-| track     | `[name]` or `*`     |         | Track all items matching `name`     |
-| track     | `[name]` `<color>`  |         | Ex: track `roler` `red`             |
-| track     | `[name]` `<rgba>`   |         | Ex: track `roler` `[1,1,1,0.5]`     |
-| trackr    | same as `track`     |         | Track rare items only               |
-| tracksr   | same as `track`     |         | Track super rare items only         |
-| tracklist |                     |         | Show tracked items                  |
-| untrack   | `[name]` or `*`     |         | Untrack a `name` or `*` for all     |
-| wallhack  | `on` or `off`       | `on`    | Show/hide players                   |
-| wallshoot | `on` or `off`       | `on`    | Enable/Disable shoot through walls  |
+| Command    | Values              | Default | Description                         |
+|------------|---------------------|---------|-------------------------------------|
+| autogun    | `on` or `off`       | `off`   | Enable/Disable automatic gun mode   |
+| crosshair  | `on` or `off`       | `off`   | Show/Hide crosshair                 |
+| dump       |                     |         | Dump game state for analysis        |
+| examine    | `on` or `off`       | `off`   | Enable/Disable all item examined    |
+| exfil      | `on` or `off`       | `on`    | Show/Hide exfiltration points       |
+| fovchanger | `on` or `off`       | `off`   | Change FOV value                    |
+| grenade    | `on` or `off`       | `off`   | Show/Hide grenades                  |
+| health     | `on` or `off`       | `off`   | Enable/Disable full health          |
+| hits       | `on` or `off`       | `off`   | Show/Hide hit markers               |
+| hud        | `on` or `off`       | `on`    | Show/Hide hud                       |
+| list       | `[name]` or `*`     |         | List lootable items                 |
+| listr      | `[name]` or `*`     |         | List only rare lootable items       |
+| listsr     | `[name]` or `*`     |         | List only super rare lootable items |
+| load       |                     |         | Load settings from `trainer.ini`    |
+| loadtl     | `[filename]`        |         | Load current tracklist from file    |
+| loadwl     |                     |         | Load tracklist from your wishlist   |
+| loot       | `on` or `off`       |         | Show/Hide tracked items             |
+| night      | `on` or `off`       | `off`   | Enable/Disable night vision         |
+| nocoll     | `on` or `off`       | `off`   | Disable/Enable physical collisions  |
+| nomal      | `on` or `off`       | `off`   | Disable/Enable weapon malfunctions  |
+| norecoil   | `on` or `off`       | `off`   | Disable/Enable recoil               |
+| novisor    | `on` or `off`       | `off`   | Disable/Enable visor                |
+| quest      | `on` or `off`       | `off`   | Show/Hide quest POI                 |
+| save       |                     |         | Save settings to `trainer.ini`      |
+| savetl     | `[filename]`        |         | Save current tracklist to file      |
+| stamina    | `on` or `off`       | `off`   | Enable/Disable unlimited stamina    |
+| stash      | `on` or `off`       | `off`   | Show/Hide stashes                   |
+| status     |                     |         | Show status of all features         |
+| thermal    | `on` or `off`       | `off`   | Enable/Disable thermal vision       |
+| track      | `[name]` or `*`     |         | Track all items matching `name`     |
+| track      | `[name]` `<color>`  |         | Ex: track `roler` `red`             |
+| track      | `[name]` `<rgba>`   |         | Ex: track `roler` `[1,1,1,0.5]`     |
+| trackr     | same as `track`     |         | Track rare items only               |
+| tracksr    | same as `track`     |         | Track super rare items only         |
+| tracklist  |                     |         | Show tracked items                  |
+| untrack    | `[name]` or `*`     |         | Untrack a `name` or `*` for all     |
+| wallhack   | `on` or `off`       | `on`    | Show/hide players                   |
+| wallshoot  | `on` or `off`       | `on`    | Enable/Disable shoot through walls  |
 
 ## Sample `trainer.ini` configuration file
 
@@ -165,6 +167,17 @@ EFT.Trainer.Features.CrossHair.Thickness=2.0
 EFT.Trainer.Features.Examine.Enabled=false
 EFT.Trainer.Features.Examine.Key="None"
 
+EFT.Trainer.Features.ExfiltrationPoints.Enabled=true
+EFT.Trainer.Features.ExfiltrationPoints.Key="None"
+EFT.Trainer.Features.ExfiltrationPoints.CacheTimeInSec=7.0
+EFT.Trainer.Features.ExfiltrationPoints.EligibleColor=[0.0,1.0,0.0,1.0]
+EFT.Trainer.Features.ExfiltrationPoints.NotEligibleColor=[1.0,0.921568632,0.0156862754,1.0]
+EFT.Trainer.Features.ExfiltrationPoints.MaximumDistance=0.0
+
+EFT.Trainer.Features.FovChanger.Enabled=false
+EFT.Trainer.Features.FovChanger.Key="None"
+EFT.Trainer.Features.FovChanger.Fov=90.0
+
 EFT.Trainer.Features.FreeCamera.Key="None"
 EFT.Trainer.Features.FreeCamera.Forward="UpArrow"
 EFT.Trainer.Features.FreeCamera.Backward="DownArrow"
@@ -175,13 +188,6 @@ EFT.Trainer.Features.FreeCamera.Teleport="T"
 EFT.Trainer.Features.FreeCamera.FreeLookSensitivity=3.0
 EFT.Trainer.Features.FreeCamera.MovementSpeed=10.0
 EFT.Trainer.Features.FreeCamera.FastMovementSpeed=100.0
-
-EFT.Trainer.Features.ExfiltrationPoints.Enabled=true
-EFT.Trainer.Features.ExfiltrationPoints.Key="None"
-EFT.Trainer.Features.ExfiltrationPoints.CacheTimeInSec=7.0
-EFT.Trainer.Features.ExfiltrationPoints.EligibleColor=[0.0,1.0,0.0,1.0]
-EFT.Trainer.Features.ExfiltrationPoints.NotEligibleColor=[1.0,0.921568632,0.0156862754,1.0]
-EFT.Trainer.Features.ExfiltrationPoints.MaximumDistance=0.0
 
 EFT.Trainer.Features.GameState.CacheTimeInSec=2.0
 
