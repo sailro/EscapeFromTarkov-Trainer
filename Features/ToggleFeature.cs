@@ -23,15 +23,6 @@ namespace EFT.Trainer.Features
 				UpdateWhenEnabled();
 		}
 
-		protected virtual void LateUpdate()
-		{
-			if (Key != KeyCode.None && Input.GetKeyUp(Key))
-				Enabled = !Enabled;
-
-			if (Enabled)
-				LateUpdateWhenEnabled();
-		}
-
 		[UsedImplicitly]
 		private void OnGUI()
 		{
@@ -40,7 +31,6 @@ namespace EFT.Trainer.Features
 		}
 
 		protected virtual void UpdateWhenEnabled() {}
-		protected virtual void LateUpdateWhenEnabled() {}
 		protected virtual void OnGUIWhenEnabled() {}
 	}
 }

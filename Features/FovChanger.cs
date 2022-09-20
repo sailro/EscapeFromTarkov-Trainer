@@ -1,5 +1,6 @@
 ﻿using EFT.Trainer.Configuration;
 using JetBrains.Annotations;
+using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
@@ -13,8 +14,12 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty(Order = 3)]
 		public float Fov { get; set; } = 90;
 
-		protected override void LateUpdateWhenEnabled()
+		[UsedImplicitly]
+		private void LateUpdate()
 		{
+			if (!Enabled)
+				return;
+
 			var camera = GameState.Current?.Camera;
 			if (camera == null)
 				return;
