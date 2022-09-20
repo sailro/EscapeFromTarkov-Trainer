@@ -19,7 +19,7 @@ namespace Installer
 		public string Data => Path.Combine(Location, "EscapeFromTarkov_Data");
 		public string Managed => Path.Combine(Data, "Managed");
 
-		public Installation(string location, Version version)
+		private Installation(string location, Version version)
 		{
 			if (string.IsNullOrEmpty(location))
 				throw new ArgumentException(nameof(location));

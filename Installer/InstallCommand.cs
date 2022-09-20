@@ -28,6 +28,10 @@ namespace Installer
 			[Description("Use specific trainer branch version.")]
 			[CommandOption("-b|--branch")]
 			public string? Branch { get; set; }
+
+			[Description("Disable feature.")]
+			[CommandOption("-d|--disable")]
+			public string[]? DisabledFeatures { get; set; }
 		}
 
 		public override async Task<int> ExecuteAsync(CommandContext context, Settings settings)
@@ -43,9 +47,15 @@ namespace Installer
 
 				AnsiConsole.MarkupLine($"Target [green]EscapeFromTarkov ({installation.Version})[/] in [blue]{installation.Location.EscapeMarkup()}[/].");
 
+				const string features = "Features";
+				settings.DisabledFeatures ??= Array.Empty<string>();
+				settings.DisabledFeatures = settings.DisabledFeatures
+					.Select(f => $"{features}\\{f}.cs")
+					.ToArray();
+
 				// Try first to compile against master
 				var @try = 0;
-				var (compilation, archive, errors) = await GetCompilationAsync(++@try, installation, "master");
+				var (compilation, archive, errors) = await GetCompilationAsync(++@try, installation, "master", settings.DisabledFeatures);
 				var files = errors
 					.Select(d => d.Location.SourceTree?.FilePath)
 					.Where(s => s is not null)
@@ -59,14 +69,14 @@ namespace Installer
 					if (!branch.StartsWith("dev-"))
 						branch = "dev-" + branch;
 
-					(compilation, archive, _) = await GetCompilationAsync(++@try, installation, branch);
+					(compilation, archive, _) = await GetCompilationAsync(++@try, installation, branch, settings.DisabledFeatures);
 				}
 
-				if (compilation == null && files.Any() && files.All(f => f!.StartsWith("Features")))
+				if (compilation == null && files.Any() && files.All(f => f!.StartsWith(features)))
 				{
 					// Failure, retry by removing faulting features if possible
 					AnsiConsole.MarkupLine($"[yellow]Trying to disable faulting feature(s): [red]{string.Join(", ", files.Select(Path.GetFileNameWithoutExtension))}[/].[/]");
-					(compilation, archive, errors) = await GetCompilationAsync(++@try, installation, "master", files!);
+					(compilation, archive, errors) = await GetCompilationAsync(++@try, installation, "master", files.Concat(settings.DisabledFeatures).ToArray()!);
 
 					if (!errors.Any())
 						AnsiConsole.MarkupLine("[yellow]We found a fallback! But please file an issue here : https://github.com/sailro/EscapeFromTarkov-Trainer/issues [/]");
@@ -92,13 +102,15 @@ namespace Installer
 				if (!CreateDll(installation, "NLog.EFT.Trainer.dll", (dllPath) => compilation.Emit(dllPath)))
 					return (int)ExitCode.CreateDllFailed;
 
-				if (!CreateDll(installation, "0Harmony.dll", (dllPath) => File.WriteAllBytes(dllPath, Resources._0Harmony), false))
+				if (!CreateDll(installation, "0Harmony.dll", dllPath => File.WriteAllBytes(dllPath, Resources._0Harmony), false))
 					return (int)ExitCode.CreateHarmonyDllFailed;
 
 				if (!CreateOutline(installation, archive!))
 					return (int)ExitCode.CreateOutlineFailed;
 
 				CreateOrPatchConfiguration(installation);
+
+				TryCreateGameDocumentFolder();
 			}
 			catch (Exception ex)
 			{
@@ -107,6 +119,23 @@ namespace Installer
 			}
 
 			return (int)ExitCode.Success;
+		}
+
+		private static void TryCreateGameDocumentFolder()
+		{
+			var folder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Escape from Tarkov");
+			if (Directory.Exists(folder))
+				return;
+
+			try
+			{
+				Directory.CreateDirectory(folder);
+				AnsiConsole.MarkupLine($"Created [blue]{folder.EscapeMarkup()}[/] folder.");
+			}
+			catch (Exception)
+			{
+				AnsiConsole.MarkupLine($"[yellow]Unable to create [blue]{folder.EscapeMarkup()}[/]. We need this folder to store our [green]trainer.ini[/] later.[/]");
+			}
 		}
 
 		private static async Task<(CSharpCompilation?, ZipArchive?, Diagnostic[])> GetCompilationAsync(int @try, Installation installation, string branch, params string[] exclude)
@@ -131,7 +160,7 @@ namespace Installer
 
 #if DEBUG
 					foreach (var error in errors)
-						AnsiConsole.MarkupLine($">> {error.Id} [[{error.Location.SourceTree?.FilePath}]]: {error.GetMessage()}");
+						AnsiConsole.MarkupLine($"[grey]>> {error.Id} [[{error.Location.SourceTree?.FilePath}]]: {error.GetMessage()}.[/]");
 #endif
 
 					if (errors.Any())

@@ -10,6 +10,8 @@ using Installer.Properties;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Text;
+using Spectre.Console;
+
 
 #nullable enable
 
@@ -17,13 +19,14 @@ namespace Installer
 {
 	internal class Compiler
 	{
-		public ZipArchive ProjectArchive { get; }
-		public Installation Installation { get; }
-		public string ProjectContent { get; } = string.Empty;
-		public string[] Exclude;
-		public string[] Defines = Array.Empty<string>();
+		private ZipArchive ProjectArchive { get; }
+		private Installation Installation { get; }
+		private string ProjectContent { get; } = string.Empty;
 
-		public static readonly CSharpCompilationOptions CompilationOptions =
+		private string[] Exclude { get; }
+		private string[] Defines { get; } = Array.Empty<string>();
+
+		private static CSharpCompilationOptions CompilationOptions { get; } =
 			new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary)
 				.WithOverflowChecks(true)
 				.WithOptimizationLevel(OptimizationLevel.Release);
@@ -53,12 +56,18 @@ namespace Installer
 					continue;
 
 				var file = match.Groups["file"].Value;
-				if (!Exclude.Contains(file))
+				if (!Exclude.Contains(file, StringComparer.OrdinalIgnoreCase))
 					yield return file;
+				else
+				{
+#if DEBUG
+					AnsiConsole.MarkupLine($"[grey]>> Excluding {file.EscapeMarkup()}.[/]");
+#endif
+				}
 			}
 		}
 
-		public bool TryGetMetadataReference(string assemblyName, [NotNullWhen(true)] out MetadataReference? reference)
+		private bool TryGetMetadataReference(string assemblyName, [NotNullWhen(true)] out MetadataReference? reference)
 		{
 			reference = null;
 
@@ -71,13 +80,13 @@ namespace Installer
 			return reference != null;
 		}
 
-		public bool TryGetAssemblyPath(string assemblyName, out string path)
+		private bool TryGetAssemblyPath(string assemblyName, out string path)
 		{
 			path = Path.Combine(Installation.Managed, $"{assemblyName}.dll");
 			return File.Exists(path);
 		}
 
-		public static bool TryGetAssemblyBytes(string assemblyName, [NotNullWhen(true)] out byte[]? buffer)
+		private static bool TryGetAssemblyBytes(string assemblyName, [NotNullWhen(true)] out byte[]? buffer)
 		{
 			try
 			{
@@ -89,7 +98,7 @@ namespace Installer
 			return buffer != null;
 		}
 
-		public IEnumerable<MetadataReference> GetReferences()
+		private IEnumerable<MetadataReference> GetReferences()
 		{
 			yield return MetadataReference.CreateFromFile(Path.Combine(Installation.Managed, "mscorlib.dll"));
 
@@ -106,7 +115,7 @@ namespace Installer
 			}
 		}
 
-		public IEnumerable<SyntaxTree> GetSyntaxTrees()
+		private IEnumerable<SyntaxTree> GetSyntaxTrees()
 		{
 			var options = CSharpParseOptions
 				.Default
@@ -131,7 +140,14 @@ namespace Installer
 		public CSharpCompilation Compile()
 		{
 			const string assemblyName = "NLog.EFT.Trainer";
-			return CSharpCompilation.Create(assemblyName, GetSyntaxTrees(), GetReferences(), CompilationOptions);
+			
+			var syntaxTrees = GetSyntaxTrees()
+				.ToArray();
+
+			var references = GetReferences()
+				.ToArray();
+			
+			return CSharpCompilation.Create(assemblyName, syntaxTrees, references, CompilationOptions);
 		}
 	}
 }
