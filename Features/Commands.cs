@@ -382,7 +382,7 @@ namespace EFT.Trainer.Features
 				if (feature is Commands or GameState)
 					continue;
 
-				CreateCommand("{feature.Name}", $"(?<{ValueGroup}>(on)|(off))", m => OnToggleFeature(feature, m));
+				CreateCommand($"{feature.Name}", $"(?<{ValueGroup}>(on)|(off))", m => OnToggleFeature(feature, m));
 
 				if (feature is not LootItems liFeature) 
 					continue;
@@ -421,9 +421,12 @@ namespace EFT.Trainer.Features
 			ConsoleScreen.Processor.RegisterCommand(name, action);
 		}
 
-		private static void CreateCommand(string name, string pattern, Action<Match> action)
+		private void CreateCommand(string cmdName, string pattern, Action<Match> action)
 		{
-			ConsoleScreen.Processor.RegisterCommand(name, (string args) =>
+#if DEBUG
+			AddConsoleLog($"Registering {cmdName} command...");
+#endif
+			ConsoleScreen.Processor.RegisterCommand(cmdName, (string args) =>
 			{
 				var regex = new Regex("^" + pattern + "$");
 				if (regex.IsMatch(args))
