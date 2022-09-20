@@ -8,7 +8,7 @@ namespace EFT.Trainer.Features
 	{
 		public override string Name => "fovchanger";
 		[ConfigurationProperty(Order = 1)]
-		public override bool Enabled { get; set; } = true;
+		public override bool Enabled { get; set; } = false;
 
 		[ConfigurationProperty(Order = 3)]
 		public float Fov { get; set; } = 90;
@@ -16,12 +16,10 @@ namespace EFT.Trainer.Features
 		protected override void LateUpdateWhenEnabled()
 		{
 			var camera = GameState.Current?.Camera;
-
 			if (camera == null)
 				return;
 
-			if (Enabled)
-				camera.fieldOfView = Fov;
+			camera.fieldOfView = Fov;
 		}
 	}
 }

@@ -124,6 +124,7 @@
     <Compile Include="Extensions\ThrowableExtensions.cs" />
     <Compile Include="Extensions\WorldInteractiveObjectExtensions.cs" />
     <Compile Include="Features\Aimbot.cs" />
+    <Compile Include="Features\FovChanger.cs" />
     <Compile Include="Features\NoMalfunctions.cs" />
     <Compile Include="Features\AutomaticGun.cs" />
     <Compile Include="Features\Bones.cs" />
