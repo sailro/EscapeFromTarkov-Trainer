@@ -70,6 +70,10 @@ namespace EFT.Trainer.Features
 			parameters.ExhaustedMeleeSpeed = 10000f;
 
 			parameters.BaseRestorationRate = parameters.Capacity;
+
+			parameters.StaminaExhaustionCausesJiggle = false;
+			parameters.StaminaExhaustionRocksCamera = false;
+			parameters.StaminaExhaustionStartsBreathSound = false;
 		}
 	}
 }
