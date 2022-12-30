@@ -9,9 +9,9 @@ namespace EFT.Trainer.Extensions
 		public static Vector3 WorldPointToScreenPoint(this Camera camera, Vector3 worldPoint)
 		{
 			var screenPoint = camera.WorldToScreenPoint(worldPoint);
-			float scale = (float)Screen.height / (float)camera.scaledPixelHeight;
-			screenPoint.y = Screen.height - (screenPoint.y * scale);
-			screenPoint.x = screenPoint.x * scale;
+			var scale = Screen.height / (float)camera.scaledPixelHeight;
+			screenPoint.y = Screen.height - screenPoint.y * scale;
+			screenPoint.x *= scale;
 			return screenPoint;
 		}
 
