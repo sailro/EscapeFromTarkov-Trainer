@@ -190,7 +190,7 @@ namespace Installer
 				.Start($"Compiling {context.ProjectTitle}", _ =>
 				{
 					var compiler = new Compiler(archive, context);
-					compilation = compiler.Compile();
+					compilation = compiler.Compile(Path.GetFileNameWithoutExtension(context.Project));
 					errors = compilation
 						.GetDiagnostics()
 						.Where(d => d.Severity == DiagnosticSeverity.Error)

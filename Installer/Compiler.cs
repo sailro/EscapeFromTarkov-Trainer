@@ -161,10 +161,8 @@ namespace Installer
 			}
 		}
 
-		public CSharpCompilation Compile()
+		public CSharpCompilation Compile(string assemblyName)
 		{
-			const string assemblyName = "NLog.EFT.Trainer";
-			
 			var syntaxTrees = GetSyntaxTrees()
 				.ToArray();
 
