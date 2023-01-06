@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace EFT.Trainer
 {
-	public static class Loader
+	internal class Loader
 	{
 		private static GameObject HookObject
 		{
