@@ -28,6 +28,9 @@ namespace EFT.Trainer.Features
 
 		[ConfigurationProperty]
 		public bool SearchInsideCorpses { get; set; } = true;
+		
+		[ConfigurationProperty]
+		public bool ShowCorpses {  get; set; } = true;
 
 		[ConfigurationProperty]
 		public bool ShowPrices { get; set; } = true;
@@ -136,6 +139,11 @@ namespace EFT.Trainer.Features
 
 				if (lootItem is Corpse corpse)
 				{
+					if (ShowCorpses)
+					{
+						AddCorpse(lootItem.Item, records, camera, position);
+						continue;
+					}
 					if (SearchInsideCorpses)
 						FindItemsInRootItem(records, camera, corpse.ItemOwner?.RootItem, position);
 
@@ -184,6 +192,17 @@ namespace EFT.Trainer.Features
 				return true;
 
 			return trackedRarity.Value == itemRarity;
+		}
+		
+		private void AddCorpse(Item item, List<PointOfInterest> records, Camera camera, Vector3 position, string? owner = null)
+		{
+			records.Add(new PointOfInterest
+			{
+				Name = "Corpse",
+				Position = position,
+				ScreenPosition = camera.WorldPointToScreenPoint(position),
+				Color = Color
+			});
 		}
 	}
 }
