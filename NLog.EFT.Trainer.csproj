@@ -94,6 +94,7 @@
     <Reference Include="UnityEngine.TextRenderingModule">
       <HintPath>$(EFTManagedPath)\UnityEngine.TextRenderingModule.dll</HintPath>
     </Reference>
+    <!-- SPT-AKI, or BepInEx, or custom -->
     <Reference Include="0Harmony">
       <HintPath>Installer\Resources\0Harmony.dll</HintPath>
     </Reference>
