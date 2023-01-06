@@ -12,7 +12,6 @@ using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Text;
 using Spectre.Console;
 
-
 #nullable enable
 
 namespace Installer
@@ -31,15 +30,15 @@ namespace Installer
 				.WithOverflowChecks(true)
 				.WithOptimizationLevel(OptimizationLevel.Release);
 
-		public Compiler(ZipArchive projectArchive, Installation installation, params string[] exclude)
+		public Compiler(ZipArchive projectArchive, CompilationContext context)
 		{
 			ProjectArchive = projectArchive;
-			Installation = installation;
-			Exclude = exclude;
+			Installation = context.Installation;
+			Exclude = context.Exclude;
 
-			var entry = projectArchive.Entries.FirstOrDefault(e => e.Name == "NLog.EFT.Trainer.csproj");
+			var entry = projectArchive.Entries.FirstOrDefault(e => e.Name == context.Project);
 			if (entry == null) 
-				return;
+				throw new ArgumentException($"Project {context.Project} not found!");
 
 			using var stream = entry.Open();
 			using var reader = new StreamReader(stream);
@@ -72,10 +71,27 @@ namespace Installer
 			reference = null;
 
 			if (TryGetAssemblyPath(assemblyName, out var path))
+			{
 				reference = MetadataReference.CreateFromFile(path);
+#if DEBUG
+				AnsiConsole.MarkupLine($"[grey]>> Resolved {assemblyName} to {path}.[/]");
+#endif
+			}
 
 			if (reference == null && TryGetAssemblyBytes(assemblyName, out var stream))
+			{
+#if DEBUG
+				AnsiConsole.MarkupLine($"[grey]>> Using memory image for {assemblyName}.[/]");
+#endif
 				reference = MetadataReference.CreateFromImage(stream);
+			}
+
+#if DEBUG
+			if (reference == null)
+			{
+				AnsiConsole.MarkupLine($"[grey]>> Unable to resolve {assemblyName}.[/]");
+			}
+#endif
 
 			return reference != null;
 		}
@@ -83,6 +99,9 @@ namespace Installer
 		private bool TryGetAssemblyPath(string assemblyName, out string path)
 		{
 			path = Path.Combine(Installation.Managed, $"{assemblyName}.dll");
+			if (!File.Exists(path))
+				path = Path.Combine(Installation.BepInExCore, $"{assemblyName}.dll");
+
 			return File.Exists(path);
 		}
 
@@ -102,7 +121,7 @@ namespace Installer
 		{
 			yield return MetadataReference.CreateFromFile(Path.Combine(Installation.Managed, "mscorlib.dll"));
 
-			var matches = Regex.Matches(ProjectContent, "<Reference\\s+Include=\"(?<assemblyName>.*)\"\\s*/?>");
+			var matches = Regex.Matches(ProjectContent, "<(Project)?Reference\\s+Include=\"(?<assemblyName>.*)\"\\s*/?>");
 
 			foreach (Match match in matches)
 			{
@@ -110,6 +129,11 @@ namespace Installer
 					continue;
 
 				var assemblyName = match.Groups["assemblyName"].Value;
+				// We expect project reference to be compiled first
+				assemblyName = Path
+					.GetFileName(assemblyName)
+					.Replace(".csproj", string.Empty);
+
 				if (TryGetMetadataReference(assemblyName, out var reference))
 					yield return reference;
 			}
