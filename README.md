@@ -76,12 +76,14 @@ Copy all files in your EFT directory like `C:\Battlestate Games\EFT`:
 
 ### If you are using the Live version (you should NOT do that, you'll be detected and banned):
 
-Rename `EscapeFromTarkov_Data\Managed\NLog.dll.nlog-live` to `NLog.dll.nlog`
+Rename `EscapeFromTarkov_Data\Managed\NLog.dll.nlog-live` to `NLog.dll.nlog`. This will work only for legacy versions. Given EscapeFromTarkov `0.13.0.21531` or later prevent this trainer to be loaded using NLog configuration. It is now mandatory to use SPT-AKI/BepInEx for recent versions.
 
 ### If you are using sptarkov (https://www.sp-tarkov.com):
 
 Overwrite the existing `EscapeFromTarkov_Data\Managed\NLog.dll.nlog` using `NLog.dll.nlog-sptarkov`, or update the existing file accordingly. We must include the following 
-`<target name="EFTTarget" xsi:type="EFTTarget" />` in the `targets` section for the trainer to be loaded properly.
+`<target name="EFTTarget" xsi:type="EFTTarget" />` in the `targets` section for the trainer to be loaded properly. This is for legacy versions before EscapeFromTarkov `0.13.0.21531`
+
+For newer versions, copy `aki-efttrainer.dll` (this is the compiled code for the BepInEx plugin) to `BepInEx\plugins`.
 
 ## Configuration
 
