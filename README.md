@@ -81,7 +81,7 @@ Rename `EscapeFromTarkov_Data\Managed\NLog.dll.nlog-live` to `NLog.dll.nlog`. Th
 ### If you are using sptarkov (https://www.sp-tarkov.com):
 
 Overwrite the existing `EscapeFromTarkov_Data\Managed\NLog.dll.nlog` using `NLog.dll.nlog-sptarkov`, or update the existing file accordingly. We must include the following 
-`<target name="EFTTarget" xsi:type="EFTTarget" />` in the `targets` section for the trainer to be loaded properly. This is for legacy versions before EscapeFromTarkov `0.13.0.21531`
+`<target name="EFTTarget" xsi:type="EFTTarget" />` in the `targets` section for the trainer to be loaded properly. This is for legacy versions before EscapeFromTarkov `0.13.0.21531`.
 
 For newer versions, copy `aki-efttrainer.dll` (this is the compiled code for the BepInEx plugin) to `BepInEx\plugins`.
 
