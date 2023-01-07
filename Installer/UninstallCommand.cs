@@ -47,6 +47,9 @@ namespace Installer
 				if (!RemoveFile(Path.Combine(installation.Data, "outline")))
 					return (int)ExitCode.RemoveOutlineFailed;
 
+				if (!RemoveFile(Path.Combine(installation.BepInExPlugins, "aki-efttrainer.dll")))
+					return (int)ExitCode.RemovePluginDllFailed;
+
 				RemoveOrPatchConfiguration(installation);
 			}
 			catch (Exception ex)

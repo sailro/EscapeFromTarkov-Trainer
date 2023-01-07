@@ -65,6 +65,7 @@
     <Compile Include="..\Extensions\NotNullWhenAttribute.cs">
       <Link>NotNullWhenAttribute.cs</Link>
     </Compile>
+    <Compile Include="CompilationContext.cs" />
     <Compile Include="Compiler.cs" />
     <Compile Include="ExitCode.cs" />
     <Compile Include="Installation.cs" />

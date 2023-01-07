@@ -34,7 +34,7 @@ namespace Installer
 			public string[]? DisabledFeatures { get; set; }
 		}
 
-		public override async Task<int> ExecuteAsync(CommandContext context, Settings settings)
+		public override async Task<int> ExecuteAsync(CommandContext commandContext, Settings settings)
 		{
 			try
 			{
@@ -53,34 +53,7 @@ namespace Installer
 					.Select(f => $"{features}\\{f}.cs")
 					.ToArray();
 
-				// Try first to compile against master
-				var @try = 0;
-				var (compilation, archive, errors) = await GetCompilationAsync(++@try, installation, "master", settings.DisabledFeatures);
-				var files = errors
-					.Select(d => d.Location.SourceTree?.FilePath)
-					.Where(s => s is not null)
-					.Distinct()
-					.ToArray();
-
-				if (compilation == null)
-				{
-					// Failure, so try with a dedicated branch if exists
-					var branch = settings.Branch ?? installation.Version.ToString();
-					if (!branch.StartsWith("dev-"))
-						branch = "dev-" + branch;
-
-					(compilation, archive, _) = await GetCompilationAsync(++@try, installation, branch, settings.DisabledFeatures);
-				}
-
-				if (compilation == null && files.Any() && files.All(f => f!.StartsWith(features)))
-				{
-					// Failure, retry by removing faulting features if possible
-					AnsiConsole.MarkupLine($"[yellow]Trying to disable faulting feature(s): [red]{string.Join(", ", files.Select(Path.GetFileNameWithoutExtension))}[/].[/]");
-					(compilation, archive, errors) = await GetCompilationAsync(++@try, installation, "master", files.Concat(settings.DisabledFeatures).ToArray()!);
-
-					if (!errors.Any())
-						AnsiConsole.MarkupLine("[yellow]We found a fallback! But please file an issue here : https://github.com/sailro/EscapeFromTarkov-Trainer/issues [/]");
-				}
+				var (compilation, archive) = await BuildTrainer(settings, installation, features);
 
 				if (compilation == null)
 				{
@@ -99,7 +72,7 @@ namespace Installer
 						return (int)ExitCode.Canceled;
 				}
 
-				if (!CreateDll(installation, "NLog.EFT.Trainer.dll", (dllPath) => compilation.Emit(dllPath)))
+				if (!CreateDll(installation, "NLog.EFT.Trainer.dll", dllPath => compilation.Emit(dllPath)))
 					return (int)ExitCode.CreateDllFailed;
 
 				if (!CreateDll(installation, "0Harmony.dll", dllPath => File.WriteAllBytes(dllPath, Resources._0Harmony), false))
@@ -108,7 +81,28 @@ namespace Installer
 				if (!CreateOutline(installation, archive!))
 					return (int)ExitCode.CreateOutlineFailed;
 
-				CreateOrPatchConfiguration(installation);
+				const string bepInExPluginProject = "BepInExPlugin.csproj";
+				if (installation.UsingBepInEx && archive!.Entries.Any(e => e.Name == bepInExPluginProject))
+				{
+					AnsiConsole.MarkupLine("[yellow]BepInEx detected. Creating plugin instead of using NLog configuration.[/]");
+
+					// reuse successful context for compiling.
+					var pluginContext = new CompilationContext(installation, "plugin", bepInExPluginProject) { Archive = archive };
+					var (pluginCompilation, _, _) = await GetCompilationAsync(pluginContext);
+
+					if (pluginCompilation == null)
+					{
+						AnsiConsole.MarkupLine($"[red]Unable to compile plugin for version {installation.Version}. Please file an issue here : https://github.com/sailro/EscapeFromTarkov-Trainer/issues [/]");
+						return (int)ExitCode.PluginCompilationFailed;
+					}
+
+					if (!CreateDll(installation, Path.Combine(installation.BepInExPlugins, "aki-efttrainer.dll"), dllPath => pluginCompilation.Emit(dllPath)))
+						return (int)ExitCode.CreatePluginDllFailed;
+				}
+				else
+				{
+					CreateOrPatchConfiguration(installation);
+				}
 
 				TryCreateGameDocumentFolder();
 			}
@@ -119,6 +113,47 @@ namespace Installer
 			}
 
 			return (int)ExitCode.Success;
+		}
+
+		private static async Task<(CSharpCompilation?, ZipArchive?)> BuildTrainer(Settings settings, Installation installation, string features)
+		{
+			// Try first to compile against master
+			var context = new CompilationContext(installation, "trainer", "NLog.EFT.Trainer.csproj")
+			{
+				Exclude = settings.DisabledFeatures!
+			};
+
+			var (compilation, archive, errors) = await GetCompilationAsync(context);
+			var files = errors
+				.Select(d => d.Location.SourceTree?.FilePath)
+				.Where(s => s is not null)
+				.Distinct()
+				.ToArray();
+
+			if (compilation == null)
+			{
+				// Failure, so try with a dedicated branch if exists
+				context.Branch = settings.Branch ?? installation.Version.ToString();
+				if (!context.Branch.StartsWith("dev-"))
+					context.Branch = "dev-" + context.Branch;
+
+				(compilation, archive, _) = await GetCompilationAsync(context);
+			}
+
+			if (compilation == null && files.Any() && files.All(f => f!.StartsWith(features)))
+			{
+				// Failure, retry by removing faulting features if possible
+				AnsiConsole.MarkupLine($"[yellow]Trying to disable faulting feature(s): [red]{string.Join(", ", files.Select(Path.GetFileNameWithoutExtension))}[/].[/]");
+				context.Exclude = files.Concat(settings.DisabledFeatures!).ToArray()!;
+				context.Branch = "master";
+
+				(compilation, archive, errors) = await GetCompilationAsync(context);
+
+				if (!errors.Any())
+					AnsiConsole.MarkupLine("[yellow]We found a fallback! But please file an issue here : https://github.com/sailro/EscapeFromTarkov-Trainer/issues [/]");
+			}
+
+			return (compilation, archive);
 		}
 
 		private static void TryCreateGameDocumentFolder()
@@ -138,21 +173,24 @@ namespace Installer
 			}
 		}
 
-		private static async Task<(CSharpCompilation?, ZipArchive?, Diagnostic[])> GetCompilationAsync(int @try, Installation installation, string branch, params string[] exclude)
+		private static async Task<(CSharpCompilation?, ZipArchive?, Diagnostic[])> GetCompilationAsync(CompilationContext context)
 		{
 			var errors = Array.Empty<Diagnostic>();
 
-			var archive = await GetSnapshotAsync(@try, branch);
+			var archive = context.Archive ?? await GetSnapshotAsync(context.Try, context.Branch);
 			if (archive == null)
+			{
+				context.Try++;
 				return (null, null, errors);
+			}
 
 			CSharpCompilation? compilation = null;
 			AnsiConsole
 				.Status()
-				.Start("Compiling trainer", _ =>
+				.Start($"Compiling {context.ProjectTitle}", _ =>
 				{
-					var compiler = new Compiler(archive, installation, exclude);
-					compilation = compiler.Compile();
+					var compiler = new Compiler(archive, context);
+					compilation = compiler.Compile(Path.GetFileNameWithoutExtension(context.Project));
 					errors = compilation
 						.GetDiagnostics()
 						.Where(d => d.Severity == DiagnosticSeverity.Error)
@@ -165,15 +203,16 @@ namespace Installer
 
 					if (errors.Any())
 					{
-						AnsiConsole.MarkupLine($">> [blue]Try #{@try}[/] [yellow]Compilation failed for {branch.EscapeMarkup()} branch.[/]");
+						AnsiConsole.MarkupLine($">> [blue]Try #{context.Try}[/] [yellow]Compilation failed for {context.Branch.EscapeMarkup()} branch.[/]");
 						compilation = null;
 					}
 					else
 					{
-						AnsiConsole.MarkupLine($">> [blue]Try #{@try}[/] Compilation [green]succeed[/] for [blue]{branch.EscapeMarkup()}[/] branch.");
+						AnsiConsole.MarkupLine($">> [blue]Try #{context.Try}[/] Compilation [green]succeed[/] for [blue]{context.Branch.EscapeMarkup()}[/] branch.");
 					}
 				});
 
+			context.Try++;
 			return (compilation, archive, errors);
 		}
 
@@ -295,9 +334,15 @@ namespace Installer
 
 		private static bool CreateDll(Installation installation, string filename, Action<string> creator, bool overwrite = true)
 		{
-			var dllPath = Path.Combine(installation.Managed, filename);
+			var dllPath = Path.IsPathRooted(filename) ? filename : Path.Combine(installation.Managed, filename);
+			var dllPathBepInExCore = Path.IsPathRooted(filename) ? null : Path.Combine(installation.BepInExCore, filename);
+
 			try
 			{
+				// Check for prerequisites, already provided by BepInEx
+				if (dllPathBepInExCore != null && File.Exists(dllPathBepInExCore))
+					return true;
+
 				if (!overwrite && File.Exists(dllPath))
 					return true;
 
