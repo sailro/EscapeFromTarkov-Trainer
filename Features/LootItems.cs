@@ -140,10 +140,8 @@ namespace EFT.Trainer.Features
 				if (lootItem is Corpse corpse)
 				{
 					if (ShowCorpses)
-					{
 						AddCorpse(lootItem.Item, records, camera, position);
-						continue;
-					}
+						
 					if (SearchInsideCorpses)
 						FindItemsInRootItem(records, camera, corpse.ItemOwner?.RootItem, position);
 
