@@ -15,9 +15,13 @@ namespace Installer
 	{
 		public Version Version { get; }
 		public bool UsingSptAki { get; private set; }
+		public bool UsingBepInEx { get; private set; }
 		public string Location { get; }
 		public string Data => Path.Combine(Location, "EscapeFromTarkov_Data");
 		public string Managed => Path.Combine(Data, "Managed");
+		public string BepInEx => Path.Combine(Location, "BepInEx");
+		public string BepInExCore => Path.Combine(BepInEx, "core");
+		public string BepInExPlugins => Path.Combine(BepInEx, "plugins");
 
 		private Installation(string location, Version version)
 		{
@@ -133,6 +137,8 @@ namespace Installer
 
 				var akiFolder = Path.Combine(path, "Aki_Data");
 				installation.UsingSptAki = Directory.Exists(akiFolder);
+
+				installation.UsingBepInEx = Directory.Exists(installation.BepInExPlugins);
 
 				return true;
 			}

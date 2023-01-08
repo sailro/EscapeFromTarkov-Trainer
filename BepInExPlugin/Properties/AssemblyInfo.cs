@@ -1,5 +1,5 @@
 ﻿using System.Reflection;
 
-[assembly: AssemblyVersion("2.1.0.0")]
-[assembly: AssemblyProduct("Installer")]
+[assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyProduct("EFT Trainer, BepInEx plugin")]
 [assembly: AssemblyCopyright("Copyright © 2022 Sebastien Lebreton")]

@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29418.71
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NLog.EFT.Trainer", "NLog.EFT.Trainer.csproj", "{F4EB56B6-F914-11E9-AAD5-362B9E155667}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Installer", "Installer\Installer.csproj", "{C7DC685F-89CE-4BA1-8F95-41DA8E18F585}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BepInExPlugin", "BepInExPlugin\BepInExPlugin.csproj", "{00C66BBD-ED7F-4E01-B7E4-0388F76FD31C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,6 +28,12 @@ Global
 		{C7DC685F-89CE-4BA1-8F95-41DA8E18F585}.DebugPerformance|Any CPU.Build.0 = Debug|Any CPU
 		{C7DC685F-89CE-4BA1-8F95-41DA8E18F585}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C7DC685F-89CE-4BA1-8F95-41DA8E18F585}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00C66BBD-ED7F-4E01-B7E4-0388F76FD31C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00C66BBD-ED7F-4E01-B7E4-0388F76FD31C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00C66BBD-ED7F-4E01-B7E4-0388F76FD31C}.DebugPerformance|Any CPU.ActiveCfg = Debug|Any CPU
+		{00C66BBD-ED7F-4E01-B7E4-0388F76FD31C}.DebugPerformance|Any CPU.Build.0 = Debug|Any CPU
+		{00C66BBD-ED7F-4E01-B7E4-0388F76FD31C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00C66BBD-ED7F-4E01-B7E4-0388F76FD31C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
