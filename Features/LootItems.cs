@@ -140,7 +140,7 @@ namespace EFT.Trainer.Features
 				if (lootItem is Corpse corpse)
 				{
 					if (ShowCorpses)
-						AddCorpse(lootItem.Item, records, camera, position);
+						AddCorpse(records, camera, position);
 						
 					if (SearchInsideCorpses)
 						FindItemsInRootItem(records, camera, corpse.ItemOwner?.RootItem, position);
@@ -191,8 +191,8 @@ namespace EFT.Trainer.Features
 
 			return trackedRarity.Value == itemRarity;
 		}
-		
-		private void AddCorpse(Item item, List<PointOfInterest> records, Camera camera, Vector3 position, string? owner = null)
+
+		private void AddCorpse(List<PointOfInterest> records, Camera camera, Vector3 position)
 		{
 			records.Add(new PointOfInterest
 			{
