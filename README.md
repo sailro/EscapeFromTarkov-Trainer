@@ -39,6 +39,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 | `NoCollision`             | `nocoll`     | No physical collisions, making you immune to bullets, grenades and barbed wires. |
 | `NoMalfunctions`          | `nomal`      | No weapon malfunctions: no misfires or failures to eject or feed. No jammed bolts or overheating. |
 | `NoRecoil`                | `norecoil`   | No recoil. |
+| `NoSway`                  | `nosway`     | No sway. |
 | `NoVisor`                 | `novisor`    | No visor, so even when using a face shield-visor you won't see it. |
 | `Players`                 | `wallhack`   | Wallhack (you'll see Bear/Boss/Cultist/Scav/Usec with configurable colors through walls). Charms, boxes, info (weapon and health), skeletons and distance. |
 | `Quests`                  | `quest`      | Locations for taking/placing quest items. Only items related to your started quests are displayed. |
@@ -114,6 +115,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | nocoll     | `on` or `off`       | `off`   | Disable/Enable physical collisions  |
 | nomal      | `on` or `off`       | `off`   | Disable/Enable weapon malfunctions  |
 | norecoil   | `on` or `off`       | `off`   | Disable/Enable recoil               |
+| nosway     | `on` or `off`       | `off`   | Disable/Enable sway                 |
 | novisor    | `on` or `off`       | `off`   | Disable/Enable visor                |
 | quest      | `on` or `off`       | `off`   | Show/Hide quest POI                 |
 | save       |                     |         | Save settings to `trainer.ini`      |
@@ -248,6 +250,9 @@ EFT.Trainer.Features.NoMalfunctions.Key="None"
 
 EFT.Trainer.Features.NoRecoil.Enabled=false
 EFT.Trainer.Features.NoRecoil.Key="None"
+
+EFT.Trainer.Features.NoSway.Enabled=false
+EFT.Trainer.Features.NoSway.Key="None"
 
 EFT.Trainer.Features.NoVisor.Enabled=false
 EFT.Trainer.Features.NoVisor.Key="None"
