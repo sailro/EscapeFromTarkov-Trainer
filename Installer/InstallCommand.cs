@@ -64,9 +64,9 @@ namespace Installer
 
 				if (installation.UsingSptAki)
 				{
-					AnsiConsole.MarkupLine("[yellow]SPT-AKI detected. Please make sure you have run the game at least once before installing the trainer.[/]");
-					AnsiConsole.MarkupLine("[yellow]SPT-AKI is patching binaries during the first run, and we [underline]need[/] to compile against those patched binaries.[/]");
-					AnsiConsole.MarkupLine("[yellow]If you install this trainer on stock binaries, the game will freeze at the startup screen.[/]");
+					AnsiConsole.MarkupLine("[green][[SPT-AKI]][/] detected. Please make sure you have run the game at least once before installing the trainer.");
+					AnsiConsole.MarkupLine("SPT-AKI is patching binaries during the first run, and we [underline]need[/] to compile against those patched binaries.");
+					AnsiConsole.MarkupLine("If you install this trainer on stock binaries, the game will freeze at the startup screen.");
 
 					if (!AnsiConsole.Confirm("Continue installation (yes I have run the game at least once) ?"))
 						return (int)ExitCode.Canceled;
@@ -84,7 +84,7 @@ namespace Installer
 				const string bepInExPluginProject = "BepInExPlugin.csproj";
 				if (installation.UsingBepInEx && archive!.Entries.Any(e => e.Name == bepInExPluginProject))
 				{
-					AnsiConsole.MarkupLine("[yellow]BepInEx detected. Creating plugin instead of using NLog configuration.[/]");
+					AnsiConsole.MarkupLine("[green][[BepInEx]][/] detected. Creating plugin instead of using NLog configuration.");
 
 					// reuse successful context for compiling.
 					var pluginContext = new CompilationContext(installation, "plugin", bepInExPluginProject) { Archive = archive };
@@ -101,6 +101,13 @@ namespace Installer
 				}
 				else
 				{
+					var version = new Version(0, 13, 0, 21531);
+					if (installation.Version >= version)
+					{
+						AnsiConsole.MarkupLine($"[yellow]Warning: EscapeFromTarkov {version} or later prevent this trainer to be loaded using NLog configuration.[/]");
+						AnsiConsole.MarkupLine("[yellow]It is now mandatory to use SPT-AKI/BepInEx, or to find your own way to load the trainer. As is, it will not work.[/]");
+					}
+
 					CreateOrPatchConfiguration(installation);
 				}
 
