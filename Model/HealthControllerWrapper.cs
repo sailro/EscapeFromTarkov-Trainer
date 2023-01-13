@@ -13,7 +13,7 @@ namespace EFT.Trainer.Model
 			get
 			{
 				// <= 0.12.12.17107
-				var player = GetFieldValue<Player>(nameof(Player));
+				var player = GetFieldValue<Player>(nameof(Player), warnOnFailure: false);
 
 				// after, when cleaned-up by spt-aki
 				if (player == null)

@@ -15,13 +15,14 @@ namespace EFT.Trainer.Model
 		private readonly Type _instanceType;
 		private readonly object _instance;
 
-		protected T? GetFieldValue<T>(string name)
+		protected T? GetFieldValue<T>(string name, bool warnOnFailure = true)
 		{
 			var fieldInfo = GetField(name);
 			if (fieldInfo == null)
 			{
 #if DEBUG
-				AddConsoleLog($"Unable to find {name} on {_instanceType.Name}");
+				if (warnOnFailure)
+					AddConsoleLog($"Unable to find {name} on {_instanceType.Name}");
 #endif
 				return default;
 			}
