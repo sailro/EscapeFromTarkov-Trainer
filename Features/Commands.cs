@@ -448,7 +448,7 @@ namespace EFT.Trainer.Features
 			foreach (var item in feature.TrackedNames)
 			{
 				var extra = item.Rarity.HasValue ? $" ({item.Rarity.Value.Color()})" : string.Empty;
-				AddConsoleLog(item.Color.HasValue ? $"Tracking: {item.Name.Color(item.Color.Value)}{extra}" : $"Tracking: {item.Name}");
+				AddConsoleLog(item.Color.HasValue ? $"Tracking: {item.Name.Color(item.Color.Value)}{extra}" : $"Tracking: {item.Name}{extra}");
 			}
 		}
 

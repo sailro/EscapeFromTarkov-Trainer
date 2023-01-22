@@ -42,7 +42,7 @@ namespace EFT.Trainer.Features
 		{
 			lootname = lootname.Trim();
 
-			if (TrackedNames.Any(t => t.Name == lootname))
+			if (TrackedNames.Any(t => t.Name == lootname && t.Rarity == rarity))
 				return false;
 
 			TrackedNames.Add(new TrackedItem(lootname, color, rarity));
