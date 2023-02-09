@@ -161,6 +161,7 @@
     <Compile Include="Features\ToggleFeature.cs" />
     <Compile Include="Features\TrackedItem.cs" />
     <Compile Include="Features\TriggerFeature.cs" />
+    <Compile Include="Features\UnlimitedAmmo.cs" />
     <Compile Include="Features\WallShoot.cs" />
     <Compile Include="Features\Skills.cs" />
     <Compile Include="Features\WorldInteractiveObjects.cs" />
