@@ -37,18 +37,37 @@ namespace EFT.Trainer.Features
 				return;
 
 			var magazine = weapon.GetCurrentMagazine();
-			if (magazine == null) 
-				return;
+			if (magazine != null)
+			{
+				if (magazine is CylinderMagazineClass cylinderMagazine)
+				{
+					// Rhino case
+					foreach (var slot in cylinderMagazine.Camoras)
+						slot.Add(CreateAmmo(ammo));
+				}
+				else
+				{
+					var cartridges = magazine.Cartridges;
+					cartridges?.Add(CreateAmmo(ammo), false);
+				}
+			}
+			else
+			{
+				// no magazine, like mp18, fill all weapon chambers
+				foreach (var slot in weapon.Chambers)
+					slot.Add(CreateAmmo(ammo));
+			}
+		}
 
+		private static Item CreateAmmo(Item ammo)
+		{
 			var instantiated = Singleton<ItemFactory>.Instantiated;
 			if (!instantiated)
-				return;
+				return ammo;
 
 			var instance = Singleton<ItemFactory>.Instance;
 			var itemId = Guid.NewGuid().ToString("N").Substring(0, 24);
-			var cartridges = magazine.Cartridges;
-
-			cartridges?.Add(instance.CreateItem(itemId, ammo.TemplateId, null) ?? ammo, false);
+			return instance.CreateItem(itemId, ammo.TemplateId, null) ?? ammo;
 		}
 
 		protected override void UpdateWhenEnabled()
