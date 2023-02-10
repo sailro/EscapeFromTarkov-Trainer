@@ -22,6 +22,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 | trainer.ini section       | GUI/console  | Description |
 |---------------------------|--------------|-------------|
 | `Aimbot`                  | `aimbot`     | Aimbot (distance, smoothness, silent aim with speed factor and shot delay, fov radius, fov circle). |
+| `Ammunition`              | `ammo`       | Unlimited ammo. |
 | `AutomaticGun`            | `autogun`    | Force all guns (even bolt action guns) to use automatic firing mode with customizable fire rate. |
 | `Commands`                | `commands`   | Popup window to enable/disable all features (use right-alt or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)). |
 | `CrossHair`               | `crosshair`  | Crosshair with customizable size, color, thickness and auto-hide feature when aiming. |
@@ -94,6 +95,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 
 | Command    | Values              | Default | Description                         |
 |------------|---------------------|---------|-------------------------------------|
+| ammo       | `on` or `off`       | `off`   | Enable/Disable unlimited ammo       |
 | autogun    | `on` or `off`       | `off`   | Enable/Disable automatic gun mode   |
 | crosshair  | `on` or `off`       | `off`   | Show/Hide crosshair                 |
 | dump       |                     |         | Dump game state for analysis        |

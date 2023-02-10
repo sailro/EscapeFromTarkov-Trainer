@@ -124,6 +124,7 @@
     <Compile Include="Extensions\ThrowableExtensions.cs" />
     <Compile Include="Extensions\WorldInteractiveObjectExtensions.cs" />
     <Compile Include="Features\Aimbot.cs" />
+    <Compile Include="Features\Ammunition.cs" />
     <Compile Include="Features\FovChanger.cs" />
     <Compile Include="Features\NoMalfunctions.cs" />
     <Compile Include="Features\AutomaticGun.cs" />
@@ -165,6 +166,7 @@
     <Compile Include="Features\Skills.cs" />
     <Compile Include="Features\WorldInteractiveObjects.cs" />
     <Compile Include="Model\DamageInfoWrapper.cs" />
+    <Compile Include="Model\ShotWrapper.cs" />
     <Compile Include="Model\HealthControllerWrapper.cs" />
     <Compile Include="Model\ReflectionWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
