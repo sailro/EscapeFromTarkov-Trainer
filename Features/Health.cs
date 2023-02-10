@@ -84,7 +84,7 @@ namespace EFT.Trainer.Features
 					continue;
 
 				if (healthController.IsBodyPartBroken(bodyPart) || healthController.IsBodyPartDestroyed(bodyPart))
-					healthController.RestoreBodyPart(bodyPart, 0);
+					healthController.RestoreBodyPart(bodyPart, 1);
 
 				if (RemoveNegativeEffects)
 				{
