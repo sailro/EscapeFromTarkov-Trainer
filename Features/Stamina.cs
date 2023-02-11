@@ -13,6 +13,30 @@ namespace EFT.Trainer.Features
 
 		public override bool Enabled { get; set; } = false;
 
+		public float AimDrainRate;
+		public float AimRangeFinderDrainRate;
+		public float SprintDrainRate;
+		public float JumpConsumption;
+		public float ProneConsumption;
+
+		public Vector3 AimConsumptionByPose;
+		public Vector3 OverweightConsumptionByPose;
+		public Vector2 CrouchConsumption;
+		public Vector2 StandupConsumption;
+		public Vector2 WalkConsumption;
+
+		public float OxygenRestoration;
+		public float ExhaustedMeleeSpeed;
+
+		public float BaseRestorationRate;
+
+		public bool StaminaExhaustionCausesJiggle;
+		public bool StaminaExhaustionRocksCamera;
+		public bool StaminaExhaustionStartsBreathSound;
+
+		public bool isConfigured = false;
+		public bool wasReset = true;
+
 		[UsedImplicitly]
 		protected static bool ConsumePrefix()
 		{
@@ -54,7 +78,35 @@ namespace EFT.Trainer.Features
 			if (parameters == null)
 				return;
 
+			if (!isConfigured)
+			{
+				AimDrainRate = parameters.AimDrainRate;
+				AimRangeFinderDrainRate = parameters.AimRangeFinderDrainRate;
+				SprintDrainRate = parameters.SprintDrainRate;
+				JumpConsumption = parameters.JumpConsumption;
+				ProneConsumption = parameters.ProneConsumption;
+
+				AimConsumptionByPose = parameters.AimConsumptionByPose;
+				OverweightConsumptionByPose = parameters.OverweightConsumptionByPose;
+				
+				CrouchConsumption = parameters.CrouchConsumption;
+				StandupConsumption = parameters.StandupConsumption;
+				WalkConsumption = parameters.WalkConsumption;
+
+				OxygenRestoration = parameters.OxygenRestoration;
+				ExhaustedMeleeSpeed = parameters.ExhaustedMeleeSpeed;
+
+				BaseRestorationRate = parameters.BaseRestorationRate;
+
+				StaminaExhaustionCausesJiggle = parameters.StaminaExhaustionCausesJiggle;
+				StaminaExhaustionRocksCamera = parameters.StaminaExhaustionRocksCamera;
+				StaminaExhaustionStartsBreathSound = parameters.StaminaExhaustionStartsBreathSound;
+
+				isConfigured = true;
+			}
+				
 			parameters.AimDrainRate = 0f;
+			parameters.AimRangeFinderDrainRate = 0f;
 			parameters.SprintDrainRate = 0f;
 			parameters.JumpConsumption = 0f;
 			parameters.ProneConsumption = 0f;
@@ -74,6 +126,50 @@ namespace EFT.Trainer.Features
 			parameters.StaminaExhaustionCausesJiggle = false;
 			parameters.StaminaExhaustionRocksCamera = false;
 			parameters.StaminaExhaustionStartsBreathSound = false;
+
+			wasReset = false; // Maintain variables in modified state
+		}
+
+		protected override void UpdateWhenDisabled()
+		{
+			var player = GameState.Current?.LocalPlayer;
+			if (!player.IsValid())
+				return;
+
+			var playerPhysical = player.Physical;
+			if (playerPhysical == null)
+				return;
+
+			var parameters = playerPhysical.StaminaParameters;
+			if (parameters == null)
+				return;
+
+			if (wasReset)
+				return;
+
+			parameters.AimDrainRate = AimDrainRate;
+			parameters.AimRangeFinderDrainRate = AimRangeFinderDrainRate;
+			parameters.SprintDrainRate = SprintDrainRate;
+			parameters.JumpConsumption = JumpConsumption;
+			parameters.ProneConsumption = ProneConsumption;
+
+			parameters.AimConsumptionByPose = AimConsumptionByPose;
+			parameters.OverweightConsumptionByPose = OverweightConsumptionByPose;
+
+			parameters.CrouchConsumption = CrouchConsumption;
+			parameters.StandupConsumption = StandupConsumption;
+			parameters.WalkConsumption = WalkConsumption;
+
+			parameters.OxygenRestoration = OxygenRestoration;
+			parameters.ExhaustedMeleeSpeed = ExhaustedMeleeSpeed;
+
+			parameters.BaseRestorationRate = BaseRestorationRate;
+
+			parameters.StaminaExhaustionCausesJiggle = StaminaExhaustionCausesJiggle;
+			parameters.StaminaExhaustionRocksCamera = StaminaExhaustionRocksCamera;
+			parameters.StaminaExhaustionStartsBreathSound = StaminaExhaustionStartsBreathSound;
+
+			wasReset = true;
 		}
 	}
 }
