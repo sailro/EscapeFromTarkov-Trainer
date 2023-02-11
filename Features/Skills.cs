@@ -22,7 +22,7 @@ namespace EFT.Trainer.Features
 			if (player.Skills?.Skills == null)
 				return;
 
-			foreach (var skill in player.Skills.Skills)
+			foreach (var skill in player.Skills.DisplayList)
 				skill.SetLevel(51);
 
 			if (player.Skills.Mastering == null)
