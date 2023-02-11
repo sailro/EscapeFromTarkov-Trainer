@@ -41,13 +41,10 @@ namespace EFT.Trainer.Features
 			
 			if (feature.VitalsOnly)
 			{
-				if (bodyPart == EBodyPart.Chest || bodyPart == EBodyPart.Head)
-				{
-					__result = 0f;
-					return false; // skip the original code because we must protect the head and chest
-				}
-				return true; // keep using original code, apply damage to extremities 
+				if (bodyPart != EBodyPart.Chest && bodyPart != EBodyPart.Head)
+					return true; // keep using original code, apply damage to extremities 
 			}
+
 			__result = 0f;
 			return false;  // skip the original code and all other prefix methods 
 		}
@@ -80,7 +77,7 @@ namespace EFT.Trainer.Features
 				if (bodyPart == EBodyPart.Common)
 					continue;
 
-				if (VitalsOnly && !(bodyPart == EBodyPart.Chest || bodyPart == EBodyPart.Head))
+				if (VitalsOnly && bodyPart is not (EBodyPart.Chest or EBodyPart.Head))
 					continue;
 
 				if (healthController.IsBodyPartBroken(bodyPart) || healthController.IsBodyPartDestroyed(bodyPart))
@@ -109,7 +106,6 @@ namespace EFT.Trainer.Features
 
 			if (!healthController.Hydration.AtMaximum && FoodWater)
 				healthController.ChangeHydration(healthController.Hydration.Maximum);
-
 		}
 	}
 }
