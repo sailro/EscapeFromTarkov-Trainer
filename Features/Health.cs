@@ -1,4 +1,5 @@
 ﻿using System;
+using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.Model;
 using JetBrains.Annotations;
@@ -14,10 +15,19 @@ namespace EFT.Trainer.Features
 
 		public override bool Enabled { get; set; } = false;
 
-		private static readonly Array _bodyParts = Enum.GetValues(typeof(EBodyPart));
+		[ConfigurationProperty]
+		public bool VitalsOnly { get; set; } = false;
 
+		[ConfigurationProperty]
+		public bool RemoveNegativeEffects { get; set; } = true;
+
+		[ConfigurationProperty]
+		public bool FoodWater { get; set; } = true;
+
+		private static readonly Array _bodyParts = Enum.GetValues(typeof(EBodyPart));
+		
 		[UsedImplicitly]
-		protected static bool ApplyDamagePrefix(object? __instance, ref float __result)
+		protected static bool ApplyDamagePrefix(EBodyPart bodyPart, object? __instance, ref float __result)
 		{
 			var feature = FeatureFactory.GetFeature<Health>();
 			if (feature == null || !feature.Enabled || __instance == null)
@@ -25,10 +35,19 @@ namespace EFT.Trainer.Features
 
 			var healthControllerWrapper = new HealthControllerWrapper(__instance);
 			var player = healthControllerWrapper.Player;
-
+			
 			if (player == null || !player.IsYourPlayer)
 				return true; // keep using original code, apply damage to others
-
+			
+			if (feature.VitalsOnly)
+			{
+				if (bodyPart == EBodyPart.Chest || bodyPart == EBodyPart.Head)
+				{
+					__result = 0f;
+					return false; // skip the original code because we must protect the head and chest
+				}
+				return true; // keep using original code, apply damage to extremities 
+			}
 			__result = 0f;
 			return false;  // skip the original code and all other prefix methods 
 		}
@@ -61,23 +80,36 @@ namespace EFT.Trainer.Features
 				if (bodyPart == EBodyPart.Common)
 					continue;
 
+				if (VitalsOnly && !(bodyPart == EBodyPart.Chest || bodyPart == EBodyPart.Head))
+					continue;
+
 				if (healthController.IsBodyPartBroken(bodyPart) || healthController.IsBodyPartDestroyed(bodyPart))
-					healthController.RestoreBodyPart(bodyPart, 0);
+					healthController.RestoreBodyPart(bodyPart, 1);
+
+				if (RemoveNegativeEffects)
+				{
+					healthController.RemoveNegativeEffects(bodyPart);
+					healthController.RemoveNegativeEffects(EBodyPart.Common);
+				}
 
 				var bodyPartHealth = healthController.GetBodyPartHealth(bodyPart);
 				if (bodyPartHealth.AtMaximum)
 					continue;
 
-				healthController.RestoreFullHealth();
-				healthController.RemoveNegativeEffects(EBodyPart.Common);
+				if (!VitalsOnly)
+					healthController.RestoreFullHealth();
+
+				healthController.ChangeHealth(bodyPart, bodyPartHealth.Maximum, default);
+
 				break;
 			}
 
-			if (!healthController.Energy.AtMaximum)
+			if (!healthController.Energy.AtMaximum && FoodWater)
 				healthController.ChangeEnergy(healthController.Energy.Maximum);
 
-			if (!healthController.Hydration.AtMaximum)
+			if (!healthController.Hydration.AtMaximum && FoodWater)
 				healthController.ChangeHydration(healthController.Hydration.Maximum);
+
 		}
 	}
 }
