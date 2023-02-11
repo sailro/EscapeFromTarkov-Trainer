@@ -205,7 +205,7 @@ namespace Installer
 
 #if DEBUG
 					foreach (var error in errors)
-						AnsiConsole.MarkupLine($"[grey]>> {error.Id} [[{error.Location.SourceTree?.FilePath}]]: {error.GetMessage()}.[/]");
+						AnsiConsole.MarkupLine($"[grey]>> {error.Id} [[{error.Location.SourceTree?.FilePath.EscapeMarkup()}]]: {error.GetMessage().EscapeMarkup()}.[/]");
 #endif
 
 					if (errors.Any())
