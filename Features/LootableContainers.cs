@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Comfort.Common;
 using EFT.Interactive;
 using EFT.Trainer.Configuration;
@@ -48,6 +49,11 @@ namespace EFT.Trainer.Features
 					continue;
 
 				var position = container.transform.position;
+
+				var distance = Math.Round(Vector3.Distance(camera.transform.position, position));
+				if (MaximumDistance > 0 && distance > MaximumDistance)
+					continue;
+
 				records.Add(new PointOfInterest
 				{
 					Name = container.Template.LocalizedShortName(),

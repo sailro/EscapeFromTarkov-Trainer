@@ -101,6 +101,11 @@ namespace EFT.Trainer.Features
 					continue;
 
 				var position = container.transform.position;
+
+				var distance = Math.Round(Vector3.Distance(camera.transform.position, position));
+				if (MaximumDistance > 0 && distance > MaximumDistance)
+					continue;
+
 				FindItemsInRootItem(records, camera, container.ItemOwner?.RootItem, position);
 			}
 		}
@@ -136,6 +141,10 @@ namespace EFT.Trainer.Features
 					continue;
 
 				var position = lootItem.transform.position;
+
+				var distance = Math.Round(Vector3.Distance(camera.transform.position, position));
+				if (MaximumDistance > 0 && distance > MaximumDistance)
+					continue;
 
 				if (lootItem is Corpse corpse)
 				{
