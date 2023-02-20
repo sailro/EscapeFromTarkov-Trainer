@@ -53,6 +53,10 @@ namespace EFT.Trainer.Features
 			if (!player.IsValid())
 				return;
 
+			var healthController = player.ActiveHealthController;
+			if (healthController == null)
+				return;
+
 			HarmonyPatchOnce(harmony =>
 			{
 				var original = HarmonyLib.AccessTools.Method(typeof(ActiveHealthControllerClass), nameof(ActiveHealthControllerClass.ApplyDamage));
@@ -66,7 +70,6 @@ namespace EFT.Trainer.Features
 				harmony.Patch(original, new HarmonyLib.HarmonyMethod(prefix));
 			});
 
-			var healthController = player.ActiveHealthController;
 			foreach (EBodyPart bodyPart in _bodyParts)
 			{
 				if (bodyPart == EBodyPart.Common)
