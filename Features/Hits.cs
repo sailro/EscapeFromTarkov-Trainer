@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
-using EFT.Trainer.Model;
 using EFT.Trainer.UI;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -44,13 +43,13 @@ namespace EFT.Trainer.Features
 
 		internal class HitMarker
 		{
-			public HitMarker(DamageInfoWrapper damageInfo)
+			public HitMarker(DamageInfo damageInfo)
 			{
 				DamageInfo = damageInfo;
 			}
 
 			public float ElapsedTime { get; set; } = 0.0f;
-			public DamageInfoWrapper DamageInfo { get; set; }
+			public DamageInfo DamageInfo { get; set; }
 			public bool IsTaggedForDeletion { get; set; } = false;
 		}
 
@@ -58,7 +57,7 @@ namespace EFT.Trainer.Features
 
 #pragma warning disable IDE0060 
 		[UsedImplicitly]
-		protected static void ApplyDamagePostfix(EBodyPart bodyPart, float damage, object damageInfo, object? __instance)
+		protected static void ApplyDamagePostfix(EBodyPart bodyPart, float damage, DamageInfo damageInfo, ActiveHealthControllerClass? __instance)
 		{
 			var feature = FeatureFactory.GetFeature<Hits>();
 			if (feature == null || !feature.Enabled)
@@ -67,18 +66,15 @@ namespace EFT.Trainer.Features
 			if (__instance == null)
 				return;
 
-			var healthControllerWrapper = new HealthControllerWrapper(__instance);
-
-			var victim = healthControllerWrapper.Player;
+			var victim = __instance.Player;
 			if (victim == null || victim.IsYourPlayer)
 				return;
 
-			var damageInfoWrapper = new DamageInfoWrapper(damageInfo);
-			var shooter = damageInfoWrapper.Player;
+			var shooter = damageInfo.Player;
 			if (shooter == null || !shooter.IsYourPlayer)
 				return;
 
-			var marker = new HitMarker(damageInfoWrapper);
+			var marker = new HitMarker(damageInfo);
 			_hitMarkers.Add(marker);
 		}
 #pragma warning restore IDE0060 
@@ -132,13 +128,9 @@ namespace EFT.Trainer.Features
 			if (!player.IsValid())
 				return;
 
-			var healthController = player.ActiveHealthController;
-			if (healthController == null)
-				return;
-
 			HarmonyPatchOnce(harmony =>
 			{
-				var original = HarmonyLib.AccessTools.Method(healthController.GetType(), nameof(healthController.ApplyDamage));
+				var original = HarmonyLib.AccessTools.Method(typeof(ActiveHealthControllerClass), nameof(ActiveHealthControllerClass.ApplyDamage));
 				if (original == null)
 					return;
 
