@@ -9,7 +9,7 @@
 
 This is an attempt -for educational purposes only- to alter a Unity game at runtime without patching the binaries (so without using [Cecil](https://github.com/jbevain/cecil) nor [Reflexil](https://github.com/sailro/reflexil)).
 
-`master` branch can build against `EFT 0.12.12.20765` (tested with [`spt-aki Version 3.4.1`](https://hub.sp-tarkov.com/files/file/6-spt-aki/#versions)). If you are looking for another version, see [`branches`](https://github.com/sailro/EscapeFromTarkov-Trainer/branches) and [`releases`](https://github.com/sailro/EscapeFromTarkov-Trainer/releases).
+`master` branch can build against `EFT 0.13.0.21734` (tested with [`spt-aki Version 3.5.0`](https://hub.sp-tarkov.com/files/file/6-spt-aki/#versions)). If you are looking for another version, see [`branches`](https://github.com/sailro/EscapeFromTarkov-Trainer/branches) and [`releases`](https://github.com/sailro/EscapeFromTarkov-Trainer/releases).
 
 > If you want to compile the code yourself, make sure you cleaned-up your solution properly after upgrading your EFT/sptarkov bits (even removing `bin` and `obj` folders) and check all your references.
 
