@@ -164,19 +164,34 @@ namespace EFT.Trainer.Features
 				if (playerBones == null)
 					continue;
 
+				bool shootable = false;
 				if (ShowShootable)
 				{
-					var shootable = camera.IsTransformVisible(playerBones.Head.Original);
+					Transform[] bonesToCheck = new Transform[13] {
+						playerBones.Head.Original.transform,
+						playerBones.Neck.transform,
+						playerBones.Shoulders[0].transform,
+						playerBones.Shoulders[1].transform,
+						playerBones.Spine1.transform,
+						playerBones.Upperarms[0].transform,
+						playerBones.Upperarms[1].transform,
+						playerBones.Forearms[0].transform,
+						playerBones.Forearms[1].transform,
+						playerBones.LeftThigh1.Original.transform,
+						playerBones.RightThigh1.Original.transform,
+						playerBones.LeftThigh2.Original.transform,
+						playerBones.RightThigh2.Original.transform
+					};
 
-					if (shootable)
+					borderColor = NotShootableBoxColor;
+					foreach (Transform bone in bonesToCheck)
 					{
-						color = ShootableColor;
-						borderColor = ShootableBoxColor;
-					}	
-					else
-					{
-						color = NotShootableColor;
-						borderColor = NotShootableBoxColor;
+						if (camera.IsTransformVisible(bone))
+						{
+							borderColor = ShootableBoxColor;
+							shootable = true;
+							break;
+						}
 					}
 				}
 
@@ -196,7 +211,7 @@ namespace EFT.Trainer.Features
 				var ennemyHealthController = ennemy.HealthController;
 				var ennemyHandController = ennemy.HandsController;
 				if (ShowInfos && ennemyHealthController is {IsAlive: true})
-					{
+				{
 					var bodyPartHealth = ennemyHealthController.GetBodyPartHealth(EBodyPart.Common);
 					var currentPlayerHealth = bodyPartHealth.Current;
 					var maximumPlayerHealth = bodyPartHealth.Maximum;
@@ -205,10 +220,15 @@ namespace EFT.Trainer.Features
 					var infoText = $"{weaponText} {Mathf.Round(currentPlayerHealth * 100 / maximumPlayerHealth)}% [{distance}m]".Trim();
 
 					Render.DrawString(new Vector2(boxPositionX, boxPositionY - 20f), infoText, infoColor, false);
-					}
+				}
 
 				if (ShowSkeletons)
-					Bones.RenderBones(ennemy, SkeletonThickness, color, camera);
+				{
+					if (ShowShootable && shootable)
+						Bones.RenderBones(ennemy, SkeletonThickness, ShootableColor, NotShootableColor, camera);
+					else
+						Bones.RenderBones(ennemy, SkeletonThickness, color, camera);
+				}
 			}
 		}
 
