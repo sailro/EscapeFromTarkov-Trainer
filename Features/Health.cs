@@ -1,7 +1,6 @@
 ﻿using System;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
-using EFT.Trainer.Model;
 using JetBrains.Annotations;
 
 #nullable enable
@@ -27,14 +26,13 @@ namespace EFT.Trainer.Features
 		private static readonly Array _bodyParts = Enum.GetValues(typeof(EBodyPart));
 		
 		[UsedImplicitly]
-		protected static bool ApplyDamagePrefix(EBodyPart bodyPart, object? __instance, ref float __result)
+		protected static bool ApplyDamagePrefix(EBodyPart bodyPart, ActiveHealthControllerClass? __instance, ref float __result)
 		{
 			var feature = FeatureFactory.GetFeature<Health>();
 			if (feature == null || !feature.Enabled || __instance == null)
 				return true; // keep using original code, we are not enabled
 
-			var healthControllerWrapper = new HealthControllerWrapper(__instance);
-			var player = healthControllerWrapper.Player;
+			var player = __instance.Player;
 			
 			if (player == null || !player.IsYourPlayer)
 				return true; // keep using original code, apply damage to others
@@ -61,7 +59,7 @@ namespace EFT.Trainer.Features
 
 			HarmonyPatchOnce(harmony =>
 			{
-				var original = HarmonyLib.AccessTools.Method(healthController.GetType(), nameof(healthController.ApplyDamage));
+				var original = HarmonyLib.AccessTools.Method(typeof(ActiveHealthControllerClass), nameof(ActiveHealthControllerClass.ApplyDamage));
 				if (original == null)
 					return;
 
