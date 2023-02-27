@@ -21,6 +21,9 @@ namespace EFT.Trainer.Features
 
 			if (Enabled)
 				UpdateWhenEnabled();
+
+			if (!Enabled)
+				UpdateWhenDisabled();
 		}
 
 		[UsedImplicitly]
@@ -31,6 +34,9 @@ namespace EFT.Trainer.Features
 		}
 
 		protected virtual void UpdateWhenEnabled() {}
+
+		protected virtual void UpdateWhenDisabled() {}
+
 		protected virtual void OnGUIWhenEnabled() {}
 	}
 }
