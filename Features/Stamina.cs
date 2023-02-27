@@ -13,29 +13,29 @@ namespace EFT.Trainer.Features
 
 		public override bool Enabled { get; set; } = false;
 
-		public float AimDrainRate;
-		public float AimRangeFinderDrainRate;
-		public float SprintDrainRate;
-		public float JumpConsumption;
-		public float ProneConsumption;
+		private float _aimDrainRate;
+		private float _aimRangeFinderDrainRate;
+		private float _sprintDrainRate;
+		private float _jumpConsumption;
+		private float _proneConsumption;
 
-		public Vector3 AimConsumptionByPose;
-		public Vector3 OverweightConsumptionByPose;
-		public Vector2 CrouchConsumption;
-		public Vector2 StandupConsumption;
-		public Vector2 WalkConsumption;
+		private Vector3 _aimConsumptionByPose;
+		private Vector3 _overweightConsumptionByPose;
+		private Vector2 _crouchConsumption;
+		private Vector2 _standupConsumption;
+		private Vector2 _walkConsumption;
 
-		public float OxygenRestoration;
-		public float ExhaustedMeleeSpeed;
+		private float _oxygenRestoration;
+		private float _exhaustedMeleeSpeed;
 
-		public float BaseRestorationRate;
+		private float _baseRestorationRate;
 
-		public bool StaminaExhaustionCausesJiggle;
-		public bool StaminaExhaustionRocksCamera;
-		public bool StaminaExhaustionStartsBreathSound;
+		private bool _staminaExhaustionCausesJiggle;
+		private bool _staminaExhaustionRocksCamera;
+		private bool _staminaExhaustionStartsBreathSound;
 
-		public bool isConfigured = false;
-		public bool wasReset = true;
+		private bool _isConfigured = false;
+		private bool _wasReset = true;
 
 		[UsedImplicitly]
 		protected static bool ConsumePrefix()
@@ -78,31 +78,31 @@ namespace EFT.Trainer.Features
 			if (parameters == null)
 				return;
 
-			if (!isConfigured)
+			if (!_isConfigured)
 			{
-				AimDrainRate = parameters.AimDrainRate;
-				AimRangeFinderDrainRate = parameters.AimRangeFinderDrainRate;
-				SprintDrainRate = parameters.SprintDrainRate;
-				JumpConsumption = parameters.JumpConsumption;
-				ProneConsumption = parameters.ProneConsumption;
+				_aimDrainRate = parameters.AimDrainRate;
+				_aimRangeFinderDrainRate = parameters.AimRangeFinderDrainRate;
+				_sprintDrainRate = parameters.SprintDrainRate;
+				_jumpConsumption = parameters.JumpConsumption;
+				_proneConsumption = parameters.ProneConsumption;
 
-				AimConsumptionByPose = parameters.AimConsumptionByPose;
-				OverweightConsumptionByPose = parameters.OverweightConsumptionByPose;
+				_aimConsumptionByPose = parameters.AimConsumptionByPose;
+				_overweightConsumptionByPose = parameters.OverweightConsumptionByPose;
 				
-				CrouchConsumption = parameters.CrouchConsumption;
-				StandupConsumption = parameters.StandupConsumption;
-				WalkConsumption = parameters.WalkConsumption;
+				_crouchConsumption = parameters.CrouchConsumption;
+				_standupConsumption = parameters.StandupConsumption;
+				_walkConsumption = parameters.WalkConsumption;
 
-				OxygenRestoration = parameters.OxygenRestoration;
-				ExhaustedMeleeSpeed = parameters.ExhaustedMeleeSpeed;
+				_oxygenRestoration = parameters.OxygenRestoration;
+				_exhaustedMeleeSpeed = parameters.ExhaustedMeleeSpeed;
 
-				BaseRestorationRate = parameters.BaseRestorationRate;
+				_baseRestorationRate = parameters.BaseRestorationRate;
 
-				StaminaExhaustionCausesJiggle = parameters.StaminaExhaustionCausesJiggle;
-				StaminaExhaustionRocksCamera = parameters.StaminaExhaustionRocksCamera;
-				StaminaExhaustionStartsBreathSound = parameters.StaminaExhaustionStartsBreathSound;
+				_staminaExhaustionCausesJiggle = parameters.StaminaExhaustionCausesJiggle;
+				_staminaExhaustionRocksCamera = parameters.StaminaExhaustionRocksCamera;
+				_staminaExhaustionStartsBreathSound = parameters.StaminaExhaustionStartsBreathSound;
 
-				isConfigured = true;
+				_isConfigured = true;
 			}
 				
 			parameters.AimDrainRate = 0f;
@@ -127,7 +127,7 @@ namespace EFT.Trainer.Features
 			parameters.StaminaExhaustionRocksCamera = false;
 			parameters.StaminaExhaustionStartsBreathSound = false;
 
-			wasReset = false; // Maintain variables in modified state
+			_wasReset = false; // Maintain variables in modified state
 		}
 
 		protected override void UpdateWhenDisabled()
@@ -144,32 +144,32 @@ namespace EFT.Trainer.Features
 			if (parameters == null)
 				return;
 
-			if (wasReset)
+			if (_wasReset)
 				return;
 
-			parameters.AimDrainRate = AimDrainRate;
-			parameters.AimRangeFinderDrainRate = AimRangeFinderDrainRate;
-			parameters.SprintDrainRate = SprintDrainRate;
-			parameters.JumpConsumption = JumpConsumption;
-			parameters.ProneConsumption = ProneConsumption;
+			parameters.AimDrainRate = _aimDrainRate;
+			parameters.AimRangeFinderDrainRate = _aimRangeFinderDrainRate;
+			parameters.SprintDrainRate = _sprintDrainRate;
+			parameters.JumpConsumption = _jumpConsumption;
+			parameters.ProneConsumption = _proneConsumption;
 
-			parameters.AimConsumptionByPose = AimConsumptionByPose;
-			parameters.OverweightConsumptionByPose = OverweightConsumptionByPose;
+			parameters.AimConsumptionByPose = _aimConsumptionByPose;
+			parameters.OverweightConsumptionByPose = _overweightConsumptionByPose;
 
-			parameters.CrouchConsumption = CrouchConsumption;
-			parameters.StandupConsumption = StandupConsumption;
-			parameters.WalkConsumption = WalkConsumption;
+			parameters.CrouchConsumption = _crouchConsumption;
+			parameters.StandupConsumption = _standupConsumption;
+			parameters.WalkConsumption = _walkConsumption;
 
-			parameters.OxygenRestoration = OxygenRestoration;
-			parameters.ExhaustedMeleeSpeed = ExhaustedMeleeSpeed;
+			parameters.OxygenRestoration = _oxygenRestoration;
+			parameters.ExhaustedMeleeSpeed = _exhaustedMeleeSpeed;
 
-			parameters.BaseRestorationRate = BaseRestorationRate;
+			parameters.BaseRestorationRate = _baseRestorationRate;
 
-			parameters.StaminaExhaustionCausesJiggle = StaminaExhaustionCausesJiggle;
-			parameters.StaminaExhaustionRocksCamera = StaminaExhaustionRocksCamera;
-			parameters.StaminaExhaustionStartsBreathSound = StaminaExhaustionStartsBreathSound;
+			parameters.StaminaExhaustionCausesJiggle = _staminaExhaustionCausesJiggle;
+			parameters.StaminaExhaustionRocksCamera = _staminaExhaustionRocksCamera;
+			parameters.StaminaExhaustionStartsBreathSound = _staminaExhaustionStartsBreathSound;
 
-			wasReset = true;
+			_wasReset = true;
 		}
 	}
 }
