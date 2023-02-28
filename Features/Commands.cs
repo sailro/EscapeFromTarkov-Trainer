@@ -64,7 +64,7 @@ namespace EFT.Trainer.Features
 
 		internal abstract class SelectionContext<T>
 		{
-			protected SelectionContext(Feature feature, OrderedProperty orderedProperty, float parentX, float parentY, Func<T, Picker<T>> builder)
+			protected SelectionContext(IFeature feature, OrderedProperty orderedProperty, float parentX, float parentY, Func<T, Picker<T>> builder)
 			{
 				Feature = feature;
 				OrderedProperty = orderedProperty;
@@ -74,7 +74,7 @@ namespace EFT.Trainer.Features
 				Picker.SetWindowPosition(parentX + LabelStyle.fixedWidth * 3 + LabelStyle.margin.left * 6, position.y + parentY - 32f);
 			}
 
-			public Feature Feature { get; }
+			public IFeature Feature { get; }
 			public OrderedProperty OrderedProperty { get; }
 			public Picker<T> Picker { get; }
 			public abstract int Id { get; }
@@ -82,7 +82,7 @@ namespace EFT.Trainer.Features
 
 		internal class ColorSelectionContext : SelectionContext<Color>
 		{
-			public ColorSelectionContext(Feature feature, OrderedProperty orderedProperty, float parentX, float parentY) : base(feature, orderedProperty, parentX, parentY, color => new ColorPicker(color))
+			public ColorSelectionContext(IFeature feature, OrderedProperty orderedProperty, float parentX, float parentY) : base(feature, orderedProperty, parentX, parentY, color => new ColorPicker(color))
 			{
 			}
 
@@ -91,7 +91,7 @@ namespace EFT.Trainer.Features
 
 		internal class KeyCodeSelectionContext : SelectionContext<KeyCode>
 		{
-			public KeyCodeSelectionContext(Feature feature, OrderedProperty orderedProperty, float parentX, float parentY) : base(feature, orderedProperty, parentX, parentY, color => new EnumPicker<KeyCode>(color))
+			public KeyCodeSelectionContext(IFeature feature, OrderedProperty orderedProperty, float parentX, float parentY) : base(feature, orderedProperty, parentX, parentY, color => new EnumPicker<KeyCode>(color))
 			{
 			}
 
@@ -226,7 +226,6 @@ namespace EFT.Trainer.Features
 				return;
 
 			var property = orderedProperty.Property;
-			var propertyType = property.PropertyType;
 
 			GUILayout.FlexibleSpace();
 			GUILayout.BeginHorizontal();
@@ -234,18 +233,39 @@ namespace EFT.Trainer.Features
 			GUILayout.Label(property.Name, LabelStyle);
 			GUILayout.FlexibleSpace();
 
-			var width = GUILayout.Width(LabelStyle.fixedWidth);
-
-			var controlName = $"{feature.Name}.{property.Name}-{propertyType.Name}";
-			GUI.SetNextControlName(controlName);
-
 			var currentValue = property.GetValue(feature);
-			var newValue = currentValue;
 			var currentBackgroundColor = GUI.backgroundColor;
 
 			if (currentValue == null)
 				return;
 			
+			var width = GUILayout.Width(LabelStyle.fixedWidth);
+			var newValue = RenderFeaturePropertyAsUIComponent(feature, orderedProperty, currentValue, width);
+
+			if (currentValue != newValue)
+				property.SetValue(feature, newValue);
+
+			var focused = GUI.GetNameOfFocusedControl();
+
+			if (ShouldResetSelectionContext(focused, _colorSelectionContext))
+				_colorSelectionContext = null;
+
+			if (ShouldResetSelectionContext(focused, _keyCodeSelectionContext))
+				_keyCodeSelectionContext = null;
+
+			GUI.backgroundColor = currentBackgroundColor;
+			GUILayout.EndHorizontal();
+		}
+
+		private object RenderFeaturePropertyAsUIComponent(IFeature feature, OrderedProperty orderedProperty, object currentValue, GUILayoutOption width)
+		{
+			var property = orderedProperty.Property;
+			var propertyType = property.PropertyType;
+
+			var newValue = currentValue;
+			var controlName = $"{feature.Name}.{property.Name}-{propertyType.Name}";
+			GUI.SetNextControlName(controlName);
+
 			switch (propertyType.Name)
 			{
 				case nameof(Boolean):
@@ -273,23 +293,33 @@ namespace EFT.Trainer.Features
 					break;
 
 				default:
+					// Look for inner properties
+					if (currentValue is IFeature subFeature)
+					{
+						var subProperties = ConfigurationManager.GetOrderedProperties(propertyType);
+						var length = subProperties.Length;
+
+						if (length > 0)
+						{
+							width = GUILayout.Width(LabelStyle.fixedWidth / length - length);
+
+							foreach (var innerOrderedProperty in subProperties)
+							{
+								var innerProperty = innerOrderedProperty.Property;
+								var innerPropertyValue = innerProperty.GetValue(subFeature);
+								RenderFeaturePropertyAsUIComponent(subFeature, innerOrderedProperty, innerPropertyValue, width);
+							}
+
+							break;
+						}
+
+					}
+
 					GUILayout.Label($"Unsupported type: {propertyType.FullName}");
 					break;
 			}
 
-			if (currentValue != newValue)
-				property.SetValue(feature, newValue);
-
-			var focused = GUI.GetNameOfFocusedControl();
-
-			if (ShouldResetSelectionContext(focused, _colorSelectionContext))
-				_colorSelectionContext = null;
-
-			if (ShouldResetSelectionContext(focused, _keyCodeSelectionContext))
-				_keyCodeSelectionContext = null;
-
-			GUI.backgroundColor = currentBackgroundColor;
-			GUILayout.EndHorizontal();
+			return newValue;
 		}
 
 		private static bool ShouldResetSelectionContext<T>(string focused, SelectionContext<T>? context)
@@ -314,7 +344,7 @@ namespace EFT.Trainer.Features
 			return GUILayout.TextField(currentValue.ToString(), width);
 		}
 
-		private void RenderKeyCodeProperty(object currentValue, string controlName, Feature feature, OrderedProperty orderedProperty, GUILayoutOption option)
+		private void RenderKeyCodeProperty(object currentValue, string controlName, IFeature feature, OrderedProperty orderedProperty, GUILayoutOption option)
 		{
 			if (!GUILayout.Button(currentValue.ToString(), option))
 				return;
@@ -323,7 +353,7 @@ namespace EFT.Trainer.Features
 			GUI.FocusControl(controlName);
 		}
 
-		private void RenderColorProperty(object currentValue, string controlName, Feature feature, OrderedProperty orderedProperty, GUILayoutOption option)
+		private void RenderColorProperty(object currentValue, string controlName, IFeature feature, OrderedProperty orderedProperty, GUILayoutOption option)
 		{
 			GUI.backgroundColor = (Color) currentValue;
 

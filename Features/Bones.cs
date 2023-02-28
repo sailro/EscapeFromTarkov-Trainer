@@ -78,6 +78,23 @@ namespace EFT.Trainer.Features
 			new [] {RPalm, RDigit11}, new [] {RDigit41, RDigit42}, new [] {RDigit42, RDigit43}, new [] {RPalm, RDigit11}, new [] {RDigit51, RDigit52}, new [] {RDigit52, RDigit53}
 		};
 
+		public static readonly List<string[]> HitConnections = new()
+		{
+			new [] {Pelvis, LThigh1}, new [] {LThigh1, LThigh2}, new [] {LThigh2, LCalf}, new [] {LCalf, LFoot}, new [] {LFoot, LToe}, new [] {Pelvis, RThigh1}, new [] {RThigh1, RThigh2}, new [] {RThigh2, RCalf},
+			new [] {RCalf, RFoot}, new [] {RFoot, RToe}, new [] {Pelvis, Spine1}, new [] {Spine1, Spine2}, new [] {Spine2, Spine3}, new [] {Spine3, Neck}, new [] {Neck, Head}, new [] {Spine3, LCollarbone},
+			new [] {LCollarbone, LForearm1}, new [] {LForearm1, LForearm2}, new [] {LForearm2, LForearm3}, new [] {LForearm3, LPalm}, new [] {RCollarbone, RForearm1}, new [] {RForearm1, RForearm2},
+			new [] {RForearm2, RForearm3}, new [] {RForearm3, RPalm}
+		};
+
+		public static readonly List<string[]> FingerConnections = new()
+		{
+			new [] {LPalm, LDigit11}, new [] {LDigit11, LDigit12}, new [] {LDigit12, LDigit13}, new [] {LPalm, LDigit21}, new [] {LDigit21, LDigit22}, new [] {LDigit22, LDigit23}, new [] {LPalm, LDigit31},
+			new [] {LDigit31, LDigit32}, new [] {LDigit32, LDigit33}, new [] {LPalm, LDigit41}, new [] {LDigit41, LDigit42}, new [] {LDigit42, LDigit43}, new [] {LPalm, LDigit51}, new [] {LDigit51, LDigit52},
+			new [] {LDigit52, LDigit53}, new [] {RPalm, RDigit11}, new [] {RDigit11, RDigit12},	new [] {RDigit12, RDigit13}, new [] {RPalm, RDigit11}, new [] {RDigit21, RDigit22}, new [] {RDigit22, RDigit23},
+			new [] {RPalm, RDigit11}, new [] {RDigit31, RDigit32}, new [] {RDigit32, RDigit33},	new [] {RPalm, RDigit11}, new [] {RDigit41, RDigit42}, new [] {RDigit42, RDigit43}, new [] {RPalm, RDigit11},
+			new [] {RDigit51, RDigit52}, new [] {RDigit52, RDigit53}
+		};
+
 		public static void RenderBone(Dictionary<string, Transform> bones, string from, string to, float thickness, Color color, Camera camera)
 		{
 			RenderBone(bones[from].position, bones[to].position, thickness, color, camera);
@@ -109,6 +126,33 @@ namespace EFT.Trainer.Features
 			var radius = Vector3.Distance(head, neck);
 
 			Render.DrawCircle(new Vector2(head.x, head.y), radius, color, thickness, 8);
+		}
+
+		public static void RenderBones(Player player, float thickness, Color color1, Color color2, Camera camera)
+		{
+			var skeleton = player.PlayerBody.SkeletonRootJoint;
+			if (skeleton == null)
+				return;
+
+			var bones = skeleton.Bones;
+			if (bones == null)
+				return;
+
+			foreach (var connection in HitConnections)
+			{
+				var hitColor = camera.IsTransformVisible(bones[connection[0]].transform) || camera.IsTransformVisible(bones[connection[1]].transform) ? color1 : color2;
+				RenderBone(bones, connection[0], connection[1], thickness, hitColor, camera);
+			}
+
+			foreach (var connection in FingerConnections)
+				RenderBone(bones, connection[0], connection[1], thickness, color2, camera);
+
+			var head = camera.WorldPointToScreenPoint(bones[Head].position);
+			var neck = camera.WorldPointToScreenPoint(bones[Neck].position);
+			var radius = Vector3.Distance(head, neck);
+
+			var headColor = camera.IsTransformVisible(bones[Head].transform) ? color1 : color2;
+			Render.DrawCircle(new Vector2(head.x, head.y), radius, headColor, thickness, 8);
 		}
 	}
 }
