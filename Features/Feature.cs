@@ -1,12 +1,19 @@
 ﻿using System;
 using EFT.UI;
+using Newtonsoft.Json;
 using UnityEngine;
 
 #nullable enable
 
 namespace EFT.Trainer.Features
 {
-	internal abstract class Feature : MonoBehaviour
+	internal interface IFeature
+	{
+		[JsonIgnore]
+		public string Name { get; }
+	}
+
+	internal abstract class Feature : MonoBehaviour, IFeature
 	{
 		public abstract string Name { get; }
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
@@ -11,46 +12,66 @@ using UnityEngine.Rendering;
 
 namespace EFT.Trainer.Features
 {
+	public class PlayerColor : IFeature
+	{
+		public PlayerColor(Color color, Color borderColor, Color infoColor)
+		{
+			Color = color;
+			BorderColor = borderColor;
+			InfoColor = infoColor;
+		}
+
+		[ConfigurationProperty(Order = 1)]
+		public Color Color { get; set; }
+
+		[ConfigurationProperty(Order = 2)]
+		public Color BorderColor { get; set; }
+
+		[ConfigurationProperty(Order = 3)]
+		public Color InfoColor { get; set; }
+
+		public string Name => nameof(PlayerColor);
+	}
+
+	public class ShootableColor : IFeature
+	{
+		public ShootableColor(Color color, Color borderColor)
+		{
+			Color = color;
+			BorderColor = borderColor;
+		}
+
+		[ConfigurationProperty(Order = 1)]
+		public Color Color { get; set; }
+
+		[ConfigurationProperty(Order = 2)]
+		public Color BorderColor { get; set; }
+
+		public string Name => nameof(ShootableColor);
+	}
+
 	[UsedImplicitly]
 	internal class Players : ToggleFeature
 	{
 		public override string Name => "wallhack";
 
 		[ConfigurationProperty(Order = 10)]
-		public Color BearColor { get; set; } = Color.blue;
+		public PlayerColor BearColors { get; set; } = new(Color.blue, Color.red, Color.red);
 
 		[ConfigurationProperty(Order = 10)]
-		public Color BearBorderColor { get; set; } = Color.red;
+		public PlayerColor UsecColors { get; set; } = new(Color.green, Color.red, Color.red);
 
 		[ConfigurationProperty(Order = 10)]
-		public Color UsecColor { get; set; } = Color.green;
+		public PlayerColor ScavColors { get; set; } = new(Color.yellow, Color.red, Color.red);
 
 		[ConfigurationProperty(Order = 10)]
-		public Color UsecBorderColor { get; set; } = Color.red;
+		public PlayerColor BossColors { get; set; } = new(Color.red, Color.red, Color.red);
 
 		[ConfigurationProperty(Order = 10)]
-		public Color ScavColor { get; set; } = Color.yellow;
+		public PlayerColor CultistColors { get; set; } = new(Color.yellow, Color.red, Color.red);
 
 		[ConfigurationProperty(Order = 10)]
-		public Color ScavBorderColor { get; set; } = Color.red;
-		
-		[ConfigurationProperty(Order = 10)]
-		public Color BossColor { get; set; } = Color.red;
-
-		[ConfigurationProperty(Order = 10)]
-		public Color BossBorderColor { get; set; } = Color.red;
-
-		[ConfigurationProperty(Order = 10)]
-		public Color CultistColor { get; set; } = Color.yellow;
-
-		[ConfigurationProperty(Order = 10)]
-		public Color CultistBorderColor { get; set; } = Color.red;
-
-		[ConfigurationProperty(Order = 10)]
-		public Color ScavRaiderColor { get; set; } = Color.red;
-
-		[ConfigurationProperty(Order = 10)]
-		public Color ScavRaiderBorderColor { get; set; } = Color.red;
+		public PlayerColor ScavRaiderColors { get; set; } = new(Color.yellow, Color.red, Color.red);
 
 		[ConfigurationProperty(Order = 20)]
 		public bool ShowBoxes { get; set; } = true;
@@ -72,6 +93,15 @@ namespace EFT.Trainer.Features
 
 		[ConfigurationProperty(Order = 51)]
 		public float SkeletonThickness { get; set; } = 2;
+
+		[ConfigurationProperty(Order = 60)]
+		public bool ShowShootable { get; set; } = false;
+
+		[ConfigurationProperty(Order = 61)]
+		public ShootableColor ShootableColors { get; set; } = new(Color.green, Color.red);
+
+		[ConfigurationProperty(Order = 62)]
+		public ShootableColor NotShootableColors { get; set; } = new(Color.red, Color.blue);
 
 		[ConfigurationProperty(Order = 19)]
 		public float MaximumDistance { get; set; } = 0f;
@@ -113,10 +143,11 @@ namespace EFT.Trainer.Features
 				if (!ennemy.IsValid())
 					continue;
 
-				GetPlayerColors(ennemy, out var color, out var borderColor);
+				var playerColors = GetPlayerColors(ennemy);
+				var borderColor = playerColors.BorderColor;
 
 				if (ShowCharms)
-					SetShaders(ennemy, GameState.OutlineShader, color, borderColor, cache);
+					SetShaders(ennemy, GameState.OutlineShader, playerColors.Color, borderColor, cache);
 
 				var position = ennemy.Transform.position;
 				var screenPosition = camera.WorldPointToScreenPoint(position);
@@ -131,6 +162,18 @@ namespace EFT.Trainer.Features
 				if (playerBones == null)
 					continue;
 
+				var shootable = false;
+				if (ShowShootable)
+				{
+					var bonesToCheck = GetBonesToCheck(playerBones);
+					borderColor = NotShootableColors.BorderColor;
+					if (bonesToCheck.Any(bone => camera.IsTransformVisible(bone)))
+					{
+						borderColor = ShootableColors.BorderColor;
+						shootable = true;
+					}
+				}
+
 				var headScreenPosition = camera.WorldPointToScreenPoint(playerBones.Head.position);
 				var leftShoulderScreenPosition = camera.WorldPointToScreenPoint(playerBones.LeftShoulder.position);
 				var heightOffset = Mathf.Abs(headScreenPosition.y - leftShoulderScreenPosition.y);
@@ -140,10 +183,10 @@ namespace EFT.Trainer.Features
 
 				var boxPositionX = screenPosition.x - boxWidth / 2f;
 				var boxPositionY = headScreenPosition.y - heightOffset * 2f;
-
+				
 				if (ShowBoxes)
-					Render.DrawBox(boxPositionX, boxPositionY, boxWidth, boxHeight, BoxThickness, color);
-
+					Render.DrawBox(boxPositionX, boxPositionY, boxWidth, boxHeight, BoxThickness, borderColor);
+				
 				var ennemyHealthController = ennemy.HealthController;
 				var ennemyHandController = ennemy.HandsController;
 				if (ShowInfos && ennemyHealthController is {IsAlive: true})
@@ -155,23 +198,44 @@ namespace EFT.Trainer.Features
 					var weaponText = ennemyHandController != null && ennemyHandController.Item is Weapon weapon ? weapon.ShortName.Localized() : string.Empty;
 					var infoText = $"{weaponText} {Mathf.Round(currentPlayerHealth * 100 / maximumPlayerHealth)}% [{distance}m]".Trim();
 
-					Render.DrawString(new Vector2(boxPositionX, boxPositionY - 20f), infoText, color, false);
+					Render.DrawString(new Vector2(boxPositionX, boxPositionY - 20f), infoText, playerColors.InfoColor, false);
 				}
 
-				if (ShowSkeletons)
-					Bones.RenderBones(ennemy, SkeletonThickness, color, camera);
+				if (!ShowSkeletons) 
+					continue;
+
+				if (ShowShootable && shootable)
+					Bones.RenderBones(ennemy, SkeletonThickness, ShootableColors.Color, NotShootableColors.Color, camera);
+				else
+					Bones.RenderBones(ennemy, SkeletonThickness, playerColors.Color, camera);
 			}
 		}
 
-		private void GetPlayerColors(Player player, out Color color, out Color borderColor)
+		private static Transform[] GetBonesToCheck(PlayerBones playerBones)
+		{
+			return new []
+			{
+				playerBones.Head.Original.transform,
+				playerBones.Neck.transform,
+				playerBones.Shoulders[0].transform,
+				playerBones.Shoulders[1].transform,
+				playerBones.Spine1.transform,
+				playerBones.Upperarms[0].transform,
+				playerBones.Upperarms[1].transform,
+				playerBones.Forearms[0].transform,
+				playerBones.Forearms[1].transform,
+				playerBones.LeftThigh1.Original.transform,
+				playerBones.RightThigh1.Original.transform,
+				playerBones.LeftThigh2.Original.transform,
+				playerBones.RightThigh2.Original.transform
+			};
+		}
+
+		private PlayerColor GetPlayerColors(Player player)
 		{
 			var info = player.Profile?.Info;
 			if (info == null)
-			{
-				color = ScavColor;
-				borderColor = ScavBorderColor;
-				return;
-			}
+				return ScavColors;
 
 			var settings = info.Settings;
 			if (settings != null)
@@ -179,39 +243,22 @@ namespace EFT.Trainer.Features
 				switch(settings.Role)
 				{
 					case WildSpawnType.pmcBot:
-						color = ScavRaiderColor;
-						borderColor = ScavRaiderBorderColor;
-						return;
+						return ScavRaiderColors;
 					case WildSpawnType.sectantWarrior:
-						color = CultistColor;
-						borderColor = CultistBorderColor;
-						return;
+						return CultistColors;
 				}
 
 				if (settings.IsBoss())
-				{
-					color = BossColor;
-					borderColor = BossBorderColor;
-					return;
-				}
+					return BossColors;
 			}
 
 			// it can still be a bot in sptarkov but let's use the pmc color
-			switch (info.Side)
+			return info.Side switch
 			{
-				case EPlayerSide.Bear:
-					color = BearColor;
-					borderColor = BearBorderColor;
-					break;
-				case EPlayerSide.Usec:
-					color = UsecColor;
-					borderColor = UsecBorderColor;
-					break;
-				default:
-					color = ScavColor;
-					borderColor = ScavBorderColor;
-					break;
-			}
+				EPlayerSide.Bear => BearColors,
+				EPlayerSide.Usec => UsecColors,
+				_ => ScavColors
+			};
 		}
 
 		private void SetShaders(Player player, Shader? shader, Color color, Color borderColor, Dictionary<Renderer, Shader?> cache)
