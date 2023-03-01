@@ -168,7 +168,6 @@ namespace EFT.Trainer.Features
 			Render.DrawLine(enemyArrow, enemyForward, 2f, Color.white);
 			Render.DrawLine(enemyArrow2, enemyForward, 2f, Color.white);
 			Render.DrawCircle(enemyRadar, 10f, playerColor, 2f, 8);
-
 		}
 
 		private Vector2 FindRadarPoint(Vector3 playerPosition, Vector3 enemyPosition, float playerEulerY, float radarX, float radarY, float radarSize)
