@@ -22,10 +22,10 @@ namespace EFT.Trainer.Features
 		public float RadarRange { get; set; } = 100f;
 
 		[ConfigurationProperty(Order = 30)]
-		public Color RadarBackground { get; set; } = new Color(0f, 0f, 0f, 0.5f);
+		public Color RadarBackground { get; set; } = new(0f, 0f, 0f, 0.5f);
 
 		[ConfigurationProperty(Order = 30)]
-		public Color RadarCrosshair { get; set; } = new Color(1f, 1f, 1f, 0.5f);
+		public Color RadarCrosshair { get; set; } = new(1f, 1f, 1f, 0.5f);
 
 		[ConfigurationProperty(Order = 40)] 
 		public bool ShowPlayers { get; set; } = true;
@@ -42,12 +42,18 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty(Order = 80)]
 		public bool ShowCultists { get; set; } = true;
 
-		[UsedImplicitly]
-		protected void OnGUI()
+		private enum HostileType
 		{
-			if (!Enabled)
-				return;
+			Scav,
+			ScavRaider,
+			Boss,
+			Cultist,
+			Bear,
+			Usec,
+		}
 
+		protected override void OnGUIWhenEnabled()
+		{
 			if (RadarRange <= 0)
 				return;
 
@@ -75,8 +81,6 @@ namespace EFT.Trainer.Features
 			var radarX = Screen.width - radarSize;
 			var radarY = Screen.height - radarSize;
 
-
-
 			foreach (var enemy in hostiles)
 			{
 				if (!enemy.IsValid())
@@ -90,45 +94,33 @@ namespace EFT.Trainer.Features
 
 				var hostileType = GetHostileType(enemy);
 
-				if (hostileType == 0 && !ShowScavs)
-					continue;
-
-				if (hostileType == 1 && !ShowScavRaiders)
-					continue;
-
-				if (hostileType == 2 && !ShowCultists)
-					continue;
-
-				if (hostileType == 3 && !ShowBosses)
-					continue;
-
-				if ((hostileType == 4 || hostileType == 5) && !ShowPlayers)
-					continue;
-
-				var playerColor = hostileType switch
+				switch (hostileType)
 				{
-					0 => feature.ScavColors.Color,
-					1 => feature.ScavRaiderColors.Color,
-					2 => feature.CultistColors.Color,
-					3 => feature.BossColors.Color,
-					4 => feature.BearColors.Color,
-					5 => feature.UsecColors.Color,
-					_ => feature.ScavColors.Color,
-				};
-				
-				DrawRadarEnemy(player, enemy, radarSize, playerColor);
+					case HostileType.Scav when !ShowScavs:
+					case HostileType.ScavRaider when !ShowScavRaiders:
+					case HostileType.Cultist when !ShowCultists:
+					case HostileType.Boss when !ShowBosses:
+					case HostileType.Bear or HostileType.Usec when !ShowPlayers:
+						continue;
 
+					default:
+					{
+						var playerColor = feature.GetPlayerColors(enemy);
+						DrawRadarEnemy(player, enemy, radarSize, playerColor.Color);
+						break;
+					}
 				}
+			}
 
 			Render.DrawCrosshair(new Vector2(radarX + (radarSize / 2), radarY + (radarSize / 2)), radarSize / 2, RadarCrosshair, 2f);
 			Render.DrawBox(radarX, radarY, radarSize, radarSize, 2f, RadarBackground);
 		}
 
-		private int GetHostileType(Player player)
+		private HostileType GetHostileType(Player player)
 		{
 			var info = player.Profile?.Info;
 			if (info == null)
-				return 0;
+				return HostileType.Scav;
 
 			var settings = info.Settings;
 			if (settings != null)
@@ -136,20 +128,20 @@ namespace EFT.Trainer.Features
 				switch (settings.Role)
 				{
 					case WildSpawnType.pmcBot:
-						return 1;
+						return HostileType.ScavRaider;
 					case WildSpawnType.sectantWarrior:
-						return 2;
+						return HostileType.Cultist;
 				}
 
 				if (settings.IsBoss())
-					return 3;
+					return HostileType.Boss;
 			}
 
 			return info.Side switch
 			{
-				EPlayerSide.Bear => 4,
-				EPlayerSide.Usec => 5,
-				_ => 0
+				EPlayerSide.Bear => HostileType.Bear,
+				EPlayerSide.Usec => HostileType.Usec,
+				_ => HostileType.Scav
 			};
 		}
 
@@ -164,9 +156,13 @@ namespace EFT.Trainer.Features
 
 			var enemyRadar = FindRadarPoint(playerPosition, enemyPosition, playerEulerY, radarX, radarY, radarSize);
 
-			var enemyOffset = enemyPosition + enemy.LookDirection * 8f;
-			var enemyOffset2 = enemyPosition + (enemy.LookDirection * 4f) + (enemy.MovementContext.PlayerRealRight * 2f);
-			var enemyOffset3 = enemyPosition + (enemy.LookDirection * 4f) - (enemy.MovementContext.PlayerRealRight * 2f);
+			var enemyLookDirection = enemy.LookDirection;
+
+			var enemyOffset = enemyPosition + enemyLookDirection * 8f;
+			var playerRealRight = enemy.MovementContext.PlayerRealRight;
+
+			var enemyOffset2 = enemyPosition + enemyLookDirection * 4f + playerRealRight * 2f;
+			var enemyOffset3 = enemyPosition + enemyLookDirection * 4f - playerRealRight * 2f;
 
 			var enemyForward = FindRadarPoint(playerPosition, enemyOffset, playerEulerY, radarX, radarY, radarSize);
 			var enemyArrow = FindRadarPoint(playerPosition, enemyOffset2, playerEulerY, radarX, radarY, radarSize);
@@ -176,7 +172,6 @@ namespace EFT.Trainer.Features
 			Render.DrawLine(enemyArrow, enemyForward, 2f, Color.white);
 			Render.DrawLine(enemyArrow2, enemyForward, 2f, Color.white);
 			Render.DrawCircle(enemyRadar, 10f, playerColor, 2f, 8);
-
 		}
 
 		private Vector2 FindRadarPoint(Vector3 playerPosition, Vector3 enemyPosition, float playerEulerY, float radarX, float radarY, float radarSize)
