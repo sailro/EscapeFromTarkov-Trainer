@@ -157,8 +157,8 @@ namespace EFT.Trainer.Features
 			var enemyRadar = FindRadarPoint(playerPosition, enemyPosition, playerEulerY, radarX, radarY, radarSize);
 
 			var enemyOffset = enemyPosition + enemy.LookDirection * 8f;
-			var enemyOffset2 = enemyPosition + (enemy.LookDirection * 4f) + (enemy.MovementContext.PlayerRealRight * 2f);
-			var enemyOffset3 = enemyPosition + (enemy.LookDirection * 4f) - (enemy.MovementContext.PlayerRealRight * 2f);
+			var enemyOffset2 = enemyPosition + enemy.LookDirection * 4f + enemy.MovementContext.PlayerRealRight * 2f;
+			var enemyOffset3 = enemyPosition + enemy.LookDirection * 4f - enemy.MovementContext.PlayerRealRight * 2f;
 
 			var enemyForward = FindRadarPoint(playerPosition, enemyOffset, playerEulerY, radarX, radarY, radarSize);
 			var enemyArrow = FindRadarPoint(playerPosition, enemyOffset2, playerEulerY, radarX, radarY, radarSize);
