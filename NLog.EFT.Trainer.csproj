@@ -153,6 +153,7 @@
     <Compile Include="Features\PointOfInterest.cs" />
     <Compile Include="Features\PointOfInterests.cs" />
     <Compile Include="Features\Quests.cs" />
+    <Compile Include="Features\Radar.cs" />
     <Compile Include="Features\SceneDumper.cs" />
     <Compile Include="Features\ShaderCache.cs" />
     <Compile Include="Features\Speed.cs" />
