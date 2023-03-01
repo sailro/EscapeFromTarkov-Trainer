@@ -231,7 +231,7 @@ namespace EFT.Trainer.Features
 			};
 		}
 
-		private PlayerColor GetPlayerColors(Player player)
+		public PlayerColor GetPlayerColors(Player player)
 		{
 			var info = player.Profile?.Info;
 			if (info == null)
