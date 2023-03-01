@@ -54,15 +54,15 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 
 You can Load/Save all settings using the `console` or the `GUI`.
 
-![Wallhack](https://user-images.githubusercontent.com/638167/138436846-9736fc13-ff23-43a3-853a-7ba3050999ed.png)
-![Skeleton](https://user-images.githubusercontent.com/638167/138731215-d3ec58a6-38c5-49e4-9920-090c98fa79ef.png)
+![Wallhack](https://user-images.githubusercontent.com/638167/222186879-a88a267e-16ba-4532-85ec-8cb385737947.png)
+![Radar](https://user-images.githubusercontent.com/638167/222187152-79fa3abb-25e3-418f-bf2c-772c7193d3f1.png)
 ![Exfils](https://user-images.githubusercontent.com/638167/135586735-143ab160-ca20-4ec9-8ad4-9ce7bde58295.png)
 ![Loot](https://user-images.githubusercontent.com/638167/135587083-938a3d9b-2082-4231-9fa8-e7807ad4a3d1.png)
 ![Quests](https://user-images.githubusercontent.com/638167/121975175-d8d91c00-cd35-11eb-86cd-6b49360fe370.png)
 ![Stashes](https://user-images.githubusercontent.com/638167/135586933-4cf57740-aff2-47c8-9cec-94e2eb062dd0.png)
-![Track](https://user-images.githubusercontent.com/638167/135586489-c4214794-21c9-4493-9699-dcca6c3dd00e.png)
+![Track](https://user-images.githubusercontent.com/638167/222189119-f25413a7-511b-43cf-b6d8-a57320347034.png)
 ![NightVision](https://user-images.githubusercontent.com/638167/135586268-c175e999-a60d-40db-9960-06cdf5fe27d7.png)
-![Popup](https://user-images.githubusercontent.com/638167/149630873-bf921e51-fb02-4249-bc7e-ddf2e8877fa0.png)
+![Popup](https://user-images.githubusercontent.com/638167/222188079-3ddb81e2-fb4c-446d-8716-5f54a40ad01b.png)
 
 ## Easy and automatic installation
 
