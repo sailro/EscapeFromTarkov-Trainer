@@ -55,7 +55,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 You can Load/Save all settings using the `console` or the `GUI`.
 
 ![Wallhack](https://user-images.githubusercontent.com/638167/222186879-a88a267e-16ba-4532-85ec-8cb385737947.png)
-![Radar](https://user-images.githubusercontent.com/638167/222187152-79fa3abb-25e3-418f-bf2c-772c7193d3f1.png)
+![Radar](https://user-images.githubusercontent.com/638167/222524208-589dc7ff-f053-4b0c-902b-49fa8d1f7ddd.png)
 ![Exfils](https://user-images.githubusercontent.com/638167/135586735-143ab160-ca20-4ec9-8ad4-9ce7bde58295.png)
 ![Loot](https://user-images.githubusercontent.com/638167/135587083-938a3d9b-2082-4231-9fa8-e7807ad4a3d1.png)
 ![Quests](https://user-images.githubusercontent.com/638167/121975175-d8d91c00-cd35-11eb-86cd-6b49360fe370.png)
