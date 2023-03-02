@@ -96,8 +96,9 @@ namespace EFT.Trainer.Features
 
 				if (_radarCameraObject != null)
 				{
-					_radarCameraObject.transform.eulerAngles = new Vector3(90, cameraTransform.eulerAngles.y, cameraTransform.eulerAngles.z);
-					_radarCameraObject.transform.localPosition = new Vector3(cameraTransform.localPosition.x, RadarRange * Mathf.Tan(45), cameraTransform.localPosition.z);
+					var radarCameraTransform = _radarCameraObject.transform;
+					radarCameraTransform.eulerAngles = new Vector3(90, cameraTransform.eulerAngles.y, cameraTransform.eulerAngles.z);
+					radarCameraTransform.localPosition = new Vector3(cameraTransform.localPosition.x, RadarRange * Mathf.Tan(45), cameraTransform.localPosition.z);
 				}
 			}
 			else
@@ -130,7 +131,7 @@ namespace EFT.Trainer.Features
 					default:
 					{
 						var playerColor = feature.GetPlayerColors(enemy);
-						DrawRadarEnemy(player, enemy, radarSize, playerColor.Color);
+						DrawRadarEnemy(camera, enemy, radarSize, playerColor.Color);
 						break;
 					}
 				}
@@ -221,16 +222,16 @@ namespace EFT.Trainer.Features
 			};
 		}
 
-		private void DrawRadarEnemy(Player player, Player enemy, float radarSize, Color playerColor)
+		private void DrawRadarEnemy(Camera camera, Player enemy, float radarSize, Color playerColor)
 		{
 			var radarX = Screen.width - radarSize;
 			var radarY = Screen.height - radarSize;
 
-			var playerPosition = player.Transform.position;
+			var cameraPosition = camera.transform.position;
 			var enemyPosition = enemy.Transform.position;
-			var playerEulerY = player.Transform.eulerAngles.y;
+			var playerEulerY = camera.transform.eulerAngles.y;
 
-			var enemyRadar = FindRadarPoint(playerPosition, enemyPosition, playerEulerY, radarX, radarY, radarSize);
+			var enemyRadar = FindRadarPoint(cameraPosition, enemyPosition, playerEulerY, radarX, radarY, radarSize);
 
 			var enemyLookDirection = enemy.LookDirection;
 
@@ -240,9 +241,9 @@ namespace EFT.Trainer.Features
 			var enemyOffset2 = enemyPosition + enemyLookDirection * 4f + playerRealRight * 2f;
 			var enemyOffset3 = enemyPosition + enemyLookDirection * 4f - playerRealRight * 2f;
 
-			var enemyForward = FindRadarPoint(playerPosition, enemyOffset, playerEulerY, radarX, radarY, radarSize);
-			var enemyArrow = FindRadarPoint(playerPosition, enemyOffset2, playerEulerY, radarX, radarY, radarSize);
-			var enemyArrow2 = FindRadarPoint(playerPosition, enemyOffset3, playerEulerY, radarX, radarY, radarSize);
+			var enemyForward = FindRadarPoint(cameraPosition, enemyOffset, playerEulerY, radarX, radarY, radarSize);
+			var enemyArrow = FindRadarPoint(cameraPosition, enemyOffset2, playerEulerY, radarX, radarY, radarSize);
+			var enemyArrow2 = FindRadarPoint(cameraPosition, enemyOffset3, playerEulerY, radarX, radarY, radarSize);
 
 			Render.DrawLine(enemyRadar, enemyForward, 2f, Color.white);
 			Render.DrawLine(enemyArrow, enemyForward, 2f, Color.white);
