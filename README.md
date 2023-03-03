@@ -50,6 +50,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 | `Stamina`                 | `stamina`    | Unlimited stamina. |
 | `ThermalVision`           | `thermal`    | Thermal vision. |
 | `WallShoot`               | `wallshoot`  | Shoot through wall/helmet/vest/material with maximum penetration and minimal deviation/ricochet. |
+| `Weather`                 | `weather`    | Clear weather. |
 | `WorldInteractiveObjects` | `opener`     | Door/Keycard reader/Car unlocker. |
 
 You can Load/Save all settings using the `console` or the `GUI`.

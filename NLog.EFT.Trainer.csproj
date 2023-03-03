@@ -165,6 +165,7 @@
     <Compile Include="Features\TriggerFeature.cs" />
     <Compile Include="Features\WallShoot.cs" />
     <Compile Include="Features\Skills.cs" />
+    <Compile Include="Features\Weather.cs" />
     <Compile Include="Features\WorldInteractiveObjects.cs" />
     <Compile Include="Model\ShotWrapper.cs" />
     <Compile Include="Model\ReflectionWrapper.cs" />

@@ -1,6 +1,8 @@
-﻿using EFT.Trainer.Configuration;
+﻿using System;
+using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
+using EFT.Weather;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -42,6 +44,9 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty(Order = 80)]
 		public bool ShowCultists { get; set; } = true;
 
+		[ConfigurationProperty(Order = 90)]
+		public bool ShowMap { get; set; } = false;
+
 		private enum HostileType
 		{
 			Scav,
@@ -51,6 +56,9 @@ namespace EFT.Trainer.Features
 			Bear,
 			Usec,
 		}
+
+		private GameObject? _radarCameraObject = null;
+		private Camera? _radarCamera = null;
 
 		protected override void OnGUIWhenEnabled()
 		{
@@ -81,6 +89,24 @@ namespace EFT.Trainer.Features
 			var radarX = Screen.width - radarSize;
 			var radarY = Screen.height - radarSize;
 
+			var cameraTransform = camera.transform;
+
+			if (ShowMap)
+			{
+				SetupCamera(camera, radarX, radarY, radarSize);
+
+				if (_radarCameraObject != null)
+				{
+					var radarCameraTransform = _radarCameraObject.transform;
+					radarCameraTransform.eulerAngles = new Vector3(90, cameraTransform.eulerAngles.y, cameraTransform.eulerAngles.z);
+					radarCameraTransform.localPosition = new Vector3(cameraTransform.localPosition.x, RadarRange * Mathf.Tan(45), cameraTransform.localPosition.z);
+				}
+			}
+			else
+			{
+				ToggleRadarCameraIfNeeded(false);
+			}
+
 			foreach (var enemy in hostiles)
 			{
 				if (!enemy.IsValid())
@@ -88,7 +114,7 @@ namespace EFT.Trainer.Features
 
 				var position = enemy.Transform.position;
 
-				var distance = Mathf.Round(Vector3.Distance(camera.transform.position, position));
+				var distance = Mathf.Round(Vector3.Distance(cameraTransform.position, position));
 				if (RadarRange > 0 && distance > RadarRange)
 					continue;
 
@@ -106,17 +132,57 @@ namespace EFT.Trainer.Features
 					default:
 					{
 						var playerColor = feature.GetPlayerColors(enemy);
-						DrawRadarEnemy(player, enemy, radarSize, playerColor.Color);
+						DrawRadarEnemy(camera, enemy, radarSize, playerColor.Color);
 						break;
 					}
 				}
 			}
 
-			Render.DrawCrosshair(new Vector2(radarX + (radarSize / 2), radarY + (radarSize / 2)), radarSize / 2, RadarCrosshair, 2f);
+			Render.DrawCrosshair(new Vector2(radarX + radarSize / 2, radarY + radarSize / 2), radarSize / 2, RadarCrosshair, 2f);
 			Render.DrawBox(radarX, radarY, radarSize, radarSize, 2f, RadarBackground);
 		}
 
-		private HostileType GetHostileType(Player player)
+		protected override void UpdateWhenDisabled()
+		{
+			ToggleRadarCameraIfNeeded(false);
+		}
+
+		private void ToggleRadarCameraIfNeeded(bool state)
+		{
+			if (_radarCamera == null)
+				return;
+
+			if (_radarCamera.enabled == state)
+				return;
+
+			_radarCamera.enabled = state;
+		}
+
+		private void SetupCamera(Camera camera, float radarX, float radarY, float radarSize)
+		{
+			if (_radarCameraObject != null)
+			{
+				ToggleRadarCameraIfNeeded(true);
+				return;
+			}
+
+			// We need to setup weather for proper rendering
+			Weather.ToClearWeather();
+
+			_radarCameraObject = new GameObject(nameof(_radarCameraObject), typeof(Camera), typeof(PrismEffects));
+			_radarCameraObject.GetComponent<PrismEffects>().CopyComponentValues(camera.GetComponent<PrismEffects>());
+			_radarCamera = _radarCameraObject.GetComponent<Camera>();
+			_radarCamera.name = nameof(_radarCamera);
+			_radarCamera.pixelRect = new Rect(radarX, Screen.currentResolution.height - radarY - radarSize, radarSize, radarSize);
+			_radarCamera.allowHDR = false;
+			_radarCamera.depth = -1;
+
+			// Prevent NullReferenceException in PrismEffects 
+			GameWorld.OnDispose -= UpdateWhenDisabled;
+			GameWorld.OnDispose += UpdateWhenDisabled;
+		}
+
+		private static HostileType GetHostileType(Player player)
 		{
 			var info = player.Profile?.Info;
 			if (info == null)
@@ -145,16 +211,18 @@ namespace EFT.Trainer.Features
 			};
 		}
 
-		private void DrawRadarEnemy(Player player, Player enemy, float radarSize, Color playerColor)
+		private void DrawRadarEnemy(Camera camera, Player enemy, float radarSize, Color playerColor)
 		{
 			var radarX = Screen.width - radarSize;
 			var radarY = Screen.height - radarSize;
 
-			var playerPosition = player.Transform.position;
-			var enemyPosition = enemy.Transform.position;
-			var playerEulerY = player.Transform.eulerAngles.y;
+			var cameraTransform = camera.transform;
+			var cameraPosition = cameraTransform.position;
 
-			var enemyRadar = FindRadarPoint(playerPosition, enemyPosition, playerEulerY, radarX, radarY, radarSize);
+			var enemyPosition = enemy.Transform.position;
+			var cameraEulerY = cameraTransform.eulerAngles.y;
+
+			var enemyRadar = FindRadarPoint(cameraPosition, enemyPosition, cameraEulerY, radarX, radarY, radarSize);
 
 			var enemyLookDirection = enemy.LookDirection;
 
@@ -164,9 +232,9 @@ namespace EFT.Trainer.Features
 			var enemyOffset2 = enemyPosition + enemyLookDirection * 4f + playerRealRight * 2f;
 			var enemyOffset3 = enemyPosition + enemyLookDirection * 4f - playerRealRight * 2f;
 
-			var enemyForward = FindRadarPoint(playerPosition, enemyOffset, playerEulerY, radarX, radarY, radarSize);
-			var enemyArrow = FindRadarPoint(playerPosition, enemyOffset2, playerEulerY, radarX, radarY, radarSize);
-			var enemyArrow2 = FindRadarPoint(playerPosition, enemyOffset3, playerEulerY, radarX, radarY, radarSize);
+			var enemyForward = FindRadarPoint(cameraPosition, enemyOffset, cameraEulerY, radarX, radarY, radarSize);
+			var enemyArrow = FindRadarPoint(cameraPosition, enemyOffset2, cameraEulerY, radarX, radarY, radarSize);
+			var enemyArrow2 = FindRadarPoint(cameraPosition, enemyOffset3, cameraEulerY, radarX, radarY, radarSize);
 
 			Render.DrawLine(enemyRadar, enemyForward, 2f, Color.white);
 			Render.DrawLine(enemyArrow, enemyForward, 2f, Color.white);
