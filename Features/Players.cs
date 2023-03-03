@@ -137,6 +137,20 @@ namespace EFT.Trainer.Features
 
 				return;
 			}
+			var handsController = player.HandsController;
+			if (handsController == null)
+				return;
+
+			var weaponAnimation = player.ProceduralWeaponAnimation;
+			if (weaponAnimation == null)
+				return;
+
+			var aimingMod = weaponAnimation.CurrentAimingMod;
+			if (aimingMod == null)
+				return;
+
+			var zoom = aimingMod.GetCurrentOpticZoom();
+			var isAiming = handsController.IsAiming;
 
 			foreach (var ennemy in hostiles)
 			{
@@ -176,6 +190,14 @@ namespace EFT.Trainer.Features
 
 				var headScreenPosition = camera.WorldPointToScreenPoint(playerBones.Head.position);
 				var leftShoulderScreenPosition = camera.WorldPointToScreenPoint(playerBones.LeftShoulder.position);
+
+				if (isAiming && zoom > 1)
+				{
+					headScreenPosition = camera.ScopePointToScreenPoint(playerBones.Head.position);
+					leftShoulderScreenPosition = camera.ScopePointToScreenPoint(playerBones.LeftShoulder.position);
+					screenPosition = camera.ScopePointToScreenPoint(position);
+				}
+
 				var heightOffset = Mathf.Abs(headScreenPosition.y - leftShoulderScreenPosition.y);
 
 				var boxHeight = Mathf.Abs(headScreenPosition.y - screenPosition.y) + heightOffset * 3f;
@@ -205,9 +227,9 @@ namespace EFT.Trainer.Features
 					continue;
 
 				if (ShowShootable && shootable)
-					Bones.RenderBones(ennemy, SkeletonThickness, ShootableColors.Color, NotShootableColors.Color, camera);
+					Bones.RenderBones(ennemy, SkeletonThickness, ShootableColors.Color, NotShootableColors.Color, camera, isAiming);
 				else
-					Bones.RenderBones(ennemy, SkeletonThickness, playerColors.Color, camera);
+					Bones.RenderBones(ennemy, SkeletonThickness, playerColors.Color, camera, isAiming);
 			}
 		}
 
