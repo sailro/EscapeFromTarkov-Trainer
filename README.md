@@ -49,6 +49,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 | `Speed`                   | `speed`      | Speed boost to be able to go through walls/objects, or to move faster. Be careful to not kill yourself. |
 | `Stamina`                 | `stamina`    | Unlimited stamina. |
 | `ThermalVision`           | `thermal`    | Thermal vision. |
+| `Train`                   | `train`      | Summon train on compatible maps like Reserve or Lighthouse. |
 | `WallShoot`               | `wallshoot`  | Shoot through wall/helmet/vest/material with maximum penetration and minimal deviation/ricochet. |
 | `Weather`                 | `weather`    | Clear weather. |
 | `WorldInteractiveObjects` | `opener`     | Door/Keycard reader/Car unlocker. |
