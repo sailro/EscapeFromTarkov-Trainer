@@ -1,4 +1,5 @@
-﻿using EFT.Trainer.Configuration;
+﻿using System;
+using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
 using EFT.Weather;
@@ -166,23 +167,7 @@ namespace EFT.Trainer.Features
 			}
 
 			// We need to setup weather for proper rendering
-			var weatherController = WeatherController.Instance;
-			if (weatherController == null)
-				return;
-
-			var weatherDebug = weatherController.WeatherDebug;
-			weatherDebug.Enabled = true;
-			weatherDebug.CloudDensity = -0.7f;
-			weatherDebug.Fog = 0.004f;
-			weatherDebug.LightningThunderProbability = 0f;
-			weatherDebug.Rain = 0f;
-
-			var sky = TOD_Sky.Instance;
-			if (sky == null)
-				return;
-
-			sky.Components.Time.GameDateTime = null;
-			sky.Cycle.Hour = 12f;
+			Weather.ToClearWeather();
 
 			_radarCameraObject = new GameObject(nameof(_radarCameraObject), typeof(Camera), typeof(PrismEffects));
 			_radarCameraObject.GetComponent<PrismEffects>().CopyComponentValues(camera.GetComponent<PrismEffects>());
@@ -191,6 +176,10 @@ namespace EFT.Trainer.Features
 			_radarCamera.pixelRect = new Rect(radarX, Screen.currentResolution.height - radarY - radarSize, radarSize, radarSize);
 			_radarCamera.allowHDR = false;
 			_radarCamera.depth = -1;
+
+			// Prevent NullReferenceException in PrismEffects 
+			GameWorld.OnDispose -= UpdateWhenDisabled;
+			GameWorld.OnDispose += UpdateWhenDisabled;
 		}
 
 		private static HostileType GetHostileType(Player player)
