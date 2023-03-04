@@ -78,14 +78,6 @@ namespace EFT.Trainer.Features
 			new [] {RPalm, RDigit11}, new [] {RDigit41, RDigit42}, new [] {RDigit42, RDigit43}, new [] {RPalm, RDigit11}, new [] {RDigit51, RDigit52}, new [] {RDigit52, RDigit53}
 		};
 
-		public static readonly List<string[]> HitConnections = new()
-		{
-			new [] {Pelvis, LThigh1}, new [] {LThigh1, LThigh2}, new [] {LThigh2, LCalf}, new [] {LCalf, LFoot}, new [] {LFoot, LToe}, new [] {Pelvis, RThigh1}, new [] {RThigh1, RThigh2}, new [] {RThigh2, RCalf},
-			new [] {RCalf, RFoot}, new [] {RFoot, RToe}, new [] {Pelvis, Spine1}, new [] {Spine1, Spine2}, new [] {Spine2, Spine3}, new [] {Spine3, Neck}, new [] {Neck, Head}, new [] {Spine3, LCollarbone},
-			new [] {LCollarbone, LForearm1}, new [] {LForearm1, LForearm2}, new [] {LForearm2, LForearm3}, new [] {LForearm3, LPalm}, new [] {RCollarbone, RForearm1}, new [] {RForearm1, RForearm2},
-			new [] {RForearm2, RForearm3}, new [] {RForearm3, RPalm}
-		};
-
 		public static readonly List<string[]> FingerConnections = new()
 		{
 			new [] {LPalm, LDigit11}, new [] {LDigit11, LDigit12}, new [] {LDigit12, LDigit13}, new [] {LPalm, LDigit21}, new [] {LDigit21, LDigit22}, new [] {LDigit22, LDigit23}, new [] {LPalm, LDigit31},
@@ -102,14 +94,12 @@ namespace EFT.Trainer.Features
 
 		public static void RenderBone(Vector3 fromPosition, Vector3 toPosition, float thickness, Color color, Camera camera, bool isAiming)
 		{
-			var	fromScreenPosition = camera.WorldPointToScreenPoint(fromPosition);
-			var	toScreenPosition = camera.WorldPointToScreenPoint(toPosition);
-			
-			if (isAiming)
-			{
-				fromScreenPosition = Players.ScopePointToScreenPoint(camera, fromPosition);
-				toScreenPosition = Players.ScopePointToScreenPoint(camera, toPosition);
-			}
+			var fromScreenPosition = isAiming
+				? Players.ScopePointToScreenPoint(camera, fromPosition)
+				: camera.WorldPointToScreenPoint(fromPosition);
+			var toScreenPosition = isAiming
+				? Players.ScopePointToScreenPoint(camera, toPosition)
+				: camera.WorldPointToScreenPoint(toPosition);
 
 			Render.DrawLine(new Vector2(fromScreenPosition.x, fromScreenPosition.y), new Vector2(toScreenPosition.x, toScreenPosition.y), thickness, color);
 		}
@@ -127,48 +117,68 @@ namespace EFT.Trainer.Features
 			foreach (var connection in Connections)
 				RenderBone(bones, connection[0], connection[1], thickness, color, camera, isAiming);
 
-			var head = camera.WorldPointToScreenPoint(bones[Head].position);
-			var neck = camera.WorldPointToScreenPoint(bones[Neck].position);
-			if (isAiming)
-			{
-				head = Players.ScopePointToScreenPoint(camera, bones[Head].position);
-				neck = Players.ScopePointToScreenPoint(camera, bones[Neck].position);
-			}
+			var head = isAiming
+				? Players.ScopePointToScreenPoint(camera, bones[Head].position)
+				: camera.WorldPointToScreenPoint(bones[Head].position);
+			var neck = isAiming
+				? Players.ScopePointToScreenPoint(camera, bones[Neck].position)
+				: camera.WorldPointToScreenPoint(bones[Neck].position);
+
 			var radius = Vector3.Distance(head, neck);
 
 			Render.DrawCircle(new Vector2(head.x, head.y), radius, color, thickness, 8);
 		}
 
-		public static void RenderBones(Player player, float thickness, Color color1, Color color2, Camera camera, bool isAiming)
+	public static void RenderBones(Player player, string[] connections, float thickness, Color color, Camera camera, bool isAiming)
+	{
+		var skeleton = player.PlayerBody.SkeletonRootJoint;
+		if (skeleton == null)
+			return;
+
+		var bones = skeleton.Bones;
+		if (bones == null)
+			return;
+
+		for (int i = 0; i < connections.Length; i += 2)
 		{
-			var skeleton = player.PlayerBody.SkeletonRootJoint;
-			if (skeleton == null)
-				return;
-
-			var bones = skeleton.Bones;
-			if (bones == null)
-				return;
-
-			foreach (var connection in HitConnections)
-			{
-				var hitColor = camera.IsTransformVisible(bones[connection[0]].transform) || camera.IsTransformVisible(bones[connection[1]].transform) ? color1 : color2;
-				RenderBone(bones, connection[0], connection[1], thickness, hitColor, camera, isAiming);
-			}
-
-			foreach (var connection in FingerConnections)
-				RenderBone(bones, connection[0], connection[1], thickness, color2, camera, isAiming);
-
-			var	head = camera.WorldPointToScreenPoint(bones[Head].position);
-			var	neck = camera.WorldPointToScreenPoint(bones[Neck].position);
-			if (isAiming)
-			{
-				head = Players.ScopePointToScreenPoint(camera, bones[Head].position);
-				neck = Players.ScopePointToScreenPoint(camera, bones[Neck].position);
-			}
-			var radius = Vector3.Distance(head, neck);
-
-			var headColor = camera.IsTransformVisible(bones[Head].transform) ? color1 : color2;
-			Render.DrawCircle(new Vector2(head.x, head.y), radius, headColor, thickness, 8);
+			RenderBone(bones, connections[i], connections[i + 1], thickness, color, camera, isAiming);
 		}
 	}
+
+	public static void RenderHead(Player player, float thickness, Color color, Camera camera, bool isAiming)
+	{
+		var skeleton = player.PlayerBody.SkeletonRootJoint;
+		if (skeleton == null)
+			return;
+
+		var bones = skeleton.Bones;
+		if (bones == null)
+			return;
+
+		var head = isAiming
+			? Players.ScopePointToScreenPoint(camera, bones[Head].position)
+			: camera.WorldPointToScreenPoint(bones[Head].position);
+		var neck = isAiming
+			? Players.ScopePointToScreenPoint(camera, bones[Neck].position)
+			: camera.WorldPointToScreenPoint(bones[Neck].position);
+
+		var radius = Vector3.Distance(head, neck);
+
+		Render.DrawCircle(new Vector2(head.x, head.y), radius, color, thickness, 8);
+	}
+
+	public static void RenderFingers(Player player, float thickness, Color color, Camera camera, bool isAiming)
+	{
+		var skeleton = player.PlayerBody.SkeletonRootJoint;
+		if (skeleton == null)
+			return;
+
+		var bones = skeleton.Bones;
+		if (bones == null)
+			return;
+
+		foreach (var connection in FingerConnections)
+			RenderBone(bones, connection[0], connection[1], thickness, color, camera, isAiming);
+	}
+}
 }

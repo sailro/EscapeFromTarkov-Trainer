@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using EFT.CameraControl;
 using EFT.InventoryLogic;
@@ -184,7 +185,7 @@ namespace EFT.Trainer.Features
 					SetShaders(ennemy, GameState.OutlineShader, playerColors.Color, borderColor, cache);
 
 				var position = ennemy.Transform.position;
-				var screenPosition = camera.WorldPointToScreenPoint(position);
+				var screenPosition = isAiming ? ScopePointToScreenPoint(camera, position) : camera.WorldPointToScreenPoint(position);
 				if (!camera.IsScreenPointVisible(screenPosition))
 					continue;
 
@@ -196,27 +197,37 @@ namespace EFT.Trainer.Features
 				if (playerBones == null)
 					continue;
 
-				var shootable = false;
 				if (ShowShootable)
 				{
 					var bonesToCheck = GetBonesToCheck(playerBones);
-					borderColor = NotShootableColors.BorderColor;
-					if (bonesToCheck.Any(bone => camera.IsTransformVisible(bone)))
+					borderColor = bonesToCheck.Any(bone => IsTransformVisibleCached(bone.transform, camera.IsTransformVisible))
+						? ShootableColors.BorderColor
+						: NotShootableColors.BorderColor;
+
+					if (ShowSkeletons)
 					{
-						borderColor = ShootableColors.BorderColor;
-						shootable = true;
+						foreach (var bone in bonesToCheck)
+						{
+							var bonesColor = IsTransformVisibleCached(bone.transform, camera.IsTransformVisible) ? ShootableColors.Color : NotShootableColors.Color;
+							Bones.RenderBones(ennemy, bone.bones, SkeletonThickness, bonesColor, camera, isAiming);
+						}
+
+						var color = IsTransformVisibleCached(bonesToCheck[0].transform, camera.IsTransformVisible) ? ShootableColors.Color : NotShootableColors.Color;
+						Bones.RenderHead(ennemy, SkeletonThickness, color, camera, isAiming);
+						Bones.RenderFingers(ennemy, SkeletonThickness, color, camera, isAiming);
 					}
-				}
 
-				var headScreenPosition = camera.WorldPointToScreenPoint(playerBones.Head.position);
-				var leftShoulderScreenPosition = camera.WorldPointToScreenPoint(playerBones.LeftShoulder.position);
-
-				if (isAiming)
-				{
-					headScreenPosition = ScopePointToScreenPoint(camera, playerBones.Head.position);
-					leftShoulderScreenPosition = ScopePointToScreenPoint(camera, playerBones.LeftShoulder.position);
-					screenPosition = ScopePointToScreenPoint(camera, position);
+					ClearTransformCache();
 				}
+				else if (ShowSkeletons)
+					Bones.RenderBones(ennemy, SkeletonThickness, playerColors.Color, camera, isAiming);
+
+				var headScreenPosition = isAiming
+					? Players.ScopePointToScreenPoint(camera, playerBones.Head.position)
+					: camera.WorldPointToScreenPoint(playerBones.Head.position);
+				var leftShoulderScreenPosition = isAiming
+					? Players.ScopePointToScreenPoint(camera, playerBones.LeftShoulder.position)
+					: camera.WorldPointToScreenPoint(playerBones.LeftShoulder.position);
 
 				var heightOffset = Mathf.Abs(headScreenPosition.y - leftShoulderScreenPosition.y);
 
@@ -242,35 +253,44 @@ namespace EFT.Trainer.Features
 
 					Render.DrawString(new Vector2(boxPositionX, boxPositionY - 20f), infoText, playerColors.InfoColor, false);
 				}
-
-				if (!ShowSkeletons) 
-					continue;
-
-				if (ShowShootable && shootable)
-					Bones.RenderBones(ennemy, SkeletonThickness, ShootableColors.Color, NotShootableColors.Color, camera, isAiming);
-				else
-					Bones.RenderBones(ennemy, SkeletonThickness, playerColors.Color, camera, isAiming);
 			}
 		}
 
-		private static Transform[] GetBonesToCheck(PlayerBones playerBones)
+		private static (Transform transform, string[] bones)[] GetBonesToCheck(PlayerBones playerBones)
 		{
 			return new []
 			{
-				playerBones.Head.Original.transform,
-				playerBones.Neck.transform,
-				playerBones.Shoulders[0].transform,
-				playerBones.Shoulders[1].transform,
-				playerBones.Spine1.transform,
-				playerBones.Upperarms[0].transform,
-				playerBones.Upperarms[1].transform,
-				playerBones.Forearms[0].transform,
-				playerBones.Forearms[1].transform,
-				playerBones.LeftThigh1.Original.transform,
-				playerBones.RightThigh1.Original.transform,
-				playerBones.LeftThigh2.Original.transform,
-				playerBones.RightThigh2.Original.transform
+				(playerBones.Head.Original.transform, new [] {Bones.Neck, Bones.Head}),
+				(playerBones.Neck.transform, new [] {Bones.RCollarbone, Bones.Spine3, Bones.LCollarbone, Bones.Spine3, Bones.Spine3, Bones.Neck}),
+				(playerBones.Spine1.transform, new [] {Bones.Pelvis, Bones.Spine1, Bones.Spine1, Bones.Spine2, Bones.Spine2, Bones.Spine3}),
+				(playerBones.Upperarms[0].transform, new [] {Bones.LCollarbone, Bones.LForearm1, Bones.LForearm1, Bones.LForearm2}),
+				(playerBones.Upperarms[1].transform, new [] {Bones.RCollarbone, Bones.RForearm1, Bones.RForearm1, Bones.RForearm2}),
+				(playerBones.Forearms[0].transform, new [] {Bones.LForearm2, Bones.LForearm3, Bones.LForearm3, Bones.LPalm}),
+				(playerBones.Forearms[1].transform, new [] {Bones.RForearm2, Bones.RForearm3, Bones.RForearm3, Bones.RPalm}),
+				(playerBones.LeftThigh1.Original.transform, new [] {Bones.Pelvis, Bones.LThigh1, Bones.LThigh1, Bones.LThigh2}),
+				(playerBones.RightThigh1.Original.transform, new [] {Bones.Pelvis, Bones.RThigh1, Bones.RThigh1, Bones.RThigh2}),
+				(playerBones.LeftThigh2.Original.transform, new [] {Bones.LThigh2, Bones.LCalf, Bones.LCalf, Bones.LFoot, Bones.LFoot, Bones.LToe}),
+				(playerBones.RightThigh2.Original.transform, new [] {Bones.RThigh2, Bones.RCalf, Bones.RCalf, Bones.RFoot, Bones.RFoot, Bones.RToe})
 			};
+		}
+
+		private readonly Dictionary<Transform, bool> _cache = new Dictionary<Transform, bool>();
+
+		private bool IsTransformVisibleCached(Transform transform, Func<Transform, bool> isVisibleFunc)
+		{
+			if (_cache.TryGetValue(transform, out bool isVisible))
+			{
+				return isVisible;
+			}
+
+			isVisible = isVisibleFunc(transform);
+			_cache[transform] = isVisible;
+			return isVisible;
+		}
+
+		private void ClearTransformCache()
+		{
+			_cache.Clear();
 		}
 
 		public PlayerColor GetPlayerColors(Player player)
