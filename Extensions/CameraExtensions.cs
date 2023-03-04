@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using EFT.CameraControl;
-using EFT.Trainer.Features;
 
 #nullable enable
 
