@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using EFT.CameraControl;
 using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
@@ -106,8 +107,13 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty(Order = 19)]
 		public float MaximumDistance { get; set; } = 0f;
 
+		[ConfigurationProperty(Order = 63)]
+		public bool OnlyShowInScope { get; set; } = true;
+
 		private static bool _lastXRayVision = true;
 		private static bool _lastShowCharms = true;
+
+		private static Camera? _opticCamera;
 
 		[UsedImplicitly]
 		protected void OnGUI()
@@ -152,6 +158,20 @@ namespace EFT.Trainer.Features
 			var zoom = aimingMod.GetCurrentOpticZoom();
 			var isAiming = handsController.IsAiming;
 
+			if (isAiming && zoom <= 1)
+				isAiming = false;
+
+			if (_opticCamera == null)
+			{
+				foreach (var opticCamera in Camera.allCameras)
+				{
+					if (opticCamera.name == "BaseOpticCamera(Clone)")
+					{
+						_opticCamera = opticCamera;
+					}
+				}
+			}
+			
 			foreach (var ennemy in hostiles)
 			{
 				if (!ennemy.IsValid())
@@ -191,11 +211,11 @@ namespace EFT.Trainer.Features
 				var headScreenPosition = camera.WorldPointToScreenPoint(playerBones.Head.position);
 				var leftShoulderScreenPosition = camera.WorldPointToScreenPoint(playerBones.LeftShoulder.position);
 
-				if (isAiming && zoom > 1)
+				if (isAiming)
 				{
-					headScreenPosition = camera.ScopePointToScreenPoint(playerBones.Head.position);
-					leftShoulderScreenPosition = camera.ScopePointToScreenPoint(playerBones.LeftShoulder.position);
-					screenPosition = camera.ScopePointToScreenPoint(position);
+					headScreenPosition = ScopePointToScreenPoint(camera, playerBones.Head.position);
+					leftShoulderScreenPosition = ScopePointToScreenPoint(camera, playerBones.LeftShoulder.position);
+					screenPosition = ScopePointToScreenPoint(camera, position);
 				}
 
 				var heightOffset = Mathf.Abs(headScreenPosition.y - leftShoulderScreenPosition.y);
@@ -340,6 +360,55 @@ namespace EFT.Trainer.Features
 
 			if (hits == 0 && cache.Count > 0)
 				cache.Clear();
+		}
+
+		public static Vector3 ScopePointToScreenPoint(Camera camera, Vector3 worldPoint, bool OnlyShowInScope = false)
+		{
+			var screenPoint = camera.WorldPointToScreenPoint(worldPoint);
+
+			var player = GameState.Current?.LocalPlayer;
+			if (player == null)
+				return screenPoint;
+
+			var currentOptic = player.ProceduralWeaponAnimation.HandsContainer.Weapon.GetComponentInChildren<OpticSight>();
+			if (currentOptic == null)
+				return screenPoint;
+
+			if (_opticCamera == null)
+				return screenPoint;
+
+
+			var scopePoint = _opticCamera.WorldPointToScreenPoint(worldPoint);
+
+
+			scopePoint.x += camera.pixelWidth / 2 - _opticCamera.pixelWidth / 2;
+			scopePoint.y += camera.pixelHeight / 2 - _opticCamera.pixelHeight / 2;
+
+			if (!OnlyShowInScope)
+				return scopePoint;
+
+			if (!CheckScopeProjection(camera, scopePoint, currentOptic))
+				return Vector3.zero;
+
+			return scopePoint;
+		}
+
+		private static bool CheckScopeProjection(Camera camera, Vector2 target, OpticSight currentOptic)
+		{
+			var lensMesh = currentOptic.LensRenderer.GetComponent<MeshFilter>().mesh;
+			if (lensMesh == null)
+				return false;
+		
+			var lensUpperRight = currentOptic.LensRenderer.transform.TransformPoint(lensMesh.bounds.max);
+			var lensUpperLeft = currentOptic.LensRenderer.transform.TransformPoint(new Vector3(lensMesh.bounds.min.x, 0, lensMesh.bounds.max.z));
+		
+			var lensUpperRight_3D = camera.WorldPointToScreenPoint(lensUpperRight);
+			var lensUpperLeft_3D = camera.WorldPointToScreenPoint(lensUpperLeft);
+			var scopeRadius = Vector3.Distance(lensUpperRight_3D, lensUpperLeft_3D) / 2;
+			var scopePos = camera.WorldPointToScreenPoint(currentOptic.LensRenderer.transform.position);
+		
+			var distance = Vector2.Distance(new Vector2(scopePos.x, scopePos.y), target);
+			return distance <= scopeRadius;
 		}
 	}
 }

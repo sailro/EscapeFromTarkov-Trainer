@@ -107,8 +107,8 @@ namespace EFT.Trainer.Features
 			
 			if (isAiming)
 			{
-				fromScreenPosition = camera.ScopePointToScreenPoint(fromPosition);
-				toScreenPosition = camera.ScopePointToScreenPoint(toPosition);
+				fromScreenPosition = Players.ScopePointToScreenPoint(camera, fromPosition);
+				toScreenPosition = Players.ScopePointToScreenPoint(camera, toPosition);
 			}
 
 			Render.DrawLine(new Vector2(fromScreenPosition.x, fromScreenPosition.y), new Vector2(toScreenPosition.x, toScreenPosition.y), thickness, color);
@@ -131,8 +131,8 @@ namespace EFT.Trainer.Features
 			var neck = camera.WorldPointToScreenPoint(bones[Neck].position);
 			if (isAiming)
 			{
-				head = camera.ScopePointToScreenPoint(bones[Head].position);
-				neck = camera.ScopePointToScreenPoint(bones[Neck].position);
+				head = Players.ScopePointToScreenPoint(camera, bones[Head].position);
+				neck = Players.ScopePointToScreenPoint(camera, bones[Neck].position);
 			}
 			var radius = Vector3.Distance(head, neck);
 
@@ -162,8 +162,8 @@ namespace EFT.Trainer.Features
 			var	neck = camera.WorldPointToScreenPoint(bones[Neck].position);
 			if (isAiming)
 			{
-				head = camera.ScopePointToScreenPoint(bones[Head].position);
-				neck = camera.ScopePointToScreenPoint(bones[Neck].position);
+				head = Players.ScopePointToScreenPoint(camera, bones[Head].position);
+				neck = Players.ScopePointToScreenPoint(camera, bones[Neck].position);
 			}
 			var radius = Vector3.Distance(head, neck);
 
