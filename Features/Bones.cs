@@ -94,12 +94,9 @@ namespace EFT.Trainer.Features
 
 		public static void RenderBone(Vector3 fromPosition, Vector3 toPosition, float thickness, Color color, Camera camera, bool isAiming)
 		{
-			var fromScreenPosition = isAiming
-				? Players.ScopePointToScreenPoint(camera, fromPosition)
-				: camera.WorldPointToScreenPoint(fromPosition);
-			var toScreenPosition = isAiming
-				? Players.ScopePointToScreenPoint(camera, toPosition)
-				: camera.WorldPointToScreenPoint(toPosition);
+			var (fromScreenPosition, toScreenPosition) = isAiming
+				? Players.ScopePointToScreenPoint(camera, fromPosition, toPosition)
+				: (camera.WorldPointToScreenPoint(fromPosition), camera.WorldPointToScreenPoint(toPosition));
 
 			Render.DrawLine(new Vector2(fromScreenPosition.x, fromScreenPosition.y), new Vector2(toScreenPosition.x, toScreenPosition.y), thickness, color);
 		}

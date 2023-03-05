@@ -108,9 +108,6 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty(Order = 19)]
 		public float MaximumDistance { get; set; } = 0f;
 
-		[ConfigurationProperty(Order = 63)]
-		public bool OnlyShowInScope { get; set; } = true;
-
 		private static bool _lastXRayVision = true;
 		private static bool _lastShowCharms = true;
 
@@ -397,20 +394,88 @@ namespace EFT.Trainer.Features
 			if (_opticCamera == null)
 				return screenPoint;
 
-
-			var scopePoint = _opticCamera.WorldPointToScreenPoint(worldPoint);
-
+			var scale = Screen.height / (float)camera.scaledPixelHeight;
+			var point = _opticCamera.WorldToViewportPoint(worldPoint);
+			var scopePoint = _opticCamera.ViewportToScreenPoint(point);
 
 			scopePoint.x += camera.pixelWidth / 2 - _opticCamera.pixelWidth / 2;
 			scopePoint.y += camera.pixelHeight / 2 - _opticCamera.pixelHeight / 2;
 
-			if (!OnlyShowInScope)
-				return scopePoint;
+			scopePoint.y = Screen.height - scopePoint.y * scale;
+			scopePoint.x *= scale;
 
 			if (!CheckScopeProjection(camera, scopePoint, currentOptic))
 				return Vector3.zero;
 
 			return scopePoint;
+		}
+
+		public static (Vector3, Vector3) ScopePointToScreenPoint(Camera camera, Vector3 worldPoint1, Vector3 worldPoint2, bool OnlyShowInScope = false)
+		{
+			var screenPoint1 = camera.WorldPointToScreenPoint(worldPoint1);
+			var screenPoint2 = camera.WorldPointToScreenPoint(worldPoint2);
+
+			var player = GameState.Current?.LocalPlayer;
+			if (player == null)
+				return (screenPoint1, screenPoint2);
+
+			var currentOptic = player.ProceduralWeaponAnimation.HandsContainer.Weapon.GetComponentInChildren<OpticSight>();
+			if (currentOptic == null)
+				return (screenPoint1, screenPoint2);
+
+			if (_opticCamera == null)
+				return (screenPoint1, screenPoint2);
+
+			var lensMesh = currentOptic.LensRenderer.GetComponent<MeshFilter>().mesh;
+			if (lensMesh == null)
+				return (screenPoint1, screenPoint2);
+
+			var lensUpperRight = currentOptic.LensRenderer.transform.TransformPoint(lensMesh.bounds.max);
+			var lensUpperLeft = currentOptic.LensRenderer.transform.TransformPoint(new Vector3(lensMesh.bounds.min.x, 0, lensMesh.bounds.max.z));
+
+			var lensUpperRight_3D = camera.WorldPointToScreenPoint(lensUpperRight);
+			var lensUpperLeft_3D = camera.WorldPointToScreenPoint(lensUpperLeft);
+			var scopeRadius = Vector3.Distance(lensUpperRight_3D, lensUpperLeft_3D) / 2;
+			var scopePos = camera.WorldPointToScreenPoint(currentOptic.LensRenderer.transform.position);
+			var scopeCenter = new Vector2(scopePos.x, scopePos.y);
+
+			var scale = Screen.height / (float)camera.scaledPixelHeight;
+			var cameraOffset = new Vector2(
+				camera.pixelWidth / 2 - _opticCamera.pixelWidth / 2,
+				camera.pixelHeight / 2 - _opticCamera.pixelHeight / 2);
+
+			var point1 = _opticCamera.WorldToViewportPoint(worldPoint1);
+			var scopePoint1 = (Vector2)_opticCamera.ViewportToScreenPoint(point1) + cameraOffset;
+			scopePoint1.y = Screen.height - scopePoint1.y * scale;
+			scopePoint1.x *= scale;
+
+			var point2 = _opticCamera.WorldToViewportPoint(worldPoint2);
+			var scopePoint2 = (Vector2)_opticCamera.ViewportToScreenPoint(point2) + cameraOffset;
+			scopePoint2.y = Screen.height - scopePoint2.y * scale;
+			scopePoint2.x *= scale;
+
+			var distance1 = Vector2.Distance(scopeCenter, scopePoint1);
+			var distance2 = Vector2.Distance(scopeCenter, scopePoint2);
+
+			var clampedTarget1 = scopePoint1;
+			var clampedTarget2 = scopePoint2;
+
+			if (distance1 > scopeRadius && distance2 > scopeRadius)
+				return (Vector2.zero, Vector2.zero);
+
+			if (distance1 > scopeRadius)
+			{
+				var clampedVector = (scopePoint1 - scopeCenter).normalized * scopeRadius;
+				clampedTarget1 = scopeCenter + new Vector2(clampedVector.x, clampedVector.y);
+			}
+
+			if (distance2 > scopeRadius)
+			{
+				var clampedVector = (scopePoint2 - scopeCenter).normalized * scopeRadius;
+				clampedTarget2 = scopeCenter + new Vector2(clampedVector.x, clampedVector.y);
+			}
+
+			return (clampedTarget1, clampedTarget2);
 		}
 
 		private static bool CheckScopeProjection(Camera camera, Vector2 target, OpticSight currentOptic)
