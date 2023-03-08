@@ -1,8 +1,6 @@
-﻿using System;
-using EFT.Trainer.Configuration;
+﻿using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
-using EFT.Weather;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -11,7 +9,7 @@ using UnityEngine;
 namespace EFT.Trainer.Features
 {
 	[UsedImplicitly]
-	internal class Radar : ToggleFeature
+	internal class Radar : BaseMapToggleFeature
 	{
 		public override string Name => "radar";
 
@@ -57,9 +55,6 @@ namespace EFT.Trainer.Features
 			Usec,
 		}
 
-		private GameObject? _radarCameraObject = null;
-		private Camera? _radarCamera = null;
-
 		protected override void OnGUIWhenEnabled()
 		{
 			if (RadarRange <= 0)
@@ -93,18 +88,12 @@ namespace EFT.Trainer.Features
 
 			if (ShowMap)
 			{
-				SetupCamera(camera, radarX, radarY, radarSize);
-
-				if (_radarCameraObject != null)
-				{
-					var radarCameraTransform = _radarCameraObject.transform;
-					radarCameraTransform.eulerAngles = new Vector3(90, cameraTransform.eulerAngles.y, cameraTransform.eulerAngles.z);
-					radarCameraTransform.localPosition = new Vector3(cameraTransform.localPosition.x, RadarRange * Mathf.Tan(45), cameraTransform.localPosition.z);
-				}
+				SetupMapCameraOnce(camera, radarX, Screen.currentResolution.height - radarY - radarSize, radarSize, radarSize);
+				UpdateMapCamera(cameraTransform, RadarRange);
 			}
 			else
 			{
-				ToggleRadarCameraIfNeeded(false);
+				ToggleMapCameraIfNeeded(false);
 			}
 
 			foreach (var enemy in hostiles)
@@ -144,42 +133,7 @@ namespace EFT.Trainer.Features
 
 		protected override void UpdateWhenDisabled()
 		{
-			ToggleRadarCameraIfNeeded(false);
-		}
-
-		private void ToggleRadarCameraIfNeeded(bool state)
-		{
-			if (_radarCamera == null)
-				return;
-
-			if (_radarCamera.enabled == state)
-				return;
-
-			_radarCamera.enabled = state;
-		}
-
-		private void SetupCamera(Camera camera, float radarX, float radarY, float radarSize)
-		{
-			if (_radarCameraObject != null)
-			{
-				ToggleRadarCameraIfNeeded(true);
-				return;
-			}
-
-			// We need to setup weather for proper rendering
-			Weather.ToClearWeather();
-
-			_radarCameraObject = new GameObject(nameof(_radarCameraObject), typeof(Camera), typeof(PrismEffects));
-			_radarCameraObject.GetComponent<PrismEffects>().CopyComponentValues(camera.GetComponent<PrismEffects>());
-			_radarCamera = _radarCameraObject.GetComponent<Camera>();
-			_radarCamera.name = nameof(_radarCamera);
-			_radarCamera.pixelRect = new Rect(radarX, Screen.currentResolution.height - radarY - radarSize, radarSize, radarSize);
-			_radarCamera.allowHDR = false;
-			_radarCamera.depth = -1;
-
-			// Prevent NullReferenceException in PrismEffects 
-			GameWorld.OnDispose -= UpdateWhenDisabled;
-			GameWorld.OnDispose += UpdateWhenDisabled;
+			ToggleMapCameraIfNeeded(false);
 		}
 
 		private static HostileType GetHostileType(Player player)

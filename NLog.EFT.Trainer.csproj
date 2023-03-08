@@ -125,6 +125,7 @@
     <Compile Include="Extensions\WorldInteractiveObjectExtensions.cs" />
     <Compile Include="Features\Aimbot.cs" />
     <Compile Include="Features\Ammunition.cs" />
+    <Compile Include="Features\BaseMapToggleFeature.cs" />
     <Compile Include="Features\FovChanger.cs" />
     <Compile Include="Features\NoMalfunctions.cs" />
     <Compile Include="Features\AutomaticGun.cs" />
@@ -153,6 +154,7 @@
     <Compile Include="Features\PointOfInterest.cs" />
     <Compile Include="Features\PointOfInterests.cs" />
     <Compile Include="Features\Quests.cs" />
+    <Compile Include="Features\Map.cs" />
     <Compile Include="Features\Radar.cs" />
     <Compile Include="Features\SceneDumper.cs" />
     <Compile Include="Features\ShaderCache.cs" />
