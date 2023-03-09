@@ -21,7 +21,14 @@ namespace EFT.Trainer.Features
 
 		public override void ProcessDataOnGUI(PointOfInterest[] data)
 		{
-			var camera = GameState.Current?.Camera;
+			var snapshot = GameState.Current;
+			if (snapshot == null)
+				return;
+
+			if (snapshot.MapMode)
+				return;
+
+			var camera = snapshot.Camera;
 			if (camera == null)
 				return;
 

@@ -21,19 +21,35 @@ namespace EFT.Trainer.Features
 			if (Range <= 0)
 				return;
 
-			var camera = GameState.Current?.Camera;
+			var snapshot = GameState.Current;
+			if (snapshot == null)
+				return;
+
+			snapshot.MapMode = true;
+
+			var camera = snapshot.Camera;
 			if (camera == null)
 				return;
 
-			var cameraTransform = camera.transform;
+			var hostiles = snapshot.Hostiles;
+			var width = Screen.currentResolution.width;
+			var height = Screen.currentResolution.height;
 
-			SetupMapCameraOnce(camera, 0, 0, Screen.currentResolution.width, Screen.currentResolution.height);
-			UpdateMapCamera(cameraTransform, Range);
+			SetupMapCameraOnce(camera, 0, 0, width, height);
+			UpdateMapCamera(camera, Range);
+
+			DrawHostiles(camera, hostiles, 0, 0, width, height, Range);
 		}
 
 		protected override void UpdateWhenDisabled()
 		{
 			ToggleMapCameraIfNeeded(false);
+
+			var snapshot = GameState.Current;
+			if (snapshot == null)
+				return;
+
+			snapshot.MapMode = false;
 		}
 	}
 }

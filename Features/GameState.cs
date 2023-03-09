@@ -86,5 +86,6 @@ namespace EFT.Trainer.Features
 		public Camera? Camera { get; set; }
 		public Player? LocalPlayer { get; set; }
 		public IEnumerable<Player> Hostiles { get; set; } = Array.Empty<Player>();
+		public bool MapMode { get; set; } = false;
 	}
 }

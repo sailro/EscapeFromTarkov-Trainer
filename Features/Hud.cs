@@ -34,6 +34,10 @@ namespace EFT.Trainer.Features
 			if (!player.IsValid())
 				return;
 
+			var camera = GameState.Current?.Camera;
+			if (camera == null)
+				return;
+
 			if (player.HandsController == null || player.HandsController.Item is not Weapon weapon)
 				return;
 
@@ -46,7 +50,7 @@ namespace EFT.Trainer.Features
 
 			if (ShowCompass)
 			{
-				var forward = player.Transform.forward;
+				var forward = camera.transform.forward;
 				forward.y = 0;
 
 				var heading = Quaternion.LookRotation(forward).eulerAngles.y;
