@@ -57,7 +57,7 @@ namespace EFT.Trainer.Features
 
 			if (ShowMap)
 			{
-				SetupMapCameraOnce(camera, radarX, Screen.currentResolution.height - radarY - radarSize, radarSize, radarSize);
+				SetupMapCamera(camera, radarX, Screen.currentResolution.height - radarY - radarSize, radarSize, radarSize);
 				UpdateMapCamera(camera, RadarRange);
 			}
 			else

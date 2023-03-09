@@ -35,7 +35,7 @@ namespace EFT.Trainer.Features
 			var width = Screen.currentResolution.width;
 			var height = Screen.currentResolution.height;
 
-			SetupMapCameraOnce(camera, 0, 0, width, height);
+			SetupMapCamera(camera, 0, 0, width, height);
 			UpdateMapCamera(camera, Range);
 
 			DrawHostiles(camera, hostiles, 0, 0, width, height, Range);
