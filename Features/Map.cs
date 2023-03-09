@@ -16,6 +16,8 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty(Order = 20)]
 		public float Range { get; set; } = 400f;
 
+		private Camera? _mapCamera = null;
+
 		protected override void OnGUIWhenEnabled()
 		{
 			if (Range <= 0)
@@ -38,7 +40,21 @@ namespace EFT.Trainer.Features
 			SetupMapCamera(camera, 0, 0, width, height);
 			UpdateMapCamera(camera, Range);
 
-			DrawHostiles(camera, hostiles, 0, 0, width, height, Range);
+			if (_mapCamera == null)
+			{
+				foreach (var cameras in Camera.allCameras)
+				{
+					if (cameras.name == "EFT.Trainer.Features.Map_mapCamera")
+					{
+						_mapCamera = cameras;
+					}
+				}
+			}
+
+			if (_mapCamera == null)
+				return;
+
+			DrawHostiles(_mapCamera, hostiles, Range);
 		}
 
 		protected override void UpdateWhenDisabled()
