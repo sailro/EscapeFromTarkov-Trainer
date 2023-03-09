@@ -4,6 +4,8 @@ using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
 using UnityEngine;
 
+#nullable enable
+
 namespace EFT.Trainer.Features
 {
 	internal abstract class BaseMapToggleFeature : ToggleFeature
@@ -87,6 +89,8 @@ namespace EFT.Trainer.Features
 		{
 			var cameraTransform = camera.transform;
 			var feature = FeatureFactory.GetFeature<Players>();
+			if (feature == null)
+				return;
 
 			foreach (var enemy in hostiles)
 			{
@@ -107,7 +111,7 @@ namespace EFT.Trainer.Features
 					case HostileType.ScavRaider when !ShowScavRaiders:
 					case HostileType.Cultist when !ShowCultists:
 					case HostileType.Boss when !ShowBosses:
-					case HostileType.Bear or Radar.HostileType.Usec when !ShowPlayers:
+					case HostileType.Bear or HostileType.Usec when !ShowPlayers:
 						continue;
 
 					default:
@@ -157,7 +161,7 @@ namespace EFT.Trainer.Features
 			var enemyPosition = enemy.Transform.position;
 			var cameraEulerY = cameraTransform.eulerAngles.y;
 
-			var enemyRadar = FindRadarPoint(cameraPosition, enemyPosition, cameraEulerY, x, y, sizex, sizey, range);
+			var enemyMap = FindMapPoint(cameraPosition, enemyPosition, cameraEulerY, x, y, sizex, sizey, range);
 
 			var enemyLookDirection = enemy.LookDirection;
 
@@ -167,17 +171,17 @@ namespace EFT.Trainer.Features
 			var enemyOffset2 = enemyPosition + enemyLookDirection * 4f + playerRealRight * 2f;
 			var enemyOffset3 = enemyPosition + enemyLookDirection * 4f - playerRealRight * 2f;
 
-			var enemyForward = FindRadarPoint(cameraPosition, enemyOffset, cameraEulerY, x, y, sizex, sizey, range);
-			var enemyArrow = FindRadarPoint(cameraPosition, enemyOffset2, cameraEulerY, x, y, sizex, sizey, range);
-			var enemyArrow2 = FindRadarPoint(cameraPosition, enemyOffset3, cameraEulerY, x, y, sizex, sizey, range);
+			var enemyForward = FindMapPoint(cameraPosition, enemyOffset, cameraEulerY, x, y, sizex, sizey, range);
+			var enemyArrow = FindMapPoint(cameraPosition, enemyOffset2, cameraEulerY, x, y, sizex, sizey, range);
+			var enemyArrow2 = FindMapPoint(cameraPosition, enemyOffset3, cameraEulerY, x, y, sizex, sizey, range);
 
-			Render.DrawLine(enemyRadar, enemyForward, 2f, Color.white);
+			Render.DrawLine(enemyMap, enemyForward, 2f, Color.white);
 			Render.DrawLine(enemyArrow, enemyForward, 2f, Color.white);
 			Render.DrawLine(enemyArrow2, enemyForward, 2f, Color.white);
-			Render.DrawCircle(enemyRadar, 10f, playerColor, 2f, 8);
+			Render.DrawCircle(enemyMap, 10f, playerColor, 2f, 8);
 		}
 
-		private static Vector2 FindRadarPoint(Vector3 playerPosition, Vector3 enemyPosition, float playerEulerY, float x, float y, float sizex, float sizey, float range)
+		private static Vector2 FindMapPoint(Vector3 playerPosition, Vector3 enemyPosition, float playerEulerY, float x, float y, float sizex, float sizey, float range)
 		{
 			float enemyY = playerPosition.x - enemyPosition.x;
 			float enemyX = playerPosition.z - enemyPosition.z;
@@ -185,13 +189,13 @@ namespace EFT.Trainer.Features
 
 			var enemyDistance = Mathf.Round(Vector3.Distance(playerPosition, enemyPosition));
 
-			float enemyRadarX = enemyDistance * Mathf.Cos(enemyAtan * Mathf.Deg2Rad);
-			float enemyRadarY = enemyDistance * Mathf.Sin(enemyAtan * Mathf.Deg2Rad);
+			float enemyMapX = enemyDistance * Mathf.Cos(enemyAtan * Mathf.Deg2Rad);
+			float enemyMapY = enemyDistance * Mathf.Sin(enemyAtan * Mathf.Deg2Rad);
 
-			enemyRadarX = enemyRadarX * (sizex / range) / 2f;
-			enemyRadarY = enemyRadarY * (sizey / range) / 2f;
+			enemyMapX = enemyMapX * (sizex / range) / 2f;
+			enemyMapY = enemyMapY * (sizey / range) / 2f;
 
-			return new Vector2(x + sizex / 2f + enemyRadarX, y + sizey / 2f + enemyRadarY);
+			return new Vector2(x + sizex / 2f + enemyMapX, y + sizey / 2f + enemyMapY);
 		}
 	}
 }
