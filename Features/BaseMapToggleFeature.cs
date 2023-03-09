@@ -49,10 +49,11 @@ namespace EFT.Trainer.Features
 			_mapCamera.enabled = state;
 		}
 
-		protected void SetupMapCameraOnce(Camera camera, float x, float y, float sizex, float sizey)
+		protected void SetupMapCamera(Camera camera, float x, float y, float sizex, float sizey)
 		{
-			if (_mapCameraObject != null)
+			if (_mapCamera != null)
 			{
+				_mapCamera.pixelRect = new Rect(x, y, sizex, sizey);
 				ToggleMapCameraIfNeeded(true);
 				return;
 			}
