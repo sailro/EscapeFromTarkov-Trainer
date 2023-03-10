@@ -44,6 +44,15 @@ namespace EFT.Trainer.UI
 			GUI.DrawTexture(new Rect(position.x, position.y - size, thickness, size * 2 + thickness), texture);
 		}
 
+		public static void DrawPlayer(Vector2 position, float size, Color color, float thickness)
+		{
+			var forward = new Vector2(position.x, position.y - size * 2.5f);
+			DrawCircle(position, size, color, thickness, 8);
+			DrawLine(position, forward, thickness, color);
+			DrawLine(new Vector2(position.x - size / 2, position.y - size * 1.25f), forward, thickness, color);
+			DrawLine(new Vector2(position.x + size / 2, position.y - size * 1.25f), forward, thickness, color);
+		}
+
 		public static void DrawBox(float x, float y, float w, float h, float thickness, Color color)
 		{
 			Color = color;

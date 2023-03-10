@@ -1,5 +1,6 @@
 ﻿using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.UI;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -41,6 +42,8 @@ namespace EFT.Trainer.Features
 
 			if (MapCamera == null)
 				return;
+
+			Render.DrawPlayer(Render.ScreenCenter, 10f, Color.white, 2f);
 
 			DrawHostiles(MapCamera, hostiles, Range);
 		}
