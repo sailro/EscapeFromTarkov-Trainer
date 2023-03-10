@@ -1,5 +1,6 @@
 ﻿using EFT.Trainer.Configuration;
 using EFT.Trainer.UI;
+using EFT.UI;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -28,6 +29,11 @@ namespace EFT.Trainer.Features
 
 		[ConfigurationProperty(Order = 100)]
 		public bool ShowMap { get; set; } = false;
+
+		[ConfigurationProperty(Order = 101)]
+		public bool ShowCompass { get; set; } = false;
+
+		private Camera? _radarMapCamera = null;
 
 		protected override void OnGUIWhenEnabled()
 		{
@@ -59,15 +65,55 @@ namespace EFT.Trainer.Features
 			{
 				SetupMapCamera(camera, radarX, Screen.currentResolution.height - radarY - radarSize, radarSize, radarSize);
 				UpdateMapCamera(camera, RadarRange);
+
+				if (_radarMapCamera == null)
+				{
+					foreach (var cameras in Camera.allCameras)
+					{
+						if (cameras.name == "EFT.Trainer.Features.Radar_mapCamera")
+						{
+							_radarMapCamera = cameras;
+						}
+					}
+				}
+
+				if (_radarMapCamera == null)
+					return;
+
+				DrawHostiles(_radarMapCamera, hostiles, RadarRange);
 			}
 			else
 			{
 				ToggleMapCameraIfNeeded(false);
+				DrawHostiles(camera, hostiles, RadarRange, radarX, radarY, radarSize);
 			}
 
-			DrawHostiles(camera, hostiles, radarX, radarY, radarSize, radarSize, RadarRange);
 
-			Render.DrawCrosshair(new Vector2(radarX + radarSize / 2, radarY + radarSize / 2), radarSize / 2, RadarCrosshair, 2f);
+			var forward = camera.transform.forward;
+			var right = camera.transform.right;
+			forward.y = 0;
+			right.y = 0;
+
+			var forwardHeading = GetHeadingAngle(forward);
+			var rearHeading = GetHeadingAngle(-forward);
+			var rightHeading = GetHeadingAngle(right);
+			var leftHeading = GetHeadingAngle(-right);
+
+			if (ShowCompass)
+			{
+				var radarTop = new Vector2(radarX + radarSize / 2, radarY + 12f);
+				var radarLeft = new Vector2(radarX + 12f, radarY + radarSize / 2);
+				var radarRight = new Vector2(radarX + radarSize - 12f, radarY + radarSize / 2);
+				var radarBottom = new Vector2(radarX + radarSize / 2, radarY + radarSize - 12f);
+				Render.DrawString(radarTop, forwardHeading);
+				Render.DrawString(radarLeft, leftHeading);
+				Render.DrawString(radarRight, rightHeading);
+				Render.DrawString(radarBottom, rearHeading);
+				Render.DrawCrosshair(new Vector2(radarX + radarSize / 2, radarY + radarSize / 2), 25f, RadarCrosshair, 2f);
+			}
+			else
+				Render.DrawCrosshair(new Vector2(radarX + radarSize / 2, radarY + radarSize / 2), radarSize / 2, RadarCrosshair, 2f);
+
 			Render.DrawBox(radarX, radarY, radarSize, radarSize, 2f, RadarBackground);
 		}
 
