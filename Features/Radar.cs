@@ -1,8 +1,5 @@
-﻿using System;
-using EFT.Trainer.Configuration;
-using EFT.Trainer.Extensions;
+﻿using EFT.Trainer.Configuration;
 using EFT.Trainer.UI;
-using EFT.Weather;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -11,7 +8,7 @@ using UnityEngine;
 namespace EFT.Trainer.Features
 {
 	[UsedImplicitly]
-	internal class Radar : ToggleFeature
+	internal class Radar : BaseMapToggleFeature
 	{
 		public override string Name => "radar";
 
@@ -29,234 +26,113 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty(Order = 30)]
 		public Color RadarCrosshair { get; set; } = new(1f, 1f, 1f, 0.5f);
 
-		[ConfigurationProperty(Order = 40)] 
-		public bool ShowPlayers { get; set; } = true;
-
-		[ConfigurationProperty(Order = 50)]
-		public bool ShowScavs { get; set; } = true;
-
-		[ConfigurationProperty(Order = 60)]
-		public bool ShowScavRaiders { get; set; } = true;
-
-		[ConfigurationProperty(Order = 70)]
-		public bool ShowBosses { get; set; } = true;
-
-		[ConfigurationProperty(Order = 80)]
-		public bool ShowCultists { get; set; } = true;
-
-		[ConfigurationProperty(Order = 90)]
+		[ConfigurationProperty(Order = 100)]
 		public bool ShowMap { get; set; } = false;
 
-		private enum HostileType
-		{
-			Scav,
-			ScavRaider,
-			Boss,
-			Cultist,
-			Bear,
-			Usec,
-		}
+		[ConfigurationProperty(Order = 101)]
+		public bool ShowCompass { get; set; } = false;
 
-		private GameObject? _radarCameraObject = null;
-		private Camera? _radarCamera = null;
+		private float ScreenPercentage => Mathf.Min(RadarPercentage / 100f, 1);
+		private float RadarSize => Mathf.Sqrt(Screen.height * Screen.width * ScreenPercentage) / 2;
+		private float RadarX => Screen.width - RadarSize;
+		private float RadarY => Screen.height - RadarSize;
 
 		protected override void OnGUIWhenEnabled()
 		{
 			if (RadarRange <= 0)
 				return;
 
-			var screenPercentage = RadarPercentage / 100f;
-			if (screenPercentage > 1)
-				screenPercentage = 1;
-
-			var hostiles = GameState.Current?.Hostiles;
-			if (hostiles == null)
+			var snapshot = GameState.Current;
+			if (snapshot == null)
 				return;
 
-			var player = GameState.Current?.LocalPlayer;
-			if (player == null)
+			if (snapshot.MapMode)
 				return;
 
-			var camera = GameState.Current?.Camera;
+			var camera = snapshot.Camera;
 			if (camera == null)
 				return;
 
-			var feature = FeatureFactory.GetFeature<Players>();
-			if (feature == null)
-				return;
+			var hostiles = snapshot.Hostiles;
 
-			var radarSize = Mathf.Sqrt(Screen.height * Screen.width * screenPercentage) / 2;
-			var radarX = Screen.width - radarSize;
-			var radarY = Screen.height - radarSize;
-
-			var cameraTransform = camera.transform;
+			var radarX = RadarX;
+			var radarY = RadarY;
+			var radarSize = RadarSize;
 
 			if (ShowMap)
 			{
-				SetupCamera(camera, radarX, radarY, radarSize);
+				SetupMapCamera(camera, radarX, Screen.currentResolution.height - radarY - radarSize, radarSize, radarSize);
+				UpdateMapCamera(camera, RadarRange);
 
-				if (_radarCameraObject != null)
-				{
-					var radarCameraTransform = _radarCameraObject.transform;
-					radarCameraTransform.eulerAngles = new Vector3(90, cameraTransform.eulerAngles.y, cameraTransform.eulerAngles.z);
-					radarCameraTransform.localPosition = new Vector3(cameraTransform.localPosition.x, RadarRange * Mathf.Tan(45), cameraTransform.localPosition.z);
-				}
+				if (MapCamera != null)
+					DrawHostiles(MapCamera, hostiles, RadarRange);
 			}
 			else
 			{
-				ToggleRadarCameraIfNeeded(false);
+				ToggleMapCameraIfNeeded(false);
+				DrawHostiles(camera, hostiles, RadarRange);
 			}
 
-			foreach (var enemy in hostiles)
+			var forward = camera.transform.forward;
+			var right = camera.transform.right;
+			forward.y = 0;
+			right.y = 0;
+
+			var forwardHeading = GetHeadingAngle(forward);
+			var rearHeading = GetHeadingAngle(-forward);
+			var rightHeading = GetHeadingAngle(right);
+			var leftHeading = GetHeadingAngle(-right);
+
+			if (ShowCompass)
 			{
-				if (!enemy.IsValid())
-					continue;
-
-				var position = enemy.Transform.position;
-
-				var distance = Mathf.Round(Vector3.Distance(cameraTransform.position, position));
-				if (RadarRange > 0 && distance > RadarRange)
-					continue;
-
-				var hostileType = GetHostileType(enemy);
-
-				switch (hostileType)
-				{
-					case HostileType.Scav when !ShowScavs:
-					case HostileType.ScavRaider when !ShowScavRaiders:
-					case HostileType.Cultist when !ShowCultists:
-					case HostileType.Boss when !ShowBosses:
-					case HostileType.Bear or HostileType.Usec when !ShowPlayers:
-						continue;
-
-					default:
-					{
-						var playerColor = feature.GetPlayerColors(enemy);
-						DrawRadarEnemy(camera, enemy, radarSize, playerColor.Color);
-						break;
-					}
-				}
+				var radarTop = new Vector2(radarX + radarSize / 2, radarY + 12f);
+				var radarLeft = new Vector2(radarX + 12f, radarY + radarSize / 2);
+				var radarRight = new Vector2(radarX + radarSize - 12f, radarY + radarSize / 2);
+				var radarBottom = new Vector2(radarX + radarSize / 2, radarY + radarSize - 12f);
+				Render.DrawString(radarTop, forwardHeading);
+				Render.DrawString(radarLeft, leftHeading);
+				Render.DrawString(radarRight, rightHeading);
+				Render.DrawString(radarBottom, rearHeading);
+				Render.DrawCrosshair(new Vector2(radarX + radarSize / 2, radarY + radarSize / 2), 25f, RadarCrosshair, 2f);
 			}
+			else
+				Render.DrawCrosshair(new Vector2(radarX + radarSize / 2, radarY + radarSize / 2), radarSize / 2, RadarCrosshair, 2f);
 
-			Render.DrawCrosshair(new Vector2(radarX + radarSize / 2, radarY + radarSize / 2), radarSize / 2, RadarCrosshair, 2f);
 			Render.DrawBox(radarX, radarY, radarSize, radarSize, 2f, RadarBackground);
 		}
 
 		protected override void UpdateWhenDisabled()
 		{
-			ToggleRadarCameraIfNeeded(false);
+			ToggleMapCameraIfNeeded(false);
 		}
 
-		private void ToggleRadarCameraIfNeeded(bool state)
+		protected override Vector2 GetTargetPosition(Vector3 playerPosition, Vector3 targetPosition, float playerEulerY)
 		{
-			if (_radarCamera == null)
-				return;
+			if (MapCamera != null && MapCamera.enabled)
+				return MapCamera.WorldToScreenPoint(targetPosition);
 
-			if (_radarCamera.enabled == state)
-				return;
-
-			_radarCamera.enabled = state;
-		}
-
-		private void SetupCamera(Camera camera, float radarX, float radarY, float radarSize)
-		{
-			if (_radarCameraObject != null)
-			{
-				ToggleRadarCameraIfNeeded(true);
-				return;
-			}
-
-			// We need to setup weather for proper rendering
-			Weather.ToClearWeather();
-
-			_radarCameraObject = new GameObject(nameof(_radarCameraObject), typeof(Camera), typeof(PrismEffects));
-			_radarCameraObject.GetComponent<PrismEffects>().CopyComponentValues(camera.GetComponent<PrismEffects>());
-			_radarCamera = _radarCameraObject.GetComponent<Camera>();
-			_radarCamera.name = nameof(_radarCamera);
-			_radarCamera.pixelRect = new Rect(radarX, Screen.currentResolution.height - radarY - radarSize, radarSize, radarSize);
-			_radarCamera.allowHDR = false;
-			_radarCamera.depth = -1;
-
-			// Prevent NullReferenceException in PrismEffects 
-			GameWorld.OnDispose -= UpdateWhenDisabled;
-			GameWorld.OnDispose += UpdateWhenDisabled;
-		}
-
-		private static HostileType GetHostileType(Player player)
-		{
-			var info = player.Profile?.Info;
-			if (info == null)
-				return HostileType.Scav;
-
-			var settings = info.Settings;
-			if (settings != null)
-			{
-				switch (settings.Role)
-				{
-					case WildSpawnType.pmcBot:
-						return HostileType.ScavRaider;
-					case WildSpawnType.sectantWarrior:
-						return HostileType.Cultist;
-				}
-
-				if (settings.IsBoss())
-					return HostileType.Boss;
-			}
-
-			return info.Side switch
-			{
-				EPlayerSide.Bear => HostileType.Bear,
-				EPlayerSide.Usec => HostileType.Usec,
-				_ => HostileType.Scav
-			};
-		}
-
-		private void DrawRadarEnemy(Camera camera, Player enemy, float radarSize, Color playerColor)
-		{
-			var radarX = Screen.width - radarSize;
-			var radarY = Screen.height - radarSize;
-
-			var cameraTransform = camera.transform;
-			var cameraPosition = cameraTransform.position;
-
-			var enemyPosition = enemy.Transform.position;
-			var cameraEulerY = cameraTransform.eulerAngles.y;
-
-			var enemyRadar = FindRadarPoint(cameraPosition, enemyPosition, cameraEulerY, radarX, radarY, radarSize);
-
-			var enemyLookDirection = enemy.LookDirection;
-
-			var enemyOffset = enemyPosition + enemyLookDirection * 8f;
-			var playerRealRight = enemy.MovementContext.PlayerRealRight;
-
-			var enemyOffset2 = enemyPosition + enemyLookDirection * 4f + playerRealRight * 2f;
-			var enemyOffset3 = enemyPosition + enemyLookDirection * 4f - playerRealRight * 2f;
-
-			var enemyForward = FindRadarPoint(cameraPosition, enemyOffset, cameraEulerY, radarX, radarY, radarSize);
-			var enemyArrow = FindRadarPoint(cameraPosition, enemyOffset2, cameraEulerY, radarX, radarY, radarSize);
-			var enemyArrow2 = FindRadarPoint(cameraPosition, enemyOffset3, cameraEulerY, radarX, radarY, radarSize);
-
-			Render.DrawLine(enemyRadar, enemyForward, 2f, Color.white);
-			Render.DrawLine(enemyArrow, enemyForward, 2f, Color.white);
-			Render.DrawLine(enemyArrow2, enemyForward, 2f, Color.white);
-			Render.DrawCircle(enemyRadar, 10f, playerColor, 2f, 8);
-		}
-
-		private Vector2 FindRadarPoint(Vector3 playerPosition, Vector3 enemyPosition, float playerEulerY, float radarX, float radarY, float radarSize)
-		{
-			float enemyY = playerPosition.x - enemyPosition.x;
-			float enemyX = playerPosition.z - enemyPosition.z;
+			float enemyY = playerPosition.x - targetPosition.x;
+			float enemyX = playerPosition.z - targetPosition.z;
 			float enemyAtan = Mathf.Atan2(enemyY, enemyX) * Mathf.Rad2Deg - 270 - playerEulerY;
 
-			var enemyDistance = Mathf.Round(Vector3.Distance(playerPosition, enemyPosition));
+			var enemyDistance = Mathf.Round(Vector3.Distance(playerPosition, targetPosition));
 
-			float enemyRadarX = enemyDistance * Mathf.Cos(enemyAtan * Mathf.Deg2Rad);
-			float enemyRadarY = enemyDistance * Mathf.Sin(enemyAtan * Mathf.Deg2Rad);
+			float enemyMapX = enemyDistance * Mathf.Cos(enemyAtan * Mathf.Deg2Rad);
+			float enemyMapY = enemyDistance * Mathf.Sin(enemyAtan * Mathf.Deg2Rad);
 
-			enemyRadarX = enemyRadarX * (radarSize / RadarRange) / 2f;
-			enemyRadarY = enemyRadarY * (radarSize / RadarRange) / 2f;
+			var radarSize = RadarSize;
+			var range = RadarRange;
 
-			return new Vector2(radarX + radarSize / 2f + enemyRadarX, radarY + radarSize / 2f + enemyRadarY);
+			enemyMapX = enemyMapX * (radarSize / range) / 2f;
+			enemyMapY = enemyMapY * (radarSize / range) / 2f;
+
+			return new Vector2(RadarX + radarSize / 2f + enemyMapX, RadarY + radarSize / 2f + enemyMapY);
+		}
+
+		protected override void AdjustTargetPositionForRender(ref Vector2 position)
+		{
+			if (MapCamera != null && MapCamera.enabled)
+				position.y = Screen.height - position.y;
 		}
 	}
 }

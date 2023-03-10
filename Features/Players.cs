@@ -116,15 +116,20 @@ namespace EFT.Trainer.Features
 		[UsedImplicitly]
 		protected void OnGUI()
 		{
-			var hostiles = GameState.Current?.Hostiles;
-			if (hostiles == null)
+			var snapshot = GameState.Current;
+			if (snapshot == null)
 				return;
 
-			var player = GameState.Current?.LocalPlayer;
+			if (snapshot.MapMode)
+				return;
+
+			var hostiles = snapshot.Hostiles;
+
+			var player = snapshot.LocalPlayer;
 			if (player == null)
 				return;
 
-			var camera = GameState.Current?.Camera;
+			var camera = snapshot.Camera;
 			if (camera == null)
 				return;
 
