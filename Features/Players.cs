@@ -141,34 +141,8 @@ namespace EFT.Trainer.Features
 
 				return;
 			}
-			var handsController = player.HandsController;
-			if (handsController == null)
-				return;
 
-			var weaponAnimation = player.ProceduralWeaponAnimation;
-			if (weaponAnimation == null)
-				return;
-
-			var aimingMod = weaponAnimation.CurrentAimingMod;
-			if (aimingMod == null)
-				return;
-
-			var zoom = aimingMod.GetCurrentOpticZoom();
-			var isAiming = handsController.IsAiming;
-
-			if (isAiming && zoom <= 1)
-				isAiming = false;
-
-			if (_opticCamera == null)
-			{
-				foreach (var opticCamera in Camera.allCameras)
-				{
-					if (opticCamera.name == "BaseOpticCamera(Clone)")
-					{
-						_opticCamera = opticCamera;
-					}
-				}
-			}
+			var isAiming = AimingCheck(player);
 			
 			foreach (var ennemy in hostiles)
 			{
@@ -290,6 +264,39 @@ namespace EFT.Trainer.Features
 			_cache.Clear();
 		}
 
+		private bool AimingCheck(Player player)
+		{
+			var handsController = player.HandsController;
+			if (handsController == null)
+				return false;
+
+			var weaponAnimation = player.ProceduralWeaponAnimation;
+			if (weaponAnimation == null)
+				return false;
+
+			var aimingMod = weaponAnimation.CurrentAimingMod;
+			if (aimingMod == null)
+				return false;
+
+			var zoom = aimingMod.GetCurrentOpticZoom();
+			var isAiming = handsController.IsAiming;
+
+			if (isAiming && zoom <= 1)
+				isAiming = false;
+
+			if (_opticCamera == null)
+			{
+				foreach (var opticCamera in Camera.allCameras)
+				{
+					if (opticCamera.name == "BaseOpticCamera(Clone)")
+					{
+						_opticCamera = opticCamera;
+					}
+				}
+			}
+
+			return isAiming;
+		}
 		public PlayerColor GetPlayerColors(Player player)
 		{
 			var info = player.Profile?.Info;
