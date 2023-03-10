@@ -58,7 +58,10 @@ namespace EFT.Trainer.Features
 
 		protected override Vector2 GetTargetPosition(Vector3 playerPosition, Vector3 targetPosition, float playerEulerY)
 		{
-			return MapCamera?.WorldPointToScreenPoint(targetPosition) ?? Vector2.zero;
+			if (MapCamera == null)
+				return Vector2.zero;
+
+			return MapCamera.WorldPointToScreenPoint(targetPosition);
 		}
 
 		protected override void AdjustTargetPositionForRender(ref Vector2 position)

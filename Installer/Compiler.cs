@@ -36,10 +36,7 @@ namespace Installer
 			Installation = context.Installation;
 			Exclude = context.Exclude;
 
-			var entry = projectArchive.Entries.FirstOrDefault(e => e.Name == context.Project);
-			if (entry == null) 
-				throw new ArgumentException($"Project {context.Project} not found!");
-
+			var entry = projectArchive.Entries.FirstOrDefault(e => e.Name == context.Project) ?? throw new ArgumentException($"Project {context.Project} not found!");
 			using var stream = entry.Open();
 			using var reader = new StreamReader(stream);
 			ProjectContent = reader.ReadToEnd();
