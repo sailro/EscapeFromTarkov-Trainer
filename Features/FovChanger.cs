@@ -1,6 +1,5 @@
 ﻿using EFT.Trainer.Configuration;
 using JetBrains.Annotations;
-using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
