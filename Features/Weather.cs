@@ -18,7 +18,7 @@ namespace EFT.Trainer.Features
 			ToClearWeather();
 		}
 
-		public static void ToClearWeather()
+		public static void ToClearWeather(bool changeTime = true)
 		{
 			var weatherController = WeatherController.Instance;
 			if (weatherController != null)
@@ -30,6 +30,9 @@ namespace EFT.Trainer.Features
 				weatherDebug.LightningThunderProbability = 0f;
 				weatherDebug.Rain = 0f;
 			}
+
+			if (!changeTime)
+				return;
 
 			var sky = TOD_Sky.Instance;
 			if (sky == null) 
