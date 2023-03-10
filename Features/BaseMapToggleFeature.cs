@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
-using EFT.UI;
 using UnityEngine;
 
 #nullable enable
@@ -39,6 +38,8 @@ namespace EFT.Trainer.Features
 
 		private GameObject? _mapCameraObject = null;
 		private Camera? _mapCamera = null;
+
+		protected Camera? MapCamera => _mapCamera;
 
 		private static readonly string[] _directions = { "N", "NE", "E", "SE", "S", "SW", "W", "NW", "N" };
 
@@ -90,11 +91,11 @@ namespace EFT.Trainer.Features
 			mapTransform.localPosition = new Vector3(cameraTransform.localPosition.x, range * Mathf.Tan(45), cameraTransform.localPosition.z);
 		}
 
-		protected void DrawHostiles(Camera camera, IEnumerable<Player> hostiles, float range, float x = 0f, float y = 0f, float radarSize = 0f)
+		protected void DrawHostiles(Camera camera, IEnumerable<Player> hostiles, float range)
 		{
 			var cameraPosition = camera.transform.position;
 
-			if (radarSize == 0f)
+			if (MapCamera != null && MapCamera.enabled)
 				cameraPosition.y = 0f;
 
 			var feature = FeatureFactory.GetFeature<Players>();
@@ -126,10 +127,7 @@ namespace EFT.Trainer.Features
 					default:
 					{
 						var playerColor = feature.GetPlayerColors(enemy);
-							if (radarSize == 0f)
-								DrawEnemy(camera, enemy, playerColor.Color);
-							else
-								DrawEnemy(camera, enemy, range, playerColor.Color, radarSize, x, y);
+						DrawEnemy(camera, enemy, playerColor.Color);
 						break;
 					}
 				}
@@ -165,7 +163,10 @@ namespace EFT.Trainer.Features
 			};
 		}
 
-		protected static void DrawEnemy(Camera camera, Player enemy, float range, Color playerColor, float radarSize, float x, float y)
+		protected abstract Vector2 GetTargetPosition(Vector3 playerPosition, Vector3 targetPosition, float playerEulerY);
+		protected abstract void AdjustTargetPositionForRender(ref Vector2 position);
+
+		protected void DrawEnemy(Camera camera, Player enemy, Color playerColor)
 		{
 			var cameraTransform = camera.transform;
 			var cameraPosition = cameraTransform.position;
@@ -173,9 +174,7 @@ namespace EFT.Trainer.Features
 			var enemyPosition = enemy.Transform.position;
 			var cameraEulerY = cameraTransform.eulerAngles.y;
 
-			var enemyMap = FindMapPoint(cameraPosition, enemyPosition, cameraEulerY, x, y, radarSize, range);
-			ConsoleScreen.Log(enemyMap.ToString());
-
+			var enemyMap = GetTargetPosition(cameraPosition, enemyPosition, cameraEulerY);
 			var enemyLookDirection = enemy.LookDirection;
 
 			var enemyOffset = enemyPosition + enemyLookDirection * 8f;
@@ -184,70 +183,19 @@ namespace EFT.Trainer.Features
 			var enemyOffset2 = enemyPosition + enemyLookDirection * 4f + playerRealRight * 2f;
 			var enemyOffset3 = enemyPosition + enemyLookDirection * 4f - playerRealRight * 2f;
 
-			var enemyForward = FindMapPoint(cameraPosition, enemyOffset, cameraEulerY, x, y, radarSize, range);
-			var enemyArrow = FindMapPoint(cameraPosition, enemyOffset2, cameraEulerY, x, y, radarSize, range);
-			var enemyArrow2 = FindMapPoint(cameraPosition, enemyOffset3, cameraEulerY, x, y, radarSize, range);
+			var enemyForward = GetTargetPosition(cameraPosition, enemyOffset, cameraEulerY);
+			var enemyArrow = GetTargetPosition(cameraPosition, enemyOffset2, cameraEulerY);
+			var enemyArrow2 = GetTargetPosition(cameraPosition, enemyOffset3, cameraEulerY);
 
-			var enemyPosition2 = camera.WorldPointToScreenPoint(enemyPosition);
-
-			Render.DrawLine(enemyMap, enemyForward, 2f, Color.white);
-			Render.DrawLine(enemyArrow, enemyForward, 2f, Color.white);
-			Render.DrawLine(enemyArrow2, enemyForward, 2f, Color.white);
-			Render.DrawCircle(enemyMap, 10f, playerColor, 2f, 8);
-		}
-
-		protected static void DrawEnemy(Camera camera, Player enemy, Color playerColor)
-		{
-			var radarMiniMap = false;
-			if (camera.name == "EFT.Trainer.Features.Radar_mapCamera")
-				radarMiniMap = true;
-
-			var enemyPosition = enemy.Transform.position;
-						
-			var enemyMap = radarMiniMap ? camera.WorldToScreenPoint(enemyPosition) : camera.WorldPointToScreenPoint(enemyPosition);
-			ConsoleScreen.Log(enemyMap.ToString());
-
-			var enemyLookDirection = enemy.LookDirection;
-
-			var enemyOffset = enemyPosition + enemyLookDirection * 8f;
-			var playerRealRight = enemy.MovementContext.PlayerRealRight;
-
-			var enemyOffset2 = enemyPosition + enemyLookDirection * 4f + playerRealRight * 2f;
-			var enemyOffset3 = enemyPosition + enemyLookDirection * 4f - playerRealRight * 2f;
-
-			var enemyForward = radarMiniMap ? camera.WorldToScreenPoint(enemyOffset) : camera.WorldPointToScreenPoint(enemyOffset);
-			var enemyArrow = radarMiniMap ? camera.WorldToScreenPoint(enemyOffset2) : camera.WorldPointToScreenPoint(enemyOffset2);
-			var enemyArrow2 = radarMiniMap ? camera.WorldToScreenPoint(enemyOffset3) : camera.WorldPointToScreenPoint(enemyOffset3);
-
-			if (radarMiniMap)
-			{
-				enemyMap.y = Screen.height - enemyMap.y;
-				enemyForward.y = Screen.height - enemyForward.y;
-				enemyArrow.y = Screen.height - enemyArrow.y;
-				enemyArrow2.y = Screen.height - enemyArrow2.y;
-			}
+			AdjustTargetPositionForRender(ref enemyMap);
+			AdjustTargetPositionForRender(ref enemyForward);
+			AdjustTargetPositionForRender(ref enemyArrow);
+			AdjustTargetPositionForRender(ref enemyArrow2);
 
 			Render.DrawLine(enemyMap, enemyForward, 2f, Color.white);
 			Render.DrawLine(enemyArrow, enemyForward, 2f, Color.white);
 			Render.DrawLine(enemyArrow2, enemyForward, 2f, Color.white);
 			Render.DrawCircle(enemyMap, 10f, playerColor, 2f, 8);
-		}
-
-		private static Vector2 FindMapPoint(Vector3 playerPosition, Vector3 enemyPosition, float playerEulerY, float x, float y, float radarSize, float range)
-		{
-			float enemyY = playerPosition.x - enemyPosition.x;
-			float enemyX = playerPosition.z - enemyPosition.z;
-			float enemyAtan = Mathf.Atan2(enemyY, enemyX) * Mathf.Rad2Deg - 270 - playerEulerY;
-
-			var enemyDistance = Mathf.Round(Vector3.Distance(playerPosition, enemyPosition));
-
-			float enemyMapX = enemyDistance * Mathf.Cos(enemyAtan * Mathf.Deg2Rad);
-			float enemyMapY = enemyDistance * Mathf.Sin(enemyAtan * Mathf.Deg2Rad);
-
-			enemyMapX = enemyMapX * (radarSize / range) / 2f;
-			enemyMapY = enemyMapY * (radarSize / range) / 2f;
-
-			return new Vector2(x + radarSize / 2f + enemyMapX, y + radarSize / 2f + enemyMapY);
 		}
 
 		protected static string GetHeadingAngle(Vector3 direction)

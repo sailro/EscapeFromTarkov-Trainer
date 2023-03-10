@@ -1,4 +1,5 @@
 ﻿using EFT.Trainer.Configuration;
+using EFT.Trainer.Extensions;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -15,8 +16,6 @@ namespace EFT.Trainer.Features
 
 		[ConfigurationProperty(Order = 20)]
 		public float Range { get; set; } = 400f;
-
-		private Camera? _mapCamera = null;
 
 		protected override void OnGUIWhenEnabled()
 		{
@@ -40,21 +39,10 @@ namespace EFT.Trainer.Features
 			SetupMapCamera(camera, 0, 0, width, height);
 			UpdateMapCamera(camera, Range);
 
-			if (_mapCamera == null)
-			{
-				foreach (var cameras in Camera.allCameras)
-				{
-					if (cameras.name == "EFT.Trainer.Features.Map_mapCamera")
-					{
-						_mapCamera = cameras;
-					}
-				}
-			}
-
-			if (_mapCamera == null)
+			if (MapCamera == null)
 				return;
 
-			DrawHostiles(_mapCamera, hostiles, Range);
+			DrawHostiles(MapCamera, hostiles, Range);
 		}
 
 		protected override void UpdateWhenDisabled()
@@ -66,6 +54,16 @@ namespace EFT.Trainer.Features
 				return;
 
 			snapshot.MapMode = false;
+		}
+
+		protected override Vector2 GetTargetPosition(Vector3 playerPosition, Vector3 targetPosition, float playerEulerY)
+		{
+			return MapCamera?.WorldPointToScreenPoint(targetPosition) ?? Vector2.zero;
+		}
+
+		protected override void AdjustTargetPositionForRender(ref Vector2 position)
+		{
+			// nothing to do for a full map
 		}
 	}
 }
