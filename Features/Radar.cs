@@ -89,10 +89,10 @@ namespace EFT.Trainer.Features
 				var radarLeft = new Vector2(radarX + 12f, radarY + radarSize / 2);
 				var radarRight = new Vector2(radarX + radarSize - 12f, radarY + radarSize / 2);
 				var radarBottom = new Vector2(radarX + radarSize / 2, radarY + radarSize - 12f);
-				Render.DrawString(radarTop, forwardHeading);
-				Render.DrawString(radarLeft, leftHeading);
-				Render.DrawString(radarRight, rightHeading);
-				Render.DrawString(radarBottom, rearHeading);
+				Render.DrawString(radarTop, forwardHeading, RadarCrosshair);
+				Render.DrawString(radarLeft, leftHeading, RadarCrosshair);
+				Render.DrawString(radarRight, rightHeading, RadarCrosshair);
+				Render.DrawString(radarBottom, rearHeading, RadarCrosshair);
 				Render.DrawCrosshair(new Vector2(radarX + radarSize / 2, radarY + radarSize / 2), 25f, RadarCrosshair, 2f);
 			}
 			else
