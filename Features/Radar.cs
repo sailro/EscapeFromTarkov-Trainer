@@ -1,6 +1,5 @@
 ﻿using EFT.Trainer.Configuration;
 using EFT.Trainer.UI;
-using EFT.UI;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -33,16 +32,15 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty(Order = 101)]
 		public bool ShowCompass { get; set; } = false;
 
-		private Camera? _radarMapCamera = null;
+		private float ScreenPercentage => Mathf.Min(RadarPercentage / 100f, 1);
+		private float RadarSize => Mathf.Sqrt(Screen.height * Screen.width * ScreenPercentage) / 2;
+		private float RadarX => Screen.width - RadarSize;
+		private float RadarY => Screen.height - RadarSize;
 
 		protected override void OnGUIWhenEnabled()
 		{
 			if (RadarRange <= 0)
 				return;
-
-			var screenPercentage = RadarPercentage / 100f;
-			if (screenPercentage > 1)
-				screenPercentage = 1;
 
 			var snapshot = GameState.Current;
 			if (snapshot == null)
@@ -57,37 +55,23 @@ namespace EFT.Trainer.Features
 
 			var hostiles = snapshot.Hostiles;
 
-			var radarSize = Mathf.Sqrt(Screen.height * Screen.width * screenPercentage) / 2;
-			var radarX = Screen.width - radarSize;
-			var radarY = Screen.height - radarSize;
+			var radarX = RadarX;
+			var radarY = RadarY;
+			var radarSize = RadarSize;
 
 			if (ShowMap)
 			{
 				SetupMapCamera(camera, radarX, Screen.currentResolution.height - radarY - radarSize, radarSize, radarSize);
 				UpdateMapCamera(camera, RadarRange);
 
-				if (_radarMapCamera == null)
-				{
-					foreach (var cameras in Camera.allCameras)
-					{
-						if (cameras.name == "EFT.Trainer.Features.Radar_mapCamera")
-						{
-							_radarMapCamera = cameras;
-						}
-					}
-				}
-
-				if (_radarMapCamera == null)
-					return;
-
-				DrawHostiles(_radarMapCamera, hostiles, RadarRange);
+				if (MapCamera != null)
+					DrawHostiles(MapCamera, hostiles, RadarRange);
 			}
 			else
 			{
 				ToggleMapCameraIfNeeded(false);
-				DrawHostiles(camera, hostiles, RadarRange, radarX, radarY, radarSize);
+				DrawHostiles(camera, hostiles, RadarRange);
 			}
-
 
 			var forward = camera.transform.forward;
 			var right = camera.transform.right;
@@ -120,6 +104,35 @@ namespace EFT.Trainer.Features
 		protected override void UpdateWhenDisabled()
 		{
 			ToggleMapCameraIfNeeded(false);
+		}
+
+		protected override Vector2 GetTargetPosition(Vector3 playerPosition, Vector3 targetPosition, float playerEulerY)
+		{
+			if (MapCamera != null && MapCamera.enabled)
+				return MapCamera.WorldToScreenPoint(targetPosition);
+
+			float enemyY = playerPosition.x - targetPosition.x;
+			float enemyX = playerPosition.z - targetPosition.z;
+			float enemyAtan = Mathf.Atan2(enemyY, enemyX) * Mathf.Rad2Deg - 270 - playerEulerY;
+
+			var enemyDistance = Mathf.Round(Vector3.Distance(playerPosition, targetPosition));
+
+			float enemyMapX = enemyDistance * Mathf.Cos(enemyAtan * Mathf.Deg2Rad);
+			float enemyMapY = enemyDistance * Mathf.Sin(enemyAtan * Mathf.Deg2Rad);
+
+			var radarSize = RadarSize;
+			var range = RadarRange;
+
+			enemyMapX = enemyMapX * (radarSize / range) / 2f;
+			enemyMapY = enemyMapY * (radarSize / range) / 2f;
+
+			return new Vector2(RadarX + radarSize / 2f + enemyMapX, RadarY + radarSize / 2f + enemyMapY);
+		}
+
+		protected override void AdjustTargetPositionForRender(ref Vector2 position)
+		{
+			if (MapCamera != null && MapCamera.enabled)
+				position.y = Screen.height - position.y;
 		}
 	}
 }
