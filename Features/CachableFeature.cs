@@ -35,7 +35,6 @@ namespace EFT.Trainer.Features
 
 #if DEBUG_PERFORMANCE
 					_stopwatch.Restart();
-					AddConsoleLog($"Refreshing {GetType().Name}...");
 #endif
 
 					_data = RefreshData();
@@ -52,7 +51,7 @@ namespace EFT.Trainer.Features
 			}
 
 #if DEBUG_PERFORMANCE
-			AddConsoleLog($"Refreshed in {_stopwatch.ElapsedMilliseconds}ms...");
+			AddConsoleLog($"Refreshed {GetType().Name} in {_stopwatch.ElapsedMilliseconds}ms...");
 #endif
 
 			yield return new WaitForSeconds(CacheTimeInSec);

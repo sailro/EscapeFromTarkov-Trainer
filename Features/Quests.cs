@@ -46,14 +46,14 @@ namespace EFT.Trainer.Features
 				.Where(q => q.Status is EQuestStatus.Started && q.Template != null)
 				.ToArray();
 
-			RefreshPlaceOrRepairItemLocations(startedQuests, profile, records, camera);
-			RefreshVisitPlaceLocations(startedQuests, profile, records, camera); 
-			RefreshFindItemLocations(startedQuests, world, records, camera);
+			RefreshPlaceOrRepairItemLocations(startedQuests, profile, records);
+			RefreshVisitPlaceLocations(startedQuests, profile, records); 
+			RefreshFindItemLocations(startedQuests, world, records);
 
 			return records.ToArray();
 		}
 
-		private void RefreshVisitPlaceLocations(QuestDataClass[] startedQuests, Profile profile, List<PointOfInterest> records, Camera camera)
+		private void RefreshVisitPlaceLocations(QuestDataClass[] startedQuests, Profile profile, List<PointOfInterest> records)
 		{
 			var triggers = FindObjectsOfType<ExperienceTrigger>();
 
@@ -76,14 +76,14 @@ namespace EFT.Trainer.Features
 							continue;
 
 						var position = trigger.transform.position;
-						AddQuestRecord(records, camera, condition, quest, position);
+						AddQuestRecord(records, condition, quest, position);
 						break;
 					}
 				}
 			}
 		}
 
-		private void RefreshFindItemLocations(QuestDataClass[] startedQuests, GameWorld world, List<PointOfInterest> records, Camera camera)
+		private void RefreshFindItemLocations(QuestDataClass[] startedQuests, GameWorld world, List<PointOfInterest> records)
 		{
 			var lootItems = world.LootItems;
 
@@ -104,13 +104,13 @@ namespace EFT.Trainer.Features
 							continue;
 
 						var position = lootItem.transform.position;
-						AddQuestRecord(records, camera, condition, quest, position);
+						AddQuestRecord(records, condition, quest, position);
 					}
 				}
 			}
 		}
 
-		private void RefreshPlaceOrRepairItemLocations(QuestDataClass[] startedQuests, Profile profile, List<PointOfInterest> records, Camera camera)
+		private void RefreshPlaceOrRepairItemLocations(QuestDataClass[] startedQuests, Profile profile, List<PointOfInterest> records)
 		{
 			var allPlayerItems = profile
 				.Inventory
@@ -136,13 +136,13 @@ namespace EFT.Trainer.Features
 						continue;
 
 					var position = trigger.transform.position;
-					AddQuestRecord(records, camera, condition, quest, position);
+					AddQuestRecord(records, condition, quest, position);
 					break;
 				}
 			}
 		}
 
-		private void AddQuestRecord(List<PointOfInterest> records, Camera camera, Condition condition, QuestDataClass quest, Vector3 position)
+		private void AddQuestRecord(List<PointOfInterest> records, Condition condition, QuestDataClass quest, Vector3 position)
 		{
 			records.Add(new PointOfInterest
 			{

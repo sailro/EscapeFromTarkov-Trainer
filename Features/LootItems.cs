@@ -83,16 +83,16 @@ namespace EFT.Trainer.Features
 			var records = new List<PointOfInterest>();
 
 			// Step 1 - look outside containers (loot items)
-			FindLootItems(world, records, camera);
+			FindLootItems(world, records);
 
 			// Step 2 - look inside containers (items)
 			if (SearchInsideContainers)
-				FindItemsInContainers(records, camera);
+				FindItemsInContainers(records);
 
 			return records.ToArray();
 		}
 
-		private void FindItemsInContainers(List<PointOfInterest> records, Camera camera)
+		private void FindItemsInContainers(List<PointOfInterest> records)
 		{
 			var containers = FindObjectsOfType<LootableContainer>();
 			foreach (var container in containers)
@@ -101,11 +101,11 @@ namespace EFT.Trainer.Features
 					continue;
 
 				var position = container.transform.position;
-				FindItemsInRootItem(records, camera, container.ItemOwner?.RootItem, position);
+				FindItemsInRootItem(records, container.ItemOwner?.RootItem, position);
 			}
 		}
 
-		private void FindItemsInRootItem(List<PointOfInterest> records, Camera camera, Item? rootItem, Vector3 position)
+		private void FindItemsInRootItem(List<PointOfInterest> records, Item? rootItem, Vector3 position)
 		{
 			var items = rootItem?
 				.GetAllItems()?
@@ -122,11 +122,11 @@ namespace EFT.Trainer.Features
 				if (item.IsFiltered())
 					continue;
 
-				TryAddRecordIfTracked(item, records, camera, position, item.Owner?.ContainerName?.Localized());
+				TryAddRecordIfTracked(item, records, position, item.Owner?.ContainerName?.Localized());
 			}
 		}
 
-		private void FindLootItems(GameWorld world, List<PointOfInterest> records, Camera camera)
+		private void FindLootItems(GameWorld world, List<PointOfInterest> records)
 		{
 			var lootItems = world.LootItems;
 			for (var i = 0; i < lootItems.Count; i++)
@@ -140,15 +140,15 @@ namespace EFT.Trainer.Features
 				if (lootItem is Corpse corpse)
 				{
 					if (ShowCorpses)
-						AddCorpse(records, camera, position);
+						AddCorpse(records, position);
 						
 					if (SearchInsideCorpses)
-						FindItemsInRootItem(records, camera, corpse.ItemOwner?.RootItem, position);
+						FindItemsInRootItem(records, corpse.ItemOwner?.RootItem, position);
 
 					continue;
 				}
 
-				TryAddRecordIfTracked(lootItem.Item, records, camera, position);
+				TryAddRecordIfTracked(lootItem.Item, records, position);
 			}
 		}
 
@@ -161,7 +161,7 @@ namespace EFT.Trainer.Features
 			return $"{itemName} {price / 1000}K";
 		}
 
-		private void TryAddRecordIfTracked(Item item, List<PointOfInterest> records, Camera camera, Vector3 position, string? owner = null)
+		private void TryAddRecordIfTracked(Item item, List<PointOfInterest> records, Vector3 position, string? owner = null)
 		{
 			var itemName = item.ShortName.Localized();
 			var template = item.Template;
@@ -191,7 +191,7 @@ namespace EFT.Trainer.Features
 			return trackedRarity.Value == itemRarity;
 		}
 
-		private void AddCorpse(List<PointOfInterest> records, Camera camera, Vector3 position)
+		private void AddCorpse(List<PointOfInterest> records, Vector3 position)
 		{
 			records.Add(new PointOfInterest
 			{

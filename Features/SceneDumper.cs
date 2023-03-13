@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,6 +15,7 @@ namespace EFT.Trainer.Features
 		{
 			public string? Name;
 
+			[UsedImplicitly]
 			public NamedData()
 			{
 			}
@@ -55,6 +57,7 @@ namespace EFT.Trainer.Features
 		{
 			public string? Type;
 
+			[UsedImplicitly]
 			public ComponentData()
 			{
 			}

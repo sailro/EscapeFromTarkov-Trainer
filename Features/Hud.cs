@@ -3,7 +3,6 @@ using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
 using UnityEngine;
-using System;
 using System.Text;
 using JetBrains.Annotations;
 
