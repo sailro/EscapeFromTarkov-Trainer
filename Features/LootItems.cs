@@ -94,6 +94,7 @@ namespace EFT.Trainer.Features
 
 		private void FindItemsInContainers(List<PointOfInterest> records)
 		{
+			// We have world.ItemOwners, but it seems optimized/lazy-loaded depending on the distance to the player?
 			var containers = FindObjectsOfType<LootableContainer>();
 			foreach (var container in containers)
 			{

@@ -18,7 +18,6 @@ namespace EFT.Trainer.Features
 
 		public override BallisticCollider[] RefreshData()
 		{
-			// var colliders = FindObjectsOfType<BallisticCollider>();
 			var colliders = FindObjectsOfType<Collider>()
 				.SelectMany(c => c.GetComponentsInChildren<BallisticCollider>())
 				.Distinct();
