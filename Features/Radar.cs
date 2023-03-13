@@ -93,7 +93,7 @@ namespace EFT.Trainer.Features
 				Render.DrawString(radarLeft, leftHeading, RadarCrosshair);
 				Render.DrawString(radarRight, rightHeading, RadarCrosshair);
 				Render.DrawString(radarBottom, rearHeading, RadarCrosshair);
-				Render.DrawCrosshair(new Vector2(radarX + radarSize / 2, radarY + radarSize / 2), 25f, RadarCrosshair, 2f);
+				Render.DrawPlayer(new Vector2(radarX + radarSize / 2, radarY + radarSize / 2), 10f, RadarCrosshair, 2f);
 			}
 			else
 				Render.DrawCrosshair(new Vector2(radarX + radarSize / 2, radarY + radarSize / 2), radarSize / 2, RadarCrosshair, 2f);

@@ -36,6 +36,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 | `Hud`                     | `hud`        | HUD (compass, ammo left in chamber / magazine, fire mode, coordinates). |
 | `LootableContainers`      | `stash`      | Hidden stashes like buried barrels or ground caches. |
 | `LootItems`               | `loot`       | List all lootable items and track any item by name or rarity in raid (even in containers and corpses), with prices. |
+| `Map`                     | `map`        | Full screen 3D map with radar esp. |
 | `NightVision`             | `night`      | Night vision. |
 | `NoCollision`             | `nocoll`     | No physical collisions, making you immune to bullets, grenades and barbed wires. |
 | `NoMalfunctions`          | `nomal`      | No weapon malfunctions: no misfires or failures to eject or feed. No jammed bolts or overheating. |
@@ -58,6 +59,7 @@ You can Load/Save all settings using the `console` or the `GUI`.
 
 ![Wallhack](https://user-images.githubusercontent.com/638167/222186879-a88a267e-16ba-4532-85ec-8cb385737947.png)
 ![Radar](https://user-images.githubusercontent.com/638167/222524208-589dc7ff-f053-4b0c-902b-49fa8d1f7ddd.png)
+![Map](https://user-images.githubusercontent.com/769465/224330696-d09960a2-8940-4980-8489-0533b44534f9.png)
 ![Exfils](https://user-images.githubusercontent.com/638167/135586735-143ab160-ca20-4ec9-8ad4-9ce7bde58295.png)
 ![Loot](https://user-images.githubusercontent.com/638167/135587083-938a3d9b-2082-4231-9fa8-e7807ad4a3d1.png)
 ![Quests](https://user-images.githubusercontent.com/638167/121975175-d8d91c00-cd35-11eb-86cd-6b49360fe370.png)

@@ -36,6 +36,9 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty(Order = 80)]
 		public bool ShowCultists { get; set; } = true;
 
+		[ConfigurationProperty(Order = 90)]
+		public bool ChangeTime { get; set; } = false;
+
 		private GameObject? _mapCameraObject = null;
 		private Camera? _mapCamera = null;
 
@@ -64,7 +67,7 @@ namespace EFT.Trainer.Features
 			}
 
 			// We need to setup weather for proper rendering
-			Weather.ToClearWeather();
+			Weather.ToClearWeather(ChangeTime);
 
 			_mapCameraObject = new GameObject(GetType().FullName + nameof(_mapCameraObject), typeof(Camera), typeof(PrismEffects));
 			_mapCameraObject.GetComponent<PrismEffects>().CopyComponentValues(camera.GetComponent<PrismEffects>());
