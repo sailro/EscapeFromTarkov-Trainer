@@ -54,7 +54,7 @@ namespace EFT.Trainer.Features
 				forward.y = 0;
 
 				var heading = Quaternion.LookRotation(forward).eulerAngles.y;
-				_sb.Append(_directions[(int)Math.Round((double)heading % 360 / 45)]);
+				_sb.Append(_directions[(int)Mathf.Round(heading % 360 / 45)]);
 				_sb.Append(separator);
 			}
 

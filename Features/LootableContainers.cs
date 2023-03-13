@@ -52,7 +52,6 @@ namespace EFT.Trainer.Features
 				{
 					Name = container.Template.LocalizedShortName(),
 					Position = position,
-					ScreenPosition = camera.WorldPointToScreenPoint(position),
 					Color = Color
 				});
 			}

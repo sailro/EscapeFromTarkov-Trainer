@@ -148,7 +148,6 @@ namespace EFT.Trainer.Features
 			{
 				Name = $"{condition.FormattedDescription} ({quest.Template!.Name})",
 				Position = position,
-				ScreenPosition = camera.WorldPointToScreenPoint(position),
 				Color = Color
 			});
 		}

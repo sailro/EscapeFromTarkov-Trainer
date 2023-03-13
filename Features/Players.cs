@@ -168,7 +168,7 @@ namespace EFT.Trainer.Features
 				if (!camera.IsScreenPointVisible(screenPosition))
 					continue;
 
-				var distance = Mathf.Round(Vector3.Distance(camera.transform.position, position));
+				var distance = Vector3.Distance(camera.transform.position, position);
 				if (MaximumDistance > 0 && distance > MaximumDistance)
 					continue;
 

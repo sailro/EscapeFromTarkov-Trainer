@@ -112,7 +112,7 @@ namespace EFT.Trainer.Features
 
 				var position = enemy.Transform.position;
 
-				var distance = Mathf.Round(Vector3.Distance(cameraPosition, position));
+				var distance = Vector3.Distance(cameraPosition, position);
 				if (range > 0 && distance > range)
 					continue;
 
@@ -204,7 +204,7 @@ namespace EFT.Trainer.Features
 		protected static string GetHeadingAngle(Vector3 direction)
 		{
 			var heading = Quaternion.LookRotation(direction).eulerAngles.y;
-			return _directions[(int)Math.Round((double)heading % 360 / 45)];
+			return _directions[(int)Mathf.Round(heading % 360 / 45)];
 		}
 	}
 }

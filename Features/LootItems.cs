@@ -179,7 +179,6 @@ namespace EFT.Trainer.Features
 				Name = FormatName(itemName, item),
 				Owner = string.Equals(itemName, owner, StringComparison.OrdinalIgnoreCase) ? null : owner,
 				Position = position,
-				ScreenPosition = camera.WorldPointToScreenPoint(position),
 				Color = color
 			});
 		}
@@ -198,7 +197,6 @@ namespace EFT.Trainer.Features
 			{
 				Name = "Corpse",
 				Position = position,
-				ScreenPosition = camera.WorldPointToScreenPoint(position),
 				Color = Color
 			});
 		}

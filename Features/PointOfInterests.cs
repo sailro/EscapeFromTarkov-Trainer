@@ -32,7 +32,7 @@ namespace EFT.Trainer.Features
 			if (camera == null)
 				return;
 
-			var poiPerPosition = data.GroupBy(poi => poi.Position);
+			var poiPerPosition = data.ToLookup(poi => poi.Position);
 			foreach (var positionGroup in poiPerPosition)
 			{
 				var position = positionGroup.Key;
@@ -40,13 +40,13 @@ namespace EFT.Trainer.Features
 				if (!camera.IsScreenPointVisible(screenPosition))
 					continue;
 
-				var distance = Math.Round(Vector3.Distance(camera.transform.position, position));
+				var distance = Vector3.Distance(camera.transform.position, position);
 				if (MaximumDistance > 0 && distance > MaximumDistance)
 					continue;
 
 				var drawPosition = screenPosition;
 
-				var poiPerOwner = positionGroup.GroupBy(poi => poi.Owner);
+				var poiPerOwner = positionGroup.ToLookup(poi => poi.Owner);
 				foreach (var ownerGroup in poiPerOwner)
 				{
 					var distinctGroup = ownerGroup

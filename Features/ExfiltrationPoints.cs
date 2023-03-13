@@ -88,7 +88,6 @@ namespace EFT.Trainer.Features
 				{
 					Name = GetName(point, isEligible),
 					Position = position,
-					ScreenPosition = camera.WorldPointToScreenPoint(position),
 					Color = isEligible ? EligibleColor : NotEligibleColor
 				});
 			}

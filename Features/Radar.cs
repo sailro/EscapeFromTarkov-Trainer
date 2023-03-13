@@ -115,7 +115,7 @@ namespace EFT.Trainer.Features
 			float enemyX = playerPosition.z - targetPosition.z;
 			float enemyAtan = Mathf.Atan2(enemyY, enemyX) * Mathf.Rad2Deg - 270 - playerEulerY;
 
-			var enemyDistance = Mathf.Round(Vector3.Distance(playerPosition, targetPosition));
+			var enemyDistance = Vector3.Distance(playerPosition, targetPosition);
 
 			float enemyMapX = enemyDistance * Mathf.Cos(enemyAtan * Mathf.Deg2Rad);
 			float enemyMapY = enemyDistance * Mathf.Sin(enemyAtan * Mathf.Deg2Rad);
