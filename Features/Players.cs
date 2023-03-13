@@ -103,6 +103,9 @@ namespace EFT.Trainer.Features
 		public ShootableColor ShootableColors { get; set; } = new(Color.green, Color.red);
 
 		[ConfigurationProperty(Order = 62)]
+		public bool ShowNotShootable { get; set; } = false;
+
+		[ConfigurationProperty(Order = 63)]
 		public ShootableColor NotShootableColors { get; set; } = new(Color.red, Color.blue);
 
 		[ConfigurationProperty(Order = 19)]
@@ -178,17 +181,17 @@ namespace EFT.Trainer.Features
 					var bonesToCheck = GetBonesToCheck(playerBones);
 					borderColor = bonesToCheck.Any(bone => IsTransformVisibleCached(bone.transform, camera.IsTransformVisible))
 						? ShootableColors.BorderColor
-						: NotShootableColors.BorderColor;
+						: ShowNotShootable ? NotShootableColors.BorderColor : playerColors.BorderColor;
 
 					if (ShowSkeletons)
 					{
 						foreach (var bone in bonesToCheck)
 						{
-							var bonesColor = IsTransformVisibleCached(bone.transform, camera.IsTransformVisible) ? ShootableColors.Color : NotShootableColors.Color;
+							var bonesColor = IsTransformVisibleCached(bone.transform, camera.IsTransformVisible) ? ShootableColors.Color : ShowNotShootable ? NotShootableColors.Color : playerColors.Color;
 							Bones.RenderBones(ennemy, bone.bones, SkeletonThickness, bonesColor, camera, isAiming);
 						}
 
-						var color = IsTransformVisibleCached(bonesToCheck[0].transform, camera.IsTransformVisible) ? ShootableColors.Color : NotShootableColors.Color;
+						var color = IsTransformVisibleCached(bonesToCheck[0].transform, camera.IsTransformVisible) ? ShootableColors.Color : ShowNotShootable ? NotShootableColors.Color : playerColors.Color;
 						Bones.RenderHead(ennemy, SkeletonThickness, color, camera, isAiming);
 						Bones.RenderFingers(ennemy, SkeletonThickness, color, camera, isAiming);
 					}
