@@ -101,8 +101,8 @@ namespace EFT.Trainer.Features
 				if (rootItem is not { IsContainer: true })
 					continue;
 
-				var parentItem = rootItem.;
-				if (parentItem is Corpse )
+				if (rootItem.Parent.Item.IsFiltered())
+					continue;
 
 				var position = owner.Value.Transform.position;
 				FindItemsInRootItem(records, rootItem, position);
