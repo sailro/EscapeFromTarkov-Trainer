@@ -87,22 +87,25 @@ namespace EFT.Trainer.Features
 
 			// Step 2 - look inside containers (items)
 			if (SearchInsideContainers)
-				FindItemsInContainers(records);
+				FindItemsInContainers(world, records);
 
 			return records.ToArray();
 		}
 
-		private void FindItemsInContainers(List<PointOfInterest> records)
+		private void FindItemsInContainers(GameWorld world, List<PointOfInterest> records)
 		{
-			// We have world.ItemOwners, but it seems optimized/lazy-loaded depending on the distance to the player?
-			var containers = FindObjectsOfType<LootableContainer>();
-			foreach (var container in containers)
+			var owners = world.ItemOwners; // contains all containers: corpses, LootContainers, ...
+			foreach (var owner in owners)
 			{
-				if (!container.IsValid())
+				var rootItem = owner.Key.RootItem;
+				if (rootItem is not { IsContainer: true })
 					continue;
 
-				var position = container.transform.position;
-				FindItemsInRootItem(records, container.ItemOwner?.RootItem, position);
+				var parentItem = rootItem.;
+				if (parentItem is Corpse )
+
+				var position = owner.Value.Transform.position;
+				FindItemsInRootItem(records, rootItem, position);
 			}
 		}
 
@@ -123,7 +126,7 @@ namespace EFT.Trainer.Features
 				if (item.IsFiltered())
 					continue;
 
-				TryAddRecordIfTracked(item, records, position, item.Owner?.ContainerName?.Localized());
+				TryAddRecordIfTracked(item, records, position, item.Owner?.RootItem?.TemplateId.LocalizedShortName());
 			}
 		}
 

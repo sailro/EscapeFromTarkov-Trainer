@@ -36,21 +36,23 @@ namespace EFT.Trainer.Features
 			if (camera == null)
 				return Empty;
 
-			var containers = FindObjectsOfType<LootableContainer>();
+			var owners = world.ItemOwners; 
 			var records = new List<PointOfInterest>();
 
-			foreach (var container in containers)
+			foreach (var owner in owners)
 			{
-				if (!container.IsValid())
+				var itemOwner = owner.Key;
+				var rootItem = itemOwner.RootItem;
+				if (rootItem is not { IsContainer: true })
 					continue;
 
-				if (container.Template != KnownTemplateIds.BuriedBarrelCache && container.Template != KnownTemplateIds.GroundCache)
+				if (rootItem.TemplateId != KnownTemplateIds.BuriedBarrelCache && rootItem.TemplateId != KnownTemplateIds.GroundCache)
 					continue;
 
-				var position = container.transform.position;
+				var position = owner.Value.Transform.position;
 				records.Add(new PointOfInterest
 				{
-					Name = container.Template.LocalizedShortName(),
+					Name = rootItem.TemplateId.LocalizedShortName(), // nicer than ItemOwner.ContainerName which is full caps
 					Position = position,
 					Color = Color
 				});
