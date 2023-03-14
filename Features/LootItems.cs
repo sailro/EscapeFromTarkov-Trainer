@@ -101,7 +101,11 @@ namespace EFT.Trainer.Features
 				if (rootItem is not { IsContainer: true })
 					continue;
 
-				if (rootItem.Parent.Item.IsFiltered())
+				var item = rootItem.Parent?.Item;
+				if (!item.IsValid())
+					continue;
+
+				if (item.IsFiltered())
 					continue;
 
 				var position = owner.Value.Transform.position;
