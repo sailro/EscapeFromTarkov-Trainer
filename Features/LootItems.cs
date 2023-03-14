@@ -126,7 +126,7 @@ namespace EFT.Trainer.Features
 				if (item.IsFiltered())
 					continue;
 
-				TryAddRecordIfTracked(item, records, position, item.Owner?.RootItem?.TemplateId.LocalizedShortName());
+				TryAddRecordIfTracked(item, records, position, item.Owner?.RootItem?.TemplateId.LocalizedShortName()); // nicer than ItemOwner.ContainerName which is full caps
 			}
 		}
 
