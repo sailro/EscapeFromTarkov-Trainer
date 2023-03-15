@@ -13,6 +13,7 @@ namespace EFT.Trainer.Features
 	{
 		public override string Name => "map";
 
+		[ConfigurationProperty(Skip = true)] // we do not want to offer save/load support for this
 		public override bool Enabled { get; set; } = false;
 
 		[ConfigurationProperty(Order = 20)]
