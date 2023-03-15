@@ -10,5 +10,7 @@
 		//public const string Dollars = "5696686a4bdc2da3298b456a";
 		public const string Pockets = "557ffd194bdc2d28148b457f";
 		public const string DefaultInventory = "55d7217a4bdc2d86028b456d";
+
+		public static string DefaultInventoryLocalizedShortName = DefaultInventory.LocalizedShortName();
 	}
 }

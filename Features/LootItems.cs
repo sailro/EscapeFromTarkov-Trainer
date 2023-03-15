@@ -101,11 +101,7 @@ namespace EFT.Trainer.Features
 				if (rootItem is not { IsContainer: true })
 					continue;
 
-				var item = rootItem.Parent?.Item;
-				if (!item.IsValid())
-					continue;
-
-				if (item.IsFiltered())
+				if (!rootItem.IsValid() || rootItem.IsFiltered()) // filter default inventory container here, given we special case the corpse container
 					continue;
 
 				var position = owner.Value.Transform.position;
@@ -124,10 +120,7 @@ namespace EFT.Trainer.Features
 
 			foreach (var item in items)
 			{
-				if (!item.IsValid())
-					continue;
-
-				if (item.IsFiltered())
+				if (!item.IsValid() || item.IsFiltered())
 					continue;
 
 				TryAddRecordIfTracked(item, records, position, item.Owner?.RootItem?.TemplateId.LocalizedShortName()); // nicer than ItemOwner.ContainerName which is full caps
@@ -181,6 +174,9 @@ namespace EFT.Trainer.Features
 			if (trackedItem == null || !RarityMatches(rarity, trackedItem.Rarity))
 				return;
 
+			if (owner != null && owner == KnownTemplateIds.DefaultInventoryLocalizedShortName)
+				owner = nameof(Corpse);
+
 			var color = trackedItem.Color ?? Color;
 			records.Add(new PointOfInterest
 			{
@@ -203,7 +199,7 @@ namespace EFT.Trainer.Features
 		{
 			records.Add(new PointOfInterest
 			{
-				Name = "Corpse",
+				Name = nameof(Corpse),
 				Position = position,
 				Color = Color
 			});
