@@ -87,22 +87,25 @@ namespace EFT.Trainer.Features
 
 			// Step 2 - look inside containers (items)
 			if (SearchInsideContainers)
-				FindItemsInContainers(records);
+				FindItemsInContainers(world, records);
 
 			return records.ToArray();
 		}
 
-		private void FindItemsInContainers(List<PointOfInterest> records)
+		private void FindItemsInContainers(GameWorld world, List<PointOfInterest> records)
 		{
-			// We have world.ItemOwners, but it seems optimized/lazy-loaded depending on the distance to the player?
-			var containers = FindObjectsOfType<LootableContainer>();
-			foreach (var container in containers)
+			var owners = world.ItemOwners; // contains all containers: corpses, LootContainers, ...
+			foreach (var owner in owners)
 			{
-				if (!container.IsValid())
+				var rootItem = owner.Key.RootItem;
+				if (rootItem is not { IsContainer: true })
 					continue;
 
-				var position = container.transform.position;
-				FindItemsInRootItem(records, container.ItemOwner?.RootItem, position);
+				if (!rootItem.IsValid() || rootItem.IsFiltered()) // filter default inventory container here, given we special case the corpse container
+					continue;
+
+				var position = owner.Value.Transform.position;
+				FindItemsInRootItem(records, rootItem, position);
 			}
 		}
 
@@ -117,13 +120,10 @@ namespace EFT.Trainer.Features
 
 			foreach (var item in items)
 			{
-				if (!item.IsValid())
+				if (!item.IsValid() || item.IsFiltered())
 					continue;
 
-				if (item.IsFiltered())
-					continue;
-
-				TryAddRecordIfTracked(item, records, position, item.Owner?.ContainerName?.Localized());
+				TryAddRecordIfTracked(item, records, position, item.Owner?.RootItem?.TemplateId.LocalizedShortName()); // nicer than ItemOwner.ContainerName which is full caps
 			}
 		}
 
@@ -174,6 +174,9 @@ namespace EFT.Trainer.Features
 			if (trackedItem == null || !RarityMatches(rarity, trackedItem.Rarity))
 				return;
 
+			if (owner != null && owner == KnownTemplateIds.DefaultInventoryLocalizedShortName)
+				owner = nameof(Corpse);
+
 			var color = trackedItem.Color ?? Color;
 			records.Add(new PointOfInterest
 			{
@@ -196,7 +199,7 @@ namespace EFT.Trainer.Features
 		{
 			records.Add(new PointOfInterest
 			{
-				Name = "Corpse",
+				Name = nameof(Corpse),
 				Position = position,
 				Color = Color
 			});
