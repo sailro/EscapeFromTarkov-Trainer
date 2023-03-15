@@ -84,6 +84,7 @@ namespace EFT.Trainer.Features
 	public class GameStateSnapshot
 	{
 		public Camera? Camera { get; set; }
+		public Camera? MapCamera { get; set; }
 		public Player? LocalPlayer { get; set; }
 		public IEnumerable<Player> Hostiles { get; set; } = Array.Empty<Player>();
 		public bool MapMode { get; set; } = false;

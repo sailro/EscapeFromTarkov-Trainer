@@ -44,6 +44,9 @@ namespace EFT.Trainer.Features
 			if (MapCamera == null)
 				return;
 
+			if (snapshot.MapCamera != MapCamera)
+				snapshot.MapCamera = MapCamera;
+
 			Render.DrawPlayer(Render.ScreenCenter, 10f, Color.white, 2f);
 
 			DrawHostiles(MapCamera, hostiles, Range);

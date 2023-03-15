@@ -97,8 +97,6 @@ namespace EFT.Trainer.Features
 		{
 			var cameraPosition = camera.transform.position;
 
-			if (MapCamera != null && MapCamera.enabled)
-				cameraPosition.y = 0f;
 
 			var feature = FeatureFactory.GetFeature<Players>();
 			if (feature == null)
@@ -110,6 +108,9 @@ namespace EFT.Trainer.Features
 					continue;
 
 				var position = enemy.Transform.position;
+
+				if (MapCamera != null && MapCamera.enabled)
+					cameraPosition.y = position.y;
 
 				var distance = Vector3.Distance(cameraPosition, position);
 				if (range > 0 && distance > range)

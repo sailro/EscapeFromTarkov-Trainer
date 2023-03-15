@@ -25,13 +25,11 @@ namespace EFT.Trainer.Features
 			if (snapshot == null)
 				return;
 
-			if (snapshot.MapMode)
-				return;
-
-			var camera = snapshot.Camera;
+			var camera = snapshot.MapMode ? snapshot.MapCamera : snapshot.Camera;
 			if (camera == null)
 				return;
 
+			var cameraPosition = camera.transform.position;
 			var poiPerPosition = data.ToLookup(poi => poi.Position);
 			foreach (var positionGroup in poiPerPosition)
 			{
@@ -40,7 +38,10 @@ namespace EFT.Trainer.Features
 				if (!camera.IsScreenPointVisible(screenPosition))
 					continue;
 
-				var distance = Mathf.Round(Vector3.Distance(camera.transform.position, position));
+				if (snapshot.MapMode)
+					cameraPosition.y = position.y;
+
+				var distance = Mathf.Round(Vector3.Distance(cameraPosition, position));
 				if (MaximumDistance > 0 && distance > MaximumDistance)
 					continue;
 
