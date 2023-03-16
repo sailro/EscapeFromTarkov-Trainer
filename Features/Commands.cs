@@ -482,18 +482,19 @@ namespace EFT.Trainer.Features
 			}
 		}
 
-		private static void LoadWishList(LootItems feature)
+		private void LoadWishList(LootItems feature)
 		{
-			var player = GameState.Current?.LocalPlayer;
-			if (player == null)
-				return;
+			var instance = ItemUiContext.Instance; // warning instance is a MonoBehavior so no null propagation permitted
+			var wishlist = instance == null ? null : instance.Session?.RagFair?.Wishlist;
 
-			var profile = player.Profile;
-			if (profile == null)
+			if (wishlist == null)
+			{
+				AddConsoleLog("Wishlist is not yet loaded!, make sure to go to [characters] or [hideout] first or start a raid".Yellow());
 				return;
+			}
 
-			foreach (var itemName in profile.WishList)
-				feature.Track(itemName, null, null);
+			var changeCount = wishlist.Sum(item => Convert.ToInt32(feature.Track(item.Key.LocalizedShortName(), null, null)));
+			ShowTrackList(feature, changeCount > 0);
 		}
 
 		private static bool TryGetTrackListFilename(Match match, [NotNullWhen(true)] out string? filename)
