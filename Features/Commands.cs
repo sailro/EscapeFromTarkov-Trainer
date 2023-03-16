@@ -493,6 +493,8 @@ namespace EFT.Trainer.Features
 				return;
 			}
 
+			// item.Key is the templateId, it can work directly with track
+			// but let's use the LocalizedShortName, as it is more user friendly to manage a tracklist
 			var changeCount = wishlist.Sum(item => Convert.ToInt32(feature.Track(item.Key.LocalizedShortName(), null, null)));
 			ShowTrackList(feature, changeCount > 0);
 		}
