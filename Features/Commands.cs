@@ -493,9 +493,10 @@ namespace EFT.Trainer.Features
 				return;
 			}
 
+			feature.ClearTrackedWishlist(); //Clear old wishlist items
 			// item.Key is the templateId, it can work directly with track
 			// but let's use the LocalizedShortName, as it is more user friendly to manage a tracklist
-			var changeCount = wishlist.Sum(item => Convert.ToInt32(feature.Track(item.Key.LocalizedShortName(), null, null)));
+			var changeCount = wishlist.Sum(item => Convert.ToInt32(feature.Track(item.Key, null, null, true)));
 			ShowTrackList(feature, changeCount > 0);
 		}
 
@@ -554,7 +555,7 @@ namespace EFT.Trainer.Features
 			if (extraGroup is {Success: true})
 				color = ColorConverter.Parse(extraGroup.Value);
 
-			ShowTrackList(feature, feature.Track(matchGroup.Value, color, rarity));
+			ShowTrackList(feature, feature.Track(matchGroup.Value, color, rarity, false));
 		}
 
 		private void ListLootItems(Match match, LootItems feature, ELootRarity? rarityFilter = null)

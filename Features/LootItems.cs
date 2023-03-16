@@ -38,14 +38,14 @@ namespace EFT.Trainer.Features
 		public override float CacheTimeInSec { get; set; } = 3f;
 		public override Color GroupingColor => Color;
 
-		public bool Track(string lootname, Color? color, ELootRarity? rarity)
+		public bool Track(string lootname, Color? color, ELootRarity? rarity, bool wishlist)
 		{
 			lootname = lootname.Trim();
 
 			if (TrackedNames.Any(t => t.Name == lootname && t.Rarity == rarity))
 				return false;
 
-			TrackedNames.Add(new TrackedItem(lootname, color, rarity));
+			TrackedNames.Add(new TrackedItem(lootname, color, rarity, wishlist));
 			return true;
 
 		}
@@ -61,6 +61,11 @@ namespace EFT.Trainer.Features
 			}
 			
 			return TrackedNames.RemoveAll(t => t.Name == lootname) > 0;
+		}
+
+		public bool ClearTrackedWishlist()
+		{
+			return TrackedNames.RemoveAll(t => t.Wishlist == true) > 0;
 		}
 
 		public override PointOfInterest[] RefreshData()
