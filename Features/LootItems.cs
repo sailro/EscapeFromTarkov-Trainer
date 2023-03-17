@@ -6,6 +6,7 @@ using EFT.Interactive;
 using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.UI;
 using JsonType;
 using UnityEngine;
 
@@ -35,8 +36,13 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty]
 		public bool ShowPrices { get; set; } = true;
 
+		[ConfigurationProperty]
+		public bool TrackWishlist { get; set; } = true;
+
 		public override float CacheTimeInSec { get; set; } = 3f;
 		public override Color GroupingColor => Color;
+
+		public GClass2903? Wishlist { get; set; } = null;
 
 		public bool Track(string lootname, Color? color, ELootRarity? rarity)
 		{
@@ -65,7 +71,10 @@ namespace EFT.Trainer.Features
 
 		public override PointOfInterest[] RefreshData()
 		{
-			if (TrackedNames.Count == 0)
+			var instance = TrackWishlist ? ItemUiContext.Instance : null; // warning instance is a MonoBehavior so no null propagation permitted
+			Wishlist = instance == null ? null : instance.Session?.RagFair?.Wishlist;
+
+			if (TrackedNames.Count == 0 && Wishlist == null)
 				return Empty;
 
 			var world = Singleton<GameWorld>.Instance;
@@ -130,6 +139,7 @@ namespace EFT.Trainer.Features
 		private void FindLootItems(GameWorld world, List<PointOfInterest> records)
 		{
 			var lootItems = world.LootItems;
+
 			for (var i = 0; i < lootItems.Count; i++)
 			{
 				var lootItem = lootItems.GetByIndex(i);
@@ -166,10 +176,29 @@ namespace EFT.Trainer.Features
 		{
 			var itemName = item.ShortName.Localized();
 			var template = item.Template;
-			var trackedItem = TrackedNames.Find(t => t.Name == "*"
+			var trackedItem = TrackedNames.Count > 0 ? TrackedNames.Find(t => t.Name == "*"
 			                                         || itemName.IndexOf(t.Name, StringComparison.OrdinalIgnoreCase) >= 0
-			                                         || string.Equals(template._id, t.Name, StringComparison.OrdinalIgnoreCase));
+			                                         || string.Equals(template._id, t.Name, StringComparison.OrdinalIgnoreCase)) : null;
 
+			if (TrackWishlist && Wishlist != null && trackedItem == null)
+			{
+				var onWishlist = Wishlist.FirstOrDefault(wl => wl.Key == template._id);
+				if (onWishlist.Key != null)
+				{
+					if (owner != null && owner == KnownTemplateIds.DefaultInventoryLocalizedShortName)
+						owner = nameof(Corpse);
+
+					records.Add(new PointOfInterest
+					{
+						Name = FormatName(itemName, item),
+						Owner = string.Equals(itemName, owner, StringComparison.OrdinalIgnoreCase) ? null : owner,
+						Position = position,
+						Color = Color
+					});
+					return;
+				}
+			}
+		
 			var rarity = template.GetEstimatedRarity();
 			if (trackedItem == null || !RarityMatches(rarity, trackedItem.Rarity))
 				return;

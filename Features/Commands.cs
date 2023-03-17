@@ -431,7 +431,6 @@ namespace EFT.Trainer.Features
 				CreateCommand("savetl", $"(?<{ValueGroup}>.+)", m => SaveTrackList(m, liFeature));
 
 				CreateCommand("tracklist", () => ShowTrackList(liFeature));
-				CreateCommand("loadwl", () => LoadWishList(liFeature));
 			}
 
 			CreateCommand("dump", Dump);
@@ -480,20 +479,6 @@ namespace EFT.Trainer.Features
 				var extra = item.Rarity.HasValue ? $" ({item.Rarity.Value.Color()})" : string.Empty;
 				AddConsoleLog(item.Color.HasValue ? $"Tracking: {item.Name.Color(item.Color.Value)}{extra}" : $"Tracking: {item.Name}{extra}");
 			}
-		}
-
-		private static void LoadWishList(LootItems feature)
-		{
-			var player = GameState.Current?.LocalPlayer;
-			if (player == null)
-				return;
-
-			var profile = player.Profile;
-			if (profile == null)
-				return;
-
-			foreach (var itemName in profile.WishList)
-				feature.Track(itemName, null, null);
 		}
 
 		private static bool TryGetTrackListFilename(Match match, [NotNullWhen(true)] out string? filename)

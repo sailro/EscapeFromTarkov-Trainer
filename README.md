@@ -35,7 +35,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 | `Hits`                    | `hits`       | Hit markers (hit, armor, health with configurable colors). |
 | `Hud`                     | `hud`        | HUD (compass, ammo left in chamber / magazine, fire mode, coordinates). |
 | `LootableContainers`      | `stash`      | Hidden stashes like buried barrels or ground caches. |
-| `LootItems`               | `loot`       | List all lootable items and track any item by name or rarity in raid (even in containers and corpses), with prices. |
+| `LootItems`               | `loot`       | List all lootable items and track any item by name or rarity or in-game wishlist in raid (even in containers and corpses), with prices. |
 | `Map`                     | `map`        | Full screen 3D map with radar esp. |
 | `NightVision`             | `night`      | Night vision. |
 | `NoCollision`             | `nocoll`     | No physical collisions, making you immune to bullets, grenades and barbed wires. |
@@ -116,7 +116,6 @@ This trainer hooks into the command system, so you can easily setup features usi
 | listsr     | `[name]` or `*`     |         | List only super rare lootable items |
 | load       |                     |         | Load settings from `trainer.ini`    |
 | loadtl     | `[filename]`        |         | Load current tracklist from file    |
-| loadwl     |                     |         | Load tracklist from your wishlist   |
 | loot       | `on` or `off`       |         | Show/Hide tracked items             |
 | night      | `on` or `off`       | `off`   | Enable/Disable night vision         |
 | nocoll     | `on` or `off`       | `off`   | Disable/Enable physical collisions  |
