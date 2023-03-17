@@ -474,11 +474,8 @@ namespace EFT.Trainer.Features
 			if (changed)
 				AddConsoleLog("Tracking list updated...");
 
-			if (feature.Wishlist != null && feature.TrackWishlist)
-				foreach (var wlItem in feature.Wishlist)
-				{
-					AddConsoleLog($"Tracking: {wlItem.Key.LocalizedName()} (Wishlist)");
-				}
+			foreach (var templateId in feature.Wishlist)
+				AddConsoleLog($"Tracking: {templateId.LocalizedShortName()} (Wishlist)");
 
 			foreach (var item in feature.TrackedNames)
 			{
