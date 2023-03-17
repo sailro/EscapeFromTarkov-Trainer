@@ -6,6 +6,7 @@ using EFT.Interactive;
 using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.UI;
 using JsonType;
 using UnityEngine;
 
@@ -35,8 +36,13 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty]
 		public bool ShowPrices { get; set; } = true;
 
+		[ConfigurationProperty]
+		public bool TrackWishlist { get; set; } = false;
+
 		public override float CacheTimeInSec { get; set; } = 3f;
 		public override Color GroupingColor => Color;
+
+		public HashSet<string> Wishlist { get; set; } = new();
 
 		public bool Track(string lootname, Color? color, ELootRarity? rarity)
 		{
@@ -63,9 +69,29 @@ namespace EFT.Trainer.Features
 			return TrackedNames.RemoveAll(t => t.Name == lootname) > 0;
 		}
 
+		private HashSet<string> RefreshWishlist()
+		{
+			var result = new HashSet<string>();
+			if (!TrackWishlist)
+				return result;
+
+			var uiContextInstance = ItemUiContext.Instance; // warning instance is a MonoBehavior so no null propagation permitted
+			if (uiContextInstance == null)
+				return result;
+
+			var rawWishList = uiContextInstance.Session?.RagFair?.Wishlist;
+			if (rawWishList == null)
+				return result;
+
+			return new HashSet<string>(rawWishList.Keys);
+		}
+
 		public override PointOfInterest[] RefreshData()
 		{
-			if (TrackedNames.Count == 0)
+			Wishlist.Clear();
+			Wishlist = RefreshWishlist();
+
+			if (TrackedNames.Count == 0 && Wishlist.Count == 0)
 				return Empty;
 
 			var world = Singleton<GameWorld>.Instance;
@@ -130,6 +156,7 @@ namespace EFT.Trainer.Features
 		private void FindLootItems(GameWorld world, List<PointOfInterest> records)
 		{
 			var lootItems = world.LootItems;
+
 			for (var i = 0; i < lootItems.Count; i++)
 			{
 				var lootItem = lootItems.GetByIndex(i);
@@ -166,18 +193,25 @@ namespace EFT.Trainer.Features
 		{
 			var itemName = item.ShortName.Localized();
 			var template = item.Template;
-			var trackedItem = TrackedNames.Find(t => t.Name == "*"
-			                                         || itemName.IndexOf(t.Name, StringComparison.OrdinalIgnoreCase) >= 0
-			                                         || string.Equals(template._id, t.Name, StringComparison.OrdinalIgnoreCase));
+			var templateId = template._id;
+			var color = Color;
 
-			var rarity = template.GetEstimatedRarity();
-			if (trackedItem == null || !RarityMatches(rarity, trackedItem.Rarity))
-				return;
+			if (!Wishlist.Contains(templateId))
+			{
+				var trackedItem = TrackedNames.Find(t => t.Name == "*"
+				                                         || itemName.IndexOf(t.Name, StringComparison.OrdinalIgnoreCase) >= 0
+				                                         || string.Equals(templateId, t.Name, StringComparison.OrdinalIgnoreCase));
+
+				var rarity = template.GetEstimatedRarity();
+				if (trackedItem == null || !RarityMatches(rarity, trackedItem.Rarity))
+					return;
+
+				color = trackedItem.Color ?? color;
+			}
 
 			if (owner != null && owner == KnownTemplateIds.DefaultInventoryLocalizedShortName)
 				owner = nameof(Corpse);
 
-			var color = trackedItem.Color ?? Color;
 			records.Add(new PointOfInterest
 			{
 				Name = FormatName(itemName, item),
