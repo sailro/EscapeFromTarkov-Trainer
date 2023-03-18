@@ -564,7 +564,7 @@ namespace EFT.Trainer.Features
 
 			// Step 2 - look inside containers (items)
 			if (feature.SearchInsideContainers)
-				FindItemsInContainers(itemsPerName);
+				FindItemsInContainers(world, itemsPerName);
 
 			var names = itemsPerName.Keys.ToList();
 			names.Sort();
@@ -591,15 +591,19 @@ namespace EFT.Trainer.Features
 			AddConsoleLog($"found {count.ToString().Cyan()} items");
 		}
 
-		private static void FindItemsInContainers(Dictionary<string, List<Item>> itemsPerName)
+		private static void FindItemsInContainers(GameWorld world, Dictionary<string, List<Item>> itemsPerName)
 		{
-			var containers = FindObjectsOfType<LootableContainer>();
-			foreach (var container in containers)
+			var owners = world.ItemOwners; // contains all containers: corpses, LootContainers, ...
+			foreach (var owner in owners)
 			{
-				if (!container.IsValid())
+				var rootItem = owner.Key.RootItem;
+				if (rootItem is not { IsContainer: true })
 					continue;
 
-				FindItemsInRootItem(itemsPerName, container.ItemOwner?.RootItem);
+				if (!rootItem.IsValid() || rootItem.IsFiltered()) // filter default inventory container here, given we special case the corpse container
+					continue;
+
+				FindItemsInRootItem(itemsPerName, rootItem);
 			}
 		}
 
@@ -643,10 +647,7 @@ namespace EFT.Trainer.Features
 		{
 			foreach (var item in items)
 			{
-				if (!item.IsValid())
-					continue;
-
-				if (item.IsFiltered())
+				if (!item.IsValid() || item.IsFiltered())
 					continue;
 
 				var itemName = item.ShortName.Localized();
