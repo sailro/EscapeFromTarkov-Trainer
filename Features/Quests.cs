@@ -40,12 +40,15 @@ namespace EFT.Trainer.Features
 				return Empty;
 
 			var profile = player.Profile;
-			var records = new List<PointOfInterest>();
 
 			var startedQuests = profile.QuestsData
 				.Where(q => q.Status is EQuestStatus.Started && q.Template != null)
 				.ToArray();
 
+			if (!startedQuests.Any())
+				return Empty;
+
+			var records = new List<PointOfInterest>();
 			RefreshPlaceOrRepairItemLocations(startedQuests, profile, records);
 			RefreshVisitPlaceLocations(startedQuests, profile, records); 
 			RefreshFindItemLocations(startedQuests, world, records);
