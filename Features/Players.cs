@@ -446,8 +446,7 @@ namespace EFT.Trainer.Features
 			var lensUpperRight3D = camera.WorldPointToScreenPoint(lensUpperRight);
 			var lensUpperLeft3D = camera.WorldPointToScreenPoint(lensUpperLeft);
 			var scopeRadius = Vector3.Distance(lensUpperRight3D, lensUpperLeft3D) / 2;
-			var scopePos = camera.WorldPointToScreenPoint(currentOptic.LensRenderer.transform.position);
-			var scopeCenter = new Vector2(scopePos.x, scopePos.y);
+			var scopeCenter = (Vector2)camera.WorldPointToScreenPoint(currentOptic.LensRenderer.transform.position);
 
 			var scale = Screen.height / (float)camera.scaledPixelHeight;
 			var cameraOffset = new Vector2(
@@ -502,7 +501,7 @@ namespace EFT.Trainer.Features
 			var scopeRadius = Vector3.Distance(lensUpperRight3D, lensUpperLeft3D) / 2;
 			var scopePos = camera.WorldPointToScreenPoint(currentOptic.LensRenderer.transform.position);
 		
-			var distance = Vector2.Distance(new Vector2(scopePos.x, scopePos.y), target);
+			var distance = Vector2.Distance(scopePos, target);
 			return distance <= scopeRadius;
 		}
 	}

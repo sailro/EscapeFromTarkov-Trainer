@@ -98,7 +98,7 @@ namespace EFT.Trainer.Features
 				? Players.ScopePointToScreenPoint(camera, fromPosition, toPosition)
 				: (camera.WorldPointToScreenPoint(fromPosition), camera.WorldPointToScreenPoint(toPosition));
 
-			Render.DrawLine(new Vector2(fromScreenPosition.x, fromScreenPosition.y), new Vector2(toScreenPosition.x, toScreenPosition.y), thickness, color);
+			Render.DrawLine(fromScreenPosition, toScreenPosition, thickness, color);
 		}
 
 		public static void RenderBones(Player player, float thickness, Color color, Camera camera, bool isAiming)
@@ -123,7 +123,7 @@ namespace EFT.Trainer.Features
 
 			var radius = Vector3.Distance(head, neck);
 
-			Render.DrawCircle(new Vector2(head.x, head.y), radius, color, thickness, 8);
+			Render.DrawCircle(head, radius, color, thickness, 8);
 		}
 
 	public static void RenderBones(Player player, string[] connections, float thickness, Color color, Camera camera, bool isAiming)
@@ -161,7 +161,7 @@ namespace EFT.Trainer.Features
 
 		var radius = Vector3.Distance(head, neck);
 
-		Render.DrawCircle(new Vector2(head.x, head.y), radius, color, thickness, 8);
+		Render.DrawCircle(head, radius, color, thickness, 8);
 	}
 
 	public static void RenderFingers(Player player, float thickness, Color color, Camera camera, bool isAiming)

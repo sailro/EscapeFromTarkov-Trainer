@@ -203,7 +203,7 @@ namespace EFT.Trainer.Features
 			if (FovRadius <= 0f)
 				return true;
 
-			var distance = Vector2.Distance(Render.ScreenCenter, new Vector2(screenPosition.x, screenPosition.y));
+			var distance = Vector2.Distance(Render.ScreenCenter, screenPosition);
 			return distance <= FovRadius;
 		}
 
