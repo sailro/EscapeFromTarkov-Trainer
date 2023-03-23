@@ -499,9 +499,9 @@ namespace EFT.Trainer.Features
 			var lensUpperRight3D = camera.WorldPointToScreenPoint(lensUpperRight);
 			var lensUpperLeft3D = camera.WorldPointToScreenPoint(lensUpperLeft);
 			var scopeRadius = Vector3.Distance(lensUpperRight3D, lensUpperLeft3D) / 2;
-			var scopePos = camera.WorldPointToScreenPoint(currentOptic.LensRenderer.transform.position);
+			var scopeCenter = camera.WorldPointToScreenPoint(currentOptic.LensRenderer.transform.position);
 		
-			var distance = Vector2.Distance(scopePos, target);
+			var distance = Vector2.Distance(scopeCenter, target);
 			return distance <= scopeRadius;
 		}
 	}
