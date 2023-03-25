@@ -114,7 +114,7 @@ namespace EFT.Trainer.Features
 			foreach (var connection in Connections)
 				RenderBone(bones, connection[0], connection[1], thickness, color, camera, isAiming);
 
-			if (distance < 50f)
+			if (distance < 75f)
 				foreach (var finger in FingerConnections)
 					RenderBone(bones, finger[0], finger[1], thickness, color, camera, isAiming);
 
