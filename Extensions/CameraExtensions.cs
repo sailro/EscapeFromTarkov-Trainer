@@ -6,7 +6,7 @@ namespace EFT.Trainer.Extensions
 {
 	public static class CameraExtensions
 	{
-		public static Vector3 WorldPointToScreenPoint(this Camera camera, Vector3 worldPoint)
+		public static Vector2 WorldPointToScreenPoint(this Camera camera, Vector3 worldPoint)
 		{
 			var screenPoint = camera.WorldToScreenPoint(worldPoint);
 			var scale = Screen.height / (float)camera.scaledPixelHeight;
@@ -27,11 +27,15 @@ namespace EFT.Trainer.Extensions
 			return hitinfo.transform == transform;
 		}
 
-#pragma warning disable IDE0060 // Remove unused parameter
-		public static bool IsScreenPointVisible(this Camera camera, Vector3 screenPoint)
-#pragma warning restore IDE0060 // Remove unused parameter
+		public static Vector2 WorldPointToVisibleScreenPoint(this Camera camera, Vector3 worldPoint)
 		{
-			return screenPoint is { z: > 0.01f, x: > -5f, y: > -5f } && screenPoint.x < Screen.width && screenPoint.y < Screen.height;
+			var screenPoint = camera.WorldToScreenPoint(worldPoint);
+			var scale = Screen.height / (float)camera.scaledPixelHeight;
+			screenPoint.y = Screen.height - screenPoint.y * scale;
+			screenPoint.x *= scale;
+			if (screenPoint is { z: > 0.01f, x: > -5f, y: > -5f } && screenPoint.x < Screen.width && screenPoint.y < Screen.height)
+				return screenPoint;
+			return Vector2.zero;
 		}
 	}
 }
