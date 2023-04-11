@@ -115,6 +115,7 @@ namespace EFT.Trainer.Features
 		private static bool _lastShowCharms = true;
 
 		private static Camera? _opticCamera;
+		private static (Vector2 center, float radius) _scopeParameters;
 
 		[UsedImplicitly]
 		protected void OnGUI()
@@ -150,7 +151,7 @@ namespace EFT.Trainer.Features
 				return;
 			}
 
-			var isAiming = AimingCheck(player);
+			var isAiming = AimingCheck(camera, player);
 			
 			foreach (var ennemy in hostiles)
 			{
@@ -164,8 +165,8 @@ namespace EFT.Trainer.Features
 					SetShaders(ennemy, GameState.OutlineShader, playerColors.Color, borderColor, cache);
 
 				var position = ennemy.Transform.position;
-				var screenPosition = isAiming ? ScopePointToScreenPoint(camera, position) : camera.WorldPointToScreenPoint(position);
-				if (!camera.IsScreenPointVisible(screenPosition))
+				var screenPosition = isAiming ? ScopePointToScreenPoint(camera, position) : camera.WorldPointToVisibleScreenPoint(position);
+				if (screenPosition == Vector2.zero)
 					continue;
 
 				var distance = Mathf.Round(Vector3.Distance(camera.transform.position, position));
@@ -174,6 +175,16 @@ namespace EFT.Trainer.Features
 
 				var playerBones = ennemy.PlayerBones;
 				if (playerBones == null)
+					continue;
+
+				var headScreenPosition = isAiming
+					? ScopePointToScreenPoint(camera, playerBones.Head.position)
+					: camera.WorldPointToVisibleScreenPoint(playerBones.Head.position);
+				var leftShoulderScreenPosition = isAiming
+					? ScopePointToScreenPoint(camera, playerBones.LeftShoulder.position)
+					: camera.WorldPointToVisibleScreenPoint(playerBones.LeftShoulder.position);
+
+				if (headScreenPosition == Vector2.zero || leftShoulderScreenPosition == Vector2.zero)
 					continue;
 
 				if (ShowShootable)
@@ -193,20 +204,14 @@ namespace EFT.Trainer.Features
 
 						var color = IsTransformVisibleCached(bonesToCheck[0].transform, camera.IsTransformVisible) ? ShootableColors.Color : ShowNotShootable ? NotShootableColors.Color : playerColors.Color;
 						Bones.RenderHead(ennemy, SkeletonThickness, color, camera, isAiming);
-						Bones.RenderFingers(ennemy, SkeletonThickness, color, camera, isAiming);
+						if (distance < 75f)
+							Bones.RenderFingers(ennemy, SkeletonThickness, color, camera, isAiming);
 					}
 
 					ClearTransformCache();
 				}
 				else if (ShowSkeletons)
-					Bones.RenderBones(ennemy, SkeletonThickness, playerColors.Color, camera, isAiming);
-
-				var headScreenPosition = isAiming
-					? ScopePointToScreenPoint(camera, playerBones.Head.position)
-					: camera.WorldPointToScreenPoint(playerBones.Head.position);
-				var leftShoulderScreenPosition = isAiming
-					? ScopePointToScreenPoint(camera, playerBones.LeftShoulder.position)
-					: camera.WorldPointToScreenPoint(playerBones.LeftShoulder.position);
+					Bones.RenderBones(ennemy, SkeletonThickness, playerColors.Color, camera, isAiming, distance);
 
 				var heightOffset = Mathf.Abs(headScreenPosition.y - leftShoulderScreenPosition.y);
 
@@ -215,7 +220,7 @@ namespace EFT.Trainer.Features
 
 				var boxPositionX = screenPosition.x - boxWidth / 2f;
 				var boxPositionY = headScreenPosition.y - heightOffset * 2f;
-				
+
 				if (ShowBoxes)
 					Render.DrawBox(boxPositionX, boxPositionY, boxWidth, boxHeight, BoxThickness, borderColor);
 				
@@ -273,7 +278,7 @@ namespace EFT.Trainer.Features
 			_cache.Clear();
 		}
 
-		private static bool AimingCheck(Player player)
+		private static bool AimingCheck(Camera camera, Player player)
 		{
 			var handsController = player.HandsController;
 			if (handsController == null)
@@ -292,6 +297,10 @@ namespace EFT.Trainer.Features
 
 			if (isAiming && zoom <= 1)
 				isAiming = false;
+
+			var currentOptic = weaponAnimation.HandsContainer.Weapon.GetComponentInChildren<OpticSight>();
+			if (isAiming && currentOptic != null)
+				GetScopeParameters(camera, currentOptic);
 
 			if (_opticCamera != null)
 				return isAiming;
@@ -389,120 +398,66 @@ namespace EFT.Trainer.Features
 				cache.Clear();
 		}
 
-		public static Vector3 ScopePointToScreenPoint(Camera camera, Vector3 worldPoint)
+		public static Vector2 ScopePointToScreenPoint(Camera camera, Vector3 worldPoint, bool clamp = false)
 		{
-			var screenPoint = camera.WorldPointToScreenPoint(worldPoint);
+			if (_opticCamera == null || !GetCameraOffset(camera, out var scale, out var cameraOffset))
+				return camera.WorldPointToScreenPoint(worldPoint);
 
-			var player = GameState.Current?.LocalPlayer;
-			if (player == null)
-				return screenPoint;
-
-			var currentOptic = player.ProceduralWeaponAnimation.HandsContainer.Weapon.GetComponentInChildren<OpticSight>();
-			if (currentOptic == null)
-				return screenPoint;
-
-			if (_opticCamera == null)
-				return screenPoint;
-
-			var scale = Screen.height / (float)camera.scaledPixelHeight;
-			var point = _opticCamera.WorldToViewportPoint(worldPoint);
-			var scopePoint = _opticCamera.ViewportToScreenPoint(point);
-
-			scopePoint.x += camera.pixelWidth / 2 - _opticCamera.pixelWidth / 2;
-			scopePoint.y += camera.pixelHeight / 2 - _opticCamera.pixelHeight / 2;
-
+			var scopePoint = (Vector2)_opticCamera.WorldToScreenPoint(worldPoint) + cameraOffset;
 			scopePoint.y = Screen.height - scopePoint.y * scale;
 			scopePoint.x *= scale;
 
-			if (!CheckScopeProjection(camera, scopePoint, currentOptic))
-				return Vector3.zero;
+			if (clamp)
+				return ClampPointToScope(scopePoint);
 
-			return scopePoint;
+			var distance = Vector2.Distance(_scopeParameters.center, scopePoint);
+			if (distance <= _scopeParameters.radius)
+				return scopePoint;
+			
+			return Vector2.zero;
 		}
 
-		public static (Vector3, Vector3) ScopePointToScreenPoint(Camera camera, Vector3 worldPoint1, Vector3 worldPoint2)
+		private static bool GetCameraOffset(Camera camera, out float scale, out Vector2 cameraOffset)
 		{
-			var screenPoint1 = camera.WorldPointToScreenPoint(worldPoint1);
-			var screenPoint2 = camera.WorldPointToScreenPoint(worldPoint2);
-
-			var player = GameState.Current?.LocalPlayer;
-			if (player == null)
-				return (screenPoint1, screenPoint2);
-
-			var currentOptic = player.ProceduralWeaponAnimation.HandsContainer.Weapon.GetComponentInChildren<OpticSight>();
-			if (currentOptic == null)
-				return (screenPoint1, screenPoint2);
+			scale = 0f;
+			cameraOffset = Vector2.zero;
 
 			if (_opticCamera == null)
-				return (screenPoint1, screenPoint2);
+				return false;
 
-			var lensMesh = currentOptic.LensRenderer.GetComponent<MeshFilter>().mesh;
-			if (lensMesh == null)
-				return (screenPoint1, screenPoint2);
-
-			var lensUpperRight = currentOptic.LensRenderer.transform.TransformPoint(lensMesh.bounds.max);
-			var lensUpperLeft = currentOptic.LensRenderer.transform.TransformPoint(new Vector3(lensMesh.bounds.min.x, 0, lensMesh.bounds.max.z));
-
-			var lensUpperRight3D = camera.WorldPointToScreenPoint(lensUpperRight);
-			var lensUpperLeft3D = camera.WorldPointToScreenPoint(lensUpperLeft);
-			var scopeRadius = Vector3.Distance(lensUpperRight3D, lensUpperLeft3D) / 2;
-			var scopeCenter = (Vector2)camera.WorldPointToScreenPoint(currentOptic.LensRenderer.transform.position);
-
-			var scale = Screen.height / (float)camera.scaledPixelHeight;
-			var cameraOffset = new Vector2(
+			scale = Screen.height / (float)camera.scaledPixelHeight;
+			cameraOffset = new Vector2(
 				camera.pixelWidth / 2 - _opticCamera.pixelWidth / 2,
 				camera.pixelHeight / 2 - _opticCamera.pixelHeight / 2);
 
-			var point1 = _opticCamera.WorldToViewportPoint(worldPoint1);
-			var scopePoint1 = (Vector2)_opticCamera.ViewportToScreenPoint(point1) + cameraOffset;
-			scopePoint1.y = Screen.height - scopePoint1.y * scale;
-			scopePoint1.x *= scale;
+			return true;
+		}
+		private static Vector2 ClampPointToScope(Vector2 scopePoint)
+		{
+			var distance = Vector2.Distance(_scopeParameters.center, scopePoint);
 
-			var point2 = _opticCamera.WorldToViewportPoint(worldPoint2);
-			var scopePoint2 = (Vector2)_opticCamera.ViewportToScreenPoint(point2) + cameraOffset;
-			scopePoint2.y = Screen.height - scopePoint2.y * scale;
-			scopePoint2.x *= scale;
+			var clampedPoint = scopePoint;
 
-			var distance1 = Vector2.Distance(scopeCenter, scopePoint1);
-			var distance2 = Vector2.Distance(scopeCenter, scopePoint2);
-
-			var clampedTarget1 = scopePoint1;
-			var clampedTarget2 = scopePoint2;
-
-			if (distance1 > scopeRadius && distance2 > scopeRadius)
-				return (Vector2.zero, Vector2.zero);
-
-			if (distance1 > scopeRadius)
+			if (distance > _scopeParameters.radius)
 			{
-				var clampedVector = (scopePoint1 - scopeCenter).normalized * scopeRadius;
-				clampedTarget1 = scopeCenter + new Vector2(clampedVector.x, clampedVector.y);
+				var clampedVector = (scopePoint - _scopeParameters.center).normalized * _scopeParameters.radius;
+				clampedPoint = _scopeParameters.center + clampedVector;
 			}
 
-			if (distance2 > scopeRadius)
-			{
-				var clampedVector = (scopePoint2 - scopeCenter).normalized * scopeRadius;
-				clampedTarget2 = scopeCenter + new Vector2(clampedVector.x, clampedVector.y);
-			}
-
-			return (clampedTarget1, clampedTarget2);
+			return clampedPoint;
 		}
 
-		private static bool CheckScopeProjection(Camera camera, Vector2 target, OpticSight currentOptic)
+		private static void GetScopeParameters(Camera camera, OpticSight currentOptic)
 		{
+			var opticTransform = currentOptic.LensRenderer.transform;
 			var lensMesh = currentOptic.LensRenderer.GetComponent<MeshFilter>().mesh;
-			if (lensMesh == null)
-				return false;
-		
-			var lensUpperRight = currentOptic.LensRenderer.transform.TransformPoint(lensMesh.bounds.max);
-			var lensUpperLeft = currentOptic.LensRenderer.transform.TransformPoint(new Vector3(lensMesh.bounds.min.x, 0, lensMesh.bounds.max.z));
-		
+			var lensUpperRight = opticTransform.TransformPoint(lensMesh.bounds.max);
+			var lensUpperLeft = opticTransform.TransformPoint(new Vector3(lensMesh.bounds.min.x, 0, lensMesh.bounds.max.z));
+
 			var lensUpperRight3D = camera.WorldPointToScreenPoint(lensUpperRight);
 			var lensUpperLeft3D = camera.WorldPointToScreenPoint(lensUpperLeft);
-			var scopeRadius = Vector3.Distance(lensUpperRight3D, lensUpperLeft3D) / 2;
-			var scopeCenter = camera.WorldPointToScreenPoint(currentOptic.LensRenderer.transform.position);
-		
-			var distance = Vector2.Distance(scopeCenter, target);
-			return distance <= scopeRadius;
+			_scopeParameters.radius = Vector2.Distance(lensUpperRight3D, lensUpperLeft3D) / 2;
+			_scopeParameters.center = camera.WorldPointToScreenPoint(opticTransform.position);
 		}
 	}
 }

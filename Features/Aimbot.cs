@@ -157,8 +157,8 @@ namespace EFT.Trainer.Features
 					continue;
 
 				var destination = hostileTransform.position;
-				var screenPosition = camera.WorldPointToScreenPoint(destination);
-				if (!camera.IsScreenPointVisible(screenPosition))
+				var screenPosition = camera.WorldPointToVisibleScreenPoint(destination);
+				if (screenPosition == Vector2.zero)
 					continue;
 
 				if (!IsInFieldOfView(screenPosition))
@@ -198,7 +198,7 @@ namespace EFT.Trainer.Features
 			Render.DrawCircle(Render.ScreenCenter, FovRadius, FovCircleColor, FovCircleThickness, 48);
 		}
 
-		private bool IsInFieldOfView(Vector3 screenPosition)
+		private bool IsInFieldOfView(Vector2 screenPosition)
 		{
 			if (FovRadius <= 0f)
 				return true;

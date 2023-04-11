@@ -68,13 +68,11 @@ namespace EFT.Trainer.UI
 			Color = color;
 
 			var vector = lineEnd - lineStart;
-			float pivot = /* 180/PI */ 57.29578f * Mathf.Atan(vector.y / vector.x);
+			float pivot = /* 180/PI */ Mathf.Rad2Deg * Mathf.Atan(vector.y / vector.x);
 			if (vector.x < 0f)
 				pivot += 180f;
 
-			if (thickness < 1f)
-				thickness = 1;
-
+			thickness = Mathf.Max(thickness, 1f);
 			int yOffset = (int)Mathf.Ceil(thickness / 2);
 
 			GUIUtility.RotateAroundPivot(pivot, lineStart);
@@ -84,45 +82,20 @@ namespace EFT.Trainer.UI
 
 		public static void DrawCircle(Vector2 center, float radius, Color color, float width, int segmentsPerQuarter)
 		{
-			var rh = radius / 2;
+			int totalSegments = segmentsPerQuarter * 4;
+			float step = 1f / totalSegments;
+			var lastV = center + new Vector2(radius, 0);
 
-			var p1 = new Vector2(center.x, center.y - radius);
-			var p1TanA = new Vector2(center.x - rh, center.y - radius);
-			var p1TanB = new Vector2(center.x + rh, center.y - radius);
-
-			var p2 = new Vector2(center.x + radius, center.y);
-			var p2TanA = new Vector2(center.x + radius, center.y - rh);
-			var p2TanB = new Vector2(center.x + radius, center.y + rh);
-
-			var p3 = new Vector2(center.x, center.y + radius);
-			var p3TanA = new Vector2(center.x - rh, center.y + radius);
-			var p3TanB = new Vector2(center.x + rh, center.y + radius);
-
-			var p4 = new Vector2(center.x - radius, center.y);
-			var p4TanA = new Vector2(center.x - radius, center.y - rh);
-			var p4TanB = new Vector2(center.x - radius, center.y + rh);
-
-			DrawBezierLine(p1, p1TanB, p2, p2TanA, color, width, segmentsPerQuarter);
-			DrawBezierLine(p2, p2TanB, p3, p3TanB, color, width, segmentsPerQuarter);
-			DrawBezierLine(p3, p3TanA, p4, p4TanB, color, width, segmentsPerQuarter);
-			DrawBezierLine(p4, p4TanA, p1, p1TanA, color, width, segmentsPerQuarter);
-		}
-
-		public static void DrawBezierLine(Vector2 start, Vector2 startTangent, Vector2 end, Vector2 endTangent, Color color, float width, int segments)
-		{
-			var lastV = CubeBezier(start, startTangent, end, endTangent, 0);
-			for (int i = 1; i < segments + 1; ++i)
+			for (int i = 1; i <= totalSegments; ++i)
 			{
-				var v = CubeBezier(start, startTangent, end, endTangent, i / (float)segments);
-				DrawLine(lastV, v, width, color);
-				lastV = v;
+				float t = i * step;
+				var currentV = center + new Vector2(
+					radius * Mathf.Cos(2 * Mathf.PI * t),
+					radius * Mathf.Sin(2 * Mathf.PI * t)
+				);
+				DrawLine(lastV, currentV, width, color);
+				lastV = currentV;
 			}
-		}
-
-		private static Vector2 CubeBezier(Vector2 s, Vector2 st, Vector2 e, Vector2 et, float t)
-		{
-			float rt = 1 - t;
-			return rt * rt * rt * s + 3 * rt * rt * t * st + 3 * rt * t * t * et + t * t * t * e;
 		}
 	}
 }

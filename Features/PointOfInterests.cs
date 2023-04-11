@@ -34,8 +34,8 @@ namespace EFT.Trainer.Features
 			foreach (var positionGroup in poiPerPosition)
 			{
 				var position = positionGroup.Key;
-				var screenPosition = camera.WorldPointToScreenPoint(position);
-				if (!camera.IsScreenPointVisible(screenPosition))
+				var screenPosition = camera.WorldPointToVisibleScreenPoint(position);
+				if (screenPosition == Vector2.zero)
 					continue;
 
 				if (snapshot.MapMode)
