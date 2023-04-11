@@ -69,7 +69,7 @@ namespace EFT.Trainer.Features
 			Weather.ToClearWeather(ChangeTime);
 
 			_mapCameraObject = new GameObject(GetType().FullName + nameof(_mapCameraObject), typeof(Camera), typeof(PrismEffects));
-			_mapCameraObject.GetComponent<PrismEffects>().CopyComponentValues(camera.GetComponent<PrismEffects>());
+			_mapCameraObject.GetComponent<PrismEffects>().SetPrismPreset(camera.GetComponent<PrismEffects>().currentPrismPreset);
 			_mapCamera = _mapCameraObject.GetComponent<Camera>();
 			_mapCamera.name = GetType().FullName + nameof(_mapCamera);
 			_mapCamera.pixelRect = new Rect(x, y, sizex, sizey);
