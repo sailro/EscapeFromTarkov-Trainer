@@ -43,7 +43,7 @@ namespace EFT.Trainer.Features
 				{
 					// Rhino case
 					foreach (var slot in cylinderMagazine.Camoras)
-						slot.Add(CreateAmmo(ammo));
+						slot.Add(CreateAmmo(ammo), false, true);
 				}
 				else
 				{
@@ -55,7 +55,7 @@ namespace EFT.Trainer.Features
 			{
 				// no magazine, like mp18, fill all weapon chambers
 				foreach (var slot in weapon.Chambers)
-					slot.Add(CreateAmmo(ammo));
+					slot.Add(CreateAmmo(ammo), false, true);
 			}
 		}
 
