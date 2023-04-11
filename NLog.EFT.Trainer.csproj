@@ -169,6 +169,7 @@
     <Compile Include="Features\Skills.cs" />
     <Compile Include="Features\Train.cs" />
     <Compile Include="Features\Weather.cs" />
+    <Compile Include="Features\QuickThrow.cs" />
     <Compile Include="Features\WorldInteractiveObjects.cs" />
     <Compile Include="Model\ShotWrapper.cs" />
     <Compile Include="Model\ReflectionWrapper.cs" />

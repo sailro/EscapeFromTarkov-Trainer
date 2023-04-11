@@ -45,6 +45,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 | `NoVisor`                 | `novisor`    | No visor, so even when using a face shield-visor you won't see it. |
 | `Players`                 | `wallhack`   | Wallhack (you'll see Bear/Boss/Cultist/Scav/Usec with configurable colors through walls). Charms, boxes, info (weapon and health), skeletons and distance. |
 | `Quests`                  | `quest`      | Locations for taking/placing quest items. Only items related to your started quests are displayed. |
+| `QuickThrow`              | `quickthrow` | Quick-throw grenades. |
 | `Radar`                   | `radar`      | 2D radar. |
 | `Skills`                  | `skills`     | All skills to Elite level (51) and all weapons mastering to level 3. |
 | `Speed`                   | `speed`      | Speed boost to be able to go through walls/objects, or to move faster. Be careful to not kill yourself. |
