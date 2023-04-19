@@ -6,7 +6,15 @@ namespace EFT.Trainer.UI
 {
 	public static class Render
 	{
-		public static GUIStyle StringStyle { get; set; } = new(GUI.skin.label);
+		private static GUIStyle? _stringStyle = null;
+		private static GUIStyle StringStyle
+		{
+			get
+			{
+				// delay initialize stringStyle to be sure we are called under OnGui
+				return _stringStyle ??= new GUIStyle(GUI.skin.label);
+			}
+		}
 
 		public static Vector2 ScreenCenter => new(Screen.width / 2f, Screen.height / 2f);
 
