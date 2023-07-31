@@ -32,7 +32,7 @@ namespace EFT.Trainer.Features
 				return;
 
 			var player = shotWrapper.Player;
-			if (player is { IsYourPlayer: false })
+			if (player is not { IsYourPlayer: true })
 				return;
 
 			var magazine = weapon.GetCurrentMagazine();
