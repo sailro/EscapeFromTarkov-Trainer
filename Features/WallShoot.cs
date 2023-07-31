@@ -54,7 +54,8 @@ namespace EFT.Trainer.Features
 					continue;
 
 				// Make sur we are not enhancing ennemy shots
-				if (shot.Player.IsValid() && !shot.Player.IsYourPlayer)
+				var player = shot.Player?.iPlayer; 
+				if (player is not { IsYourPlayer: true })
 					continue;
 
 				shot.IsForwardHit = false;

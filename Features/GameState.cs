@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using Comfort.Common;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
@@ -53,7 +54,10 @@ namespace EFT.Trainer.Features
 			if (world == null)
 				return null;
 
-			var players = world.RegisteredPlayers;
+			var players = world
+				.RegisteredPlayers?
+				.OfType<Player>();
+
 			if (players == null)
 				return null;
 
