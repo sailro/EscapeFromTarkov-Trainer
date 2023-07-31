@@ -15,11 +15,11 @@ namespace EFT.Trainer.Model
 				if (iface == null)
 					return null;
 
-				var field = AccessTools.Property(iface.GetType(), "i" + nameof(Player));
-				if (field == null)
+				var property = AccessTools.Property(iface.GetType(), "i" + nameof(Player));
+				if (property == null)
 					return null;
 
-				return field.GetValue(iface) as IAIDetails;
+				return property.GetValue(iface) as IAIDetails;
 			}
 		} 
 		public Item? Weapon => GetFieldValue<Item>(nameof(Weapon));
