@@ -70,8 +70,8 @@ namespace EFT.Trainer.Features
 			if (victim == null || victim.IsYourPlayer)
 				return;
 
-			var shooter = damageInfo.Player;
-			if (shooter == null || !shooter.IsYourPlayer)
+			var shooter = damageInfo.Player.iPlayer;
+			if (shooter is not { IsYourPlayer: true })
 				return;
 
 			var marker = new HitMarker(damageInfo);
