@@ -15,7 +15,7 @@ namespace EFT.Trainer.Model
 				if (iface == null)
 					return null;
 
-				var field = AccessTools.Field(iface.GetType(), "i" + nameof(Player));
+				var field = AccessTools.Property(iface.GetType(), "i" + nameof(Player));
 				if (field == null)
 					return null;
 
