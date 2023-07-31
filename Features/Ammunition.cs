@@ -2,7 +2,6 @@
 using Comfort.Common;
 using EFT.Ballistics;
 using EFT.InventoryLogic;
-using EFT.Trainer.Extensions;
 using EFT.Trainer.Model;
 using JetBrains.Annotations;
 
@@ -33,7 +32,7 @@ namespace EFT.Trainer.Features
 				return;
 
 			var player = shotWrapper.Player;
-			if (!player.IsValid() || !player.IsYourPlayer)
+			if (player is { IsYourPlayer: false })
 				return;
 
 			var magazine = weapon.GetCurrentMagazine();
