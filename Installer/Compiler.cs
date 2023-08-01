@@ -20,7 +20,7 @@ namespace Installer
 	{
 		private ZipArchive ProjectArchive { get; }
 		private Installation Installation { get; }
-		private string ProjectContent { get; } = string.Empty;
+		private string ProjectContent { get; }
 
 		private string[] Exclude { get; }
 		private string[] Defines { get; } = Array.Empty<string>();
@@ -35,6 +35,7 @@ namespace Installer
 			ProjectArchive = projectArchive;
 			Installation = context.Installation;
 			Exclude = context.Exclude;
+			ProjectContent = string.Empty;
 
 			var entry = projectArchive.Entries.FirstOrDefault(e => e.Name == context.Project) ?? throw new ArgumentException($"Project {context.Project} not found!");
 			using var stream = entry.Open();

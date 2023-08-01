@@ -27,7 +27,7 @@ namespace Installer
 			if (StartedByExplorer())
 			{
 				Console.WriteLine();
-				Console.WriteLine("Press a key to exit...");
+				Console.WriteLine(@"Press a key to exit...");
 				Console.ReadKey();
 			}
 
