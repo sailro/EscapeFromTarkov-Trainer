@@ -121,16 +121,20 @@ namespace EFT.Trainer.Features
 		private void FindItemsInContainers(GameWorld world, List<PointOfInterest> records)
 		{
 			var owners = world.ItemOwners; // contains all containers: corpses, LootContainers, ...
-			foreach (var owner in owners)
+			foreach (var (key, ownerValue) in owners)
 			{
-				var rootItem = owner.Key.RootItem;
+				var rootItem = key.RootItem;
 				if (rootItem is not { IsContainer: true })
 					continue;
 
 				if (!rootItem.IsValid() || rootItem.IsFiltered()) // filter default inventory container here, given we special case the corpse container
 					continue;
 
-				var position = owner.Value.Transform.position;
+				var valueTransform = ownerValue.Transform;
+				if (valueTransform == null)
+					continue;
+
+				var position = valueTransform.position;
 				FindItemsInRootItem(records, rootItem, position);
 			}
 		}
