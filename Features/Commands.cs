@@ -28,16 +28,18 @@ namespace EFT.Trainer.Features
 		public override bool Enabled { get; set; } = false;
 
 		[ConfigurationProperty]
-		public virtual float X { get; set; } = 40f;
+		public virtual float X { get; set; } = DefaultX;
 
 		[ConfigurationProperty]
-		public virtual float Y { get; set; } = 20f;
+		public virtual float Y { get; set; } = DefaultY;
 
 		public override KeyCode Key { get; set; } = KeyCode.RightAlt;
 
 		private bool Registered { get; set; } = false;
 		private const string ValueGroup = "value";
 		private const string ExtraGroup = "extra";
+		private const float DefaultX = 40f;
+		private const float DefaultY = 20f;
 
 		private static string UserPath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Escape from Tarkov");
 		private static string ConfigFile => Path.Combine(UserPath, "trainer.ini");
@@ -441,8 +443,30 @@ namespace EFT.Trainer.Features
 
 			// Load default configuration
 			LoadSettings(false);
+			SetupWindowCoordinates();
 
 			Registered = true;
+		}
+
+		private void SetupWindowCoordinates()
+		{
+			bool needfix = false;
+			X = FixCoordinate(X, Screen.width, DefaultX, ref needfix);
+			Y = FixCoordinate(Y, Screen.height, DefaultY, ref needfix);
+
+			if (needfix)
+				SaveSettings();
+		}
+
+		private float FixCoordinate(float coord, float maxValue, float defaultValue, ref bool needfix)
+		{
+			if (coord < 0 || coord >= maxValue)
+			{
+				coord = defaultValue;
+				needfix = true;
+			}
+
+			return coord;
 		}
 
 		private static void CreateCommand(string name, Action action)
