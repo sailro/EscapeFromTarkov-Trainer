@@ -87,7 +87,10 @@ namespace Installer
 					AnsiConsole.MarkupLine("[green][[BepInEx]][/] detected. Creating plugin instead of using NLog configuration.");
 
 					// reuse successful context for compiling.
-					var pluginContext = new CompilationContext(installation, "plugin", bepInExPluginProject) { Archive = archive };
+					var pluginContext = new CompilationContext(installation, "plugin", bepInExPluginProject)
+					{ Archive = archive,
+					  Branch = GetInitialBranch(settings)
+					};
 					var (pluginCompilation, _, _) = await GetCompilationAsync(pluginContext);
 
 					if (pluginCompilation == null)
