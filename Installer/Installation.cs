@@ -124,7 +124,7 @@ namespace Installer
 
 			try
 			{
-				path = Path.GetFullPath(path);
+				path = Path.GetFullPath(path.Trim('\"'));
 				var exe = Path.Combine(path, "EscapeFromTarkov.exe");
 				if (!File.Exists(exe))
 					return false;
