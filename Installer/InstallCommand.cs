@@ -154,7 +154,7 @@ namespace Installer
 				// Failure, retry by removing faulting features if possible
 				AnsiConsole.MarkupLine($"[yellow]Trying to disable faulting feature(s): [red]{GetFaultingFeatures(files)}[/].[/]");
 				context.Exclude = files.Concat(settings.DisabledFeatures!).ToArray()!;
-				context.Branch = GetFallbackBranch();
+				context.Branch = GetFallbackBranch(settings);
 
 				(compilation, archive, errors) = await GetCompilationAsync(context);
 
@@ -186,9 +186,9 @@ namespace Installer
 			return dedicated == context.Branch ? null : dedicated; // no need to reuse the same initial branch for a retry
 		}
 
-		private static string GetFallbackBranch()
+		private static string GetFallbackBranch(Settings settings)
 		{
-			return GetDefaultBranch();
+			return GetInitialBranch(settings);
 		}
 
 		private static void TryCreateGameDocumentFolder()
