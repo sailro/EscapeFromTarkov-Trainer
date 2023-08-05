@@ -3,6 +3,7 @@ using Comfort.Common;
 using EFT.Ballistics;
 using EFT.InventoryLogic;
 using EFT.Trainer.Model;
+using HarmonyLib;
 using JetBrains.Annotations;
 
 #nullable enable
@@ -83,6 +84,31 @@ namespace EFT.Trainer.Features
 
 				harmony.Patch(original, postfix: new HarmonyLib.HarmonyMethod(postfix));
 			});
+		}
+
+		private class ShotWrapper : ReflectionWrapper
+		{
+			public IAIDetails? Player
+			{
+				get
+				{
+					var iface = GetFieldValue<object>(nameof(Player));
+					if (iface == null)
+						return null;
+
+					var property = AccessTools.Property(iface.GetType(), "i" + nameof(Player));
+					if (property == null)
+						return null;
+
+					return property.GetValue(iface) as IAIDetails;
+				}
+			} 
+			public Item? Weapon => GetFieldValue<Item>(nameof(Weapon));
+			public Item? Ammo => GetFieldValue<Item>(nameof(Ammo));
+
+			public ShotWrapper(object instance) : base(instance)
+			{
+			}
 		}
 	}
 }

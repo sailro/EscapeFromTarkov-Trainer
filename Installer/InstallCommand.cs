@@ -152,7 +152,7 @@ namespace Installer
 			if (compilation == null && files.Any() && files.All(f => f!.StartsWith(features)))
 			{
 				// Failure, retry by removing faulting features if possible
-				AnsiConsole.MarkupLine($"[yellow]Trying to disable faulting feature(s): [red]{string.Join(", ", files.Select(Path.GetFileNameWithoutExtension))}[/].[/]");
+				AnsiConsole.MarkupLine($"[yellow]Trying to disable faulting feature(s): [red]{GetFaultingFeatures(files)}[/].[/]");
 				context.Exclude = files.Concat(settings.DisabledFeatures!).ToArray()!;
 				context.Branch = GetFallbackBranch();
 
@@ -163,6 +163,11 @@ namespace Installer
 			}
 
 			return (compilation, archive);
+		}
+
+		private static string GetFaultingFeatures(string?[] files)
+		{
+			return string.Join(", ", files.Select(Path.GetFileNameWithoutExtension));
 		}
 
 		private static string GetDefaultBranch()

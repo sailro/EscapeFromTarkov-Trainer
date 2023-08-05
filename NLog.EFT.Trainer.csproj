@@ -171,7 +171,6 @@
     <Compile Include="Features\Weather.cs" />
     <Compile Include="Features\QuickThrow.cs" />
     <Compile Include="Features\WorldInteractiveObjects.cs" />
-    <Compile Include="Model\ShotWrapper.cs" />
     <Compile Include="Model\ReflectionWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\Picker.cs" />
