@@ -127,7 +127,8 @@ namespace Installer
 			// Try first to compile against master
 			var context = new CompilationContext(installation, "trainer", "NLog.EFT.Trainer.csproj")
 			{
-				Exclude = settings.DisabledFeatures!
+				Exclude = settings.DisabledFeatures!,
+				Branch = GetInitialBranch(settings)
 			};
 
 			var (compilation, archive, errors) = await GetCompilationAsync(context);
@@ -140,19 +141,20 @@ namespace Installer
 			if (compilation == null)
 			{
 				// Failure, so try with a dedicated branch if exists
-				context.Branch = settings.Branch ?? installation.Version.ToString();
-				if (!context.Branch.StartsWith("dev-"))
-					context.Branch = "dev-" + context.Branch;
-
-				(compilation, archive, _) = await GetCompilationAsync(context);
+				var retryBranch = GetRetryBranch(installation, context);
+				if (retryBranch != null)
+				{
+					context.Branch = retryBranch;
+					(compilation, archive, _) = await GetCompilationAsync(context);
+				}
 			}
 
 			if (compilation == null && files.Any() && files.All(f => f!.StartsWith(features)))
 			{
-				// Failure, retry by removing faulting features if possible
+				// Failure, retry by removing faulting features if possible on master
 				AnsiConsole.MarkupLine($"[yellow]Trying to disable faulting feature(s): [red]{string.Join(", ", files.Select(Path.GetFileNameWithoutExtension))}[/].[/]");
 				context.Exclude = files.Concat(settings.DisabledFeatures!).ToArray()!;
-				context.Branch = "master";
+				context.Branch = GetFallbackBranch();
 
 				(compilation, archive, errors) = await GetCompilationAsync(context);
 
@@ -161,6 +163,27 @@ namespace Installer
 			}
 
 			return (compilation, archive);
+		}
+
+		private static string GetDefaultBranch()
+		{
+			return CompilationContext.DefaultBranch;
+		}
+
+		private static string GetInitialBranch(Settings settings)
+		{
+			return settings.Branch ?? GetDefaultBranch();
+		}
+
+		private static string? GetRetryBranch(Installation installation, CompilationContext context)
+		{
+			var dedicated = "dev-" + installation.Version;
+			return dedicated == context.Branch ? null : dedicated; // no need to reuse the same initial branch for a retry
+		}
+
+		private static string GetFallbackBranch()
+		{
+			return GetDefaultBranch();
 		}
 
 		private static void TryCreateGameDocumentFolder()
