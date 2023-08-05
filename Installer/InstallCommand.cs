@@ -88,8 +88,9 @@ namespace Installer
 
 					// reuse successful context for compiling.
 					var pluginContext = new CompilationContext(installation, "plugin", bepInExPluginProject)
-					{ Archive = archive,
-					  Branch = GetInitialBranch(settings)
+					{
+						Archive = archive, 
+						Branch = GetInitialBranch(settings)
 					};
 					var (pluginCompilation, _, _) = await GetCompilationAsync(pluginContext);
 
