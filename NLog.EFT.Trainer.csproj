@@ -9,12 +9,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>EFT.Trainer</RootNamespace>
     <AssemblyName>NLog.EFT.Trainer</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
     <LangVersion>9.0</LangVersion>
     <Nullable>enable</Nullable>
-    <EFTBasePath>C:\Battlestate Games\sptarkov</EFTBasePath>
+    <EFTBasePath>C:\Battlestate Games\SP-Tarkov</EFTBasePath>
     <EFTDataPath>$(EFTBasePath)\EscapeFromTarkov_Data</EFTDataPath>
     <EFTManagedPath>$(EFTDataPath)\Managed</EFTManagedPath>
   </PropertyGroup>

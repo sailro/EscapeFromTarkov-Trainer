@@ -7,15 +7,16 @@
     <ProjectGuid>{00C66BBD-ED7F-4E01-B7E4-0388F76FD31C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AssemblyName>aki-efttrainer</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <LangVersion>9.0</LangVersion>
-    <EFTBasePath>C:\Battlestate Games\sptarkov</EFTBasePath>
+    <EFTBasePath>C:\Battlestate Games\SP-Tarkov</EFTBasePath>
     <EFTDataPath>$(EFTBasePath)\EscapeFromTarkov_Data</EFTDataPath>
     <EFTManagedPath>$(EFTDataPath)\Managed</EFTManagedPath>
     <EFTBepInExPath>$(EFTBasePath)\BepInEx</EFTBepInExPath>
     <EFTBepInExCorePath>$(EFTBepInExPath)\core</EFTBepInExCorePath>
     <EFTBepInExPluginsPath>$(EFTBepInExPath)\plugins</EFTBepInExPluginsPath>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
