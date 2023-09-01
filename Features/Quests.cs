@@ -74,7 +74,8 @@ namespace EFT.Trainer.Features
 						if (trigger == null)
 							continue;
 
-						var visited = profile.Stats.OverallCounters.GetInt(CounterTag.TriggerVisited, trigger.Id) > 0;
+						var myProfileStats = new ProfileStats();
+						var visited = myProfileStats.OverallCounters.GetInt(CounterTag.TriggerVisited, trigger.Id) > 0;
 						if (visited)
 							continue;
 

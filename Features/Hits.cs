@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using EFT.HealthSystem;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
@@ -57,7 +58,7 @@ namespace EFT.Trainer.Features
 
 #pragma warning disable IDE0060 
 		[UsedImplicitly]
-		protected static void ApplyDamagePostfix(EBodyPart bodyPart, float damage, DamageInfo damageInfo, ActiveHealthControllerClass? __instance)
+		protected static void ApplyDamagePostfix(EBodyPart bodyPart, float damage, DamageInfo damageInfo, ActiveHealthController? __instance)
 		{
 			var feature = FeatureFactory.GetFeature<Hits>();
 			if (feature == null || !feature.Enabled)
@@ -130,7 +131,7 @@ namespace EFT.Trainer.Features
 
 			HarmonyPatchOnce(harmony =>
 			{
-				var original = HarmonyLib.AccessTools.Method(typeof(ActiveHealthControllerClass), nameof(ActiveHealthControllerClass.ApplyDamage));
+				var original = HarmonyLib.AccessTools.Method(typeof(ActiveHealthController), nameof(ActiveHealthController.ApplyDamage));
 				if (original == null)
 					return;
 
