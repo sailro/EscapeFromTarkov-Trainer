@@ -1,5 +1,4 @@
-﻿using Comfort.Common;
-using EFT.Trainer.Configuration;
+﻿using EFT.Trainer.Configuration;
 using JetBrains.Annotations;
 using UnityEngine;
 
