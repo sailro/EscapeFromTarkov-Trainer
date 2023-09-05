@@ -26,9 +26,9 @@ namespace EFT.Trainer.Features
 			var camera = GameState.Current?.Camera;
 			if (camera == null || player == null)
 				return;
-			
+
 			player.ProceduralWeaponAnimation.HandsContainer.CameraOffset =
-					new Vector3(0.04f, 0.04f, CameraOffset!);
+				new Vector3(0.04f, 0.04f, CameraOffset!);
 			camera.fieldOfView = Fov;
 		}
 	}
