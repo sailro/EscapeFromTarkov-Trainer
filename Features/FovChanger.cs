@@ -1,5 +1,6 @@
 ﻿using EFT.Trainer.Configuration;
 using JetBrains.Annotations;
+using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
@@ -10,8 +11,11 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty(Order = 1)]
 		public override bool Enabled { get; set; } = false;
 
+		[ConfigurationProperty(Order = 2)]
+		public float Fov { get; set; } = 75f;
+
 		[ConfigurationProperty(Order = 3)]
-		public float Fov { get; set; } = 90;
+		public float CameraOffset { get; set; } = 0.05f;
 
 		[UsedImplicitly]
 		private void LateUpdate()
@@ -19,10 +23,23 @@ namespace EFT.Trainer.Features
 			if (!Enabled)
 				return;
 
-			var camera = GameState.Current?.Camera;
+			var snapshot = GameState.Current;
+			if (snapshot == null)
+				return;
+
+			var camera = snapshot.Camera;
 			if (camera == null)
 				return;
 
+			var player = snapshot.LocalPlayer;
+			if (player == null)
+				return;
+
+			var container = player.ProceduralWeaponAnimation.HandsContainer;
+			if (container == null)
+				return;
+
+			container.CameraOffset = new Vector3(0.04f, 0.04f, CameraOffset);
 			camera.fieldOfView = Fov;
 		}
 	}
