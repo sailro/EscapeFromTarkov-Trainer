@@ -74,21 +74,21 @@ namespace EFT.Trainer.Features
 		{
 			HarmonyPatchOnce(harmony =>
 			{
-				var original = HarmonyLib.AccessTools.Method(typeof(BallisticsCalculator), nameof(BallisticsCalculator.Shoot));
+				var original = AccessTools.Method(typeof(BallisticsCalculator), nameof(BallisticsCalculator.Shoot));
 				if (original == null)
 					return;
 
-				var postfix = HarmonyLib.AccessTools.Method(GetType(), nameof(ShootPostfix));
+				var postfix = AccessTools.Method(GetType(), nameof(ShootPostfix));
 				if (postfix == null)
 					return;
 
-				harmony.Patch(original, postfix: new HarmonyLib.HarmonyMethod(postfix));
+				harmony.Patch(original, postfix: new HarmonyMethod(postfix));
 			});
 		}
 
 		private class ShotWrapper : ReflectionWrapper
 		{
-			public IAIDetails? Player
+			public IPlayer? Player
 			{
 				get
 				{
@@ -100,7 +100,7 @@ namespace EFT.Trainer.Features
 					if (property == null)
 						return null;
 
-					return property.GetValue(iface) as IAIDetails;
+					return property.GetValue(iface) as IPlayer;
 				}
 			} 
 			public Item? Weapon => GetFieldValue<Item>(nameof(Weapon));

@@ -1,4 +1,5 @@
 ﻿using System;
+using EFT.HealthSystem;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using JetBrains.Annotations;
@@ -26,7 +27,7 @@ namespace EFT.Trainer.Features
 		private static readonly Array _bodyParts = Enum.GetValues(typeof(EBodyPart));
 		
 		[UsedImplicitly]
-		protected static bool ApplyDamagePrefix(EBodyPart bodyPart, ActiveHealthControllerClass? __instance, ref float __result)
+		protected static bool ApplyDamagePrefix(EBodyPart bodyPart, ActiveHealthController? __instance, ref float __result)
 		{
 			var feature = FeatureFactory.GetFeature<Health>();
 			if (feature == null || !feature.Enabled || __instance == null)
@@ -59,7 +60,7 @@ namespace EFT.Trainer.Features
 
 			HarmonyPatchOnce(harmony =>
 			{
-				var original = HarmonyLib.AccessTools.Method(typeof(ActiveHealthControllerClass), nameof(ActiveHealthControllerClass.ApplyDamage));
+				var original = HarmonyLib.AccessTools.Method(typeof(ActiveHealthController), nameof(ActiveHealthController.ApplyDamage));
 				if (original == null)
 					return;
 
