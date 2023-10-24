@@ -292,6 +292,9 @@ namespace EFT.Trainer.Features
 			if (aimingMod == null)
 				return false;
 
+			if (aimingMod.ScopesCount <= 0)
+				return false;
+
 			var zoom = aimingMod.GetCurrentOpticZoom();
 			var isAiming = handsController.IsAiming;
 
