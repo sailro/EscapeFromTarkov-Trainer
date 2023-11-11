@@ -384,16 +384,19 @@ namespace EFT.Trainer.Features
 		private static void ResetShaders(Dictionary<Renderer, Shader?> cache)
 		{
 			var hits = 0;
-			foreach (var key in cache.Keys)
+			foreach (var renderer in cache.Keys)
 			{
-				var shader = cache[key];
-				if (key.material == null)
+				if (renderer == null)
 					continue;
 
-				if (key.material.shader == shader) 
+				if (renderer.material == null)
 					continue;
 
-				key.material.shader = shader;
+				var shader = cache[renderer];
+				if (renderer.material.shader == shader) 
+					continue;
+
+				renderer.material.shader = shader;
 				hits++;
 			}
 
