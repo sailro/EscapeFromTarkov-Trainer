@@ -4,15 +4,9 @@
 
 namespace EFT.Trainer.Configuration
 {
-	internal class OrderedProperty
+	internal class OrderedProperty(ConfigurationPropertyAttribute attribute, PropertyInfo property)
 	{
-		public ConfigurationPropertyAttribute Attribute { get; }
-		public PropertyInfo Property { get; }
-
-		public OrderedProperty(ConfigurationPropertyAttribute attribute, PropertyInfo property)
-		{
-			Attribute = attribute;
-			Property = property;
-		}
+		public ConfigurationPropertyAttribute Attribute { get; } = attribute;
+		public PropertyInfo Property { get; } = property;
 	}
 }

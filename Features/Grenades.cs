@@ -43,7 +43,7 @@ namespace EFT.Trainer.Features
 				result.Add(grenade);
 			}
 
-			return result.ToArray();
+			return [.. result];
 		}
 
 		public override void ProcessData(Throwable[] data)

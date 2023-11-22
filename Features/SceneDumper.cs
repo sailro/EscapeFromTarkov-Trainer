@@ -33,7 +33,7 @@ namespace EFT.Trainer.Features
 
 			public SceneData()
 			{
-				Roots = new List<GameObjectData>();
+				Roots = [];
 			}
 		}
 
@@ -47,8 +47,8 @@ namespace EFT.Trainer.Features
 
 			public GameObjectData()
 			{
-				Childs = new List<GameObjectData>();
-				Components = new List<ComponentData>();
+				Childs = [];
+				Components = [];
 			}
 		}
 

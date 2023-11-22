@@ -43,7 +43,7 @@ namespace EFT.Trainer.Features
 
 		protected Camera? MapCamera => _mapCamera;
 
-		private static readonly string[] _directions = { "N", "NE", "E", "SE", "S", "SW", "W", "NW", "N" };
+		private static readonly string[] _directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW", "N"];
 
 		protected void ToggleMapCameraIfNeeded(bool state)
 		{

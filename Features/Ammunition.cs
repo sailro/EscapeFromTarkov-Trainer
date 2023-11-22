@@ -86,7 +86,7 @@ namespace EFT.Trainer.Features
 			});
 		}
 
-		private class ShotWrapper : ReflectionWrapper
+		private class ShotWrapper(object instance) : ReflectionWrapper(instance)
 		{
 			public IPlayer? Player
 			{
@@ -105,10 +105,6 @@ namespace EFT.Trainer.Features
 			} 
 			public Item? Weapon => GetFieldValue<Item>(nameof(Weapon));
 			public Item? Ammo => GetFieldValue<Item>(nameof(Ammo));
-
-			public ShotWrapper(object instance) : base(instance)
-			{
-			}
 		}
 	}
 }

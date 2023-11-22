@@ -92,7 +92,7 @@ namespace EFT.Trainer.Features
 				});
 			}
 
-			return records.ToArray();
+			return [.. records];
 		}
 
 		private static string GetName(ExfiltrationPoint point, bool isEligible)
@@ -138,7 +138,7 @@ namespace EFT.Trainer.Features
 					result.Add(points[i]);
 			}
 
-			return result.ToArray();
+			return [.. result];
 		}
 	}
 }

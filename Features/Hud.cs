@@ -21,7 +21,7 @@ namespace EFT.Trainer.Features
 		[ConfigurationProperty]
 		public bool ShowCompass { get; set; } = true;
 		
-		private static readonly string[] _directions = { "N", "NE", "E", "SE", "S", "SW", "W", "NW", "N" };
+		private static readonly string[] _directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW", "N"];
 
 		[ConfigurationProperty]
 		public bool ShowCoordinates { get; set; } = false;

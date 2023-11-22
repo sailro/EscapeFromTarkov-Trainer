@@ -177,13 +177,15 @@ namespace EFT.Trainer.Configuration
 		{
 			var properties = featureType.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy);
 
-			return properties
-				.Select(p => new {property = p, attribute = p.GetCustomAttribute<ConfigurationPropertyAttribute>(true)})
-				.Where(p => p.attribute is {Skip: false})
-				.Select(op => new OrderedProperty(op.attribute, op.property))
-				.OrderBy(op => op.Attribute.Order)
-				.ThenBy(op => op.Property.Name)
-				.ToArray();
+			return
+			[ .. properties
+					.Select(p => new {property = p, attribute = p.GetCustomAttribute<ConfigurationPropertyAttribute>(true)})
+					.Where(p => p.attribute is {Skip: false})
+					.Select(op => new OrderedProperty(op.attribute, op.property))
+					.OrderBy(op => op.Attribute.Order)
+					.ThenBy(op => op.Property.Name)
+,
+			];
 		}
 	}
 }

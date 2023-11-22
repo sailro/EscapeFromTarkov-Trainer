@@ -82,21 +82,13 @@ namespace EFT.Trainer.Features
 			public abstract int Id { get; }
 		}
 
-		internal class ColorSelectionContext : SelectionContext<Color>
+		internal class ColorSelectionContext(IFeature feature, OrderedProperty orderedProperty, float parentX, float parentY) : SelectionContext<Color>(feature, orderedProperty, parentX, parentY, color => new ColorPicker(color))
 		{
-			public ColorSelectionContext(IFeature feature, OrderedProperty orderedProperty, float parentX, float parentY) : base(feature, orderedProperty, parentX, parentY, color => new ColorPicker(color))
-			{
-			}
-
 			public override int Id => 1;
 		}
 
-		internal class KeyCodeSelectionContext : SelectionContext<KeyCode>
+		internal class KeyCodeSelectionContext(IFeature feature, OrderedProperty orderedProperty, float parentX, float parentY) : SelectionContext<KeyCode>(feature, orderedProperty, parentX, parentY, color => new EnumPicker<KeyCode>(color))
 		{
-			public KeyCodeSelectionContext(IFeature feature, OrderedProperty orderedProperty, float parentX, float parentY) : base(feature, orderedProperty, parentX, parentY, color => new EnumPicker<KeyCode>(color))
-			{
-			}
-
 			public override int Id => 2;
 		}
 
@@ -221,7 +213,7 @@ namespace EFT.Trainer.Features
 				RenderFeatureProperty(feature, property);
 		}
 
-		private static readonly Dictionary<string, string> _controlValues = new();
+		private static readonly Dictionary<string, string> _controlValues = [];
 		private void RenderFeatureProperty(Feature feature, OrderedProperty orderedProperty)
 		{
 			if (!orderedProperty.Attribute.Browsable)
@@ -677,7 +669,7 @@ namespace EFT.Trainer.Features
 				var itemName = item.ShortName.Localized();
 				if (!itemsPerName.TryGetValue(itemName, out var pnList))
 				{
-					pnList = new List<Item>();
+					pnList = [];
 					itemsPerName[itemName] = pnList;
 				}
 
