@@ -184,7 +184,6 @@ namespace EFT.Trainer.Configuration
 					.Select(op => new OrderedProperty(op.attribute, op.property))
 					.OrderBy(op => op.Attribute.Order)
 					.ThenBy(op => op.Property.Name)
-,
 			];
 		}
 	}
