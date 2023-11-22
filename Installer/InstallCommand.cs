@@ -48,7 +48,7 @@ namespace Installer
 				AnsiConsole.MarkupLine($"Target [green]EscapeFromTarkov ({installation.Version})[/] in [blue]{installation.Location.EscapeMarkup()}[/].");
 
 				const string features = "Features";
-				settings.DisabledFeatures ??= Array.Empty<string>();
+				settings.DisabledFeatures ??= [];
 				settings.DisabledFeatures = settings.DisabledFeatures
 					.Select(f => $"{features}\\{f}.cs")
 					.ToArray();

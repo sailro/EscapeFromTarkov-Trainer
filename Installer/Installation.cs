@@ -61,10 +61,7 @@ namespace Installer
 			if (path is not null && TryDiscoverInstallation(path, out var installation))
 				installations.Add(installation);
 
-			installations = installations
-				.Distinct()
-				.OrderBy(i => i.Location)
-				.ToList();
+			installations =	[.. installations.Distinct().OrderBy(i => i.Location)];
 
 			switch (installations.Count)
 			{
