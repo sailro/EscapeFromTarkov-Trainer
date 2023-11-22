@@ -10,7 +10,7 @@ namespace EFT.Trainer.Model
 {
 	internal class ReflectionWrapper
 	{
-		private static readonly Dictionary<Type, Dictionary<string, FieldInfo>> _fieldInfoCache = new();
+		private static readonly Dictionary<Type, Dictionary<string, FieldInfo>> _fieldInfoCache = [];
 
 		private readonly Type _instanceType;
 		private readonly object _instance;
@@ -58,7 +58,7 @@ namespace EFT.Trainer.Model
 			_instanceType = instance.GetType();
 
 			if (!_fieldInfoCache.TryGetValue(_instanceType, out _))
-				_fieldInfoCache.Add(_instanceType, new Dictionary<string, FieldInfo>());
+				_fieldInfoCache.Add(_instanceType, []);
 		}
 	}
 }

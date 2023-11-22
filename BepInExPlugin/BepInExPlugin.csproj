@@ -9,7 +9,7 @@
     <AssemblyName>aki-efttrainer</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <LangVersion>9.0</LangVersion>
+    <LangVersion>latest</LangVersion>
     <EFTBasePath>C:\Battlestate Games\sptarkov</EFTBasePath>
     <EFTDataPath>$(EFTBasePath)\EscapeFromTarkov_Data</EFTDataPath>
     <EFTManagedPath>$(EFTDataPath)\Managed</EFTManagedPath>

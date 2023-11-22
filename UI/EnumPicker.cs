@@ -6,14 +6,10 @@ using UnityEngine;
 
 namespace EFT.Trainer.UI
 {
-	public class EnumPicker<T> : Picker<T> where T : struct, IConvertible
+	public class EnumPicker<T>(T value) : Picker<T>(value) where T : struct, IConvertible
 	{
 		private Rect _windowRect = new(20, 20, 200, 500);
 		private Vector2 _scrollViewPosition = new();
-
-		public EnumPicker(T value) : base(value)
-		{
-		}
 
 		public override bool IsSelected { get; protected set; } = false;
 
@@ -23,11 +19,13 @@ namespace EFT.Trainer.UI
 		{
 			get
 			{
-				return _candidates ??= Enum
-					.GetValues(typeof(T))
-					.OfType<T>()
-					.OrderBy(i => i)
-					.ToArray();
+				return _candidates ??=
+				[
+					.. Enum
+						.GetValues(typeof(T))
+						.OfType<T>()
+						.OrderBy(i => i)
+				];
 			}
 		}
 

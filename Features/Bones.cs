@@ -66,22 +66,22 @@ namespace EFT.Trainer.Features
 		public const string RDigit52 = RDigit51 + "/Base HumanRDigit52";
 		public const string RDigit53 = RDigit52 + "/Base HumanRDigit53";
 
-		public static readonly List<string[]> Connections = new()
-		{
-			new [] {Pelvis, LThigh1}, new [] {LThigh1, LThigh2}, new [] {LThigh2, LCalf}, new [] {LCalf, LFoot}, new [] {LFoot, LToe}, new [] {Pelvis, RThigh1}, new [] {RThigh1, RThigh2}, new [] {RThigh2, RCalf},
-			new [] {RCalf, RFoot}, new [] {RFoot, RToe}, new [] {Pelvis, Spine1}, new [] {Spine1, Spine2}, new [] {Spine2, Spine3}, new [] {Spine3, Neck}, new [] {Neck, Head}, new [] {Spine3, LCollarbone},
-			new [] {LCollarbone, LForearm1}, new [] {LForearm1, LForearm2}, new [] {LForearm2, LForearm3}, new [] {LForearm3, LPalm}, new [] {Spine3, RCollarbone},
-			new [] {RCollarbone, RForearm1}, new [] {RForearm1, RForearm2}, new [] {RForearm2, RForearm3}, new [] {RForearm3, RPalm} 
-		};
+		public static readonly List<string[]> Connections =
+		[
+			[Pelvis, LThigh1], [LThigh1, LThigh2], [LThigh2, LCalf], [LCalf, LFoot], [LFoot, LToe], [Pelvis, RThigh1], [RThigh1, RThigh2], [RThigh2, RCalf],
+			[RCalf, RFoot], [RFoot, RToe], [Pelvis, Spine1], [Spine1, Spine2], [Spine2, Spine3], [Spine3, Neck], [Neck, Head], [Spine3, LCollarbone],
+			[LCollarbone, LForearm1], [LForearm1, LForearm2], [LForearm2, LForearm3], [LForearm3, LPalm], [Spine3, RCollarbone],
+			[RCollarbone, RForearm1], [RForearm1, RForearm2], [RForearm2, RForearm3], [RForearm3, RPalm] 
+		];
 
-		public static readonly List<string[]> FingerConnections = new()
-		{
-			new [] {LPalm, LDigit11}, new [] {LDigit11, LDigit12}, new [] {LDigit12, LDigit13}, new [] {LPalm, LDigit21}, new [] {LDigit21, LDigit22}, new [] {LDigit22, LDigit23}, new [] {LPalm, LDigit31},
-			new [] {LDigit31, LDigit32}, new [] {LDigit32, LDigit33}, new [] {LPalm, LDigit41}, new [] {LDigit41, LDigit42}, new [] {LDigit42, LDigit43}, new [] {LPalm, LDigit51}, new [] {LDigit51, LDigit52},
-			new [] {LDigit52, LDigit53}, new [] {RPalm, RDigit11}, new [] {RDigit11, RDigit12},	new [] {RDigit12, RDigit13}, new [] {RPalm, RDigit11}, new [] {RDigit21, RDigit22}, new [] {RDigit22, RDigit23},
-			new [] {RPalm, RDigit11}, new [] {RDigit31, RDigit32}, new [] {RDigit32, RDigit33},	new [] {RPalm, RDigit11}, new [] {RDigit41, RDigit42}, new [] {RDigit42, RDigit43}, new [] {RPalm, RDigit11},
-			new [] {RDigit51, RDigit52}, new [] {RDigit52, RDigit53}
-		};
+		public static readonly List<string[]> FingerConnections =
+		[
+			[LPalm, LDigit11], [LDigit11, LDigit12], [LDigit12, LDigit13], [LPalm, LDigit21], [LDigit21, LDigit22], [LDigit22, LDigit23], [LPalm, LDigit31],
+			[LDigit31, LDigit32], [LDigit32, LDigit33], [LPalm, LDigit41], [LDigit41, LDigit42], [LDigit42, LDigit43], [LPalm, LDigit51], [LDigit51, LDigit52],
+			[LDigit52, LDigit53], [RPalm, RDigit11], [RDigit11, RDigit12],	[RDigit12, RDigit13], [RPalm, RDigit11], [RDigit21, RDigit22], [RDigit22, RDigit23],
+			[RPalm, RDigit11], [RDigit31, RDigit32], [RDigit32, RDigit33],	[RPalm, RDigit11], [RDigit41, RDigit42], [RDigit42, RDigit43], [RPalm, RDigit11],
+			[RDigit51, RDigit52], [RDigit52, RDigit53]
+		];
 
 		private static Vector2 GetScreenPosition(Camera camera, Vector3 position, bool isAiming)
 		{

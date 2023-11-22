@@ -8,7 +8,7 @@ namespace EFT.Trainer.Features
 {
 	internal class ShaderCache : MonoBehaviour
 	{
-		public Dictionary<Renderer, Shader?> Cache { get; } = new();
+		public Dictionary<Renderer, Shader?> Cache { get; } = [];
 
 		[UsedImplicitly]
 		public void OnDestroy()

@@ -22,7 +22,7 @@ namespace EFT.Trainer.Features
 		public Color Color { get; set; } = Color.cyan;
 
 		[ConfigurationProperty(Browsable = false, Comment = @"Example: [""foo"", ""bar""] or with extended properties: [{""Name"":""foo"",""Color"":[1.0,0.0,0.0,1.0]},{""Name"":""bar"",""Color"":[1.0,1.0,1.0,0.8],""Rarity"":""Rare""}]")]
-		public List<TrackedItem> TrackedNames { get; set; } = new();
+		public List<TrackedItem> TrackedNames { get; set; } = [];
 
 		[ConfigurationProperty] 
 		public bool SearchInsideContainers { get; set; } = true;
@@ -42,7 +42,7 @@ namespace EFT.Trainer.Features
 		public override float CacheTimeInSec { get; set; } = 3f;
 		public override Color GroupingColor => Color;
 
-		public HashSet<string> Wishlist { get; set; } = new();
+		public HashSet<string> Wishlist { get; set; } = [];
 
 		public bool Track(string lootname, Color? color, ELootRarity? rarity)
 		{
@@ -115,7 +115,7 @@ namespace EFT.Trainer.Features
 			if (SearchInsideContainers)
 				FindItemsInContainers(world, records);
 
-			return records.ToArray();
+			return [.. records];
 		}
 
 		private void FindItemsInContainers(GameWorld world, List<PointOfInterest> records)

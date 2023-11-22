@@ -14,40 +14,27 @@ using UnityEngine.Rendering;
 
 namespace EFT.Trainer.Features
 {
-	public class PlayerColor : IFeature
+	public class PlayerColor(Color color, Color borderColor, Color infoColor) : IFeature
 	{
-		public PlayerColor(Color color, Color borderColor, Color infoColor)
-		{
-			Color = color;
-			BorderColor = borderColor;
-			InfoColor = infoColor;
-		}
-
 		[ConfigurationProperty(Order = 1)]
-		public Color Color { get; set; }
+		public Color Color { get; set; } = color;
 
 		[ConfigurationProperty(Order = 2)]
-		public Color BorderColor { get; set; }
+		public Color BorderColor { get; set; } = borderColor;
 
 		[ConfigurationProperty(Order = 3)]
-		public Color InfoColor { get; set; }
+		public Color InfoColor { get; set; } = infoColor;
 
 		public string Name => nameof(PlayerColor);
 	}
 
-	public class ShootableColor : IFeature
+	public class ShootableColor(Color color, Color borderColor) : IFeature
 	{
-		public ShootableColor(Color color, Color borderColor)
-		{
-			Color = color;
-			BorderColor = borderColor;
-		}
-
 		[ConfigurationProperty(Order = 1)]
-		public Color Color { get; set; }
+		public Color Color { get; set; } = color;
 
 		[ConfigurationProperty(Order = 2)]
-		public Color BorderColor { get; set; }
+		public Color BorderColor { get; set; } = borderColor;
 
 		public string Name => nameof(ShootableColor);
 	}
@@ -259,7 +246,7 @@ namespace EFT.Trainer.Features
 			};
 		}
 
-		private readonly Dictionary<Transform, bool> _cache = new();
+		private readonly Dictionary<Transform, bool> _cache = [];
 
 		private bool IsTransformVisibleCached(Transform value, Func<Transform, bool> isVisibleFunc)
 		{

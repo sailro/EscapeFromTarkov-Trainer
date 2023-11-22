@@ -42,19 +42,14 @@ namespace EFT.Trainer.Features
 		public bool ShowHealthDamage { get; set; } = true;
 
 
-		internal class HitMarker
+		internal class HitMarker(DamageInfo damageInfo)
 		{
-			public HitMarker(DamageInfo damageInfo)
-			{
-				DamageInfo = damageInfo;
-			}
-
 			public float ElapsedTime { get; set; } = 0.0f;
-			public DamageInfo DamageInfo { get; set; }
+			public DamageInfo DamageInfo { get; set; } = damageInfo;
 			public bool IsTaggedForDeletion { get; set; } = false;
 		}
 
-		private static readonly HashSet<HitMarker> _hitMarkers = new();
+		private static readonly HashSet<HitMarker> _hitMarkers = [];
 
 #pragma warning disable IDE0060 
 		[UsedImplicitly]

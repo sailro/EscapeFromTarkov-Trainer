@@ -7,20 +7,13 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features
 {
-	internal class TrackedItem
+	internal class TrackedItem(string name, Color? color = null, ELootRarity? rarity = null)
 	{
-		public TrackedItem(string name, Color? color = null, ELootRarity? rarity = null)
-		{
-			Name = name;
-			Color = color;
-			Rarity = rarity;
-		}
-
-		public string Name { get; set; }
+		public string Name { get; set; } = name;
 
 		[JsonConverter(typeof(ColorConverter))]
-		public Color? Color { get; set; }
+		public Color? Color { get; set; } = color;
 
-		public ELootRarity? Rarity { get; set; }
+		public ELootRarity? Rarity { get; set; } = rarity;
 	}
 }

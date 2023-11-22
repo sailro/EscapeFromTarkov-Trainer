@@ -57,7 +57,7 @@ namespace EFT.Trainer.Features
 				});
 			}
 
-			return records.ToArray();
+			return [.. records];
 		}
 	}
 }

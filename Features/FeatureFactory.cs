@@ -40,7 +40,7 @@ namespace EFT.Trainer.Features
 		public static Feature[] GetAllFeatures()
 		{
 			if (_gameObject == null)
-				return Array.Empty<Feature>();
+				return [];
 
 			return GetAllFeatureTypes()
 				.Select(_gameObject.GetComponent)

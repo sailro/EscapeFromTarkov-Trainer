@@ -53,7 +53,7 @@ namespace EFT.Trainer.Features
 			RefreshVisitPlaceLocations(startedQuests, profile, records); 
 			RefreshFindItemLocations(startedQuests, world, records);
 
-			return records.ToArray();
+			return [.. records];
 		}
 
 		private void RefreshVisitPlaceLocations(QuestDataClass[] startedQuests, Profile profile, List<PointOfInterest> records)
