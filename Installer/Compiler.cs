@@ -10,7 +10,6 @@ using Installer.Properties;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Text;
-using Spectre.Console;
 
 #nullable enable
 
@@ -23,7 +22,7 @@ namespace Installer
 		private string ProjectContent { get; }
 
 		private string[] Exclude { get; }
-		private string[] Defines { get; } = Array.Empty<string>();
+		private string[] Defines { get; } = [];
 
 		private static CSharpCompilationOptions CompilationOptions { get; } =
 			new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary)
