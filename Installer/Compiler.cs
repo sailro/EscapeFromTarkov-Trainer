@@ -10,6 +10,7 @@ using Installer.Properties;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Text;
+using Spectre.Console; // used in #DEBUG ifdef
 
 #nullable enable
 
@@ -140,7 +141,7 @@ namespace Installer
 		{
 			var options = CSharpParseOptions
 				.Default
-				.WithLanguageVersion(LanguageVersion.CSharp9)
+				.WithLanguageVersion(LanguageVersion.Latest)
 				.WithPreprocessorSymbols(Defines);
 
 			foreach (var file in GetSourceFiles())

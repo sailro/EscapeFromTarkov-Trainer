@@ -12,7 +12,7 @@
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
-    <LangVersion>12.0</LangVersion>
+    <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <EFTBasePath>C:\Battlestate Games\sptarkov</EFTBasePath>
     <EFTDataPath>$(EFTBasePath)\EscapeFromTarkov_Data</EFTDataPath>
