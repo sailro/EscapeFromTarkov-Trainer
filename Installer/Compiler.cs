@@ -57,7 +57,9 @@ internal class Compiler
 				yield return file;
 			else
 			{
+#if DEBUG
 				AnsiConsole.MarkupLine($"[grey]>> Excluding {file.EscapeMarkup()}.[/]");
+#endif
 			}
 		}
 	}
@@ -69,18 +71,24 @@ internal class Compiler
 		if (TryGetAssemblyPath(assemblyName, out var path))
 		{
 			reference = MetadataReference.CreateFromFile(path);
+#if DEBUG
 			AnsiConsole.MarkupLine($"[grey]>> Resolved {assemblyName} to {path}.[/]");
+#endif
 		}
 
 		if (reference == null && TryGetAssemblyBytes(assemblyName, out var stream))
 		{
+#if DEBUG
 			AnsiConsole.MarkupLine($"[grey]>> Using memory image for {assemblyName}.[/]");
+#endif
 			reference = MetadataReference.CreateFromImage(stream);
 		}
 
 		if (reference == null)
 		{
+#if DEBUG
 			AnsiConsole.MarkupLine($"[grey]>> Unable to resolve {assemblyName}.[/]");
+#endif
 		}
 
 		return reference != null;

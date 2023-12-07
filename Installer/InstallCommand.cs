@@ -235,8 +235,10 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 					.Where(d => d.Severity == DiagnosticSeverity.Error)
 					.ToArray();
 
+#if DEBUG
 				foreach (var error in errors)
 					AnsiConsole.MarkupLine($"[grey]>> {error.Id} [[{error.Location.SourceTree?.FilePath.EscapeMarkup()}]]: {error.GetMessage().EscapeMarkup()}.[/]");
+#endif
 
 				if (errors.Any())
 				{
