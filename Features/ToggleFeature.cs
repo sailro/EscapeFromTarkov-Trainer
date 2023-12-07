@@ -4,39 +4,38 @@ using UnityEngine;
 
 #nullable enable
 
-namespace EFT.Trainer.Features
+namespace EFT.Trainer.Features;
+
+internal abstract class ToggleFeature : Feature
 {
-	internal abstract class ToggleFeature : Feature
+	[ConfigurationProperty(Order = 1)]
+	public virtual bool Enabled { get; set; } = true;
+
+	[ConfigurationProperty(Order = 2)]
+	public virtual KeyCode Key { get; set; } = KeyCode.None;
+
+	protected virtual void Update()
 	{
-		[ConfigurationProperty(Order = 1)]
-		public virtual bool Enabled { get; set; } = true;
+		if (Key != KeyCode.None && Input.GetKeyUp(Key))
+			Enabled = !Enabled;
 
-		[ConfigurationProperty(Order = 2)]
-		public virtual KeyCode Key { get; set; } = KeyCode.None;
+		if (Enabled)
+			UpdateWhenEnabled();
 
-		protected virtual void Update()
-		{
-			if (Key != KeyCode.None && Input.GetKeyUp(Key))
-				Enabled = !Enabled;
-
-			if (Enabled)
-				UpdateWhenEnabled();
-
-			if (!Enabled)
-				UpdateWhenDisabled();
-		}
-
-		[UsedImplicitly]
-		private void OnGUI()
-		{
-			if (Enabled)
-				OnGUIWhenEnabled();
-		}
-
-		protected virtual void UpdateWhenEnabled() {}
-
-		protected virtual void UpdateWhenDisabled() {}
-
-		protected virtual void OnGUIWhenEnabled() {}
+		if (!Enabled)
+			UpdateWhenDisabled();
 	}
+
+	[UsedImplicitly]
+	private void OnGUI()
+	{
+		if (Enabled)
+			OnGUIWhenEnabled();
+	}
+
+	protected virtual void UpdateWhenEnabled() {}
+
+	protected virtual void UpdateWhenDisabled() {}
+
+	protected virtual void OnGUIWhenEnabled() {}
 }

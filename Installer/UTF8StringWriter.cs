@@ -4,10 +4,9 @@ using System.Text;
 
 #nullable enable
 
-namespace Installer
+namespace Installer;
+
+internal sealed class UTF8StringWriter(StringBuilder stringBuilder) : StringWriter(stringBuilder, CultureInfo.InvariantCulture)
 {
-	internal sealed class UTF8StringWriter(StringBuilder stringBuilder) : StringWriter(stringBuilder, CultureInfo.InvariantCulture)
-	{
-		public override Encoding Encoding => new UTF8Encoding();
-	}
+	public override Encoding Encoding => new UTF8Encoding();
 }

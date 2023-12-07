@@ -4,28 +4,27 @@ using UnityEngine;
 
 #nullable enable
 
-namespace EFT.Trainer.Features
+namespace EFT.Trainer.Features;
+
+[UsedImplicitly]
+internal class NoVisor : ToggleFeature
 {
-	[UsedImplicitly]
-	internal class NoVisor : ToggleFeature
+	public override string Name => "novisor";
+
+	public override bool Enabled { get; set; } = false;
+
+	protected override void Update()
 	{
-		public override string Name => "novisor";
+		base.Update();
 
-		public override bool Enabled { get; set; } = false;
+		var camera = GameState.Current?.Camera;
+		if (camera == null)
+			return;
 
-		protected override void Update()
-		{
-			base.Update();
+		var component = camera.GetComponent<VisorEffect>();
+		if (component == null || Mathf.Abs(component.Intensity - Convert.ToInt32(!Enabled)) < Mathf.Epsilon )
+			return;
 
-			var camera = GameState.Current?.Camera;
-			if (camera == null)
-				return;
-
-			var component = camera.GetComponent<VisorEffect>();
-			if (component == null || Mathf.Abs(component.Intensity - Convert.ToInt32(!Enabled)) < Mathf.Epsilon )
-				return;
-
-			component.Intensity = Convert.ToInt32(!Enabled);
-		}
+		component.Intensity = Convert.ToInt32(!Enabled);
 	}
 }

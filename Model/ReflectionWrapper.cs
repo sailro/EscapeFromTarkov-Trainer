@@ -6,59 +6,58 @@ using HarmonyLib;
 
 #nullable enable
 
-namespace EFT.Trainer.Model
+namespace EFT.Trainer.Model;
+
+internal class ReflectionWrapper
 {
-	internal class ReflectionWrapper
+	private static readonly Dictionary<Type, Dictionary<string, FieldInfo>> _fieldInfoCache = [];
+
+	private readonly Type _instanceType;
+	private readonly object _instance;
+
+	protected T? GetFieldValue<T>(string name, bool warnOnFailure = true)
 	{
-		private static readonly Dictionary<Type, Dictionary<string, FieldInfo>> _fieldInfoCache = [];
-
-		private readonly Type _instanceType;
-		private readonly object _instance;
-
-		protected T? GetFieldValue<T>(string name, bool warnOnFailure = true)
+		var fieldInfo = GetField(name);
+		if (fieldInfo == null)
 		{
-			var fieldInfo = GetField(name);
-			if (fieldInfo == null)
-			{
 #if DEBUG
 				if (warnOnFailure)
 					AddConsoleLog($"Unable to find {name} on {_instanceType.Name}");
 #endif
-				return default;
-			}
-
-			var value = fieldInfo.GetValue(_instance);
-			if (value == null)
-				return default;
-
-			return (T)value;
+			return default;
 		}
 
-		protected FieldInfo? GetField(string name)
-		{
-			var infos = _fieldInfoCache[_instanceType];
-			if (infos.TryGetValue(name, out var result))
-				return result;
+		var value = fieldInfo.GetValue(_instance);
+		if (value == null)
+			return default;
 
-			result = AccessTools.Field(_instanceType, name);
-			infos.Add(name, result);
+		return (T)value;
+	}
 
+	protected FieldInfo? GetField(string name)
+	{
+		var infos = _fieldInfoCache[_instanceType];
+		if (infos.TryGetValue(name, out var result))
 			return result;
-		}
 
-		protected void AddConsoleLog(string log)
-		{
-			if (PreloaderUI.Instantiated)
-				ConsoleScreen.Log(log);
-		}
+		result = AccessTools.Field(_instanceType, name);
+		infos.Add(name, result);
 
-		public ReflectionWrapper(object instance)
-		{
-			_instance = instance;
-			_instanceType = instance.GetType();
+		return result;
+	}
 
-			if (!_fieldInfoCache.TryGetValue(_instanceType, out _))
-				_fieldInfoCache.Add(_instanceType, []);
-		}
+	protected void AddConsoleLog(string log)
+	{
+		if (PreloaderUI.Instantiated)
+			ConsoleScreen.Log(log);
+	}
+
+	public ReflectionWrapper(object instance)
+	{
+		_instance = instance;
+		_instanceType = instance.GetType();
+
+		if (!_fieldInfoCache.TryGetValue(_instanceType, out _))
+			_fieldInfoCache.Add(_instanceType, []);
 	}
 }

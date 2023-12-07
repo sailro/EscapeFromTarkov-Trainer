@@ -7,70 +7,69 @@ using UnityEngine;
 
 #nullable enable
 
-namespace EFT.Trainer.Features
+namespace EFT.Trainer.Features;
+
+[UsedImplicitly]
+internal class WallShoot : CachableFeature<BallisticCollider[]>
 {
-	[UsedImplicitly]
-	internal class WallShoot : CachableFeature<BallisticCollider[]>
+	public override string Name => "wallshoot";
+
+	public override float CacheTimeInSec { get; set; } = 5.5f;
+
+	public override BallisticCollider[] RefreshData()
 	{
-		public override string Name => "wallshoot";
+		var colliders = FindObjectsOfType<Collider>()
+			.SelectMany(c => c.GetComponentsInChildren<BallisticCollider>())
+			.Distinct();
 
-		public override float CacheTimeInSec { get; set; } = 5.5f;
+		var player = GameState.Current?.LocalPlayer;
+		if (!player.IsValid())
+			return colliders.ToArray();
 
-		public override BallisticCollider[] RefreshData()
+		// Exclude our own BallisticColliders from being penetrated
+		var exclude = player.GetComponentsInChildren<BallisticCollider>();
+
+		return colliders
+			.Except(exclude)
+			.ToArray();
+	}
+
+	public override void ProcessData(BallisticCollider[] data)
+	{
+		var world = Singleton<GameWorld>.Instance;
+		if (world == null)
+			return;
+
+		var sbc = world.SharedBallisticsCalculator;
+		if (sbc == null)
+			return;
+
+		for (int shotIndex = 0; shotIndex < sbc.ActiveShotsCount; shotIndex++)
 		{
-			var colliders = FindObjectsOfType<Collider>()
-				.SelectMany(c => c.GetComponentsInChildren<BallisticCollider>())
-				.Distinct();
+			var shot = sbc.GetActiveShot(shotIndex);
+			if (shot == null)
+				continue;
 
-			var player = GameState.Current?.LocalPlayer;
-			if (!player.IsValid())
-				return colliders.ToArray();
+			if (shot.IsShotFinished)
+				continue;
 
-			// Exclude our own BallisticColliders from being penetrated
-			var exclude = player.GetComponentsInChildren<BallisticCollider>();
+			// Make sur we are not enhancing ennemy shots
+			var player = shot.Player?.iPlayer; 
+			if (player is not { IsYourPlayer: true })
+				continue;
 
-			return colliders
-				.Except(exclude)
-				.ToArray();
+			shot.IsForwardHit = false;
+			shot.PenetrationPower = 100f;
 		}
 
-		public override void ProcessData(BallisticCollider[] data)
+		foreach(var bc in data)
 		{
-			var world = Singleton<GameWorld>.Instance;
-			if (world == null)
-				return;
-
-			var sbc = world.SharedBallisticsCalculator;
-			if (sbc == null)
-				return;
-
-			for (int shotIndex = 0; shotIndex < sbc.ActiveShotsCount; shotIndex++)
-			{
-				var shot = sbc.GetActiveShot(shotIndex);
-				if (shot == null)
-					continue;
-
-				if (shot.IsShotFinished)
-					continue;
-
-				// Make sur we are not enhancing ennemy shots
-				var player = shot.Player?.iPlayer; 
-				if (player is not { IsYourPlayer: true })
-					continue;
-
-				shot.IsForwardHit = false;
-				shot.PenetrationPower = 100f;
-			}
-
-			foreach(var bc in data)
-			{
-				bc.PenetrationChance = 1.0f;
-				bc.PenetrationLevel = 0.0f;
-				bc.RicochetChance = 0.0f;
-				bc.FragmentationChance = 0.0f;
-				bc.TrajectoryDeviationChance = 0.0f;
-				bc.TrajectoryDeviation = 0.0f;
-			}
+			bc.PenetrationChance = 1.0f;
+			bc.PenetrationLevel = 0.0f;
+			bc.RicochetChance = 0.0f;
+			bc.FragmentationChance = 0.0f;
+			bc.TrajectoryDeviationChance = 0.0f;
+			bc.TrajectoryDeviation = 0.0f;
 		}
 	}
 }

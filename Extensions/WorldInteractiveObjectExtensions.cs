@@ -3,13 +3,12 @@ using EFT.Interactive;
 
 #nullable enable
 
-namespace EFT.Trainer.Extensions
+namespace EFT.Trainer.Extensions;
+
+public static class WorldInteractiveObjectExtensions
 {
-	public static class WorldInteractiveObjectExtensions
+	public static bool IsValid([NotNullWhen(true)] this WorldInteractiveObject? obj)
 	{
-		public static bool IsValid([NotNullWhen(true)] this WorldInteractiveObject? obj)
-		{
-			return obj != null;
-		}
+		return obj != null;
 	}
 }

@@ -2,20 +2,19 @@
 
 #nullable enable
 
-namespace EFT.Trainer.Extensions
+namespace EFT.Trainer.Extensions;
+
+public static class ELootRarityExtensions
 {
-	public static class ELootRarityExtensions
+	public static string Color(this ELootRarity rarity)
 	{
-		public static string Color(this ELootRarity rarity)
+		return rarity switch
 		{
-			return rarity switch
-			{
-				ELootRarity.Superrare => ELootRarity.Superrare.ToString().Red(),
-				ELootRarity.Rare => ELootRarity.Rare.ToString().Yellow(),
-				ELootRarity.Common => ELootRarity.Common.ToString().Green(),
-				ELootRarity.Not_exist => ELootRarity.Not_exist.ToString(),
-				_ => string.Empty
-			};
-		}
+			ELootRarity.Superrare => ELootRarity.Superrare.ToString().Red(),
+			ELootRarity.Rare => ELootRarity.Rare.ToString().Yellow(),
+			ELootRarity.Common => ELootRarity.Common.ToString().Green(),
+			ELootRarity.Not_exist => ELootRarity.Not_exist.ToString(),
+			_ => string.Empty
+		};
 	}
 }

@@ -5,79 +5,78 @@ using UnityEngine;
 
 #nullable enable
 
-namespace EFT.Trainer.Features
-{
-	internal abstract class CachableFeature<T> : ToggleFeature
-	{
-		[ConfigurationProperty(Order = 3)]
-		public abstract float CacheTimeInSec { get; set; }
+namespace EFT.Trainer.Features;
 
-		private T? _data;
-		private bool _refreshing = false;
+internal abstract class CachableFeature<T> : ToggleFeature
+{
+	[ConfigurationProperty(Order = 3)]
+	public abstract float CacheTimeInSec { get; set; }
+
+	private T? _data;
+	private bool _refreshing = false;
 
 #if DEBUG_PERFORMANCE
 		private readonly System.Diagnostics.Stopwatch _stopwatch = new();
 #endif
 
-		[UsedImplicitly]
-		private void Start()
-		{
-			StartCoroutine(RefreshDataScheduler());
-		}
+	[UsedImplicitly]
+	private void Start()
+	{
+		StartCoroutine(RefreshDataScheduler());
+	}
 
-		private IEnumerator RefreshDataScheduler()
+	private IEnumerator RefreshDataScheduler()
+	{
+		if (Enabled)
 		{
-			if (Enabled)
+			try
 			{
-				try
-				{
-					_refreshing = true;
+				_refreshing = true;
 
 #if DEBUG_PERFORMANCE
 					_stopwatch.Restart();
 #endif
 
-					_data = RefreshData();
-				}
-				finally
-				{
-					_refreshing = false;
+				_data = RefreshData();
+			}
+			finally
+			{
+				_refreshing = false;
 
 #if DEBUG_PERFORMANCE
 					_stopwatch.Stop();
 #endif
 
-				}
 			}
+		}
 
 #if DEBUG_PERFORMANCE
 			AddConsoleLog($"Refreshed {GetType().Name} in {_stopwatch.ElapsedMilliseconds}ms...");
 #endif
 
-			yield return new WaitForSeconds(CacheTimeInSec);
-			StartCoroutine(RefreshDataScheduler());
-		}
-
-		protected override void UpdateWhenEnabled()
-		{
-			if (_refreshing) 
-				return;
-
-			if (_data != null)
-				ProcessData(_data);
-		}
-
-		protected override void OnGUIWhenEnabled()
-		{
-			if (_refreshing) 
-				return;
-
-			if (_data != null)
-				ProcessDataOnGUI(_data);
-		}
-
-		public abstract T? RefreshData();
-		public virtual void ProcessData(T data) { }
-		public virtual void ProcessDataOnGUI(T data) { }
+		yield return new WaitForSeconds(CacheTimeInSec);
+		StartCoroutine(RefreshDataScheduler());
 	}
+
+	protected override void UpdateWhenEnabled()
+	{
+		if (_refreshing) 
+			return;
+
+		if (_data != null)
+			ProcessData(_data);
+	}
+
+	protected override void OnGUIWhenEnabled()
+	{
+		if (_refreshing) 
+			return;
+
+		if (_data != null)
+			ProcessDataOnGUI(_data);
+	}
+
+	public abstract T? RefreshData();
+	public virtual void ProcessData(T data) { }
+	public virtual void ProcessDataOnGUI(T data) { }
 }

@@ -3,25 +3,24 @@ using JetBrains.Annotations;
 
 #nullable enable
 
-namespace EFT.Trainer.Features
+namespace EFT.Trainer.Features;
+
+[UsedImplicitly]
+internal class NoRecoil : ToggleFeature
 {
-	[UsedImplicitly]
-	internal class NoRecoil : ToggleFeature
+	public override string Name => "norecoil";
+
+	public override bool Enabled { get; set; } = false;
+
+	protected override void UpdateWhenEnabled()
 	{
-		public override string Name => "norecoil";
+		var player = GameState.Current?.LocalPlayer;
+		if (!player.IsValid())
+			return;
 
-		public override bool Enabled { get; set; } = false;
+		if (player.ProceduralWeaponAnimation == null)
+			return;
 
-		protected override void UpdateWhenEnabled()
-		{
-			var player = GameState.Current?.LocalPlayer;
-			if (!player.IsValid())
-				return;
-
-			if (player.ProceduralWeaponAnimation == null)
-				return;
-
-			player.ProceduralWeaponAnimation.Shootingg.Intensity = 0f;
-		}
+		player.ProceduralWeaponAnimation.Shootingg.Intensity = 0f;
 	}
 }

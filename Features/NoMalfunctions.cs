@@ -4,36 +4,35 @@ using JetBrains.Annotations;
 
 #nullable enable
 
-namespace EFT.Trainer.Features
+namespace EFT.Trainer.Features;
+
+[UsedImplicitly]
+internal class NoMalfunctions : ToggleFeature
 {
-	[UsedImplicitly]
-	internal class NoMalfunctions : ToggleFeature
+	public override string Name => "nomal";
+
+	public override bool Enabled { get; set; } = false;
+
+	protected override void UpdateWhenEnabled()
 	{
-		public override string Name => "nomal";
+		var player = GameState.Current?.LocalPlayer;
+		if (!player.IsValid())
+			return;
 
-		public override bool Enabled { get; set; } = false;
+		if (player.HandsController.Item is not Weapon)
+			return;
 
-		protected override void UpdateWhenEnabled()
-		{
-			var player = GameState.Current?.LocalPlayer;
-			if (!player.IsValid())
-				return;
+		if (!player.TryGetComponent<Player.FirearmController>(out var firearmController))
+			return;
 
-			if (player.HandsController.Item is not Weapon)
-				return;
+		var template = firearmController.Item?.Template;
+		if (template == null)
+			return;
 
-			if (!player.TryGetComponent<Player.FirearmController>(out var firearmController))
-				return;
-
-			var template = firearmController.Item?.Template;
-			if (template == null)
-				return;
-
-			template.AllowFeed = false;
-			template.AllowJam = false;
-			template.AllowMisfire = false;
-			template.AllowOverheat = false;
-			template.AllowSlide = false;
-		}
+		template.AllowFeed = false;
+		template.AllowJam = false;
+		template.AllowMisfire = false;
+		template.AllowOverheat = false;
+		template.AllowSlide = false;
 	}
 }

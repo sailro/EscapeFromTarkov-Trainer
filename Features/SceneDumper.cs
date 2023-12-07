@@ -6,109 +6,108 @@ using UnityEngine.SceneManagement;
 
 #nullable enable
 
-namespace EFT.Trainer.Features
+namespace EFT.Trainer.Features;
+
+internal class SceneDumper
 {
-	internal class SceneDumper
+	[Serializable]
+	public class NamedData
 	{
-		[Serializable]
-		public class NamedData
+		public string? Name;
+
+		[UsedImplicitly]
+		public NamedData()
 		{
-			public string? Name;
+		}
 
-			[UsedImplicitly]
-			public NamedData()
-			{
-			}
+		public override string ToString()
+		{
+			return Name ?? string.Empty;
+		}
+	}
 
-			public override string ToString()
+	[Serializable]
+	public class SceneData : NamedData
+	{
+		public List<GameObjectData> Roots;
+
+		public SceneData()
+		{
+			Roots = [];
+		}
+	}
+
+	[Serializable]
+	public class GameObjectData : NamedData
+	{
+		public string? Tag;
+
+		public List<GameObjectData> Childs;
+		public List<ComponentData> Components;
+
+		public GameObjectData()
+		{
+			Childs = [];
+			Components = [];
+		}
+	}
+
+	[Serializable]
+	public class ComponentData
+	{
+		public string? Type;
+
+		[UsedImplicitly]
+		public ComponentData()
+		{
+		}
+
+		public override string ToString()
+		{
+			return Type ?? string.Empty;
+		}
+	}
+
+	public static SceneData DumpScene(Scene scene)
+	{
+		var result = new SceneData { Name = scene.name };
+
+		foreach (var root in scene.GetRootGameObjects())
+		{
+			if (root != null)
 			{
-				return Name ?? string.Empty;
+				result.Roots.Add(DumpGameObject(root));
 			}
 		}
 
-		[Serializable]
-		public class SceneData : NamedData
-		{
-			public List<GameObjectData> Roots;
+		return result;
+	}
 
-			public SceneData()
+	public static GameObjectData DumpGameObject(GameObject root)
+	{
+		var result = new GameObjectData { Name = root.name, Tag = root.tag };
+
+		foreach (Transform transform in root.transform)
+		{
+			if (transform != null && transform.gameObject != null)
 			{
-				Roots = [];
+				result.Childs.Add(DumpGameObject(transform.gameObject));
 			}
 		}
 
-		[Serializable]
-		public class GameObjectData : NamedData
+		foreach (var component in root.GetComponents<Component>())
 		{
-			public string? Tag;
-
-			public List<GameObjectData> Childs;
-			public List<ComponentData> Components;
-
-			public GameObjectData()
+			if (component != null)
 			{
-				Childs = [];
-				Components = [];
+				result.Components.Add(DumpComponent(component));
 			}
 		}
 
-		[Serializable]
-		public class ComponentData
-		{
-			public string? Type;
+		return result;
+	}
 
-			[UsedImplicitly]
-			public ComponentData()
-			{
-			}
-
-			public override string ToString()
-			{
-				return Type ?? string.Empty;
-			}
-		}
-
-		public static SceneData DumpScene(Scene scene)
-		{
-			var result = new SceneData { Name = scene.name };
-
-			foreach (var root in scene.GetRootGameObjects())
-			{
-				if (root != null)
-				{
-					result.Roots.Add(DumpGameObject(root));
-				}
-			}
-
-			return result;
-		}
-
-		public static GameObjectData DumpGameObject(GameObject root)
-		{
-			var result = new GameObjectData { Name = root.name, Tag = root.tag };
-
-			foreach (Transform transform in root.transform)
-			{
-				if (transform != null && transform.gameObject != null)
-				{
-					result.Childs.Add(DumpGameObject(transform.gameObject));
-				}
-			}
-
-			foreach (var component in root.GetComponents<Component>())
-			{
-				if (component != null)
-				{
-					result.Components.Add(DumpComponent(component));
-				}
-			}
-
-			return result;
-		}
-
-		private static ComponentData DumpComponent(Component component)
-		{
-			return new() { Type = component.GetType().FullName };
-		}
+	private static ComponentData DumpComponent(Component component)
+	{
+		return new() { Type = component.GetType().FullName };
 	}
 }

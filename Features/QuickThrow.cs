@@ -5,34 +5,33 @@ using UnityEngine;
 
 #nullable enable
 
-namespace EFT.Trainer.Features
+namespace EFT.Trainer.Features;
+
+[UsedImplicitly]
+internal class QuickTrow : TriggerFeature
 {
-	[UsedImplicitly]
-	internal class QuickTrow : TriggerFeature
+	public override string Name => "quickthrow";
+
+	public override KeyCode Key { get; set; } = KeyCode.None;
+
+	protected override void UpdateOnceWhenTriggered()
 	{
-		public override string Name => "quickthrow";
+		var player = GameState.Current?.LocalPlayer;
+		if (!player.IsValid())
+			return;
 
-		public override KeyCode Key { get; set; } = KeyCode.None;
+		var inventory = player
+			.Profile
+			.Inventory;
 
-		protected override void UpdateOnceWhenTriggered()
-		{
-			var player = GameState.Current?.LocalPlayer;
-			if (!player.IsValid())
-				return;
+		var grenade = inventory
+			.GetAllEquipmentItems()
+			.OfType<GrenadeClass>()
+			.FirstOrDefault();
 
-			var inventory = player
-				.Profile
-				.Inventory;
+		if (grenade == null)
+			return;
 
-			var grenade = inventory
-				.GetAllEquipmentItems()
-				.OfType<GrenadeClass>()
-				.FirstOrDefault();
-
-			if (grenade == null)
-				return;
-
-			player.SetInHandsForQuickUse(grenade, null);
-		}
+		player.SetInHandsForQuickUse(grenade, null);
 	}
 }

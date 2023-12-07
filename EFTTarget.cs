@@ -2,14 +2,13 @@
 
 #nullable enable
 
-namespace EFT.Trainer
+namespace EFT.Trainer;
+
+[Target(nameof(EFTTarget))]
+public sealed class EFTTarget : TargetWithLayout
 {
-	[Target(nameof(EFTTarget))]
-	public sealed class EFTTarget : TargetWithLayout
+	public EFTTarget()
 	{
-		public EFTTarget()
-		{
-			Loader.Load();
-		}
+		Loader.Load();
 	}
 }

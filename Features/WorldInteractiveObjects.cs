@@ -5,37 +5,36 @@ using UnityEngine;
 
 #nullable enable
 
-namespace EFT.Trainer.Features
+namespace EFT.Trainer.Features;
+
+[UsedImplicitly]
+internal class WorldInteractiveObjects : TriggerFeature
 {
-	[UsedImplicitly]
-	internal class WorldInteractiveObjects : TriggerFeature
+	public override string Name => "opener";
+
+	public override KeyCode Key { get; set; } = KeyCode.KeypadPeriod;
+
+	protected override void UpdateOnceWhenTriggered()
 	{
-		public override string Name => "opener";
+		var player = GameState.Current?.LocalPlayer;
+		if (!player.IsValid())
+			return;
 
-		public override KeyCode Key { get; set; } = KeyCode.KeypadPeriod;
-
-		protected override void UpdateOnceWhenTriggered()
+		var objects = LocationScene.GetAllObjects<WorldInteractiveObject>();
+		foreach (var obj in objects)
 		{
-			var player = GameState.Current?.LocalPlayer;
-			if (!player.IsValid())
-				return;
+			if (!obj.IsValid())
+				continue;
 
-			var objects = LocationScene.GetAllObjects<WorldInteractiveObject>();
-			foreach (var obj in objects)
-			{
-				if (!obj.IsValid())
-					continue;
+			if (obj.DoorState != EDoorState.Locked)
+				continue;
 
-				if (obj.DoorState != EDoorState.Locked)
-					continue;
+			var offset = player.Transform.position - obj.transform.position;
+			var sqrLen = offset.sqrMagnitude;
 
-				var offset = player.Transform.position - obj.transform.position;
-				var sqrLen = offset.sqrMagnitude;
-
-				// only unlock if near me, else you'll get a ban from BattlEye if you brute-force-unlock all objects
-				if (sqrLen <= 20.0f)
-					obj.DoorState = EDoorState.Shut;
-			}
+			// only unlock if near me, else you'll get a ban from BattlEye if you brute-force-unlock all objects
+			if (sqrLen <= 20.0f)
+				obj.DoorState = EDoorState.Shut;
 		}
 	}
 }

@@ -2,11 +2,10 @@
 
 #nullable enable
 
-namespace EFT.Trainer.Configuration
+namespace EFT.Trainer.Configuration;
+
+internal class OrderedProperty(ConfigurationPropertyAttribute attribute, PropertyInfo property)
 {
-	internal class OrderedProperty(ConfigurationPropertyAttribute attribute, PropertyInfo property)
-	{
-		public ConfigurationPropertyAttribute Attribute { get; } = attribute;
-		public PropertyInfo Property { get; } = property;
-	}
+	public ConfigurationPropertyAttribute Attribute { get; } = attribute;
+	public PropertyInfo Property { get; } = property;
 }

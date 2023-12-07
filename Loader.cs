@@ -3,27 +3,26 @@ using UnityEngine;
 
 #nullable enable
 
-namespace EFT.Trainer
+namespace EFT.Trainer;
+
+public class Loader
 {
-	public class Loader
+	private static GameObject HookObject
 	{
-		private static GameObject HookObject
+		get
 		{
-			get
-			{
-				var result = GameObject.Find("Application (Main Client)");
-				if (result != null)
-					return result;
-
-				result = new GameObject(nameof(Loader));
-				Object.DontDestroyOnLoad(result);
+			var result = GameObject.Find("Application (Main Client)");
+			if (result != null)
 				return result;
-			}
-		}
 
-		public static void Load()
-		{
-			FeatureFactory.RegisterAllFeatures(HookObject);
+			result = new GameObject(nameof(Loader));
+			Object.DontDestroyOnLoad(result);
+			return result;
 		}
+	}
+
+	public static void Load()
+	{
+		FeatureFactory.RegisterAllFeatures(HookObject);
 	}
 }

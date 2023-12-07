@@ -3,45 +3,44 @@ using JetBrains.Annotations;
 
 #nullable enable
 
-namespace EFT.Trainer.Features
+namespace EFT.Trainer.Features;
+
+[UsedImplicitly]
+internal class Examine : ToggleFeature
 {
+	public override string Name => "examine";
+
+	public override bool Enabled { get; set; } = false;
+
 	[UsedImplicitly]
-	internal class Examine : ToggleFeature
+	protected static bool ExaminedPrefix(ref bool __result)
 	{
-		public override string Name => "examine";
+		var feature = FeatureFactory.GetFeature<Examine>();
+		if (feature == null || !feature.Enabled)
+			return true; // keep using original code, we are not enabled
 
-		public override bool Enabled { get; set; } = false;
+		__result = true;
+		return false;  // skip the original code and all other prefix methods 
+	}
 
-		[UsedImplicitly]
-		protected static bool ExaminedPrefix(ref bool __result)
+	protected override void UpdateWhenEnabled()
+	{
+		HarmonyPatchOnce(harmony =>
 		{
-			var feature = FeatureFactory.GetFeature<Examine>();
-			if (feature == null || !feature.Enabled)
-				return true; // keep using original code, we are not enabled
+			var originalString = HarmonyLib.AccessTools.Method(typeof(Profile), nameof(Profile.Examined), new[] {typeof(string)});
+			if (originalString == null)
+				return;
 
-			__result = true;
-			return false;  // skip the original code and all other prefix methods 
-		}
+			var originalItem = HarmonyLib.AccessTools.Method(typeof(Profile), nameof(Profile.Examined), new[] {typeof(Item)});
+			if (originalItem == null)
+				return;
 
-		protected override void UpdateWhenEnabled()
-		{
-			HarmonyPatchOnce(harmony =>
-			{
-				var originalString = HarmonyLib.AccessTools.Method(typeof(Profile), nameof(Profile.Examined), new[] {typeof(string)});
-				if (originalString == null)
-					return;
+			var prefix = HarmonyLib.AccessTools.Method(GetType(), nameof(ExaminedPrefix));
+			if (prefix == null)
+				return;
 
-				var originalItem = HarmonyLib.AccessTools.Method(typeof(Profile), nameof(Profile.Examined), new[] {typeof(Item)});
-				if (originalItem == null)
-					return;
-
-				var prefix = HarmonyLib.AccessTools.Method(GetType(), nameof(ExaminedPrefix));
-				if (prefix == null)
-					return;
-
-				harmony.Patch(originalString, new HarmonyLib.HarmonyMethod(prefix));
-				harmony.Patch(originalItem, new HarmonyLib.HarmonyMethod(prefix));
-			});
-		}
+			harmony.Patch(originalString, new HarmonyLib.HarmonyMethod(prefix));
+			harmony.Patch(originalItem, new HarmonyLib.HarmonyMethod(prefix));
+		});
 	}
 }
