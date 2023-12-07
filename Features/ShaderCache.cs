@@ -4,16 +4,15 @@ using UnityEngine;
 
 #nullable enable
 
-namespace EFT.Trainer.Features
-{
-	internal class ShaderCache : MonoBehaviour
-	{
-		public Dictionary<Renderer, Shader?> Cache { get; } = [];
+namespace EFT.Trainer.Features;
 
-		[UsedImplicitly]
-		public void OnDestroy()
-		{
-			Cache.Clear();
-		}
+internal class ShaderCache : MonoBehaviour
+{
+	public Dictionary<Renderer, Shader?> Cache { get; } = [];
+
+	[UsedImplicitly]
+	public void OnDestroy()
+	{
+		Cache.Clear();
 	}
 }

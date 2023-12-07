@@ -11,131 +11,71 @@ using UnityEngine;
 
 #nullable enable
 
-namespace EFT.Trainer.Features
+namespace EFT.Trainer.Features;
+
+[UsedImplicitly]
+internal class Quests : PointOfInterests
 {
-	[UsedImplicitly]
-	internal class Quests : PointOfInterests
+	public override string Name => "quest";
+
+	[ConfigurationProperty]
+	public Color Color { get; set; } = Color.magenta;
+
+	public override float CacheTimeInSec { get; set; } = 5f;
+	public override bool Enabled { get; set; } = false;
+	public override Color GroupingColor => Color;
+
+	public override PointOfInterest[] RefreshData()
 	{
-		public override string Name => "quest";
+		var world = Singleton<GameWorld>.Instance;
+		if (world == null)
+			return Empty;
 
-		[ConfigurationProperty]
-		public Color Color { get; set; } = Color.magenta;
+		var player = GameState.Current?.LocalPlayer;
+		if (!player.IsValid())
+			return Empty;
 
-		public override float CacheTimeInSec { get; set; } = 5f;
-		public override bool Enabled { get; set; } = false;
-		public override Color GroupingColor => Color;
+		var camera = GameState.Current?.Camera;
+		if (camera == null)
+			return Empty;
 
-		public override PointOfInterest[] RefreshData()
+		var profile = player.Profile;
+
+		var startedQuests = profile.QuestsData
+			.Where(q => q.Status is EQuestStatus.Started && q.Template != null)
+			.ToArray();
+
+		if (!startedQuests.Any())
+			return Empty;
+
+		var records = new List<PointOfInterest>();
+		RefreshPlaceOrRepairItemLocations(startedQuests, profile, records);
+		RefreshVisitPlaceLocations(startedQuests, profile, records); 
+		RefreshFindItemLocations(startedQuests, world, records);
+
+		return [.. records];
+	}
+
+	private void RefreshVisitPlaceLocations(QuestDataClass[] startedQuests, Profile profile, List<PointOfInterest> records)
+	{
+		var triggers = FindObjectsOfType<ExperienceTrigger>();
+
+		foreach (var quest in startedQuests)
 		{
-			var world = Singleton<GameWorld>.Instance;
-			if (world == null)
-				return Empty;
-
-			var player = GameState.Current?.LocalPlayer;
-			if (!player.IsValid())
-				return Empty;
-
-			var camera = GameState.Current?.Camera;
-			if (camera == null)
-				return Empty;
-
-			var profile = player.Profile;
-
-			var startedQuests = profile.QuestsData
-				.Where(q => q.Status is EQuestStatus.Started && q.Template != null)
-				.ToArray();
-
-			if (!startedQuests.Any())
-				return Empty;
-
-			var records = new List<PointOfInterest>();
-			RefreshPlaceOrRepairItemLocations(startedQuests, profile, records);
-			RefreshVisitPlaceLocations(startedQuests, profile, records); 
-			RefreshFindItemLocations(startedQuests, world, records);
-
-			return [.. records];
-		}
-
-		private void RefreshVisitPlaceLocations(QuestDataClass[] startedQuests, Profile profile, List<PointOfInterest> records)
-		{
-			var triggers = FindObjectsOfType<ExperienceTrigger>();
-
-			foreach (var quest in startedQuests)
+			var conditions = quest.Template!.GetConditions<ConditionCounterCreator>(EQuestStatus.AvailableForFinish).ToArray();
+			foreach (var condition in conditions)
 			{
-				var conditions = quest.Template!.GetConditions<ConditionCounterCreator>(EQuestStatus.AvailableForFinish).ToArray();
-				foreach (var condition in conditions)
-				{
-					if (quest.CompletedConditions.Contains(condition.id))
-						continue;
-
-					foreach (var cvp in condition.counter.conditions.OfType<ConditionVisitPlace>())
-					{
-						var trigger = triggers.FirstOrDefault(t => t.Id == cvp.target);
-						if (trigger == null)
-							continue;
-
-						var visited = profile.Stats.Eft.OverallCounters.GetInt(CounterTag.TriggerVisited, trigger.Id) > 0;
-						if (visited)
-							continue;
-
-						var position = trigger.transform.position;
-						AddQuestRecord(records, condition, quest, position);
-						break;
-					}
-				}
-			}
-		}
-
-		private void RefreshFindItemLocations(QuestDataClass[] startedQuests, GameWorld world, List<PointOfInterest> records)
-		{
-			var lootItems = world.LootItems;
-
-			for (var i = 0; i < lootItems.Count; i++)
-			{
-				var lootItem = lootItems.GetByIndex(i);
-				if (!lootItem.IsValid())
+				if (quest.CompletedConditions.Contains(condition.id))
 					continue;
 
-				if (!lootItem.Item.QuestItem)
-					continue;
-
-				foreach (var quest in startedQuests)
+				foreach (var cvp in condition.counter.conditions.OfType<ConditionVisitPlace>())
 				{
-					foreach (var condition in quest.Template!.GetConditions<ConditionFindItem>(EQuestStatus.AvailableForFinish))
-					{
-						if (!condition.target.Contains(lootItem.Item.TemplateId) || quest.CompletedConditions.Contains(condition.id)) 
-							continue;
-
-						var position = lootItem.transform.position;
-						AddQuestRecord(records, condition, quest, position);
-					}
-				}
-			}
-		}
-
-		private void RefreshPlaceOrRepairItemLocations(QuestDataClass[] startedQuests, Profile profile, List<PointOfInterest> records)
-		{
-			var allPlayerItems = profile
-				.Inventory
-				.AllPlayerItems
-				.ToArray();
-
-			var triggers = FindObjectsOfType<PlaceItemTrigger>();
-
-			foreach (var quest in startedQuests)
-			{
-				var conditions = quest.Template!.GetConditions<ConditionZone>(EQuestStatus.AvailableForFinish).ToArray();
-				foreach (var condition in conditions)
-				{
-					if (quest.CompletedConditions.Contains(condition.id))
-						continue;
-
-					var result = allPlayerItems.FirstOrDefault(x => condition.target.Contains(x.TemplateId));
-					if (result == null)
-						continue;
-
-					var trigger = triggers.FirstOrDefault(t => t.Id == condition.zoneId);
+					var trigger = triggers.FirstOrDefault(t => t.Id == cvp.target);
 					if (trigger == null)
+						continue;
+
+					var visited = profile.Stats.Eft.OverallCounters.GetInt(CounterTag.TriggerVisited, trigger.Id) > 0;
+					if (visited)
 						continue;
 
 					var position = trigger.transform.position;
@@ -144,15 +84,74 @@ namespace EFT.Trainer.Features
 				}
 			}
 		}
+	}
 
-		private void AddQuestRecord(List<PointOfInterest> records, Condition condition, QuestDataClass quest, Vector3 position)
+	private void RefreshFindItemLocations(QuestDataClass[] startedQuests, GameWorld world, List<PointOfInterest> records)
+	{
+		var lootItems = world.LootItems;
+
+		for (var i = 0; i < lootItems.Count; i++)
 		{
-			records.Add(new PointOfInterest
+			var lootItem = lootItems.GetByIndex(i);
+			if (!lootItem.IsValid())
+				continue;
+
+			if (!lootItem.Item.QuestItem)
+				continue;
+
+			foreach (var quest in startedQuests)
 			{
-				Name = $"{condition.FormattedDescription} ({quest.Template!.Name})",
-				Position = position,
-				Color = Color
-			});
+				foreach (var condition in quest.Template!.GetConditions<ConditionFindItem>(EQuestStatus.AvailableForFinish))
+				{
+					if (!condition.target.Contains(lootItem.Item.TemplateId) || quest.CompletedConditions.Contains(condition.id)) 
+						continue;
+
+					var position = lootItem.transform.position;
+					AddQuestRecord(records, condition, quest, position);
+				}
+			}
 		}
+	}
+
+	private void RefreshPlaceOrRepairItemLocations(QuestDataClass[] startedQuests, Profile profile, List<PointOfInterest> records)
+	{
+		var allPlayerItems = profile
+			.Inventory
+			.AllPlayerItems
+			.ToArray();
+
+		var triggers = FindObjectsOfType<PlaceItemTrigger>();
+
+		foreach (var quest in startedQuests)
+		{
+			var conditions = quest.Template!.GetConditions<ConditionZone>(EQuestStatus.AvailableForFinish).ToArray();
+			foreach (var condition in conditions)
+			{
+				if (quest.CompletedConditions.Contains(condition.id))
+					continue;
+
+				var result = allPlayerItems.FirstOrDefault(x => condition.target.Contains(x.TemplateId));
+				if (result == null)
+					continue;
+
+				var trigger = triggers.FirstOrDefault(t => t.Id == condition.zoneId);
+				if (trigger == null)
+					continue;
+
+				var position = trigger.transform.position;
+				AddQuestRecord(records, condition, quest, position);
+				break;
+			}
+		}
+	}
+
+	private void AddQuestRecord(List<PointOfInterest> records, Condition condition, QuestDataClass quest, Vector3 position)
+	{
+		records.Add(new PointOfInterest
+		{
+			Name = $"{condition.FormattedDescription} ({quest.Template!.Name})",
+			Position = position,
+			Color = Color
+		});
 	}
 }

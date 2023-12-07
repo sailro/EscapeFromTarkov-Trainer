@@ -10,87 +10,86 @@ using UnityEngine;
 
 #nullable enable
 
-namespace EFT.Trainer.Features
+namespace EFT.Trainer.Features;
+
+internal class GameState : CachableFeature<GameStateSnapshot>
 {
-	internal class GameState : CachableFeature<GameStateSnapshot>
+	public override string Name => "gamestate";
+
+	public static GameStateSnapshot? Current { get; private set; }
+
+	public override float CacheTimeInSec { get; set; } = 2f;
+
+	[ConfigurationProperty(Skip = true)] // we do not want to offer save/load support for this
+	public override bool Enabled { get; set; } = true;
+
+	[ConfigurationProperty(Skip = true)] // we do not want to offer save/load support for this
+	public override KeyCode Key { get; set; } = KeyCode.None;
+
+	public static Shader? OutlineShader { get; private set; }
+
+	[UsedImplicitly]
+	private void Awake()
 	{
-		public override string Name => "gamestate";
+		// if we are not able to load our dedicated shader, we'll have OutlineShader==null => Unity will use the magenta-debug-shader, which is a nice fallback
+		if (OutlineShader != null)
+			return;
 
-		public static GameStateSnapshot? Current { get; private set; }
+		var filename = Path.Combine(Application.dataPath, "outline");
+		if (!File.Exists(filename))
+			return;
 
-		public override float CacheTimeInSec { get; set; } = 2f;
+		var bundle = AssetBundle.LoadFromFile(filename);
+		if (bundle == null)
+			return;
 
-		[ConfigurationProperty(Skip = true)] // we do not want to offer save/load support for this
-		public override bool Enabled { get; set; } = true;
+		OutlineShader = bundle.LoadAsset<Shader>("assets/outline.shader");
+	}
 
-		[ConfigurationProperty(Skip = true)] // we do not want to offer save/load support for this
-		public override KeyCode Key { get; set; } = KeyCode.None;
+	public override GameStateSnapshot? RefreshData()
+	{
+		var snapshot = new GameStateSnapshot();
+		var world = Singleton<GameWorld>.Instance;
 
-		public static Shader? OutlineShader { get; private set; }
+		if (world == null)
+			return null;
 
-		[UsedImplicitly]
-		private void Awake()
+		var players = world
+			.RegisteredPlayers?
+			.OfType<Player>();
+
+		if (players == null)
+			return null;
+
+		var hostiles = new List<Player>();
+		snapshot.Hostiles = hostiles;
+
+		foreach (var player in players)
 		{
-			// if we are not able to load our dedicated shader, we'll have OutlineShader==null => Unity will use the magenta-debug-shader, which is a nice fallback
-			if (OutlineShader != null)
-				return;
-
-			var filename = Path.Combine(Application.dataPath, "outline");
-			if (!File.Exists(filename))
-				return;
-
-			var bundle = AssetBundle.LoadFromFile(filename);
-			if (bundle == null)
-				return;
-
-			OutlineShader = bundle.LoadAsset<Shader>("assets/outline.shader");
-		}
-
-		public override GameStateSnapshot? RefreshData()
-		{
-			var snapshot = new GameStateSnapshot();
-			var world = Singleton<GameWorld>.Instance;
-
-			if (world == null)
-				return null;
-
-			var players = world
-				.RegisteredPlayers?
-				.OfType<Player>();
-
-			if (players == null)
-				return null;
-
-			var hostiles = new List<Player>();
-			snapshot.Hostiles = hostiles;
-
-			foreach (var player in players)
+			if (player.IsYourPlayer)
 			{
-				if (player.IsYourPlayer)
-				{
-					snapshot.LocalPlayer = player;
-					continue;
-				}
-
-				if (!player.IsAlive())
-					continue;
-
-				hostiles.Add(player);
+				snapshot.LocalPlayer = player;
+				continue;
 			}
 
-			snapshot.Camera = Camera.main;
+			if (!player.IsAlive())
+				continue;
 
-			Current = snapshot;
-			return snapshot;
+			hostiles.Add(player);
 		}
-	}
 
-	public class GameStateSnapshot
-	{
-		public Camera? Camera { get; set; }
-		public Camera? MapCamera { get; set; }
-		public Player? LocalPlayer { get; set; }
-		public IEnumerable<Player> Hostiles { get; set; } = Array.Empty<Player>();
-		public bool MapMode { get; set; } = false;
+		snapshot.Camera = Camera.main;
+
+		Current = snapshot;
+		return snapshot;
 	}
+}
+
+public class GameStateSnapshot
+{
+	public Camera? Camera { get; set; }
+	public Camera? MapCamera { get; set; }
+	public Player? LocalPlayer { get; set; }
+	public IEnumerable<Player> Hostiles { get; set; } = Array.Empty<Player>();
+	public bool MapMode { get; set; } = false;
 }

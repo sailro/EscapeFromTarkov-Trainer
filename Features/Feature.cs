@@ -5,34 +5,33 @@ using UnityEngine;
 
 #nullable enable
 
-namespace EFT.Trainer.Features
+namespace EFT.Trainer.Features;
+
+internal interface IFeature
 {
-	internal interface IFeature
+	[JsonIgnore]
+	public string Name { get; }
+}
+
+internal abstract class Feature : MonoBehaviour, IFeature
+{
+	public abstract string Name { get; }
+
+	private string? _harmonyId = null;
+
+	public void HarmonyPatchOnce(Action<HarmonyLib.Harmony> action)
 	{
-		[JsonIgnore]
-		public string Name { get; }
+		if (_harmonyId != null) // this is faster than calling HarmonyLib.Harmony.HasAnyPatches(_harmonyId) for every Update
+			return;
+
+		_harmonyId = GetType().FullName;
+		var harmony = new HarmonyLib.Harmony(_harmonyId);
+		action(harmony);
 	}
 
-	internal abstract class Feature : MonoBehaviour, IFeature
+	protected void AddConsoleLog(string log)
 	{
-		public abstract string Name { get; }
-
-		private string? _harmonyId = null;
-
-		public void HarmonyPatchOnce(Action<HarmonyLib.Harmony> action)
-		{
-			if (_harmonyId != null) // this is faster than calling HarmonyLib.Harmony.HasAnyPatches(_harmonyId) for every Update
-				return;
-
-			_harmonyId = GetType().FullName;
-			var harmony = new HarmonyLib.Harmony(_harmonyId);
-			action(harmony);
-		}
-
-		protected void AddConsoleLog(string log)
-		{
-			if (PreloaderUI.Instantiated)
-				ConsoleScreen.Log(log);
-		}
+		if (PreloaderUI.Instantiated)
+			ConsoleScreen.Log(log);
 	}
 }

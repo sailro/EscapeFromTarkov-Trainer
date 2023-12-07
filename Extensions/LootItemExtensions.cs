@@ -3,14 +3,13 @@ using EFT.Interactive;
 
 #nullable enable
 
-namespace EFT.Trainer.Extensions
+namespace EFT.Trainer.Extensions;
+
+public static class LootItemExtensions
 {
-	public static class LootItemExtensions
+	public static bool IsValid([NotNullWhen(true)] this LootItem? lootItem)
 	{
-		public static bool IsValid([NotNullWhen(true)] this LootItem? lootItem)
-		{
-			return lootItem != null
-			       && lootItem.Item.IsValid();
-		}
+		return lootItem != null
+		       && lootItem.Item.IsValid();
 	}
 }
