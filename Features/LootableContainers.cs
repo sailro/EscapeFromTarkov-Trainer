@@ -45,7 +45,12 @@ internal class LootableContainers : PointOfInterests
 			if (rootItem is not { IsContainer: true })
 				continue;
 
-			if (rootItem.TemplateId != KnownTemplateIds.BuriedBarrelCache && rootItem.TemplateId != KnownTemplateIds.GroundCache)
+			if (rootItem.TemplateId != KnownTemplateIds.BuriedBarrelCache 
+					&& rootItem.TemplateId != KnownTemplateIds.GroundCache 
+					&& rootItem.TemplateId != KnownTemplateIds.air_drop_common
+					&& rootItem.TemplateId != KnownTemplateIds.air_drop_medical
+					&& rootItem.TemplateId != KnownTemplateIds.air_drop_supply
+					&& rootItem.TemplateId != KnownTemplateIds.air_drop_weapon)
 				continue;
 
 			var position = owner.Value.Transform.position;
