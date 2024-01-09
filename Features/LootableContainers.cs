@@ -7,70 +7,68 @@ using UnityEngine;
 
 #nullable enable
 
-namespace EFT.Trainer.Features
+namespace EFT.Trainer.Features;
+
+[UsedImplicitly]
+internal class LootableContainers : PointOfInterests
 {
-	[UsedImplicitly]
-	internal class LootableContainers : PointOfInterests
+	public override string Name => "stash";
+
+	//Static Hashset for List of Container IDS
+	private static readonly HashSet<string> _targetedContainer =
+	[
+		KnownTemplateIds.BuriedBarrelCache,
+		KnownTemplateIds.GroundCache,
+		KnownTemplateIds.AirDropCommon,
+		KnownTemplateIds.AirDropMedical,
+		KnownTemplateIds.AirDropSupply,
+		KnownTemplateIds.AirDropWeapon
+	];
+	
+	[ConfigurationProperty]
+	public Color Color { get; set; } = Color.white;
+
+	public override float CacheTimeInSec { get; set; } = 11f;
+	public override bool Enabled { get; set; } = false;
+	public override Color GroupingColor => Color;
+
+	public override PointOfInterest[] RefreshData()
 	{
-		public override string Name => "stash";
+		var world = Singleton<GameWorld>.Instance;
+		if (world == null)
+			return Empty;
 
-		//Static Hashset for List of Container IDS
-		private static readonly HashSet<string> TargetedContainer = new()
+		var player = GameState.Current?.LocalPlayer;
+		if (!player.IsValid())
+			return Empty;
+
+		var camera = GameState.Current?.Camera;
+		if (camera == null)
+			return Empty;
+
+		var owners = world.ItemOwners;
+		var records = new List<PointOfInterest>();
+
+		foreach (var owner in owners)
 		{
-			KnownTemplateIds.BuriedBarrelCache,
-			KnownTemplateIds.GroundCache,
-			KnownTemplateIds.air_drop_common,
-			KnownTemplateIds.air_drop_medical,
-			KnownTemplateIds.air_drop_supply,
-			KnownTemplateIds.air_drop_weapon
-		};
+			var itemOwner = owner.Key;
+			var rootItem = itemOwner.RootItem;
+			if (rootItem is not { IsContainer: true })
+				continue;
 
+			//check if the container is in the list of containers we want to target
+			if (!_targetedContainer.Contains(rootItem.TemplateId))
+				continue;
 
-		[ConfigurationProperty]
-		public Color Color { get; set; } = Color.white;
-
-		public override float CacheTimeInSec { get; set; } = 11f;
-		public override bool Enabled { get; set; } = false;
-		public override Color GroupingColor => Color;
-
-		public override PointOfInterest[] RefreshData()
-		{
-			var world = Singleton<GameWorld>.Instance;
-			if (world == null)
-				return Empty;
-
-			var player = GameState.Current?.LocalPlayer;
-			if (!player.IsValid())
-				return Empty;
-
-			var camera = GameState.Current?.Camera;
-			if (camera == null)
-				return Empty;
-
-			var owners = world.ItemOwners;
-			var records = new List<PointOfInterest>();
-
-			foreach (var owner in owners)
+			var position = owner.Value.Transform.position;
+			records.Add(new PointOfInterest
 			{
-				var itemOwner = owner.Key;
-				var rootItem = itemOwner.RootItem;
-				if (rootItem is not { IsContainer: true })
-					continue;
-
-				//check if the container is in the list of containers we want to target
-				if (!TargetedContainer.Contains(rootItem.TemplateId))
-					continue;
-
-				var position = owner.Value.Transform.position;
-				records.Add(new PointOfInterest
-				{
-					Name = rootItem.TemplateId.LocalizedShortName(), // nicer than ItemOwner.ContainerName which is full caps
-					Position = position,
-					Color = Color
-				});
-			}
-
-			return [.. records];
+				Name = rootItem.TemplateId.LocalizedShortName(), // nicer than ItemOwner.ContainerName which is full caps
+				Position = position,
+				Color = Color
+			});
 		}
+
+		return [.. records];
 	}
 }
