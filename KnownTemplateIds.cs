@@ -11,5 +11,12 @@ public static class KnownTemplateIds
 	public const string Pockets = "557ffd194bdc2d28148b457f";
 	public const string DefaultInventory = "55d7217a4bdc2d86028b456d";
 
+
+	//air drop id. After testing, only the common one is used even the air drop is the other type.
+	public const string air_drop_common = "6223349b3136504a544d1608";
+	public const string air_drop_medical = "622334c873090231d904a9fc";
+	public const string air_drop_supply = "622334fa3136504a544d160c";
+	public const string air_drop_weapon = "6223351bb5d97a7b2c635ca7";
+
 	public static string DefaultInventoryLocalizedShortName = DefaultInventory.LocalizedShortName();
 }
