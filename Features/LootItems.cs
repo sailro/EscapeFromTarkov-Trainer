@@ -31,9 +31,6 @@ internal class LootItems : PointOfInterests
 	public bool SearchInsideCorpses { get; set; } = true;
 		
 	[ConfigurationProperty]
-	public bool ShowCorpses {  get; set; } = true;
-
-	[ConfigurationProperty]
 	public bool ShowPrices { get; set; } = true;
 
 	[ConfigurationProperty]
@@ -83,7 +80,7 @@ internal class LootItems : PointOfInterests
 		if (rawWishList == null)
 			return result;
 
-		return new HashSet<string>(rawWishList.Keys);
+		return [..rawWishList.Keys];
 	}
 
 	public override PointOfInterest[] RefreshData()
@@ -171,9 +168,6 @@ internal class LootItems : PointOfInterests
 
 			if (lootItem is Corpse corpse)
 			{
-				if (ShowCorpses)
-					AddCorpse(records, position);
-						
 				if (SearchInsideCorpses)
 					FindItemsInRootItem(records, corpse.ItemOwner?.RootItem, position);
 
@@ -231,15 +225,5 @@ internal class LootItems : PointOfInterests
 			return true;
 
 		return trackedRarity.Value == itemRarity;
-	}
-
-	private void AddCorpse(List<PointOfInterest> records, Vector3 position)
-	{
-		records.Add(new PointOfInterest
-		{
-			Name = nameof(Corpse),
-			Position = position,
-			Color = Color
-		});
 	}
 }

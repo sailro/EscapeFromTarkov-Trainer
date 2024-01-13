@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using Comfort.Common;
+using EFT.Interactive;
+using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using JetBrains.Annotations;
@@ -32,6 +34,12 @@ internal class LootableContainers : PointOfInterests
 	public override bool Enabled { get; set; } = false;
 	public override Color GroupingColor => Color;
 
+	[ConfigurationProperty]
+	public bool ShowContainers {  get; set; } = true;
+
+	[ConfigurationProperty]
+	public bool ShowCorpses {  get; set; } = true;
+
 	public override PointOfInterest[] RefreshData()
 	{
 		var world = Singleton<GameWorld>.Instance;
@@ -53,22 +61,31 @@ internal class LootableContainers : PointOfInterests
 		{
 			var itemOwner = owner.Key;
 			var rootItem = itemOwner.RootItem;
+
+			if (!rootItem.IsValid())
+				continue;
+
 			if (rootItem is not { IsContainer: true })
 				continue;
 
-			//check if the container is in the list of containers we want to target
-			if (!_targetedContainer.Contains(rootItem.TemplateId))
-				continue;
+			if (ShowContainers && _targetedContainer.Contains(rootItem.TemplateId))
+				AddRecord(rootItem.TemplateId.LocalizedShortName(), owner.Value.Transform.position, records);
 
-			var position = owner.Value.Transform.position;
-			records.Add(new PointOfInterest
-			{
-				Name = rootItem.TemplateId.LocalizedShortName(), // nicer than ItemOwner.ContainerName which is full caps
-				Position = position,
-				Color = Color
-			});
+			if (ShowCorpses && rootItem.TemplateId == KnownTemplateIds.DefaultInventory 
+			                && itemOwner is TraderControllerClass { Name: nameof(Corpse) }) // only display dead bodies
+				AddRecord(nameof(Corpse), owner.Value.Transform.position, records);
 		}
 
 		return [.. records];
+	}
+
+	private void AddRecord(string itemName, Vector3 position, List<PointOfInterest> records)
+	{
+		records.Add(new PointOfInterest
+		{
+			Name = itemName,
+			Position = position,
+			Color = Color
+		});
 	}
 }
