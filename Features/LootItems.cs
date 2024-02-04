@@ -57,7 +57,7 @@ internal class LootItems : PointOfInterests
 	{
 		lootname = lootname.Trim();
 
-		if (lootname == "*" && TrackedNames.Count > 0)
+		if (lootname == TrackedItem.MatchAll && TrackedNames.Count > 0)
 		{
 			TrackedNames.Clear();
 			return true;
@@ -196,12 +196,9 @@ internal class LootItems : PointOfInterests
 
 		if (!Wishlist.Contains(templateId))
 		{
-			var trackedItem = TrackedNames.Find(t => t.Name == "*"
-			                                         || itemName.IndexOf(t.Name, StringComparison.OrdinalIgnoreCase) >= 0
-			                                         || string.Equals(templateId, t.Name, StringComparison.OrdinalIgnoreCase));
-
 			var rarity = template.GetEstimatedRarity();
-			if (trackedItem == null || !RarityMatches(rarity, trackedItem.Rarity))
+			var trackedItem = TryFindTrackedItem(itemName, templateId, rarity);
+			if (trackedItem == null)
 				return;
 
 			color = trackedItem.Color ?? color;
@@ -217,6 +214,18 @@ internal class LootItems : PointOfInterests
 			Position = position,
 			Color = color
 		});
+	}
+
+	private TrackedItem? TryFindTrackedItem(string itemName, string templateId, ELootRarity rarity)
+	{
+		return TrackedNames.FirstOrDefault(t => TextMatches(t, itemName, templateId) && RarityMatches(rarity, t.Rarity));
+	}
+
+	private static bool TextMatches(TrackedItem trackedItem, string itemName, string templateId)
+	{
+		return trackedItem.IsMatchAll
+		       || itemName.IndexOf(trackedItem.Name, StringComparison.OrdinalIgnoreCase) >= 0
+		       || string.Equals(templateId, trackedItem.Name, StringComparison.OrdinalIgnoreCase);
 	}
 
 	private static bool RarityMatches(ELootRarity itemRarity, ELootRarity? trackedRarity)
