@@ -565,7 +565,7 @@ internal class Commands : ToggleFeature
 		if (matchGroup is {Success: true})
 		{
 			search = matchGroup.Value.Trim();
-			if (search == "*")
+			if (search == TrackedItem.MatchAll)
 				search = string.Empty;
 		}
 
