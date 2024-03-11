@@ -357,6 +357,11 @@ internal class Players : ToggleFeature
 				if (material.shader != null && material.shader == shader)
 					continue;
 
+				// disable custom occlusion/culling system, making the chams flickering or not rendering at all
+				renderer.allowOcclusionWhenDynamic = false;
+				renderer.forceRenderingOff = false;
+				renderer.enabled = true;
+
 				cache[renderer] = material.shader;
 				material.shader = shader;
 
