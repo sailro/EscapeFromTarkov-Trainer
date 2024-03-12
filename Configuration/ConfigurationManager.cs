@@ -13,7 +13,7 @@ namespace EFT.Trainer.Configuration;
 
 internal static class ConfigurationManager
 {
-	public static JsonConverter[] Converters => new JsonConverter[]{new TrackedItemConverter(), new ColorConverter(), new KeyCodeConverter()};
+	public static JsonConverter[] Converters => [new TrackedItemConverter(), new ColorConverter(), new KeyCodeConverter()];
 
 	private static void AddConsoleLog(string log)
 	{

@@ -230,20 +230,20 @@ internal class Players : ToggleFeature
 
 	private static (Transform transform, string[] bones)[] GetBonesToCheck(PlayerBones playerBones)
 	{
-		return new []
-		{
-			(playerBones.Head.Original.transform, new [] {Bones.Neck, Bones.Head}),
-			(playerBones.Neck.transform, new [] {Bones.RCollarbone, Bones.Spine3, Bones.LCollarbone, Bones.Spine3, Bones.Spine3, Bones.Neck}),
-			(playerBones.Spine1.transform, new [] {Bones.Pelvis, Bones.Spine1, Bones.Spine1, Bones.Spine2, Bones.Spine2, Bones.Spine3}),
-			(playerBones.Upperarms[0].transform, new [] {Bones.LCollarbone, Bones.LForearm1, Bones.LForearm1, Bones.LForearm2}),
-			(playerBones.Upperarms[1].transform, new [] {Bones.RCollarbone, Bones.RForearm1, Bones.RForearm1, Bones.RForearm2}),
-			(playerBones.Forearms[0].transform, new [] {Bones.LForearm2, Bones.LForearm3, Bones.LForearm3, Bones.LPalm}),
-			(playerBones.Forearms[1].transform, new [] {Bones.RForearm2, Bones.RForearm3, Bones.RForearm3, Bones.RPalm}),
-			(playerBones.LeftThigh1.Original.transform, new [] {Bones.Pelvis, Bones.LThigh1, Bones.LThigh1, Bones.LThigh2}),
-			(playerBones.RightThigh1.Original.transform, new [] {Bones.Pelvis, Bones.RThigh1, Bones.RThigh1, Bones.RThigh2}),
-			(playerBones.LeftThigh2.Original.transform, new [] {Bones.LThigh2, Bones.LCalf, Bones.LCalf, Bones.LFoot, Bones.LFoot, Bones.LToe}),
-			(playerBones.RightThigh2.Original.transform, new [] {Bones.RThigh2, Bones.RCalf, Bones.RCalf, Bones.RFoot, Bones.RFoot, Bones.RToe})
-		};
+		return
+		[
+			(playerBones.Head.Original.transform, [Bones.Neck, Bones.Head]),
+			(playerBones.Neck.transform, [Bones.RCollarbone, Bones.Spine3, Bones.LCollarbone, Bones.Spine3, Bones.Spine3, Bones.Neck]),
+			(playerBones.Spine1.transform, [Bones.Pelvis, Bones.Spine1, Bones.Spine1, Bones.Spine2, Bones.Spine2, Bones.Spine3]),
+			(playerBones.Upperarms[0].transform, [Bones.LCollarbone, Bones.LForearm1, Bones.LForearm1, Bones.LForearm2]),
+			(playerBones.Upperarms[1].transform, [Bones.RCollarbone, Bones.RForearm1, Bones.RForearm1, Bones.RForearm2]),
+			(playerBones.Forearms[0].transform, [Bones.LForearm2, Bones.LForearm3, Bones.LForearm3, Bones.LPalm]),
+			(playerBones.Forearms[1].transform, [Bones.RForearm2, Bones.RForearm3, Bones.RForearm3, Bones.RPalm]),
+			(playerBones.LeftThigh1.Original.transform, [Bones.Pelvis, Bones.LThigh1, Bones.LThigh1, Bones.LThigh2]),
+			(playerBones.RightThigh1.Original.transform, [Bones.Pelvis, Bones.RThigh1, Bones.RThigh1, Bones.RThigh2]),
+			(playerBones.LeftThigh2.Original.transform, [Bones.LThigh2, Bones.LCalf, Bones.LCalf, Bones.LFoot, Bones.LFoot, Bones.LToe]),
+			(playerBones.RightThigh2.Original.transform, [Bones.RThigh2, Bones.RCalf, Bones.RCalf, Bones.RFoot, Bones.RFoot, Bones.RToe])
+		];
 	}
 
 	private readonly Dictionary<Transform, bool> _cache = [];

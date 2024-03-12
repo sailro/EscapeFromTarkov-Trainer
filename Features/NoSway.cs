@@ -33,6 +33,5 @@ internal class NoSway : ToggleFeature
 		weaponAnimation.Shootingg.Stiffness = 0;
 		weaponAnimation.ForceReact.Intensity = 0;
 		weaponAnimation.WalkEffectorEnabled = false;
-
 	}
 }
