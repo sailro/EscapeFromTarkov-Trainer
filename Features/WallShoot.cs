@@ -1,7 +1,6 @@
-﻿using System.Linq;
-using Comfort.Common;
-using EFT.Ballistics;
+﻿using EFT.Ballistics;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Model;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -10,66 +9,52 @@ using UnityEngine;
 namespace EFT.Trainer.Features;
 
 [UsedImplicitly]
-internal class WallShoot : CachableFeature<BallisticCollider[]>
+internal class WallShoot : ToggleFeature
 {
 	public override string Name => "wallshoot";
 
-	public override float CacheTimeInSec { get; set; } = 5.5f;
-
-	public override BallisticCollider[] RefreshData()
+#pragma warning disable IDE0060 
+	[UsedImplicitly]
+	protected static bool IsPenetratedPrefix(object shot, Vector3 hitPoint, BallisticCollider __instance, ref bool __result)
 	{
-		var colliders = FindObjectsOfType<Collider>()
-			.SelectMany(c => c.GetComponentsInChildren<BallisticCollider>())
-			.Distinct();
+		var feature = FeatureFactory.GetFeature<WallShoot>();
+		if (feature == null || !feature.Enabled)
+			return true; // keep using original code, we are not enabled
 
+		var shotWrapper = new ShotWrapper(shot);
+		var player = shotWrapper.Player;
+		if (player is not { IsYourPlayer: true })
+			return true; // keep using original code for other players
+
+		__result = true;
+		__instance.PenetrationChance = 1.0f;
+		__instance.PenetrationLevel = 0.0f;
+		__instance.RicochetChance = 0.0f;
+		__instance.FragmentationChance = 0.0f;
+		__instance.TrajectoryDeviationChance = 0.0f;
+		__instance.TrajectoryDeviation = 0.0f;
+
+		return false; // don't call the original code
+	}
+#pragma warning restore IDE0060
+
+	protected override void UpdateWhenEnabled()
+	{
 		var player = GameState.Current?.LocalPlayer;
 		if (!player.IsValid())
-			return colliders.ToArray();
-
-		// Exclude our own BallisticColliders from being penetrated
-		var exclude = player.GetComponentsInChildren<BallisticCollider>();
-
-		return colliders
-			.Except(exclude)
-			.ToArray();
-	}
-
-	public override void ProcessData(BallisticCollider[] data)
-	{
-		var world = Singleton<GameWorld>.Instance;
-		if (world == null)
 			return;
 
-		var sbc = world.SharedBallisticsCalculator;
-		if (sbc == null)
-			return;
-
-		for (int shotIndex = 0; shotIndex < sbc.ActiveShotsCount; shotIndex++)
+		HarmonyPatchOnce(harmony =>
 		{
-			var shot = sbc.GetActiveShot(shotIndex);
-			if (shot == null)
-				continue;
+			var original = HarmonyLib.AccessTools.Method(typeof(BallisticCollider), nameof(BallisticCollider.IsPenetrated));
+			if (original == null)
+				return;
 
-			if (shot.IsShotFinished)
-				continue;
+			var prefix = HarmonyLib.AccessTools.Method(GetType(), nameof(IsPenetratedPrefix));
+			if (prefix == null)
+				return;
 
-			// Make sur we are not enhancing ennemy shots
-			var player = shot.Player?.iPlayer; 
-			if (player is not { IsYourPlayer: true })
-				continue;
-
-			shot.IsForwardHit = false;
-			shot.PenetrationPower = 100f;
-		}
-
-		foreach(var bc in data)
-		{
-			bc.PenetrationChance = 1.0f;
-			bc.PenetrationLevel = 0.0f;
-			bc.RicochetChance = 0.0f;
-			bc.FragmentationChance = 0.0f;
-			bc.TrajectoryDeviationChance = 0.0f;
-			bc.TrajectoryDeviation = 0.0f;
-		}
+			harmony.Patch(original, new HarmonyLib.HarmonyMethod(prefix));
+		});
 	}
 }
