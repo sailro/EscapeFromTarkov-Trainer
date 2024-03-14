@@ -38,6 +38,7 @@ internal abstract class CachableFeature<T> : ToggleFeature
 				_stopwatch.Restart();
 #endif
 
+				BeforeRefreshData(_data);
 				_data.Clear(); // but we'll keep previous capacity
 				RefreshData(_data);
 			}
@@ -52,7 +53,7 @@ internal abstract class CachableFeature<T> : ToggleFeature
 			}
 
 #if DEBUG_PERFORMANCE
-			AddConsoleLog($"Refreshed {GetType().Name} in {_stopwatch.ElapsedMilliseconds}ms Memory:{GC.GetTotalMemory(false)} GCMode:{GarbageCollector.GCMode}");
+			AddConsoleLog($"Refreshed {GetType().Name} in {_stopwatch.ElapsedMilliseconds}ms");
 #endif
 		}
 
@@ -78,6 +79,7 @@ internal abstract class CachableFeature<T> : ToggleFeature
 			ProcessDataOnGUI(_data);
 	}
 
+	protected virtual void BeforeRefreshData(IReadOnlyList<T> data) { }
 	public abstract void RefreshData(List<T> data);
 	public virtual void ProcessData(IReadOnlyList<T> data) { }
 	public virtual void ProcessDataOnGUI(IReadOnlyList<T> data) { }

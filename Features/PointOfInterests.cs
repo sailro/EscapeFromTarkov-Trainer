@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,11 +14,30 @@ namespace EFT.Trainer.Features;
 
 internal abstract class PointOfInterests : CachableFeature<PointOfInterest>
 {
+	internal class ObjectPool<T>(Func<T> objectGenerator)
+	{
+		private readonly ConcurrentBag<T> _objects = [];
+
+		public T Get() => _objects.TryTake(out var item) ? item : objectGenerator();
+
+		public void Return(T item) => _objects.Add(item);
+	}
+
+	internal class PointOfInterestPool() : ObjectPool<PointOfInterest>(() => new PointOfInterest());
+
+	public static PointOfInterestPool Pool = new();
 
 	[ConfigurationProperty]
 	public float MaximumDistance { get; set; } = 0f;
 
 	public abstract Color GroupingColor { get; }
+
+	protected override void BeforeRefreshData(IReadOnlyList<PointOfInterest> data)
+	{
+		// return all objects to the pool
+		foreach (var poi in data)
+			Pool.Return(poi);
+	}
 
 	public override void ProcessDataOnGUI(IReadOnlyList<PointOfInterest> data)
 	{

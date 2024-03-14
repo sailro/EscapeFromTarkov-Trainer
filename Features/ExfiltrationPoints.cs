@@ -83,12 +83,13 @@ internal class ExfiltrationPoints : PointOfInterests
 			if (!string.IsNullOrEmpty(StatusFilter) && StatusFilter.IndexOf(GetStatus(point.Status), StringComparison.OrdinalIgnoreCase) >= 0)
 				continue;
 
-			data.Add(new PointOfInterest
-			{
-				Name = GetName(point, isEligible),
-				Position = position,
-				Color = isEligible ? EligibleColor : NotEligibleColor
-			});
+			var poi = Pool.Get();
+			poi.Name = GetName(point, isEligible);
+			poi.Position = position;
+			poi.Color = isEligible ? EligibleColor : NotEligibleColor;
+			poi.Owner = null;
+
+			data.Add(poi);
 		}
 	}
 
