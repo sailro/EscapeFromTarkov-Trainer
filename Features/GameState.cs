@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Comfort.Common;
@@ -46,20 +45,20 @@ internal class GameState : CachableFeature<GameStateSnapshot>
 		OutlineShader = bundle.LoadAsset<Shader>("assets/outline.shader");
 	}
 
-	public override GameStateSnapshot? RefreshData()
+	public override void RefreshData(List<GameStateSnapshot> data)
 	{
 		var snapshot = new GameStateSnapshot();
 		var world = Singleton<GameWorld>.Instance;
 
 		if (world == null)
-			return null;
+			return;
 
 		var players = world
 			.RegisteredPlayers?
 			.OfType<Player>();
 
 		if (players == null)
-			return null;
+			return;
 
 		var hostiles = new List<Player>();
 		snapshot.Hostiles = hostiles;
@@ -81,7 +80,7 @@ internal class GameState : CachableFeature<GameStateSnapshot>
 		snapshot.Camera = Camera.main;
 
 		Current = snapshot;
-		return snapshot;
+		data.Add(snapshot);
 	}
 }
 
@@ -90,6 +89,6 @@ public class GameStateSnapshot
 	public Camera? Camera { get; set; }
 	public Camera? MapCamera { get; set; }
 	public Player? LocalPlayer { get; set; }
-	public IEnumerable<Player> Hostiles { get; set; } = Array.Empty<Player>();
+	public IEnumerable<Player> Hostiles { get; set; } = [];
 	public bool MapMode { get; set; } = false;
 }

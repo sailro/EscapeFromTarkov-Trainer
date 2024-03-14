@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Comfort.Common;
 using EFT.Interactive;
-using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using JetBrains.Annotations;
@@ -40,22 +39,21 @@ internal class LootableContainers : PointOfInterests
 	[ConfigurationProperty]
 	public bool ShowCorpses {  get; set; } = true;
 
-	public override PointOfInterest[] RefreshData()
+	public override void RefreshData(List<PointOfInterest> data)
 	{
 		var world = Singleton<GameWorld>.Instance;
 		if (world == null)
-			return Empty;
+			return;
 
 		var player = GameState.Current?.LocalPlayer;
 		if (!player.IsValid())
-			return Empty;
+			return;
 
 		var camera = GameState.Current?.Camera;
 		if (camera == null)
-			return Empty;
+			return;
 
 		var owners = world.ItemOwners;
-		var records = new List<PointOfInterest>();
 
 		foreach (var owner in owners)
 		{
@@ -69,14 +67,12 @@ internal class LootableContainers : PointOfInterests
 				continue;
 
 			if (ShowContainers && _targetedContainer.Contains(rootItem.TemplateId))
-				AddRecord(rootItem.TemplateId.LocalizedShortName(), owner.Value.Transform.position, records);
+				AddRecord(rootItem.TemplateId.LocalizedShortName(), owner.Value.Transform.position, data);
 
 			if (ShowCorpses && rootItem.TemplateId == KnownTemplateIds.DefaultInventory 
 			                && itemOwner is TraderControllerClass { Name: nameof(Corpse) }) // only display dead bodies
-				AddRecord(nameof(Corpse), owner.Value.Transform.position, records);
+				AddRecord(nameof(Corpse), owner.Value.Transform.position, data);
 		}
-
-		return [.. records];
 	}
 
 	private void AddRecord(string itemName, Vector3 position, List<PointOfInterest> records)

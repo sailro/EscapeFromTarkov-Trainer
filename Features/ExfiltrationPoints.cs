@@ -35,38 +35,37 @@ internal class ExfiltrationPoints : PointOfInterests
 	public override float CacheTimeInSec { get; set; } = 7f;
 	public override Color GroupingColor => EligibleColor;
 
-	public override PointOfInterest[] RefreshData()
+	public override void RefreshData(List<PointOfInterest> data)
 	{
 		var world = Singleton<GameWorld>.Instance;
 		if (world == null)
-			return Empty;
+			return;
 
 		if (world.ExfiltrationController == null)
-			return Empty;
+			return;
 
 		var player = GameState.Current?.LocalPlayer;
 		if (!player.IsValid())
-			return Empty;
+			return;
 
 		var profile = player.Profile;
 		var info = profile?.Info;
 		if (info == null)
-			return Empty;
+			return;
 
 		var side = info.Side;
 		var points = GetExfiltrationPoints(side, world);
 		if (points == null)
-			return Empty;
+			return;
 
 		var camera = GameState.Current?.Camera;
 		if (camera == null)
-			return Empty;
+			return;
 
 		var eligiblePoints = GetEligibleExfiltrationPoints(side, world, profile!);
 		if (eligiblePoints == null)
-			return Empty;
+			return;
 
-		var records = new List<PointOfInterest>();
 		foreach (var point in points)
 		{
 			if (!point.IsValid()) 
@@ -84,15 +83,13 @@ internal class ExfiltrationPoints : PointOfInterests
 			if (!string.IsNullOrEmpty(StatusFilter) && StatusFilter.IndexOf(GetStatus(point.Status), StringComparison.OrdinalIgnoreCase) >= 0)
 				continue;
 
-			records.Add(new PointOfInterest
+			data.Add(new PointOfInterest
 			{
 				Name = GetName(point, isEligible),
 				Position = position,
 				Color = isEligible ? EligibleColor : NotEligibleColor
 			});
 		}
-
-		return [.. records];
 	}
 
 	private static string GetName(ExfiltrationPoint point, bool isEligible)

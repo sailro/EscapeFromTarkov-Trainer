@@ -83,36 +83,32 @@ internal class LootItems : PointOfInterests
 		return [..rawWishList.Keys];
 	}
 
-	public override PointOfInterest[] RefreshData()
+	public override void RefreshData(List<PointOfInterest> data)
 	{
 		Wishlist.Clear();
 		Wishlist = RefreshWishlist();
 
 		if (TrackedNames.Count == 0 && Wishlist.Count == 0)
-			return Empty;
+			return;
 
 		var world = Singleton<GameWorld>.Instance;
 		if (world == null)
-			return Empty;
+			return;
 
 		var player = GameState.Current?.LocalPlayer;
 		if (!player.IsValid())
-			return Empty;
+			return;
 
 		var camera = GameState.Current?.Camera;
 		if (camera == null)
-			return Empty;
-
-		var records = new List<PointOfInterest>();
+			return;
 
 		// Step 1 - look outside containers (loot items)
-		FindLootItems(world, records);
+		FindLootItems(world, data);
 
 		// Step 2 - look inside containers (items)
 		if (SearchInsideContainers)
-			FindItemsInContainers(world, records);
-
-		return [.. records];
+			FindItemsInContainers(world, data);
 	}
 
 	private void FindItemsInContainers(GameWorld world, List<PointOfInterest> records)

@@ -25,19 +25,19 @@ internal class Quests : PointOfInterests
 	public override bool Enabled { get; set; } = false;
 	public override Color GroupingColor => Color;
 
-	public override PointOfInterest[] RefreshData()
+	public override void RefreshData(List<PointOfInterest> data)
 	{
 		var world = Singleton<GameWorld>.Instance;
 		if (world == null)
-			return Empty;
+			return;
 
 		var player = GameState.Current?.LocalPlayer;
 		if (!player.IsValid())
-			return Empty;
+			return;
 
 		var camera = GameState.Current?.Camera;
 		if (camera == null)
-			return Empty;
+			return;
 
 		var profile = player.Profile;
 
@@ -46,14 +46,11 @@ internal class Quests : PointOfInterests
 			.ToArray();
 
 		if (!startedQuests.Any())
-			return Empty;
+			return;
 
-		var records = new List<PointOfInterest>();
-		RefreshPlaceOrRepairItemLocations(startedQuests, profile, records);
-		RefreshVisitPlaceLocations(startedQuests, profile, records); 
-		RefreshFindItemLocations(startedQuests, world, records);
-
-		return [.. records];
+		RefreshPlaceOrRepairItemLocations(startedQuests, profile, data);
+		RefreshVisitPlaceLocations(startedQuests, profile, data); 
+		RefreshFindItemLocations(startedQuests, world, data);
 	}
 
 	private void RefreshVisitPlaceLocations(QuestDataClass[] startedQuests, Profile profile, List<PointOfInterest> records)
