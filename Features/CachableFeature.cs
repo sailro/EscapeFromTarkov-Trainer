@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using EFT.Trainer.Configuration;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -12,7 +13,7 @@ internal abstract class CachableFeature<T> : ToggleFeature
 	[ConfigurationProperty(Order = 3)]
 	public abstract float CacheTimeInSec { get; set; }
 
-	private T? _data;
+	private readonly List<T> _data = [];
 	private bool _refreshing = false;
 
 #if DEBUG_PERFORMANCE
@@ -34,25 +35,26 @@ internal abstract class CachableFeature<T> : ToggleFeature
 				_refreshing = true;
 
 #if DEBUG_PERFORMANCE
-					_stopwatch.Restart();
+				_stopwatch.Restart();
 #endif
 
-				_data = RefreshData();
+				_data.Clear(); // but we'll keep previous capacity
+				RefreshData(_data);
 			}
 			finally
 			{
 				_refreshing = false;
 
 #if DEBUG_PERFORMANCE
-					_stopwatch.Stop();
+				_stopwatch.Stop();
 #endif
 
 			}
-		}
 
 #if DEBUG_PERFORMANCE
-			AddConsoleLog($"Refreshed {GetType().Name} in {_stopwatch.ElapsedMilliseconds}ms...");
+			AddConsoleLog($"Refreshed {GetType().Name} in {_stopwatch.ElapsedMilliseconds}ms Memory:{GC.GetTotalMemory(false)} GCMode:{GarbageCollector.GCMode}");
 #endif
+		}
 
 		yield return new WaitForSeconds(CacheTimeInSec);
 		StartCoroutine(RefreshDataScheduler());
@@ -63,7 +65,7 @@ internal abstract class CachableFeature<T> : ToggleFeature
 		if (_refreshing) 
 			return;
 
-		if (_data != null)
+		if (_data.Count > 0)
 			ProcessData(_data);
 	}
 
@@ -72,11 +74,11 @@ internal abstract class CachableFeature<T> : ToggleFeature
 		if (_refreshing) 
 			return;
 
-		if (_data != null)
+		if (_data.Count > 0)
 			ProcessDataOnGUI(_data);
 	}
 
-	public abstract T? RefreshData();
-	public virtual void ProcessData(T data) { }
-	public virtual void ProcessDataOnGUI(T data) { }
+	public abstract void RefreshData(List<T> data);
+	public virtual void ProcessData(IReadOnlyList<T> data) { }
+	public virtual void ProcessDataOnGUI(IReadOnlyList<T> data) { }
 }

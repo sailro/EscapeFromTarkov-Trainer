@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Comfort.Common;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
@@ -11,7 +10,7 @@ using UnityEngine;
 namespace EFT.Trainer.Features;
 
 [UsedImplicitly]
-internal class Grenades : CachableFeature<Throwable[]>
+internal class Grenades : CachableFeature<Throwable>
 {
 	public override string Name => "grenade";
 
@@ -21,32 +20,27 @@ internal class Grenades : CachableFeature<Throwable[]>
 	public override bool Enabled { get; set; } = false;
 	public override float CacheTimeInSec { get; set; } = 0.25f;
 
-	public static Throwable[] Empty => Array.Empty<Throwable>();
-
-	public override Throwable[] RefreshData()
+	public override void RefreshData(List<Throwable> data)
 	{
 		var world = Singleton<GameWorld>.Instance;
 		if (world == null)
-			return Empty;
+			return;
 
 		var grenades = world.Grenades;
 		if (grenades == null)
-			return Empty;
+			return;
 
-		var result = new List<Throwable>();
 		for (var i = 0; i < grenades.Count; i++)
 		{
 			var grenade = grenades.GetByIndex(i);
 			if (!grenade.IsValid())
 				continue;
 
-			result.Add(grenade);
+			data.Add(grenade);
 		}
-
-		return [.. result];
 	}
 
-	public override void ProcessData(Throwable[] data)
+	public override void ProcessData(IReadOnlyList<Throwable> data)
 	{
 		foreach (var throwable in data)
 		{

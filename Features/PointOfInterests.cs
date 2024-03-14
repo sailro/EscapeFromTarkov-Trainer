@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using EFT.Trainer.Configuration;
@@ -10,16 +11,15 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features;
 
-internal abstract class PointOfInterests : CachableFeature<PointOfInterest[]>
+internal abstract class PointOfInterests : CachableFeature<PointOfInterest>
 {
-	public static PointOfInterest[] Empty => Array.Empty<PointOfInterest>();
 
 	[ConfigurationProperty]
 	public float MaximumDistance { get; set; } = 0f;
 
 	public abstract Color GroupingColor { get; }
 
-	public override void ProcessDataOnGUI(PointOfInterest[] data)
+	public override void ProcessDataOnGUI(IReadOnlyList<PointOfInterest> data)
 	{
 		var snapshot = GameState.Current;
 		if (snapshot == null)
