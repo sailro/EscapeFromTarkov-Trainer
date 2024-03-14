@@ -77,11 +77,12 @@ internal class LootableContainers : PointOfInterests
 
 	private void AddRecord(string itemName, Vector3 position, List<PointOfInterest> records)
 	{
-		records.Add(new PointOfInterest
-		{
-			Name = itemName,
-			Position = position,
-			Color = Color
-		});
+		var poi = Pool.Get();
+		poi.Name = itemName;
+		poi.Position = position;
+		poi.Color = Color;
+		poi.Owner = null;
+
+		records.Add(poi);
 	}
 }

@@ -203,13 +203,13 @@ internal class LootItems : PointOfInterests
 		if (owner != null && owner == KnownTemplateIds.DefaultInventoryLocalizedShortName)
 			owner = nameof(Corpse);
 
-		records.Add(new PointOfInterest
-		{
-			Name = FormatName(itemName, item),
-			Owner = string.Equals(itemName, owner, StringComparison.OrdinalIgnoreCase) ? null : owner,
-			Position = position,
-			Color = color
-		});
+		var poi = Pool.Get();
+		poi.Name = FormatName(itemName, item);
+		poi.Owner = string.Equals(itemName, owner, StringComparison.OrdinalIgnoreCase) ? null : owner;
+		poi.Position = position;
+		poi.Color = color;
+
+		records.Add(poi);
 	}
 
 	private TrackedItem? TryFindTrackedItem(string itemName, string templateId, ELootRarity rarity)
