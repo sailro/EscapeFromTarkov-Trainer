@@ -8,6 +8,8 @@ namespace EFT.Trainer.Features;
 internal class FovChanger : ToggleFeature
 {
 	public override string Name => "fovchanger";
+	public override string Description => "Change Field Of View (FOV).";
+
 	[ConfigurationProperty(Order = 1)]
 	public override bool Enabled { get; set; } = false;
 

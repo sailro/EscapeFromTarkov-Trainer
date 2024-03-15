@@ -17,6 +17,7 @@ namespace EFT.Trainer.Features;
 internal class Quests : PointOfInterests
 {
 	public override string Name => "quest";
+	public override string Description => "Locations for taking/placing quest items. Only items related to your started quests are displayed.";
 
 	[ConfigurationProperty]
 	public Color Color { get; set; } = Color.magenta;

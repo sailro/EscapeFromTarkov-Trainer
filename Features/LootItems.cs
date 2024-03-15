@@ -17,6 +17,7 @@ namespace EFT.Trainer.Features;
 internal class LootItems : PointOfInterests
 {
 	public override string Name => "loot";
+	public override string Description => "List all lootable items and track any item by name or rarity or in-game wishlist in raid (even in containers and corpses). Use track and tracklist commands to control display.";
 
 	[ConfigurationProperty]
 	public Color Color { get; set; } = Color.cyan;

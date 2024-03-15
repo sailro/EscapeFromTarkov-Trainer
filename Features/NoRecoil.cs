@@ -9,6 +9,7 @@ namespace EFT.Trainer.Features;
 internal class NoRecoil : ToggleFeature
 {
 	public override string Name => "norecoil";
+	public override string Description => "No recoil.";
 
 	public override bool Enabled { get; set; } = false;
 

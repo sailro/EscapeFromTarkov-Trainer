@@ -10,6 +10,7 @@ namespace EFT.Trainer.Features;
 internal class NoSway : ToggleFeature
 {
 	public override string Name => "nosway";
+	public override string Description => "No sway.";
 
 	public override bool Enabled { get; set; } = false;
 

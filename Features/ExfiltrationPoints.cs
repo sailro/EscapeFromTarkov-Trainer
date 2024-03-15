@@ -16,6 +16,7 @@ namespace EFT.Trainer.Features;
 internal class ExfiltrationPoints : PointOfInterests
 {
 	public override string Name => "exfil";
+	public override string Description => "Exfiltration points with customizable colors given eligibility, status filter, distance.";
 
 	[ConfigurationProperty(Order = 10)]
 	public Color EligibleColor { get; set; } = Color.green;

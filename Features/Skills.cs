@@ -10,6 +10,7 @@ namespace EFT.Trainer.Features;
 internal class Skills : TriggerFeature
 {
 	public override string Name => "skills";
+	public override string Description => "All skills to Elite level (51) and all weapons mastering to level 3.";
 
 	public override KeyCode Key { get; set; } = KeyCode.None;
 

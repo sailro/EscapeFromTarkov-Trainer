@@ -14,6 +14,7 @@ namespace EFT.Trainer.Features;
 internal class Ammunition : ToggleFeature
 {
 	public override string Name => "ammo";
+	public override string Description => "Unlimited ammo.";
 
 	public override bool Enabled { get; set; } = false;
 

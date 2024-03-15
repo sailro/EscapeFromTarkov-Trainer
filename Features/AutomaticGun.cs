@@ -11,6 +11,7 @@ namespace EFT.Trainer.Features;
 internal class AutomaticGun : ToggleFeature
 {
 	public override string Name => "autogun";
+	public override string Description => "Force all guns (even bolt action guns) to use automatic firing mode with customizable fire rate.";
 
 	public override bool Enabled { get; set; } = false;
 

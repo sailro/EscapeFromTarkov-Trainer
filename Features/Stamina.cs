@@ -10,6 +10,7 @@ namespace EFT.Trainer.Features;
 internal class Stamina : ToggleFeature
 {
 	public override string Name => "stamina";
+	public override string Description => "Unlimited stamina.";
 
 	public override bool Enabled { get; set; } = false;
 

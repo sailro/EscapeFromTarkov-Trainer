@@ -14,6 +14,7 @@ namespace EFT.Trainer.Features;
 internal class Hits : ToggleFeature
 {
 	public override string Name => "hits";
+	public override string Description => "Hit markers (hit, armor, health with configurable colors).";
 
 	public override bool Enabled { get; set; } = false;
 

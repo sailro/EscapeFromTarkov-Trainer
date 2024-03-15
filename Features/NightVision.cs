@@ -11,6 +11,7 @@ namespace EFT.Trainer.Features;
 internal class NightVision : ToggleFeature
 {
 	public override string Name => "night";
+	public override string Description => "Night vision.";
 
 	public override bool Enabled { get; set; } = false;
 
