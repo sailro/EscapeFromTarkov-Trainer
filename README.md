@@ -34,9 +34,9 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 | `Health`                  | `health`     | Full health, prevent any damage (so even when falling), keep energy and hydration at maximum. |
 | `Hits`                    | `hits`       | Hit markers (hit, armor, health with configurable colors). |
 | `Hud`                     | `hud`        | HUD (compass, ammo left in chamber / magazine, fire mode, coordinates). |
-| `LootableContainers`      | `stash`      | Hidden/special stashes like buried barrels, ground caches or air drops. |
-| `LootItems`               | `loot`       | List all lootable items and track any item by name or rarity or in-game wishlist in raid (even in containers and corpses), with prices. |
-| `Map`                     | `map`        | Full screen 3D map with radar esp. |
+| `LootableContainers`      | `stash`      | Hidden/special stashes like buried barrels, ground caches, air drops or corpses. |
+| `LootItems`               | `loot`       | List all lootable items and track any item by name or rarity or in-game wishlist in raid (even in containers and corpses). |
+| `Map`                     | `map`        | Full screen map with radar esp. |
 | `NightVision`             | `night`      | Night vision. |
 | `NoCollision`             | `nocoll`     | No physical collisions, making you immune to bullets, grenades and barbed wires. |
 | `NoMalfunctions`          | `nomal`      | No weapon malfunctions: no misfires or failures to eject or feed. No jammed bolts or overheating. |
