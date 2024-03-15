@@ -53,6 +53,9 @@ internal class Aimbot : HoldFeature
 		if (feature == null || !feature.SilentAim || feature._silentAimTarget == null)
 			return true; // keep using original code, we are not enabled
 
+		if (player is not { IsYourPlayer: true })
+			return true; // keep using original code, not our shot
+
 		direction = (feature._silentAimTarget.position - origin).normalized;
 		speedFactor = feature.SilentAimSpeedFactor;
 
