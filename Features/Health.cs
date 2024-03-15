@@ -12,6 +12,7 @@ namespace EFT.Trainer.Features;
 internal class Health : ToggleFeature
 {
 	public override string Name => "health";
+	public override string Description => "Full health, prevent any damage (so even when falling), keep energy and hydration at maximum.";
 
 	public override bool Enabled { get; set; } = false;
 

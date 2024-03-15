@@ -23,6 +23,7 @@ namespace EFT.Trainer.Features;
 internal class Commands : ToggleFeature
 {
 	public override string Name => "commands";
+	public override string Description => "This main popup window.";
 
 	[ConfigurationProperty(Skip = true)] // we do not want to offer save/load support for this
 	public override bool Enabled { get; set; } = false;
@@ -48,6 +49,7 @@ internal class Commands : ToggleFeature
 	private static Lazy<ToggleFeature[]> ToggleableFeatures => new(() => FeatureFactory.GetAllToggleableFeatures().OrderByDescending(f => f.Name).ToArray());
 
 	private static GUIStyle LabelStyle => new() {wordWrap = false, normal = {textColor = Color.white}, margin = new RectOffset(8,0,8,0), fixedWidth = 150f, stretchWidth = false};
+	private static GUIStyle DescriptionStyle => new() {wordWrap = true, normal = {textColor = Color.white}, margin = new RectOffset(8,0,8,0), stretchWidth = true};
 	private static GUIStyle BoxStyle => new(GUI.skin.box) {normal = {background = Texture2D.whiteTexture, textColor = Color.white}};
 
 	protected override void Update()
@@ -178,11 +180,17 @@ internal class Commands : ToggleFeature
 
 	private void RenderSummary()
 	{
+		GUILayout.BeginVertical();
+
+		GUILayout.Label("<i><b>Welcome to EFT Trainer !</b></i>\n", DescriptionStyle);
+
 		if (GUILayout.Button("Load settings"))
 			LoadSettings();
 
 		if (GUILayout.Button("Save settings"))
 			SaveSettings();
+
+		GUILayout.EndVertical();
 	}
 
 	private static void SaveSettings()
@@ -209,8 +217,14 @@ internal class Commands : ToggleFeature
 	{
 		var orderedProperties = ConfigurationManager.GetOrderedProperties(feature.GetType());
 
+		GUILayout.BeginVertical();
+
+		GUILayout.Label($"<i><b>{feature.Description}</b></i>\n", DescriptionStyle);
+
 		foreach (var property in orderedProperties)
 			RenderFeatureProperty(feature, property);
+
+		GUILayout.EndVertical();
 	}
 
 	private static readonly Dictionary<string, string> _controlValues = [];

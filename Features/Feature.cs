@@ -16,6 +16,7 @@ internal interface IFeature
 internal abstract class Feature : MonoBehaviour, IFeature
 {
 	public abstract string Name { get; }
+	public abstract string Description { get; }
 
 	private string? _harmonyId = null;
 

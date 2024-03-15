@@ -14,6 +14,7 @@ internal class FreeCamera : ToggleFeature
 	private const string MouseYAxis = "Mouse Y";
 
 	public override string Name => "camera";
+	public override string Description => "Free camera with fast mode and teleportation.";
 
 	[ConfigurationProperty(Skip = true)] // we do not want to offer save/load support for this
 	public override bool Enabled { get; set; } = false;

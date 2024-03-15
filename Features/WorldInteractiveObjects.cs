@@ -11,6 +11,7 @@ namespace EFT.Trainer.Features;
 internal class WorldInteractiveObjects : TriggerFeature
 {
 	public override string Name => "opener";
+	public override string Description => "Door/Keycard reader/Car unlocker.";
 
 	public override KeyCode Key { get; set; } = KeyCode.KeypadPeriod;
 

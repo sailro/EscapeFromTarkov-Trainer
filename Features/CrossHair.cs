@@ -12,6 +12,7 @@ namespace EFT.Trainer.Features;
 internal class CrossHair : ToggleFeature
 {
 	public override string Name => "crosshair";
+	public override string Description => "Crosshair with customizable size, color, thickness and auto-hide feature when aiming.";
 
 	public override bool Enabled { get; set; } = false;
 

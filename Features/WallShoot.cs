@@ -12,6 +12,7 @@ namespace EFT.Trainer.Features;
 internal class WallShoot : ToggleFeature
 {
 	public override string Name => "wallshoot";
+	public override string Description => "Shoot through wall/helmet/vest/material with maximum penetration and minimal deviation/ricochet.";
 
 #pragma warning disable IDE0060 
 	[UsedImplicitly]

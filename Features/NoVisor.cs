@@ -10,6 +10,7 @@ namespace EFT.Trainer.Features;
 internal class NoVisor : ToggleFeature
 {
 	public override string Name => "novisor";
+	public override string Description => "No visor, so even when using a face shield-visor you won't see it.";
 
 	public override bool Enabled { get; set; } = false;
 

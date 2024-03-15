@@ -9,6 +9,7 @@ namespace EFT.Trainer.Features;
 internal class Examine : ToggleFeature
 {
 	public override string Name => "examine";
+	public override string Description => "All items already examined.";
 
 	public override bool Enabled { get; set; } = false;
 
@@ -27,11 +28,11 @@ internal class Examine : ToggleFeature
 	{
 		HarmonyPatchOnce(harmony =>
 		{
-			var originalString = HarmonyLib.AccessTools.Method(typeof(Profile), nameof(Profile.Examined), new[] {typeof(string)});
+			var originalString = HarmonyLib.AccessTools.Method(typeof(Profile), nameof(Profile.Examined), [typeof(string)]);
 			if (originalString == null)
 				return;
 
-			var originalItem = HarmonyLib.AccessTools.Method(typeof(Profile), nameof(Profile.Examined), new[] {typeof(Item)});
+			var originalItem = HarmonyLib.AccessTools.Method(typeof(Profile), nameof(Profile.Examined), [typeof(Item)]);
 			if (originalItem == null)
 				return;
 

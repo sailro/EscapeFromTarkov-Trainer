@@ -10,6 +10,7 @@ namespace EFT.Trainer.Features;
 internal class NoMalfunctions : ToggleFeature
 {
 	public override string Name => "nomal";
+	public override string Description => "No weapon malfunctions: no misfires or failures to eject or feed. No jammed bolts or overheating.";
 
 	public override bool Enabled { get; set; } = false;
 

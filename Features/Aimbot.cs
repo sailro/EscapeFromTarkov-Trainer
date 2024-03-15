@@ -15,6 +15,7 @@ namespace EFT.Trainer.Features;
 internal class Aimbot : HoldFeature
 {
 	public override string Name => "aimbot";
+	public override string Description => "Aimbot. Automatic aiming and/or shooting (SilentAim).";
 
 	public override KeyCode Key { get; set; } = KeyCode.Slash;
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using EFT.MovingPlatforms;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -11,6 +12,7 @@ namespace EFT.Trainer.Features;
 internal class Train : TriggerFeature
 {
 	public override string Name => "train";
+	public override string Description => "Summon train on compatible maps like Reserve or Lighthouse.";
 
 	public override KeyCode Key { get; set; } = KeyCode.None;
 
