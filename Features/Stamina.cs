@@ -64,15 +64,7 @@ internal class Stamina : ToggleFeature
 			if (playerPhysicalStamina == null)
 				return;
 
-			var original = HarmonyLib.AccessTools.Method(playerPhysicalStamina.GetType(), nameof(playerPhysicalStamina.Consume));
-			if (original == null)
-				return;
-
-			var prefix = HarmonyLib.AccessTools.Method(GetType(), nameof(ConsumePrefix));
-			if (prefix == null)
-				return;
-
-			harmony.Patch(original, new HarmonyLib.HarmonyMethod(prefix));
+			HarmonyPrefix(harmony, playerPhysicalStamina.GetType(), nameof(playerPhysicalStamina.Consume), nameof(ConsumePrefix));
 		});
 
 		var parameters = playerPhysical.StaminaParameters;

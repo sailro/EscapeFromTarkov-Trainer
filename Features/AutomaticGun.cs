@@ -33,10 +33,10 @@ internal class AutomaticGun : ToggleFeature
 
 		fireModeComponent.FireMode = Weapon.EFireMode.fullauto;
 
-		if (!player.TryGetComponent<Player.FirearmController>(out var firearmController))
+		if (player.HandsController is not Player.FirearmController controller) 
 			return;
 
-		var template = firearmController.Item?.Template;
+		var template = controller.Item?.Template;
 		if (template == null)
 			return;
 

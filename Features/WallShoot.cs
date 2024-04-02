@@ -47,15 +47,7 @@ internal class WallShoot : ToggleFeature
 
 		HarmonyPatchOnce(harmony =>
 		{
-			var original = HarmonyLib.AccessTools.Method(typeof(BallisticCollider), nameof(BallisticCollider.IsPenetrated));
-			if (original == null)
-				return;
-
-			var prefix = HarmonyLib.AccessTools.Method(GetType(), nameof(IsPenetratedPrefix));
-			if (prefix == null)
-				return;
-
-			harmony.Patch(original, new HarmonyLib.HarmonyMethod(prefix));
+			HarmonyPrefix(harmony, typeof(BallisticCollider), nameof(BallisticCollider.IsPenetrated), nameof(IsPenetratedPrefix));
 		});
 	}
 }

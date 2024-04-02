@@ -30,6 +30,50 @@ internal abstract class Feature : MonoBehaviour, IFeature
 		action(harmony);
 	}
 
+	public void HarmonyPrefix(HarmonyLib.Harmony harmony, Type originalType, string originalMethod, string newMethod, Type[]? parameters = null)
+	{
+		var original = HarmonyLib.AccessTools.Method(originalType, originalMethod, parameters);
+		if (original == null)
+		{
+			AddConsoleLog($"Cannot find original method {originalType}.{originalMethod}");
+			return;
+		}
+
+		var prefix = HarmonyLib.AccessTools.Method(GetType(), newMethod);
+		if (prefix == null)
+		{
+			AddConsoleLog($"Cannot find prefix method {newMethod}");
+			return;
+		}
+
+		harmony.Patch(original, prefix: new HarmonyLib.HarmonyMethod(prefix));
+#if DEBUG
+		AddConsoleLog($"Patched {originalType}.{originalMethod} with {GetType()}.{newMethod}");
+#endif
+	}
+
+	public void HarmonyPostfix(HarmonyLib.Harmony harmony, Type originalType, string originalMethod, string newMethod)
+	{
+		var original = HarmonyLib.AccessTools.Method(originalType, originalMethod);
+		if (original == null)
+		{
+			AddConsoleLog($"Cannot find original method {originalType}.{originalMethod}");
+			return;
+		}
+
+		var postfix = HarmonyLib.AccessTools.Method(GetType(), newMethod);
+		if (postfix == null)
+		{
+			AddConsoleLog($"Cannot find postfix method {newMethod}");
+			return;
+		}
+
+		harmony.Patch(original, postfix: new HarmonyLib.HarmonyMethod(postfix));
+#if DEBUG
+		AddConsoleLog($"Patched {originalType}.{originalMethod} with {GetType()}.{newMethod}");
+#endif
+	}
+
 	protected void AddConsoleLog(string log)
 	{
 		if (PreloaderUI.Instantiated)
