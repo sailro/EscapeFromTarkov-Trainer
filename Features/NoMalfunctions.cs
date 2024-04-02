@@ -23,10 +23,10 @@ internal class NoMalfunctions : ToggleFeature
 		if (player.HandsController.Item is not Weapon)
 			return;
 
-		if (!player.TryGetComponent<Player.FirearmController>(out var firearmController))
+		if (player.HandsController is not Player.FirearmController controller) 
 			return;
 
-		var template = firearmController.Item?.Template;
+		var template = controller.Item?.Template;
 		if (template == null)
 			return;
 

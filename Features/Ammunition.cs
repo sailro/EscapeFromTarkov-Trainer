@@ -3,7 +3,6 @@ using Comfort.Common;
 using EFT.Ballistics;
 using EFT.InventoryLogic;
 using EFT.Trainer.Model;
-using HarmonyLib;
 using JetBrains.Annotations;
 
 #nullable enable
@@ -75,15 +74,7 @@ internal class Ammunition : ToggleFeature
 	{
 		HarmonyPatchOnce(harmony =>
 		{
-			var original = AccessTools.Method(typeof(BallisticsCalculator), nameof(BallisticsCalculator.Shoot));
-			if (original == null)
-				return;
-
-			var postfix = AccessTools.Method(GetType(), nameof(ShootPostfix));
-			if (postfix == null)
-				return;
-
-			harmony.Patch(original, postfix: new HarmonyMethod(postfix));
+			HarmonyPostfix(harmony, typeof(BallisticsCalculator), nameof(BallisticsCalculator.Shoot), nameof(ShootPostfix));
 		});
 	}
 }

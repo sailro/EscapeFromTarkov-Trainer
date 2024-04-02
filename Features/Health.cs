@@ -61,15 +61,7 @@ internal class Health : ToggleFeature
 
 		HarmonyPatchOnce(harmony =>
 		{
-			var original = HarmonyLib.AccessTools.Method(typeof(ActiveHealthController), nameof(ActiveHealthController.ApplyDamage));
-			if (original == null)
-				return;
-
-			var prefix = HarmonyLib.AccessTools.Method(GetType(), nameof(ApplyDamagePrefix));
-			if (prefix == null)
-				return;
-
-			harmony.Patch(original, new HarmonyLib.HarmonyMethod(prefix));
+			HarmonyPrefix(harmony, typeof(ActiveHealthController), nameof(ActiveHealthController.ApplyDamage), nameof(ApplyDamagePrefix));
 		});
 
 		foreach (EBodyPart bodyPart in _bodyParts)

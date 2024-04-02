@@ -127,15 +127,7 @@ internal class Hits : ToggleFeature
 
 		HarmonyPatchOnce(harmony =>
 		{
-			var original = HarmonyLib.AccessTools.Method(typeof(ActiveHealthController), nameof(ActiveHealthController.ApplyDamage));
-			if (original == null)
-				return;
-
-			var postfix = HarmonyLib.AccessTools.Method(GetType(), nameof(ApplyDamagePostfix));
-			if (postfix == null)
-				return;
-
-			harmony.Patch(original, null, new HarmonyLib.HarmonyMethod(postfix));
+			HarmonyPostfix(harmony, typeof(ActiveHealthController), nameof(ActiveHealthController.ApplyDamage), nameof(ApplyDamagePostfix));
 		});
 	}
 }

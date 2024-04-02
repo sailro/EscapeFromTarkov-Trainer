@@ -28,20 +28,8 @@ internal class Examine : ToggleFeature
 	{
 		HarmonyPatchOnce(harmony =>
 		{
-			var originalString = HarmonyLib.AccessTools.Method(typeof(Profile), nameof(Profile.Examined), [typeof(string)]);
-			if (originalString == null)
-				return;
-
-			var originalItem = HarmonyLib.AccessTools.Method(typeof(Profile), nameof(Profile.Examined), [typeof(Item)]);
-			if (originalItem == null)
-				return;
-
-			var prefix = HarmonyLib.AccessTools.Method(GetType(), nameof(ExaminedPrefix));
-			if (prefix == null)
-				return;
-
-			harmony.Patch(originalString, new HarmonyLib.HarmonyMethod(prefix));
-			harmony.Patch(originalItem, new HarmonyLib.HarmonyMethod(prefix));
+			HarmonyPrefix(harmony, typeof(Profile), nameof(Profile.Examined), nameof(ExaminedPrefix), [typeof(string)]);
+			HarmonyPrefix(harmony, typeof(Profile), nameof(Profile.Examined), nameof(ExaminedPrefix), [typeof(Item)]);
 		});
 	}
 }

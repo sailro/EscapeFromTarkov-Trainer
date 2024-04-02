@@ -62,6 +62,19 @@ internal class Aimbot : HoldFeature
 
 		return true; // call the original code with updated direction and speedFactor
 	}
+
+	[UsedImplicitly]
+	protected static bool ApplyShotPrefix(DamageInfo damageInfo, EBodyPart bodyPartType, EBodyPartColliderType colliderType, EArmorPlateCollider armorPlateCollider, GStruct390 shotId, Player? __instance)
+	{
+		var feature = FeatureFactory.GetFeature<Aimbot>();
+		if (feature == null || !feature.SilentAim || feature._silentAimTarget == null)
+			return true; // keep using original code, we are not enabled
+
+		if (damageInfo.Player?.iPlayer is { IsYourPlayer: true } && __instance is { IsYourPlayer: true })
+			return false; // prevent self damage !
+
+		return true; // call the original code
+	}
 #pragma warning restore IDE0060
 
 	private Transform? _silentAimTarget = null;
@@ -73,20 +86,11 @@ internal class Aimbot : HoldFeature
 		if (!SilentAim) 
 			return;
 
-#pragma warning disable UNT0018
 		HarmonyPatchOnce(harmony =>
 		{
-			var original = HarmonyLib.AccessTools.Method(typeof(BallisticsCalculator), nameof(BallisticsCalculator.CreateShot));
-			if (original == null)
-				return;
-
-			var prefix = HarmonyLib.AccessTools.Method(GetType(), nameof(CreateShotPrefix));
-			if (prefix == null)
-				return;
-
-			harmony.Patch(original, new HarmonyLib.HarmonyMethod(prefix));
+			HarmonyPrefix(harmony, typeof(BallisticsCalculator), nameof(BallisticsCalculator.CreateShot), nameof(CreateShotPrefix));
+			HarmonyPrefix(harmony, typeof(Player), nameof(Player.ApplyShot), nameof(ApplyShotPrefix));
 		});
-#pragma warning restore UNT0018
 
 		if (!TryGetNearestTarget(out var player, out var camera, out var nearestTarget))
 			return;
@@ -94,7 +98,7 @@ internal class Aimbot : HoldFeature
 		if (player.IsInventoryOpened)
 			return;
 
-		if (!player.TryGetComponent<Player.FirearmController>(out var controller)) 
+		if (player.HandsController is not Player.FirearmController controller)
 			return;
 
 		if (!camera.IsTransformVisible(nearestTarget))
