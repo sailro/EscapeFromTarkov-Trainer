@@ -1,6 +1,8 @@
 ﻿using EFT.InventoryLogic;
 using HarmonyLib;
 
+#nullable enable
+
 namespace EFT.Trainer.Model;
 
 internal class ShotWrapper(object instance) : ReflectionWrapper(instance)
