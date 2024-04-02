@@ -64,7 +64,7 @@ internal class Aimbot : HoldFeature
 	}
 
 	[UsedImplicitly]
-	protected static bool ApplyShotPrefix(DamageInfo damageInfo, EBodyPart bodyPartType, EBodyPartColliderType colliderType, EArmorPlateCollider armorPlateCollider, GStruct390 shotId, Player? __instance)
+	protected static bool ApplyShotPrefix(DamageInfo damageInfo, EBodyPart bodyPartType, EBodyPartColliderType colliderType, EArmorPlateCollider armorPlateCollider, object shotId, Player? __instance)
 	{
 		var feature = FeatureFactory.GetFeature<Aimbot>();
 		if (feature == null || !feature.SilentAim || feature._silentAimTarget == null)
