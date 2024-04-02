@@ -22,6 +22,12 @@ internal class NoRecoil : ToggleFeature
 		if (player.ProceduralWeaponAnimation == null)
 			return;
 
-		player.ProceduralWeaponAnimation.Shootingg.Intensity = 0f;
+		var effect = player.ProceduralWeaponAnimation.Shootingg?.CurrentRecoilEffect;
+		if (effect == null)
+			return;
+
+		effect.CameraRotationRecoilEffect.Intensity = 0f;
+		effect.HandPositionRecoilEffect.Intensity = 0f;
+		effect.HandRotationRecoilEffect.Intensity = 0f;
 	}
 }
