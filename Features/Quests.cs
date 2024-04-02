@@ -60,13 +60,13 @@ internal class Quests : PointOfInterests
 
 		foreach (var quest in startedQuests)
 		{
-			var conditions = quest.Template!.GetConditions<ConditionCounterCreator>(EQuestStatus.AvailableForFinish).ToArray();
+			var conditions = quest.Template!.Conditions[EQuestStatus.AvailableForFinish].OfType<ConditionCounterCreator>().ToArray();
 			foreach (var condition in conditions)
 			{
 				if (quest.CompletedConditions.Contains(condition.id))
 					continue;
 
-				foreach (var cvp in condition.counter.conditions.OfType<ConditionVisitPlace>())
+				foreach (var cvp in condition.Conditions.OfType<ConditionVisitPlace>())
 				{
 					var trigger = triggers.FirstOrDefault(t => t.Id == cvp.target);
 					if (trigger == null)
@@ -99,7 +99,7 @@ internal class Quests : PointOfInterests
 
 			foreach (var quest in startedQuests)
 			{
-				foreach (var condition in quest.Template!.GetConditions<ConditionFindItem>(EQuestStatus.AvailableForFinish))
+				foreach (var condition in quest.Template!.Conditions[EQuestStatus.AvailableForFinish].OfType<ConditionFindItem>())
 				{
 					if (!condition.target.Contains(lootItem.Item.TemplateId) || quest.CompletedConditions.Contains(condition.id)) 
 						continue;
@@ -115,14 +115,14 @@ internal class Quests : PointOfInterests
 	{
 		var allPlayerItems = profile
 			.Inventory
-			.AllPlayerItems
+			.GetPlayerItems()
 			.ToArray();
 
 		var triggers = FindObjectsOfType<PlaceItemTrigger>();
 
 		foreach (var quest in startedQuests)
 		{
-			var conditions = quest.Template!.GetConditions<ConditionZone>(EQuestStatus.AvailableForFinish).ToArray();
+			var conditions = quest.Template!.Conditions[EQuestStatus.AvailableForFinish].OfType<ConditionZone>().ToArray();
 			foreach (var condition in conditions)
 			{
 				if (quest.CompletedConditions.Contains(condition.id))

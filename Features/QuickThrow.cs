@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using EFT.InventoryLogic;
 using EFT.Trainer.Extensions;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -26,7 +27,7 @@ internal class QuickTrow : TriggerFeature
 			.Inventory;
 
 		var grenade = inventory
-			.GetAllEquipmentItems()
+			.GetPlayerItems(EPlayerItems.Equipment)
 			.OfType<GrenadeClass>()
 			.FirstOrDefault();
 
