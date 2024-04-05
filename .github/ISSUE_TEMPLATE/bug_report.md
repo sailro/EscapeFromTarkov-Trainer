@@ -4,11 +4,10 @@ about: Create a report to help us improve
 title: ''
 labels: ''
 assignees: ''
-
 ---
 
 **Please do not submit bugs for unsupported EFT or unstable SPT-AKI versions**
-Double check the [main page](https://github.com/sailro/EscapeFromTarkov-Trainer) to double check the latest EFT and SPT-AKI versions we support. 
+Double check the [main page](https://github.com/sailro/EscapeFromTarkov-Trainer) for the latest EFT and SPT-AKI versions we support. 
 
 **Describe the bug**
 A clear and concise description of what the bug is.
