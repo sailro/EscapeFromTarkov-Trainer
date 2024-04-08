@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using EFT.CameraControl;
+using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
@@ -230,8 +231,7 @@ internal class Players : ToggleFeature
 			var currentPlayerHealth = bodyPartHealth.Current;
 			var maximumPlayerHealth = bodyPartHealth.Maximum;
 
-			//var weaponText = ennemyHandController != null && ennemyHandController.Item is Weapon weapon ? weapon.ShortName.Localized() : string.Empty;
-			string weaponText = ennemy.Profile?.Info?.Settings?.Role.ToString() ?? "?";
+			var weaponText = ennemyHandController != null && ennemyHandController.Item is Weapon weapon ? weapon.ShortName.Localized() : string.Empty;
 			var infoText = $"{weaponText} {Mathf.Round(currentPlayerHealth * 100 / maximumPlayerHealth)}% [{distance}m]".Trim();
 
 			Render.DrawString(new Vector2(boxPositionX, boxPositionY - 20f), infoText, playerColors.InfoColor, false);
