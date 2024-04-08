@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using Comfort.Common;
 using EFT.Ballistics;
 using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
@@ -48,14 +49,22 @@ internal class Aimbot : HoldFeature
 
 #pragma warning disable IDE0060
 	[UsedImplicitly]
-	protected static bool CreateShotPrefix(object ammo, Vector3 origin, ref Vector3 direction, int fireIndex, Player player, Item weapon, ref float speedFactor, int fragmentIndex)
+	protected static bool CreateShotPrefix(object ammo, Vector3 origin, ref Vector3 direction, int fireIndex, string player, Item weapon, ref float speedFactor, int fragmentIndex)
 	{
 		var feature = FeatureFactory.GetFeature<Aimbot>();
 		if (feature == null || !feature.SilentAim || feature._silentAimTarget == null)
 			return true; // keep using original code, we are not enabled
 
-		if (player is not { IsYourPlayer: true })
-			return true; // keep using original code, not our shot
+		var world = Singleton<GameWorld>.Instance;
+		if (world == null)
+			return true;
+
+		var localPlayer = world.GetEverExistedBridgeByProfileID(player)?.iPlayer;
+		if (localPlayer == null)
+			return true;
+
+		if (!localPlayer.IsYourPlayer)
+			return true; // keep using original code, not our player
 
 		direction = (feature._silentAimTarget.position - origin).normalized;
 		speedFactor = feature.SilentAimSpeedFactor;
@@ -92,6 +101,8 @@ internal class Aimbot : HoldFeature
 			HarmonyPrefix(harmony, typeof(Player), nameof(Player.ApplyShot), nameof(ApplyShotPrefix));
 		});
 
+		_silentAimTarget = null;
+
 		if (!TryGetNearestTarget(out var player, out var camera, out var nearestTarget))
 			return;
 
@@ -102,17 +113,12 @@ internal class Aimbot : HoldFeature
 			return;
 
 		if (!camera.IsTransformVisible(nearestTarget))
-		{
-			_silentAimTarget = null;
 			return;
-		}
 
 		_silentAimTarget = nearestTarget;
 
 		if (_silentAimNextShotTime > Time.time)
-		{
 			return;
-		}
 
 		controller.SetTriggerPressed(true);
 		_silentAimNextShotTime = Time.time + SilentAimNextShotDelay;

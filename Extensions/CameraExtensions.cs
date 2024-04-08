@@ -15,11 +15,17 @@ public static class CameraExtensions
 		return screenPoint;
 	}
 
-	private static readonly LayerMask _layerMask = 1 << 12 | 1 << 16 | 1 << 18 | 1 << 31 | 1 << 22;
+	private static readonly LayerMask _layerMask = LayerMaskClass.LowPolyColliderLayerMask
+	                                               | LayerMaskClass.HighPolyWithTerrainNoGrassMask
+	                                               | LayerMaskClass.HitColliderMask
+	                                               | LayerMaskClass.InteractiveMask;
+	
 	public static bool IsTransformVisible(this Camera camera, Transform transform)
 	{
 		var origin = camera.transform.position;
 		var destination = transform.position;
+
+		origin += (destination - origin).normalized * 0.1f; // Offset origin to avoid self-collision
 
 		if (!Physics.Linecast(origin, destination, out var hitinfo, _layerMask))
 			return false;
