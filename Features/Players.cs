@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using EFT.CameraControl;
-using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
@@ -62,6 +61,15 @@ internal class Players : ToggleFeature
 
 	[ConfigurationProperty(Order = 10)]
 	public PlayerColor ScavRaiderColors { get; set; } = new(Color.yellow, Color.red, Color.red);
+
+	[ConfigurationProperty(Order = 10)]
+	public PlayerColor ScavAssaultColors { get; set; } = new(Color.yellow, Color.red, Color.red);
+
+	[ConfigurationProperty(Order = 10)]
+	public PlayerColor MarksmanColors { get; set; } = new(Color.yellow, Color.red, Color.red);
+
+	[ConfigurationProperty(Order = 10)]
+	public PlayerColor RogueUsecColors { get; set; } = new(Color.gray, Color.red, Color.red);
 
 	[ConfigurationProperty(Order = 20)]
 	public bool ShowBoxes { get; set; } = true;
@@ -222,7 +230,8 @@ internal class Players : ToggleFeature
 			var currentPlayerHealth = bodyPartHealth.Current;
 			var maximumPlayerHealth = bodyPartHealth.Maximum;
 
-			var weaponText = ennemyHandController != null && ennemyHandController.Item is Weapon weapon ? weapon.ShortName.Localized() : string.Empty;
+			//var weaponText = ennemyHandController != null && ennemyHandController.Item is Weapon weapon ? weapon.ShortName.Localized() : string.Empty;
+			string weaponText = ennemy.Profile?.Info?.Settings?.Role.ToString() ?? "?";
 			var infoText = $"{weaponText} {Mathf.Round(currentPlayerHealth * 100 / maximumPlayerHealth)}% [{distance}m]".Trim();
 
 			Render.DrawString(new Vector2(boxPositionX, boxPositionY - 20f), infoText, playerColors.InfoColor, false);
@@ -303,31 +312,24 @@ internal class Players : ToggleFeature
 
 	public PlayerColor GetPlayerColors(Player player)
 	{
-		var info = player.Profile?.Info;
-		if (info == null)
-			return ScavColors;
+		var hostileType = player.GetHostileType();
+		return GetPlayerColors(hostileType);
+	}
 
-		var settings = info.Settings;
-		if (settings != null)
+	public PlayerColor GetPlayerColors(HostileType hostileType)
+	{
+		return hostileType switch
 		{
-			switch(settings.Role)
-			{
-				case WildSpawnType.pmcBot:
-					return ScavRaiderColors;
-				case WildSpawnType.sectantWarrior:
-					return CultistColors;
-			}
-
-			if (settings.IsBoss())
-				return BossColors;
-		}
-
-		// it can still be a bot in sptarkov but let's use the pmc color
-		return info.Side switch
-		{
-			EPlayerSide.Bear => BearColors,
-			EPlayerSide.Usec => UsecColors,
-			_ => ScavColors
+			HostileType.Bear => BearColors,
+			HostileType.Usec => UsecColors,
+			HostileType.Scav => ScavColors,
+			HostileType.Boss => BossColors,
+			HostileType.Cultist => CultistColors,
+			HostileType.ScavRaider => ScavRaiderColors,
+			HostileType.ScavAssault => ScavAssaultColors,
+			HostileType.Marksman => MarksmanColors,
+			HostileType.RogueUsec => RogueUsecColors,
+			_ => ScavColors,
 		};
 	}
 

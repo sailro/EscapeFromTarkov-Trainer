@@ -114,6 +114,7 @@
     <Compile Include="Extensions\CameraExtensions.cs" />
     <Compile Include="Extensions\ELootRarityExtensions.cs" />
     <Compile Include="Extensions\ExfiltrationPointExtensions.cs" />
+    <Compile Include="Extensions\HostileType.cs" />
     <Compile Include="Extensions\ItemTemplateExtensions.cs" />
     <Compile Include="Extensions\ItemExtensions.cs" />
     <Compile Include="Extensions\LootItemExtensions.cs" />

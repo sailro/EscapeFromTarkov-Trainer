@@ -10,30 +10,29 @@ namespace EFT.Trainer.Features;
 
 internal abstract class BaseMapToggleFeature : ToggleFeature
 {
-	protected enum HostileType
-	{
-		Scav,
-		ScavRaider,
-		Boss,
-		Cultist,
-		Bear,
-		Usec,
-	}
-
 	[ConfigurationProperty(Order = 40)] 
 	public bool ShowPlayers { get; set; } = true;
 
-	[ConfigurationProperty(Order = 50)]
+	[ConfigurationProperty(Order = 40)]
 	public bool ShowScavs { get; set; } = true;
 
-	[ConfigurationProperty(Order = 60)]
+	[ConfigurationProperty(Order = 40)]
 	public bool ShowScavRaiders { get; set; } = true;
 
-	[ConfigurationProperty(Order = 70)]
+	[ConfigurationProperty(Order = 40)]
+	public bool ShowScavAssaults { get; set; } = true;
+
+	[ConfigurationProperty(Order = 40)]
 	public bool ShowBosses { get; set; } = true;
 
-	[ConfigurationProperty(Order = 80)]
+	[ConfigurationProperty(Order = 40)]
 	public bool ShowCultists { get; set; } = true;
+
+	[ConfigurationProperty(Order = 40)]
+	public bool ShowRogues { get; set; } = true;
+
+	[ConfigurationProperty(Order = 40)]
+	public bool ShowMarksmen { get; set; } = true;
 
 	[ConfigurationProperty(Order = 90)]
 	public bool ChangeTime { get; set; } = false;
@@ -116,7 +115,7 @@ internal abstract class BaseMapToggleFeature : ToggleFeature
 			if (range > 0 && distance > range)
 				continue;
 
-			var hostileType = GetHostileType(enemy);
+			var hostileType = enemy.GetHostileType();
 
 			switch (hostileType)
 			{
@@ -124,46 +123,20 @@ internal abstract class BaseMapToggleFeature : ToggleFeature
 				case HostileType.ScavRaider when !ShowScavRaiders:
 				case HostileType.Cultist when !ShowCultists:
 				case HostileType.Boss when !ShowBosses:
+				case HostileType.ScavAssault when !ShowScavAssaults:
+				case HostileType.Marksman when !ShowMarksmen:
+				case HostileType.RogueUsec when !ShowRogues:
 				case HostileType.Bear or HostileType.Usec when !ShowPlayers:
 					continue;
 
 				default:
 				{
-					var playerColor = feature.GetPlayerColors(enemy);
+					var playerColor = feature.GetPlayerColors(hostileType);
 					DrawEnemy(camera, enemy, playerColor.Color);
 					break;
 				}
 			}
 		}
-	}
-
-	private static HostileType GetHostileType(Player player)
-	{
-		var info = player.Profile?.Info;
-		if (info == null)
-			return HostileType.Scav;
-
-		var settings = info.Settings;
-		if (settings != null)
-		{
-			switch (settings.Role)
-			{
-				case WildSpawnType.pmcBot:
-					return HostileType.ScavRaider;
-				case WildSpawnType.sectantWarrior:
-					return HostileType.Cultist;
-			}
-
-			if (settings.IsBoss())
-				return HostileType.Boss;
-		}
-
-		return info.Side switch
-		{
-			EPlayerSide.Bear => HostileType.Bear,
-			EPlayerSide.Usec => HostileType.Usec,
-			_ => HostileType.Scav
-		};
 	}
 
 	protected abstract Vector2 GetTargetPosition(Vector3 playerPosition, Vector3 targetPosition, float playerEulerY);
