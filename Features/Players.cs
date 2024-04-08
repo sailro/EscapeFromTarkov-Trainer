@@ -63,6 +63,15 @@ internal class Players : ToggleFeature
 	[ConfigurationProperty(Order = 10)]
 	public PlayerColor ScavRaiderColors { get; set; } = new(Color.yellow, Color.red, Color.red);
 
+	[ConfigurationProperty(Order = 10)]
+	public PlayerColor ScavAssaultColors { get; set; } = new(Color.yellow, Color.red, Color.red);
+
+	[ConfigurationProperty(Order = 10)]
+	public PlayerColor MarksmanColors { get; set; } = new(Color.yellow, Color.red, Color.red);
+
+	[ConfigurationProperty(Order = 10)]
+	public PlayerColor RogueUsecColors { get; set; } = new(Color.gray, Color.red, Color.red);
+
 	[ConfigurationProperty(Order = 20)]
 	public bool ShowBoxes { get; set; } = true;
 
@@ -303,31 +312,24 @@ internal class Players : ToggleFeature
 
 	public PlayerColor GetPlayerColors(Player player)
 	{
-		var info = player.Profile?.Info;
-		if (info == null)
-			return ScavColors;
+		var hostileType = player.GetHostileType();
+		return GetPlayerColors(hostileType);
+	}
 
-		var settings = info.Settings;
-		if (settings != null)
+	public PlayerColor GetPlayerColors(HostileType hostileType)
+	{
+		return hostileType switch
 		{
-			switch(settings.Role)
-			{
-				case WildSpawnType.pmcBot:
-					return ScavRaiderColors;
-				case WildSpawnType.sectantWarrior:
-					return CultistColors;
-			}
-
-			if (settings.IsBoss())
-				return BossColors;
-		}
-
-		// it can still be a bot in sptarkov but let's use the pmc color
-		return info.Side switch
-		{
-			EPlayerSide.Bear => BearColors,
-			EPlayerSide.Usec => UsecColors,
-			_ => ScavColors
+			HostileType.Bear => BearColors,
+			HostileType.Usec => UsecColors,
+			HostileType.Scav => ScavColors,
+			HostileType.Boss => BossColors,
+			HostileType.Cultist => CultistColors,
+			HostileType.ScavRaider => ScavRaiderColors,
+			HostileType.ScavAssault => ScavAssaultColors,
+			HostileType.Marksman => MarksmanColors,
+			HostileType.RogueUsec => RogueUsecColors,
+			_ => ScavColors,
 		};
 	}
 

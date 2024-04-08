@@ -41,4 +41,42 @@ public static class PlayerExtensions
 			.GetComponents<T>()
 			.Any();
 	}
+
+	public static HostileType GetHostileType(this Player player)
+	{
+		var info = player.Profile?.Info;
+		if (info == null)
+			return HostileType.Scav;
+
+		var settings = info.Settings;
+		if (settings != null)
+		{
+			switch (settings.Role)
+			{
+				case WildSpawnType.pmcBot:
+					return HostileType.ScavRaider;
+				case WildSpawnType.sectantWarrior:
+					return HostileType.Cultist;
+				case WildSpawnType.assault:
+					return HostileType.Scav;
+				case WildSpawnType.assaultGroup:
+					return HostileType.ScavAssault;
+				case WildSpawnType.marksman:
+					return HostileType.Marksman;
+				case WildSpawnType.exUsec:
+					return HostileType.RogueUsec;
+			}
+
+			if (settings.IsBoss())
+				return HostileType.Boss;
+		}
+
+		return info.Side switch
+		{
+			EPlayerSide.Bear => HostileType.Bear,
+			EPlayerSide.Usec => HostileType.Usec,
+			_ => HostileType.Scav
+		};
+	}
+
 }
