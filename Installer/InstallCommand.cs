@@ -53,7 +53,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 				.Select(f => $"{features}\\{f}.cs")
 				.ToArray();
 
-			var (compilation, archive) = await BuildTrainer(settings, installation, features);
+			var (compilation, archive) = await BuildTrainerAsync(settings, installation, features);
 
 			if (compilation == null)
 			{
@@ -126,7 +126,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 		return (int)ExitCode.Success;
 	}
 
-	private static async Task<(CSharpCompilation?, ZipArchive?)> BuildTrainer(Settings settings, Installation installation, string features)
+	private static async Task<(CSharpCompilation?, ZipArchive?)> BuildTrainerAsync(Settings settings, Installation installation, string features)
 	{
 		// Try first to compile against master
 		var context = new CompilationContext(installation, "trainer", "NLog.EFT.Trainer.csproj")
@@ -359,7 +359,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 
 			using var input = entry.Open();
 			using var output = File.Create(outlinePath);
-			input.CopyToAsync(output);
+			input.CopyTo(output);
 
 			AnsiConsole.MarkupLine($"Created [green]{Path.GetFileName(outlinePath).EscapeMarkup()}[/] in [blue]{Path.GetDirectoryName(outlinePath).EscapeMarkup()}[/].");
 			return true;
