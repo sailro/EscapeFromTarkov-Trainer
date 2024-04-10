@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Management;
+using System.Runtime.Versioning;
 using Spectre.Console.Cli;
-
-#nullable enable
 
 namespace Installer;
 
 internal class Program
 {
+	[SupportedOSPlatform("windows")]
 	private static int Main(string[] args)
 	{
 		var app = new CommandApp<InstallCommand>();
@@ -34,29 +34,17 @@ internal class Program
 		return result;
 	}
 
+	[SupportedOSPlatform("windows")]
 	private static bool StartedByExplorer()
 	{
 		try
 		{
-			const string ParentProcessId = nameof(ParentProcessId);
-			var id = Process.GetCurrentProcess().Id;
-
-			var query = $"SELECT {ParentProcessId} FROM Win32_Process WHERE ProcessId = {id}";
-			var search = new ManagementObjectSearcher(@"root\CIMV2", query);
-				
-			var results = search.Get().GetEnumerator();
-			if (!results.MoveNext())
-				return true;
-
-			var result = results.Current;
-			var parentId = (uint)result[ParentProcessId];
-			var parent = Process.GetProcessById((int)parentId);
-
-			return parent.ProcessName.Equals("explorer", StringComparison.OrdinalIgnoreCase);
+			var parent = ParentProcessHelper.GetParentProcess();
+			return parent?.ProcessName.Equals("explorer", StringComparison.OrdinalIgnoreCase) ?? false;
 		}
 		catch (Exception)
 		{
-			return true;
+			return false;
 		}
 	}
 }

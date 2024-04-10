@@ -1,14 +1,12 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Xml;
 using Spectre.Console;
 using Spectre.Console.Cli;
-
-#nullable enable
 
 namespace Installer;
 
@@ -21,7 +19,8 @@ internal sealed class UninstallCommand : Command<UninstallCommand.Settings>
 		public string? Path { get; set; }
 	}
 
-	public override int Execute([NotNull] CommandContext context, [NotNull] Settings settings)
+	[SupportedOSPlatform("windows")]
+	public override int Execute(CommandContext context, Settings settings)
 	{
 		try
 		{
@@ -112,7 +111,7 @@ internal sealed class UninstallCommand : Command<UninstallCommand.Settings>
 			var removeNodes = targetsNode
 				.ChildNodes
 				.Cast<XmlNode>()
-				.Where(targetNode => targetNode.Attributes?["name"].Value == targetName && targetNode.Attributes["xsi:type"].Value == targetName)
+				.Where(targetNode => targetNode.Attributes?["name"]?.Value == targetName && targetNode.Attributes?["xsi:type"]?.Value == targetName)
 				.ToList();
 
 			if (removeNodes.Count == 0)
