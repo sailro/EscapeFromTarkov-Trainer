@@ -1,0 +1,39 @@
+name: CI-Installer
+
+on:
+  push:
+    branches:
+    - master
+    - release/*
+  pull_request:
+    branches:
+    - master
+    - release/*
+
+jobs:
+  windows:
+    runs-on: windows-latest
+
+    steps:
+
+    - name: Checkout 
+      uses: actions/checkout@v4
+
+    - name: Setup .NET      
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
+    - name: Build
+      run: dotnet build -c Release ./Installer/Installer.csproj
+      shell: cmd
+
+    - name: Publish
+      run: dotnet publish -c Release ./Installer/Installer.csproj
+      shell: cmd
+
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v4
+      with:
+        name: Installer.exe
+        path: ./Installer/bin/Release/net8.0/win-x64/publish/Installer.exe
