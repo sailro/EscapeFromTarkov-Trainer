@@ -4,10 +4,9 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
+using System.Runtime.Versioning;
 using Microsoft.Win32;
 using Spectre.Console;
-
-#nullable enable
 
 namespace Installer;
 
@@ -45,6 +44,7 @@ internal class Installation
 		return Location.GetHashCode();
 	}
 
+	[SupportedOSPlatform("windows")]
 	public static Installation? GetTargetInstallation(string? path, string promptTitle)
 	{
 		var installations = new List<Installation>();
@@ -82,12 +82,13 @@ internal class Installation
 		}
 	}
 
+	[SupportedOSPlatform("windows")]
 	private static IEnumerable<Installation> DiscoverInstallations()
 	{
 		if (TryDiscoverInstallation(Environment.CurrentDirectory, out var installation))
 			yield return installation;
 
-		if (TryDiscoverInstallation(Path.GetDirectoryName(typeof(Installation).Assembly.Location)!, out installation))
+		if (TryDiscoverInstallation(Path.GetDirectoryName(AppContext.BaseDirectory)!, out installation))
 			yield return installation;
 
 		using var hive = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32);
@@ -127,6 +128,9 @@ internal class Installation
 				return false;
 
 			var vi = FileVersionInfo.GetVersionInfo(exe);
+			if (vi.FileVersion == null)
+				return false;
+
 			installation = new Installation(path, new Version(vi.FileVersion));
 
 			if (!Directory.Exists(installation.Managed))

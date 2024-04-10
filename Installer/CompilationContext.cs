@@ -1,7 +1,5 @@
 ﻿using System.IO.Compression;
 
-#nullable enable
-
 namespace Installer;
 
 internal class CompilationContext(Installation installation, string projectTitle, string project)

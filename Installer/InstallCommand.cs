@@ -4,6 +4,8 @@ using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Net;
+using System.Net.Http;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -12,8 +14,6 @@ using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Spectre.Console;
 using Spectre.Console.Cli;
-
-#nullable enable
 
 namespace Installer;
 
@@ -34,6 +34,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 		public string[]? DisabledFeatures { get; set; }
 	}
 
+	[SupportedOSPlatform("windows")]
 	public override async Task<int> ExecuteAsync(CommandContext commandContext, Settings settings)
 	{
 		try
@@ -264,22 +265,17 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 		{
 			await AnsiConsole
 				.Status()
-				.StartAsync(status, async ctx =>
+				.StartAsync(status, async _ =>
 				{
-					using var client = new WebClient();
-					client.DownloadProgressChanged += (_, eventArgs) =>
-					{
-						ctx.Status($"{status}{eventArgs.BytesReceived / 1024}K");
-					};
-
-					var buffer = await client.DownloadDataTaskAsync(new Uri($"https://github.com/sailro/EscapeFromTarkov-Trainer/archive/refs/heads/{branch}.zip"));
+					using var client = new HttpClient();
+					var buffer = await client.GetByteArrayAsync(new Uri($"https://github.com/sailro/EscapeFromTarkov-Trainer/archive/refs/heads/{branch}.zip"));
 					var stream = new MemoryStream(buffer);
 					result = new ZipArchive(stream, ZipArchiveMode.Read);
 				});
 		}
 		catch (Exception ex)
 		{
-			AnsiConsole.MarkupLine(ex is WebException {Response: HttpWebResponse {StatusCode: HttpStatusCode.NotFound}} ? $">> [blue]Try #{@try}[/] [yellow]Branch {branch.EscapeMarkup()} not found.[/]" : $"[red]Error: {ex.Message.EscapeMarkup()}[/]");
+			AnsiConsole.MarkupLine(ex is HttpRequestException {StatusCode: HttpStatusCode.NotFound} ? $">> [blue]Try #{@try}[/] [yellow]Branch {branch.EscapeMarkup()} not found.[/]" : $"[red]Error: {ex.Message.EscapeMarkup()}[/]");
 		}
 
 		return result;
@@ -305,7 +301,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 					return;
 				}
 
-				if (targetsNode.ChildNodes.Cast<XmlNode>().Any(targetNode => targetNode.Attributes?["name"].Value == targetName && targetNode.Attributes["xsi:type"].Value == targetName))
+				if (targetsNode.ChildNodes.Cast<XmlNode>().Any(targetNode => targetNode.Attributes?["name"]?.Value == targetName && targetNode.Attributes?["xsi:type"]?.Value == targetName))
 				{
 					AnsiConsole.MarkupLine($"Already patched [green]{Path.GetFileName(configPath).EscapeMarkup()}[/] in [blue]{Path.GetDirectoryName(configPath).EscapeMarkup()}[/].");
 					return;

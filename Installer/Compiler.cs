@@ -10,9 +10,6 @@ using Installer.Properties;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.Text;
-using Spectre.Console; // used in #DEBUG ifdef
-
-#nullable enable
 
 namespace Installer;
 
@@ -58,7 +55,7 @@ internal class Compiler
 			else
 			{
 #if DEBUG
-				AnsiConsole.MarkupLine($"[grey]>> Excluding {file.EscapeMarkup()}.[/]");
+				Spectre.Console.AnsiConsole.MarkupLine($"[grey]>> Excluding {Spectre.Console.StringExtensions.EscapeMarkup(file)}.[/]");
 #endif
 			}
 		}
@@ -72,14 +69,14 @@ internal class Compiler
 		{
 			reference = MetadataReference.CreateFromFile(path);
 #if DEBUG
-			AnsiConsole.MarkupLine($"[grey]>> Resolved {assemblyName} to {path}.[/]");
+			Spectre.Console.AnsiConsole.MarkupLine($"[grey]>> Resolved {assemblyName} to {path}.[/]");
 #endif
 		}
 
 		if (reference == null && TryGetAssemblyBytes(assemblyName, out var stream))
 		{
 #if DEBUG
-			AnsiConsole.MarkupLine($"[grey]>> Using memory image for {assemblyName}.[/]");
+			Spectre.Console.AnsiConsole.MarkupLine($"[grey]>> Using memory image for {assemblyName}.[/]");
 #endif
 			reference = MetadataReference.CreateFromImage(stream);
 		}
@@ -87,7 +84,7 @@ internal class Compiler
 		if (reference == null)
 		{
 #if DEBUG
-			AnsiConsole.MarkupLine($"[grey]>> Unable to resolve {assemblyName}.[/]");
+			Spectre.Console.AnsiConsole.MarkupLine($"[grey]>> Unable to resolve {assemblyName}.[/]");
 #endif
 		}
 
