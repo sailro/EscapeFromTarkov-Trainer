@@ -21,7 +21,7 @@ public static class ItemExtensions
 		if (ItemViewFactory.IsSecureContainer(item))
 			return true;
 
-		if (item.CurrentAddress?.Container is StashGridClass { ParentItem.TemplateId: KnownTemplateIds.BossContainer })
+		if (item.CurrentAddress?.Container is { ParentItem.TemplateId: KnownTemplateIds.BossContainer })
 			return true;
 
 		return item.TemplateId switch

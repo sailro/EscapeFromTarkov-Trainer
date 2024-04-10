@@ -15,11 +15,16 @@ public static class CameraExtensions
 		return screenPoint;
 	}
 
+	/* Do not use LayerMaskClass here, as it is a deobfuscated class. So this will prevent the auto-disabling feature system from working.
+
 	private static readonly LayerMask _layerMask = LayerMaskClass.LowPolyColliderLayerMask
 	                                               | LayerMaskClass.HighPolyWithTerrainNoGrassMask
 	                                               | LayerMaskClass.HitColliderMask
 	                                               | LayerMaskClass.InteractiveMask;
-	
+	*/
+
+	private static readonly LayerMask _layerMask = 0b0010_00100_0101_0001_1000_0000_0000;
+
 	public static bool IsTransformVisible(this Camera camera, Transform transform)
 	{
 		var origin = camera.transform.position;
