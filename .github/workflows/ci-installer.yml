@@ -30,5 +30,11 @@ jobs:
       shell: cmd
 
     - name: Publish
-      run: dotnet publish -c Release .\Installer\Installer.csproj
+      run: dotnet publish -c Release ./Installer/Installer.csproj
       shell: cmd
+
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v4
+      with:
+        name: Installer.exe
+        path: ./Installer/bin/Release/net8.0/win-x64/publish/Installer.exe
