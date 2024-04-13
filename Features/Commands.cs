@@ -447,11 +447,53 @@ internal class Commands : ToggleFeature
 		CreateCommand("load", () => LoadSettings());
 		CreateCommand("save", SaveSettings);
 
+		CreateCommand("template", $"(?<{ValueGroup}>.+)", FindTemplates);
+
 		// Load default configuration
 		LoadSettings(false);
 		SetupWindowCoordinates();
 
 		Registered = true;
+	}
+
+	private static IEnumerable<ItemTemplate> FindTemplates(string searchShortNameOrTemplateId)
+	{
+		if (!Singleton<ItemFactory>.Instantiated)
+			return [];
+
+		var templates = Singleton<ItemFactory>
+			.Instance
+			.ItemTemplates;
+
+		// Match by TemplateId
+		if (templates.TryGetValue(searchShortNameOrTemplateId, out var template))
+			return [template];
+
+		// Match by short name(s)
+		return templates
+			.Values
+			.Where(t => t.ShortNameLocalizationKey.Localized().IndexOf(searchShortNameOrTemplateId, StringComparison.OrdinalIgnoreCase) >= 0 
+			            || t.NameLocalizationKey.Localized().IndexOf(searchShortNameOrTemplateId, StringComparison.OrdinalIgnoreCase) >= 0);
+	}
+
+	private void FindTemplates(Match match)
+	{
+		var matchGroup = match.Groups[ValueGroup];
+		if (matchGroup is not {Success: true})
+			return;
+
+		if (!Singleton<ItemFactory>.Instantiated)
+			return;
+
+		var search = matchGroup.Value;
+
+		var templates = FindTemplates(search).ToArray();
+		
+		foreach (var template in templates)
+			AddConsoleLog($"{template._id}: {template.ShortNameLocalizationKey.Localized().Green()} [{template.NameLocalizationKey.Localized()}]");
+
+		AddConsoleLog("------");
+		AddConsoleLog($"found {templates.Length.ToString().Cyan()} template(s)");
 	}
 
 	private void SetupWindowCoordinates()
@@ -483,7 +525,7 @@ internal class Commands : ToggleFeature
 	private void CreateCommand(string cmdName, string pattern, Action<Match> action)
 	{
 #if DEBUG
-			AddConsoleLog($"Registering {cmdName} command...");
+		AddConsoleLog($"Registering {cmdName} command...");
 #endif
 		ConsoleScreen.Processor.RegisterCommand(cmdName, (string args) =>
 		{
@@ -618,7 +660,7 @@ internal class Commands : ToggleFeature
 		}
 
 		AddConsoleLog("------");
-		AddConsoleLog($"found {count.ToString().Cyan()} items");
+		AddConsoleLog($"found {count.ToString().Cyan()} item(s)");
 	}
 
 	private static void FindItemsInContainers(GameWorld world, Dictionary<string, List<Item>> itemsPerName)

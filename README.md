@@ -131,6 +131,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | stamina    | `on` or `off`       | `off`   | Enable/Disable unlimited stamina    |
 | stash      | `on` or `off`       | `off`   | Show/Hide stashes                   |
 | status     |                     |         | Show status of all features         |
+| template   | `name`              |         | Search for templates by short/name  |
 | thermal    | `on` or `off`       | `off`   | Enable/Disable thermal vision       |
 | track      | `[name]` or `*`     |         | Track all items matching `name`     |
 | track      | `[name]` `<color>`  |         | Ex: track `roler` `red`             |
