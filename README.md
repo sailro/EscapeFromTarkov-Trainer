@@ -128,10 +128,11 @@ This trainer hooks into the command system, so you can easily setup features usi
 | radar      | `on` or `off`       | `off`   | Show/Hide radar                     |
 | save       |                     |         | Save settings to `trainer.ini`      |
 | savetl     | `[filename]`        |         | Save current tracklist to file      |
+| spawn      | `[name]`            |         | Spawn object in front of player     |
 | stamina    | `on` or `off`       | `off`   | Enable/Disable unlimited stamina    |
 | stash      | `on` or `off`       | `off`   | Show/Hide stashes                   |
 | status     |                     |         | Show status of all features         |
-| template   | `name`              |         | Search for templates by short/name  |
+| template   | `[name]`            |         | Search for templates by short/name  |
 | thermal    | `on` or `off`       | `off`   | Enable/Disable thermal vision       |
 | track      | `[name]` or `*`     |         | Track all items matching `name`     |
 | track      | `[name]` `<color>`  |         | Ex: track `roler` `red`             |
