@@ -97,6 +97,9 @@
     <Reference Include="ItemTemplate.Types">
       <HintPath>$(EFTManagedPath)\ItemTemplate.Types.dll</HintPath>
     </Reference>
+    <Reference Include="DissonanceVoip">
+      <HintPath>$(EFTManagedPath)\DissonanceVoip.dll</HintPath>
+    </Reference>
     <Reference Include="0Harmony">
       <HintPath>Installer\Resources\0Harmony.dll</HintPath>
     </Reference>
