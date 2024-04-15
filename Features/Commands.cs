@@ -540,6 +540,8 @@ internal class Commands : ToggleFeature
 				return Task.CompletedTask;
 			}
 
+			item.SpawnedInSession = true; // found in raid
+
 			_ = new TraderControllerClass(item, item.Id, item.ShortName);
 			var go = poolManager.CreateLootPrefab(item, ECameraType.Default);
 
