@@ -26,6 +26,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 | `AutomaticGun`            | `autogun`    | Force all guns (even bolt action guns) to use automatic firing mode with customizable fire rate. |
 | `Commands`                | `commands`   | Popup window to enable/disable all features (use right-alt or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)). |
 | `CrossHair`               | `crosshair`  | Crosshair with customizable size, color, thickness and auto-hide feature when aiming. |
+| `Durability`              | `durability` | Maintains maximum durability of the player's weapon. |
 | `Examine`                 | `examine`    | All items already examined. |
 | `ExfiltrationPoints`      | `exfil`      | Exfiltration points with customizable colors given eligibility, status filter, distance. |
 | `FovChanger`              | `fovchanger` | Change Field Of View (FOV). |
@@ -105,6 +106,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | autogun    | `on` or `off`       | `off`   | Enable/Disable automatic gun mode   |
 | crosshair  | `on` or `off`       | `off`   | Show/Hide crosshair                 |
 | dump       |                     |         | Dump game state for analysis        |
+| durability | `on` or `off`       | `off`   | Enable/Disable maximum durability   |
 | examine    | `on` or `off`       | `off`   | Enable/Disable all item examined    |
 | exfil      | `on` or `off`       | `on`    | Show/Hide exfiltration points       |
 | fovchanger | `on` or `off`       | `off`   | Change FOV value                    |
