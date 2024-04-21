@@ -1,4 +1,6 @@
-﻿using EFT.Trainer.Extensions;
+﻿using System.Linq;
+using EFT.InventoryLogic;
+using EFT.Trainer.Extensions;
 using JetBrains.Annotations;
 
 #nullable enable
@@ -9,7 +11,7 @@ namespace EFT.Trainer.Features;
 internal class Durability : ToggleFeature
 {
 	public override string Name => "durability";
-	public override string Description => "Maintains maximum durability of the player's weapon.";
+	public override string Description => "Maximum durability of items.";
 
 	public override bool Enabled { get; set; } = false;
 
@@ -19,13 +21,19 @@ internal class Durability : ToggleFeature
 		if (!player.IsValid())
 			return;
 
-		if (player.HandsController is not Player.FirearmController controller) 
-			return;
+		var allPlayerItems = player.Profile
+			.Inventory
+			.GetPlayerItems()
+			.ToArray();
 
-		if (controller.Item?.Repairable is not {} repairable)
-			return;
+		foreach (var item in allPlayerItems)
+		{
+			var repairable = item?.GetItemComponent<RepairableComponent>();
+			if (repairable == null)
+				continue;
 
-		repairable.MaxDurability = repairable.TemplateDurability;
-		repairable.Durability = repairable.MaxDurability;
+			repairable.MaxDurability = repairable.TemplateDurability;
+			repairable.Durability = repairable.MaxDurability;
+		}
 	}
 }
