@@ -133,6 +133,7 @@
     <Compile Include="Features\Aimbot.cs" />
     <Compile Include="Features\Ammunition.cs" />
     <Compile Include="Features\BaseMapToggleFeature.cs" />
+    <Compile Include="Features\FeatureRenderer.cs" />
     <Compile Include="Features\FovChanger.cs" />
     <Compile Include="Features\Durability.cs" />
     <Compile Include="Features\NoMalfunctions.cs" />
