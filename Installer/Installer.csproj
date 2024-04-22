@@ -5,6 +5,8 @@
     <TargetFramework>net8.0</TargetFramework>
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NeutralLanguage>en-US</NeutralLanguage>
 
     <PublishSingleFile>true</PublishSingleFile>
     <SelfContained>true</SelfContained>
@@ -17,8 +19,6 @@
     <RepositoryUrl>https://github.com/sailro/EscapeFromTarkov-Trainer</RepositoryUrl>
     <Version>2.6.0.0</Version>
     <Copyright>Sebastien Lebreton</Copyright>
-    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <NeutralLanguage>en-US</NeutralLanguage>
   </PropertyGroup>
 
   <ItemGroup>
