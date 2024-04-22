@@ -122,6 +122,9 @@ internal class Installation
 
 		try
 		{
+			if (string.IsNullOrEmpty(path))
+				return false;
+
 			path = Path.GetFullPath(path.Trim('\"'));
 			var exe = Path.Combine(path, "EscapeFromTarkov.exe");
 			if (!File.Exists(exe))
