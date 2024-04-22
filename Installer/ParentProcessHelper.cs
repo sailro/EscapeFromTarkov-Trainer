@@ -5,8 +5,8 @@ using System;
 
 namespace Installer;
 
-[StructLayout(LayoutKind.Sequential)]
-public struct ParentProcessHelper
+[StructLayout(LayoutKind.Sequential), System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE1006")]
+public partial struct ParentProcessHelper
 {
     // These members must match PROCESS_BASIC_INFORMATION
     internal IntPtr Reserved1;
@@ -16,8 +16,8 @@ public struct ParentProcessHelper
     internal IntPtr UniqueProcessId;
     internal IntPtr InheritedFromUniqueProcessId;
 
-    [DllImport("ntdll.dll")]
-    private static extern int NtQueryInformationProcess(IntPtr processHandle, int processInformationClass, ref ParentProcessHelper processInformation, int processInformationLength, out int returnLength);
+    [LibraryImport("ntdll.dll")]
+    private static partial int NtQueryInformationProcess(IntPtr processHandle, int processInformationClass, ref ParentProcessHelper processInformation, int processInformationLength, out int returnLength);
 
     public static Process? GetParentProcess()
     {

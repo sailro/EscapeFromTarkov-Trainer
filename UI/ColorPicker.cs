@@ -24,7 +24,7 @@ public class ColorPicker : Picker<Color>
 	private readonly Texture2D _rightArrow;
 	private readonly Texture2D _leftArrow;
 
-	const int HsvPickerSize = 120, HuePickerWidth = 16;
+	private const int HsvPickerSize = 120, HuePickerWidth = 16;
 
 	public ColorPicker(Color color) : base(color)
 	{

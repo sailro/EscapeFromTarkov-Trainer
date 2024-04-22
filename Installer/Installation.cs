@@ -25,7 +25,7 @@ internal class Installation
 	private Installation(string location, Version version)
 	{
 		if (string.IsNullOrEmpty(location))
-			throw new ArgumentException(nameof(location));
+			throw new ArgumentException("empty location");
 
 		Location = location;
 		Version = version;

@@ -17,6 +17,8 @@
     <RepositoryUrl>https://github.com/sailro/EscapeFromTarkov-Trainer</RepositoryUrl>
     <Version>2.6.0.0</Version>
     <Copyright>Sebastien Lebreton</Copyright>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NeutralLanguage>en-US</NeutralLanguage>
   </PropertyGroup>
 
   <ItemGroup>

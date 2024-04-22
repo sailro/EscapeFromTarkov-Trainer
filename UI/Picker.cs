@@ -6,6 +6,7 @@ public abstract class Picker<T>
 	public T Value => _value;
 	public abstract bool IsSelected { get; protected set; }
 
+	[System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0290")]
 	protected Picker(T value)
 	{
 		_value = value;

@@ -154,7 +154,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 			}
 		}
 
-		if (compilation == null && files.Any() && files.All(f => f!.StartsWith(features)))
+		if (compilation == null && files.Length != 0 && files.All(f => f!.StartsWith(features)))
 		{
 			// Failure, retry by removing faulting features if possible
 			AnsiConsole.MarkupLine($"[yellow]Trying to disable faulting feature(s): [red]{GetFaultingFeatures(files)}[/].[/]");
@@ -163,7 +163,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 
 			(compilation, archive, errors) = await GetCompilationAsync(context);
 
-			if (!errors.Any())
+			if (errors.Length == 0)
 				AnsiConsole.MarkupLine("[yellow]We found a fallback! But please file an issue here : https://github.com/sailro/EscapeFromTarkov-Trainer/issues [/]");
 		}
 
@@ -241,7 +241,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 					AnsiConsole.MarkupLine($"[grey]>> {error.Id} [[{error.Location.SourceTree?.FilePath.EscapeMarkup()}]]: {error.GetMessage().EscapeMarkup()}.[/]");
 #endif
 
-				if (errors.Any())
+				if (errors.Length != 0)
 				{
 					AnsiConsole.MarkupLine($">> [blue]Try #{context.Try}[/] [yellow]Compilation failed for {context.Branch.EscapeMarkup()} branch.[/]");
 					compilation = null;

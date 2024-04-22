@@ -13,7 +13,7 @@ using Microsoft.CodeAnalysis.Text;
 
 namespace Installer;
 
-internal class Compiler
+internal partial class Compiler
 {
 	private ZipArchive ProjectArchive { get; }
 	private Installation Installation { get; }
@@ -42,9 +42,9 @@ internal class Compiler
 
 	private IEnumerable<string> GetSourceFiles()
 	{
-		var matches = Regex.Matches(ProjectContent, "<Compile\\s+Include=\"(?<file>.*)\"\\s*/>");
+		var matches = CompileFileRegex().Matches(ProjectContent);
 
-		foreach (Match match in matches)
+		foreach (var match in matches.Cast<Match>())
 		{
 			if (!match.Success)
 				continue;
@@ -116,9 +116,9 @@ internal class Compiler
 	{
 		yield return MetadataReference.CreateFromFile(Path.Combine(Installation.Managed, "mscorlib.dll"));
 
-		var matches = Regex.Matches(ProjectContent, "<(Project)?Reference\\s+Include=\"(?<assemblyName>.*)\"\\s*/?>");
+		var matches = ProjectReferenceRegex().Matches(ProjectContent);
 
-		foreach (Match match in matches)
+		foreach (var match in matches.Cast<Match>())
 		{
 			if (!match.Success)
 				continue;
@@ -166,4 +166,10 @@ internal class Compiler
 			
 		return CSharpCompilation.Create(assemblyName, syntaxTrees, references, CompilationOptions);
 	}
+
+	[GeneratedRegex("<Compile\\s+Include=\"(?<file>.*)\"\\s*/>")]
+	private static partial Regex CompileFileRegex();
+
+	[GeneratedRegex("<(Project)?Reference\\s+Include=\"(?<assemblyName>.*)\"\\s*/?>")]
+	private static partial Regex ProjectReferenceRegex();
 }
