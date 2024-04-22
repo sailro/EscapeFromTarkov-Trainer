@@ -7,6 +7,8 @@ using EFT.Trainer.Configuration;
 using EFT.Trainer.UI;
 using UnityEngine;
 
+#nullable enable
+
 namespace EFT.Trainer.Features;
 
 internal abstract class FeatureRenderer : ToggleFeature

@@ -88,7 +88,7 @@ internal class Installation
 		if (TryDiscoverInstallation(Environment.CurrentDirectory, out var installation))
 			yield return installation;
 
-		if (TryDiscoverInstallation(Path.GetDirectoryName(AppContext.BaseDirectory)!, out installation))
+		if (TryDiscoverInstallation(Path.GetDirectoryName(AppContext.BaseDirectory), out installation))
 			yield return installation;
 
 		using var hive = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32);
@@ -116,7 +116,7 @@ internal class Installation
 		}
 	}
 
-	private static bool TryDiscoverInstallation(string path, [NotNullWhen(true)] out Installation? installation)
+	private static bool TryDiscoverInstallation(string? path, [NotNullWhen(true)] out Installation? installation)
 	{
 		installation = null;
 
