@@ -169,7 +169,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 		if (compilation == null && files.Length != 0 && files.All(file => folders.Any(folder => file!.StartsWith(folder))))
 		{
 			// Failure, retry by removing faulting features if possible
-			AnsiConsole.MarkupLine($"[yellow]Trying to disable faulting feature/command: [red]{GetFaultingNames(files)}[/].[/]");
+			AnsiConsole.MarkupLine($"[yellow]Trying to disable faulting feature/command: [red]{GetFaultingNames(files!)}[/].[/]");
 
 			context.Exclude = [.. files!, .. settings.DisabledFeatures!, .. settings.DisabledCommands!];
 			context.Branch = GetFallbackBranch(settings);
@@ -183,9 +183,13 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 		return (compilation, archive);
 	}
 
-	private static string GetFaultingNames(string?[] files)
+	private static string GetFaultingNames(string[] files)
 	{
-		return string.Join(", ", files.Select(Path.GetFileNameWithoutExtension));
+		return string.Join(", ", files
+			.Select(Path.GetFileNameWithoutExtension)
+			.Where(f => !f!.StartsWith("Base"))
+			.Distinct()
+			.OrderBy(f => f));
 	}
 
 	private static string GetDefaultBranch()
