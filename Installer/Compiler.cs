@@ -69,7 +69,7 @@ internal partial class Compiler
 		{
 			reference = MetadataReference.CreateFromFile(path);
 #if DEBUG
-			Spectre.Console.AnsiConsole.MarkupLine($"[grey]>> Resolved {assemblyName} to {path}.[/]");
+			Spectre.Console.AnsiConsole.MarkupLine($"[grey]>> Resolved {assemblyName} to {Spectre.Console.StringExtensions.EscapeMarkup(path)}.[/]");
 #endif
 		}
 
