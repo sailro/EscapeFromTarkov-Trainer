@@ -20,7 +20,7 @@ internal abstract class ConsoleCommandWithArgument : ConsoleCommand
 	public override void Register()
 	{
 #if DEBUG
-		AddConsoleLog($"Registering {Name} command...");
+		AddConsoleLog($"Registering {Name} command with arguments...");
 #endif
 		ConsoleScreen.Processor.RegisterCommand(Name, (string args) =>
 		{
