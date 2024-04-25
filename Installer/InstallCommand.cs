@@ -30,8 +30,20 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 		public string? Branch { get; set; }
 
 		[Description("Disable feature.")]
-		[CommandOption("-d|--disable")]
+		[CommandOption("-f|--feature")]
 		public string[]? DisabledFeatures { get; set; }
+
+		[Description("Disable command.")]
+		[CommandOption("-c|--command")]
+		public string[]? DisabledCommands { get; set; }
+	}
+
+	public static string[] ToSourceFile(string[]? names, string folder)
+	{
+		names ??= [];
+		return names
+			.Select(f => $"{folder}\\{f}.cs")
+			.ToArray();
 	}
 
 	[SupportedOSPlatform("windows")]
@@ -49,12 +61,12 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 			AnsiConsole.MarkupLine($"Target [green]EscapeFromTarkov ({installation.Version})[/] in [blue]{installation.Location.EscapeMarkup()}[/].");
 
 			const string features = "Features";
-			settings.DisabledFeatures ??= [];
-			settings.DisabledFeatures = settings.DisabledFeatures
-				.Select(f => $"{features}\\{f}.cs")
-				.ToArray();
+			const string commands = "ConsoleCommands";
 
-			var (compilation, archive) = await BuildTrainerAsync(settings, installation, features);
+			settings.DisabledFeatures = ToSourceFile(settings.DisabledFeatures, features);
+			settings.DisabledCommands = ToSourceFile(settings.DisabledCommands, commands);
+
+			var (compilation, archive) = await BuildTrainerAsync(settings, installation, features, commands);
 
 			if (compilation == null)
 			{
@@ -127,12 +139,12 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 		return (int)ExitCode.Success;
 	}
 
-	private static async Task<(CSharpCompilation?, ZipArchive?)> BuildTrainerAsync(Settings settings, Installation installation, string features)
+	private static async Task<(CSharpCompilation?, ZipArchive?)> BuildTrainerAsync(Settings settings, Installation installation, params string[] folders)
 	{
 		// Try first to compile against master
 		var context = new CompilationContext(installation, "trainer", "NLog.EFT.Trainer.csproj")
 		{
-			Exclude = settings.DisabledFeatures!,
+			Exclude = [.. settings.DisabledFeatures!, .. settings.DisabledCommands!],
 			Branch = GetInitialBranch(settings)
 		};
 
@@ -154,11 +166,12 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 			}
 		}
 
-		if (compilation == null && files.Length != 0 && files.All(f => f!.StartsWith(features)))
+		if (compilation == null && files.Length != 0 && files.All(file => folders.Any(folder => file!.StartsWith(folder))))
 		{
 			// Failure, retry by removing faulting features if possible
-			AnsiConsole.MarkupLine($"[yellow]Trying to disable faulting feature(s): [red]{GetFaultingFeatures(files)}[/].[/]");
-			context.Exclude = files.Concat(settings.DisabledFeatures!).ToArray()!;
+			AnsiConsole.MarkupLine($"[yellow]Trying to disable faulting feature/command: [red]{GetFaultingNames(files!)}[/].[/]");
+
+			context.Exclude = [.. files!, .. settings.DisabledFeatures!, .. settings.DisabledCommands!];
 			context.Branch = GetFallbackBranch(settings);
 
 			(compilation, archive, errors) = await GetCompilationAsync(context);
@@ -170,9 +183,13 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 		return (compilation, archive);
 	}
 
-	private static string GetFaultingFeatures(string?[] files)
+	private static string GetFaultingNames(string[] files)
 	{
-		return string.Join(", ", files.Select(Path.GetFileNameWithoutExtension));
+		return string.Join(", ", files
+			.Select(Path.GetFileNameWithoutExtension)
+			.Where(f => !f!.StartsWith("Base"))
+			.Distinct()
+			.OrderBy(f => f));
 	}
 
 	private static string GetDefaultBranch()

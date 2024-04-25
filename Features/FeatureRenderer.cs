@@ -16,15 +16,34 @@ internal abstract class FeatureRenderer : ToggleFeature
 	public abstract float X { get; set; }
 	public abstract float Y { get; set; }
 
-	protected static string UserPath => Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Escape from Tarkov");
-	private static string ConfigFile => Path.Combine(UserPath, "trainer.ini");
-
-	private static Lazy<Feature[]> Features => new(() => [.. FeatureFactory.GetAllFeatures().OrderBy(f => f.Name)]);
-	protected static Lazy<ToggleFeature[]> ToggleableFeatures => new(() => [.. FeatureFactory.GetAllToggleableFeatures().OrderByDescending(f => f.Name)]);
+	protected const float DefaultX = 40f;
+	protected const float DefaultY = 20f;
 
 	private static GUIStyle LabelStyle => new() {wordWrap = false, normal = {textColor = Color.white}, margin = new RectOffset(8,0,8,0), fixedWidth = 150f, stretchWidth = false};
 	private static GUIStyle DescriptionStyle => new() {wordWrap = true, normal = {textColor = Color.white}, margin = new RectOffset(8,0,8,0), stretchWidth = true};
 	private static GUIStyle BoxStyle => new(GUI.skin.box) {normal = {background = Texture2D.whiteTexture, textColor = Color.white}};
+
+	protected void SetupWindowCoordinates()
+	{
+		bool needfix = false;
+		X = FixCoordinate(X, Screen.width, DefaultX, ref needfix);
+		Y = FixCoordinate(Y, Screen.height, DefaultY, ref needfix);
+
+		if (needfix)
+			SaveSettings();
+	}
+
+	private static float FixCoordinate(float coord, float maxValue, float defaultValue, ref bool needfix)
+	{
+		if (coord < 0 || coord >= maxValue)
+		{
+			coord = defaultValue;
+			needfix = true;
+		}
+
+		return coord;
+	}
+
 
 	internal abstract class SelectionContext<T>
 	{
@@ -92,7 +111,8 @@ internal abstract class FeatureRenderer : ToggleFeature
 		var tabs = fixedTabs
 			.Concat
 			(
-				Features
+				Context
+					.Features
 					.Value
 					.Select(RenderFeatureText)
 			)
@@ -119,7 +139,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 				RenderSummary();
 				break;
 			default:
-				var feature = Features.Value[_selectedTabIndex - fixedTabs.Length];
+				var feature = Context.Features.Value[_selectedTabIndex - fixedTabs.Length];
 				RenderFeature(feature);
 
 				break;
@@ -155,7 +175,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 
 	protected static void SaveSettings()
 	{
-		ConfigurationManager.Save(ConfigFile, Features.Value);
+		ConfigurationManager.Save(Context.ConfigFile, Context.Features.Value);
 	}
 
 	protected void LoadSettings(bool warnIfNotExists = true)
@@ -163,7 +183,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 		var cx = X;
 		var cy = Y;
 
-		ConfigurationManager.Load(ConfigFile, Features.Value, warnIfNotExists);
+		ConfigurationManager.Load(Context.ConfigFile, Context.Features.Value, warnIfNotExists);
 		_controlValues.Clear();
 
 		if (!Enabled)

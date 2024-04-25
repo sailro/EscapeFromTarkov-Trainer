@@ -1,21 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using Comfort.Common;
-using Diz.Utils;
-using EFT.CameraControl;
-using EFT.Interactive;
-using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
-using EFT.Trainer.Extensions;
+using EFT.Trainer.ConsoleCommands;
 using EFT.UI;
-using JsonType;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 #nullable enable
 
@@ -38,10 +27,6 @@ internal class Commands : FeatureRenderer
 	public override KeyCode Key { get; set; } = KeyCode.RightAlt;
 
 	private bool Registered { get; set; } = false;
-	private const string ValueGroup = "value";
-	private const string ExtraGroup = "extra";
-	private const float DefaultX = 40f;
-	private const float DefaultY = 20f;
 
 	protected override void Update()
 	{
@@ -59,40 +44,25 @@ internal class Commands : FeatureRenderer
 
 	private void RegisterCommands()
 	{
-		foreach(var feature in ToggleableFeatures.Value)
+		foreach(var feature in Context.ToggleableFeatures.Value)
 		{
 			if (feature is Commands or GameState)
 				continue;
 
-			CreateCommand($"{feature.Name}", $"(?<{ValueGroup}>(on)|(off))", m => OnToggleFeature(feature, m));
-
-			if (feature is not LootItems liFeature) 
-				continue;
-
-			CreateCommand("list", $"(?<{ValueGroup}>.*)", m => ListLootItems(m, liFeature));
-			CreateCommand("listr", $"(?<{ValueGroup}>.*)", m => ListLootItems(m, liFeature, ELootRarity.Rare));
-			CreateCommand("listsr", $"(?<{ValueGroup}>.*)", m => ListLootItems(m, liFeature, ELootRarity.Superrare));
-
-			var colorNames = string.Join("|", ColorConverter.ColorNames());
-			CreateCommand("track", $"(?<value>.+?)(?<extra> ({colorNames}|\\[[\\.,\\d ]*\\]{{1}}))?", m => TrackLootItem(m, liFeature));
-			CreateCommand("trackr", $"(?<value>.+?)(?<extra> ({colorNames}|\\[[\\.,\\d ]*\\]{{1}}))?", m => TrackLootItem(m, liFeature, ELootRarity.Rare));
-			CreateCommand("tracksr", $"(?<value>.+?)(?<extra> ({colorNames}|\\[[\\.,\\d ]*\\]{{1}}))?", m => TrackLootItem(m, liFeature, ELootRarity.Superrare));
-
-			CreateCommand("untrack", $"(?<{ValueGroup}>.+)", m => UnTrackLootItem(m, liFeature));
-			CreateCommand("loadtl", $"(?<{ValueGroup}>.+)", m => LoadTrackList(m, liFeature));
-			CreateCommand("savetl", $"(?<{ValueGroup}>.+)", m => SaveTrackList(m, liFeature));
-
-			CreateCommand("tracklist", () => ShowTrackList(liFeature));
+			new ToggleFeatureCommand(feature)
+				.Register();
 		}
 
-		CreateCommand("dump", Dump);
-		CreateCommand("status", Status);
+		// Dynamically register commands
+		foreach (var command in GetCommands())
+			command.Register();
 
-		CreateCommand("load", () => LoadSettings());
-		CreateCommand("save", SaveSettings);
+		// built-in commands
+		new BuiltInCommand("load", () => LoadSettings())
+			.Register();
 
-		CreateCommand("spawn", $"(?<{ValueGroup}>.+)", SpawnItem);
-		CreateCommand("template", $"(?<{ValueGroup}>.+)", FindTemplates);
+		new BuiltInCommand("save", SaveSettings)
+			.Register();
 
 		// Load default configuration
 		LoadSettings(false);
@@ -101,419 +71,14 @@ internal class Commands : FeatureRenderer
 		Registered = true;
 	}
 
-	private static IEnumerable<ItemTemplate> FindTemplates(string searchShortNameOrTemplateId)
+	private IEnumerable<ConsoleCommand> GetCommands()
 	{
-		if (!Singleton<ItemFactory>.Instantiated)
-			return [];
-
-		var templates = Singleton<ItemFactory>
-			.Instance
-			.ItemTemplates;
-
-		// Match by TemplateId
-		if (templates.TryGetValue(searchShortNameOrTemplateId, out var template))
-			return [template];
-
-		// Match by short name(s)
-		return templates
-			.Values
-			.Where(t => t.ShortNameLocalizationKey.Localized().IndexOf(searchShortNameOrTemplateId, StringComparison.OrdinalIgnoreCase) >= 0 
-			            || t.NameLocalizationKey.Localized().IndexOf(searchShortNameOrTemplateId, StringComparison.OrdinalIgnoreCase) >= 0);
-	}
-
-	private void FindTemplates(Match match)
-	{
-		var matchGroup = match.Groups[ValueGroup];
-		if (matchGroup is not {Success: true})
-			return;
-
-		if (!Singleton<ItemFactory>.Instantiated)
-			return;
-
-		var search = matchGroup.Value;
-
-		var templates = FindTemplates(search).ToArray();
-		
-		foreach (var template in templates)
-			AddConsoleLog($"{template._id}: {template.ShortNameLocalizationKey.Localized().Green()} [{template.NameLocalizationKey.Localized()}]");
-
-		AddConsoleLog("------");
-		AddConsoleLog($"found {templates.Length.ToString().Cyan()} template(s)");
-	}
-
-	private void SpawnItem(Match match)
-	{
-		var matchGroup = match.Groups[ValueGroup];
-		if (matchGroup is not { Success: true })
-			return;
-
-		var player = GameState.Current?.LocalPlayer;
-		if (player == null)
-			return;
-
-		var search = matchGroup.Value;
-		var templates = FindTemplates(search).ToArray();
-
-		switch (templates.Length)
-		{
-			case 0:
-				AddConsoleLog("No template found!");
-				return;
-			case > 1:
-			{
-				foreach (var template in templates)
-					AddConsoleLog($"{template._id}: {template.ShortNameLocalizationKey.Localized().Green()} [{template.NameLocalizationKey.Localized()}]");
-
-				AddConsoleLog($"found {templates.Length.ToString().Cyan()} templates, be more specific");
-				return;
-			}
-		}
-
-		var tpl = templates[0];
-		var poolManager = Singleton<PoolManager>.Instance;
-
-		poolManager
-			.LoadBundlesAndCreatePools(PoolManager.PoolsCategory.Raid, PoolManager.AssemblyType.Online, [..tpl.AllResources], JobPriority.Immediate)
-			.ContinueWith(task =>
-		{
-			AsyncWorker.RunInMainTread(delegate
-			{
-				if (task.IsFaulted)
-				{
-					AddConsoleLog("Failed to load item bundle!");
-				}
-				else
-				{
-					var itemFactory = Singleton<ItemFactory>.Instance;
-					var item = itemFactory.CreateItem(MongoID.Generate(), tpl._id, null);
-					if (item == null)
-					{
-						AddConsoleLog("Failed to create item!");
-					}
-					else
-					{
-						item.SpawnedInSession = true; // found in raid
-
-						_ = new TraderControllerClass(item, item.Id, item.ShortName);
-						var go = poolManager.CreateLootPrefab(item, ECameraType.Default);
-
-						go.SetActive(value: true);
-						var lootItem = Singleton<GameWorld>.Instance.CreateLootWithRigidbody(go, item, item.ShortName, Singleton<GameWorld>.Instance, randomRotation: false, null, out _);
-						lootItem.transform.SetPositionAndRotation(player.Transform.position + player.Transform.forward * 2f + player.Transform.up * 0.5f, player.Transform.rotation);
-						lootItem.LastOwner = player;
-					}
-				}
-			});
-
-			return Task.CompletedTask;
-		});
-	}
-
-	private void SetupWindowCoordinates()
-	{
-		bool needfix = false;
-		X = FixCoordinate(X, Screen.width, DefaultX, ref needfix);
-		Y = FixCoordinate(Y, Screen.height, DefaultY, ref needfix);
-
-		if (needfix)
-			SaveSettings();
-	}
-
-	private static float FixCoordinate(float coord, float maxValue, float defaultValue, ref bool needfix)
-	{
-		if (coord < 0 || coord >= maxValue)
-		{
-			coord = defaultValue;
-			needfix = true;
-		}
-
-		return coord;
-	}
-
-	private void CreateCommand(string cmdName, Action action)
-	{
-#if DEBUG
-		AddConsoleLog($"Registering {cmdName} command...");
-#endif
-		ConsoleScreen.Processor.RegisterCommand(cmdName, action);
-	}
-
-	private void CreateCommand(string cmdName, string pattern, Action<Match> action)
-	{
-#if DEBUG
-		AddConsoleLog($"Registering {cmdName} command...");
-#endif
-		ConsoleScreen.Processor.RegisterCommand(cmdName, (string args) =>
-		{
-			var regex = new Regex("^" + pattern + "$");
-			if (regex.IsMatch(args))
-			{
-				action(regex.Match(args));
-			}
-			else
-			{
-				ConsoleScreen.LogError("Invalid arguments");
-			}
-		});
-	}
-
-	private void ShowTrackList(LootItems feature, bool changed = false)
-	{
-		if (changed)
-			AddConsoleLog("Tracking list updated...");
-
-		foreach (var templateId in feature.Wishlist)
-			AddConsoleLog($"Tracking: {templateId.LocalizedShortName()} (Wishlist)");
-
-		foreach (var item in feature.TrackedNames)
-		{
-			var extra = item.Rarity.HasValue ? $" ({item.Rarity.Value.Color()})" : string.Empty;
-			AddConsoleLog(item.Color.HasValue ? $"Tracking: {item.Name.Color(item.Color.Value)}{extra}" : $"Tracking: {item.Name}{extra}");
-		}
-	}
-
-	private static bool TryGetTrackListFilename(Match match, [NotNullWhen(true)] out string? filename)
-	{
-		filename = null;
-
-		var matchGroup = match.Groups[ValueGroup];
-		if (matchGroup is not {Success: true})
-			return false;
-
-		filename = matchGroup.Value;
-
-		if (!Path.IsPathRooted(filename))
-			filename = Path.Combine(UserPath, filename);
-
-		if (!Path.HasExtension(filename))
-			filename += ".tl";
-
-		return true;
-	}
-
-	private static void LoadTrackList(Match match, LootItems feature)
-	{
-		if (!TryGetTrackListFilename(match, out var filename))
-			return;
-
-		ConfigurationManager.LoadPropertyValue(filename, feature, nameof(LootItems.TrackedNames));
-	}
-
-	private static void SaveTrackList(Match match, LootItems feature)
-	{
-		if (!TryGetTrackListFilename(match, out var filename))
-			return;
-
-		ConfigurationManager.SavePropertyValue(filename, feature, nameof(LootItems.TrackedNames));
-	}
-
-	private void UnTrackLootItem(Match match, LootItems feature)
-	{
-		var matchGroup = match.Groups[ValueGroup];
-		if (matchGroup is not {Success: true})
-			return;
-
-		ShowTrackList(feature, feature.UnTrack(matchGroup.Value));
-	}
-
-	private void TrackLootItem(Match match, LootItems feature, ELootRarity? rarity = null)
-	{
-		var matchGroup = match.Groups[ValueGroup];
-		if (matchGroup is not {Success: true})
-			return;
-
-		Color? color = null;
-		var extraGroup = match.Groups[ExtraGroup];
-		if (extraGroup is {Success: true})
-			color = ColorConverter.Parse(extraGroup.Value);
-
-		ShowTrackList(feature, feature.Track(matchGroup.Value, color, rarity));
-	}
-
-	private void ListLootItems(Match match, LootItems feature, ELootRarity? rarityFilter = null)
-	{
-		var search = string.Empty;
-		var matchGroup = match.Groups[ValueGroup];
-		if (matchGroup is {Success: true})
-		{
-			search = matchGroup.Value.Trim();
-			if (search == TrackedItem.MatchAll)
-				search = string.Empty;
-		}
-
-		var world = Singleton<GameWorld>.Instance;
-		if (world == null)
-			return;
-
-		var itemsPerName = new Dictionary<string, List<Item>>();
-
-		// Step 1 - look outside containers and inside corpses (loot items)
-		FindLootItems(world, itemsPerName, feature);
-
-		// Step 2 - look inside containers (items)
-		if (feature.SearchInsideContainers)
-			FindItemsInContainers(world, itemsPerName);
-
-		var names = itemsPerName.Keys.ToList();
-		names.Sort();
-		names.Reverse();
-
-		var count = 0;
-		foreach (var itemName in names)
-		{
-			if (itemName.IndexOf(search, StringComparison.OrdinalIgnoreCase) < 0)
-				continue;
-
-			var list = itemsPerName[itemName];
-			var rarity = list.First().Template.GetEstimatedRarity();
-			if (rarityFilter.HasValue && rarityFilter.Value != rarity)
-				continue;
-
-			var extra = rarity != ELootRarity.Not_exist ? $" ({rarity.Color()})" : string.Empty;
-			AddConsoleLog($"{itemName} [{list.Count.ToString().Cyan()}]{extra}");
-
-			count += list.Count;
-		}
-
-		AddConsoleLog("------");
-		AddConsoleLog($"found {count.ToString().Cyan()} item(s)");
-	}
-
-	private static void FindItemsInContainers(GameWorld world, Dictionary<string, List<Item>> itemsPerName)
-	{
-		var owners = world.ItemOwners; // contains all containers: corpses, LootContainers, ...
-		foreach (var owner in owners)
-		{
-			var rootItem = owner.Key.RootItem;
-			if (rootItem is not { IsContainer: true })
-				continue;
-
-			if (!rootItem.IsValid() || rootItem.IsFiltered()) // filter default inventory container here, given we special case the corpse container
-				continue;
-
-			FindItemsInRootItem(itemsPerName, rootItem);
-		}
-	}
-
-	private static void FindItemsInRootItem(Dictionary<string, List<Item>> itemsPerName, Item? rootItem)
-	{
-		var items = rootItem?
-			.GetAllItems()?
-			.ToArray();
-
-		if (items == null)
-			return;
-
-		IndexItems(items, itemsPerName);
-	}
-
-	private static void FindLootItems(GameWorld world, Dictionary<string, List<Item>> itemsPerName, LootItems feature)
-	{
-		var lootItems = world.LootItems;
-		var filteredItems = new List<Item>();
-		for (var i = 0; i < lootItems.Count; i++)
-		{
-			var lootItem = lootItems.GetByIndex(i);
-			if (!lootItem.IsValid())
-				continue;
-
-			if (lootItem is Corpse corpse)
-			{
-				if (feature.SearchInsideCorpses)
-					FindItemsInRootItem(itemsPerName, corpse.ItemOwner?.RootItem);
-
-				continue;
-			}
-
-			filteredItems.Add(lootItem.Item);
-		}
-
-		IndexItems(filteredItems, itemsPerName);
-	}
-
-	private static void IndexItems(IEnumerable<Item> items, Dictionary<string, List<Item>> itemsPerName)
-	{
-		foreach (var item in items)
-		{
-			if (!item.IsValid() || item.IsFiltered())
-				continue;
-
-			var itemName = item.ShortName.Localized();
-			if (!itemsPerName.TryGetValue(itemName, out var pnList))
-			{
-				pnList = [];
-				itemsPerName[itemName] = pnList;
-			}
-
-			pnList.Add(item);
-		}
-	}
-
-	private static string GetFeatureHelpText(ToggleFeature feature)
-	{
-		var toggleKey = feature.Key != KeyCode.None ? $" ({feature.Key} to toggle)" : string.Empty;
-		return $"{feature.Name} is {(feature.Enabled ? "on".Green() : "off".Red())}{toggleKey}";
-	}
-
-	private void Status()
-	{
-		foreach (var feature in ToggleableFeatures.Value)
-		{
-			if (feature is Commands or GameState)
-				continue;
-
-			AddConsoleLog(GetFeatureHelpText(feature));
-		}
-	}
-
-	private void Dump()
-	{
-		var dumpfolder = Path.Combine(UserPath, "Dumps");
-		var thisDump = Path.Combine(dumpfolder, $"{DateTime.Now:yyyyMMdd-HHmmss}");
-
-		Directory.CreateDirectory(thisDump);
-
-		AddConsoleLog("Dumping scenes...");
-		for (int i = 0; i < SceneManager.sceneCount; i++) 
-		{
-			var scene = SceneManager.GetSceneAt(i);
-			if (!scene.isLoaded)
-				continue;
-
-			var json = SceneDumper.DumpScene(scene).ToPrettyJson();
-			File.WriteAllText(Path.Combine(thisDump, GetSafeFilename($"@scene - {scene.name}.txt")), json);
-		}
-
-		AddConsoleLog("Dumping game objects...");
-		foreach (var go in FindObjectsOfType<GameObject>())
-		{
-			if (go == null || go.transform.parent != null || !go.activeSelf) 
-				continue;
-
-			var filename = GetSafeFilename(go.name + "-" + go.GetHashCode() + ".txt");
-			var json = SceneDumper.DumpGameObject(go).ToPrettyJson();
-			File.WriteAllText(Path.Combine(thisDump, filename), json);
-		}
-
-		AddConsoleLog($"Dump created in {thisDump}");
-	}
-
-	private static string GetSafeFilename(string filename)
-	{
-		return string.Join("_", filename.Split(Path.GetInvalidFileNameChars()));  	
-	}
-
-	public void OnToggleFeature(ToggleFeature feature, Match match)
-	{
-		var matchGroup = match.Groups[ValueGroup];
-		if (matchGroup is not {Success: true})
-			return;
-
-		feature.Enabled = matchGroup.Value switch
-		{
-			"on" => true,
-			"off" => false,
-			_ => feature.Enabled
-		};
+		var types = GetType()
+			.Assembly
+			.GetTypes()
+			.Where(t => t.IsSubclassOf(typeof(ConsoleCommand)) && !t.IsAbstract && t.GetConstructor(Type.EmptyTypes) != null);
+
+		foreach (var type in types)
+			yield return (ConsoleCommand) Activator.CreateInstance(type);
 	}
 }
