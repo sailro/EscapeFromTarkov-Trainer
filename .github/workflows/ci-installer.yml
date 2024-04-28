@@ -13,7 +13,8 @@ on:
     - release/*
 
 env:
-  PUBLISH_PATH: './Installer/bin/Release/net8.0/win-x64/publish/'
+  CONFIGURATION: 'Release'
+  PUBLISH_PATH: './Installer/bin/{{ env.CONFIGURATION }}/net8.0/win-x64/publish/'
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
   DOTNET_NOLOGO: 1
 
@@ -32,10 +33,10 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: Build
-      run: dotnet build -c Release ./Installer/Installer.csproj
+      run: dotnet build -c {{ env.CONFIGURATION }} ./Installer/Installer.csproj
 
     - name: Publish
-      run: dotnet publish -c Release ./Installer/Installer.csproj
+      run: dotnet publish -c {{ env.CONFIGURATION }} ./Installer/Installer.csproj
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
