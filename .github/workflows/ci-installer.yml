@@ -32,9 +32,9 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: "Set Publish Path"
-      run: |
-        echo "PUBLISH_PATH=./Installer/bin/${{ env.CONFIGURATION }}/net8.0/win-x64/publish/" >> $GITHUB_ENV        
-
+      run: echo "PUBLISH_PATH=./Installer/bin/${{ env.CONFIGURATION }}/net8.0/win-x64/publish/" >> $GITHUB_ENV        
+      shell: bash
+      
     - name: Build
       run: dotnet build -c ${{ env.CONFIGURATION }} ./Installer/Installer.csproj
 
