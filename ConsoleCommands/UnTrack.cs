@@ -16,6 +16,6 @@ internal class UnTrack : BaseTrackCommand
 		if (matchGroup is not {Success: true})
 			return;
 
-		TrackList.ShowTrackList(this, LootItems, LootItems.UnTrack(matchGroup.Value));
+		TrackList.ShowTrackList(this, LootItemsFeature, LootItemsFeature.UnTrack(matchGroup.Value));
 	}
 }

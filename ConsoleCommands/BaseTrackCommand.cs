@@ -29,6 +29,6 @@ internal abstract class BaseTrackCommand : ConsoleCommandWithArgument
 		if (extraGroup is {Success: true})
 			color = ColorConverter.Parse(extraGroup.Value);
 
-		TrackList.ShowTrackList(this, LootItems, LootItems.Track(matchGroup.Value, color, rarity));
+		TrackList.ShowTrackList(this, LootItemsFeature, LootItemsFeature.Track(matchGroup.Value, color, rarity));
 	}
 }

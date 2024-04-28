@@ -44,7 +44,7 @@ internal abstract class BaseListCommand : ConsoleCommandWithArgument
 		FindLootItems(world, itemsPerName);
 
 		// Step 2 - look inside containers (items)
-		if (LootItems.SearchInsideContainers)
+		if (LootItemsFeature.SearchInsideContainers)
 			FindItemsInContainers(world, itemsPerName);
 
 		var names = itemsPerName.Keys.ToList();
@@ -96,7 +96,7 @@ internal abstract class BaseListCommand : ConsoleCommandWithArgument
 
 			if (lootItem is Corpse corpse)
 			{
-				if (LootItems.SearchInsideCorpses)
+				if (LootItemsFeature.SearchInsideCorpses)
 					FindItemsInRootItem(itemsPerName, corpse.ItemOwner?.RootItem);
 
 				continue;

@@ -12,7 +12,7 @@ internal class TrackList : ConsoleCommandWithoutArgument
 
 	public override void Execute()
 	{
-		ShowTrackList(this, LootItems);
+		ShowTrackList(this, LootItemsFeature);
 	}
 
 	internal static void ShowTrackList(ConsoleCommand command, Features.LootItems lootItems, bool changed = false)

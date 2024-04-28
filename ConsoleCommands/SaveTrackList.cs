@@ -16,6 +16,6 @@ internal class SaveTrackList : BaseTrackListCommand
 		if (!TryGetTrackListFilename(match, out var filename))
 			return;
 
-		ConfigurationManager.SavePropertyValue(filename, LootItems, nameof(LootItems.TrackedNames));
+		ConfigurationManager.SavePropertyValue(filename, LootItemsFeature, nameof(LootItemsFeature.TrackedNames));
 	}
 }
