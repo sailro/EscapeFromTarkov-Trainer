@@ -1,19 +1,19 @@
-﻿using EFT.InventoryLogic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+using Comfort.Common;
+using EFT.Interactive;
+using EFT.InventoryLogic;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.Features;
 using JsonType;
-using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System;
-using System.Linq;
-using Comfort.Common;
-using EFT.Interactive;
 
 #nullable enable
 
 namespace EFT.Trainer.ConsoleCommands;
 
-internal abstract class BaseListCommand : LootItemsRelatedCommand
+internal abstract class BaseListCommand : ConsoleCommandWithArgument
 {
 	public override string Pattern => OptionalArgumentPattern;
 	protected virtual ELootRarity? Rarity => null;

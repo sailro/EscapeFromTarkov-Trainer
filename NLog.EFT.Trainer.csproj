@@ -130,7 +130,6 @@
     <Compile Include="ConsoleCommands\ListRare.cs" />
     <Compile Include="ConsoleCommands\ListSuperRare.cs" />
     <Compile Include="ConsoleCommands\LoadTrackList.cs" />
-    <Compile Include="ConsoleCommands\LootItemsRelatedCommand.cs" />
     <Compile Include="ConsoleCommands\SaveTrackList.cs" />
     <Compile Include="ConsoleCommands\Spawn.cs" />
     <Compile Include="ConsoleCommands\Status.cs" />

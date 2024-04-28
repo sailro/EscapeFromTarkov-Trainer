@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 
 namespace EFT.Trainer.ConsoleCommands;
 
-internal abstract class BaseTrackListCommand : LootItemsRelatedCommand
+internal abstract class BaseTrackListCommand : ConsoleCommandWithArgument
 {
 	public override string Pattern => RequiredArgumentPattern;
 

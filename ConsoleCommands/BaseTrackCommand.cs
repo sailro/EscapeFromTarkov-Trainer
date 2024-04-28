@@ -1,14 +1,13 @@
-﻿using EFT.Trainer.Configuration;
-using EFT.Trainer.Extensions;
+﻿using System.Text.RegularExpressions;
+using EFT.Trainer.Configuration;
 using JsonType;
-using System.Text.RegularExpressions;
 using UnityEngine;
 
 #nullable enable
 
 namespace EFT.Trainer.ConsoleCommands;
 
-internal abstract class BaseTrackCommand : LootItemsRelatedCommand
+internal abstract class BaseTrackCommand : ConsoleCommandWithArgument
 {
 	private static string ColorNames => string.Join("|", ColorConverter.ColorNames());
 	public override string Pattern => $"(?<{ValueGroup}>.+?)(?<{ExtraGroup}> ({ColorNames}|\\[[\\.,\\d ]*\\]{{1}}))?";

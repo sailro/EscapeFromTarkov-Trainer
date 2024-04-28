@@ -1,5 +1,4 @@
-﻿using System;
-using EFT.Trainer.Extensions;
+﻿using EFT.Trainer.Extensions;
 using JetBrains.Annotations;
 
 #nullable enable
@@ -10,11 +9,6 @@ namespace EFT.Trainer.ConsoleCommands;
 internal class TrackList : ConsoleCommandWithoutArgument
 {
 	public override string Name => "tracklist";
-
-	// Unfortunately we cannot use BaseTrackCommand or LootItemsRelatedCommand here
-	private readonly Lazy<Features.LootItems> _lootItems = new(() => Features.FeatureFactory.GetFeature<Features.LootItems>()!);
-	private Features.LootItems LootItems => _lootItems.Value;
-
 
 	public override void Execute()
 	{
