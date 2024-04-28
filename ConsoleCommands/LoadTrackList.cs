@@ -16,6 +16,6 @@ internal class LoadTrackList : BaseTrackListCommand
 		if (!TryGetTrackListFilename(match, out var filename))
 			return;
 
-		ConfigurationManager.LoadPropertyValue(filename, LootItems, nameof(Features.LootItems.TrackedNames));
+		ConfigurationManager.LoadPropertyValue(filename, LootItems, nameof(LootItems.TrackedNames));
 	}
 }

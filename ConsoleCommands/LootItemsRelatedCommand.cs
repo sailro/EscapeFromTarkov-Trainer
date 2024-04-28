@@ -1,5 +1,6 @@
 ﻿using System;
 using EFT.Trainer.Features;
+using LootItems = EFT.Trainer.Features.LootItems;
 
 #nullable enable
 

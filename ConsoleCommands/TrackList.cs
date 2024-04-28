@@ -2,6 +2,7 @@
 using EFT.Trainer.Extensions;
 using EFT.Trainer.Features;
 using JetBrains.Annotations;
+using LootItems = EFT.Trainer.Features.LootItems;
 
 #nullable enable
 
