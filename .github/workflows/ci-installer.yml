@@ -11,9 +11,19 @@ on:
     branches:
     - master
     - release/*
+  workflow_dispatch:
+    inputs:
+      configuration:
+        description: 'Configuration'
+        required: true
+        default: 'Release'
+        type: choice
+        options:
+        - Release
+        - Debug
 
 env:
-  CONFIGURATION: 'Release'
+  CONFIGURATION: ${{ inputs.configuration != '' && inputs.configuration || 'Release' }}
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
   DOTNET_NOLOGO: 1
 
