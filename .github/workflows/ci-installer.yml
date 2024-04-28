@@ -26,6 +26,8 @@ env:
   CONFIGURATION: ${{ inputs.configuration != '' && inputs.configuration || 'Release' }}
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
   DOTNET_NOLOGO: 1
+  INSTALLER_DOTNET_VERSION: '8.0'
+  INSTALLER_PLATFORM: 'win-x64'
 
 jobs:
   windows:
@@ -39,10 +41,10 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: '8.0.x'
+        dotnet-version: '${{ env.INSTALLER_DOTNET_VERSION }}.x'
 
     - name: "Set Publish Path"
-      run: echo "PUBLISH_PATH=./Installer/bin/${{ env.CONFIGURATION }}/net8.0/win-x64/publish/" >> $GITHUB_ENV        
+      run: echo "PUBLISH_PATH=./Installer/bin/${{ env.CONFIGURATION }}/net${{ env.INSTALLER_DOTNET_VERSION }}/${{ env.INSTALLER_PLATFORM }}/publish/" >> $GITHUB_ENV        
       shell: bash
       
     - name: Build
