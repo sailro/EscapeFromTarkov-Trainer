@@ -14,7 +14,6 @@ on:
 
 env:
   CONFIGURATION: 'Release'
-  PUBLISH_PATH: './Installer/bin/${{ env.CONFIGURATION }}/net8.0/win-x64/publish/'
   DOTNET_SKIP_FIRST_TIME_EXPERIENCE: 1
   DOTNET_NOLOGO: 1
 
