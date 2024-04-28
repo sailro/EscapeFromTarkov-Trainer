@@ -15,6 +15,7 @@ internal class TrackList : ConsoleCommandWithoutArgument
 		ShowTrackList(this, LootItemsFeature);
 	}
 
+	// StayInTarkov (SIT) is exposing a LootItems type in the global namespace, so make sure we use a qualified name here
 	internal static void ShowTrackList(ConsoleCommand command, Features.LootItems lootItems, bool changed = false)
 	{
 		if (changed)

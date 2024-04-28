@@ -16,6 +16,7 @@ internal class SaveTrackList : BaseTrackListCommand
 		if (!TryGetTrackListFilename(match, out var filename))
 			return;
 
+		// StayInTarkov (SIT) is exposing a LootItems type in the global namespace, so make sure we use a qualified name here
 		ConfigurationManager.SavePropertyValue(filename, LootItemsFeature, nameof(LootItemsFeature.TrackedNames));
 	}
 }

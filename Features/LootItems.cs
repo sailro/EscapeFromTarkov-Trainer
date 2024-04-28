@@ -14,6 +14,7 @@ using UnityEngine;
 
 namespace EFT.Trainer.Features;
 
+// StayInTarkov (SIT) is exposing a LootItems type in the global namespace, so make sure to use a qualified name for this one
 internal class LootItems : PointOfInterests
 {
 	public override string Name => "loot";
