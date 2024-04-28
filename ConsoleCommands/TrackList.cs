@@ -1,8 +1,6 @@
 ﻿using System;
 using EFT.Trainer.Extensions;
-using EFT.Trainer.Features;
 using JetBrains.Annotations;
-using LootItems = EFT.Trainer.Features.LootItems;
 
 #nullable enable
 
@@ -14,8 +12,8 @@ internal class TrackList : ConsoleCommandWithoutArgument
 	public override string Name => "tracklist";
 
 	// Unfortunately we cannot use BaseTrackCommand or LootItemsRelatedCommand here
-	private readonly Lazy<LootItems> _lootItems = new(() => FeatureFactory.GetFeature<LootItems>()!);
-	private LootItems LootItems => _lootItems.Value;
+	private readonly Lazy<Features.LootItems> _lootItems = new(() => Features.FeatureFactory.GetFeature<Features.LootItems>()!);
+	private Features.LootItems LootItems => _lootItems.Value;
 
 
 	public override void Execute()
@@ -23,7 +21,7 @@ internal class TrackList : ConsoleCommandWithoutArgument
 		ShowTrackList(this, LootItems);
 	}
 
-	internal static void ShowTrackList(ConsoleCommand command, LootItems lootItems, bool changed = false)
+	internal static void ShowTrackList(ConsoleCommand command, Features.LootItems lootItems, bool changed = false)
 	{
 		if (changed)
 			command.AddConsoleLog("Tracking list updated...");
