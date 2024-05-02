@@ -35,6 +35,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 | `Health`                  | `health`     | Full health, prevent any damage (so even when falling), keep energy and hydration at maximum. |
 | `Hits`                    | `hits`       | Hit markers (hit, armor, health with configurable colors). |
 | `Hud`                     | `hud`        | HUD (compass, ammo left in chamber / magazine, fire mode, coordinates). |
+| `Interact`                | `interact`   | Change distance for loot/door interaction. |
 | `LootableContainers`      | `stash`      | Hidden/special stashes like buried barrels, ground caches, air drops or corpses. |
 | `LootItems`               | `loot`       | List all lootable items and track any item by name or rarity or in-game wishlist in raid (even in containers and corpses). |
 | `Map`                     | `map`        | Full screen map with radar esp. |
@@ -114,6 +115,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | health     | `on` or `off`       | `off`   | Enable/Disable full health          |
 | hits       | `on` or `off`       | `off`   | Show/Hide hit markers               |
 | hud        | `on` or `off`       | `on`    | Show/Hide hud                       |
+| interact   | `on` or `off`       | `on`    | Enable/Disable interaction changes  |
 | list       | `[name]` or `*`     |         | List lootable items                 |
 | listr      | `[name]` or `*`     |         | List only rare lootable items       |
 | listsr     | `[name]` or `*`     |         | List only super rare lootable items |

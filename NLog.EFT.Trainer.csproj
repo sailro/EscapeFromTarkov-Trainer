@@ -160,6 +160,7 @@
     <Compile Include="Features\FeatureRenderer.cs" />
     <Compile Include="Features\FovChanger.cs" />
     <Compile Include="Features\Durability.cs" />
+    <Compile Include="Features\Interact.cs" />
     <Compile Include="Features\NoMalfunctions.cs" />
     <Compile Include="Features\AutomaticGun.cs" />
     <Compile Include="Features\Bones.cs" />
