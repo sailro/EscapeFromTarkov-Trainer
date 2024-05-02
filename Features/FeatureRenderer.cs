@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using EFT.InputSystem;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.UI;
+using EFT.UI;
 using UnityEngine;
 
 #nullable enable
@@ -78,6 +80,8 @@ internal abstract class FeatureRenderer : ToggleFeature
 	private KeyCodeSelectionContext? _keyCodeSelectionContext = null;
 	protected override void OnGUIWhenEnabled()
 	{
+		SetupInputNode();
+
 		_clientWindowRect = new Rect(X, Y, 490, _clientWindowRect.height);
 		_clientWindowRect = GUILayout.Window(0, _clientWindowRect, RenderFeatureWindow, "EFT Trainer", GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true));
 		X = _clientWindowRect.x;
@@ -391,5 +395,42 @@ internal abstract class FeatureRenderer : ToggleFeature
 		}
 
 		return newValue;
+	}
+
+	public override ETranslateResult TranslateCommand(ECommand command)
+	{
+		return command switch
+		{
+			// We do not want the player to shoot while clicking on a menu button
+			ECommand.ToggleShooting when Enabled => ETranslateResult.BlockAll,
+			_ => ETranslateResult.Ignore
+		};
+	}
+
+	public override void TranslateAxes(ref float[] axes)
+	{
+		// this will disable the axes for player movement
+		if (Enabled)
+			axes = null!;
+	}
+
+	public override ECursorResult ShouldLockCursor()
+	{
+		return Enabled ? ECursorResult.ShowCursor : ECursorResult.Ignore;
+	}
+
+	private void SetupInputNode()
+	{
+		var player = GameState.Current?.LocalPlayer;
+		if (player == null)
+			return;
+
+		if (!player.TryGetComponent<PlayerOwner>(out var owner))
+			return;
+
+		if (owner.InputTree.Contains(this))
+			return;
+
+		owner.InputTree.Add(this);
 	}
 }

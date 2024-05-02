@@ -1,4 +1,5 @@
 ﻿using System;
+using EFT.InputSystem;
 using EFT.UI;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -13,7 +14,7 @@ internal interface IFeature
 	public string Name { get; }
 }
 
-internal abstract class Feature : MonoBehaviour, IFeature
+internal abstract class Feature : InputNode, IFeature
 {
 	public abstract string Name { get; }
 	public abstract string Description { get; }
@@ -78,5 +79,19 @@ internal abstract class Feature : MonoBehaviour, IFeature
 	{
 		if (PreloaderUI.Instantiated)
 			ConsoleScreen.Log(log);
+	}
+
+	public override ETranslateResult TranslateCommand(ECommand command)
+	{
+		return ETranslateResult.Ignore;
+	}
+
+	public override void TranslateAxes(ref float[] axes)
+	{
+	}
+
+	public override ECursorResult ShouldLockCursor()
+	{
+		return ECursorResult.Ignore;
 	}
 }
