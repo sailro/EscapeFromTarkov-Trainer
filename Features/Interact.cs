@@ -7,7 +7,7 @@ namespace EFT.Trainer.Features;
 internal class Interact : ToggleFeature
 {
 	public override string Name => "interact";
-	public override string Description => "Change distance for loot/door interaction";
+	public override string Description => "Change distance for loot/door interaction.";
 
 	public override bool Enabled { get; set; } = false;
 
