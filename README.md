@@ -115,7 +115,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | health     | `on` or `off`       | `off`   | Enable/Disable full health          |
 | hits       | `on` or `off`       | `off`   | Show/Hide hit markers               |
 | hud        | `on` or `off`       | `on`    | Show/Hide hud                       |
-| interact   | `on` or `off`       | `on`    | Enable/Disable interaction changes  |
+| interact   | `on` or `off`       | `off`   | Enable/Disable interaction changes  |
 | list       | `[name]` or `*`     |         | List lootable items                 |
 | listr      | `[name]` or `*`     |         | List only rare lootable items       |
 | listsr     | `[name]` or `*`     |         | List only super rare lootable items |
