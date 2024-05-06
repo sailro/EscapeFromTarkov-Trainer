@@ -5,6 +5,7 @@ using System.IO.Compression;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Net.Security;
 using System.Runtime.Versioning;
 using System.Text;
 using System.Threading.Tasks;
@@ -280,11 +281,30 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 
 		try
 		{
+			var handler = new HttpClientHandler { ServerCertificateCustomValidationCallback = (_, certificate, chain, errors) =>
+				{
+					if (errors == SslPolicyErrors.None)
+						return true;
+
+					AnsiConsole.MarkupLine($"[yellow]Warning: [[{errors}]] We found SSL issues.[/]");
+					foreach (var chainStatus in chain?.ChainStatus ?? [])
+						AnsiConsole.MarkupLine($"[yellow]Warning: [[{chainStatus.Status}]] {chainStatus.StatusInformation.EscapeMarkup()}[/]");
+
+					if (certificate == null) 
+						return true;
+
+					AnsiConsole.MarkupLine($"[yellow]Warning: [[Subject]] {certificate.Subject.EscapeMarkup()}.[/]");
+					AnsiConsole.MarkupLine($"[yellow]Warning: [[Issuer]] {certificate.Issuer.EscapeMarkup()}.[/]");
+
+					return true;
+				}
+			};
+
 			await AnsiConsole
 				.Status()
 				.StartAsync(status, async _ =>
 				{
-					using var client = new HttpClient();
+					using var client = new HttpClient(handler);
 					var buffer = await client.GetByteArrayAsync(new Uri($"https://github.com/sailro/EscapeFromTarkov-Trainer/archive/refs/heads/{branch}.zip"));
 					var stream = new MemoryStream(buffer);
 					result = new ZipArchive(stream, ZipArchiveMode.Read);
