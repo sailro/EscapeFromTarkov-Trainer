@@ -31,6 +31,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 | `ExfiltrationPoints`      | `exfil`      | Exfiltration points with customizable colors given eligibility, status filter, distance. |
 | `FovChanger`              | `fovchanger` | Change Field Of View (FOV). |
 | `FreeCamera`              | `camera`     | Free camera with fast mode and teleportation. |
+| `Ghost`                   | `ghost`      | Stop bots from seeing you. |
 | `Grenades`                | `grenade`    | Grenades outline. |
 | `Health`                  | `health`     | Full health, prevent any damage (so even when falling), keep energy and hydration at maximum. |
 | `Hits`                    | `hits`       | Hit markers (hit, armor, health with configurable colors). |
@@ -111,6 +112,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | examine    | `on` or `off`       | `off`   | Enable/Disable all item examined    |
 | exfil      | `on` or `off`       | `on`    | Show/Hide exfiltration points       |
 | fovchanger | `on` or `off`       | `off`   | Change FOV value                    |
+| ghost      | `on` or `off`       | `off`   | Enable/Disable ghost mode           |
 | grenade    | `on` or `off`       | `off`   | Show/Hide grenades                  |
 | health     | `on` or `off`       | `off`   | Enable/Disable full health          |
 | hits       | `on` or `off`       | `off`   | Show/Hide hit markers               |
