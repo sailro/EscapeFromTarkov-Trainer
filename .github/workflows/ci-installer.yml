@@ -44,7 +44,7 @@ jobs:
         dotnet-version: '${{ env.INSTALLER_DOTNET_VERSION }}.x'
 
     - name: "Set Publish Path"
-      run: echo "PUBLISH_PATH=./Installer/bin/${{ env.CONFIGURATION }}/net${{ env.INSTALLER_DOTNET_VERSION }}/${{ env.INSTALLER_PLATFORM }}/publish/" >> $GITHUB_ENV        
+      run: echo "PUBLISH_PATH=./Installer/bin/${{ env.CONFIGURATION }}/net${{ env.INSTALLER_DOTNET_VERSION }}/${{ env.INSTALLER_PLATFORM }}/publish/" >> $GITHUB_ENV
       shell: bash
       
     - name: Build
@@ -59,7 +59,8 @@ jobs:
         name: Installer.exe
         path: ${{ env.PUBLISH_PATH }}Installer.exe
 
-    - name: Compute
+    - name: Compute Release Info
+      if: startsWith(github.ref, 'refs/tags/')
       run: |
         export LC_NUMERIC="en_US.UTF-8"
         file_name=${{ env.PUBLISH_PATH }}Installer.exe
@@ -69,23 +70,12 @@ jobs:
         file_sha256=`sha256sum "$file_name" | cut -d" " -f1`
         version=`echo ${{ github.head_ref || github.ref_name }} | cut -d- -f2`
         release_name="Universal Installer $version"
-        echo $file_size
-        echo $file_size_mib
-        echo $file_size_display
-        echo $file_sha256
-        echo $version
-        echo $release_name
+        echo "RELEASE_NAME=$release_name" >> $GITHUB_ENV
         cp .github/RELEASE_TEMPLATE/content.md ./content.md
         sed -i -e "s/FILE_SIZE_DISPLAY/$file_size_display/g" ./content.md
         sed -i -e "s/FILE_SHA256/$file_sha256/g" ./content.md
       shell: bash
       
-    - name: Upload Artifact
-      uses: actions/upload-artifact@v4
-      with:
-        name: content.md
-        path: ./content.md
-
     - name: Zip
       if: startsWith(github.ref, 'refs/tags/')
       run: Compress-Archive -Path ${{ env.PUBLISH_PATH }}Installer.exe -Destination ./Installer.zip
@@ -95,5 +85,7 @@ jobs:
       uses: softprops/action-gh-release@v2
       if: startsWith(github.ref, 'refs/tags/')
       with:
+        name: ${{ env.RELEASE_NAME }}
+        body_path: ./content.md
         files: ./Installer.zip
         make_latest: true
