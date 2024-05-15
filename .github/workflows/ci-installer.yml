@@ -76,8 +76,8 @@ jobs:
         echo $version
         echo $release_name
         cp .github/RELEASE_TEMPLATE/content.md ./content.md
-        sed -i -e 's/FILE_SIZE_DISPLAY/$file_size_display/g' ./content.md
-        sed -i -e 's/FILE_SHA256/$file_sha256/g' ./content.md
+        sed -i -e "s/FILE_SIZE_DISPLAY/$file_size_display/g" ./content.md
+        sed -i -e "s/FILE_SHA256/$file_sha256/g" ./content.md
       shell: bash
       
     - name: Upload Artifact
