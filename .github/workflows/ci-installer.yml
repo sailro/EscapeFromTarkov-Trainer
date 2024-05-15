@@ -64,13 +64,17 @@ jobs:
         export LC_NUMERIC="en_US.UTF-8"
         file_name=${{ env.PUBLISH_PATH }}Installer.exe
         file_size=`du --block-size="'1" "$file_name" | cut -f1`
-        file_size_mib=`du --block-size="'MiB" "$file_name" | cut -f1`
+        file_size_mib=`du --block-size="'MiB" "$file_name" | cut -f1 | sed s/M/\ M/`
+        file_size_display="$file_size bytes ($file_size_mib)"
         file_sha256=`sha256sum "$file_name" | cut -d" " -f1`
-        version=`echo ${{ github.ref_name }} | cut -d- -f2`
+        version=`echo ${{ github.head_ref || github.ref_name }} | cut -d- -f2`
+        release_name="Universal Installer $version"
         echo $file_size
         echo $file_size_mib
+        echo $file_size_display
         echo $file_sha256
         echo $version
+        echo release_name
       shell: bash
 
     - name: Zip
