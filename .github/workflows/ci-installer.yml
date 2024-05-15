@@ -75,7 +75,16 @@ jobs:
         echo $file_sha256
         echo $version
         echo $release_name
+        cp .github/RELEASE_TEMPLATE/content.md ./content.md
+        sed -i -e 's/FILE_SIZE_DISPLAY/$file_size_display/g' ./content.md
+        sed -i -e 's/FILE_SHA256/$file_sha256/g' ./content.md
       shell: bash
+      
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: content.md
+        path: ./content.md
 
     - name: Zip
       if: startsWith(github.ref, 'refs/tags/')
