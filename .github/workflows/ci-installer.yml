@@ -74,7 +74,7 @@ jobs:
         echo $file_size_display
         echo $file_sha256
         echo $version
-        echo release_name
+        echo $release_name
       shell: bash
 
     - name: Zip
