@@ -89,3 +89,12 @@ jobs:
         body_path: ./content.md
         files: ./Installer.zip
         make_latest: true
+
+    - name: Drop Old Releases
+      uses: sgpublic/delete-release-action@v1.1
+      with:
+        release-drop: true
+        release-keep-count: 0
+        release-drop-tag: false
+        draft-drop: false
+        pre-release-drop: false
