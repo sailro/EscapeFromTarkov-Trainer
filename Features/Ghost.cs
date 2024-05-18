@@ -38,7 +38,7 @@ internal class Ghost : ToggleFeature
 		memory.GoalEnemy = null;
 		memory.LastEnemy = null;
 
-		__instance.SetCanShoot(false);
+		__instance.SetVisible(false);
 		__instance.SetCanShoot(false);
 		__instance.SetIgnoreState();
 
