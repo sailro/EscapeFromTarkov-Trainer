@@ -27,7 +27,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 | `Commands`                | `commands`   | Popup window to enable/disable all features (use right-alt or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)). |
 | `CrossHair`               | `crosshair`  | Crosshair with customizable size, color, thickness and auto-hide feature when aiming. |
 | `Durability`              | `durability` | Maximum durability of items. |
-| `Examine`                 | `examine`    | All items already examined. |
+| `Examine`                 | `examine`    | All items already examined. Instant search. |
 | `ExfiltrationPoints`      | `exfil`      | Exfiltration points with customizable colors given eligibility, status filter, distance. |
 | `FovChanger`              | `fovchanger` | Change Field Of View (FOV). |
 | `FreeCamera`              | `camera`     | Free camera with fast mode and teleportation. |
