@@ -13,4 +13,5 @@ internal class CompilationContext(Installation installation, string projectTitle
 	public string Branch { get; set; } = DefaultBranch;
 	public string[] Exclude { get; set; } = [];
 	public ZipArchive? Archive { get; set; }
+	public bool IsFatalFailure { get; set; } = false;
 }
