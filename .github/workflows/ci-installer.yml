@@ -89,15 +89,3 @@ jobs:
         body_path: ./content.md
         files: ./Installer.zip
         make_latest: true
-
-    - name: Drop Old Releases
-      uses: sgpublic/delete-release-action@v1.1
-      if: startsWith(github.ref, 'refs/tags/')
-      with:
-        release-drop: true
-        release-keep-count: 0
-        release-drop-tag: false
-        draft-drop: false
-        pre-release-drop: false
-      env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN }}
