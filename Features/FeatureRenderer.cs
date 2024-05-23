@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.IO;
 using System.Linq;
 using EFT.InputSystem;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.UI;
-using EFT.UI;
 using UnityEngine;
 
 #nullable enable

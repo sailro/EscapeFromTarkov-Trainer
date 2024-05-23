@@ -2,7 +2,6 @@
 using EFT.InputSystem;
 using EFT.UI;
 using Newtonsoft.Json;
-using UnityEngine;
 
 #nullable enable
 
