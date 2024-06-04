@@ -9,3 +9,11 @@ updates:
     directory: "/"
     schedule:
       interval: "weekly"
+    groups:
+      roslyn:
+        patterns:
+          - "Microsoft.CodeAnalysis*"
+      analyzers:
+        patterns:
+          - "*Analyzers"
+  
