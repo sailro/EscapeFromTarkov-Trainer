@@ -395,7 +395,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 		return newValue;
 	}
 
-	protected override ETranslateResult TranslateCommand(ECommand command)
+	public override ETranslateResult TranslateCommand(ECommand command)
 	{
 		return command switch
 		{
@@ -405,14 +405,14 @@ internal abstract class FeatureRenderer : ToggleFeature
 		};
 	}
 
-	protected override void TranslateAxes(ref float[] axes)
+	public override void TranslateAxes(ref float[] axes)
 	{
 		// this will disable the axes for player movement
 		if (Enabled)
 			axes = null!;
 	}
 
-	protected override ECursorResult ShouldLockCursor()
+	public override ECursorResult ShouldLockCursor()
 	{
 		return Enabled ? ECursorResult.ShowCursor : ECursorResult.Ignore;
 	}
