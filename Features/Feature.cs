@@ -80,16 +80,16 @@ internal abstract class Feature : InputNode, IFeature
 			ConsoleScreen.Log(log);
 	}
 
-	public override ETranslateResult TranslateCommand(ECommand command)
+	protected override ETranslateResult TranslateCommand(ECommand command)
 	{
 		return ETranslateResult.Ignore;
 	}
 
-	public override void TranslateAxes(ref float[] axes)
+	protected override void TranslateAxes(ref float[] axes)
 	{
 	}
 
-	public override ECursorResult ShouldLockCursor()
+	protected override ECursorResult ShouldLockCursor()
 	{
 		return ECursorResult.Ignore;
 	}
