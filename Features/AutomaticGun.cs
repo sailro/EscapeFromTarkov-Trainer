@@ -1,6 +1,7 @@
 ﻿using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 
 #nullable enable
@@ -10,8 +11,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class AutomaticGun : ToggleFeature
 {
-	public override string Name => "autogun";
-	public override string Description => "Force all guns (even bolt action guns) to use automatic firing mode with customizable fire rate.";
+	public override string Name => Strings.FeatureAutomaticGunName;
+	public override string Description => Strings.FeatureAutomaticGunDescription;
 
 	public override bool Enabled { get; set; } = false;
 

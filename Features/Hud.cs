@@ -4,6 +4,7 @@ using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
 using UnityEngine;
 using System.Text;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 
 #nullable enable
@@ -13,8 +14,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class Hud : ToggleFeature
 {
-	public override string Name => "hud";
-	public override string Description => "HUD (compass, ammo left in chamber / magazine, fire mode, coordinates).";
+	public override string Name => Strings.FeatureHudName;
+	public override string Description => Strings.FeatureHudDescription;
 
 	[ConfigurationProperty]
 	public Color Color { get; set; } = Color.white;
@@ -22,7 +23,17 @@ internal class Hud : ToggleFeature
 	[ConfigurationProperty]
 	public bool ShowCompass { get; set; } = true;
 		
-	private static readonly string[] _directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW", "N"];
+	private static readonly string[] _directions = [
+		Properties.Strings.DirectionNorth,
+		Properties.Strings.DirectionNorthEast,
+		Properties.Strings.DirectionEast,
+		Properties.Strings.DirectionSouthEast,
+		Properties.Strings.DirectionSouth,
+		Properties.Strings.DirectionSouthWest,
+		Properties.Strings.DirectionWest,
+		Properties.Strings.DirectionNorthWest,
+		Properties.Strings.DirectionNorth
+	];
 
 	[ConfigurationProperty]
 	public bool ShowCoordinates { get; set; } = false;

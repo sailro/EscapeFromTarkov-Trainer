@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using EFT.Trainer.Properties;
+using JetBrains.Annotations;
 using UnityEngine;
 
 #nullable enable
@@ -8,8 +9,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class NoCollision : ToggleFeature
 {
-	public override string Name => "nocoll";
-	public override string Description => "No physical collisions, making you immune to bullets, grenades and barbed wires.";
+	public override string Name => Strings.FeatureNoCollisionName;
+	public override string Description => Strings.FeatureNoCollisionDescription;
 
 	public override bool Enabled { get; set; } = false;
 

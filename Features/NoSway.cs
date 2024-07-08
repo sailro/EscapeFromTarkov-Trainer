@@ -1,4 +1,5 @@
 ﻿using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -9,8 +10,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class NoSway : ToggleFeature
 {
-	public override string Name => "nosway";
-	public override string Description => "No sway.";
+	public override string Name => Strings.FeatureNoSwayName;
+	public override string Description => Strings.FeatureNoSwayDescription;
 
 	public override bool Enabled { get; set; } = false;
 

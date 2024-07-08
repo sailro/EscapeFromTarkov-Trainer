@@ -4,6 +4,7 @@ using System.Linq;
 using Comfort.Common;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -13,8 +14,8 @@ namespace EFT.Trainer.Features;
 
 internal class GameState : CachableFeature<GameStateSnapshot>
 {
-	public override string Name => "gamestate";
-	public override string Description => "Refresh all game information for other features.";
+	public override string Name => Strings.FeatureGameStateName;
+	public override string Description => Strings.FeatureGameStateDescription;
 
 	public static GameStateSnapshot? Current { get; private set; }
 

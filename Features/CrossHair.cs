@@ -1,5 +1,6 @@
 ﻿using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using EFT.Trainer.UI;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -11,8 +12,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class CrossHair : ToggleFeature
 {
-	public override string Name => "crosshair";
-	public override string Description => "Crosshair with customizable size, color, thickness and auto-hide feature when aiming.";
+	public override string Name => Strings.FeatureCrosshairName;
+	public override string Description => Strings.FeatureCrosshairDescription;
 
 	public override bool Enabled { get; set; } = false;
 

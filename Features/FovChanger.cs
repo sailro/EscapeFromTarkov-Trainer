@@ -1,4 +1,5 @@
 ﻿using EFT.Trainer.Configuration;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -7,8 +8,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class FovChanger : ToggleFeature
 {
-	public override string Name => "fovchanger";
-	public override string Description => "Change Field Of View (FOV).";
+	public override string Name => Strings.FeatureFovChangerName;
+	public override string Description => Strings.FeatureFovChangerDescription;
 
 	[ConfigurationProperty(Order = 1)]
 	public override bool Enabled { get; set; } = false;

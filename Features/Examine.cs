@@ -1,4 +1,5 @@
 ﻿using EFT.InventoryLogic;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 
 #nullable enable
@@ -8,8 +9,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class Examine : ToggleFeature
 {
-	public override string Name => "examine";
-	public override string Description => "All items already examined. Instant search.";
+	public override string Name => Strings.FeatureExamineName;
+	public override string Description => Strings.FeatureExamineDescription;
 
 	public override bool Enabled { get; set; } = false;
 

@@ -1,5 +1,6 @@
 ﻿using EFT.InventoryLogic;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -10,8 +11,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class NightVision : ToggleFeature
 {
-	public override string Name => "night";
-	public override string Description => "Night vision.";
+	public override string Name => Strings.FeatureNightVisionName;
+	public override string Description => Strings.FeatureNightVisionDescription;
 
 	public override bool Enabled { get; set; } = false;
 

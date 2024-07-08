@@ -1,4 +1,5 @@
 ﻿using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -9,8 +10,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class Skills : TriggerFeature
 {
-	public override string Name => "skills";
-	public override string Description => "All skills to Elite level (51) and all weapons mastering to level 3.";
+	public override string Name => Strings.FeatureSkillsName;
+	public override string Description => Strings.FeatureSkillsDescription;
 
 	public override KeyCode Key { get; set; } = KeyCode.None;
 

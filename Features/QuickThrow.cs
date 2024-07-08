@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using EFT.InventoryLogic;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -11,8 +12,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class QuickTrow : TriggerFeature
 {
-	public override string Name => "quickthrow";
-	public override string Description => "Quick-throw grenades.";
+	public override string Name => Strings.FeatureQuickTrowName;
+	public override string Description => Strings.FeatureQuickTrowDescription;
 
 	public override KeyCode Key { get; set; } = KeyCode.None;
 

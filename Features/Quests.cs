@@ -6,6 +6,7 @@ using EFT.Interactive;
 using EFT.Quests;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -16,8 +17,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class Quests : PointOfInterests
 {
-	public override string Name => "quest";
-	public override string Description => "Locations for taking/placing quest items. Only items related to your started quests are displayed.";
+	public override string Name => Strings.FeatureQuestsName;
+	public override string Description => Strings.FeatureQuestsDescription;
 
 	[ConfigurationProperty]
 	public Color Color { get; set; } = Color.magenta;

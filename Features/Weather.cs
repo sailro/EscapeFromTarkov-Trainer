@@ -1,4 +1,5 @@
-﻿using EFT.Weather;
+﻿using EFT.Trainer.Properties;
+using EFT.Weather;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -9,8 +10,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class Weather : TriggerFeature
 {
-	public override string Name => "weather";
-	public override string Description => "Clear weather.";
+	public override string Name => Strings.FeatureWeatherName;
+	public override string Description => Strings.FeatureWeatherDescription;
 
 	public override KeyCode Key { get; set; } = KeyCode.None;
 

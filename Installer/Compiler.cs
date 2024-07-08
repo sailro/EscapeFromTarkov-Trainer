@@ -167,7 +167,7 @@ internal partial class Compiler
 		return CSharpCompilation.Create(assemblyName, syntaxTrees, references, CompilationOptions);
 	}
 
-	[GeneratedRegex("<Compile\\s+Include=\"(?<file>.*)\"\\s*/>")]
+	[GeneratedRegex("<Compile\\s+Include=\"(?<file>.*)\"\\s*/?>")]
 	private static partial Regex CompileFileRegex();
 
 	[GeneratedRegex("<(Project)?Reference\\s+Include=\"(?<assemblyName>.*)\"\\s*/?>")]

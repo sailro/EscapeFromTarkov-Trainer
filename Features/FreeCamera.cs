@@ -1,5 +1,6 @@
 ﻿using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -13,8 +14,8 @@ internal class FreeCamera : ToggleFeature
 	private const string MouseXAxis = "Mouse X";
 	private const string MouseYAxis = "Mouse Y";
 
-	public override string Name => "camera";
-	public override string Description => "Free camera with fast mode and teleportation.";
+	public override string Name => Strings.FeatureCameraName;
+	public override string Description => Strings.FeatureCameraDescription;
 
 	[ConfigurationProperty(Skip = true)] // we do not want to offer save/load support for this
 	public override bool Enabled { get; set; } = false;

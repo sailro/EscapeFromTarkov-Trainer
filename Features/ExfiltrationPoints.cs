@@ -5,6 +5,7 @@ using Comfort.Common;
 using EFT.Interactive;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -15,8 +16,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class ExfiltrationPoints : PointOfInterests
 {
-	public override string Name => "exfil";
-	public override string Description => "Exfiltration points with customizable colors given eligibility, status filter, distance.";
+	public override string Name => Strings.FeatureExfiltrationPointsName;
+	public override string Description => Strings.FeatureExfiltrationPointsDescription;
 
 	[ConfigurationProperty(Order = 10)]
 	public Color EligibleColor { get; set; } = Color.green;
@@ -104,12 +105,12 @@ internal class ExfiltrationPoints : PointOfInterests
 	{
 		return status switch
 		{
-			EExfiltrationStatus.AwaitsManualActivation => "Activate",
-			EExfiltrationStatus.Countdown => "Timer",
-			EExfiltrationStatus.NotPresent => "Closed",
-			EExfiltrationStatus.Pending => "Pending",
-			EExfiltrationStatus.RegularMode => "Open",
-			EExfiltrationStatus.UncompleteRequirements => "Requirement",
+			EExfiltrationStatus.AwaitsManualActivation => Properties.Strings.FeatureExfiltrationPointsStatusActivate,
+			EExfiltrationStatus.Countdown => Properties.Strings.FeatureExfiltrationPointsStatusTimer,
+			EExfiltrationStatus.NotPresent => Properties.Strings.FeatureExfiltrationPointsStatusClosed,
+			EExfiltrationStatus.Pending => Properties.Strings.FeatureExfiltrationPointsStatusPending,
+			EExfiltrationStatus.RegularMode => Properties.Strings.FeatureExfiltrationPointsStatusOpen,
+			EExfiltrationStatus.UncompleteRequirements => Properties.Strings.FeatureExfiltrationPointsStatusRequirement,
 			_ => string.Empty
 		};
 	}
