@@ -157,7 +157,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 		if (feature is not ToggleFeature toggleFeature || ConfigurationManager.IsSkippedProperty(feature, nameof(Enabled)))
 			return feature.Name;
 
-		return string.Format(Strings.CommandStatusTextFormat, toggleFeature.Enabled ? Strings.TextOn.Green() : Strings.TextOff.Red());
+		return string.Format(Strings.CommandStatusTextFormat, feature.Name, toggleFeature.Enabled ? Strings.TextOn.Green() : Strings.TextOff.Red(), string.Empty);
 	}
 
 	private void RenderSummary()

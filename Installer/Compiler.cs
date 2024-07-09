@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using System.Resources;
+using System.Resources.NetStandard;
 using System.Text;
 using System.Text.RegularExpressions;
 using Installer.Properties;
@@ -156,6 +159,44 @@ internal partial class Compiler
 		}
 	}
 
+	public IEnumerable<ResourceDescription> GetResources()
+	{
+		var matches = ResourceFileRegex().Matches(ProjectContent);
+
+		foreach (var match in matches.Cast<Match>())
+		{
+			if (!match.Success)
+				continue;
+
+			var file = match.Groups["file"].Value;
+			var entry = ProjectArchive.Entries.FirstOrDefault(e => e.FullName.EndsWith(file.Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar), StringComparison.OrdinalIgnoreCase));
+			if (entry == null)
+				continue;
+
+			using var stream = entry.Open();
+			using var reader = new ResXResourceReader(stream);
+
+			using var memory = new MemoryStream();
+			using var writer = new ResourceWriter(memory);
+
+			foreach (DictionaryEntry resourcEntry in reader)
+				writer.AddResource(resourcEntry.Key.ToString()!, resourcEntry.Value);
+
+			var resource = new MemoryStream();
+
+			writer.Generate();
+			memory.Position = 0;
+			memory.CopyTo(resource);
+			resource.Position = 0;
+
+			var resourceName = file
+				.Replace(@"Properties\Strings", "EFT.Trainer.Properties.Strings")
+				.Replace(".resx", ".resources");
+
+			yield return new ResourceDescription(resourceName, () => resource, isPublic: true);
+		}
+	}
+
 	public CSharpCompilation Compile(string assemblyName)
 	{
 		var syntaxTrees = GetSyntaxTrees()
@@ -172,4 +213,7 @@ internal partial class Compiler
 
 	[GeneratedRegex("<(Project)?Reference\\s+Include=\"(?<assemblyName>.*)\"\\s*/?>")]
 	private static partial Regex ProjectReferenceRegex();
+
+	[GeneratedRegex("<EmbeddedResource\\s+Include=\"(?<file>.*)\"\\s*/?>")]
+	private static partial Regex ResourceFileRegex();
 }

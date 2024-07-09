@@ -791,7 +791,7 @@
     <comment>Item count</comment>
   </data>
   <data name="DebugRegisteringCommandFormat" xml:space="preserve">
-    <value>Registering {0} command ...</value>
+    <value>Registering {0} command...</value>
     <comment>Command name</comment>
   </data>
   <data name="DebugRegisteringCommandWithArgumentsFormat" xml:space="preserve">

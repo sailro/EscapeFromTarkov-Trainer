@@ -378,7 +378,7 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Registering {0} command ....
+        ///   Looks up a localized string similar to Registering {0} command....
         /// </summary>
         internal static string DebugRegisteringCommandFormat {
             get {
