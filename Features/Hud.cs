@@ -24,15 +24,15 @@ internal class Hud : ToggleFeature
 	public bool ShowCompass { get; set; } = true;
 		
 	private static readonly string[] _directions = [
-		Properties.Strings.DirectionNorth,
-		Properties.Strings.DirectionNorthEast,
-		Properties.Strings.DirectionEast,
-		Properties.Strings.DirectionSouthEast,
-		Properties.Strings.DirectionSouth,
-		Properties.Strings.DirectionSouthWest,
-		Properties.Strings.DirectionWest,
-		Properties.Strings.DirectionNorthWest,
-		Properties.Strings.DirectionNorth
+		Strings.DirectionNorth,
+		Strings.DirectionNorthEast,
+		Strings.DirectionEast,
+		Strings.DirectionSouthEast,
+		Strings.DirectionSouth,
+		Strings.DirectionSouthWest,
+		Strings.DirectionWest,
+		Strings.DirectionNorthWest,
+		Strings.DirectionNorth
 	];
 
 	[ConfigurationProperty]

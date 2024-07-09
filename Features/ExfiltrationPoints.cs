@@ -105,12 +105,12 @@ internal class ExfiltrationPoints : PointOfInterests
 	{
 		return status switch
 		{
-			EExfiltrationStatus.AwaitsManualActivation => Properties.Strings.FeatureExfiltrationPointsStatusActivate,
-			EExfiltrationStatus.Countdown => Properties.Strings.FeatureExfiltrationPointsStatusTimer,
-			EExfiltrationStatus.NotPresent => Properties.Strings.FeatureExfiltrationPointsStatusClosed,
-			EExfiltrationStatus.Pending => Properties.Strings.FeatureExfiltrationPointsStatusPending,
-			EExfiltrationStatus.RegularMode => Properties.Strings.FeatureExfiltrationPointsStatusOpen,
-			EExfiltrationStatus.UncompleteRequirements => Properties.Strings.FeatureExfiltrationPointsStatusRequirement,
+			EExfiltrationStatus.AwaitsManualActivation => Strings.FeatureExfiltrationPointsStatusActivate,
+			EExfiltrationStatus.Countdown => Strings.FeatureExfiltrationPointsStatusTimer,
+			EExfiltrationStatus.NotPresent => Strings.FeatureExfiltrationPointsStatusClosed,
+			EExfiltrationStatus.Pending => Strings.FeatureExfiltrationPointsStatusPending,
+			EExfiltrationStatus.RegularMode => Strings.FeatureExfiltrationPointsStatusOpen,
+			EExfiltrationStatus.UncompleteRequirements => Strings.FeatureExfiltrationPointsStatusRequirement,
 			_ => string.Empty
 		};
 	}

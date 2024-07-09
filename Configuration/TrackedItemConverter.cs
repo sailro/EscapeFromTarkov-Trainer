@@ -1,5 +1,6 @@
 ﻿using System;
 using EFT.Trainer.Features;
+using EFT.Trainer.Properties;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
@@ -27,7 +28,7 @@ public class TrackedItemConverter : JsonConverter
 		{
 			string name => new TrackedItem(name),
 			JObject jobject => jobject.ToObject<TrackedItem>()!,
-			_ => new TrackedItem("corrupted trainer.ini")
+			_ => new TrackedItem(string.Format(Strings.ErrorCorruptedFileFormat, "trainer.ini"))
 		};
 	}
 

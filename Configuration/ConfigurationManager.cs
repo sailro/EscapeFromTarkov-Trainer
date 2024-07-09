@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using EFT.Trainer.Features;
+using EFT.Trainer.Properties;
 using EFT.UI;
 using Newtonsoft.Json;
 
@@ -54,16 +55,16 @@ internal static class ConfigurationManager
 					}
 					catch (JsonException)
 					{
-						AddConsoleLog($"{key} seems corrupted in {filename}. Please fix.".Red());
+						AddConsoleLog(string.Format(Strings.ErrorCorruptedPropertyFormat, key, filename).Red());
 					}
 				}
 			}
 
-			AddConsoleLog($"Loaded {filename}");
+			AddConsoleLog(string.Format(Strings.CommandLoadSuccessFormat, filename));
 		}
 		catch (Exception ioe)
 		{
-			AddConsoleLog($"Unable to load {filename}. {ioe.Message}".Red());
+			AddConsoleLog(string.Format(Strings.ErrorUnableToLoadFormat, filename, ioe.Message).Red());
 		}
 	}
 
@@ -73,7 +74,7 @@ internal static class ConfigurationManager
 		{
 			if (!File.Exists(filename))
 			{
-				AddConsoleLog($"{filename} not found!");
+				AddConsoleLog(string.Format(Strings.ErrorFileNotFoundFormat, filename).Red());
 				return;
 			}
 
@@ -89,14 +90,14 @@ internal static class ConfigurationManager
 			}
 			catch (JsonException)
 			{
-				AddConsoleLog($"{filename} seems corrupted. Please fix.".Red());
+				AddConsoleLog(string.Format(Strings.ErrorCorruptedFileFormat, filename).Red());
 			}
 
-			AddConsoleLog($"Loaded {filename}");
+			AddConsoleLog(string.Format(Strings.CommandLoadSuccessFormat, filename));
 		}
 		catch (Exception ioe)
 		{
-			AddConsoleLog($"Unable to load {filename}. {ioe.Message}".Red());
+			AddConsoleLog(string.Format(Strings.ErrorUnableToLoadFormat, filename, ioe.Message).Red());
 		}
 	}
 
@@ -105,9 +106,7 @@ internal static class ConfigurationManager
 		try
 		{
 			var content = new StringBuilder();
-			content.AppendLine("; Be careful when updating this file :)");
-			content.AppendLine("; For keys, use https://docs.unity3d.com/ScriptReference/KeyCode.html");
-			content.AppendLine("; Colors are stored as an array of 'RGBA' floats");
+			content.AppendLine(Strings.CommandSaveHeader);
 			content.AppendLine();
 
 			foreach (var feature in features.OrderBy(f => f.GetType().FullName))
@@ -132,11 +131,11 @@ internal static class ConfigurationManager
 			}
 
 			File.WriteAllText(filename, content.ToString());
-			AddConsoleLog($"Saved {filename}");
+			AddConsoleLog(string.Format(Strings.CommandSaveSuccessFormat, filename));
 		}
 		catch (Exception ioe)
 		{
-			AddConsoleLog($"Unable to save {filename}. {ioe.Message}".Red());
+			AddConsoleLog(string.Format(Strings.ErrorUnableToSaveFormat, filename, ioe.Message).Red());
 		}
 	}
 
@@ -150,11 +149,11 @@ internal static class ConfigurationManager
 			var content = JsonConvert.SerializeObject(tlProperty.Property.GetValue(feature), Formatting.Indented, Converters);
 			File.WriteAllText(filename, content);
 
-			AddConsoleLog($"Saved {filename}");
+			AddConsoleLog(string.Format(Strings.CommandSaveSuccessFormat, filename));
 		}
 		catch (Exception ioe)
 		{
-			AddConsoleLog($"Unable to save {filename}. {ioe.Message}".Red());
+			AddConsoleLog(string.Format(Strings.ErrorUnableToSaveFormat, filename, ioe.Message).Red());
 		}
 	}
 

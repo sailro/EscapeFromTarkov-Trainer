@@ -1,5 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using EFT.Trainer.Configuration;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 
 #nullable enable
@@ -9,7 +10,7 @@ namespace EFT.Trainer.ConsoleCommands;
 [UsedImplicitly]
 internal class LoadTrackList : BaseTrackListCommand
 {
-	public override string Name => "loadtl";
+	public override string Name => Strings.CommandLoadTrackList;
 
 	public override void Execute(Match match)
 	{

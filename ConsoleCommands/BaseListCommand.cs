@@ -7,6 +7,7 @@ using EFT.Interactive;
 using EFT.InventoryLogic;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.Features;
+using EFT.Trainer.Properties;
 using JsonType;
 
 #nullable enable
@@ -63,13 +64,13 @@ internal abstract class BaseListCommand : ConsoleCommandWithArgument
 				continue;
 
 			var extra = rarity != ELootRarity.Not_exist ? $" ({rarity.Color()})" : string.Empty;
-			AddConsoleLog($"{itemName} [{list.Count.ToString().Cyan()}]{extra}");
+			AddConsoleLog(string.Format(Strings.CommandListEnumerateFormat, itemName, list.Count.ToString().Cyan(), extra));
 
 			count += list.Count;
 		}
 
-		AddConsoleLog("------");
-		AddConsoleLog($"found {count.ToString().Cyan()} item(s)");
+		AddConsoleLog(Strings.TextSeparator);
+		AddConsoleLog(string.Format(Strings.CommandListSuccessFormat,  count.ToString().Cyan()));
 	}
 
 	private static void FindItemsInRootItem(Dictionary<string, List<Item>> itemsPerName, Item? rootItem)

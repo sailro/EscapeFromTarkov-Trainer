@@ -1,5 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using EFT.Trainer.Features;
+using EFT.Trainer.Properties;
 
 #nullable enable
 
@@ -8,7 +9,7 @@ namespace EFT.Trainer.ConsoleCommands;
 internal class ToggleFeatureCommand(ToggleFeature feature) : ConsoleCommandWithArgument
 {
 	public override string Name => feature.Name;
-	public override string Pattern => $"(?<{ValueGroup}>(on)|(off))";
+	public override string Pattern => $"(?<{ValueGroup}>({Strings.TextOn})|({Strings.TextOff}))";
 
 	public override void Execute(Match match)
 	{
@@ -16,11 +17,7 @@ internal class ToggleFeatureCommand(ToggleFeature feature) : ConsoleCommandWithA
 		if (matchGroup is not {Success: true})
 			return;
 
-		feature.Enabled = matchGroup.Value switch
-		{
-			"on" => true,
-			"off" => false,
-			_ => feature.Enabled
-		};
+		var value = matchGroup.Value;
+		feature.Enabled = value == Strings.TextOn;
 	}
 }

@@ -1,4 +1,5 @@
-﻿using EFT.UI;
+﻿using EFT.Trainer.Properties;
+using EFT.UI;
 
 #nullable enable
 
@@ -11,7 +12,7 @@ internal abstract class ConsoleCommandWithoutArgument : ConsoleCommand
 	public override void Register()
 	{
 #if DEBUG
-		AddConsoleLog($"Registering {Name} command...");
+		AddConsoleLog(string.Format(Strings.DebugRegisteringCommandFormat, Name));
 #endif
 		ConsoleScreen.Processor.RegisterCommand(Name, Execute);
 	}

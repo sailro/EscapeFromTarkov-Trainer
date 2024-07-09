@@ -53,7 +53,7 @@ internal abstract class CachableFeature<T> : ToggleFeature
 			}
 
 #if DEBUG_PERFORMANCE
-			AddConsoleLog($"Refreshed {GetType().Name} in {_stopwatch.ElapsedMilliseconds}ms");
+			AddConsoleLog(string.Format(EFT.Trainer.Properties.Strings.DebugPerformanceRefreshedFormat, GetType().Name, _stopwatch.ElapsedMilliseconds));
 #endif
 		}
 

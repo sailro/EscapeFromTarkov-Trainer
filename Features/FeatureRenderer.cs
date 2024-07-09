@@ -81,7 +81,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 		SetupInputNode();
 
 		_clientWindowRect = new Rect(X, Y, 490, _clientWindowRect.height);
-		_clientWindowRect = GUILayout.Window(0, _clientWindowRect, RenderFeatureWindow, "EFT Trainer", GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true));
+		_clientWindowRect = GUILayout.Window(0, _clientWindowRect, RenderFeatureWindow, Strings.FeatureCommandsTitle , GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true));
 		X = _clientWindowRect.x;
 		Y = _clientWindowRect.y;
 
@@ -157,7 +157,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 		if (feature is not ToggleFeature toggleFeature || ConfigurationManager.IsSkippedProperty(feature, nameof(Enabled)))
 			return feature.Name;
 
-		return $"{toggleFeature.Name} is {(toggleFeature.Enabled ? "on".Green() : "off".Red())}";
+		return string.Format(Strings.CommandStatusTextFormat, toggleFeature.Enabled ? Strings.TextOn.Green() : Strings.TextOff.Red());
 	}
 
 	private void RenderSummary()

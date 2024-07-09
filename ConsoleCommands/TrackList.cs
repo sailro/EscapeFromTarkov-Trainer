@@ -1,4 +1,5 @@
 ﻿using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 
 #nullable enable
@@ -8,7 +9,7 @@ namespace EFT.Trainer.ConsoleCommands;
 [UsedImplicitly]
 internal class TrackList : ConsoleCommandWithoutArgument
 {
-	public override string Name => "tracklist";
+	public override string Name => Strings.CommandTrackList;
 
 	public override void Execute()
 	{
@@ -19,15 +20,15 @@ internal class TrackList : ConsoleCommandWithoutArgument
 	internal static void ShowTrackList(ConsoleCommand command, Features.LootItems lootItems, bool changed = false)
 	{
 		if (changed)
-			command.AddConsoleLog("Tracking list updated...");
+			command.AddConsoleLog(Strings.CommandTrackListUpdated);
 
 		foreach (var templateId in lootItems.Wishlist)
-			command.AddConsoleLog($"Tracking: {templateId.LocalizedShortName()} (Wishlist)");
+			command.AddConsoleLog(string.Format(Strings.CommandTrackListWishListEnumerateFormat, templateId.LocalizedShortName()));
 
 		foreach (var item in lootItems.TrackedNames)
 		{
 			var extra = item.Rarity.HasValue ? $" ({item.Rarity.Value.Color()})" : string.Empty;
-			command.AddConsoleLog(item.Color.HasValue ? $"Tracking: {item.Name.Color(item.Color.Value)}{extra}" : $"Tracking: {item.Name}{extra}");
+			command.AddConsoleLog(string.Format(Strings.CommandTemplateEnumerateFormat, item.Color.HasValue ? item.Name.Color(item.Color.Value) : item.Name, extra));
 		}
 	}
 }

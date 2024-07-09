@@ -61,6 +61,87 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to dump.
+        /// </summary>
+        internal static string CommandDump {
+            get {
+                return ResourceManager.GetString("CommandDump", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dumping game objects....
+        /// </summary>
+        internal static string CommandDumpGameObjects {
+            get {
+                return ResourceManager.GetString("CommandDumpGameObjects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dumping Scenes....
+        /// </summary>
+        internal static string CommandDumpScenes {
+            get {
+                return ResourceManager.GetString("CommandDumpScenes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dump created in {0}.
+        /// </summary>
+        internal static string CommandDumpSuccessFormat {
+            get {
+                return ResourceManager.GetString("CommandDumpSuccessFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to list.
+        /// </summary>
+        internal static string CommandList {
+            get {
+                return ResourceManager.GetString("CommandList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} [{1}]{2}.
+        /// </summary>
+        internal static string CommandListEnumerateFormat {
+            get {
+                return ResourceManager.GetString("CommandListEnumerateFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to listr.
+        /// </summary>
+        internal static string CommandListRare {
+            get {
+                return ResourceManager.GetString("CommandListRare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Found {0} item(s).
+        /// </summary>
+        internal static string CommandListSuccessFormat {
+            get {
+                return ResourceManager.GetString("CommandListSuccessFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to listsr.
+        /// </summary>
+        internal static string CommandListSuperRare {
+            get {
+                return ResourceManager.GetString("CommandListSuperRare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Load settings.
         /// </summary>
         internal static string CommandLoadDescription {
@@ -79,11 +160,40 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Loaded {0}.
+        /// </summary>
+        internal static string CommandLoadSuccessFormat {
+            get {
+                return ResourceManager.GetString("CommandLoadSuccessFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to loadtl.
+        /// </summary>
+        internal static string CommandLoadTrackList {
+            get {
+                return ResourceManager.GetString("CommandLoadTrackList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Save settings.
         /// </summary>
         internal static string CommandSaveDescription {
             get {
                 return ResourceManager.GetString("CommandSaveDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ; Be careful when updating this file :)
+        ///; For keys, use https://docs.unity3d.com/ScriptReference/KeyCode.html
+        ///; Colors are stored as an array of &apos;RGBA&apos; floats.
+        /// </summary>
+        internal static string CommandSaveHeader {
+            get {
+                return ResourceManager.GetString("CommandSaveHeader", resourceCulture);
             }
         }
         
@@ -97,11 +207,191 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Saved {0}.
+        /// </summary>
+        internal static string CommandSaveSuccessFormat {
+            get {
+                return ResourceManager.GetString("CommandSaveSuccessFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to savetl.
+        /// </summary>
+        internal static string CommandSaveTrackList {
+            get {
+                return ResourceManager.GetString("CommandSaveTrackList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to spawn.
+        /// </summary>
+        internal static string CommandSpawn {
+            get {
+                return ResourceManager.GetString("CommandSpawn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to status.
+        /// </summary>
+        internal static string CommandStatus {
+            get {
+                return ResourceManager.GetString("CommandStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} is {1} {2}.
+        /// </summary>
+        internal static string CommandStatusTextFormat {
+            get {
+                return ResourceManager.GetString("CommandStatusTextFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ({0} to toggle).
+        /// </summary>
+        internal static string CommandStatusTextToggleFormat {
+            get {
+                return ResourceManager.GetString("CommandStatusTextToggleFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to template.
+        /// </summary>
+        internal static string CommandTemplate {
+            get {
+                return ResourceManager.GetString("CommandTemplate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}: {1} [{2}]&quot;.
+        /// </summary>
+        internal static string CommandTemplateEnumerateFormat {
+            get {
+                return ResourceManager.GetString("CommandTemplateEnumerateFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Found {0} template(s).
+        /// </summary>
+        internal static string CommandTemplateSuccessFormat {
+            get {
+                return ResourceManager.GetString("CommandTemplateSuccessFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to track.
+        /// </summary>
+        internal static string CommandTrack {
+            get {
+                return ResourceManager.GetString("CommandTrack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to tracklist.
+        /// </summary>
+        internal static string CommandTrackList {
+            get {
+                return ResourceManager.GetString("CommandTrackList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tracking: {0}{1}.
+        /// </summary>
+        internal static string CommandTrackListEnumerateFormat {
+            get {
+                return ResourceManager.GetString("CommandTrackListEnumerateFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tracking list updated....
+        /// </summary>
+        internal static string CommandTrackListUpdated {
+            get {
+                return ResourceManager.GetString("CommandTrackListUpdated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tracking: {0} (Wishlist).
+        /// </summary>
+        internal static string CommandTrackListWishListEnumerateFormat {
+            get {
+                return ResourceManager.GetString("CommandTrackListWishListEnumerateFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to trackr.
+        /// </summary>
+        internal static string CommandTrackRare {
+            get {
+                return ResourceManager.GetString("CommandTrackRare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to tracksr.
+        /// </summary>
+        internal static string CommandTrackSuperRare {
+            get {
+                return ResourceManager.GetString("CommandTrackSuperRare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to untrack.
+        /// </summary>
+        internal static string CommandUnTrack {
+            get {
+                return ResourceManager.GetString("CommandUnTrack", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Patched {0} with {1}.
         /// </summary>
         internal static string DebugPatchedMethodFormat {
             get {
                 return ResourceManager.GetString("DebugPatchedMethodFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Refreshed {0} in {1}ms.
+        /// </summary>
+        internal static string DebugPerformanceRefreshedFormat {
+            get {
+                return ResourceManager.GetString("DebugPerformanceRefreshedFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registering {0} command ....
+        /// </summary>
+        internal static string DebugRegisteringCommandFormat {
+            get {
+                return ResourceManager.GetString("DebugRegisteringCommandFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Registering {0} command with arguments....
+        /// </summary>
+        internal static string DebugRegisteringCommandWithArgumentsFormat {
+            get {
+                return ResourceManager.GetString("DebugRegisteringCommandWithArgumentsFormat", resourceCulture);
             }
         }
         
@@ -205,6 +495,96 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} seems corrupted. Please fix.
+        /// </summary>
+        internal static string ErrorCorruptedFileFormat {
+            get {
+                return ResourceManager.GetString("ErrorCorruptedFileFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} seems corrupted in {1}. Please fix.
+        /// </summary>
+        internal static string ErrorCorruptedPropertyFormat {
+            get {
+                return ResourceManager.GetString("ErrorCorruptedPropertyFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to create item!.
+        /// </summary>
+        internal static string ErrorFailedToCreateItem {
+            get {
+                return ResourceManager.GetString("ErrorFailedToCreateItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to load item bundle!.
+        /// </summary>
+        internal static string ErrorFailedToLoadItemBundle {
+            get {
+                return ResourceManager.GetString("ErrorFailedToLoadItemBundle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} not found!.
+        /// </summary>
+        internal static string ErrorFileNotFoundFormat {
+            get {
+                return ResourceManager.GetString("ErrorFileNotFoundFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Invalid arguments.
+        /// </summary>
+        internal static string ErrorInvalidArguments {
+            get {
+                return ResourceManager.GetString("ErrorInvalidArguments", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No template found!.
+        /// </summary>
+        internal static string ErrorNoTemplateFound {
+            get {
+                return ResourceManager.GetString("ErrorNoTemplateFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Found {0} templates, be more specific.
+        /// </summary>
+        internal static string ErrorTooManyTemplatesFormat {
+            get {
+                return ResourceManager.GetString("ErrorTooManyTemplatesFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to load {0}. {1}.
+        /// </summary>
+        internal static string ErrorUnableToLoadFormat {
+            get {
+                return ResourceManager.GetString("ErrorUnableToLoadFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to save {0}. {1}.
+        /// </summary>
+        internal static string ErrorUnableToSaveFormat {
+            get {
+                return ResourceManager.GetString("ErrorUnableToSaveFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unsupported type: {0}.
         /// </summary>
         internal static string ErrorUnsupportedTypeFormat {
@@ -300,6 +680,15 @@ namespace EFT.Trainer.Properties {
         internal static string FeatureCommandsName {
             get {
                 return ResourceManager.GetString("FeatureCommandsName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to EFT Trainer.
+        /// </summary>
+        internal static string FeatureCommandsTitle {
+            get {
+                return ResourceManager.GetString("FeatureCommandsTitle", resourceCulture);
             }
         }
         
@@ -1150,7 +1539,7 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fov.
+        ///   Looks up a localized string similar to FOV.
         /// </summary>
         internal static string PropertyFov {
             get {
@@ -1159,7 +1548,7 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fov circle color.
+        ///   Looks up a localized string similar to FOV circle color.
         /// </summary>
         internal static string PropertyFovCircleColor {
             get {
@@ -1168,7 +1557,7 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fov circle thickness.
+        ///   Looks up a localized string similar to FOV circle thickness.
         /// </summary>
         internal static string PropertyFovCircleThickness {
             get {
@@ -1177,7 +1566,7 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Fov radius.
+        ///   Looks up a localized string similar to FOV radius.
         /// </summary>
         internal static string PropertyFovRadius {
             get {
@@ -1812,6 +2201,33 @@ namespace EFT.Trainer.Properties {
         internal static string PropertyY {
             get {
                 return ResourceManager.GetString("PropertyY", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to off.
+        /// </summary>
+        internal static string TextOff {
+            get {
+                return ResourceManager.GetString("TextOff", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to on.
+        /// </summary>
+        internal static string TextOn {
+            get {
+                return ResourceManager.GetString("TextOn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ------.
+        /// </summary>
+        internal static string TextSeparator {
+            get {
+                return ResourceManager.GetString("TextSeparator", resourceCulture);
             }
         }
     }

@@ -48,7 +48,7 @@ internal class Commands : FeatureRenderer
 
 	private void RegisterPropertyDisplays()
 	{
-		const string prefix = "Property";
+		const string prefix = nameof(OrderedProperty.Property);
 
 		var properties = typeof(Strings)
 				.GetProperties(BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public)

@@ -48,7 +48,7 @@ internal abstract class Feature : InputNode, IFeature
 
 		harmony.Patch(original, prefix: new HarmonyLib.HarmonyMethod(prefix));
 #if DEBUG
-		AddConsoleLog($"Patched {originalType}.{originalMethod} with {GetType()}.{newMethod}");
+		AddConsoleLog(string.Format(Properties.Strings.DebugPatchedMethodFormat, $"{originalType}.{originalMethod}", $"{GetType()}.{newMethod}"));
 #endif
 	}
 

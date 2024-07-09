@@ -468,16 +468,16 @@
     <value>Forward</value>
   </data>
   <data name="PropertyFov" xml:space="preserve">
-    <value>Fov</value>
+    <value>FOV</value>
   </data>
   <data name="PropertyFovCircleColor" xml:space="preserve">
-    <value>Fov circle color</value>
+    <value>FOV circle color</value>
   </data>
   <data name="PropertyFovCircleThickness" xml:space="preserve">
-    <value>Fov circle thickness</value>
+    <value>FOV circle thickness</value>
   </data>
   <data name="PropertyFovRadius" xml:space="preserve">
-    <value>Fov radius</value>
+    <value>FOV radius</value>
   </data>
   <data name="PropertyFreeLookSensitivity" xml:space="preserve">
     <value>Free look sensitivity</value>
@@ -706,5 +706,165 @@
   </data>
   <data name="PropertyCameraOffset" xml:space="preserve">
     <value>Camera offset</value>
+  </data>
+  <data name="CommandDump" xml:space="preserve">
+    <value>dump</value>
+  </data>
+  <data name="CommandList" xml:space="preserve">
+    <value>list</value>
+  </data>
+  <data name="CommandListRare" xml:space="preserve">
+    <value>listr</value>
+  </data>
+  <data name="CommandListSuperRare" xml:space="preserve">
+    <value>listsr</value>
+  </data>
+  <data name="CommandLoadTrackList" xml:space="preserve">
+    <value>loadtl</value>
+  </data>
+  <data name="CommandSaveTrackList" xml:space="preserve">
+    <value>savetl</value>
+  </data>
+  <data name="CommandSpawn" xml:space="preserve">
+    <value>spawn</value>
+  </data>
+  <data name="CommandStatus" xml:space="preserve">
+    <value>status</value>
+  </data>
+  <data name="CommandTemplate" xml:space="preserve">
+    <value>template</value>
+  </data>
+  <data name="CommandTrack" xml:space="preserve">
+    <value>track</value>
+  </data>
+  <data name="CommandTrackList" xml:space="preserve">
+    <value>tracklist</value>
+  </data>
+  <data name="CommandTrackRare" xml:space="preserve">
+    <value>trackr</value>
+  </data>
+  <data name="CommandTrackSuperRare" xml:space="preserve">
+    <value>tracksr</value>
+  </data>
+  <data name="CommandUnTrack" xml:space="preserve">
+    <value>untrack</value>
+  </data>
+  <data name="CommandLoadSuccessFormat" xml:space="preserve">
+    <value>Loaded {0}</value>
+    <comment>Filename</comment>
+  </data>
+  <data name="CommandSaveHeader" xml:space="preserve">
+    <value>; Be careful when updating this file :)
+; For keys, use https://docs.unity3d.com/ScriptReference/KeyCode.html
+; Colors are stored as an array of 'RGBA' floats</value>
+  </data>
+  <data name="CommandSaveSuccessFormat" xml:space="preserve">
+    <value>Saved {0}</value>
+    <comment>Filename</comment>
+  </data>
+  <data name="ErrorCorruptedFileFormat" xml:space="preserve">
+    <value>{0} seems corrupted. Please fix</value>
+    <comment>Filename</comment>
+  </data>
+  <data name="ErrorCorruptedPropertyFormat" xml:space="preserve">
+    <value>{0} seems corrupted in {1}. Please fix</value>
+    <comment>Key, filename</comment>
+  </data>
+  <data name="ErrorFileNotFoundFormat" xml:space="preserve">
+    <value>{0} not found!</value>
+    <comment>Filename</comment>
+  </data>
+  <data name="ErrorUnableToLoadFormat" xml:space="preserve">
+    <value>Unable to load {0}. {1}</value>
+    <comment>Filename, error message</comment>
+  </data>
+  <data name="ErrorUnableToSaveFormat" xml:space="preserve">
+    <value>Unable to save {0}. {1}</value>
+    <comment>Filename, error message</comment>
+  </data>
+  <data name="CommandListEnumerateFormat" xml:space="preserve">
+    <value>{0} [{1}]{2}</value>
+    <comment>Item name, count, optional rarity</comment>
+  </data>
+  <data name="CommandListSuccessFormat" xml:space="preserve">
+    <value>Found {0} item(s)</value>
+    <comment>Item count</comment>
+  </data>
+  <data name="DebugRegisteringCommandFormat" xml:space="preserve">
+    <value>Registering {0} command ...</value>
+    <comment>Command name</comment>
+  </data>
+  <data name="DebugRegisteringCommandWithArgumentsFormat" xml:space="preserve">
+    <value>Registering {0} command with arguments...</value>
+    <comment>Command name</comment>
+  </data>
+  <data name="ErrorInvalidArguments" xml:space="preserve">
+    <value>Invalid arguments</value>
+  </data>
+  <data name="TextSeparator" xml:space="preserve">
+    <value>------</value>
+  </data>
+  <data name="CommandDumpGameObjects" xml:space="preserve">
+    <value>Dumping game objects...</value>
+  </data>
+  <data name="CommandDumpScenes" xml:space="preserve">
+    <value>Dumping Scenes...</value>
+  </data>
+  <data name="CommandDumpSuccessFormat" xml:space="preserve">
+    <value>Dump created in {0}</value>
+    <comment>Filename</comment>
+  </data>
+  <data name="TextOff" xml:space="preserve">
+    <value>off</value>
+  </data>
+  <data name="TextOn" xml:space="preserve">
+    <value>on</value>
+  </data>
+  <data name="ErrorNoTemplateFound" xml:space="preserve">
+    <value>No template found!</value>
+  </data>
+  <data name="ErrorFailedToLoadItemBundle" xml:space="preserve">
+    <value>Failed to load item bundle!</value>
+  </data>
+  <data name="ErrorFailedToCreateItem" xml:space="preserve">
+    <value>Failed to create item!</value>
+  </data>
+  <data name="CommandStatusTextFormat" xml:space="preserve">
+    <value>{0} is {1} {2}</value>
+    <comment>Feature name, status, optional toggle text if a key is set</comment>
+  </data>
+  <data name="CommandStatusTextToggleFormat" xml:space="preserve">
+    <value>({0} to toggle)</value>
+    <comment>Key</comment>
+  </data>
+  <data name="CommandTemplateEnumerateFormat" xml:space="preserve">
+    <value>{0}: {1} [{2}]"</value>
+    <comment>Template id, short-name, name</comment>
+  </data>
+  <data name="CommandTemplateSuccessFormat" xml:space="preserve">
+    <value>Found {0} template(s)</value>
+    <comment>Template count</comment>
+  </data>
+  <data name="CommandTrackListEnumerateFormat" xml:space="preserve">
+    <value>Tracking: {0}{1}</value>
+    <comment>Item short-name, optional rarity</comment>
+  </data>
+  <data name="CommandTrackListUpdated" xml:space="preserve">
+    <value>Tracking list updated...</value>
+  </data>
+  <data name="CommandTrackListWishListEnumerateFormat" xml:space="preserve">
+    <value>Tracking: {0} (Wishlist)</value>
+    <comment>Item short-name</comment>
+  </data>
+  <data name="ErrorTooManyTemplatesFormat" xml:space="preserve">
+    <value>Found {0} templates, be more specific</value>
+    <comment>Template count &gt; 1</comment>
+  </data>
+  <data name="DebugPerformanceRefreshedFormat" xml:space="preserve">
+    <value>Refreshed {0} in {1}ms</value>
+    <comment>Type name, elapsed milliseconds</comment>
+  </data>
+  <data name="FeatureCommandsTitle" xml:space="preserve">
+    <value>EFT Trainer</value>
   </data>
 </root>
