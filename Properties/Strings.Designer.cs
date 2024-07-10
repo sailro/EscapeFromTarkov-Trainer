@@ -106,7 +106,7 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} [{1}]{2}.
+        ///   Looks up a localized string similar to {0} [{1}] {2}.
         /// </summary>
         internal static string CommandListEnumerateFormat {
             get {
@@ -120,6 +120,15 @@ namespace EFT.Trainer.Properties {
         internal static string CommandListRare {
             get {
                 return ResourceManager.GetString("CommandListRare", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ({0}).
+        /// </summary>
+        internal static string CommandListRarityFormat {
+            get {
+                return ResourceManager.GetString("CommandListRarityFormat", resourceCulture);
             }
         }
         
@@ -306,11 +315,20 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Tracking: {0}{1}.
+        ///   Looks up a localized string similar to Tracking: {0} {1}.
         /// </summary>
         internal static string CommandTrackListEnumerateFormat {
             get {
                 return ResourceManager.GetString("CommandTrackListEnumerateFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to ({0}).
+        /// </summary>
+        internal static string CommandTrackListRarityFormat {
+            get {
+                return ResourceManager.GetString("CommandTrackListRarityFormat", resourceCulture);
             }
         }
         
@@ -468,6 +486,15 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unable to find {0} on {1}.
+        /// </summary>
+        internal static string ErrorCannotFindField {
+            get {
+                return ResourceManager.GetString("ErrorCannotFindField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Cannot find original method {0}.
         /// </summary>
         internal static string ErrorCannotFindOriginalMethodFormat {
@@ -491,6 +518,24 @@ namespace EFT.Trainer.Properties {
         internal static string ErrorCannotFindPrefixMethodFormat {
             get {
                 return ResourceManager.GetString("ErrorCannotFindPrefixMethodFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to load {0}. {1}.
+        /// </summary>
+        internal static string ErrorCannotLoadFormat {
+            get {
+                return ResourceManager.GetString("ErrorCannotLoadFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to save {0}. {1}.
+        /// </summary>
+        internal static string ErrorCannotSaveFormat {
+            get {
+                return ResourceManager.GetString("ErrorCannotSaveFormat", resourceCulture);
             }
         }
         
@@ -563,24 +608,6 @@ namespace EFT.Trainer.Properties {
         internal static string ErrorTooManyTemplatesFormat {
             get {
                 return ResourceManager.GetString("ErrorTooManyTemplatesFormat", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unable to load {0}. {1}.
-        /// </summary>
-        internal static string ErrorUnableToLoadFormat {
-            get {
-                return ResourceManager.GetString("ErrorUnableToLoadFormat", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Unable to save {0}. {1}.
-        /// </summary>
-        internal static string ErrorUnableToSaveFormat {
-            get {
-                return ResourceManager.GetString("ErrorUnableToSaveFormat", resourceCulture);
             }
         }
         
@@ -752,6 +779,15 @@ namespace EFT.Trainer.Properties {
         internal static string FeatureExfiltrationPointsDescription {
             get {
                 return ResourceManager.GetString("FeatureExfiltrationPointsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} ({1}).
+        /// </summary>
+        internal static string FeatureExfiltrationPointsEligibleFormat {
+            get {
+                return ResourceManager.GetString("FeatureExfiltrationPointsEligibleFormat", resourceCulture);
             }
         }
         
@@ -936,6 +972,15 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ({0},{1}).
+        /// </summary>
+        internal static string FeatureHudCoordinatesFormat {
+            get {
+                return ResourceManager.GetString("FeatureHudCoordinatesFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to HUD (compass, ammo left in chamber / magazine, fire mode, coordinates)..
         /// </summary>
         internal static string FeatureHudDescription {
@@ -950,6 +995,24 @@ namespace EFT.Trainer.Properties {
         internal static string FeatureHudName {
             get {
                 return ResourceManager.GetString("FeatureHudName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  - .
+        /// </summary>
+        internal static string FeatureHudSeparator {
+            get {
+                return ResourceManager.GetString("FeatureHudSeparator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}+{1}/{2} [{3}].
+        /// </summary>
+        internal static string FeatureHudWeaponFormat {
+            get {
+                return ResourceManager.GetString("FeatureHudWeaponFormat", resourceCulture);
             }
         }
         
@@ -1125,6 +1188,15 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} {1}% {2}.
+        /// </summary>
+        internal static string FeaturePlayersFormat {
+            get {
+                return ResourceManager.GetString("FeaturePlayersFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to wallhack.
         /// </summary>
         internal static string FeaturePlayersName {
@@ -1134,11 +1206,56 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to [{0}m].
+        /// </summary>
+        internal static string FeaturePointOfInterestsDistanceFormat {
+            get {
+                return ResourceManager.GetString("FeaturePointOfInterestsDistanceFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} {1} {2}.
+        /// </summary>
+        internal static string FeaturePointOfInterestsFormat {
+            get {
+                return ResourceManager.GetString("FeaturePointOfInterestsFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &gt;&gt; In {0} {1}.
+        /// </summary>
+        internal static string FeaturePointOfInterestsGroupFormat {
+            get {
+                return ResourceManager.GetString("FeaturePointOfInterestsGroupFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to (in {0}).
+        /// </summary>
+        internal static string FeaturePointOfInterestsOwnerFormat {
+            get {
+                return ResourceManager.GetString("FeaturePointOfInterestsOwnerFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Locations for taking/placing quest items. Only items related to your started quests are displayed..
         /// </summary>
         internal static string FeatureQuestsDescription {
             get {
                 return ResourceManager.GetString("FeatureQuestsDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} ({1}).
+        /// </summary>
+        internal static string FeatureQuestsFormat {
+            get {
+                return ResourceManager.GetString("FeatureQuestsFormat", resourceCulture);
             }
         }
         

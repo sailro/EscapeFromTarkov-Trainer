@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using EFT.Trainer.UI;
 using UnityEngine;
 
@@ -80,7 +81,8 @@ internal abstract class PointOfInterests : CachableFeature<PointOfInterest>
 				if (owner != null && distinctGroup.Count > 1)
 				{
 					flags = GetCaptionFlags.Name;
-					drawPosition = new Vector2(drawPosition.x, drawPosition.y + Render.DrawString(drawPosition, $">> In {owner} [{distance}m]", GroupingColor, false).y);
+					var distanceText = string.Format(Strings.FeaturePointOfInterestsDistanceFormat, distance);
+					drawPosition = new Vector2(drawPosition.x, drawPosition.y + Render.DrawString(drawPosition, string.Format(Strings.FeaturePointOfInterestsGroupFormat, owner, distanceText), GroupingColor, false).y);
 				}
 
 				foreach (var poi in distinctGroup)
@@ -102,25 +104,22 @@ internal abstract class PointOfInterests : CachableFeature<PointOfInterest>
 
 	public virtual string GetCaption(PointOfInterest poi, double distance, GetCaptionFlags flags = GetCaptionFlags.All)
 	{
-		var result = new StringBuilder();
+		var nameText = string.Empty;
+		var distanceText = string.Empty;
+		var ownerText = string.Empty;
 
 		if ((flags & GetCaptionFlags.Name) != 0)
-		{
-			result.Append(poi.Name);
-			result.Append(" ");
-		}
+			nameText = poi.Name;
 
 		if (poi.Owner != null && (flags & GetCaptionFlags.Owner) != 0)
-		{
-			result.Append($"(in {poi.Owner})");
-			result.Append(" ");
-		}
+			ownerText = string.Format(Strings.FeaturePointOfInterestsOwnerFormat, poi.Owner);
 
 		if ((flags & GetCaptionFlags.Distance) != 0)
-		{
-			result.Append($"[{distance}m]");
-		}
+			distanceText = string.Format(Strings.FeaturePointOfInterestsDistanceFormat, distance);
 
-		return result.ToString();
+		return string
+			.Format(Strings.FeaturePointOfInterestsFormat, nameText, ownerText, distanceText)
+			.Replace("  ", " ")
+			.Trim();
 	}
 }

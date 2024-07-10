@@ -29,7 +29,7 @@ internal static class ConfigurationManager
 			if (!File.Exists(filename))
 			{
 				if (warnIfNotExists)
-					AddConsoleLog($"{filename} not found!");
+					AddConsoleLog(string.Format(Strings.ErrorFileNotFoundFormat, filename));
 
 				return;
 			}
@@ -64,7 +64,7 @@ internal static class ConfigurationManager
 		}
 		catch (Exception ioe)
 		{
-			AddConsoleLog(string.Format(Strings.ErrorUnableToLoadFormat, filename, ioe.Message).Red());
+			AddConsoleLog(string.Format(Strings.ErrorCannotLoadFormat, filename, ioe.Message).Red());
 		}
 	}
 
@@ -97,7 +97,7 @@ internal static class ConfigurationManager
 		}
 		catch (Exception ioe)
 		{
-			AddConsoleLog(string.Format(Strings.ErrorUnableToLoadFormat, filename, ioe.Message).Red());
+			AddConsoleLog(string.Format(Strings.ErrorCannotLoadFormat, filename, ioe.Message).Red());
 		}
 	}
 
@@ -135,7 +135,7 @@ internal static class ConfigurationManager
 		}
 		catch (Exception ioe)
 		{
-			AddConsoleLog(string.Format(Strings.ErrorUnableToSaveFormat, filename, ioe.Message).Red());
+			AddConsoleLog(string.Format(Strings.ErrorCannotSaveFormat, filename, ioe.Message).Red());
 		}
 	}
 
@@ -153,7 +153,7 @@ internal static class ConfigurationManager
 		}
 		catch (Exception ioe)
 		{
-			AddConsoleLog(string.Format(Strings.ErrorUnableToSaveFormat, filename, ioe.Message).Red());
+			AddConsoleLog(string.Format(Strings.ErrorCannotSaveFormat, filename, ioe.Message).Red());
 		}
 	}
 

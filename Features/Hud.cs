@@ -57,7 +57,6 @@ internal class Hud : ToggleFeature
 			return;
 
 		_sb.Clear();
-		const string separator = " - ";
 
 		if (ShowCompass)
 		{
@@ -66,16 +65,16 @@ internal class Hud : ToggleFeature
 
 			var heading = Quaternion.LookRotation(forward).eulerAngles.y;
 			_sb.Append(_directions[(int)Mathf.Round(heading % 360 / 45)]);
-			_sb.Append(separator);
+			_sb.Append(Strings.FeatureHudSeparator);
 		}
 
-		_sb.Append($"{mag.Count}+{weapon.ChamberAmmoCount}/{mag.MaxCount} [{weapon.SelectedFireMode}]");
+		_sb.Append(string.Format(Strings.FeatureHudWeaponFormat, mag.Count, weapon.ChamberAmmoCount, mag.MaxCount, weapon.SelectedFireMode));
 
 		if (ShowCoordinates)
 		{
-			_sb.Append(separator);
+			_sb.Append(Strings.FeatureHudSeparator);
 			var position = player.Transform.position;
-			_sb.Append($"({Mathf.RoundToInt(position.x)},{Mathf.RoundToInt(position.z)})");
+			_sb.Append(string.Format(Strings.FeatureHudCoordinatesFormat, Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.z)));
 		}
 
 		Render.DrawString(new Vector2(512, Screen.height - 16f), _sb.ToString(), Color);

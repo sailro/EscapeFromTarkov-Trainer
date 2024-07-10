@@ -98,7 +98,7 @@ internal class ExfiltrationPoints : PointOfInterests
 	private static string GetName(ExfiltrationPoint point, bool isEligible)
 	{
 		var localizedName = point.Settings.Name.Localized();
-		return !isEligible ? localizedName : $"{localizedName} ({GetStatus(point.Status)})";
+		return !isEligible ? localizedName : string.Format(Strings.FeatureExfiltrationPointsEligibleFormat, localizedName, GetStatus(point.Status));
 	}
 
 	public static string GetStatus(EExfiltrationStatus status)

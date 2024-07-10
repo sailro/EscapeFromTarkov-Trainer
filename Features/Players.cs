@@ -233,7 +233,8 @@ internal class Players : ToggleFeature
 			var maximumPlayerHealth = bodyPartHealth.Maximum;
 
 			var weaponText = ennemyHandController != null && ennemyHandController.Item is Weapon weapon ? weapon.ShortName.Localized() : string.Empty;
-			var infoText = $"{weaponText} {Mathf.Round(currentPlayerHealth * 100 / maximumPlayerHealth)}% [{distance}m]".Trim();
+			var distanceText = string.Format(Strings.FeaturePointOfInterestsDistanceFormat, distance);
+			var infoText = string.Format(Strings.FeaturePlayersFormat, weaponText, Mathf.Round(currentPlayerHealth * 100 / maximumPlayerHealth), distanceText).Trim();
 
 			Render.DrawString(new Vector2(boxPositionX, boxPositionY - 20f), infoText, playerColors.InfoColor, false);
 		}

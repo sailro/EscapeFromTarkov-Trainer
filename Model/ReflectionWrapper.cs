@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
+using EFT.Trainer.Properties;
 using EFT.UI;
 using HarmonyLib;
 
@@ -22,7 +23,7 @@ internal class ReflectionWrapper
 		{
 #if DEBUG
 				if (warnOnFailure)
-					AddConsoleLog($"Unable to find {name} on {_instanceType.Name}");
+					AddConsoleLog(string.Format(Strings.ErrorCannotFindField, name, _instanceType.Name));
 #endif
 			return default;
 		}

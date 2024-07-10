@@ -63,7 +63,7 @@ internal abstract class BaseListCommand : ConsoleCommandWithArgument
 			if (rarityFilter.HasValue && rarityFilter.Value != rarity)
 				continue;
 
-			var extra = rarity != ELootRarity.Not_exist ? $" ({rarity.Color()})" : string.Empty;
+			var extra = rarity != ELootRarity.Not_exist ? string.Format(Strings.CommandListRarityFormat, rarity.Color()) : string.Empty;
 			AddConsoleLog(string.Format(Strings.CommandListEnumerateFormat, itemName, list.Count.ToString().Cyan(), extra));
 
 			count += list.Count;

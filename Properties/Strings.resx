@@ -774,16 +774,16 @@
     <value>{0} not found!</value>
     <comment>Filename</comment>
   </data>
-  <data name="ErrorUnableToLoadFormat" xml:space="preserve">
+  <data name="ErrorCannotLoadFormat" xml:space="preserve">
     <value>Unable to load {0}. {1}</value>
     <comment>Filename, error message</comment>
   </data>
-  <data name="ErrorUnableToSaveFormat" xml:space="preserve">
+  <data name="ErrorCannotSaveFormat" xml:space="preserve">
     <value>Unable to save {0}. {1}</value>
     <comment>Filename, error message</comment>
   </data>
   <data name="CommandListEnumerateFormat" xml:space="preserve">
-    <value>{0} [{1}]{2}</value>
+    <value>{0} [{1}] {2}</value>
     <comment>Item name, count, optional rarity</comment>
   </data>
   <data name="CommandListSuccessFormat" xml:space="preserve">
@@ -846,7 +846,7 @@
     <comment>Template count</comment>
   </data>
   <data name="CommandTrackListEnumerateFormat" xml:space="preserve">
-    <value>Tracking: {0}{1}</value>
+    <value>Tracking: {0} {1}</value>
     <comment>Item short-name, optional rarity</comment>
   </data>
   <data name="CommandTrackListUpdated" xml:space="preserve">
@@ -866,5 +866,56 @@
   </data>
   <data name="FeatureCommandsTitle" xml:space="preserve">
     <value>EFT Trainer</value>
+  </data>
+  <data name="CommandListRarityFormat" xml:space="preserve">
+    <value>({0})</value>
+    <comment>Rarity</comment>
+  </data>
+  <data name="CommandTrackListRarityFormat" xml:space="preserve">
+    <value>({0})</value>
+    <comment>Rarity</comment>
+  </data>
+  <data name="ErrorCannotFindField" xml:space="preserve">
+    <value>Unable to find {0} on {1}</value>
+    <comment>Field name, type name</comment>
+  </data>
+  <data name="FeatureExfiltrationPointsEligibleFormat" xml:space="preserve">
+    <value>{0} ({1})</value>
+    <comment>Name, status</comment>
+  </data>
+  <data name="FeatureHudCoordinatesFormat" xml:space="preserve">
+    <value>({0},{1})</value>
+    <comment>X, y</comment>
+  </data>
+  <data name="FeatureHudSeparator" xml:space="preserve">
+    <value> - </value>
+  </data>
+  <data name="FeatureHudWeaponFormat" xml:space="preserve">
+    <value>{0}+{1}/{2} [{3}]</value>
+    <comment>Magazine count, chamber count, magazine capacity, fire-mode</comment>
+  </data>
+  <data name="FeaturePlayersFormat" xml:space="preserve">
+    <value>{0} {1}% {2}</value>
+    <comment>Weapon name, health %, distance</comment>
+  </data>
+  <data name="FeaturePointOfInterestsDistanceFormat" xml:space="preserve">
+    <value>[{0}m]</value>
+    <comment>Distance</comment>
+  </data>
+  <data name="FeaturePointOfInterestsFormat" xml:space="preserve">
+    <value>{0} {1} {2}</value>
+    <comment>Name, optional formatted owner, optional formatted distance</comment>
+  </data>
+  <data name="FeaturePointOfInterestsGroupFormat" xml:space="preserve">
+    <value>&gt;&gt; In {0} {1}</value>
+    <comment>Owner, distance</comment>
+  </data>
+  <data name="FeaturePointOfInterestsOwnerFormat" xml:space="preserve">
+    <value>(in {0})</value>
+    <comment>Owner</comment>
+  </data>
+  <data name="FeatureQuestsFormat" xml:space="preserve">
+    <value>{0} ({1})</value>
+    <comment>Condition description, quest name</comment>
   </data>
 </root>

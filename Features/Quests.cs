@@ -147,7 +147,7 @@ internal class Quests : PointOfInterests
 	private void AddQuestRecord(List<PointOfInterest> records, Condition condition, QuestDataClass quest, Vector3 position)
 	{
 		var poi = Pool.Get();
-		poi.Name = $"{condition.FormattedDescription} ({quest.Template!.Name})";
+		poi.Name = string.Format(Strings.FeatureQuestsFormat, condition.FormattedDescription, quest.Template!.Name);
 		poi.Position = position;
 		poi.Color = Color;
 		poi.Owner = null;
