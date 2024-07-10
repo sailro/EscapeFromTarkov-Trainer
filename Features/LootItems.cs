@@ -24,7 +24,7 @@ internal class LootItems : PointOfInterests
 	[ConfigurationProperty]
 	public Color Color { get; set; } = Color.cyan;
 
-	[ConfigurationProperty(Browsable = false, Comment = @"Example: [""foo"", ""bar""] or with extended properties: [{""Name"":""foo"",""Color"":[1.0,0.0,0.0,1.0]},{""Name"":""bar"",""Color"":[1.0,1.0,1.0,0.8],""Rarity"":""Rare""}]")]
+	[ConfigurationProperty(Browsable = false, CommentResourceId = nameof(Strings.PropertyTrackedNamesComment))]
 	public List<TrackedItem> TrackedNames { get; set; } = [];
 
 	[ConfigurationProperty] 

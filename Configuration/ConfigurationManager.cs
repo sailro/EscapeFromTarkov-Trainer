@@ -106,7 +106,7 @@ internal static class ConfigurationManager
 		try
 		{
 			var content = new StringBuilder();
-			content.AppendLine(Strings.CommandSaveHeader);
+			content.AppendLine(Comment(Strings.CommandSaveHeader));
 			content.AppendLine();
 
 			foreach (var feature in features.OrderBy(f => f.GetType().FullName))
@@ -119,9 +119,9 @@ internal static class ConfigurationManager
 					var key = $"{featureType.FullName}.{op.Property.Name}";
 					var value = JsonConvert.SerializeObject(op.Property.GetValue(feature), Formatting.None, Converters);
 
-					var comment = op.Attribute.Comment;
-					if (!string.IsNullOrEmpty(comment)) 
-						content.AppendLine($"; {comment}");
+					var resourceId = op.Attribute.CommentResourceId;
+					if (!string.IsNullOrEmpty(resourceId)) 
+						content.AppendLine(Comment(Strings.ResourceManager.GetString(resourceId)));
 
 					content.AppendLine($"{key}={value}");
 				}
@@ -137,6 +137,16 @@ internal static class ConfigurationManager
 		{
 			AddConsoleLog(string.Format(Strings.ErrorCannotSaveFormat, filename, ioe.Message).Red());
 		}
+	}
+
+	private static string Comment(string? value)
+	{
+		if (string.IsNullOrEmpty(value))
+			return string.Empty;
+
+		const string commentToken = "; ";
+
+		return commentToken + value!.Replace(Environment.NewLine, Environment.NewLine + commentToken);
 	}
 
 	public static void SavePropertyValue(string filename, Feature feature, string propertyName)

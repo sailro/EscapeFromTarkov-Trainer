@@ -196,9 +196,9 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ; Be careful when updating this file :)
-        ///; For keys, use https://docs.unity3d.com/ScriptReference/KeyCode.html
-        ///; Colors are stored as an array of &apos;RGBA&apos; floats.
+        ///   Looks up a localized string similar to Be careful when updating this file :)
+        ///For keys, use https://docs.unity3d.com/ScriptReference/KeyCode.html
+        ///Colors are stored as an array of &apos;RGBA&apos; floats.
         /// </summary>
         internal static string CommandSaveHeader {
             get {
@@ -2264,6 +2264,15 @@ namespace EFT.Trainer.Properties {
         internal static string PropertyThickness {
             get {
                 return ResourceManager.GetString("PropertyThickness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Example: [&quot;foo&quot;, &quot;bar&quot;] or with extended properties: [{&quot;Name&quot;:&quot;foo&quot;,&quot;Color&quot;:[1.0,0.0,0.0,1.0]},{&quot;Name&quot;:&quot;bar&quot;,&quot;Color&quot;:[1.0,1.0,1.0,0.8],&quot;Rarity&quot;:&quot;Rare&quot;}].
+        /// </summary>
+        internal static string PropertyTrackedNamesComment {
+            get {
+                return ResourceManager.GetString("PropertyTrackedNamesComment", resourceCulture);
             }
         }
         

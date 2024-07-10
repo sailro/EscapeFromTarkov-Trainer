@@ -754,9 +754,9 @@
     <comment>Filename</comment>
   </data>
   <data name="CommandSaveHeader" xml:space="preserve">
-    <value>; Be careful when updating this file :)
-; For keys, use https://docs.unity3d.com/ScriptReference/KeyCode.html
-; Colors are stored as an array of 'RGBA' floats</value>
+    <value>Be careful when updating this file :)
+For keys, use https://docs.unity3d.com/ScriptReference/KeyCode.html
+Colors are stored as an array of 'RGBA' floats</value>
   </data>
   <data name="CommandSaveSuccessFormat" xml:space="preserve">
     <value>Saved {0}</value>
@@ -917,5 +917,8 @@
   <data name="FeatureQuestsFormat" xml:space="preserve">
     <value>{0} ({1})</value>
     <comment>Condition description, quest name</comment>
+  </data>
+  <data name="PropertyTrackedNamesComment" xml:space="preserve">
+    <value>Example: ["foo", "bar"] or with extended properties: [{"Name":"foo","Color":[1.0,0.0,0.0,1.0]},{"Name":"bar","Color":[1.0,1.0,1.0,0.8],"Rarity":"Rare"}]</value>
   </data>
 </root>
