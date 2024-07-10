@@ -28,7 +28,7 @@ internal class TrackList : ConsoleCommandWithoutArgument
 		foreach (var item in lootItems.TrackedNames)
 		{
 			var extra = item.Rarity.HasValue ? $" ({item.Rarity.Value.Color()})" : string.Empty;
-			command.AddConsoleLog(string.Format(Strings.CommandTemplateEnumerateFormat, item.Color.HasValue ? item.Name.Color(item.Color.Value) : item.Name, extra));
+			command.AddConsoleLog(string.Format(Strings.CommandTrackListEnumerateFormat, item.Color.HasValue ? item.Name.Color(item.Color.Value) : item.Name, extra));
 		}
 	}
 }

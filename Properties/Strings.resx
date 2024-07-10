@@ -838,7 +838,7 @@
     <comment>Key</comment>
   </data>
   <data name="CommandTemplateEnumerateFormat" xml:space="preserve">
-    <value>{0}: {1} [{2}]"</value>
+    <value>{0}: {1} [{2}]</value>
     <comment>Template id, short-name, name</comment>
   </data>
   <data name="CommandTemplateSuccessFormat" xml:space="preserve">

@@ -270,7 +270,7 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0}: {1} [{2}]&quot;.
+        ///   Looks up a localized string similar to {0}: {1} [{2}].
         /// </summary>
         internal static string CommandTemplateEnumerateFormat {
             get {
