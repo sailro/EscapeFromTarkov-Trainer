@@ -1,4 +1,5 @@
-﻿using System.Diagnostics.CodeAnalysis;
+﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using EFT.InventoryLogic;
 
@@ -51,7 +52,9 @@ public static class PlayerExtensions
 		var settings = info.Settings;
 		if (settings != null)
 		{
-			switch (settings.Role)
+			var role = settings.Role;
+
+			switch (role)
 			{
 				case WildSpawnType.pmcBot:
 					return HostileType.ScavRaider;
@@ -65,6 +68,10 @@ public static class PlayerExtensions
 					return HostileType.Marksman;
 				case WildSpawnType.exUsec:
 					return HostileType.RogueUsec;
+				case WildSpawnType.pmcBEAR:
+					return HostileType.Bear;
+				case WildSpawnType.pmcUSEC:
+					return HostileType.Usec;
 			}
 
 			if (settings.IsBoss())
