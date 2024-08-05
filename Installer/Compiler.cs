@@ -159,7 +159,17 @@ internal partial class Compiler
 		}
 	}
 
-	public IEnumerable<ResourceDescription> GetResources()
+	public bool IsLocalizationSupported()
+	{
+		return IsLanguageSupported(null);
+	}
+
+	public bool IsLanguageSupported(CompilationContext? context)
+	{
+		return GetSourceFiles().Any(f => f.EndsWith(string.Concat("Strings.", context?.Language ?? string.Empty, ".Designer.cs").Replace("..","."), StringComparison.OrdinalIgnoreCase));
+	}
+
+	public IEnumerable<ResourceDescription> GetResources(CompilationContext context)
 	{
 		var matches = ResourceFileRegex().Matches(ProjectContent);
 
@@ -168,7 +178,11 @@ internal partial class Compiler
 			if (!match.Success)
 				continue;
 
+			// For now we only select one resource file, and use it as "neutral"
 			var file = match.Groups["file"].Value;
+			if (!file.EndsWith(string.Concat("Strings.", context.Language, ".resx").Replace("..","."), StringComparison.OrdinalIgnoreCase))
+				continue;
+			
 			var entry = ProjectArchive.Entries.FirstOrDefault(e => e.FullName.EndsWith(file.Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar), StringComparison.OrdinalIgnoreCase));
 			if (entry == null)
 				continue;
@@ -191,6 +205,7 @@ internal partial class Compiler
 
 			var resourceName = file
 				.Replace(@"Properties\Strings", "EFT.Trainer.Properties.Strings")
+				.Replace($".{context.Language}.", ".", StringComparison.OrdinalIgnoreCase)
 				.Replace(".resx", ".resources");
 
 			yield return new ResourceDescription(resourceName, () => resource, isPublic: true);

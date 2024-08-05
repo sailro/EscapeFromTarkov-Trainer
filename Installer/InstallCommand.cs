@@ -38,6 +38,10 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 		[Description("Disable command.")]
 		[CommandOption("-c|--command")]
 		public string[]? DisabledCommands { get; set; }
+
+		[Description("Language.")]
+		[CommandOption("-l|--language")]
+		public string Language { get; set; } = "";
 	}
 
 	public static string[] ToSourceFile(string[]? names, string folder)
@@ -147,7 +151,8 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 		var context = new CompilationContext(installation, "trainer", "NLog.EFT.Trainer.csproj")
 		{
 			Exclude = [.. settings.DisabledFeatures!, .. settings.DisabledCommands!],
-			Branch = GetInitialBranch(settings)
+			Branch = GetInitialBranch(settings),
+			Language = settings.Language
 		};
 
 		var result = await GetCompilationAsync(context);
@@ -273,10 +278,19 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 				else
 				{
 					resources = compiler
-						.GetResources()
+						.GetResources(context)
 						.ToArray();
 
-					AnsiConsole.MarkupLine($">> [blue]Try #{context.Try}[/] Compilation [green]succeed[/] for [blue]{context.Branch.EscapeMarkup()}[/] branch.");
+					if (compiler.IsLocalizationSupported() && !resources.Any())
+					{
+						AnsiConsole.MarkupLine($"[yellow]Warning: no localization support for language '{context.Language.EscapeMarkup()}'.[/]");
+						compilation = null;
+						context.IsFatalFailure = true;
+					}
+					else
+					{
+						AnsiConsole.MarkupLine($">> [blue]Try #{context.Try}[/] Compilation [green]succeed[/] for [blue]{context.Branch.EscapeMarkup()}[/] branch.");
+					}
 				}
 			});
 
