@@ -1962,7 +1962,7 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show bosses.
+        ///   Looks up a localized string similar to Show Bosses.
         /// </summary>
         internal static string PropertyShowBosses {
             get {
@@ -2025,7 +2025,7 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show cultists.
+        ///   Looks up a localized string similar to Show Cultists.
         /// </summary>
         internal static string PropertyShowCultists {
             get {
@@ -2088,7 +2088,7 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show marksmen.
+        ///   Looks up a localized string similar to Show Marksmen.
         /// </summary>
         internal static string PropertyShowMarksmen {
             get {
@@ -2133,7 +2133,7 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Show rogues.
+        ///   Looks up a localized string similar to Show Rogues.
         /// </summary>
         internal static string PropertyShowRogues {
             get {

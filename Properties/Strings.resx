@@ -790,7 +790,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Show armor damage</value>
   </data>
   <data name="PropertyShowBosses" xml:space="preserve">
-    <value>Show bosses</value>
+    <value>Show Bosses</value>
   </data>
   <data name="PropertyShowBoxes" xml:space="preserve">
     <value>Show boxes</value>
@@ -811,7 +811,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Show corpses</value>
   </data>
   <data name="PropertyShowCultists" xml:space="preserve">
-    <value>Show cultists</value>
+    <value>Show Cultists</value>
   </data>
   <data name="PropertyShowEligible" xml:space="preserve">
     <value>Show eligible</value>
@@ -832,7 +832,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Show map</value>
   </data>
   <data name="PropertyShowMarksmen" xml:space="preserve">
-    <value>Show marksmen</value>
+    <value>Show Marksmen</value>
   </data>
   <data name="PropertyShowNotEligible" xml:space="preserve">
     <value>Show not eligible</value>
@@ -847,7 +847,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Show prices</value>
   </data>
   <data name="PropertyShowRogues" xml:space="preserve">
-    <value>Show rogues</value>
+    <value>Show Rogues</value>
   </data>
   <data name="PropertyShowScavAssaults" xml:space="preserve">
     <value>Show Scav-assaults</value>

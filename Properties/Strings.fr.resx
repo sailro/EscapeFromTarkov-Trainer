@@ -634,13 +634,13 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Arrière</value>
   </data>
   <data name="PropertyBearColors" xml:space="preserve">
-    <value>Couleurs Bear</value>
+    <value>Couleurs des Bear</value>
   </data>
   <data name="PropertyBorderColor" xml:space="preserve">
     <value>Couleur bordure</value>
   </data>
   <data name="PropertyBossColors" xml:space="preserve">
-    <value>Couleurs Boss</value>
+    <value>Couleurs des Boss</value>
   </data>
   <data name="PropertyBoxThickness" xml:space="preserve">
     <value>Epaisseur boîte</value>
@@ -658,7 +658,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Couleur</value>
   </data>
   <data name="PropertyCultistColors" xml:space="preserve">
-    <value>Cultist colors</value>
+    <value>Couleurs des Cultists</value>
   </data>
   <data name="PropertyDisplayTime" xml:space="preserve">
     <value>Afficher l'heure</value>
@@ -679,7 +679,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Mode rapide</value>
   </data>
   <data name="PropertyFastMovementSpeed" xml:space="preserve">
-    <value>Fast movement speed</value>
+    <value>Vitesse de mouvement rapide</value>
   </data>
   <data name="PropertyFoodWater" xml:space="preserve">
     <value>Nourriture / eau</value>
@@ -727,187 +727,187 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Gauche</value>
   </data>
   <data name="PropertyMarksmanColors" xml:space="preserve">
-    <value>Marksman colors</value>
+    <value>Couleurs des Snipers</value>
   </data>
   <data name="PropertyMaximumDistance" xml:space="preserve">
-    <value>Maximum distance</value>
+    <value>Distance maximum</value>
   </data>
   <data name="PropertyMovementSpeed" xml:space="preserve">
-    <value>Movement speed</value>
+    <value>Vitesse de mouvement</value>
   </data>
   <data name="PropertyNotEligibleColor" xml:space="preserve">
-    <value>Not eligible color</value>
+    <value>Couleur non-éligible</value>
   </data>
   <data name="PropertyNotShootableColors" xml:space="preserve">
-    <value>Not shootable colors</value>
+    <value>Couleurs pour les non-cibles</value>
   </data>
   <data name="PropertyRadarBackground" xml:space="preserve">
-    <value>Radar background</value>
+    <value>Arrière-plan du radar</value>
   </data>
   <data name="PropertyRadarCrosshair" xml:space="preserve">
-    <value>Radar crosshair</value>
+    <value>Réticule radar</value>
   </data>
   <data name="PropertyRadarPercentage" xml:space="preserve">
-    <value>Radar percentage</value>
+    <value>Pourcentage du radar</value>
   </data>
   <data name="PropertyRadarRange" xml:space="preserve">
-    <value>Radar range</value>
+    <value>Portée du radar</value>
   </data>
   <data name="PropertyRange" xml:space="preserve">
-    <value>Range</value>
+    <value>Portée</value>
   </data>
   <data name="PropertyRate" xml:space="preserve">
-    <value>Rate</value>
+    <value>Taux</value>
   </data>
   <data name="PropertyRemoveNegativeEffects" xml:space="preserve">
-    <value>Remove negative effects</value>
+    <value>Supprimer les effets négatifs</value>
   </data>
   <data name="PropertyRight" xml:space="preserve">
-    <value>Right</value>
+    <value>Gauche</value>
   </data>
   <data name="PropertyRogueUsecColors" xml:space="preserve">
-    <value>Rogue-Usec colors</value>
+    <value>Couleurs des Rogue-Usec</value>
   </data>
   <data name="PropertyScavAssaultColors" xml:space="preserve">
-    <value>Scav-assault colors</value>
+    <value>Couleurs des Scav-assault</value>
   </data>
   <data name="PropertyScavColors" xml:space="preserve">
-    <value>Scav colors</value>
+    <value>Couleurs des Scav</value>
   </data>
   <data name="PropertyScavRaiderColors" xml:space="preserve">
-    <value>Scav-raider colors</value>
+    <value>Couleurs des Scav-raider</value>
   </data>
   <data name="PropertySearchInsideContainers" xml:space="preserve">
-    <value>Search inside containers</value>
+    <value>Chercher dans les conteneurs</value>
   </data>
   <data name="PropertySearchInsideCorpses" xml:space="preserve">
-    <value>Search inside corpses</value>
+    <value>Chercher dans les corps</value>
   </data>
   <data name="PropertyShootableColors" xml:space="preserve">
-    <value>Shootable colors</value>
+    <value>Couleurs pour les cibles</value>
   </data>
   <data name="PropertyShowArmorDamage" xml:space="preserve">
-    <value>Show armor damage</value>
+    <value>Montrer les dommages de l'armure</value>
   </data>
   <data name="PropertyShowBosses" xml:space="preserve">
-    <value>Show bosses</value>
+    <value>Montrer les Boss</value>
   </data>
   <data name="PropertyShowBoxes" xml:space="preserve">
-    <value>Show boxes</value>
+    <value>Montrer les boites</value>
   </data>
   <data name="PropertyShowCharms" xml:space="preserve">
-    <value>Show charms</value>
+    <value>Montrer les silhouettes</value>
   </data>
   <data name="PropertyShowCompass" xml:space="preserve">
-    <value>Show compass</value>
+    <value>Montrer la boussole</value>
   </data>
   <data name="PropertyShowContainers" xml:space="preserve">
-    <value>Show containers</value>
+    <value>Montrer les conteneurs</value>
   </data>
   <data name="PropertyShowCoordinates" xml:space="preserve">
-    <value>Show coordinates</value>
+    <value>Montrer les coordonnées</value>
   </data>
   <data name="PropertyShowCorpses" xml:space="preserve">
-    <value>Show corpses</value>
+    <value>Montrer les corps</value>
   </data>
   <data name="PropertyShowCultists" xml:space="preserve">
-    <value>Show cultists</value>
+    <value>Montrer les Cultistes</value>
   </data>
   <data name="PropertyShowEligible" xml:space="preserve">
-    <value>Show eligible</value>
+    <value>Montrer les éligibles</value>
   </data>
   <data name="PropertyShowFovCircle" xml:space="preserve">
-    <value>Show fov circle</value>
+    <value>Montrer le cercle de vision</value>
   </data>
   <data name="PropertyShowHealthDamage" xml:space="preserve">
-    <value>Show health-damage</value>
+    <value>Montrer les dommages de vie</value>
   </data>
   <data name="PropertyShowHitMarker" xml:space="preserve">
-    <value>Show Hit-marker</value>
+    <value>Montrer les marqueurs</value>
   </data>
   <data name="PropertyShowInfos" xml:space="preserve">
-    <value>Show infos</value>
+    <value>Montrer les infos</value>
   </data>
   <data name="PropertyShowMap" xml:space="preserve">
-    <value>Show map</value>
+    <value>Montrer la carte</value>
   </data>
   <data name="PropertyShowMarksmen" xml:space="preserve">
-    <value>Show marksmen</value>
+    <value>Montrer les Snipers</value>
   </data>
   <data name="PropertyShowNotEligible" xml:space="preserve">
-    <value>Show not eligible</value>
+    <value>Montrer les non-éligibles</value>
   </data>
   <data name="PropertyShowNotShootable" xml:space="preserve">
-    <value>Show not shootable</value>
+    <value>Montrer les non-cibles</value>
   </data>
   <data name="PropertyShowPlayers" xml:space="preserve">
-    <value>Show players</value>
+    <value>Montrer les joueurs</value>
   </data>
   <data name="PropertyShowPrices" xml:space="preserve">
-    <value>Show prices</value>
+    <value>Montrer les prix</value>
   </data>
   <data name="PropertyShowRogues" xml:space="preserve">
-    <value>Show rogues</value>
+    <value>Montrer les Rogues</value>
   </data>
   <data name="PropertyShowScavAssaults" xml:space="preserve">
-    <value>Show Scav-assaults</value>
+    <value>Montrer les Scav-assaults</value>
   </data>
   <data name="PropertyShowScavRaiders" xml:space="preserve">
-    <value>Show Scav-raiders</value>
+    <value>Montrer les Scav-raiders</value>
   </data>
   <data name="PropertyShowScavs" xml:space="preserve">
-    <value>Show Scavs</value>
+    <value>Montrer les Scavs</value>
   </data>
   <data name="PropertyShowShootable" xml:space="preserve">
-    <value>Show shootable</value>
+    <value>Montrer les cibles</value>
   </data>
   <data name="PropertyShowSkeletons" xml:space="preserve">
-    <value>Show skeletons</value>
+    <value>Montrer les squelettes</value>
   </data>
   <data name="PropertySilentAim" xml:space="preserve">
-    <value>Silent aim</value>
+    <value>Visée silencieuse</value>
   </data>
   <data name="PropertySilentAimNextShotDelay" xml:space="preserve">
-    <value>Silent aim next-shot-delay</value>
+    <value>Delai du prochain tir de visée silencieuse</value>
   </data>
   <data name="PropertySilentAimSpeedFactor" xml:space="preserve">
-    <value>Silent aim speed-factor</value>
+    <value>Vitesse de visée silencieuse</value>
   </data>
   <data name="PropertySize" xml:space="preserve">
-    <value>Size</value>
+    <value>Taille</value>
   </data>
   <data name="PropertySkeletonThickness" xml:space="preserve">
-    <value>Skeleton thickness</value>
+    <value>Epaisseur du Squelette</value>
   </data>
   <data name="PropertySmoothness" xml:space="preserve">
-    <value>Smoothness</value>
+    <value>Lissage</value>
   </data>
   <data name="PropertyStatusFilter" xml:space="preserve">
-    <value>Status filter</value>
+    <value>Filtre de statut</value>
   </data>
   <data name="PropertyTeleport" xml:space="preserve">
-    <value>Teleport</value>
+    <value>Teleporter</value>
   </data>
   <data name="PropertyThickness" xml:space="preserve">
-    <value>Thickness</value>
+    <value>Epaisseur</value>
   </data>
   <data name="PropertyTrackedNamesComment" xml:space="preserve">
-    <value>Example: ["foo", "bar"] or with extended properties: [{"Name":"foo","Color":[1.0,0.0,0.0,1.0]},{"Name":"bar","Color":[1.0,1.0,1.0,0.8],"Rarity":"Rare"}]</value>
+    <value>Exemple: ["foo", "bar"] ou avec des propriétés étendues: [{"Name":"foo","Color":[1.0,0.0,0.0,1.0]},{"Name":"bar","Color":[1.0,1.0,1.0,0.8],"Rarity":"Rare"}]</value>
   </data>
   <data name="PropertyTrackWishlist" xml:space="preserve">
-    <value>Track Wishlist</value>
+    <value>Suivre la liste de souhaits</value>
   </data>
   <data name="PropertyUsecColors" xml:space="preserve">
-    <value>Usec colors</value>
+    <value>Couleurs des Usec</value>
   </data>
   <data name="PropertyVitalsOnly" xml:space="preserve">
-    <value>Vitals only</value>
+    <value>Organes vitaux uniquement</value>
   </data>
   <data name="PropertyX" xml:space="preserve">
     <value>X</value>
   </data>
   <data name="PropertyXRayVision" xml:space="preserve">
-    <value>XRay-Vision</value>
+    <value>Vision à rayons X</value>
   </data>
   <data name="PropertyY" xml:space="preserve">
     <value>Y</value>
