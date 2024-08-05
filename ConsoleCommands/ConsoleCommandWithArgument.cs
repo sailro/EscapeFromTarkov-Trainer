@@ -1,4 +1,5 @@
 ﻿using System.Text.RegularExpressions;
+using EFT.Trainer.Properties;
 using EFT.UI;
 
 #nullable enable
@@ -20,7 +21,7 @@ internal abstract class ConsoleCommandWithArgument : ConsoleCommand
 	public override void Register()
 	{
 #if DEBUG
-		AddConsoleLog($"Registering {Name} command with arguments...");
+		AddConsoleLog(string.Format(Strings.DebugRegisteringCommandWithArgumentsFormat, Name));
 #endif
 		ConsoleScreen.Processor.RegisterCommand(Name, (string args) =>
 		{
@@ -31,7 +32,7 @@ internal abstract class ConsoleCommandWithArgument : ConsoleCommand
 			}
 			else
 			{
-				ConsoleScreen.LogError("Invalid arguments");
+				AddConsoleLog(Strings.ErrorInvalidArguments.Red());
 			}
 		});
 	}

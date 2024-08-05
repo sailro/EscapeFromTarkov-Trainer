@@ -1,5 +1,6 @@
 ﻿using EFT.InventoryLogic;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 
 #nullable enable
@@ -9,8 +10,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class NoMalfunctions : ToggleFeature
 {
-	public override string Name => "nomal";
-	public override string Description => "No weapon malfunctions: no misfires or failures to eject or feed. No jammed bolts or overheating.";
+	public override string Name => Strings.FeatureNoMalfunctionsName;
+	public override string Description => Strings.FeatureNoMalfunctionsDescription;
 
 	public override bool Enabled { get; set; } = false;
 

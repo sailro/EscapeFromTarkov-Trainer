@@ -1,5 +1,6 @@
 ﻿using EFT.InventoryLogic;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -10,8 +11,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class ThermalVision : ToggleFeature
 {
-	public override string Name => "thermal";
-	public override string Description => "Thermal vision.";
+	public override string Name => Strings.FeatureThermalVisionName;
+	public override string Description => Strings.FeatureThermalVisionDescription;
 
 	public override bool Enabled { get; set; } = false;
 

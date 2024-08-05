@@ -5,6 +5,7 @@ using EFT.CameraControl;
 using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using EFT.Trainer.UI;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -42,8 +43,8 @@ public class ShootableColor(Color color, Color borderColor) : IFeature
 [UsedImplicitly]
 internal class Players : ToggleFeature
 {
-	public override string Name => "wallhack";
-	public override string Description => "Wallhack (you'll see Bear/Boss/Cultist/Scav/Usec with configurable colors through walls). Charms, boxes, info (weapon and health), skeletons and distance.";
+	public override string Name => Strings.FeaturePlayersName;
+	public override string Description => Strings.FeaturePlayersDescription;
 
 	[ConfigurationProperty(Order = 10)]
 	public PlayerColor BearColors { get; set; } = new(Color.blue, Color.red, Color.red);
@@ -232,7 +233,8 @@ internal class Players : ToggleFeature
 			var maximumPlayerHealth = bodyPartHealth.Maximum;
 
 			var weaponText = ennemyHandController != null && ennemyHandController.Item is Weapon weapon ? weapon.ShortName.Localized() : string.Empty;
-			var infoText = $"{weaponText} {Mathf.Round(currentPlayerHealth * 100 / maximumPlayerHealth)}% [{distance}m]".Trim();
+			var distanceText = string.Format(Strings.FeaturePointOfInterestsDistanceFormat, distance);
+			var infoText = string.Format(Strings.FeaturePlayersFormat, weaponText, Mathf.Round(currentPlayerHealth * 100 / maximumPlayerHealth), distanceText).Trim();
 
 			Render.DrawString(new Vector2(boxPositionX, boxPositionY - 20f), infoText, playerColors.InfoColor, false);
 		}

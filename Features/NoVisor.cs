@@ -1,4 +1,5 @@
 ﻿using System;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -9,8 +10,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class NoVisor : ToggleFeature
 {
-	public override string Name => "novisor";
-	public override string Description => "No visor, so even when using a face shield-visor you won't see it.";
+	public override string Name => Strings.FeatureNoVisorName;
+	public override string Description => Strings.FeatureNoVisorDescription;
 
 	public override bool Enabled { get; set; } = false;
 

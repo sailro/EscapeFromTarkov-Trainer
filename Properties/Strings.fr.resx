@@ -1,0 +1,924 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CommandDump" xml:space="preserve">
+    <value>dump</value>
+  </data>
+  <data name="CommandDumpGameObjects" xml:space="preserve">
+    <value>Analyse des objets du jeu...</value>
+  </data>
+  <data name="CommandDumpScenes" xml:space="preserve">
+    <value>Analyse des scenes...</value>
+  </data>
+  <data name="CommandDumpSuccessFormat" xml:space="preserve">
+    <value>Analyse crée dans {0}</value>
+    <comment>Filename</comment>
+  </data>
+  <data name="CommandList" xml:space="preserve">
+    <value>list</value>
+  </data>
+  <data name="CommandListEnumerateFormat" xml:space="preserve">
+    <value>{0} [{1}] {2}</value>
+    <comment>Item name, count, optional rarity</comment>
+  </data>
+  <data name="CommandListRare" xml:space="preserve">
+    <value>listr</value>
+  </data>
+  <data name="CommandListRarityFormat" xml:space="preserve">
+    <value>({0})</value>
+    <comment>Rarity</comment>
+  </data>
+  <data name="CommandListSuccessFormat" xml:space="preserve">
+    <value>{0} objet(s) trouvé(s)</value>
+    <comment>Item count</comment>
+  </data>
+  <data name="CommandListSuperRare" xml:space="preserve">
+    <value>listsr</value>
+  </data>
+  <data name="CommandLoadDescription" xml:space="preserve">
+    <value>Charger les réglages</value>
+  </data>
+  <data name="CommandLoadName" xml:space="preserve">
+    <value>load</value>
+  </data>
+  <data name="CommandLoadSuccessFormat" xml:space="preserve">
+    <value>Chargement de {0}</value>
+    <comment>Filename</comment>
+  </data>
+  <data name="CommandLoadTrackList" xml:space="preserve">
+    <value>loadtl</value>
+  </data>
+  <data name="CommandSaveDescription" xml:space="preserve">
+    <value>Enregistrer les réglages</value>
+  </data>
+  <data name="CommandSaveHeader" xml:space="preserve">
+    <value>Soyez prudent lorsque vous mettez à jour ce fichier :)
+Pour les clés, utilisez https://docs.unity3d.com/ScriptReference/KeyCode.html
+Les couleurs sont stockées sous la forme d'un tableau de valeurs flottantes 'RGBA'</value>
+  </data>
+  <data name="CommandSaveName" xml:space="preserve">
+    <value>save</value>
+  </data>
+  <data name="CommandSaveSuccessFormat" xml:space="preserve">
+    <value>Enregistrement de {0}</value>
+    <comment>Filename</comment>
+  </data>
+  <data name="CommandSaveTrackList" xml:space="preserve">
+    <value>savetl</value>
+  </data>
+  <data name="CommandSpawn" xml:space="preserve">
+    <value>spawn</value>
+  </data>
+  <data name="CommandStatus" xml:space="preserve">
+    <value>status</value>
+  </data>
+  <data name="CommandStatusTextFormat" xml:space="preserve">
+    <value>{0} est {1} {2}</value>
+    <comment>Feature name, status, optional toggle text if a key is set</comment>
+  </data>
+  <data name="CommandStatusTextToggleFormat" xml:space="preserve">
+    <value>({0} pour basculer)</value>
+    <comment>Key</comment>
+  </data>
+  <data name="CommandTemplate" xml:space="preserve">
+    <value>template</value>
+  </data>
+  <data name="CommandTemplateEnumerateFormat" xml:space="preserve">
+    <value>{0}: {1} [{2}]</value>
+    <comment>Template id, short-name, name</comment>
+  </data>
+  <data name="CommandTemplateSuccessFormat" xml:space="preserve">
+    <value>{0} template(s) trouvée(s)</value>
+    <comment>Template count</comment>
+  </data>
+  <data name="CommandTrack" xml:space="preserve">
+    <value>track</value>
+  </data>
+  <data name="CommandTrackList" xml:space="preserve">
+    <value>tracklist</value>
+  </data>
+  <data name="CommandTrackListEnumerateFormat" xml:space="preserve">
+    <value>Suivi: {0} {1}</value>
+    <comment>Item short-name, optional rarity</comment>
+  </data>
+  <data name="CommandTrackListRarityFormat" xml:space="preserve">
+    <value>({0})</value>
+    <comment>Rarity</comment>
+  </data>
+  <data name="CommandTrackListUpdated" xml:space="preserve">
+    <value>Liste de suivi mise à jour...</value>
+  </data>
+  <data name="CommandTrackListWishListEnumerateFormat" xml:space="preserve">
+    <value>Suivi: {0} (Liste de souhaits)</value>
+    <comment>Item short-name</comment>
+  </data>
+  <data name="CommandTrackRare" xml:space="preserve">
+    <value>trackr</value>
+  </data>
+  <data name="CommandTrackSuperRare" xml:space="preserve">
+    <value>tracksr</value>
+  </data>
+  <data name="CommandUnTrack" xml:space="preserve">
+    <value>untrack</value>
+  </data>
+  <data name="DebugPatchedMethodFormat" xml:space="preserve">
+    <value>Modification de {0} avec {1}</value>
+    <comment>Method names</comment>
+  </data>
+  <data name="DebugPerformanceRefreshedFormat" xml:space="preserve">
+    <value>Rafraichissement de {0} en {1}ms</value>
+    <comment>Type name, elapsed milliseconds</comment>
+  </data>
+  <data name="DebugRegisteringCommandFormat" xml:space="preserve">
+    <value>Enregistrement  de la commande {0}...</value>
+    <comment>Command name</comment>
+  </data>
+  <data name="DebugRegisteringCommandWithArgumentsFormat" xml:space="preserve">
+    <value>Enregistrement  de la commande {0} avec des arguments...</value>
+    <comment>Command name</comment>
+  </data>
+  <data name="DirectionEast" xml:space="preserve">
+    <value>E</value>
+  </data>
+  <data name="DirectionNorth" xml:space="preserve">
+    <value>N</value>
+  </data>
+  <data name="DirectionNorthEast" xml:space="preserve">
+    <value>NE</value>
+  </data>
+  <data name="DirectionNorthWest" xml:space="preserve">
+    <value>NO</value>
+  </data>
+  <data name="DirectionSouth" xml:space="preserve">
+    <value>S</value>
+  </data>
+  <data name="DirectionSouthEast" xml:space="preserve">
+    <value>SE</value>
+  </data>
+  <data name="DirectionSouthWest" xml:space="preserve">
+    <value>SO</value>
+  </data>
+  <data name="DirectionWest" xml:space="preserve">
+    <value>O</value>
+  </data>
+  <data name="ErrorCannotFindField" xml:space="preserve">
+    <value>Impossible de trouver {0} dans {1}</value>
+    <comment>Field name, type name</comment>
+  </data>
+  <data name="ErrorCannotFindOriginalMethodFormat" xml:space="preserve">
+    <value>Impossible de trouver la méthode originale {0}</value>
+    <comment>Method name</comment>
+  </data>
+  <data name="ErrorCannotFindPostfixMethodFormat" xml:space="preserve">
+    <value>Impossible de trouver la méthode suffixe {0}</value>
+    <comment>Method name</comment>
+  </data>
+  <data name="ErrorCannotFindPrefixMethodFormat" xml:space="preserve">
+    <value>Impossible de trouver la méthode préfixe {0}</value>
+    <comment>Method name</comment>
+  </data>
+  <data name="ErrorCannotLoadFormat" xml:space="preserve">
+    <value>Impossible de charger {0}. {1}</value>
+    <comment>Filename, error message</comment>
+  </data>
+  <data name="ErrorCannotSaveFormat" xml:space="preserve">
+    <value>Impossible d'enregistrer {0}. {1}</value>
+    <comment>Filename, error message</comment>
+  </data>
+  <data name="ErrorCorruptedFileFormat" xml:space="preserve">
+    <value>{0} semble corrompu. Merci de corriger</value>
+    <comment>Filename</comment>
+  </data>
+  <data name="ErrorCorruptedPropertyFormat" xml:space="preserve">
+    <value>{0} semble corrompu dans {1}. Merci de corriger</value>
+    <comment>Key, filename</comment>
+  </data>
+  <data name="ErrorFailedToCreateItem" xml:space="preserve">
+    <value>Impossible de créer l'objet!</value>
+  </data>
+  <data name="ErrorFailedToLoadItemBundle" xml:space="preserve">
+    <value>Impossible de charger le paquet!</value>
+  </data>
+  <data name="ErrorFileNotFoundFormat" xml:space="preserve">
+    <value>{0} introuvable!</value>
+    <comment>Filename</comment>
+  </data>
+  <data name="ErrorInvalidArguments" xml:space="preserve">
+    <value>Arguments invalides</value>
+  </data>
+  <data name="ErrorNoTemplateFound" xml:space="preserve">
+    <value>Aucune template trouvée!</value>
+  </data>
+  <data name="ErrorTooManyTemplatesFormat" xml:space="preserve">
+    <value>{0} templates trouvées, essayez d'être plus spécficique</value>
+    <comment>Template count &gt; 1</comment>
+  </data>
+  <data name="ErrorUnsupportedTypeFormat" xml:space="preserve">
+    <value>Type non supporté: {0}</value>
+    <comment>Property type-name</comment>
+  </data>
+  <data name="FeatureAimbotDescription" xml:space="preserve">
+    <value>Robot de visée. Visée et/ou tir automatique.</value>
+  </data>
+  <data name="FeatureAimbotName" xml:space="preserve">
+    <value>aimbot</value>
+  </data>
+  <data name="FeatureAmmunitionDescription" xml:space="preserve">
+    <value>Munitions illimitées.</value>
+  </data>
+  <data name="FeatureAmmunitionName" xml:space="preserve">
+    <value>ammo</value>
+  </data>
+  <data name="FeatureAutomaticGunDescription" xml:space="preserve">
+    <value>Force toutes les armes (même les fusils à verrou) à utiliser le mode de tir automatique avec une cadence de tir personnalisable.</value>
+  </data>
+  <data name="FeatureAutomaticGunName" xml:space="preserve">
+    <value>autogun</value>
+  </data>
+  <data name="FeatureCameraDescription" xml:space="preserve">
+    <value>Caméra libre avec mode rapide et téléportation.</value>
+  </data>
+  <data name="FeatureCameraName" xml:space="preserve">
+    <value>camera</value>
+  </data>
+  <data name="FeatureCommandsDescription" xml:space="preserve">
+    <value>Cette fenêtre principale.</value>
+  </data>
+  <data name="FeatureCommandsName" xml:space="preserve">
+    <value>commands</value>
+  </data>
+  <data name="FeatureCommandsTitle" xml:space="preserve">
+    <value>EFT Trainer</value>
+  </data>
+  <data name="FeatureCrosshairDescription" xml:space="preserve">
+    <value>Réticule dont la taille, la couleur et l'épaisseur sont personnalisables et qui se masque automatiquement lors de la visée.</value>
+  </data>
+  <data name="FeatureCrosshairName" xml:space="preserve">
+    <value>crosshair</value>
+  </data>
+  <data name="FeatureDurabilityDescription" xml:space="preserve">
+    <value>Durabilité maximale des objets.</value>
+  </data>
+  <data name="FeatureDurabilityName" xml:space="preserve">
+    <value>durability</value>
+  </data>
+  <data name="FeatureExamineDescription" xml:space="preserve">
+    <value>Tous les objets ont déjà été examinés. Recherche instantanée.</value>
+  </data>
+  <data name="FeatureExamineName" xml:space="preserve">
+    <value>examine</value>
+  </data>
+  <data name="FeatureExfiltrationPointsDescription" xml:space="preserve">
+    <value>Points d'exfiltration avec couleurs personnalisables en fonction de l'éligibilité, du filtre de statut, de la distance.</value>
+  </data>
+  <data name="FeatureExfiltrationPointsEligibleFormat" xml:space="preserve">
+    <value>{0} ({1})</value>
+    <comment>Name, status</comment>
+  </data>
+  <data name="FeatureExfiltrationPointsName" xml:space="preserve">
+    <value>exfil</value>
+  </data>
+  <data name="FeatureExfiltrationPointsStatusActivate" xml:space="preserve">
+    <value>Activate</value>
+  </data>
+  <data name="FeatureExfiltrationPointsStatusClosed" xml:space="preserve">
+    <value>Closed</value>
+  </data>
+  <data name="FeatureExfiltrationPointsStatusOpen" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="FeatureExfiltrationPointsStatusPending" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="FeatureExfiltrationPointsStatusRequirement" xml:space="preserve">
+    <value>Requirement</value>
+  </data>
+  <data name="FeatureExfiltrationPointsStatusTimer" xml:space="preserve">
+    <value>Timer</value>
+  </data>
+  <data name="FeatureFeatureWallShootDescription" xml:space="preserve">
+    <value>Tirer à travers un mur, un casque, un gilet ou un matériau avec une pénétration maximale et une déviation/ricochet minimale.</value>
+  </data>
+  <data name="FeatureFovChangerDescription" xml:space="preserve">
+    <value>Modification du champ de vision.</value>
+  </data>
+  <data name="FeatureFovChangerName" xml:space="preserve">
+    <value>fovchanger</value>
+  </data>
+  <data name="FeatureGameStateDescription" xml:space="preserve">
+    <value>Rafraîchir toutes les informations sur le jeu pour d'autres fonctionnalités.</value>
+  </data>
+  <data name="FeatureGameStateName" xml:space="preserve">
+    <value>gamestate</value>
+  </data>
+  <data name="FeatureGhostDescription" xml:space="preserve">
+    <value>Empêcher les robots de vous voir.</value>
+  </data>
+  <data name="FeatureGhostName" xml:space="preserve">
+    <value>ghost</value>
+  </data>
+  <data name="FeatureGrenadesDescription" xml:space="preserve">
+    <value>Aperçu des grenades.</value>
+  </data>
+  <data name="FeatureGrenadesName" xml:space="preserve">
+    <value>grenade</value>
+  </data>
+  <data name="FeatureHealthDescription" xml:space="preserve">
+    <value>Pleine santé, éviter tout dommage (même en cas de chute), maintenir l'énergie et l'hydratation au maximum.</value>
+  </data>
+  <data name="FeatureHealthName" xml:space="preserve">
+    <value>health</value>
+  </data>
+  <data name="FeatureHitsDescription" xml:space="preserve">
+    <value>Marqueurs d'impacts (armure, santé avec couleurs configurables).</value>
+  </data>
+  <data name="FeatureHitsName" xml:space="preserve">
+    <value>hits</value>
+  </data>
+  <data name="FeatureHudCoordinatesFormat" xml:space="preserve">
+    <value>({0},{1})</value>
+    <comment>X, y</comment>
+  </data>
+  <data name="FeatureHudDescription" xml:space="preserve">
+    <value>Affichage (boussole, munitions restantes dans la chambre / le chargeur, mode de tir, coordonnées).</value>
+  </data>
+  <data name="FeatureHudName" xml:space="preserve">
+    <value>hud</value>
+  </data>
+  <data name="FeatureHudSeparator" xml:space="preserve">
+    <value> - </value>
+  </data>
+  <data name="FeatureHudWeaponFormat" xml:space="preserve">
+    <value>{0}+{1}/{2} [{3}]</value>
+    <comment>Magazine count, chamber count, magazine capacity, fire-mode</comment>
+  </data>
+  <data name="FeatureInteractDescription" xml:space="preserve">
+    <value>Modifier la distance pour l'interaction avec le loot et les portes.</value>
+  </data>
+  <data name="FeatureInteractName" xml:space="preserve">
+    <value>interact</value>
+  </data>
+  <data name="FeatureLootItemsDescription" xml:space="preserve">
+    <value>Liste de tous les objets à looter et suivi de n'importe quel objet par nom, rareté ou liste de souhaits dans le raid (même dans les conteneurs et les cadavres). Utilisez les commandes track et tracklist pour contrôler l'affichage.</value>
+  </data>
+  <data name="FeatureLootItemsName" xml:space="preserve">
+    <value>loot</value>
+  </data>
+  <data name="FeatureMapDescription" xml:space="preserve">
+    <value>Carte plein écran avec radar.</value>
+  </data>
+  <data name="FeatureMapName" xml:space="preserve">
+    <value>map</value>
+  </data>
+  <data name="FeatureNightVisionDescription" xml:space="preserve">
+    <value>Vision nocturne.</value>
+  </data>
+  <data name="FeatureNightVisionName" xml:space="preserve">
+    <value>night</value>
+  </data>
+  <data name="FeatureNoCollisionDescription" xml:space="preserve">
+    <value>Pas de collisions physiques, ce qui vous immunise contre les balles, les grenades et les fils barbelés.</value>
+  </data>
+  <data name="FeatureNoCollisionName" xml:space="preserve">
+    <value>nocoll</value>
+  </data>
+  <data name="FeatureNoMalfunctionsDescription" xml:space="preserve">
+    <value>Pas de dysfonctionnement de l'arme : pas de ratés de tir, d'éjection ou d'alimentation. Pas de blocage de la culasse ni de surchauffe.</value>
+  </data>
+  <data name="FeatureNoMalfunctionsName" xml:space="preserve">
+    <value>nomal</value>
+  </data>
+  <data name="FeatureNoRecoilDescription" xml:space="preserve">
+    <value>Pas de recul.</value>
+  </data>
+  <data name="FeatureNoRecoilName" xml:space="preserve">
+    <value>norecoil</value>
+  </data>
+  <data name="FeatureNoSwayDescription" xml:space="preserve">
+    <value>Pas d'oscillation.</value>
+  </data>
+  <data name="FeatureNoSwayName" xml:space="preserve">
+    <value>nosway</value>
+  </data>
+  <data name="FeatureNoVisorDescription" xml:space="preserve">
+    <value>Pas de visière, donc même si vous utilisez un écran facial, vous ne le verrez pas.</value>
+  </data>
+  <data name="FeatureNoVisorName" xml:space="preserve">
+    <value>novisor</value>
+  </data>
+  <data name="FeaturePlayersDescription" xml:space="preserve">
+    <value>Wallhack (vous verrez Bear/Boss/Cultist/Scav/Usec avec des couleurs configurables à travers les murs). Silhouettes, boîtes, infos (armes et santé), squelettes et distance.</value>
+  </data>
+  <data name="FeaturePlayersFormat" xml:space="preserve">
+    <value>{0} {1}% {2}</value>
+    <comment>Weapon name, health %, distance</comment>
+  </data>
+  <data name="FeaturePlayersName" xml:space="preserve">
+    <value>wallhack</value>
+  </data>
+  <data name="FeaturePointOfInterestsDistanceFormat" xml:space="preserve">
+    <value>[{0}m]</value>
+    <comment>Distance</comment>
+  </data>
+  <data name="FeaturePointOfInterestsFormat" xml:space="preserve">
+    <value>{0} {1} {2}</value>
+    <comment>Name, optional formatted owner, optional formatted distance</comment>
+  </data>
+  <data name="FeaturePointOfInterestsGroupFormat" xml:space="preserve">
+    <value>&gt;&gt; In {0} {1}</value>
+    <comment>Owner, distance</comment>
+  </data>
+  <data name="FeaturePointOfInterestsOwnerFormat" xml:space="preserve">
+    <value>(in {0})</value>
+    <comment>Owner</comment>
+  </data>
+  <data name="FeatureQuestsDescription" xml:space="preserve">
+    <value>Emplacements pour prendre/placer des objets de quête. Seuls les objets liés aux quêtes que vous avez commencées sont affichés.</value>
+  </data>
+  <data name="FeatureQuestsFormat" xml:space="preserve">
+    <value>{0} ({1})</value>
+    <comment>Condition description, quest name</comment>
+  </data>
+  <data name="FeatureQuestsName" xml:space="preserve">
+    <value>quest</value>
+  </data>
+  <data name="FeatureQuickTrowDescription" xml:space="preserve">
+    <value>Grenades à lancer rapide.</value>
+  </data>
+  <data name="FeatureQuickTrowName" xml:space="preserve">
+    <value>quickthrow</value>
+  </data>
+  <data name="FeatureRadarDescription" xml:space="preserve">
+    <value>Radar 2D.</value>
+  </data>
+  <data name="FeatureRadarName" xml:space="preserve">
+    <value>radar</value>
+  </data>
+  <data name="FeatureRendererSummary" xml:space="preserve">
+    <value>[sommaire]</value>
+  </data>
+  <data name="FeatureRendererWelcome" xml:space="preserve">
+    <value>Bienvenue à EFT-Trainer !</value>
+  </data>
+  <data name="FeatureSkillsDescription" xml:space="preserve">
+    <value>Toutes les compétences au niveau Elite (51) et toutes les armes au niveau 3.</value>
+  </data>
+  <data name="FeatureSkillsName" xml:space="preserve">
+    <value>skills</value>
+  </data>
+  <data name="FeatureSpeedDescription" xml:space="preserve">
+    <value>Augmentation de la vitesse pour pouvoir passer à travers les murs/objets, ou pour se déplacer plus rapidement. Faites attention à ne pas vous tuer.</value>
+  </data>
+  <data name="FeatureSpeedName" xml:space="preserve">
+    <value>speed</value>
+  </data>
+  <data name="FeatureStaminaDescription" xml:space="preserve">
+    <value>Endurance illimitée.</value>
+  </data>
+  <data name="FeatureStaminaName" xml:space="preserve">
+    <value>stamina</value>
+  </data>
+  <data name="FeatureStashDescription" xml:space="preserve">
+    <value>Voir les cachettes comme des barils enterrés, des caches au sol, des parachutages ou des cadavres.</value>
+  </data>
+  <data name="FeatureStashName" xml:space="preserve">
+    <value>stash</value>
+  </data>
+  <data name="FeatureThermalVisionDescription" xml:space="preserve">
+    <value>Vision thermique.</value>
+  </data>
+  <data name="FeatureThermalVisionName" xml:space="preserve">
+    <value>thermal</value>
+  </data>
+  <data name="FeatureTrainDescription" xml:space="preserve">
+    <value>Appeler un train sur des cartes compatibles comme Reserve ou Lighthouse.</value>
+  </data>
+  <data name="FeatureTrainName" xml:space="preserve">
+    <value>train</value>
+  </data>
+  <data name="FeatureWallShootName" xml:space="preserve">
+    <value>wallshoot</value>
+  </data>
+  <data name="FeatureWeatherDescription" xml:space="preserve">
+    <value>Temps dégagé.</value>
+  </data>
+  <data name="FeatureWeatherName" xml:space="preserve">
+    <value>weather</value>
+  </data>
+  <data name="FeatureWorldInteractiveObjectsDescription" xml:space="preserve">
+    <value>Déverrouillage de porte/lecteur de carte magnétique/voiture.</value>
+  </data>
+  <data name="FeatureWorldInteractiveObjectsName" xml:space="preserve">
+    <value>opener</value>
+  </data>
+  <data name="PropertyArmorDamageColor" xml:space="preserve">
+    <value>Couleur impact armure</value>
+  </data>
+  <data name="PropertyBackward" xml:space="preserve">
+    <value>Arrière</value>
+  </data>
+  <data name="PropertyBearColors" xml:space="preserve">
+    <value>Couleurs Bear</value>
+  </data>
+  <data name="PropertyBorderColor" xml:space="preserve">
+    <value>Couleur bordure</value>
+  </data>
+  <data name="PropertyBossColors" xml:space="preserve">
+    <value>Couleurs Boss</value>
+  </data>
+  <data name="PropertyBoxThickness" xml:space="preserve">
+    <value>Epaisseur boîte</value>
+  </data>
+  <data name="PropertyCacheTimeInSec" xml:space="preserve">
+    <value>Durée de cache (sec)</value>
+  </data>
+  <data name="PropertyCameraOffset" xml:space="preserve">
+    <value>Offset de camera</value>
+  </data>
+  <data name="PropertyChangeTime" xml:space="preserve">
+    <value>Changer l'heure</value>
+  </data>
+  <data name="PropertyColor" xml:space="preserve">
+    <value>Couleur</value>
+  </data>
+  <data name="PropertyCultistColors" xml:space="preserve">
+    <value>Couleurs Cultistes</value>
+  </data>
+  <data name="PropertyDisplayTime" xml:space="preserve">
+    <value>Temps d'affichage</value>
+  </data>
+  <data name="PropertyDistance" xml:space="preserve">
+    <value>Distance</value>
+  </data>
+  <data name="PropertyEligibleColor" xml:space="preserve">
+    <value>Couleur éligible</value>
+  </data>
+  <data name="PropertyEnabled" xml:space="preserve">
+    <value>Activé</value>
+  </data>
+  <data name="PropertyFadeOutTime" xml:space="preserve">
+    <value>Temps de fondu</value>
+  </data>
+  <data name="PropertyFastMode" xml:space="preserve">
+    <value>Mode rapide</value>
+  </data>
+  <data name="PropertyFastMovementSpeed" xml:space="preserve">
+    <value>Vitesse de mvt. rapide</value>
+  </data>
+  <data name="PropertyFoodWater" xml:space="preserve">
+    <value>Nourriture / eau</value>
+  </data>
+  <data name="PropertyForward" xml:space="preserve">
+    <value>Avant</value>
+  </data>
+  <data name="PropertyFov" xml:space="preserve">
+    <value>Champ visuel</value>
+  </data>
+  <data name="PropertyFovCircleColor" xml:space="preserve">
+    <value>Couleur champ visuel</value>
+  </data>
+  <data name="PropertyFovCircleThickness" xml:space="preserve">
+    <value>Epaisseur champ visuel</value>
+  </data>
+  <data name="PropertyFovRadius" xml:space="preserve">
+    <value>Rayon champ visuel</value>
+  </data>
+  <data name="PropertyFreeLookSensitivity" xml:space="preserve">
+    <value>Sensibilité vision libre</value>
+  </data>
+  <data name="PropertyGroupingColor" xml:space="preserve">
+    <value>Couleur de groupement</value>
+  </data>
+  <data name="PropertyHealthDamageColor" xml:space="preserve">
+    <value>Couleur impact santé</value>
+  </data>
+  <data name="PropertyHideWhenAiming" xml:space="preserve">
+    <value>Cacher en cas de visée</value>
+  </data>
+  <data name="PropertyHitMarkerColor" xml:space="preserve">
+    <value>Couleur du marqueur</value>
+  </data>
+  <data name="PropertyInfoColor" xml:space="preserve">
+    <value>Couleur d'information</value>
+  </data>
+  <data name="PropertyIntensity" xml:space="preserve">
+    <value>Intensité</value>
+  </data>
+  <data name="PropertyKey" xml:space="preserve">
+    <value>Touche</value>
+  </data>
+  <data name="PropertyLeft" xml:space="preserve">
+    <value>Gauche</value>
+  </data>
+  <data name="PropertyMarksmanColors" xml:space="preserve">
+    <value>Couleurs Snipers</value>
+  </data>
+  <data name="PropertyMaximumDistance" xml:space="preserve">
+    <value>Distance maximum</value>
+  </data>
+  <data name="PropertyMovementSpeed" xml:space="preserve">
+    <value>Vitesse de mouvement</value>
+  </data>
+  <data name="PropertyNotEligibleColor" xml:space="preserve">
+    <value>Couleur non-éligible</value>
+  </data>
+  <data name="PropertyNotShootableColors" xml:space="preserve">
+    <value>Couleurs des non-cibles</value>
+  </data>
+  <data name="PropertyRadarBackground" xml:space="preserve">
+    <value>Arrière-plan du radar</value>
+  </data>
+  <data name="PropertyRadarCrosshair" xml:space="preserve">
+    <value>Réticule radar</value>
+  </data>
+  <data name="PropertyRadarPercentage" xml:space="preserve">
+    <value>Pourcentage du radar</value>
+  </data>
+  <data name="PropertyRadarRange" xml:space="preserve">
+    <value>Portée du radar</value>
+  </data>
+  <data name="PropertyRange" xml:space="preserve">
+    <value>Portée</value>
+  </data>
+  <data name="PropertyRate" xml:space="preserve">
+    <value>Cadence</value>
+  </data>
+  <data name="PropertyRemoveNegativeEffects" xml:space="preserve">
+    <value>Supprimer effets négatifs</value>
+  </data>
+  <data name="PropertyRight" xml:space="preserve">
+    <value>Droite</value>
+  </data>
+  <data name="PropertyRogueUsecColors" xml:space="preserve">
+    <value>Couleurs Rogue-Usec</value>
+  </data>
+  <data name="PropertyScavAssaultColors" xml:space="preserve">
+    <value>Couleurs Scav-assault</value>
+  </data>
+  <data name="PropertyScavColors" xml:space="preserve">
+    <value>Couleurs Scav</value>
+  </data>
+  <data name="PropertyScavRaiderColors" xml:space="preserve">
+    <value>Couleurs Scav-raider</value>
+  </data>
+  <data name="PropertySearchInsideContainers" xml:space="preserve">
+    <value>Chercher les conteneurs</value>
+  </data>
+  <data name="PropertySearchInsideCorpses" xml:space="preserve">
+    <value>Chercher les cadavres</value>
+  </data>
+  <data name="PropertyShootableColors" xml:space="preserve">
+    <value>Couleurs des cibles</value>
+  </data>
+  <data name="PropertyShowArmorDamage" xml:space="preserve">
+    <value>Montrer impacts armure</value>
+  </data>
+  <data name="PropertyShowBosses" xml:space="preserve">
+    <value>Montrer les Boss</value>
+  </data>
+  <data name="PropertyShowBoxes" xml:space="preserve">
+    <value>Montrer les boites</value>
+  </data>
+  <data name="PropertyShowCharms" xml:space="preserve">
+    <value>Montrer les silhouettes</value>
+  </data>
+  <data name="PropertyShowCompass" xml:space="preserve">
+    <value>Montrer la boussole</value>
+  </data>
+  <data name="PropertyShowContainers" xml:space="preserve">
+    <value>Montrer les conteneurs</value>
+  </data>
+  <data name="PropertyShowCoordinates" xml:space="preserve">
+    <value>Montrer les coordonnées</value>
+  </data>
+  <data name="PropertyShowCorpses" xml:space="preserve">
+    <value>Montrer les cadavres</value>
+  </data>
+  <data name="PropertyShowCultists" xml:space="preserve">
+    <value>Montrer les Cultistes</value>
+  </data>
+  <data name="PropertyShowEligible" xml:space="preserve">
+    <value>Montrer les éligibles</value>
+  </data>
+  <data name="PropertyShowFovCircle" xml:space="preserve">
+    <value>Montrer le champ visuel</value>
+  </data>
+  <data name="PropertyShowHealthDamage" xml:space="preserve">
+    <value>Montrer impacts santé</value>
+  </data>
+  <data name="PropertyShowHitMarker" xml:space="preserve">
+    <value>Montrer les marqueurs</value>
+  </data>
+  <data name="PropertyShowInfos" xml:space="preserve">
+    <value>Montrer les infos</value>
+  </data>
+  <data name="PropertyShowMap" xml:space="preserve">
+    <value>Montrer la carte</value>
+  </data>
+  <data name="PropertyShowMarksmen" xml:space="preserve">
+    <value>Montrer les Snipers</value>
+  </data>
+  <data name="PropertyShowNotEligible" xml:space="preserve">
+    <value>Montrer les non-éligibles</value>
+  </data>
+  <data name="PropertyShowNotShootable" xml:space="preserve">
+    <value>Montrer les non-cibles</value>
+  </data>
+  <data name="PropertyShowPlayers" xml:space="preserve">
+    <value>Montrer les joueurs</value>
+  </data>
+  <data name="PropertyShowPrices" xml:space="preserve">
+    <value>Montrer les prix</value>
+  </data>
+  <data name="PropertyShowRogues" xml:space="preserve">
+    <value>Montrer les Rogues</value>
+  </data>
+  <data name="PropertyShowScavAssaults" xml:space="preserve">
+    <value>Montrer les Scav-assaults</value>
+  </data>
+  <data name="PropertyShowScavRaiders" xml:space="preserve">
+    <value>Montrer les Scav-raiders</value>
+  </data>
+  <data name="PropertyShowScavs" xml:space="preserve">
+    <value>Montrer les Scavs</value>
+  </data>
+  <data name="PropertyShowShootable" xml:space="preserve">
+    <value>Montrer les cibles</value>
+  </data>
+  <data name="PropertyShowSkeletons" xml:space="preserve">
+    <value>Montrer les squelettes</value>
+  </data>
+  <data name="PropertySilentAim" xml:space="preserve">
+    <value>Visée silencieuse</value>
+  </data>
+  <data name="PropertySilentAimNextShotDelay" xml:space="preserve">
+    <value>Delai du prochain tir</value>
+  </data>
+  <data name="PropertySilentAimSpeedFactor" xml:space="preserve">
+    <value>Vitesse de visée</value>
+  </data>
+  <data name="PropertySize" xml:space="preserve">
+    <value>Taille</value>
+  </data>
+  <data name="PropertySkeletonThickness" xml:space="preserve">
+    <value>Epaisseur du squelette</value>
+  </data>
+  <data name="PropertySmoothness" xml:space="preserve">
+    <value>Lissage</value>
+  </data>
+  <data name="PropertyStatusFilter" xml:space="preserve">
+    <value>Filtre de statut</value>
+  </data>
+  <data name="PropertyTeleport" xml:space="preserve">
+    <value>Teleporter</value>
+  </data>
+  <data name="PropertyThickness" xml:space="preserve">
+    <value>Epaisseur</value>
+  </data>
+  <data name="PropertyTrackedNamesComment" xml:space="preserve">
+    <value>Exemple: ["foo", "bar"] ou avec des propriétés étendues: [{"Name":"foo","Color":[1.0,0.0,0.0,1.0]},{"Name":"bar","Color":[1.0,1.0,1.0,0.8],"Rarity":"Rare"}]</value>
+  </data>
+  <data name="PropertyTrackWishlist" xml:space="preserve">
+    <value>Suivre la liste de souhaits</value>
+  </data>
+  <data name="PropertyUsecColors" xml:space="preserve">
+    <value>Couleurs Usec</value>
+  </data>
+  <data name="PropertyVitalsOnly" xml:space="preserve">
+    <value>Organes vitaux seulement</value>
+  </data>
+  <data name="PropertyX" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="PropertyXRayVision" xml:space="preserve">
+    <value>Vision à rayons X</value>
+  </data>
+  <data name="PropertyY" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="TextOff" xml:space="preserve">
+    <value>off</value>
+  </data>
+  <data name="TextOn" xml:space="preserve">
+    <value>on</value>
+  </data>
+  <data name="TextSeparator" xml:space="preserve">
+    <value>------</value>
+  </data>
+</root>

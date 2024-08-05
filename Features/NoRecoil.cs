@@ -1,4 +1,5 @@
 ﻿using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 
 #nullable enable
@@ -8,8 +9,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class NoRecoil : ToggleFeature
 {
-	public override string Name => "norecoil";
-	public override string Description => "No recoil.";
+	public override string Name => Strings.FeatureNoRecoilName;
+	public override string Description => Strings.FeatureNoRecoilDescription;
 
 	public override bool Enabled { get; set; } = false;
 

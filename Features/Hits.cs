@@ -2,6 +2,7 @@
 using EFT.HealthSystem;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using EFT.Trainer.UI;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -13,8 +14,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class Hits : ToggleFeature
 {
-	public override string Name => "hits";
-	public override string Description => "Hit markers (hit, armor, health with configurable colors).";
+	public override string Name => Strings.FeatureHitsName;
+	public override string Description => Strings.FeatureHitsDescription;
 
 	public override bool Enabled { get; set; } = false;
 

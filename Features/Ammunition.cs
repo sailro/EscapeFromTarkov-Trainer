@@ -3,6 +3,7 @@ using Comfort.Common;
 using EFT.Ballistics;
 using EFT.InventoryLogic;
 using EFT.Trainer.Model;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 
 #nullable enable
@@ -12,8 +13,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class Ammunition : ToggleFeature
 {
-	public override string Name => "ammo";
-	public override string Description => "Unlimited ammo.";
+	public override string Name => Strings.FeatureAmmunitionName;
+	public override string Description => Strings.FeatureAmmunitionDescription;
 
 	public override bool Enabled { get; set; } = false;
 

@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using EFT.InventoryLogic;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 
 #nullable enable
@@ -10,8 +11,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class Durability : ToggleFeature
 {
-	public override string Name => "durability";
-	public override string Description => "Maximum durability of items.";
+	public override string Name => Strings.FeatureDurabilityName;
+	public override string Description => Strings.FeatureDurabilityDescription;
 
 	public override bool Enabled { get; set; } = false;
 

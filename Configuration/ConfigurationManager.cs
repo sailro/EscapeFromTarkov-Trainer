@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using EFT.Trainer.Features;
+using EFT.Trainer.Properties;
 using EFT.UI;
 using Newtonsoft.Json;
 
@@ -28,7 +29,7 @@ internal static class ConfigurationManager
 			if (!File.Exists(filename))
 			{
 				if (warnIfNotExists)
-					AddConsoleLog($"{filename} not found!");
+					AddConsoleLog(string.Format(Strings.ErrorFileNotFoundFormat, filename));
 
 				return;
 			}
@@ -54,16 +55,16 @@ internal static class ConfigurationManager
 					}
 					catch (JsonException)
 					{
-						AddConsoleLog($"{key} seems corrupted in {filename}. Please fix.".Red());
+						AddConsoleLog(string.Format(Strings.ErrorCorruptedPropertyFormat, key, filename).Red());
 					}
 				}
 			}
 
-			AddConsoleLog($"Loaded {filename}");
+			AddConsoleLog(string.Format(Strings.CommandLoadSuccessFormat, filename));
 		}
 		catch (Exception ioe)
 		{
-			AddConsoleLog($"Unable to load {filename}. {ioe.Message}".Red());
+			AddConsoleLog(string.Format(Strings.ErrorCannotLoadFormat, filename, ioe.Message).Red());
 		}
 	}
 
@@ -73,7 +74,7 @@ internal static class ConfigurationManager
 		{
 			if (!File.Exists(filename))
 			{
-				AddConsoleLog($"{filename} not found!");
+				AddConsoleLog(string.Format(Strings.ErrorFileNotFoundFormat, filename).Red());
 				return;
 			}
 
@@ -89,14 +90,14 @@ internal static class ConfigurationManager
 			}
 			catch (JsonException)
 			{
-				AddConsoleLog($"{filename} seems corrupted. Please fix.".Red());
+				AddConsoleLog(string.Format(Strings.ErrorCorruptedFileFormat, filename).Red());
 			}
 
-			AddConsoleLog($"Loaded {filename}");
+			AddConsoleLog(string.Format(Strings.CommandLoadSuccessFormat, filename));
 		}
 		catch (Exception ioe)
 		{
-			AddConsoleLog($"Unable to load {filename}. {ioe.Message}".Red());
+			AddConsoleLog(string.Format(Strings.ErrorCannotLoadFormat, filename, ioe.Message).Red());
 		}
 	}
 
@@ -105,9 +106,7 @@ internal static class ConfigurationManager
 		try
 		{
 			var content = new StringBuilder();
-			content.AppendLine("; Be careful when updating this file :)");
-			content.AppendLine("; For keys, use https://docs.unity3d.com/ScriptReference/KeyCode.html");
-			content.AppendLine("; Colors are stored as an array of 'RGBA' floats");
+			content.AppendLine(Comment(Strings.CommandSaveHeader));
 			content.AppendLine();
 
 			foreach (var feature in features.OrderBy(f => f.GetType().FullName))
@@ -120,9 +119,9 @@ internal static class ConfigurationManager
 					var key = $"{featureType.FullName}.{op.Property.Name}";
 					var value = JsonConvert.SerializeObject(op.Property.GetValue(feature), Formatting.None, Converters);
 
-					var comment = op.Attribute.Comment;
-					if (!string.IsNullOrEmpty(comment)) 
-						content.AppendLine($"; {comment}");
+					var resourceId = op.Attribute.CommentResourceId;
+					if (!string.IsNullOrEmpty(resourceId)) 
+						content.AppendLine(Comment(Strings.ResourceManager.GetString(resourceId)));
 
 					content.AppendLine($"{key}={value}");
 				}
@@ -132,12 +131,22 @@ internal static class ConfigurationManager
 			}
 
 			File.WriteAllText(filename, content.ToString());
-			AddConsoleLog($"Saved {filename}");
+			AddConsoleLog(string.Format(Strings.CommandSaveSuccessFormat, filename));
 		}
 		catch (Exception ioe)
 		{
-			AddConsoleLog($"Unable to save {filename}. {ioe.Message}".Red());
+			AddConsoleLog(string.Format(Strings.ErrorCannotSaveFormat, filename, ioe.Message).Red());
 		}
+	}
+
+	private static string Comment(string? value)
+	{
+		if (string.IsNullOrEmpty(value))
+			return string.Empty;
+
+		const string commentToken = "; ";
+
+		return commentToken + value!.Replace(Environment.NewLine, Environment.NewLine + commentToken);
 	}
 
 	public static void SavePropertyValue(string filename, Feature feature, string propertyName)
@@ -150,11 +159,11 @@ internal static class ConfigurationManager
 			var content = JsonConvert.SerializeObject(tlProperty.Property.GetValue(feature), Formatting.Indented, Converters);
 			File.WriteAllText(filename, content);
 
-			AddConsoleLog($"Saved {filename}");
+			AddConsoleLog(string.Format(Strings.CommandSaveSuccessFormat, filename));
 		}
 		catch (Exception ioe)
 		{
-			AddConsoleLog($"Unable to save {filename}. {ioe.Message}".Red());
+			AddConsoleLog(string.Format(Strings.ErrorCannotSaveFormat, filename, ioe.Message).Red());
 		}
 	}
 

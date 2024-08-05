@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using EFT.Trainer.Features;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,7 +13,7 @@ namespace EFT.Trainer.ConsoleCommands;
 [UsedImplicitly]
 internal class Dump : ConsoleCommandWithoutArgument
 {
-	public override string Name => "dump";
+	public override string Name => Strings.CommandDump;
 
 	public override void Execute()
 	{
@@ -21,7 +22,7 @@ internal class Dump : ConsoleCommandWithoutArgument
 
 		Directory.CreateDirectory(thisDump);
 
-		AddConsoleLog("Dumping scenes...");
+		AddConsoleLog(Strings.CommandDumpScenes);
 		for (int i = 0; i < SceneManager.sceneCount; i++) 
 		{
 			var scene = SceneManager.GetSceneAt(i);
@@ -32,7 +33,7 @@ internal class Dump : ConsoleCommandWithoutArgument
 			File.WriteAllText(Path.Combine(thisDump, GetSafeFilename($"@scene - {scene.name}.txt")), json);
 		}
 
-		AddConsoleLog("Dumping game objects...");
+		AddConsoleLog(Strings.CommandDumpGameObjects);
 		foreach (var go in UnityEngine.Object.FindObjectsOfType<GameObject>())
 		{
 			if (go == null || go.transform.parent != null || !go.activeSelf) 
@@ -43,7 +44,7 @@ internal class Dump : ConsoleCommandWithoutArgument
 			File.WriteAllText(Path.Combine(thisDump, filename), json);
 		}
 
-		AddConsoleLog($"Dump created in {thisDump}");
+		AddConsoleLog(string.Format(Strings.CommandDumpSuccessFormat, thisDump));
 	}
 
 	private static string GetSafeFilename(string filename)

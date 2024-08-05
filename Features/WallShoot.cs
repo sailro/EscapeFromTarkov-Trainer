@@ -1,6 +1,7 @@
 ﻿using EFT.Ballistics;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.Model;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -11,8 +12,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class WallShoot : ToggleFeature
 {
-	public override string Name => "wallshoot";
-	public override string Description => "Shoot through wall/helmet/vest/material with maximum penetration and minimal deviation/ricochet.";
+	public override string Name => Strings.FeatureWallShootName;
+	public override string Description => Strings.FeatureFeatureWallShootDescription;
 
 #pragma warning disable IDE0060 
 	[UsedImplicitly]

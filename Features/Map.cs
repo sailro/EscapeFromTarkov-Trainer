@@ -1,5 +1,6 @@
 ﻿using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using EFT.Trainer.UI;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -11,8 +12,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class Map : BaseMapToggleFeature
 {
-	public override string Name => "map";
-	public override string Description => "Full screen map with radar esp.";
+	public override string Name => Strings.FeatureMapName;
+	public override string Description => Strings.FeatureMapDescription;
 
 	[ConfigurationProperty(Skip = true)] // we do not want to offer save/load support for this
 	public override bool Enabled { get; set; } = false;

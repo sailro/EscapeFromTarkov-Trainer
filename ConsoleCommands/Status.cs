@@ -1,4 +1,5 @@
 ﻿using EFT.Trainer.Features;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -9,12 +10,14 @@ namespace EFT.Trainer.ConsoleCommands;
 [UsedImplicitly]
 internal class Status : ConsoleCommandWithoutArgument
 {
-	public override string Name => "status";
+	public override string Name => Strings.CommandStatus;
 
 	private static string GetFeatureHelpText(ToggleFeature feature)
 	{
-		var toggleKey = feature.Key != KeyCode.None ? $" ({feature.Key} to toggle)" : string.Empty;
-		return $"{feature.Name} is {(feature.Enabled ? "on".Green() : "off".Red())}{toggleKey}";
+		var toggleKey = feature.Key != KeyCode.None ? string.Format(Strings.CommandStatusTextToggleFormat, feature.Key) : string.Empty;
+		return string
+			.Format(Strings.CommandStatusTextFormat, feature.Name, feature.Enabled ? Strings.TextOn.Green() : Strings.TextOff.Red(), toggleKey)
+			.Trim();
 	}
 
 	public override void Execute()

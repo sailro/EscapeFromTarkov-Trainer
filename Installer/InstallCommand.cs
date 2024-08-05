@@ -13,6 +13,7 @@ using System.Xml;
 using Installer.Properties;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
+using Microsoft.CodeAnalysis.Emit;
 using Spectre.Console;
 using Spectre.Console.Cli;
 
@@ -37,6 +38,10 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 		[Description("Disable command.")]
 		[CommandOption("-c|--command")]
 		public string[]? DisabledCommands { get; set; }
+
+		[Description("Language.")]
+		[CommandOption("-l|--language")]
+		public string Language { get; set; } = "";
 	}
 
 	public static string[] ToSourceFile(string[]? names, string folder)
@@ -67,9 +72,9 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 			settings.DisabledFeatures = ToSourceFile(settings.DisabledFeatures, features);
 			settings.DisabledCommands = ToSourceFile(settings.DisabledCommands, commands);
 
-			var (compilation, archive) = await BuildTrainerAsync(settings, installation, features, commands);
+			var result = await BuildTrainerAsync(settings, installation, features, commands);
 
-			if (compilation == null)
+			if (result.Compilation == null)
 			{
 				// Failure
 				AnsiConsole.MarkupLine($"[red]Unable to compile trainer for version {installation.Version}. Please file an issue here : https://github.com/sailro/EscapeFromTarkov-Trainer/issues [/]");
@@ -86,35 +91,35 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 					return (int)ExitCode.Canceled;
 			}
 
-			if (!CreateDll(installation, "NLog.EFT.Trainer.dll", dllPath => compilation.Emit(dllPath)))
+			if (!CreateDll(installation, "NLog.EFT.Trainer.dll", dllPath => result.Compilation.Emit(dllPath, manifestResources: result.Resources)))
 				return (int)ExitCode.CreateDllFailed;
 
 			if (!CreateDll(installation, "0Harmony.dll", dllPath => File.WriteAllBytes(dllPath, Resources._0Harmony), false))
 				return (int)ExitCode.CreateHarmonyDllFailed;
 
-			if (!CreateOutline(installation, archive!))
+			if (!CreateOutline(installation, result.Archive!))
 				return (int)ExitCode.CreateOutlineFailed;
 
 			const string bepInExPluginProject = "BepInExPlugin.csproj";
-			if (installation.UsingBepInEx && archive!.Entries.Any(e => e.Name == bepInExPluginProject))
+			if (installation.UsingBepInEx && result.Archive!.Entries.Any(e => e.Name == bepInExPluginProject))
 			{
 				AnsiConsole.MarkupLine("[green][[BepInEx]][/] detected. Creating plugin instead of using NLog configuration.");
 
 				// reuse successful context for compiling.
 				var pluginContext = new CompilationContext(installation, "plugin", bepInExPluginProject)
 				{
-					Archive = archive, 
+					Archive = result.Archive, 
 					Branch = GetInitialBranch(settings)
 				};
-				var (pluginCompilation, _, _) = await GetCompilationAsync(pluginContext);
+				var pluginResult = await GetCompilationAsync(pluginContext);
 
-				if (pluginCompilation == null)
+				if (pluginResult.Compilation == null)
 				{
 					AnsiConsole.MarkupLine($"[red]Unable to compile plugin for version {installation.Version}. Please file an issue here : https://github.com/sailro/EscapeFromTarkov-Trainer/issues [/]");
 					return (int)ExitCode.PluginCompilationFailed;
 				}
 
-				if (!CreateDll(installation, Path.Combine(installation.BepInExPlugins, "aki-efttrainer.dll"), dllPath => pluginCompilation.Emit(dllPath)))
+				if (!CreateDll(installation, Path.Combine(installation.BepInExPlugins, "aki-efttrainer.dll"), dllPath => pluginResult.Compilation.Emit(dllPath)))
 					return (int)ExitCode.CreatePluginDllFailed;
 			}
 			else
@@ -140,37 +145,38 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 		return (int)ExitCode.Success;
 	}
 
-	private static async Task<(CSharpCompilation?, ZipArchive?)> BuildTrainerAsync(Settings settings, Installation installation, params string[] folders)
+	private static async Task<CompilationResult> BuildTrainerAsync(Settings settings, Installation installation, params string[] folders)
 	{
 		// Try first to compile against master
 		var context = new CompilationContext(installation, "trainer", "NLog.EFT.Trainer.csproj")
 		{
 			Exclude = [.. settings.DisabledFeatures!, .. settings.DisabledCommands!],
-			Branch = GetInitialBranch(settings)
+			Branch = GetInitialBranch(settings),
+			Language = settings.Language
 		};
 
-		var (compilation, archive, errors) = await GetCompilationAsync(context);
-		var files = errors
+		var result = await GetCompilationAsync(context);
+		var files = result.Errors
 			.Select(d => d.Location.SourceTree?.FilePath)
 			.Where(s => s is not null)
 			.Distinct()
 			.ToArray();
 
 		if (context.IsFatalFailure)
-			return (compilation, archive);
+			return result;
 
-		if (compilation == null)
+		if (result.Compilation == null)
 		{
 			// Failure, so try with a dedicated branch if exists
 			var retryBranch = GetRetryBranch(installation, context);
 			if (retryBranch != null)
 			{
 				context.Branch = retryBranch;
-				(compilation, archive, _) = await GetCompilationAsync(context);
+				result = await GetCompilationAsync(context);
 			}
 		}
 
-		if (compilation == null && files.Length != 0 && files.All(file => folders.Any(folder => file!.StartsWith(folder))))
+		if (result.Compilation == null && files.Length != 0 && files.All(file => folders.Any(folder => file!.StartsWith(folder))))
 		{
 			// Failure, retry by removing faulting features if possible
 			AnsiConsole.MarkupLine($"[yellow]Trying to disable faulting feature/command: [red]{GetFaultingNames(files!)}[/].[/]");
@@ -178,13 +184,13 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 			context.Exclude = [.. files!, .. settings.DisabledFeatures!, .. settings.DisabledCommands!];
 			context.Branch = GetFallbackBranch(settings);
 
-			(compilation, archive, errors) = await GetCompilationAsync(context);
+			result = await GetCompilationAsync(context);
 
-			if (errors.Length == 0)
+			if (result.Errors.Length == 0)
 				AnsiConsole.MarkupLine("[yellow]We found a fallback! But please file an issue here : https://github.com/sailro/EscapeFromTarkov-Trainer/issues [/]");
 		}
 
-		return (compilation, archive);
+		return result;
 	}
 
 	private static string GetFaultingNames(string[] files)
@@ -234,18 +240,20 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 		}
 	}
 
-	private static async Task<(CSharpCompilation?, ZipArchive?, Diagnostic[])> GetCompilationAsync(CompilationContext context)
+	private static async Task<CompilationResult> GetCompilationAsync(CompilationContext context)
 	{
 		var errors = Array.Empty<Diagnostic>();
+		ResourceDescription[] resources = [];
 
 		var archive = context.Archive ?? await GetSnapshotAsync(context, context.Branch);
 		if (archive == null)
 		{
 			context.Try++;
-			return (null, null, errors);
+			return new(null, null, errors, resources);
 		}
 
 		CSharpCompilation? compilation = null;
+
 		AnsiConsole
 			.Status()
 			.Start($"Compiling {context.ProjectTitle}", _ =>
@@ -269,12 +277,25 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 				}
 				else
 				{
-					AnsiConsole.MarkupLine($">> [blue]Try #{context.Try}[/] Compilation [green]succeed[/] for [blue]{context.Branch.EscapeMarkup()}[/] branch.");
+					resources = compiler
+						.GetResources(context)
+						.ToArray();
+
+					if (compiler.IsLocalizationSupported() && !resources.Any())
+					{
+						AnsiConsole.MarkupLine($"[yellow]Warning: no localization support for language '{context.Language.EscapeMarkup()}'.[/]");
+						compilation = null;
+						context.IsFatalFailure = true;
+					}
+					else
+					{
+						AnsiConsole.MarkupLine($">> [blue]Try #{context.Try}[/] Compilation [green]succeed[/] for [blue]{context.Branch.EscapeMarkup()}[/] branch.");
+					}
 				}
 			});
 
 		context.Try++;
-		return (compilation, archive, errors);
+		return new(compilation, archive, errors, resources);
 	}
 
 	private static async Task<ZipArchive?> GetSnapshotAsync(CompilationContext context, string branch)
@@ -419,6 +440,15 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 
 	private static bool CreateDll(Installation installation, string filename, Action<string> creator, bool overwrite = true)
 	{
+		return CreateDll(installation, filename, s =>
+		{
+			creator(s);
+			return null;
+		}, overwrite);
+	}
+
+	private static bool CreateDll(Installation installation, string filename, Func<string, EmitResult?> creator, bool overwrite = true)
+	{
 		var dllPath = Path.IsPathRooted(filename) ? filename : Path.Combine(installation.Managed, filename);
 		var dllPathBepInExCore = Path.IsPathRooted(filename) ? null : Path.Combine(installation.BepInExCore, filename);
 
@@ -431,9 +461,24 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 			if (!overwrite && File.Exists(dllPath))
 				return true;
 
-			creator(dllPath);
-			AnsiConsole.MarkupLine($"Created [green]{Path.GetFileName(dllPath).EscapeMarkup()}[/] in [blue]{Path.GetDirectoryName(dllPath).EscapeMarkup()}[/].");
+			var result = creator(dllPath);
+			if (result != null)
+			{
+				var errors = result
+					.Diagnostics
+					.Where(d => d.Severity == DiagnosticSeverity.Error)
+					.ToArray();
 
+#if DEBUG
+				foreach (var error in errors)
+					AnsiConsole.MarkupLine($"[grey]>> {error.Id} [[{error.Location.SourceTree?.FilePath.EscapeMarkup()}]]: {error.GetMessage().EscapeMarkup()}.[/]");
+#endif
+
+				if (!result.Success)
+					throw new Exception(errors.FirstOrDefault()?.GetMessage() ?? "Unknown error while emitting assembly");
+			}
+
+			AnsiConsole.MarkupLine($"Created [green]{Path.GetFileName(dllPath).EscapeMarkup()}[/] in [blue]{Path.GetDirectoryName(dllPath).EscapeMarkup()}[/].");
 			return true;
 		}
 		catch (Exception ex)

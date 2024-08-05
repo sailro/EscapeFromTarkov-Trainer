@@ -139,8 +139,9 @@ internal class Installation
 			if (!Directory.Exists(installation.Managed))
 				return false;
 
-			var akiFolder = Path.Combine(path, "Aki_Data");
-			installation.UsingSptAki = Directory.Exists(akiFolder);
+			var legacyAkiFolder = Path.Combine(path, "Aki_Data");
+			var akiFolder = Path.Combine(path, "SPT_Data");
+			installation.UsingSptAki = Directory.Exists(akiFolder) || Directory.Exists(legacyAkiFolder);
 
 			installation.UsingBepInEx = Directory.Exists(installation.BepInExPlugins);
 

@@ -14,4 +14,5 @@ internal class CompilationContext(Installation installation, string projectTitle
 	public string[] Exclude { get; set; } = [];
 	public ZipArchive? Archive { get; set; }
 	public bool IsFatalFailure { get; set; } = false;
+	public string Language { get; set; } = "";
 }

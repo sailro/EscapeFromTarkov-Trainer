@@ -1,4 +1,5 @@
 ﻿using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -9,8 +10,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class Stamina : ToggleFeature
 {
-	public override string Name => "stamina";
-	public override string Description => "Unlimited stamina.";
+	public override string Name => Strings.FeatureStaminaName;
+	public override string Description => Strings.FeatureStaminaDescription;
 
 	public override bool Enabled { get; set; } = false;
 

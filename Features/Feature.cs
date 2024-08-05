@@ -35,20 +35,20 @@ internal abstract class Feature : InputNode, IFeature
 		var original = HarmonyLib.AccessTools.Method(originalType, originalMethod, parameters);
 		if (original == null)
 		{
-			AddConsoleLog($"Cannot find original method {originalType}.{originalMethod}");
+			AddConsoleLog(string.Format(Properties.Strings.ErrorCannotFindOriginalMethodFormat, $"{originalType}.{originalMethod}"));
 			return;
 		}
 
 		var prefix = HarmonyLib.AccessTools.Method(GetType(), newMethod);
 		if (prefix == null)
 		{
-			AddConsoleLog($"Cannot find prefix method {newMethod}");
+			AddConsoleLog(string.Format(Properties.Strings.ErrorCannotFindPrefixMethodFormat, newMethod));
 			return;
 		}
 
 		harmony.Patch(original, prefix: new HarmonyLib.HarmonyMethod(prefix));
 #if DEBUG
-		AddConsoleLog($"Patched {originalType}.{originalMethod} with {GetType()}.{newMethod}");
+		AddConsoleLog(string.Format(Properties.Strings.DebugPatchedMethodFormat, $"{originalType}.{originalMethod}", $"{GetType()}.{newMethod}"));
 #endif
 	}
 
@@ -57,20 +57,20 @@ internal abstract class Feature : InputNode, IFeature
 		var original = HarmonyLib.AccessTools.Method(originalType, originalMethod);
 		if (original == null)
 		{
-			AddConsoleLog($"Cannot find original method {originalType}.{originalMethod}");
+			AddConsoleLog(string.Format(Properties.Strings.ErrorCannotFindOriginalMethodFormat, $"{originalType}.{originalMethod}"));
 			return;
 		}
 
 		var postfix = HarmonyLib.AccessTools.Method(GetType(), newMethod);
 		if (postfix == null)
 		{
-			AddConsoleLog($"Cannot find postfix method {newMethod}");
+			AddConsoleLog(string.Format(Properties.Strings.ErrorCannotFindPostfixMethodFormat, newMethod));
 			return;
 		}
 
 		harmony.Patch(original, postfix: new HarmonyLib.HarmonyMethod(postfix));
 #if DEBUG
-		AddConsoleLog($"Patched {originalType}.{originalMethod} with {GetType()}.{newMethod}");
+		AddConsoleLog(string.Format(Properties.Strings.DebugPatchedMethodFormat, $"{originalType}.{originalMethod}", $"{GetType()}.{newMethod}"));
 #endif
 	}
 

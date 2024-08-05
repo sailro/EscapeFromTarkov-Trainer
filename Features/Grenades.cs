@@ -2,6 +2,7 @@
 using Comfort.Common;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -12,8 +13,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class Grenades : CachableFeature<Throwable>
 {
-	public override string Name => "grenade";
-	public override string Description => "Grenades outline.";
+	public override string Name => Strings.FeatureGrenadesName;
+	public override string Description => Strings.FeatureGrenadesDescription;
 
 	[ConfigurationProperty]
 	public Color Color { get; set; } = Color.red;

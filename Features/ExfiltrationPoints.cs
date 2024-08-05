@@ -5,6 +5,7 @@ using Comfort.Common;
 using EFT.Interactive;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -15,8 +16,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class ExfiltrationPoints : PointOfInterests
 {
-	public override string Name => "exfil";
-	public override string Description => "Exfiltration points with customizable colors given eligibility, status filter, distance.";
+	public override string Name => Strings.FeatureExfiltrationPointsName;
+	public override string Description => Strings.FeatureExfiltrationPointsDescription;
 
 	[ConfigurationProperty(Order = 10)]
 	public Color EligibleColor { get; set; } = Color.green;
@@ -97,19 +98,19 @@ internal class ExfiltrationPoints : PointOfInterests
 	private static string GetName(ExfiltrationPoint point, bool isEligible)
 	{
 		var localizedName = point.Settings.Name.Localized();
-		return !isEligible ? localizedName : $"{localizedName} ({GetStatus(point.Status)})";
+		return !isEligible ? localizedName : string.Format(Strings.FeatureExfiltrationPointsEligibleFormat, localizedName, GetStatus(point.Status));
 	}
 
 	public static string GetStatus(EExfiltrationStatus status)
 	{
 		return status switch
 		{
-			EExfiltrationStatus.AwaitsManualActivation => "Activate",
-			EExfiltrationStatus.Countdown => "Timer",
-			EExfiltrationStatus.NotPresent => "Closed",
-			EExfiltrationStatus.Pending => "Pending",
-			EExfiltrationStatus.RegularMode => "Open",
-			EExfiltrationStatus.UncompleteRequirements => "Requirement",
+			EExfiltrationStatus.AwaitsManualActivation => Strings.FeatureExfiltrationPointsStatusActivate,
+			EExfiltrationStatus.Countdown => Strings.FeatureExfiltrationPointsStatusTimer,
+			EExfiltrationStatus.NotPresent => Strings.FeatureExfiltrationPointsStatusClosed,
+			EExfiltrationStatus.Pending => Strings.FeatureExfiltrationPointsStatusPending,
+			EExfiltrationStatus.RegularMode => Strings.FeatureExfiltrationPointsStatusOpen,
+			EExfiltrationStatus.UncompleteRequirements => Strings.FeatureExfiltrationPointsStatusRequirement,
 			_ => string.Empty
 		};
 	}

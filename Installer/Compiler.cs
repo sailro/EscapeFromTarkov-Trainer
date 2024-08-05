@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using System.Resources;
+using System.Resources.NetStandard;
 using System.Text;
 using System.Text.RegularExpressions;
 using Installer.Properties;
@@ -156,6 +159,59 @@ internal partial class Compiler
 		}
 	}
 
+	public bool IsLocalizationSupported()
+	{
+		return IsLanguageSupported(null);
+	}
+
+	public bool IsLanguageSupported(CompilationContext? context)
+	{
+		return GetSourceFiles().Any(f => f.EndsWith(string.Concat("Strings.", context?.Language ?? string.Empty, ".Designer.cs").Replace("..","."), StringComparison.OrdinalIgnoreCase));
+	}
+
+	public IEnumerable<ResourceDescription> GetResources(CompilationContext context)
+	{
+		var matches = ResourceFileRegex().Matches(ProjectContent);
+
+		foreach (var match in matches.Cast<Match>())
+		{
+			if (!match.Success)
+				continue;
+
+			// For now we only select one resource file, and use it as "neutral"
+			var file = match.Groups["file"].Value;
+			if (!file.EndsWith(string.Concat("Strings.", context.Language, ".resx").Replace("..","."), StringComparison.OrdinalIgnoreCase))
+				continue;
+			
+			var entry = ProjectArchive.Entries.FirstOrDefault(e => e.FullName.EndsWith(file.Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar), StringComparison.OrdinalIgnoreCase));
+			if (entry == null)
+				continue;
+
+			using var stream = entry.Open();
+			using var reader = new ResXResourceReader(stream);
+
+			using var memory = new MemoryStream();
+			using var writer = new ResourceWriter(memory);
+
+			foreach (DictionaryEntry resourcEntry in reader)
+				writer.AddResource(resourcEntry.Key.ToString()!, resourcEntry.Value);
+
+			var resource = new MemoryStream();
+
+			writer.Generate();
+			memory.Position = 0;
+			memory.CopyTo(resource);
+			resource.Position = 0;
+
+			var resourceName = file
+				.Replace(@"Properties\Strings", "EFT.Trainer.Properties.Strings")
+				.Replace($".{context.Language}.", ".", StringComparison.OrdinalIgnoreCase)
+				.Replace(".resx", ".resources");
+
+			yield return new ResourceDescription(resourceName, () => resource, isPublic: true);
+		}
+	}
+
 	public CSharpCompilation Compile(string assemblyName)
 	{
 		var syntaxTrees = GetSyntaxTrees()
@@ -167,9 +223,12 @@ internal partial class Compiler
 		return CSharpCompilation.Create(assemblyName, syntaxTrees, references, CompilationOptions);
 	}
 
-	[GeneratedRegex("<Compile\\s+Include=\"(?<file>.*)\"\\s*/>")]
+	[GeneratedRegex("<Compile\\s+Include=\"(?<file>.*)\"\\s*/?>")]
 	private static partial Regex CompileFileRegex();
 
 	[GeneratedRegex("<(Project)?Reference\\s+Include=\"(?<assemblyName>.*)\"\\s*/?>")]
 	private static partial Regex ProjectReferenceRegex();
+
+	[GeneratedRegex("<EmbeddedResource\\s+Include=\"(?<file>.*)\"\\s*/?>")]
+	private static partial Regex ResourceFileRegex();
 }

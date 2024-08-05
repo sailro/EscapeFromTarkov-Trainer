@@ -6,6 +6,7 @@ using EFT.Interactive;
 using EFT.Quests;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -16,8 +17,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class Quests : PointOfInterests
 {
-	public override string Name => "quest";
-	public override string Description => "Locations for taking/placing quest items. Only items related to your started quests are displayed.";
+	public override string Name => Strings.FeatureQuestsName;
+	public override string Description => Strings.FeatureQuestsDescription;
 
 	[ConfigurationProperty]
 	public Color Color { get; set; } = Color.magenta;
@@ -146,7 +147,7 @@ internal class Quests : PointOfInterests
 	private void AddQuestRecord(List<PointOfInterest> records, Condition condition, QuestDataClass quest, Vector3 position)
 	{
 		var poi = Pool.Get();
-		poi.Name = $"{condition.FormattedDescription} ({quest.Template!.Name})";
+		poi.Name = string.Format(Strings.FeatureQuestsFormat, condition.FormattedDescription, quest.Template!.Name);
 		poi.Position = position;
 		poi.Color = Color;
 		poi.Owner = null;

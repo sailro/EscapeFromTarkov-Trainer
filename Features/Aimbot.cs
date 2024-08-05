@@ -4,6 +4,7 @@ using EFT.Ballistics;
 using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using EFT.Trainer.UI;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -15,8 +16,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class Aimbot : HoldFeature
 {
-	public override string Name => "aimbot";
-	public override string Description => "Aimbot. Automatic aiming and/or shooting (SilentAim).";
+	public override string Name => Strings.FeatureAimbotName;
+	public override string Description => Strings.FeatureAimbotDescription;
 
 	public override KeyCode Key { get; set; } = KeyCode.Slash;
 

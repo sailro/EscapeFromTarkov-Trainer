@@ -1,5 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 using EFT.Trainer.Configuration;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 
 #nullable enable
@@ -9,7 +10,7 @@ namespace EFT.Trainer.ConsoleCommands;
 [UsedImplicitly]
 internal class SaveTrackList : BaseTrackListCommand
 {
-	public override string Name => "savetl";
+	public override string Name => Strings.CommandSaveTrackList;
 
 	public override void Execute(Match match)
 	{

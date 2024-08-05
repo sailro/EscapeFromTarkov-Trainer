@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.ConsoleCommands;
+using EFT.Trainer.Properties;
 using EFT.UI;
 using UnityEngine;
 
@@ -12,8 +14,8 @@ namespace EFT.Trainer.Features;
 
 internal class Commands : FeatureRenderer
 {
-	public override string Name => "commands";
-	public override string Description => "This main popup window.";
+	public override string Name => Strings.FeatureCommandsName;
+	public override string Description => Strings.FeatureCommandsDescription;
 
 	[ConfigurationProperty(Skip = true)] // we do not want to offer save/load support for this
 	public override bool Enabled { get; set; } = false;
@@ -27,6 +29,7 @@ internal class Commands : FeatureRenderer
 	public override KeyCode Key { get; set; } = KeyCode.RightAlt;
 
 	private bool Registered { get; set; } = false;
+	private Dictionary<string, string> PropertyDisplays { get; } = new();
 
 	protected override void Update()
 	{
@@ -39,7 +42,35 @@ internal class Commands : FeatureRenderer
 		if (!PreloaderUI.Instantiated)
 			return;
 
+		RegisterPropertyDisplays();
 		RegisterCommands();
+	}
+
+	private void RegisterPropertyDisplays()
+	{
+		const string prefix = nameof(OrderedProperty.Property);
+
+		var properties = typeof(Strings)
+				.GetProperties(BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public)
+			    .Where(p => p.Name.StartsWith(prefix));
+
+		PropertyDisplays.Clear();
+
+		foreach (var property in properties)
+		{
+			var key = property.Name.Substring(prefix.Length);
+			var value = property.GetValue(null) as string ?? string.Empty;
+			
+			PropertyDisplays.Add(key, value);
+		}
+	}
+
+	protected override string GetPropertyDisplay(string propertyName)
+	{
+		if (PropertyDisplays.TryGetValue(propertyName, out var value))
+			return value;
+
+		return $"!! [{propertyName}] !!"; // missing translation in Strings.resx
 	}
 
 	private void RegisterCommands()
@@ -58,10 +89,10 @@ internal class Commands : FeatureRenderer
 			command.Register();
 
 		// built-in commands
-		new BuiltInCommand("load", () => LoadSettings())
+		new BuiltInCommand(Strings.CommandLoadName, () => LoadSettings())
 			.Register();
 
-		new BuiltInCommand("save", SaveSettings)
+		new BuiltInCommand(Strings.CommandSaveName, SaveSettings)
 			.Register();
 
 		// Load default configuration

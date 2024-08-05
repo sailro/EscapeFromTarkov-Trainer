@@ -42,7 +42,17 @@ internal abstract class BaseMapToggleFeature : ToggleFeature
 
 	protected Camera? MapCamera => _mapCamera;
 
-	private static readonly string[] _directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW", "N"];
+	private static readonly string[] _directions = [
+		Properties.Strings.DirectionNorth,
+		Properties.Strings.DirectionNorthEast,
+		Properties.Strings.DirectionEast,
+		Properties.Strings.DirectionSouthEast,
+		Properties.Strings.DirectionSouth,
+		Properties.Strings.DirectionSouthWest,
+		Properties.Strings.DirectionWest,
+		Properties.Strings.DirectionNorthWest,
+		Properties.Strings.DirectionNorth
+	];
 
 	protected void ToggleMapCameraIfNeeded(bool state)
 	{

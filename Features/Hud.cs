@@ -4,6 +4,7 @@ using EFT.Trainer.Extensions;
 using EFT.Trainer.UI;
 using UnityEngine;
 using System.Text;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 
 #nullable enable
@@ -13,8 +14,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class Hud : ToggleFeature
 {
-	public override string Name => "hud";
-	public override string Description => "HUD (compass, ammo left in chamber / magazine, fire mode, coordinates).";
+	public override string Name => Strings.FeatureHudName;
+	public override string Description => Strings.FeatureHudDescription;
 
 	[ConfigurationProperty]
 	public Color Color { get; set; } = Color.white;
@@ -22,7 +23,17 @@ internal class Hud : ToggleFeature
 	[ConfigurationProperty]
 	public bool ShowCompass { get; set; } = true;
 		
-	private static readonly string[] _directions = ["N", "NE", "E", "SE", "S", "SW", "W", "NW", "N"];
+	private static readonly string[] _directions = [
+		Strings.DirectionNorth,
+		Strings.DirectionNorthEast,
+		Strings.DirectionEast,
+		Strings.DirectionSouthEast,
+		Strings.DirectionSouth,
+		Strings.DirectionSouthWest,
+		Strings.DirectionWest,
+		Strings.DirectionNorthWest,
+		Strings.DirectionNorth
+	];
 
 	[ConfigurationProperty]
 	public bool ShowCoordinates { get; set; } = false;
@@ -46,7 +57,6 @@ internal class Hud : ToggleFeature
 			return;
 
 		_sb.Clear();
-		const string separator = " - ";
 
 		if (ShowCompass)
 		{
@@ -55,16 +65,16 @@ internal class Hud : ToggleFeature
 
 			var heading = Quaternion.LookRotation(forward).eulerAngles.y;
 			_sb.Append(_directions[(int)Mathf.Round(heading % 360 / 45)]);
-			_sb.Append(separator);
+			_sb.Append(Strings.FeatureHudSeparator);
 		}
 
-		_sb.Append($"{mag.Count}+{weapon.ChamberAmmoCount}/{mag.MaxCount} [{weapon.SelectedFireMode}]");
+		_sb.Append(string.Format(Strings.FeatureHudWeaponFormat, mag.Count, weapon.ChamberAmmoCount, mag.MaxCount, weapon.SelectedFireMode));
 
 		if (ShowCoordinates)
 		{
-			_sb.Append(separator);
+			_sb.Append(Strings.FeatureHudSeparator);
 			var position = player.Transform.position;
-			_sb.Append($"({Mathf.RoundToInt(position.x)},{Mathf.RoundToInt(position.z)})");
+			_sb.Append(string.Format(Strings.FeatureHudCoordinatesFormat, Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.z)));
 		}
 
 		Render.DrawString(new Vector2(512, Screen.height - 16f), _sb.ToString(), Color);

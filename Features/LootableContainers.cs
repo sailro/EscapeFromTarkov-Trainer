@@ -3,6 +3,7 @@ using Comfort.Common;
 using EFT.Interactive;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -13,8 +14,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class LootableContainers : PointOfInterests
 {
-	public override string Name => "stash";
-	public override string Description => "Hidden/special stashes like buried barrels, ground caches, air drops or corpses.";
+	public override string Name => Strings.FeatureStashName;
+	public override string Description => Strings.FeatureStashDescription;
 
 	//Static Hashset for List of Container IDS
 	private static readonly HashSet<string> _targetedContainer =

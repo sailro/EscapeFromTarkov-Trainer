@@ -1,4 +1,5 @@
 ﻿using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -9,8 +10,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class Ghost : ToggleFeature
 {
-	public override string Name => "ghost";
-	public override string Description => "Stop bots from seeing you.";
+	public override string Name => Strings.FeatureGhostName;
+	public override string Description => Strings.FeatureGhostDescription;
 
 	public override bool Enabled { get; set; } = false;
 

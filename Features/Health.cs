@@ -2,6 +2,7 @@
 using EFT.HealthSystem;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 
 #nullable enable
@@ -11,8 +12,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class Health : ToggleFeature
 {
-	public override string Name => "health";
-	public override string Description => "Full health, prevent any damage (so even when falling), keep energy and hydration at maximum.";
+	public override string Name => Strings.FeatureHealthName;
+	public override string Description => Strings.FeatureHealthDescription;
 
 	public override bool Enabled { get; set; } = false;
 

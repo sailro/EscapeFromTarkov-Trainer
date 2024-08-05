@@ -1,4 +1,5 @@
 ﻿using EFT.Trainer.Configuration;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 
 namespace EFT.Trainer.Features;
@@ -6,8 +7,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class Interact : ToggleFeature
 {
-	public override string Name => "interact";
-	public override string Description => "Change distance for loot/door interaction.";
+	public override string Name => Strings.FeatureInteractName;
+	public override string Description => Strings.FeatureInteractDescription;
 
 	public override bool Enabled { get; set; } = false;
 

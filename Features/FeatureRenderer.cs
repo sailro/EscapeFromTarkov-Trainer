@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using EFT.InputSystem;
 using EFT.Trainer.Configuration;
+using EFT.Trainer.Properties;
 using EFT.Trainer.UI;
 using UnityEngine;
 
@@ -44,7 +45,6 @@ internal abstract class FeatureRenderer : ToggleFeature
 		return coord;
 	}
 
-
 	internal abstract class SelectionContext<T>
 	{
 		protected SelectionContext(IFeature feature, OrderedProperty orderedProperty, float parentX, float parentY, Func<T, Picker<T>> builder)
@@ -81,7 +81,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 		SetupInputNode();
 
 		_clientWindowRect = new Rect(X, Y, 490, _clientWindowRect.height);
-		_clientWindowRect = GUILayout.Window(0, _clientWindowRect, RenderFeatureWindow, "EFT Trainer", GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true));
+		_clientWindowRect = GUILayout.Window(0, _clientWindowRect, RenderFeatureWindow, Strings.FeatureCommandsTitle , GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true));
 		X = _clientWindowRect.x;
 		Y = _clientWindowRect.y;
 
@@ -91,7 +91,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 			_keyCodeSelectionContext = null;
 	}
 
-	private static bool HandleSelectionContext<T>(SelectionContext<T>? context)
+	private bool HandleSelectionContext<T>(SelectionContext<T>? context)
 	{
 		if (context == null) 
 			return false;
@@ -99,7 +99,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 		var property = context.OrderedProperty.Property;
 		var picker = context.Picker;
 
-		picker.DrawWindow(context.Id, property.Name);
+		picker.DrawWindow(context.Id, GetPropertyDisplay(property.Name));
 		property.SetValue(context.Feature, picker.Value);
 
 		return picker.IsSelected;
@@ -108,7 +108,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 	private int _selectedTabIndex = 0;
 	private void RenderFeatureWindow(int id)
 	{
-		var fixedTabs = new[] {"[summary]"};
+		var fixedTabs = new[] {Strings.FeatureRendererSummary};
 
 		var tabs = fixedTabs
 			.Concat
@@ -157,19 +157,19 @@ internal abstract class FeatureRenderer : ToggleFeature
 		if (feature is not ToggleFeature toggleFeature || ConfigurationManager.IsSkippedProperty(feature, nameof(Enabled)))
 			return feature.Name;
 
-		return $"{toggleFeature.Name} is {(toggleFeature.Enabled ? "on".Green() : "off".Red())}";
+		return string.Format(Strings.CommandStatusTextFormat, feature.Name, toggleFeature.Enabled ? Strings.TextOn.Green() : Strings.TextOff.Red(), string.Empty);
 	}
 
 	private void RenderSummary()
 	{
 		GUILayout.BeginVertical();
 
-		GUILayout.Label("<i><b>Welcome to EFT Trainer !</b></i>\n", DescriptionStyle);
+		GUILayout.Label($"<i><b>{Strings.FeatureRendererWelcome}</b></i>\n", DescriptionStyle);
 
-		if (GUILayout.Button("Load settings"))
+		if (GUILayout.Button(Strings.CommandLoadDescription))
 			LoadSettings();
 
-		if (GUILayout.Button("Save settings"))
+		if (GUILayout.Button(Strings.CommandSaveDescription))
 			SaveSettings();
 
 		GUILayout.EndVertical();
@@ -220,7 +220,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 		GUILayout.FlexibleSpace();
 		GUILayout.BeginHorizontal();
 
-		GUILayout.Label(property.Name, LabelStyle);
+		GUILayout.Label(GetPropertyDisplay(property.Name), LabelStyle);
 		GUILayout.FlexibleSpace();
 
 		var currentValue = property.GetValue(feature);
@@ -246,6 +246,8 @@ internal abstract class FeatureRenderer : ToggleFeature
 		GUI.backgroundColor = currentBackgroundColor;
 		GUILayout.EndHorizontal();
 	}
+
+	protected abstract string GetPropertyDisplay(string propertyName);
 
 	private object RenderFeaturePropertyAsUIComponent(IFeature feature, OrderedProperty orderedProperty, object currentValue, GUILayoutOption width)
 	{
@@ -305,7 +307,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 
 				}
 
-				GUILayout.Label($"Unsupported type: {propertyType.FullName}");
+				GUILayout.Label(string.Format(Strings.ErrorUnsupportedTypeFormat, propertyType.FullName));
 				break;
 		}
 

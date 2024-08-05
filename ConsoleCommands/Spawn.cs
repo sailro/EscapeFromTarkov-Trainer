@@ -6,6 +6,7 @@ using Diz.Utils;
 using EFT.CameraControl;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.Features;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 
 #nullable enable
@@ -15,7 +16,7 @@ namespace EFT.Trainer.ConsoleCommands;
 [UsedImplicitly]
 internal class Spawn : BaseTemplateCommand
 {
-	public override string Name => "spawn";
+	public override string Name => Strings.CommandSpawn;
 
 	public override void Execute(Match match)
 	{
@@ -33,14 +34,14 @@ internal class Spawn : BaseTemplateCommand
 		switch (templates.Length)
 		{
 			case 0:
-				AddConsoleLog("No template found!");
+				AddConsoleLog(Strings.ErrorNoTemplateFound.Red());
 				return;
 			case > 1:
 			{
 				foreach (var template in templates)
-					AddConsoleLog($"{template._id}: {template.ShortNameLocalizationKey.Localized().Green()} [{template.NameLocalizationKey.Localized()}]");
+					AddConsoleLog(string.Format(Strings.CommandTemplateEnumerateFormat, template._id, template.ShortNameLocalizationKey.Localized().Green(), template.NameLocalizationKey.Localized()));
 
-				AddConsoleLog($"found {templates.Length.ToString().Cyan()} templates, be more specific");
+				AddConsoleLog(string.Format(Strings.ErrorTooManyTemplatesFormat, templates.Length.ToString().Cyan()));
 				return;
 			}
 		}
@@ -56,7 +57,7 @@ internal class Spawn : BaseTemplateCommand
 				{
 					if (task.IsFaulted)
 					{
-						AddConsoleLog("Failed to load item bundle!");
+						AddConsoleLog(Strings.ErrorFailedToLoadItemBundle.Red());
 					}
 					else
 					{
@@ -64,7 +65,7 @@ internal class Spawn : BaseTemplateCommand
 						var item = itemFactory.CreateItem(MongoID.Generate(), tpl._id, null);
 						if (item == null)
 						{
-							AddConsoleLog("Failed to create item!");
+							AddConsoleLog(Strings.ErrorFailedToCreateItem.Red());
 						}
 						else
 						{

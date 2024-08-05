@@ -1,5 +1,6 @@
 ﻿using EFT.Interactive;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
 
@@ -10,8 +11,8 @@ namespace EFT.Trainer.Features;
 [UsedImplicitly]
 internal class WorldInteractiveObjects : TriggerFeature
 {
-	public override string Name => "opener";
-	public override string Description => "Door/Keycard reader/Car unlocker.";
+	public override string Name => Strings.FeatureWorldInteractiveObjectsName;
+	public override string Description => Strings.FeatureWorldInteractiveObjectsDescription;
 
 	public override KeyCode Key { get; set; } = KeyCode.KeypadPeriod;
 
