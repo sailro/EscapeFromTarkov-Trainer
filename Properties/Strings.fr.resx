@@ -781,7 +781,7 @@ Les couleurs sont stockées sous la forme d'un tableau de valeurs flottantes 'RG
     <value>Chercher les conteneurs</value>
   </data>
   <data name="PropertySearchInsideCorpses" xml:space="preserve">
-    <value>Chercher les corps</value>
+    <value>Chercher les cadavres</value>
   </data>
   <data name="PropertyShootableColors" xml:space="preserve">
     <value>Couleurs des cibles</value>
@@ -808,7 +808,7 @@ Les couleurs sont stockées sous la forme d'un tableau de valeurs flottantes 'RG
     <value>Montrer les coordonnées</value>
   </data>
   <data name="PropertyShowCorpses" xml:space="preserve">
-    <value>Montrer les corps</value>
+    <value>Montrer les cadavres</value>
   </data>
   <data name="PropertyShowCultists" xml:space="preserve">
     <value>Montrer les Cultistes</value>
