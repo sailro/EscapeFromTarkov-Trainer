@@ -628,7 +628,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>opener</value>
   </data>
   <data name="PropertyArmorDamageColor" xml:space="preserve">
-    <value>Couleur des dommages armure</value>
+    <value>Couleur impact armure</value>
   </data>
   <data name="PropertyBackward" xml:space="preserve">
     <value>Arrière</value>
@@ -661,7 +661,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Couleurs des Cultists</value>
   </data>
   <data name="PropertyDisplayTime" xml:space="preserve">
-    <value>Afficher l'heure</value>
+    <value>Temps d'affichage</value>
   </data>
   <data name="PropertyDistance" xml:space="preserve">
     <value>Distance</value>
@@ -679,7 +679,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Mode rapide</value>
   </data>
   <data name="PropertyFastMovementSpeed" xml:space="preserve">
-    <value>Vitesse de mouvement rapide</value>
+    <value>Vitesse mouvement rapide</value>
   </data>
   <data name="PropertyFoodWater" xml:space="preserve">
     <value>Nourriture / eau</value>
@@ -691,22 +691,22 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Champ visuel</value>
   </data>
   <data name="PropertyFovCircleColor" xml:space="preserve">
-    <value>Couleur du cercle du champ visuel</value>
+    <value>Couleur du cercle visuel</value>
   </data>
   <data name="PropertyFovCircleThickness" xml:space="preserve">
-    <value>Epaisseur du cercle du champ visuel</value>
+    <value>Epaisseur du cercle visuel</value>
   </data>
   <data name="PropertyFovRadius" xml:space="preserve">
     <value>Rayon du champ visuel</value>
   </data>
   <data name="PropertyFreeLookSensitivity" xml:space="preserve">
-    <value>Sensibilité de la vision libre</value>
+    <value>Sensibilité vision libre</value>
   </data>
   <data name="PropertyGroupingColor" xml:space="preserve">
     <value>Couleur de groupement</value>
   </data>
   <data name="PropertyHealthDamageColor" xml:space="preserve">
-    <value>Couleur de dommage de vie</value>
+    <value>Couleur impact santé</value>
   </data>
   <data name="PropertyHideWhenAiming" xml:space="preserve">
     <value>Cacher en cas de visée</value>
@@ -760,7 +760,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Taux</value>
   </data>
   <data name="PropertyRemoveNegativeEffects" xml:space="preserve">
-    <value>Supprimer les effets négatifs</value>
+    <value>Supprimer effets négatifs</value>
   </data>
   <data name="PropertyRight" xml:space="preserve">
     <value>Gauche</value>
@@ -778,16 +778,16 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Couleurs des Scav-raider</value>
   </data>
   <data name="PropertySearchInsideContainers" xml:space="preserve">
-    <value>Chercher dans les conteneurs</value>
+    <value>Chercher les conteneurs</value>
   </data>
   <data name="PropertySearchInsideCorpses" xml:space="preserve">
-    <value>Chercher dans les corps</value>
+    <value>Chercher les corps</value>
   </data>
   <data name="PropertyShootableColors" xml:space="preserve">
     <value>Couleurs pour les cibles</value>
   </data>
   <data name="PropertyShowArmorDamage" xml:space="preserve">
-    <value>Montrer les dommages de l'armure</value>
+    <value>Montrer impacts armure</value>
   </data>
   <data name="PropertyShowBosses" xml:space="preserve">
     <value>Montrer les Boss</value>
@@ -817,10 +817,10 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Montrer les éligibles</value>
   </data>
   <data name="PropertyShowFovCircle" xml:space="preserve">
-    <value>Montrer le cercle de vision</value>
+    <value>Montrer le cercle visuel</value>
   </data>
   <data name="PropertyShowHealthDamage" xml:space="preserve">
-    <value>Montrer les dommages de vie</value>
+    <value>Montrer impacts santé</value>
   </data>
   <data name="PropertyShowHitMarker" xml:space="preserve">
     <value>Montrer les marqueurs</value>
@@ -868,10 +868,10 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Visée silencieuse</value>
   </data>
   <data name="PropertySilentAimNextShotDelay" xml:space="preserve">
-    <value>Delai du prochain tir de visée silencieuse</value>
+    <value>Delai du prochain tir</value>
   </data>
   <data name="PropertySilentAimSpeedFactor" xml:space="preserve">
-    <value>Vitesse de visée silencieuse</value>
+    <value>Vitesse de visée</value>
   </data>
   <data name="PropertySize" xml:space="preserve">
     <value>Taille</value>
@@ -901,7 +901,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Couleurs des Usec</value>
   </data>
   <data name="PropertyVitalsOnly" xml:space="preserve">
-    <value>Organes vitaux uniquement</value>
+    <value>Organes vitaux seulement</value>
   </data>
   <data name="PropertyX" xml:space="preserve">
     <value>X</value>
