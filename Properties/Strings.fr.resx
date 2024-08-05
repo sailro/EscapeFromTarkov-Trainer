@@ -877,7 +877,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Taille</value>
   </data>
   <data name="PropertySkeletonThickness" xml:space="preserve">
-    <value>Epaisseur du Squelette</value>
+    <value>Epaisseur du squelette</value>
   </data>
   <data name="PropertySmoothness" xml:space="preserve">
     <value>Lissage</value>
