@@ -817,7 +817,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Montrer les éligibles</value>
   </data>
   <data name="PropertyShowFovCircle" xml:space="preserve">
-    <value>Montrer le cercle visuel</value>
+    <value>Montrer le champ visuel</value>
   </data>
   <data name="PropertyShowHealthDamage" xml:space="preserve">
     <value>Montrer impacts santé</value>
