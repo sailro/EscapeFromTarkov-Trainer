@@ -634,13 +634,13 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Arrière</value>
   </data>
   <data name="PropertyBearColors" xml:space="preserve">
-    <value>Couleurs des Bear</value>
+    <value>Couleurs Bear</value>
   </data>
   <data name="PropertyBorderColor" xml:space="preserve">
     <value>Couleur bordure</value>
   </data>
   <data name="PropertyBossColors" xml:space="preserve">
-    <value>Couleurs des Boss</value>
+    <value>Couleurs Boss</value>
   </data>
   <data name="PropertyBoxThickness" xml:space="preserve">
     <value>Epaisseur boîte</value>
@@ -658,7 +658,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Couleur</value>
   </data>
   <data name="PropertyCultistColors" xml:space="preserve">
-    <value>Couleurs des Cultists</value>
+    <value>Couleurs Cultistes</value>
   </data>
   <data name="PropertyDisplayTime" xml:space="preserve">
     <value>Temps d'affichage</value>
@@ -679,25 +679,25 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Mode rapide</value>
   </data>
   <data name="PropertyFastMovementSpeed" xml:space="preserve">
-    <value>Vitesse mouvement rapide</value>
+    <value>Vitesse de mvt. rapide</value>
   </data>
   <data name="PropertyFoodWater" xml:space="preserve">
     <value>Nourriture / eau</value>
   </data>
   <data name="PropertyForward" xml:space="preserve">
-    <value>En avant</value>
+    <value>Avant</value>
   </data>
   <data name="PropertyFov" xml:space="preserve">
     <value>Champ visuel</value>
   </data>
   <data name="PropertyFovCircleColor" xml:space="preserve">
-    <value>Couleur du cercle visuel</value>
+    <value>Couleur champ visuel</value>
   </data>
   <data name="PropertyFovCircleThickness" xml:space="preserve">
-    <value>Epaisseur du cercle visuel</value>
+    <value>Epaisseur champ visuel</value>
   </data>
   <data name="PropertyFovRadius" xml:space="preserve">
-    <value>Rayon du champ visuel</value>
+    <value>Rayon champ visuel</value>
   </data>
   <data name="PropertyFreeLookSensitivity" xml:space="preserve">
     <value>Sensibilité vision libre</value>
@@ -727,7 +727,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Gauche</value>
   </data>
   <data name="PropertyMarksmanColors" xml:space="preserve">
-    <value>Couleurs des Snipers</value>
+    <value>Couleurs Snipers</value>
   </data>
   <data name="PropertyMaximumDistance" xml:space="preserve">
     <value>Distance maximum</value>
@@ -739,7 +739,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Couleur non-éligible</value>
   </data>
   <data name="PropertyNotShootableColors" xml:space="preserve">
-    <value>Couleurs pour les non-cibles</value>
+    <value>Couleurs des non-cibles</value>
   </data>
   <data name="PropertyRadarBackground" xml:space="preserve">
     <value>Arrière-plan du radar</value>
@@ -757,25 +757,25 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Portée</value>
   </data>
   <data name="PropertyRate" xml:space="preserve">
-    <value>Taux</value>
+    <value>Cadence</value>
   </data>
   <data name="PropertyRemoveNegativeEffects" xml:space="preserve">
     <value>Supprimer effets négatifs</value>
   </data>
   <data name="PropertyRight" xml:space="preserve">
-    <value>Gauche</value>
+    <value>Droite</value>
   </data>
   <data name="PropertyRogueUsecColors" xml:space="preserve">
-    <value>Couleurs des Rogue-Usec</value>
+    <value>Couleurs Rogue-Usec</value>
   </data>
   <data name="PropertyScavAssaultColors" xml:space="preserve">
-    <value>Couleurs des Scav-assault</value>
+    <value>Couleurs Scav-assault</value>
   </data>
   <data name="PropertyScavColors" xml:space="preserve">
-    <value>Couleurs des Scav</value>
+    <value>Couleurs Scav</value>
   </data>
   <data name="PropertyScavRaiderColors" xml:space="preserve">
-    <value>Couleurs des Scav-raider</value>
+    <value>Couleurs Scav-raider</value>
   </data>
   <data name="PropertySearchInsideContainers" xml:space="preserve">
     <value>Chercher les conteneurs</value>
@@ -784,7 +784,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Chercher les corps</value>
   </data>
   <data name="PropertyShootableColors" xml:space="preserve">
-    <value>Couleurs pour les cibles</value>
+    <value>Couleurs des cibles</value>
   </data>
   <data name="PropertyShowArmorDamage" xml:space="preserve">
     <value>Montrer impacts armure</value>
@@ -898,7 +898,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Suivre la liste de souhaits</value>
   </data>
   <data name="PropertyUsecColors" xml:space="preserve">
-    <value>Couleurs des Usec</value>
+    <value>Couleurs Usec</value>
   </data>
   <data name="PropertyVitalsOnly" xml:space="preserve">
     <value>Organes vitaux seulement</value>
