@@ -121,13 +121,13 @@
     <value>dump</value>
   </data>
   <data name="CommandDumpGameObjects" xml:space="preserve">
-    <value>Dumping game objects...</value>
+    <value>Analyse des objets du jeu...</value>
   </data>
   <data name="CommandDumpScenes" xml:space="preserve">
-    <value>Dumping Scenes...</value>
+    <value>Analyse des scenes...</value>
   </data>
   <data name="CommandDumpSuccessFormat" xml:space="preserve">
-    <value>Dump created in {0}</value>
+    <value>Analyse crée dans {0}</value>
     <comment>Filename</comment>
   </data>
   <data name="CommandList" xml:space="preserve">
@@ -145,38 +145,38 @@
     <comment>Rarity</comment>
   </data>
   <data name="CommandListSuccessFormat" xml:space="preserve">
-    <value>Found {0} item(s)</value>
+    <value>{0} objet(s) trouvé(s)</value>
     <comment>Item count</comment>
   </data>
   <data name="CommandListSuperRare" xml:space="preserve">
     <value>listsr</value>
   </data>
   <data name="CommandLoadDescription" xml:space="preserve">
-    <value>Load settings</value>
+    <value>Charger les réglages</value>
   </data>
   <data name="CommandLoadName" xml:space="preserve">
     <value>load</value>
   </data>
   <data name="CommandLoadSuccessFormat" xml:space="preserve">
-    <value>Loaded {0}</value>
+    <value>Chargement de {0}</value>
     <comment>Filename</comment>
   </data>
   <data name="CommandLoadTrackList" xml:space="preserve">
     <value>loadtl</value>
   </data>
   <data name="CommandSaveDescription" xml:space="preserve">
-    <value>Save settings</value>
+    <value>Enregistrer les réglages</value>
   </data>
   <data name="CommandSaveHeader" xml:space="preserve">
-    <value>Be careful when updating this file :)
-For keys, use https://docs.unity3d.com/ScriptReference/KeyCode.html
-Colors are stored as an array of 'RGBA' floats</value>
+    <value>Soyez prudent lorsque vous mettez à jour ce fichier :)
+Pour les clés, utilisez https://docs.unity3d.com/ScriptReference/KeyCode.html
+Les couleurs sont stockées sous la forme d'un tableau de valeurs flottantes 'RGBA'</value>
   </data>
   <data name="CommandSaveName" xml:space="preserve">
     <value>save</value>
   </data>
   <data name="CommandSaveSuccessFormat" xml:space="preserve">
-    <value>Saved {0}</value>
+    <value>Enregistrement de {0}</value>
     <comment>Filename</comment>
   </data>
   <data name="CommandSaveTrackList" xml:space="preserve">
@@ -189,11 +189,11 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>status</value>
   </data>
   <data name="CommandStatusTextFormat" xml:space="preserve">
-    <value>{0} is {1} {2}</value>
+    <value>{0} est {1} {2}</value>
     <comment>Feature name, status, optional toggle text if a key is set</comment>
   </data>
   <data name="CommandStatusTextToggleFormat" xml:space="preserve">
-    <value>({0} to toggle)</value>
+    <value>({0} pour basculer)</value>
     <comment>Key</comment>
   </data>
   <data name="CommandTemplate" xml:space="preserve">
@@ -204,7 +204,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <comment>Template id, short-name, name</comment>
   </data>
   <data name="CommandTemplateSuccessFormat" xml:space="preserve">
-    <value>Found {0} template(s)</value>
+    <value>{0} template(s) trouvée(s)</value>
     <comment>Template count</comment>
   </data>
   <data name="CommandTrack" xml:space="preserve">
@@ -214,7 +214,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>tracklist</value>
   </data>
   <data name="CommandTrackListEnumerateFormat" xml:space="preserve">
-    <value>Tracking: {0} {1}</value>
+    <value>Suivi: {0} {1}</value>
     <comment>Item short-name, optional rarity</comment>
   </data>
   <data name="CommandTrackListRarityFormat" xml:space="preserve">
@@ -222,10 +222,10 @@ Colors are stored as an array of 'RGBA' floats</value>
     <comment>Rarity</comment>
   </data>
   <data name="CommandTrackListUpdated" xml:space="preserve">
-    <value>Tracking list updated...</value>
+    <value>Liste de suivi mise à jour...</value>
   </data>
   <data name="CommandTrackListWishListEnumerateFormat" xml:space="preserve">
-    <value>Tracking: {0} (Wishlist)</value>
+    <value>Suivi: {0} (Liste de souhaits)</value>
     <comment>Item short-name</comment>
   </data>
   <data name="CommandTrackRare" xml:space="preserve">
@@ -238,19 +238,19 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>untrack</value>
   </data>
   <data name="DebugPatchedMethodFormat" xml:space="preserve">
-    <value>Patched {0} with {1}</value>
+    <value>Modification de {0} avec {1}</value>
     <comment>Method names</comment>
   </data>
   <data name="DebugPerformanceRefreshedFormat" xml:space="preserve">
-    <value>Refreshed {0} in {1}ms</value>
+    <value>Rafraichissement de {0} en {1}ms</value>
     <comment>Type name, elapsed milliseconds</comment>
   </data>
   <data name="DebugRegisteringCommandFormat" xml:space="preserve">
-    <value>Registering {0} command...</value>
+    <value>Enregistrement  de la commande {0}...</value>
     <comment>Command name</comment>
   </data>
   <data name="DebugRegisteringCommandWithArgumentsFormat" xml:space="preserve">
-    <value>Registering {0} command with arguments...</value>
+    <value>Enregistrement  de la commande {0} avec des arguments...</value>
     <comment>Command name</comment>
   </data>
   <data name="DirectionEast" xml:space="preserve">
@@ -263,7 +263,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>NE</value>
   </data>
   <data name="DirectionNorthWest" xml:space="preserve">
-    <value>NW</value>
+    <value>NO</value>
   </data>
   <data name="DirectionSouth" xml:space="preserve">
     <value>S</value>
@@ -272,93 +272,93 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>SE</value>
   </data>
   <data name="DirectionSouthWest" xml:space="preserve">
-    <value>SW</value>
+    <value>SO</value>
   </data>
   <data name="DirectionWest" xml:space="preserve">
-    <value>W</value>
+    <value>O</value>
   </data>
   <data name="ErrorCannotFindField" xml:space="preserve">
-    <value>Unable to find {0} on {1}</value>
+    <value>Impossible de trouver {0} dans {1}</value>
     <comment>Field name, type name</comment>
   </data>
   <data name="ErrorCannotFindOriginalMethodFormat" xml:space="preserve">
-    <value>Cannot find original method {0}</value>
+    <value>Impossible de trouver la méthode originale {0}</value>
     <comment>Method name</comment>
   </data>
   <data name="ErrorCannotFindPostfixMethodFormat" xml:space="preserve">
-    <value>Cannot find postfix method {0}</value>
+    <value>Impossible de trouver la méthode suffixe {0}</value>
     <comment>Method name</comment>
   </data>
   <data name="ErrorCannotFindPrefixMethodFormat" xml:space="preserve">
-    <value>Cannot find prefix method {0}</value>
+    <value>Impossible de trouver la méthode préfixe {0}</value>
     <comment>Method name</comment>
   </data>
   <data name="ErrorCannotLoadFormat" xml:space="preserve">
-    <value>Unable to load {0}. {1}</value>
+    <value>Impossible de charger {0}. {1}</value>
     <comment>Filename, error message</comment>
   </data>
   <data name="ErrorCannotSaveFormat" xml:space="preserve">
-    <value>Unable to save {0}. {1}</value>
+    <value>Impossible d'enregistrer {0}. {1}</value>
     <comment>Filename, error message</comment>
   </data>
   <data name="ErrorCorruptedFileFormat" xml:space="preserve">
-    <value>{0} seems corrupted. Please fix</value>
+    <value>{0} semble corrompu. Merci de corriger</value>
     <comment>Filename</comment>
   </data>
   <data name="ErrorCorruptedPropertyFormat" xml:space="preserve">
-    <value>{0} seems corrupted in {1}. Please fix</value>
+    <value>{0} semble corrompu dans {1}. Merci de corriger</value>
     <comment>Key, filename</comment>
   </data>
   <data name="ErrorFailedToCreateItem" xml:space="preserve">
-    <value>Failed to create item!</value>
+    <value>Impossible de créer l'objet!</value>
   </data>
   <data name="ErrorFailedToLoadItemBundle" xml:space="preserve">
-    <value>Failed to load item bundle!</value>
+    <value>Impossible de charger le paquet!</value>
   </data>
   <data name="ErrorFileNotFoundFormat" xml:space="preserve">
-    <value>{0} not found!</value>
+    <value>{0} introuvable!</value>
     <comment>Filename</comment>
   </data>
   <data name="ErrorInvalidArguments" xml:space="preserve">
-    <value>Invalid arguments</value>
+    <value>Arguments invalides</value>
   </data>
   <data name="ErrorNoTemplateFound" xml:space="preserve">
-    <value>No template found!</value>
+    <value>Aucune template trouvée!</value>
   </data>
   <data name="ErrorTooManyTemplatesFormat" xml:space="preserve">
-    <value>Found {0} templates, be more specific</value>
+    <value>{0} templates trouvées, essayez d'être plus spécficique</value>
     <comment>Template count &gt; 1</comment>
   </data>
   <data name="ErrorUnsupportedTypeFormat" xml:space="preserve">
-    <value>Unsupported type: {0}</value>
+    <value>Type non supporté: {0}</value>
     <comment>Property type-name</comment>
   </data>
   <data name="FeatureAimbotDescription" xml:space="preserve">
-    <value>Aimbot. Automatic aiming and/or shooting (SilentAim).</value>
+    <value>Robot de visée. Visée et/ou tir automatique.</value>
   </data>
   <data name="FeatureAimbotName" xml:space="preserve">
     <value>aimbot</value>
   </data>
   <data name="FeatureAmmunitionDescription" xml:space="preserve">
-    <value>Unlimited ammo.</value>
+    <value>Munitions illimitées.</value>
   </data>
   <data name="FeatureAmmunitionName" xml:space="preserve">
     <value>ammo</value>
   </data>
   <data name="FeatureAutomaticGunDescription" xml:space="preserve">
-    <value>Force all guns (even bolt action guns) to use automatic firing mode with customizable fire rate.</value>
+    <value>Force toutes les armes (même les fusils à verrou) à utiliser le mode de tir automatique avec une cadence de tir personnalisable.</value>
   </data>
   <data name="FeatureAutomaticGunName" xml:space="preserve">
     <value>autogun</value>
   </data>
   <data name="FeatureCameraDescription" xml:space="preserve">
-    <value>Free camera with fast mode and teleportation.</value>
+    <value>Caméra libre avec mode rapide et téléportation.</value>
   </data>
   <data name="FeatureCameraName" xml:space="preserve">
     <value>camera</value>
   </data>
   <data name="FeatureCommandsDescription" xml:space="preserve">
-    <value>This main popup window.</value>
+    <value>Cette fenêtre principale.</value>
   </data>
   <data name="FeatureCommandsName" xml:space="preserve">
     <value>commands</value>
@@ -367,25 +367,25 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>EFT Trainer</value>
   </data>
   <data name="FeatureCrosshairDescription" xml:space="preserve">
-    <value>Crosshair with customizable size, color, thickness and auto-hide feature when aiming.</value>
+    <value>Réticule dont la taille, la couleur et l'épaisseur sont personnalisables et qui se masque automatiquement lors de la visée.</value>
   </data>
   <data name="FeatureCrosshairName" xml:space="preserve">
     <value>crosshair</value>
   </data>
   <data name="FeatureDurabilityDescription" xml:space="preserve">
-    <value>Maximum durability of items.</value>
+    <value>Durabilité maximale des objets.</value>
   </data>
   <data name="FeatureDurabilityName" xml:space="preserve">
     <value>durability</value>
   </data>
   <data name="FeatureExamineDescription" xml:space="preserve">
-    <value>All items already examined. Instant search.</value>
+    <value>Tous les objets ont déjà été examinés. Recherche instantanée.</value>
   </data>
   <data name="FeatureExamineName" xml:space="preserve">
     <value>examine</value>
   </data>
   <data name="FeatureExfiltrationPointsDescription" xml:space="preserve">
-    <value>Exfiltration points with customizable colors given eligibility, status filter, distance.</value>
+    <value>Points d'exfiltration avec couleurs personnalisables en fonction de l'éligibilité, du filtre de statut, de la distance.</value>
   </data>
   <data name="FeatureExfiltrationPointsEligibleFormat" xml:space="preserve">
     <value>{0} ({1})</value>
@@ -413,40 +413,40 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>Timer</value>
   </data>
   <data name="FeatureFeatureWallShootDescription" xml:space="preserve">
-    <value>Shoot through wall/helmet/vest/material with maximum penetration and minimal deviation/ricochet.</value>
+    <value>Tirer à travers un mur, un casque, un gilet ou un matériau avec une pénétration maximale et une déviation/ricochet minimale.</value>
   </data>
   <data name="FeatureFovChangerDescription" xml:space="preserve">
-    <value>Change Field Of View (FOV).</value>
+    <value>Modification du champ de vision.</value>
   </data>
   <data name="FeatureFovChangerName" xml:space="preserve">
     <value>fovchanger</value>
   </data>
   <data name="FeatureGameStateDescription" xml:space="preserve">
-    <value>Refresh all game information for other features.</value>
+    <value>Rafraîchir toutes les informations sur le jeu pour d'autres fonctionnalités.</value>
   </data>
   <data name="FeatureGameStateName" xml:space="preserve">
     <value>gamestate</value>
   </data>
   <data name="FeatureGhostDescription" xml:space="preserve">
-    <value>Stop bots from seeing you.</value>
+    <value>Empêcher les robots de vous voir.</value>
   </data>
   <data name="FeatureGhostName" xml:space="preserve">
     <value>ghost</value>
   </data>
   <data name="FeatureGrenadesDescription" xml:space="preserve">
-    <value>Grenades outline.</value>
+    <value>Aperçu des grenades.</value>
   </data>
   <data name="FeatureGrenadesName" xml:space="preserve">
     <value>grenade</value>
   </data>
   <data name="FeatureHealthDescription" xml:space="preserve">
-    <value>Full health, prevent any damage (so even when falling), keep energy and hydration at maximum.</value>
+    <value>Pleine santé, éviter tout dommage (même en cas de chute), maintenir l'énergie et l'hydratation au maximum.</value>
   </data>
   <data name="FeatureHealthName" xml:space="preserve">
     <value>health</value>
   </data>
   <data name="FeatureHitsDescription" xml:space="preserve">
-    <value>Hit markers (hit, armor, health with configurable colors).</value>
+    <value>Marqueurs d'impacts (armure, santé avec couleurs configurables).</value>
   </data>
   <data name="FeatureHitsName" xml:space="preserve">
     <value>hits</value>
@@ -456,7 +456,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <comment>X, y</comment>
   </data>
   <data name="FeatureHudDescription" xml:space="preserve">
-    <value>HUD (compass, ammo left in chamber / magazine, fire mode, coordinates).</value>
+    <value>Affichage (boussole, munitions restantes dans la chambre / le chargeur, mode de tir, coordonnées).</value>
   </data>
   <data name="FeatureHudName" xml:space="preserve">
     <value>hud</value>
@@ -469,61 +469,61 @@ Colors are stored as an array of 'RGBA' floats</value>
     <comment>Magazine count, chamber count, magazine capacity, fire-mode</comment>
   </data>
   <data name="FeatureInteractDescription" xml:space="preserve">
-    <value>Change distance for loot/door interaction.</value>
+    <value>Modifier la distance pour l'interaction avec le loot et les portes.</value>
   </data>
   <data name="FeatureInteractName" xml:space="preserve">
     <value>interact</value>
   </data>
   <data name="FeatureLootItemsDescription" xml:space="preserve">
-    <value>List all lootable items and track any item by name or rarity or in-game wishlist in raid (even in containers and corpses). Use track and tracklist commands to control display.</value>
+    <value>Liste de tous les objets à looter et suivi de n'importe quel objet par nom, rareté ou liste de souhaits dans le raid (même dans les conteneurs et les cadavres). Utilisez les commandes track et tracklist pour contrôler l'affichage.</value>
   </data>
   <data name="FeatureLootItemsName" xml:space="preserve">
     <value>loot</value>
   </data>
   <data name="FeatureMapDescription" xml:space="preserve">
-    <value>Full screen map with radar esp.</value>
+    <value>Carte plein écran avec radar.</value>
   </data>
   <data name="FeatureMapName" xml:space="preserve">
     <value>map</value>
   </data>
   <data name="FeatureNightVisionDescription" xml:space="preserve">
-    <value>Night vision.</value>
+    <value>Vision nocturne.</value>
   </data>
   <data name="FeatureNightVisionName" xml:space="preserve">
     <value>night</value>
   </data>
   <data name="FeatureNoCollisionDescription" xml:space="preserve">
-    <value>No physical collisions, making you immune to bullets, grenades and barbed wires.</value>
+    <value>Pas de collisions physiques, ce qui vous immunise contre les balles, les grenades et les fils barbelés.</value>
   </data>
   <data name="FeatureNoCollisionName" xml:space="preserve">
     <value>nocoll</value>
   </data>
   <data name="FeatureNoMalfunctionsDescription" xml:space="preserve">
-    <value>No weapon malfunctions: no misfires or failures to eject or feed. No jammed bolts or overheating.</value>
+    <value>Pas de dysfonctionnement de l'arme : pas de ratés de tir, d'éjection ou d'alimentation. Pas de blocage de la culasse ni de surchauffe.</value>
   </data>
   <data name="FeatureNoMalfunctionsName" xml:space="preserve">
     <value>nomal</value>
   </data>
   <data name="FeatureNoRecoilDescription" xml:space="preserve">
-    <value>No recoil.</value>
+    <value>Pas de recul.</value>
   </data>
   <data name="FeatureNoRecoilName" xml:space="preserve">
     <value>norecoil</value>
   </data>
   <data name="FeatureNoSwayDescription" xml:space="preserve">
-    <value>No sway.</value>
+    <value>Pas d'oscillation.</value>
   </data>
   <data name="FeatureNoSwayName" xml:space="preserve">
     <value>nosway</value>
   </data>
   <data name="FeatureNoVisorDescription" xml:space="preserve">
-    <value>No visor, so even when using a face shield-visor you won't see it.</value>
+    <value>Pas de visière, donc même si vous utilisez un écran facial, vous ne le verrez pas.</value>
   </data>
   <data name="FeatureNoVisorName" xml:space="preserve">
     <value>novisor</value>
   </data>
   <data name="FeaturePlayersDescription" xml:space="preserve">
-    <value>Wallhack (you'll see Bear/Boss/Cultist/Scav/Usec with configurable colors through walls). Charms, boxes, info (weapon and health), skeletons and distance.</value>
+    <value>Wallhack (vous verrez Bear/Boss/Cultist/Scav/Usec avec des couleurs configurables à travers les murs). Silhouettes, boîtes, infos (armes et santé), squelettes et distance.</value>
   </data>
   <data name="FeaturePlayersFormat" xml:space="preserve">
     <value>{0} {1}% {2}</value>
@@ -549,7 +549,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <comment>Owner</comment>
   </data>
   <data name="FeatureQuestsDescription" xml:space="preserve">
-    <value>Locations for taking/placing quest items. Only items related to your started quests are displayed.</value>
+    <value>Emplacements pour prendre/placer des objets de quête. Seuls les objets liés aux quêtes que vous avez commencées sont affichés.</value>
   </data>
   <data name="FeatureQuestsFormat" xml:space="preserve">
     <value>{0} ({1})</value>
@@ -559,55 +559,55 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>quest</value>
   </data>
   <data name="FeatureQuickTrowDescription" xml:space="preserve">
-    <value>Quick-throw grenades.</value>
+    <value>Grenades à lancer rapide.</value>
   </data>
   <data name="FeatureQuickTrowName" xml:space="preserve">
     <value>quickthrow</value>
   </data>
   <data name="FeatureRadarDescription" xml:space="preserve">
-    <value>2D radar.</value>
+    <value>Radar 2D.</value>
   </data>
   <data name="FeatureRadarName" xml:space="preserve">
     <value>radar</value>
   </data>
   <data name="FeatureRendererSummary" xml:space="preserve">
-    <value>[summary]</value>
+    <value>[sommaire]</value>
   </data>
   <data name="FeatureRendererWelcome" xml:space="preserve">
-    <value>Welcome to EFT Trainer !</value>
+    <value>Bienvenue à EFT-Trainer !</value>
   </data>
   <data name="FeatureSkillsDescription" xml:space="preserve">
-    <value>All skills to Elite level (51) and all weapons mastering to level 3.</value>
+    <value>Toutes les compétences au niveau Elite (51) et toutes les armes au niveau 3.</value>
   </data>
   <data name="FeatureSkillsName" xml:space="preserve">
     <value>skills</value>
   </data>
   <data name="FeatureSpeedDescription" xml:space="preserve">
-    <value>Speed boost to be able to go through walls/objects, or to move faster. Be careful to not kill yourself.</value>
+    <value>Augmentation de la vitesse pour pouvoir passer à travers les murs/objets, ou pour se déplacer plus rapidement. Faites attention à ne pas vous tuer.</value>
   </data>
   <data name="FeatureSpeedName" xml:space="preserve">
     <value>speed</value>
   </data>
   <data name="FeatureStaminaDescription" xml:space="preserve">
-    <value>Unlimited stamina.</value>
+    <value>Endurance illimitée.</value>
   </data>
   <data name="FeatureStaminaName" xml:space="preserve">
     <value>stamina</value>
   </data>
   <data name="FeatureStashDescription" xml:space="preserve">
-    <value>Hidden/special stashes like buried barrels, ground caches, air drops or corpses.</value>
+    <value>Voir les cachettes comme des barils enterrés, des caches au sol, des parachutages ou des cadavres.</value>
   </data>
   <data name="FeatureStashName" xml:space="preserve">
     <value>stash</value>
   </data>
   <data name="FeatureThermalVisionDescription" xml:space="preserve">
-    <value>Thermal vision.</value>
+    <value>Vision thermique.</value>
   </data>
   <data name="FeatureThermalVisionName" xml:space="preserve">
     <value>thermal</value>
   </data>
   <data name="FeatureTrainDescription" xml:space="preserve">
-    <value>Summon train on compatible maps like Reserve or Lighthouse.</value>
+    <value>Appeler un train sur des cartes compatibles comme Reserve ou Lighthouse.</value>
   </data>
   <data name="FeatureTrainName" xml:space="preserve">
     <value>train</value>
@@ -616,13 +616,13 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>wallshoot</value>
   </data>
   <data name="FeatureWeatherDescription" xml:space="preserve">
-    <value>Clear weather.</value>
+    <value>Temps dégagé.</value>
   </data>
   <data name="FeatureWeatherName" xml:space="preserve">
     <value>weather</value>
   </data>
   <data name="FeatureWorldInteractiveObjectsDescription" xml:space="preserve">
-    <value>Door/Keycard reader/Car unlocker.</value>
+    <value>Déverrouillage de porte/lecteur de carte magnétique/voiture.</value>
   </data>
   <data name="FeatureWorldInteractiveObjectsName" xml:space="preserve">
     <value>opener</value>

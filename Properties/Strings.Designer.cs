@@ -1314,7 +1314,7 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Welcome to EFT Trainer !.
+        ///   Looks up a localized string similar to Welcome to EFT-Trainer !.
         /// </summary>
         internal static string FeatureRendererWelcome {
             get {

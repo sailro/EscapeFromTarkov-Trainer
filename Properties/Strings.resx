@@ -574,7 +574,7 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>[summary]</value>
   </data>
   <data name="FeatureRendererWelcome" xml:space="preserve">
-    <value>Welcome to EFT Trainer !</value>
+    <value>Welcome to EFT-Trainer !</value>
   </data>
   <data name="FeatureSkillsDescription" xml:space="preserve">
     <value>All skills to Elite level (51) and all weapons mastering to level 3.</value>
