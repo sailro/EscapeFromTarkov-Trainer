@@ -1,4 +1,5 @@
 ﻿using System;
+using EFT.Ballistics;
 using EFT.HealthSystem;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
@@ -27,26 +28,35 @@ internal class Health : ToggleFeature
 	public bool FoodWater { get; set; } = true;
 
 	private static readonly Array _bodyParts = Enum.GetValues(typeof(EBodyPart));
-		
+
 	[UsedImplicitly]
 	protected static bool ApplyDamagePrefix(EBodyPart bodyPart, ActiveHealthController? __instance, ref float __result)
 	{
-		var feature = FeatureFactory.GetFeature<Health>();
-		if (feature == null || !feature.Enabled || __instance == null)
-			return true; // keep using original code, we are not enabled
+		if (UseBuiltinDamageLogic(__instance?.Player, bodyPart))
+			return true; // keep using original code
 
-		var player = __instance.Player;
-			
+		__result = 0f;
+		return false;  // skip the original code and all other prefix methods 
+	}
+
+	[UsedImplicitly]
+	protected static bool ReceiveDamagePrefix(float damage, EBodyPart part, EDamageType type, float absorbed, MaterialType special, Player? __instance)
+	{
+		return UseBuiltinDamageLogic(__instance, part);
+	}
+
+	protected static bool UseBuiltinDamageLogic(Player? player, EBodyPart bodyPart)
+	{
+		var feature = FeatureFactory.GetFeature<Health>();
+		if (feature == null || !feature.Enabled)
+			return true; // keep using original code, we are not enabled
+		
 		if (player == null || !player.IsYourPlayer)
 			return true; // keep using original code, apply damage to others
 			
-		if (feature.VitalsOnly)
-		{
-			if (bodyPart != EBodyPart.Chest && bodyPart != EBodyPart.Head)
-				return true; // keep using original code, apply damage to extremities 
-		}
+		if (feature.VitalsOnly && bodyPart is not (EBodyPart.Chest or EBodyPart.Head)) 
+			return true; // keep using original code, apply damage to extremities 
 
-		__result = 0f;
 		return false;  // skip the original code and all other prefix methods 
 	}
 
@@ -63,6 +73,7 @@ internal class Health : ToggleFeature
 		HarmonyPatchOnce(harmony =>
 		{
 			HarmonyPrefix(harmony, typeof(ActiveHealthController), nameof(ActiveHealthController.ApplyDamage), nameof(ApplyDamagePrefix));
+			HarmonyPrefix(harmony, typeof(Player), nameof(Player.ReceiveDamage), nameof(ReceiveDamagePrefix));
 		});
 
 		foreach (EBodyPart bodyPart in _bodyParts)
