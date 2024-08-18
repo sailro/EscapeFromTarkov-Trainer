@@ -146,7 +146,8 @@ internal static class ConfigurationManager
 
 		const string commentToken = "; ";
 
-		return commentToken + value!.Replace(Environment.NewLine, Environment.NewLine + commentToken);
+		const string resxNewLine = "\r\n";
+		return commentToken + value!.Replace(resxNewLine, resxNewLine + commentToken);
 	}
 
 	public static void SavePropertyValue(string filename, Feature feature, string propertyName)
