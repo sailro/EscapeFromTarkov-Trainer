@@ -1,0 +1,10 @@
+{
+  "tasks": [
+    {
+      "name": "dotnet-format-staged-files",
+      "command": "dotnet",
+      "args": ["format", "EFT.Trainer.sln", "whitespace", "--verbosity", "quiet", "--include", "${staged}"],
+      "include": ["**/*.cs"]
+    }
+  ]
+}
