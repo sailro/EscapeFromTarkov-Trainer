@@ -146,7 +146,7 @@ internal static class ConfigurationManager
 
 		const string commentToken = "; ";
 
-		const string resxNewLine = "\r\n";
+		const string resxNewLine = "\n";
 		return commentToken + value!.Replace(resxNewLine, resxNewLine + commentToken);
 	}
 
