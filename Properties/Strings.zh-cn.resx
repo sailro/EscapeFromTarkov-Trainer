@@ -893,7 +893,7 @@
     <value>厚度</value>
   </data>
   <data name="PropertyTrackedNamesComment" xml:space="preserve">
-    <value>Exemple: ["foo", "bar"] ou avec des propriétés étendues: [{"Name":"foo","Color":[1.0,0.0,0.0,1.0]},{"Name":"bar","Color":[1.0,1.0,1.0,0.8],"Rarity":"Rare"}]</value>
+    <value>示例: ["foo", "bar"] 或使用扩展属性: [{"Name":"foo","Color":[1.0,0.0,0.0,1.0]},{"Name":"bar","Color":[1.0,1.0,1.0,0.8],"Rarity":"Rare"}]</value>
   </data>
   <data name="PropertyTrackWishlist" xml:space="preserve">
     <value>跟踪愿望清单</value>
