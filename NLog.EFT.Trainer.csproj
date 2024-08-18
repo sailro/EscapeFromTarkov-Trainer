@@ -219,6 +219,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
     </Compile>
+    <Compile Include="Properties\Strings.zh-cn.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Strings.zh-cn.resx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Picker.cs" />
     <Compile Include="UI\EnumPicker.cs" />
     <Compile Include="UI\ColorPicker.cs" />
@@ -243,7 +248,10 @@
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Strings.zh-cn.resx" />
+    <EmbeddedResource Include="Properties\Strings.zh-cn.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.zh-cn.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
