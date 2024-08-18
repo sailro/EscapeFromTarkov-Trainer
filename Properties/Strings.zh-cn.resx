@@ -1,0 +1,925 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="CommandDump" xml:space="preserve">
+    <value>dump</value>
+  </data>
+  <data name="CommandDumpGameObjects" xml:space="preserve">
+    <value>分析游戏对象…</value>
+  </data>
+  <data name="CommandDumpScenes" xml:space="preserve">
+    <value>场景分析…</value>
+  </data>
+  <data name="CommandDumpSuccessFormat" xml:space="preserve">
+    <value>创建分析在 {0}</value>
+    <comment>Filename</comment>
+  </data>
+  <data name="CommandList" xml:space="preserve">
+    <value>list</value>
+  </data>
+  <data name="CommandListEnumerateFormat" xml:space="preserve">
+    <value>{0} [{1}] {2}</value>
+    <comment>Item name, count, optional rarity</comment>
+  </data>
+  <data name="CommandListRare" xml:space="preserve">
+    <value>listr</value>
+  </data>
+  <data name="CommandListRarityFormat" xml:space="preserve">
+    <value>({0})</value>
+    <comment>Rarity</comment>
+  </data>
+  <data name="CommandListSuccessFormat" xml:space="preserve">
+    <value>找到 {0} 项</value>
+    <comment>Item count</comment>
+  </data>
+  <data name="CommandListSuperRare" xml:space="preserve">
+    <value>listsr</value>
+  </data>
+  <data name="CommandLoadDescription" xml:space="preserve">
+    <value>加载设置</value>
+  </data>
+  <data name="CommandLoadName" xml:space="preserve">
+    <value>load</value>
+  </data>
+  <data name="CommandLoadSuccessFormat" xml:space="preserve">
+    <value>加载 {0}</value>
+    <comment>Filename</comment>
+  </data>
+  <data name="CommandLoadTrackList" xml:space="preserve">
+    <value>loadtl</value>
+  </data>
+  <data name="CommandSaveDescription" xml:space="preserve">
+    <value>保存设置</value>
+  </data>
+  <data name="CommandSaveHeader" xml:space="preserve">
+    <value>在更新此文件时要小心 :)
+对于键码，请使用https：//docs.unity3d.com/ScriptReference/KeyCode.html
+颜色以“RGBA”浮点数数组的形式存储。</value>
+  </data>
+  <data name="CommandSaveName" xml:space="preserve">
+    <value>save</value>
+  </data>
+  <data name="CommandSaveSuccessFormat" xml:space="preserve">
+    <value>保存成功 {0}</value>
+    <comment>Filename</comment>
+  </data>
+  <data name="CommandSaveTrackList" xml:space="preserve">
+    <value>savetl</value>
+  </data>
+  <data name="CommandSpawn" xml:space="preserve">
+    <value>spawn</value>
+  </data>
+  <data name="CommandStatus" xml:space="preserve">
+    <value>status</value>
+  </data>
+  <data name="CommandStatusTextFormat" xml:space="preserve">
+    <value>{0} is {1} {2}</value>
+    <comment>Feature name, status, optional toggle text if a key is set</comment>
+  </data>
+  <data name="CommandStatusTextToggleFormat" xml:space="preserve">
+    <value>({0} 切换)</value>
+    <comment>Key</comment>
+  </data>
+  <data name="CommandTemplate" xml:space="preserve">
+    <value>template</value>
+  </data>
+  <data name="CommandTemplateEnumerateFormat" xml:space="preserve">
+    <value>{0}: {1} [{2}]</value>
+    <comment>Template id, short-name, name</comment>
+  </data>
+  <data name="CommandTemplateSuccessFormat" xml:space="preserve">
+    <value>找到 {0} 模板</value>
+    <comment>Template count</comment>
+  </data>
+  <data name="CommandTrack" xml:space="preserve">
+    <value>track</value>
+  </data>
+  <data name="CommandTrackList" xml:space="preserve">
+    <value>tracklist</value>
+  </data>
+  <data name="CommandTrackListEnumerateFormat" xml:space="preserve">
+    <value>跟踪物品: {0} {1}</value>
+    <comment>Item short-name, optional rarity</comment>
+  </data>
+  <data name="CommandTrackListRarityFormat" xml:space="preserve">
+    <value>({0})</value>
+    <comment>Rarity</comment>
+  </data>
+  <data name="CommandTrackListUpdated" xml:space="preserve">
+    <value>跟踪物品列表更新…</value>
+  </data>
+  <data name="CommandTrackListWishListEnumerateFormat" xml:space="preserve">
+    <value>跟踪物品: {0} (愿望列表)</value>
+    <comment>Item short-name</comment>
+  </data>
+  <data name="CommandTrackRare" xml:space="preserve">
+    <value>trackr</value>
+  </data>
+  <data name="CommandTrackSuperRare" xml:space="preserve">
+    <value>tracksr</value>
+  </data>
+  <data name="CommandUnTrack" xml:space="preserve">
+    <value>untrack</value>
+  </data>
+  <data name="DebugPatchedMethodFormat" xml:space="preserve">
+    <value>使用 {1} 修改 {0}</value>
+    <comment>Method names</comment>
+  </data>
+  <data name="DebugPerformanceRefreshedFormat" xml:space="preserve">
+    <value>刷新 {0} 在 {1} ms</value>
+    <comment>Type name, elapsed milliseconds</comment>
+  </data>
+  <data name="DebugRegisteringCommandFormat" xml:space="preserve">
+    <value>正在注册 {0} 命令…</value>
+    <comment>Command name</comment>
+  </data>
+  <data name="DebugRegisteringCommandWithArgumentsFormat" xml:space="preserve">
+    <value>注册带有参数的 {0} 命令…</value>
+    <comment>Command name</comment>
+  </data>
+  <data name="DirectionEast" xml:space="preserve">
+    <value>东</value>
+  </data>
+  <data name="DirectionNorth" xml:space="preserve">
+    <value>北</value>
+  </data>
+  <data name="DirectionNorthEast" xml:space="preserve">
+    <value>东北</value>
+  </data>
+  <data name="DirectionNorthWest" xml:space="preserve">
+    <value>西北</value>
+  </data>
+  <data name="DirectionSouth" xml:space="preserve">
+    <value>南</value>
+  </data>
+  <data name="DirectionSouthEast" xml:space="preserve">
+    <value>东南</value>
+  </data>
+  <data name="DirectionSouthWest" xml:space="preserve">
+    <value>西南</value>
+  </data>
+  <data name="DirectionWest" xml:space="preserve">
+    <value>西</value>
+  </data>
+  <data name="ErrorCannotFindField" xml:space="preserve">
+    <value>无法在 {1} 上找到 {0}</value>
+    <comment>Field name, type name</comment>
+  </data>
+  <data name="ErrorCannotFindOriginalMethodFormat" xml:space="preserve">
+    <value>找不到原始方法 {0}</value>
+    <comment>Method name</comment>
+  </data>
+  <data name="ErrorCannotFindPostfixMethodFormat" xml:space="preserve">
+    <value>找不到后缀方法 {0}</value>
+    <comment>Method name</comment>
+  </data>
+  <data name="ErrorCannotFindPrefixMethodFormat" xml:space="preserve">
+    <value>找不到前缀方法 {0}</value>
+    <comment>Method name</comment>
+  </data>
+  <data name="ErrorCannotLoadFormat" xml:space="preserve">
+    <value>无法加载 {0}. {1}</value>
+    <comment>Filename, error message</comment>
+  </data>
+  <data name="ErrorCannotSaveFormat" xml:space="preserve">
+    <value>无法保存 {0}. {1}</value>
+    <comment>Filename, error message</comment>
+  </data>
+  <data name="ErrorCorruptedFileFormat" xml:space="preserve">
+    <value>{0} 似乎已损坏。请修复</value>
+    <comment>Filename</comment>
+  </data>
+  <data name="ErrorCorruptedPropertyFormat" xml:space="preserve">
+    <value>{0} 似乎在 {1} 中损坏了。请修复</value>
+    <comment>Key, filename</comment>
+  </data>
+  <data name="ErrorFailedToCreateItem" xml:space="preserve">
+    <value>无法创建对象!</value>
+  </data>
+  <data name="ErrorFailedToLoadItemBundle" xml:space="preserve">
+    <value>无法加载包!</value>
+  </data>
+  <data name="ErrorFileNotFoundFormat" xml:space="preserve">
+    <value>找不到 {0} !</value>
+    <comment>Filename</comment>
+  </data>
+  <data name="ErrorInvalidArguments" xml:space="preserve">
+    <value>无效的参数</value>
+  </data>
+  <data name="ErrorNoTemplateFound" xml:space="preserve">
+    <value>没有找到模板!</value>
+  </data>
+  <data name="ErrorTooManyTemplatesFormat" xml:space="preserve">
+    <value>找到 {0} 模板，试着更具体一点</value>
+    <comment>Template count &gt; 1</comment>
+  </data>
+  <data name="ErrorUnsupportedTypeFormat" xml:space="preserve">
+    <value>不支持的类型: {0}</value>
+    <comment>Property type-name</comment>
+  </data>
+  <data name="FeatureAimbotDescription" xml:space="preserve">
+    <value>瞄准机器人。自动瞄准和/或射击（SilentAim）</value>
+  </data>
+  <data name="FeatureAimbotName" xml:space="preserve">
+    <value>自动瞄准</value>
+  </data>
+  <data name="FeatureAmmunitionDescription" xml:space="preserve">
+    <value>无限弹药</value>
+  </data>
+  <data name="FeatureAmmunitionName" xml:space="preserve">
+    <value>无限弹药</value>
+  </data>
+  <data name="FeatureAutomaticGunDescription" xml:space="preserve">
+    <value>强制所有武器(甚至是栓动步枪)使用具有可定制射击速度的自动射击模式。</value>
+  </data>
+  <data name="FeatureAutomaticGunName" xml:space="preserve">
+    <value>自动射击模式</value>
+  </data>
+  <data name="FeatureCameraDescription" xml:space="preserve">
+    <value>自由视角与快速模式和传送。</value>
+  </data>
+  <data name="FeatureCameraName" xml:space="preserve">
+    <value>自由视角</value>
+  </data>
+  <data name="FeatureCommandsDescription" xml:space="preserve">
+    <value>主窗口</value>
+  </data>
+  <data name="FeatureCommandsName" xml:space="preserve">
+    <value>命令窗口</value>
+  </data>
+  <data name="FeatureCommandsTitle" xml:space="preserve">
+    <value>EFT Trainer</value>
+  </data>
+  <data name="FeatureCrosshairDescription" xml:space="preserve">
+    <value>瞄准时可定制尺寸、颜色、厚度和自动隐藏功能的准星。</value>
+  </data>
+  <data name="FeatureCrosshairName" xml:space="preserve">
+    <value>准星</value>
+  </data>
+  <data name="FeatureDurabilityDescription" xml:space="preserve">
+    <value>物品满耐久</value>
+  </data>
+  <data name="FeatureDurabilityName" xml:space="preserve">
+    <value>耐久</value>
+  </data>
+  <data name="FeatureExamineDescription" xml:space="preserve">
+    <value>所有的东西都已经搜索过了。立刻搜索完成。</value>
+  </data>
+  <data name="FeatureExamineName" xml:space="preserve">
+    <value>快速搜索</value>
+  </data>
+  <data name="FeatureExfiltrationPointsDescription" xml:space="preserve">
+    <value>撤离点与自定义的颜色,根据角色的撤离资格，状态过滤器，距离。</value>
+  </data>
+  <data name="FeatureExfiltrationPointsEligibleFormat" xml:space="preserve">
+    <value>{0} ({1})</value>
+    <comment>Name, status</comment>
+  </data>
+  <data name="FeatureExfiltrationPointsName" xml:space="preserve">
+    <value>撤离点</value>
+  </data>
+  <data name="FeatureExfiltrationPointsStatusActivate" xml:space="preserve">
+    <value>激活</value>
+  </data>
+  <data name="FeatureExfiltrationPointsStatusClosed" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="FeatureExfiltrationPointsStatusOpen" xml:space="preserve">
+    <value>开放</value>
+  </data>
+  <data name="FeatureExfiltrationPointsStatusPending" xml:space="preserve">
+    <value>待定</value>
+  </data>
+  <data name="FeatureExfiltrationPointsStatusRequirement" xml:space="preserve">
+    <value>条件</value>
+  </data>
+  <data name="FeatureExfiltrationPointsStatusTimer" xml:space="preserve">
+    <value>Timer</value>
+  </data>
+  <data name="FeatureFeatureWallShootDescription" xml:space="preserve">
+    <value>射穿墙壁/头盔/背心/材料，穿透力最大，偏差/弹跳最小。</value>
+  </data>
+  <data name="FeatureFovChangerDescription" xml:space="preserve">
+    <value>更改FOV。</value>
+  </data>
+  <data name="FeatureFovChangerName" xml:space="preserve">
+    <value>更改FOV</value>
+  </data>
+  <data name="FeatureGameStateDescription" xml:space="preserve">
+    <value>刷新所有其他功能的游戏信息。</value>
+  </data>
+  <data name="FeatureGameStateName" xml:space="preserve">
+    <value>游戏状态</value>
+  </data>
+  <data name="FeatureGhostDescription" xml:space="preserve">
+    <value>阻止机器人看到你。</value>
+  </data>
+  <data name="FeatureGhostName" xml:space="preserve">
+    <value>幽灵模式</value>
+  </data>
+  <data name="FeatureGrenadesDescription" xml:space="preserve">
+    <value>手榴弹轮廓。</value>
+  </data>
+  <data name="FeatureGrenadesName" xml:space="preserve">
+    <value>手榴弹</value>
+  </data>
+  <data name="FeatureHealthDescription" xml:space="preserve">
+    <value>满生命值，防止任何伤害(即使是摔倒时)，保持能量和水分在最大限度</value>
+  </data>
+  <data name="FeatureHealthName" xml:space="preserve">
+    <value>健康</value>
+  </data>
+  <data name="FeatureHitsDescription" xml:space="preserve">
+    <value>命中标记(命中、护甲、生命值，颜色可配置)。</value>
+  </data>
+  <data name="FeatureHitsName" xml:space="preserve">
+    <value>命中标记</value>
+  </data>
+  <data name="FeatureHudCoordinatesFormat" xml:space="preserve">
+    <value>({0},{1})</value>
+    <comment>X, y</comment>
+  </data>
+  <data name="FeatureHudDescription" xml:space="preserve">
+    <value>HUD(指南针，剩余弹药，射击模式，坐标)。</value>
+  </data>
+  <data name="FeatureHudName" xml:space="preserve">
+    <value>HUD</value>
+  </data>
+  <data name="FeatureHudSeparator" xml:space="preserve">
+    <value> - </value>
+  </data>
+  <data name="FeatureHudWeaponFormat" xml:space="preserve">
+    <value>{0}+{1}/{2} [{3}]</value>
+    <comment>Magazine count, chamber count, magazine capacity, fire-mode</comment>
+  </data>
+  <data name="FeatureInteractDescription" xml:space="preserve">
+    <value>改变与战利品和门交互的距离。</value>
+  </data>
+  <data name="FeatureInteractName" xml:space="preserve">
+    <value>交互</value>
+  </data>
+  <data name="FeatureLootItemsDescription" xml:space="preserve">
+    <value>列出所有可掠夺的物品，并在raid中根据名称或稀有程度或游戏内的愿望列表跟踪任何物品(甚至在容器和尸体中)。使用track和tracklist命令来控制显示。</value>
+  </data>
+  <data name="FeatureLootItemsName" xml:space="preserve">
+    <value>战利品</value>
+  </data>
+  <data name="FeatureMapDescription" xml:space="preserve">
+    <value>全屏雷达地图。</value>
+  </data>
+  <data name="FeatureMapName" xml:space="preserve">
+    <value>地图</value>
+  </data>
+  <data name="FeatureNightVisionDescription" xml:space="preserve">
+    <value>夜视。</value>
+  </data>
+  <data name="FeatureNightVisionName" xml:space="preserve">
+    <value>夜晚</value>
+  </data>
+  <data name="FeatureNoCollisionDescription" xml:space="preserve">
+    <value>没有物理碰撞，所以你不会受到子弹、手榴弹和铁丝网的伤害</value>
+  </data>
+  <data name="FeatureNoCollisionName" xml:space="preserve">
+    <value>无物理碰撞</value>
+  </data>
+  <data name="FeatureNoMalfunctionsDescription" xml:space="preserve">
+    <value>没有武器故障:没有哑火、供弹故障。没有枪膛堵塞或武器过热</value>
+  </data>
+  <data name="FeatureNoMalfunctionsName" xml:space="preserve">
+    <value>无故障</value>
+  </data>
+  <data name="FeatureNoRecoilDescription" xml:space="preserve">
+    <value>没有武器后坐力。</value>
+  </data>
+  <data name="FeatureNoRecoilName" xml:space="preserve">
+    <value>无后坐</value>
+  </data>
+  <data name="FeatureNoSwayDescription" xml:space="preserve">
+    <value>无视角摆动。</value>
+  </data>
+  <data name="FeatureNoSwayName" xml:space="preserve">
+    <value>无视角摆动</value>
+  </data>
+  <data name="FeatureNoVisorDescription" xml:space="preserve">
+    <value>没有面罩影响，即使你用了面罩，你也不会看到它。</value>
+  </data>
+  <data name="FeatureNoVisorName" xml:space="preserve">
+    <value>无面罩</value>
+  </data>
+  <data name="FeaturePlayersDescription" xml:space="preserve">
+    <value>Wallhack(你会看到Bear/Boss/邪教/Scav/Usec通过墙壁可配置的颜色)。描边，人物盒子，信息(武器和生命值)，人物骨骼和距离。
+</value>
+  </data>
+  <data name="FeaturePlayersFormat" xml:space="preserve">
+    <value>{0} {1}% {2}</value>
+    <comment>Weapon name, health %, distance</comment>
+  </data>
+  <data name="FeaturePlayersName" xml:space="preserve">
+    <value>透视</value>
+  </data>
+  <data name="FeaturePointOfInterestsDistanceFormat" xml:space="preserve">
+    <value>[{0}m]</value>
+    <comment>Distance</comment>
+  </data>
+  <data name="FeaturePointOfInterestsFormat" xml:space="preserve">
+    <value>{0} {1} {2}</value>
+    <comment>Name, optional formatted owner, optional formatted distance</comment>
+  </data>
+  <data name="FeaturePointOfInterestsGroupFormat" xml:space="preserve">
+    <value>&gt;&gt; 在 {0} {1}</value>
+    <comment>Owner, distance</comment>
+  </data>
+  <data name="FeaturePointOfInterestsOwnerFormat" xml:space="preserve">
+    <value>(在 {0})</value>
+    <comment>Owner</comment>
+  </data>
+  <data name="FeatureQuestsDescription" xml:space="preserve">
+    <value>获取/放置任务物品的位置。只有与你开始的任务相关的项目才会显示出来。</value>
+  </data>
+  <data name="FeatureQuestsFormat" xml:space="preserve">
+    <value>{0} ({1})</value>
+    <comment>Condition description, quest name</comment>
+  </data>
+  <data name="FeatureQuestsName" xml:space="preserve">
+    <value>任务追踪</value>
+  </data>
+  <data name="FeatureQuickTrowDescription" xml:space="preserve">
+    <value>快速投出手榴弹。</value>
+  </data>
+  <data name="FeatureQuickTrowName" xml:space="preserve">
+    <value>快速投掷</value>
+  </data>
+  <data name="FeatureRadarDescription" xml:space="preserve">
+    <value>2D雷达。</value>
+  </data>
+  <data name="FeatureRadarName" xml:space="preserve">
+    <value>雷达</value>
+  </data>
+  <data name="FeatureRendererSummary" xml:space="preserve">
+    <value>[概要]</value>
+  </data>
+  <data name="FeatureRendererWelcome" xml:space="preserve">
+    <value>欢迎来到EFT-Trainer !</value>
+  </data>
+  <data name="FeatureSkillsDescription" xml:space="preserve">
+    <value>所有技能提升至精英级(51级)，所有武器技能提升至3级。</value>
+  </data>
+  <data name="FeatureSkillsName" xml:space="preserve">
+    <value>技能</value>
+  </data>
+  <data name="FeatureSpeedDescription" xml:space="preserve">
+    <value>速度提升，能够通过墙壁/物体，或移动得更快。小心别掉出地图自杀。</value>
+  </data>
+  <data name="FeatureSpeedName" xml:space="preserve">
+    <value>速度</value>
+  </data>
+  <data name="FeatureStaminaDescription" xml:space="preserve">
+    <value>无限耐力</value>
+  </data>
+  <data name="FeatureStaminaName" xml:space="preserve">
+    <value>耐力</value>
+  </data>
+  <data name="FeatureStashDescription" xml:space="preserve">
+    <value>显示/特殊藏匿物，如埋桶，地面贮藏物，空投物或尸体</value>
+  </data>
+  <data name="FeatureStashName" xml:space="preserve">
+    <value>藏匿处</value>
+  </data>
+  <data name="FeatureThermalVisionDescription" xml:space="preserve">
+    <value>热成像视角</value>
+  </data>
+  <data name="FeatureThermalVisionName" xml:space="preserve">
+    <value>热成像</value>
+  </data>
+  <data name="FeatureTrainDescription" xml:space="preserve">
+    <value>在兼容的地图上召唤火车，如储备站或灯塔</value>
+  </data>
+  <data name="FeatureTrainName" xml:space="preserve">
+    <value>火车</value>
+  </data>
+  <data name="FeatureWallShootName" xml:space="preserve">
+    <value>穿墙射击</value>
+  </data>
+  <data name="FeatureWeatherDescription" xml:space="preserve">
+    <value>天气晴朗。</value>
+  </data>
+  <data name="FeatureWeatherName" xml:space="preserve">
+    <value>天气</value>
+  </data>
+  <data name="FeatureWorldInteractiveObjectsDescription" xml:space="preserve">
+    <value>门/钥匙卡读卡器/汽车开锁</value>
+  </data>
+  <data name="FeatureWorldInteractiveObjectsName" xml:space="preserve">
+    <value>开锁</value>
+  </data>
+  <data name="PropertyArmorDamageColor" xml:space="preserve">
+    <value>防弹衣颜色</value>
+  </data>
+  <data name="PropertyBackward" xml:space="preserve">
+    <value>后方</value>
+  </data>
+  <data name="PropertyBearColors" xml:space="preserve">
+    <value>Bear 阵营颜色</value>
+  </data>
+  <data name="PropertyBorderColor" xml:space="preserve">
+    <value>边框颜色</value>
+  </data>
+  <data name="PropertyBossColors" xml:space="preserve">
+    <value>Boss 颜色</value>
+  </data>
+  <data name="PropertyBoxThickness" xml:space="preserve">
+    <value>边框厚度</value>
+  </data>
+  <data name="PropertyCacheTimeInSec" xml:space="preserve">
+    <value>缓存时间(秒)</value>
+  </data>
+  <data name="PropertyCameraOffset" xml:space="preserve">
+    <value>相机偏移</value>
+  </data>
+  <data name="PropertyChangeTime" xml:space="preserve">
+    <value>调整时间</value>
+  </data>
+  <data name="PropertyColor" xml:space="preserve">
+    <value>颜色</value>
+  </data>
+  <data name="PropertyCultistColors" xml:space="preserve">
+    <value>邪教徒颜色</value>
+  </data>
+  <data name="PropertyDisplayTime" xml:space="preserve">
+    <value>显示时间</value>
+  </data>
+  <data name="PropertyDistance" xml:space="preserve">
+    <value>距离</value>
+  </data>
+  <data name="PropertyEligibleColor" xml:space="preserve">
+    <value>符合条件颜色</value>
+  </data>
+  <data name="PropertyEnabled" xml:space="preserve">
+    <value>启用</value>
+  </data>
+  <data name="PropertyFadeOutTime" xml:space="preserve">
+    <value>淡出时间</value>
+  </data>
+  <data name="PropertyFastMode" xml:space="preserve">
+    <value>快速模式</value>
+  </data>
+  <data name="PropertyFastMovementSpeed" xml:space="preserve">
+    <value>快速移动速度</value>
+  </data>
+  <data name="PropertyFoodWater" xml:space="preserve">
+    <value>食物 / 水</value>
+  </data>
+  <data name="PropertyForward" xml:space="preserve">
+    <value>前进</value>
+  </data>
+  <data name="PropertyFov" xml:space="preserve">
+    <value>FOV</value>
+  </data>
+  <data name="PropertyFovCircleColor" xml:space="preserve">
+    <value>视场圈颜色</value>
+  </data>
+  <data name="PropertyFovCircleThickness" xml:space="preserve">
+    <value>视场圈厚度</value>
+  </data>
+  <data name="PropertyFovRadius" xml:space="preserve">
+    <value>FOV半径</value>
+  </data>
+  <data name="PropertyFreeLookSensitivity" xml:space="preserve">
+    <value>自由视角灵敏度</value>
+  </data>
+  <data name="PropertyGroupingColor" xml:space="preserve">
+    <value>分组颜色</value>
+  </data>
+  <data name="PropertyHealthDamageColor" xml:space="preserve">
+    <value>生命伤害颜色</value>
+  </data>
+  <data name="PropertyHideWhenAiming" xml:space="preserve">
+    <value>瞄准时隐藏</value>
+  </data>
+  <data name="PropertyHitMarkerColor" xml:space="preserve">
+    <value>击中反馈颜色</value>
+  </data>
+  <data name="PropertyInfoColor" xml:space="preserve">
+    <value>信息颜色</value>
+  </data>
+  <data name="PropertyIntensity" xml:space="preserve">
+    <value>强度</value>
+  </data>
+  <data name="PropertyKey" xml:space="preserve">
+    <value>按键</value>
+  </data>
+  <data name="PropertyLeft" xml:space="preserve">
+    <value>左</value>
+  </data>
+  <data name="PropertyMarksmanColors" xml:space="preserve">
+    <value>狙击手颜色</value>
+  </data>
+  <data name="PropertyMaximumDistance" xml:space="preserve">
+    <value>最大距离</value>
+  </data>
+  <data name="PropertyMovementSpeed" xml:space="preserve">
+    <value>移动速度</value>
+  </data>
+  <data name="PropertyNotEligibleColor" xml:space="preserve">
+    <value>不符合条件颜色</value>
+  </data>
+  <data name="PropertyNotShootableColors" xml:space="preserve">
+    <value>不可射击时颜色</value>
+  </data>
+  <data name="PropertyRadarBackground" xml:space="preserve">
+    <value>雷达背景</value>
+  </data>
+  <data name="PropertyRadarCrosshair" xml:space="preserve">
+    <value>雷达准星</value>
+  </data>
+  <data name="PropertyRadarPercentage" xml:space="preserve">
+    <value>雷达百分比</value>
+  </data>
+  <data name="PropertyRadarRange" xml:space="preserve">
+    <value>雷达范围</value>
+  </data>
+  <data name="PropertyRange" xml:space="preserve">
+    <value>范围</value>
+  </data>
+  <data name="PropertyRate" xml:space="preserve">
+    <value>射速</value>
+  </data>
+  <data name="PropertyRemoveNegativeEffects" xml:space="preserve">
+    <value>去除负面效果</value>
+  </data>
+  <data name="PropertyRight" xml:space="preserve">
+    <value>右</value>
+  </data>
+  <data name="PropertyRogueUsecColors" xml:space="preserve">
+    <value>Usec游荡者 颜色</value>
+  </data>
+  <data name="PropertyScavAssaultColors" xml:space="preserve">
+    <value>Scav巡逻队 颜色</value>
+  </data>
+  <data name="PropertyScavColors" xml:space="preserve">
+    <value>Scav 颜色</value>
+  </data>
+  <data name="PropertyScavRaiderColors" xml:space="preserve">
+    <value>Scav掠夺者 颜色</value>
+  </data>
+  <data name="PropertySearchInsideContainers" xml:space="preserve">
+    <value>在容器内搜索</value>
+  </data>
+  <data name="PropertySearchInsideCorpses" xml:space="preserve">
+    <value>在尸体内搜索</value>
+  </data>
+  <data name="PropertyShootableColors" xml:space="preserve">
+    <value>可射击时颜色</value>
+  </data>
+  <data name="PropertyShowArmorDamage" xml:space="preserve">
+    <value>显示盔甲损伤</value>
+  </data>
+  <data name="PropertyShowBosses" xml:space="preserve">
+    <value>显示 Boss</value>
+  </data>
+  <data name="PropertyShowBoxes" xml:space="preserve">
+    <value>显示盒子</value>
+  </data>
+  <data name="PropertyShowCharms" xml:space="preserve">
+    <value>显示描边</value>
+  </data>
+  <data name="PropertyShowCompass" xml:space="preserve">
+    <value>显示指南针</value>
+  </data>
+  <data name="PropertyShowContainers" xml:space="preserve">
+    <value>显示容器</value>
+  </data>
+  <data name="PropertyShowCoordinates" xml:space="preserve">
+    <value>显示坐标</value>
+  </data>
+  <data name="PropertyShowCorpses" xml:space="preserve">
+    <value>显示尸体</value>
+  </data>
+  <data name="PropertyShowCultists" xml:space="preserve">
+    <value>显示邪教徒</value>
+  </data>
+  <data name="PropertyShowEligible" xml:space="preserve">
+    <value>显示符合条件的</value>
+  </data>
+  <data name="PropertyShowFovCircle" xml:space="preserve">
+    <value>显示FOV圈</value>
+  </data>
+  <data name="PropertyShowHealthDamage" xml:space="preserve">
+    <value>显示健康伤害</value>
+  </data>
+  <data name="PropertyShowHitMarker" xml:space="preserve">
+    <value>显示命中标记</value>
+  </data>
+  <data name="PropertyShowInfos" xml:space="preserve">
+    <value>显示信息</value>
+  </data>
+  <data name="PropertyShowMap" xml:space="preserve">
+    <value>显示地图</value>
+  </data>
+  <data name="PropertyShowMarksmen" xml:space="preserve">
+    <value>显示狙击手</value>
+  </data>
+  <data name="PropertyShowNotEligible" xml:space="preserve">
+    <value>显示不符合条件</value>
+  </data>
+  <data name="PropertyShowNotShootable" xml:space="preserve">
+    <value>显示不可射击</value>
+  </data>
+  <data name="PropertyShowPlayers" xml:space="preserve">
+    <value>显示玩家</value>
+  </data>
+  <data name="PropertyShowPrices" xml:space="preserve">
+    <value>显示价格</value>
+  </data>
+  <data name="PropertyShowRogues" xml:space="preserve">
+    <value>显示游荡者</value>
+  </data>
+  <data name="PropertyShowScavAssaults" xml:space="preserve">
+    <value>显示Scav巡逻队</value>
+  </data>
+  <data name="PropertyShowScavRaiders" xml:space="preserve">
+    <value>显示Scav掠夺者</value>
+  </data>
+  <data name="PropertyShowScavs" xml:space="preserve">
+    <value>显示Scavs</value>
+  </data>
+  <data name="PropertyShowShootable" xml:space="preserve">
+    <value>显示可射击</value>
+  </data>
+  <data name="PropertyShowSkeletons" xml:space="preserve">
+    <value>显示骨骼</value>
+  </data>
+  <data name="PropertySilentAim" xml:space="preserve">
+    <value>无声瞄准</value>
+  </data>
+  <data name="PropertySilentAimNextShotDelay" xml:space="preserve">
+    <value>无声瞄准，下一枪延迟</value>
+  </data>
+  <data name="PropertySilentAimSpeedFactor" xml:space="preserve">
+    <value>无声瞄准速度</value>
+  </data>
+  <data name="PropertySize" xml:space="preserve">
+    <value>大小</value>
+  </data>
+  <data name="PropertySkeletonThickness" xml:space="preserve">
+    <value>骨架厚度</value>
+  </data>
+  <data name="PropertySmoothness" xml:space="preserve">
+    <value>平滑度</value>
+  </data>
+  <data name="PropertyStatusFilter" xml:space="preserve">
+    <value>状态筛选器</value>
+  </data>
+  <data name="PropertyTeleport" xml:space="preserve">
+    <value>传送</value>
+  </data>
+  <data name="PropertyThickness" xml:space="preserve">
+    <value>厚度</value>
+  </data>
+  <data name="PropertyTrackedNamesComment" xml:space="preserve">
+    <value>Exemple: ["foo", "bar"] ou avec des propriétés étendues: [{"Name":"foo","Color":[1.0,0.0,0.0,1.0]},{"Name":"bar","Color":[1.0,1.0,1.0,0.8],"Rarity":"Rare"}]</value>
+  </data>
+  <data name="PropertyTrackWishlist" xml:space="preserve">
+    <value>跟踪愿望清单</value>
+  </data>
+  <data name="PropertyUsecColors" xml:space="preserve">
+    <value>Usec颜色</value>
+  </data>
+  <data name="PropertyVitalsOnly" xml:space="preserve">
+    <value>仅限重要器官</value>
+  </data>
+  <data name="PropertyX" xml:space="preserve">
+    <value>X</value>
+  </data>
+  <data name="PropertyXRayVision" xml:space="preserve">
+    <value>x射线视野</value>
+  </data>
+  <data name="PropertyY" xml:space="preserve">
+    <value>Y</value>
+  </data>
+  <data name="TextOff" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="TextOn" xml:space="preserve">
+    <value>开启</value>
+  </data>
+  <data name="TextSeparator" xml:space="preserve">
+    <value>------</value>
+  </data>
+</root>
