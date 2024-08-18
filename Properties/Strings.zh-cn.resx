@@ -189,7 +189,7 @@
     <value>status</value>
   </data>
   <data name="CommandStatusTextFormat" xml:space="preserve">
-    <value>{0} is {1} {2}</value>
+    <value>{0} 已 {1} {2}</value>
     <comment>Feature name, status, optional toggle text if a key is set</comment>
   </data>
   <data name="CommandStatusTextToggleFormat" xml:space="preserve">
@@ -352,7 +352,7 @@
     <value>自动射击模式</value>
   </data>
   <data name="FeatureCameraDescription" xml:space="preserve">
-    <value>自由视角与快速模式和传送。</value>
+    <value>自由视角具有快速模式和传送等功能。</value>
   </data>
   <data name="FeatureCameraName" xml:space="preserve">
     <value>自由视角</value>
@@ -376,16 +376,16 @@
     <value>物品满耐久</value>
   </data>
   <data name="FeatureDurabilityName" xml:space="preserve">
-    <value>耐久</value>
+    <value>满耐久</value>
   </data>
   <data name="FeatureExamineDescription" xml:space="preserve">
-    <value>所有的东西都已经搜索过了。立刻搜索完成。</value>
+    <value>等同于所有的东西都已经搜索过了。立刻搜索完成。</value>
   </data>
   <data name="FeatureExamineName" xml:space="preserve">
     <value>快速搜索</value>
   </data>
   <data name="FeatureExfiltrationPointsDescription" xml:space="preserve">
-    <value>撤离点与自定义的颜色,根据角色的撤离资格，状态过滤器，距离。</value>
+    <value>撤离点具有自定义颜色,根据角色的撤离资格显示，状态过滤器，距离等功能。</value>
   </data>
   <data name="FeatureExfiltrationPointsEligibleFormat" xml:space="preserve">
     <value>{0} ({1})</value>
@@ -413,10 +413,10 @@
     <value>Timer</value>
   </data>
   <data name="FeatureFeatureWallShootDescription" xml:space="preserve">
-    <value>射穿墙壁/头盔/背心/材料，穿透力最大，偏差/弹跳最小。</value>
+    <value>能够射穿墙壁/头盔/背心/材料，且穿透力最大，偏差/弹跳最小。</value>
   </data>
   <data name="FeatureFovChangerDescription" xml:space="preserve">
-    <value>更改FOV。</value>
+    <value>更改视野范围(FOV)。</value>
   </data>
   <data name="FeatureFovChangerName" xml:space="preserve">
     <value>更改FOV</value>
@@ -446,10 +446,10 @@
     <value>健康</value>
   </data>
   <data name="FeatureHitsDescription" xml:space="preserve">
-    <value>命中标记(命中、护甲、生命值，颜色可配置)。</value>
+    <value>命中反馈(命中、护甲、生命值，颜色可配置)。</value>
   </data>
   <data name="FeatureHitsName" xml:space="preserve">
-    <value>命中标记</value>
+    <value>命中反馈</value>
   </data>
   <data name="FeatureHudCoordinatesFormat" xml:space="preserve">
     <value>({0},{1})</value>
@@ -469,16 +469,16 @@
     <comment>Magazine count, chamber count, magazine capacity, fire-mode</comment>
   </data>
   <data name="FeatureInteractDescription" xml:space="preserve">
-    <value>改变与战利品和门交互的距离。</value>
+    <value>改变与容器和门等可交互物品交互的距离。</value>
   </data>
   <data name="FeatureInteractName" xml:space="preserve">
-    <value>交互</value>
+    <value>修改交互距离</value>
   </data>
   <data name="FeatureLootItemsDescription" xml:space="preserve">
     <value>列出所有可掠夺的物品，并在raid中根据名称或稀有程度或游戏内的愿望列表跟踪任何物品(甚至在容器和尸体中)。使用track和tracklist命令来控制显示。</value>
   </data>
   <data name="FeatureLootItemsName" xml:space="preserve">
-    <value>战利品</value>
+    <value>战利品追踪</value>
   </data>
   <data name="FeatureMapDescription" xml:space="preserve">
     <value>全屏雷达地图。</value>
@@ -490,10 +490,10 @@
     <value>夜视。</value>
   </data>
   <data name="FeatureNightVisionName" xml:space="preserve">
-    <value>夜晚</value>
+    <value>夜视</value>
   </data>
   <data name="FeatureNoCollisionDescription" xml:space="preserve">
-    <value>没有物理碰撞，所以你不会受到子弹、手榴弹和铁丝网的伤害</value>
+    <value>没有物理碰撞，因此你不会受到子弹、手榴弹和铁丝网的伤害</value>
   </data>
   <data name="FeatureNoCollisionName" xml:space="preserve">
     <value>无物理碰撞</value>
@@ -502,39 +502,39 @@
     <value>没有武器故障:没有哑火、供弹故障。没有枪膛堵塞或武器过热</value>
   </data>
   <data name="FeatureNoMalfunctionsName" xml:space="preserve">
-    <value>无故障</value>
+    <value>无武器故障</value>
   </data>
   <data name="FeatureNoRecoilDescription" xml:space="preserve">
-    <value>没有武器后坐力。</value>
+    <value>武器没有后坐力。</value>
   </data>
   <data name="FeatureNoRecoilName" xml:space="preserve">
-    <value>无后坐</value>
+    <value>无后坐力</value>
   </data>
   <data name="FeatureNoSwayDescription" xml:space="preserve">
-    <value>无视角摆动。</value>
+    <value>没有呼吸产生的视角摆动。更容易瞄准。</value>
   </data>
   <data name="FeatureNoSwayName" xml:space="preserve">
     <value>无视角摆动</value>
   </data>
   <data name="FeatureNoVisorDescription" xml:space="preserve">
-    <value>没有面罩影响，即使你用了面罩，你也不会看到它。</value>
+    <value>没有面罩遮挡视野，即使你使用面罩，你也不会看到它产生的遮挡。</value>
   </data>
   <data name="FeatureNoVisorName" xml:space="preserve">
-    <value>无面罩</value>
+    <value>无视野遮挡</value>
   </data>
   <data name="FeaturePlayersDescription" xml:space="preserve">
-    <value>Wallhack(你会看到Bear/Boss/邪教/Scav/Usec通过墙壁可配置的颜色)。描边，人物盒子，信息(武器和生命值)，人物骨骼和距离。
+    <value>透视(通过墙壁你会看到Bear/Boss/邪教徒/Scav/Usec)。可配置颜色、描边、人物盒子、人物信息(武器和生命值)，人物骨骼和距离。
 </value>
   </data>
   <data name="FeaturePlayersFormat" xml:space="preserve">
-    <value>{0} {1}% {2}</value>
+    <value>武器:{0} 血量:{1}% 距你 {2}</value>
     <comment>Weapon name, health %, distance</comment>
   </data>
   <data name="FeaturePlayersName" xml:space="preserve">
-    <value>透视</value>
+    <value>辅助视野</value>
   </data>
   <data name="FeaturePointOfInterestsDistanceFormat" xml:space="preserve">
-    <value>[{0}m]</value>
+    <value>[{0}米]</value>
     <comment>Distance</comment>
   </data>
   <data name="FeaturePointOfInterestsFormat" xml:space="preserve">
@@ -542,11 +542,11 @@
     <comment>Name, optional formatted owner, optional formatted distance</comment>
   </data>
   <data name="FeaturePointOfInterestsGroupFormat" xml:space="preserve">
-    <value>&gt;&gt; 在 {0} {1}</value>
+    <value>&gt;&gt; 在 {0} 中 {1} </value>
     <comment>Owner, distance</comment>
   </data>
   <data name="FeaturePointOfInterestsOwnerFormat" xml:space="preserve">
-    <value>(在 {0})</value>
+    <value>(在 {0} 中)</value>
     <comment>Owner</comment>
   </data>
   <data name="FeatureQuestsDescription" xml:space="preserve">
@@ -593,13 +593,13 @@
     <value>无限耐力</value>
   </data>
   <data name="FeatureStaminaName" xml:space="preserve">
-    <value>耐力</value>
+    <value>无限耐力</value>
   </data>
   <data name="FeatureStashDescription" xml:space="preserve">
     <value>显示/特殊藏匿物，如埋桶，地面贮藏物，空投物或尸体</value>
   </data>
   <data name="FeatureStashName" xml:space="preserve">
-    <value>藏匿处</value>
+    <value>显示容器</value>
   </data>
   <data name="FeatureThermalVisionDescription" xml:space="preserve">
     <value>热成像视角</value>
@@ -611,16 +611,16 @@
     <value>在兼容的地图上召唤火车，如储备站或灯塔</value>
   </data>
   <data name="FeatureTrainName" xml:space="preserve">
-    <value>火车</value>
+    <value>召唤火车</value>
   </data>
   <data name="FeatureWallShootName" xml:space="preserve">
     <value>穿墙射击</value>
   </data>
   <data name="FeatureWeatherDescription" xml:space="preserve">
-    <value>天气晴朗。</value>
+    <value>让天气晴朗。</value>
   </data>
   <data name="FeatureWeatherName" xml:space="preserve">
-    <value>天气</value>
+    <value>天气晴朗</value>
   </data>
   <data name="FeatureWorldInteractiveObjectsDescription" xml:space="preserve">
     <value>门/钥匙卡读卡器/汽车开锁</value>
@@ -629,10 +629,10 @@
     <value>开锁</value>
   </data>
   <data name="PropertyArmorDamageColor" xml:space="preserve">
-    <value>防弹衣颜色</value>
+    <value>命中防弹衣颜色</value>
   </data>
   <data name="PropertyBackward" xml:space="preserve">
-    <value>后方</value>
+    <value>后退</value>
   </data>
   <data name="PropertyBearColors" xml:space="preserve">
     <value>Bear 阵营颜色</value>
@@ -677,7 +677,7 @@
     <value>淡出时间</value>
   </data>
   <data name="PropertyFastMode" xml:space="preserve">
-    <value>快速模式</value>
+    <value>快速移动模式</value>
   </data>
   <data name="PropertyFastMovementSpeed" xml:space="preserve">
     <value>快速移动速度</value>
@@ -743,13 +743,13 @@
     <value>不可射击时颜色</value>
   </data>
   <data name="PropertyRadarBackground" xml:space="preserve">
-    <value>雷达背景</value>
+    <value>雷达边框颜色</value>
   </data>
   <data name="PropertyRadarCrosshair" xml:space="preserve">
-    <value>雷达准星</value>
+    <value>雷达准星颜色</value>
   </data>
   <data name="PropertyRadarPercentage" xml:space="preserve">
-    <value>雷达百分比</value>
+    <value>雷达大小百分比</value>
   </data>
   <data name="PropertyRadarRange" xml:space="preserve">
     <value>雷达范围</value>
@@ -788,7 +788,7 @@
     <value>可射击时颜色</value>
   </data>
   <data name="PropertyShowArmorDamage" xml:space="preserve">
-    <value>显示盔甲损伤</value>
+    <value>显示对防弹衣伤害</value>
   </data>
   <data name="PropertyShowBosses" xml:space="preserve">
     <value>显示 Boss</value>
@@ -824,7 +824,7 @@
     <value>显示健康伤害</value>
   </data>
   <data name="PropertyShowHitMarker" xml:space="preserve">
-    <value>显示命中标记</value>
+    <value>显示命中反馈</value>
   </data>
   <data name="PropertyShowInfos" xml:space="preserve">
     <value>显示信息</value>
@@ -836,10 +836,10 @@
     <value>显示狙击手</value>
   </data>
   <data name="PropertyShowNotEligible" xml:space="preserve">
-    <value>显示不符合条件</value>
+    <value>显示不符合条件的</value>
   </data>
   <data name="PropertyShowNotShootable" xml:space="preserve">
-    <value>显示不可射击</value>
+    <value>显示不可射击颜色</value>
   </data>
   <data name="PropertyShowPlayers" xml:space="preserve">
     <value>显示玩家</value>
@@ -860,7 +860,7 @@
     <value>显示Scavs</value>
   </data>
   <data name="PropertyShowShootable" xml:space="preserve">
-    <value>显示可射击</value>
+    <value>显示可射击颜色</value>
   </data>
   <data name="PropertyShowSkeletons" xml:space="preserve">
     <value>显示骨骼</value>
@@ -902,16 +902,16 @@
     <value>Usec颜色</value>
   </data>
   <data name="PropertyVitalsOnly" xml:space="preserve">
-    <value>仅限重要器官</value>
+    <value>仅重要器官无敌</value>
   </data>
   <data name="PropertyX" xml:space="preserve">
-    <value>X</value>
+    <value>X轴</value>
   </data>
   <data name="PropertyXRayVision" xml:space="preserve">
     <value>x射线视野</value>
   </data>
   <data name="PropertyY" xml:space="preserve">
-    <value>Y</value>
+    <value>Y轴</value>
   </data>
   <data name="TextOff" xml:space="preserve">
     <value>关闭</value>
