@@ -11,7 +11,7 @@ public class AkiDebuggingPlugin : BaseUnityPlugin
 	[UsedImplicitly]
 	public void Awake()
 	{
-		if (Loaded) 
+		if (Loaded)
 			return;
 
 		Loader.Load();

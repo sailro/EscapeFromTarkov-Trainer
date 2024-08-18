@@ -1,11 +1,11 @@
-﻿using EFT.InventoryLogic;
+﻿using System.Text;
+using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
-using EFT.Trainer.UI;
-using UnityEngine;
-using System.Text;
 using EFT.Trainer.Properties;
+using EFT.Trainer.UI;
 using JetBrains.Annotations;
+using UnityEngine;
 
 #nullable enable
 
@@ -22,7 +22,7 @@ internal class Hud : ToggleFeature
 
 	[ConfigurationProperty]
 	public bool ShowCompass { get; set; } = true;
-		
+
 	private static readonly string[] _directions = [
 		Strings.DirectionNorth,
 		Strings.DirectionNorthEast,

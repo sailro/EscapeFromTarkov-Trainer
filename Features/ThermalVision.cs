@@ -34,8 +34,8 @@ internal class ThermalVision : ToggleFeature
 			return;
 
 		component.StartSwitch(Enabled);
-			
-		if (!Enabled) 
+
+		if (!Enabled)
 			return;
 
 		component.IsFpsStuck = false;

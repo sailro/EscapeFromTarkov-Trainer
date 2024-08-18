@@ -15,7 +15,7 @@ internal class WallShoot : ToggleFeature
 	public override string Name => Strings.FeatureWallShootName;
 	public override string Description => Strings.FeatureFeatureWallShootDescription;
 
-#pragma warning disable IDE0060 
+#pragma warning disable IDE0060
 	[UsedImplicitly]
 	protected static bool IsPenetratedPrefix(object shot, Vector3 hitPoint, BallisticCollider __instance, ref bool __result)
 	{

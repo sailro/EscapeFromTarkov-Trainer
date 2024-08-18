@@ -14,7 +14,7 @@ internal class ToggleFeatureCommand(ToggleFeature feature) : ConsoleCommandWithA
 	public override void Execute(Match match)
 	{
 		var matchGroup = match.Groups[ValueGroup];
-		if (matchGroup is not {Success: true})
+		if (matchGroup is not { Success: true })
 			return;
 
 		var value = matchGroup.Value;

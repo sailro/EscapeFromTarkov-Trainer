@@ -22,7 +22,7 @@ internal class Ghost : ToggleFeature
 		if (feature == null || !feature.Enabled)
 			return true; // keep using original code, we are not enabled
 
-		if (__instance.Person is not {IsYourPlayer: true}) 
+		if (__instance.Person is not { IsYourPlayer: true })
 			return true; // use original code
 
 		var groupInfo = __instance.GroupInfo;

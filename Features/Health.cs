@@ -50,11 +50,11 @@ internal class Health : ToggleFeature
 		var feature = FeatureFactory.GetFeature<Health>();
 		if (feature == null || !feature.Enabled)
 			return true; // keep using original code, we are not enabled
-		
+
 		if (player == null || !player.IsYourPlayer)
 			return true; // keep using original code, apply damage to others
-			
-		if (feature.VitalsOnly && bodyPart is not (EBodyPart.Chest or EBodyPart.Head)) 
+
+		if (feature.VitalsOnly && bodyPart is not (EBodyPart.Chest or EBodyPart.Head))
 			return true; // keep using original code, apply damage to extremities 
 
 		return false;  // skip the original code and all other prefix methods 

@@ -63,7 +63,7 @@ internal abstract class CachableFeature<T> : ToggleFeature
 
 	protected override void UpdateWhenEnabled()
 	{
-		if (_refreshing) 
+		if (_refreshing)
 			return;
 
 		if (_data.Count > 0)
@@ -72,7 +72,7 @@ internal abstract class CachableFeature<T> : ToggleFeature
 
 	protected override void OnGUIWhenEnabled()
 	{
-		if (_refreshing) 
+		if (_refreshing)
 			return;
 
 		if (_data.Count > 0)

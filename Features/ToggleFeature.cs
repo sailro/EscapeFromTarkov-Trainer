@@ -33,9 +33,9 @@ internal abstract class ToggleFeature : Feature
 			OnGUIWhenEnabled();
 	}
 
-	protected virtual void UpdateWhenEnabled() {}
+	protected virtual void UpdateWhenEnabled() { }
 
-	protected virtual void UpdateWhenDisabled() {}
+	protected virtual void UpdateWhenDisabled() { }
 
-	protected virtual void OnGUIWhenEnabled() {}
+	protected virtual void OnGUIWhenEnabled() { }
 }

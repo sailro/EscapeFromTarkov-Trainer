@@ -48,7 +48,7 @@ internal class Installation
 	public static Installation? GetTargetInstallation(string? path, string promptTitle)
 	{
 		var installations = new List<Installation>();
-			
+
 		AnsiConsole
 			.Status()
 			.Start("Discovering [green]Escape From Tarkov[/] installations...", _ =>
@@ -61,7 +61,7 @@ internal class Installation
 		if (path is not null && TryDiscoverInstallation(path, out var installation))
 			installations.Add(installation);
 
-		installations =	[.. installations.Distinct().OrderBy(i => i.Location)];
+		installations = [.. installations.Distinct().OrderBy(i => i.Location)];
 
 		switch (installations.Count)
 		{

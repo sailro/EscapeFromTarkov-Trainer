@@ -22,8 +22,8 @@ internal class ReflectionWrapper
 		if (fieldInfo == null)
 		{
 #if DEBUG
-				if (warnOnFailure)
-					AddConsoleLog(string.Format(Strings.ErrorCannotFindField, name, _instanceType.Name));
+			if (warnOnFailure)
+				AddConsoleLog(string.Format(Strings.ErrorCannotFindField, name, _instanceType.Name));
 #endif
 			return default;
 		}

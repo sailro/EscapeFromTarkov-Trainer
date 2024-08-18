@@ -37,20 +37,18 @@ internal class Spawn : BaseTemplateCommand
 				AddConsoleLog(Strings.ErrorNoTemplateFound.Red());
 				return;
 			case > 1:
-			{
 				foreach (var template in templates)
 					AddConsoleLog(string.Format(Strings.CommandTemplateEnumerateFormat, template._id, template.ShortNameLocalizationKey.Localized().Green(), template.NameLocalizationKey.Localized()));
 
 				AddConsoleLog(string.Format(Strings.ErrorTooManyTemplatesFormat, templates.Length.ToString().Cyan()));
 				return;
-			}
 		}
 
 		var tpl = templates[0];
 		var poolManager = Singleton<PoolManager>.Instance;
 
 		poolManager
-			.LoadBundlesAndCreatePools(PoolManager.PoolsCategory.Raid, PoolManager.AssemblyType.Online, [..tpl.AllResources], JobPriority.Immediate)
+			.LoadBundlesAndCreatePools(PoolManager.PoolsCategory.Raid, PoolManager.AssemblyType.Online, [.. tpl.AllResources], JobPriority.Immediate)
 			.ContinueWith(task =>
 			{
 				AsyncWorker.RunInMainTread(delegate

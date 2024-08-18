@@ -15,7 +15,7 @@ internal abstract class BaseTrackListCommand : ConsoleCommandWithArgument
 		filename = null;
 
 		var matchGroup = match.Groups[ValueGroup];
-		if (matchGroup is not {Success: true})
+		if (matchGroup is not { Success: true })
 			return false;
 
 		filename = matchGroup.Value;

@@ -10,7 +10,7 @@ namespace EFT.Trainer.Features;
 
 internal abstract class BaseMapToggleFeature : ToggleFeature
 {
-	[ConfigurationProperty(Order = 40)] 
+	[ConfigurationProperty(Order = 40)]
 	public bool ShowPlayers { get; set; } = true;
 
 	[ConfigurationProperty(Order = 40)]
@@ -92,7 +92,7 @@ internal abstract class BaseMapToggleFeature : ToggleFeature
 
 	protected void UpdateMapCamera(Camera camera, float range)
 	{
-		if (_mapCameraObject == null) 
+		if (_mapCameraObject == null)
 			return;
 
 		var cameraTransform = camera.transform;
@@ -140,11 +140,11 @@ internal abstract class BaseMapToggleFeature : ToggleFeature
 					continue;
 
 				default:
-				{
-					var playerColor = feature.GetPlayerColors(hostileType);
-					DrawEnemy(camera, enemy, playerColor.Color);
-					break;
-				}
+					{
+						var playerColor = feature.GetPlayerColors(hostileType);
+						DrawEnemy(camera, enemy, playerColor.Color);
+						break;
+					}
 			}
 		}
 	}

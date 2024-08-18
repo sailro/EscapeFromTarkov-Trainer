@@ -82,7 +82,7 @@ internal class Stamina : ToggleFeature
 
 			_aimConsumptionByPose = parameters.AimConsumptionByPose;
 			_overweightConsumptionByPose = parameters.OverweightConsumptionByPose;
-				
+
 			_crouchConsumption = parameters.CrouchConsumption;
 			_standupConsumption = parameters.StandupConsumption;
 			_walkConsumption = parameters.WalkConsumption;
@@ -98,7 +98,7 @@ internal class Stamina : ToggleFeature
 
 			_isConfigured = true;
 		}
-				
+
 		parameters.AimDrainRate = 0f;
 		parameters.AimRangeFinderDrainRate = 0f;
 		parameters.SprintDrainRate = 0f;

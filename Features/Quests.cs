@@ -51,7 +51,7 @@ internal class Quests : PointOfInterests
 			return;
 
 		RefreshPlaceOrRepairItemLocations(startedQuests, profile, data);
-		RefreshVisitPlaceLocations(startedQuests, profile, data); 
+		RefreshVisitPlaceLocations(startedQuests, profile, data);
 		RefreshFindItemLocations(startedQuests, world, data);
 	}
 
@@ -102,7 +102,7 @@ internal class Quests : PointOfInterests
 			{
 				foreach (var condition in quest.Template!.Conditions[EQuestStatus.AvailableForFinish].OfType<ConditionFindItem>())
 				{
-					if (!condition.target.Contains(lootItem.Item.TemplateId) || quest.CompletedConditions.Contains(condition.id)) 
+					if (!condition.target.Contains(lootItem.Item.TemplateId) || quest.CompletedConditions.Contains(condition.id))
 						continue;
 
 					var position = lootItem.transform.position;

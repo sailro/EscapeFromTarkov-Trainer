@@ -120,7 +120,7 @@ internal static class ConfigurationManager
 					var value = JsonConvert.SerializeObject(op.Property.GetValue(feature), Formatting.None, Converters);
 
 					var resourceId = op.Attribute.CommentResourceId;
-					if (!string.IsNullOrEmpty(resourceId)) 
+					if (!string.IsNullOrEmpty(resourceId))
 						content.AppendLine(Comment(Strings.ResourceManager.GetString(resourceId)));
 
 					content.AppendLine($"{key}={value}");
@@ -180,7 +180,7 @@ internal static class ConfigurationManager
 			return false;
 
 		var attribute = property.GetCustomAttribute<ConfigurationPropertyAttribute>(true);
-		return attribute is {Skip: true};
+		return attribute is { Skip: true };
 	}
 
 	public static OrderedProperty[] GetOrderedProperties(Type featureType)
@@ -188,9 +188,9 @@ internal static class ConfigurationManager
 		var properties = featureType.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.FlattenHierarchy);
 
 		return
-		[ .. properties
-			.Select(p => new {property = p, attribute = p.GetCustomAttribute<ConfigurationPropertyAttribute>(true)})
-			.Where(p => p.attribute is {Skip: false})
+		[.. properties
+			.Select(p => new { property = p, attribute = p.GetCustomAttribute<ConfigurationPropertyAttribute>(true) })
+			.Where(p => p.attribute is { Skip: false })
 			.Select(op => new OrderedProperty(op.attribute, op.property))
 			.OrderBy(op => op.Attribute.Order)
 			.ThenBy(op => op.Property.Name)

@@ -93,7 +93,7 @@ internal class Aimbot : HoldFeature
 	{
 		base.Update();
 
-		if (!SilentAim) 
+		if (!SilentAim)
 			return;
 
 		HarmonyPatchOnce(harmony =>
@@ -200,7 +200,7 @@ internal class Aimbot : HoldFeature
 	[UsedImplicitly]
 	protected void OnGUI()
 	{
-		if (!ShowFovCircle || FovRadius <= 0) 
+		if (!ShowFovCircle || FovRadius <= 0)
 			return;
 
 		var player = GameState.Current?.LocalPlayer;

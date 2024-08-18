@@ -24,7 +24,7 @@ internal class NightVision : ToggleFeature
 		var player = GameState.Current?.LocalPlayer;
 		if (player == null || player is HideoutPlayer || player.HasItemComponentInSlot<NightVisionComponent>(EquipmentSlot.Headwear))
 			return;
-			
+
 		var camera = GameState.Current?.Camera;
 		if (camera == null)
 			return;
@@ -35,7 +35,7 @@ internal class NightVision : ToggleFeature
 
 		component.StartSwitch(Enabled);
 
-		if (!Enabled) 
+		if (!Enabled)
 			return;
 
 		// component.DiffuseIntensity = 0f; removed with 0.12.12.19078

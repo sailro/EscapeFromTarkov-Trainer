@@ -108,7 +108,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 				// reuse successful context for compiling.
 				var pluginContext = new CompilationContext(installation, "plugin", bepInExPluginProject)
 				{
-					Archive = result.Archive, 
+					Archive = result.Archive,
 					Branch = GetInitialBranch(settings)
 				};
 				var pluginResult = await GetCompilationAsync(pluginContext);
@@ -310,7 +310,9 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 				.StartAsync(status, async statusContext =>
 				{
 
-					var handler = new HttpClientHandler { ServerCertificateCustomValidationCallback = (request, certificate, chain, errors) =>
+					var handler = new HttpClientHandler
+					{
+						ServerCertificateCustomValidationCallback = (request, certificate, chain, errors) =>
 						{
 							if (errors == SslPolicyErrors.None)
 								return true;
@@ -328,7 +330,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 							AnsiConsole.MarkupLine($@"[yellow]Warning: We have detected a problem while retrieving the source code from {request.RequestUri?.ToString().EscapeMarkup()}[/]");
 							AnsiConsole.MarkupLine(@"[yellow]Typically this is a user-side problem when something interferes with HTTPS/SSL: security or malicious software, antivirus, proxies, VPN, DNS, etc.[/]");
 
-							if (certificate?.Subject == null) 
+							if (certificate?.Subject == null)
 								return true;
 
 							AnsiConsole.MarkupLine(@$"[yellow]We got the following certificate [[{certificate.Subject.EscapeMarkup()}]] while expecting something from Github.[/]");
@@ -346,7 +348,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 		}
 		catch (Exception ex)
 		{
-			AnsiConsole.MarkupLine(ex is HttpRequestException {StatusCode: HttpStatusCode.NotFound} ? $">> [blue]Try #{context.Try}[/] [yellow]Branch {branch.EscapeMarkup()} not found.[/]" : $"[red]Error: {ex.Message.EscapeMarkup()}[/]");
+			AnsiConsole.MarkupLine(ex is HttpRequestException { StatusCode: HttpStatusCode.NotFound } ? $">> [blue]Try #{context.Try}[/] [yellow]Branch {branch.EscapeMarkup()} not found.[/]" : $"[red]Error: {ex.Message.EscapeMarkup()}[/]");
 		}
 
 		return result;
@@ -366,7 +368,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 				var nlogNode = doc.DocumentElement;
 				var targetsNode = nlogNode?.FirstChild;
 
-				if (nlogNode is not {Name: "nlog"} || targetsNode is not {Name: "targets"})
+				if (nlogNode is not { Name: "nlog" } || targetsNode is not { Name: "targets" })
 				{
 					AnsiConsole.MarkupLine($"[red]Unable to patch {configPath.EscapeMarkup()}, unexpected xml structure.[/]");
 					return;

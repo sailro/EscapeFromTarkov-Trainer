@@ -15,7 +15,7 @@ internal class Program
 			config
 				.AddCommand<InstallCommand>("install")
 				.WithDescription("Install the trainer");
-				
+
 			config
 				.AddCommand<UninstallCommand>("uninstall")
 				.WithDescription("Uninstall the trainer");

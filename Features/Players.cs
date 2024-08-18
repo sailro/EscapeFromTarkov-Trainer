@@ -84,7 +84,7 @@ internal class Players : ToggleFeature
 
 	[ConfigurationProperty(Order = 31)]
 	public bool XRayVision { get; set; } = true;
-		
+
 	[ConfigurationProperty(Order = 40)]
 	public bool ShowInfos { get; set; } = true;
 
@@ -150,7 +150,7 @@ internal class Players : ToggleFeature
 		}
 
 		var isAiming = AimingCheck(camera, player);
-			
+
 		foreach (var ennemy in hostiles)
 		{
 			if (!ennemy.IsValid())
@@ -221,7 +221,7 @@ internal class Players : ToggleFeature
 
 			if (ShowBoxes)
 				Render.DrawBox(boxPositionX, boxPositionY, boxWidth, boxHeight, BoxThickness, borderColor);
-				
+
 			var ennemyHealthController = ennemy.HealthController;
 			var ennemyHandController = ennemy.HandsController;
 
@@ -374,7 +374,7 @@ internal class Players : ToggleFeature
 				material.SetFloat("_FirstOutlineWidth", 0.02f);
 				material.SetColor("_SecondOutlineColor", color);
 				material.SetFloat("_SecondOutlineWidth", 0.0025f);
-				material.SetFloat("_ZTest", (float) (XRayVision ? CompareFunction.Always : CompareFunction.Less));
+				material.SetFloat("_ZTest", (float)(XRayVision ? CompareFunction.Always : CompareFunction.Less));
 			}
 		}
 	}
@@ -391,7 +391,7 @@ internal class Players : ToggleFeature
 				continue;
 
 			var shader = cache[renderer];
-			if (renderer.material.shader == shader) 
+			if (renderer.material.shader == shader)
 				continue;
 
 			renderer.material.shader = shader;
@@ -417,7 +417,7 @@ internal class Players : ToggleFeature
 		var distance = Vector2.Distance(_scopeParameters.center, scopePoint);
 		if (distance <= _scopeParameters.radius)
 			return scopePoint;
-			
+
 		return Vector2.zero;
 	}
 

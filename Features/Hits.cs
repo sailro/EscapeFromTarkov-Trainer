@@ -26,7 +26,7 @@ internal class Hits : ToggleFeature
 	public Color ArmorDamageColor { get; set; } = new(0.0f, 126f / 255f, 1.0f, 1.0f);
 
 	[ConfigurationProperty(Order = 12)]
-	public Color HealthDamageColor { get; set; } = new(1.0f, 33f/255f, 33f/255f, 1.0f);
+	public Color HealthDamageColor { get; set; } = new(1.0f, 33f / 255f, 33f / 255f, 1.0f);
 
 	[ConfigurationProperty(Order = 20)]
 	public float DisplayTime { get; set; } = 2f;
@@ -53,7 +53,7 @@ internal class Hits : ToggleFeature
 
 	private static readonly HashSet<HitMarker> _hitMarkers = [];
 
-#pragma warning disable IDE0060 
+#pragma warning disable IDE0060
 	[UsedImplicitly]
 	protected static void ApplyDamagePostfix(EBodyPart bodyPart, float damage, DamageInfo damageInfo, ActiveHealthController? __instance)
 	{
@@ -75,7 +75,7 @@ internal class Hits : ToggleFeature
 		var marker = new HitMarker(damageInfo);
 		_hitMarkers.Add(marker);
 	}
-#pragma warning restore IDE0060 
+#pragma warning restore IDE0060
 
 	protected override void OnGUIWhenEnabled()
 	{

@@ -108,7 +108,8 @@ internal partial class Compiler
 		try
 		{
 			buffer = Resources.ResourceManager.GetObject(assemblyName) as byte[];
-		} catch
+		}
+		catch
 		{
 			buffer = null;
 		}
@@ -166,7 +167,7 @@ internal partial class Compiler
 
 	public bool IsLanguageSupported(CompilationContext? context)
 	{
-		return GetSourceFiles().Any(f => f.EndsWith(string.Concat("Strings.", context?.Language ?? string.Empty, ".Designer.cs").Replace("..","."), StringComparison.OrdinalIgnoreCase));
+		return GetSourceFiles().Any(f => f.EndsWith(string.Concat("Strings.", context?.Language ?? string.Empty, ".Designer.cs").Replace("..", "."), StringComparison.OrdinalIgnoreCase));
 	}
 
 	public IEnumerable<ResourceDescription> GetResources(CompilationContext context)
@@ -180,9 +181,9 @@ internal partial class Compiler
 
 			// For now we only select one resource file, and use it as "neutral"
 			var file = match.Groups["file"].Value;
-			if (!file.EndsWith(string.Concat("Strings.", context.Language, ".resx").Replace("..","."), StringComparison.OrdinalIgnoreCase))
+			if (!file.EndsWith(string.Concat("Strings.", context.Language, ".resx").Replace("..", "."), StringComparison.OrdinalIgnoreCase))
 				continue;
-			
+
 			var entry = ProjectArchive.Entries.FirstOrDefault(e => e.FullName.EndsWith(file.Replace(Path.DirectorySeparatorChar, Path.AltDirectorySeparatorChar), StringComparison.OrdinalIgnoreCase));
 			if (entry == null)
 				continue;
@@ -219,7 +220,7 @@ internal partial class Compiler
 
 		var references = GetReferences()
 			.ToArray();
-			
+
 		return CSharpCompilation.Create(assemblyName, syntaxTrees, references, CompilationOptions);
 	}
 

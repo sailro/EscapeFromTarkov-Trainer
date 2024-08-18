@@ -27,12 +27,12 @@ internal class LootItems : PointOfInterests
 	[ConfigurationProperty(Browsable = false, CommentResourceId = nameof(Strings.PropertyTrackedNamesComment))]
 	public List<TrackedItem> TrackedNames { get; set; } = [];
 
-	[ConfigurationProperty] 
+	[ConfigurationProperty]
 	public bool SearchInsideContainers { get; set; } = true;
 
 	[ConfigurationProperty]
 	public bool SearchInsideCorpses { get; set; } = true;
-		
+
 	[ConfigurationProperty]
 	public bool ShowPrices { get; set; } = true;
 
@@ -65,7 +65,7 @@ internal class LootItems : PointOfInterests
 			TrackedNames.Clear();
 			return true;
 		}
-			
+
 		return TrackedNames.RemoveAll(t => t.Name == lootname) > 0;
 	}
 
@@ -83,7 +83,7 @@ internal class LootItems : PointOfInterests
 		if (rawWishList == null)
 			return result;
 
-		return [..rawWishList.Keys];
+		return [.. rawWishList.Keys];
 	}
 
 	public override void RefreshData(List<PointOfInterest> data)
@@ -223,8 +223,8 @@ internal class LootItems : PointOfInterests
 	private static bool TextMatches(TrackedItem trackedItem, string itemName, string templateId)
 	{
 		return trackedItem.IsMatchAll
-		       || itemName.IndexOf(trackedItem.Name, StringComparison.OrdinalIgnoreCase) >= 0
-		       || string.Equals(templateId, trackedItem.Name, StringComparison.OrdinalIgnoreCase);
+			   || itemName.IndexOf(trackedItem.Name, StringComparison.OrdinalIgnoreCase) >= 0
+			   || string.Equals(templateId, trackedItem.Name, StringComparison.OrdinalIgnoreCase);
 	}
 
 	private static bool RarityMatches(ELootRarity itemRarity, ELootRarity? trackedRarity)

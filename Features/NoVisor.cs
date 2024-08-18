@@ -24,7 +24,7 @@ internal class NoVisor : ToggleFeature
 			return;
 
 		var component = camera.GetComponent<VisorEffect>();
-		if (component == null || Mathf.Abs(component.Intensity - Convert.ToInt32(!Enabled)) < Mathf.Epsilon )
+		if (component == null || Mathf.Abs(component.Intensity - Convert.ToInt32(!Enabled)) < Mathf.Epsilon)
 			return;
 
 		component.Intensity = Convert.ToInt32(!Enabled);

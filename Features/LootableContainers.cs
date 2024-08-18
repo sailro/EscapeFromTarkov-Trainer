@@ -27,7 +27,7 @@ internal class LootableContainers : PointOfInterests
 		KnownTemplateIds.AirDropSupply,
 		KnownTemplateIds.AirDropWeapon
 	];
-	
+
 	[ConfigurationProperty]
 	public Color Color { get; set; } = Color.white;
 
@@ -36,10 +36,10 @@ internal class LootableContainers : PointOfInterests
 	public override Color GroupingColor => Color;
 
 	[ConfigurationProperty]
-	public bool ShowContainers {  get; set; } = true;
+	public bool ShowContainers { get; set; } = true;
 
 	[ConfigurationProperty]
-	public bool ShowCorpses {  get; set; } = true;
+	public bool ShowCorpses { get; set; } = true;
 
 	public override void RefreshData(List<PointOfInterest> data)
 	{
@@ -71,8 +71,8 @@ internal class LootableContainers : PointOfInterests
 			if (ShowContainers && _targetedContainer.Contains(rootItem.TemplateId))
 				AddRecord(rootItem.TemplateId.LocalizedShortName(), owner.Value.Transform.position, data);
 
-			if (ShowCorpses && rootItem.TemplateId == KnownTemplateIds.DefaultInventory 
-			                && itemOwner is TraderControllerClass { Name: nameof(Corpse) }) // only display dead bodies
+			if (ShowCorpses && rootItem.TemplateId == KnownTemplateIds.DefaultInventory
+							&& itemOwner is TraderControllerClass { Name: nameof(Corpse) }) // only display dead bodies
 				AddRecord(nameof(Corpse), owner.Value.Transform.position, data);
 		}
 	}

@@ -18,5 +18,5 @@ internal abstract class HoldFeature : Feature
 			UpdateWhenHold();
 	}
 
-	protected virtual void UpdateWhenHold() {}
+	protected virtual void UpdateWhenHold() { }
 }

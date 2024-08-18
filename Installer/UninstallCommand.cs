@@ -102,7 +102,7 @@ internal sealed class UninstallCommand : Command<UninstallCommand.Settings>
 			var nlogNode = doc.DocumentElement;
 			var targetsNode = nlogNode?.FirstChild;
 
-			if (nlogNode is not {Name: "nlog"} || targetsNode is not {Name: "targets"})
+			if (nlogNode is not { Name: "nlog" } || targetsNode is not { Name: "targets" })
 			{
 				AnsiConsole.MarkupLine($"[red]Unable to unpatch {configPath.EscapeMarkup()}, unexpected xml structure.[/]");
 				return;

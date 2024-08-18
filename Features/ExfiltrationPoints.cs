@@ -21,7 +21,7 @@ internal class ExfiltrationPoints : PointOfInterests
 
 	[ConfigurationProperty(Order = 10)]
 	public Color EligibleColor { get; set; } = Color.green;
-		
+
 	[ConfigurationProperty(Order = 10)]
 	public Color NotEligibleColor { get; set; } = Color.yellow;
 
@@ -70,7 +70,7 @@ internal class ExfiltrationPoints : PointOfInterests
 
 		foreach (var point in points)
 		{
-			if (!point.IsValid()) 
+			if (!point.IsValid())
 				continue;
 
 			var position = point.transform.position;

@@ -21,12 +21,12 @@ internal abstract class BaseTrackCommand : ConsoleCommandWithArgument
 	private void TrackLootItem(Match match, ELootRarity? rarity = null)
 	{
 		var matchGroup = match.Groups[ValueGroup];
-		if (matchGroup is not {Success: true})
+		if (matchGroup is not { Success: true })
 			return;
 
 		Color? color = null;
 		var extraGroup = match.Groups[ExtraGroup];
-		if (extraGroup is {Success: true})
+		if (extraGroup is { Success: true })
 			color = ColorConverter.Parse(extraGroup.Value);
 
 		TrackList.ShowTrackList(this, LootItemsFeature, LootItemsFeature.Track(matchGroup.Value, color, rarity));

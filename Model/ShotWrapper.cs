@@ -21,7 +21,7 @@ internal class ShotWrapper(object instance) : ReflectionWrapper(instance)
 
 			return property.GetValue(iface) as IPlayer;
 		}
-	} 
+	}
 	public Item? Weapon => GetFieldValue<Item>(nameof(Weapon));
 	public Item? Ammo => GetFieldValue<Item>(nameof(Ammo));
 }

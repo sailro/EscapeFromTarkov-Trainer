@@ -37,7 +37,7 @@ internal class Weather : TriggerFeature
 			return;
 
 		var sky = TOD_Sky.Instance;
-		if (sky == null) 
+		if (sky == null)
 			return;
 
 		sky.Components.Time.GameDateTime = null;

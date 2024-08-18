@@ -33,13 +33,13 @@ public class ColorPicker : Picker<Color>
 		_circle = Resources.Load<Texture2D>("imCircle");
 		_rightArrow = Resources.Load<Texture2D>("imRight");
 		_leftArrow = Resources.Load<Texture2D>("imLeft");
-		_previewStyle = new GUIStyle {normal = {background = Texture2D.whiteTexture}};
+		_previewStyle = new GUIStyle { normal = { background = Texture2D.whiteTexture } };
 
 		var hueTexture = CreateHueTexture(20, HsvPickerSize);
-		_hueStyle = new GUIStyle {normal = {background = hueTexture}};
+		_hueStyle = new GUIStyle { normal = { background = hueTexture } };
 
 		_svTexture = CreateSvTexture(Value, HsvPickerSize);
-		_svStyle = new GUIStyle {normal = {background = _svTexture}};
+		_svStyle = new GUIStyle { normal = { background = _svTexture } };
 	}
 
 	public override bool IsSelected { get; protected set; } = false; // with this picker we always keep focus, until another control is selected

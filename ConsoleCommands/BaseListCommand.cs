@@ -28,7 +28,7 @@ internal abstract class BaseListCommand : ConsoleCommandWithArgument
 	{
 		var search = string.Empty;
 		var matchGroup = match.Groups[ValueGroup];
-		if (matchGroup is {Success: true})
+		if (matchGroup is { Success: true })
 		{
 			search = matchGroup.Value.Trim();
 			if (search == TrackedItem.MatchAll)
@@ -70,7 +70,7 @@ internal abstract class BaseListCommand : ConsoleCommandWithArgument
 		}
 
 		AddConsoleLog(Strings.TextSeparator);
-		AddConsoleLog(string.Format(Strings.CommandListSuccessFormat,  count.ToString().Cyan()));
+		AddConsoleLog(string.Format(Strings.CommandListSuccessFormat, count.ToString().Cyan()));
 	}
 
 	private static void FindItemsInRootItem(Dictionary<string, List<Item>> itemsPerName, Item? rootItem)

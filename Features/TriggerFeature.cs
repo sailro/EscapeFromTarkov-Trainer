@@ -18,5 +18,5 @@ internal abstract class TriggerFeature : Feature
 			UpdateOnceWhenTriggered();
 	}
 
-	protected virtual void UpdateOnceWhenTriggered() {}
+	protected virtual void UpdateOnceWhenTriggered() { }
 }

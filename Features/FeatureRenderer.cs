@@ -20,9 +20,9 @@ internal abstract class FeatureRenderer : ToggleFeature
 	protected const float DefaultX = 40f;
 	protected const float DefaultY = 20f;
 
-	private static GUIStyle LabelStyle => new() {wordWrap = false, normal = {textColor = Color.white}, margin = new RectOffset(8,0,8,0), fixedWidth = 150f, stretchWidth = false};
-	private static GUIStyle DescriptionStyle => new() {wordWrap = true, normal = {textColor = Color.white}, margin = new RectOffset(8,0,8,0), stretchWidth = true};
-	private static GUIStyle BoxStyle => new(GUI.skin.box) {normal = {background = Texture2D.whiteTexture, textColor = Color.white}};
+	private static GUIStyle LabelStyle => new() { wordWrap = false, normal = { textColor = Color.white }, margin = new RectOffset(8, 0, 8, 0), fixedWidth = 150f, stretchWidth = false };
+	private static GUIStyle DescriptionStyle => new() { wordWrap = true, normal = { textColor = Color.white }, margin = new RectOffset(8, 0, 8, 0), stretchWidth = true };
+	private static GUIStyle BoxStyle => new(GUI.skin.box) { normal = { background = Texture2D.whiteTexture, textColor = Color.white } };
 
 	protected void SetupWindowCoordinates()
 	{
@@ -52,7 +52,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 			Feature = feature;
 			OrderedProperty = orderedProperty;
 			Picker = builder((T)orderedProperty.Property.GetValue(feature));
-				
+
 			var position = Event.current.mousePosition;
 			Picker.SetWindowPosition(parentX + LabelStyle.fixedWidth * 3 + LabelStyle.margin.left * 6, position.y + parentY - 32f);
 		}
@@ -81,7 +81,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 		SetupInputNode();
 
 		_clientWindowRect = new Rect(X, Y, 490, _clientWindowRect.height);
-		_clientWindowRect = GUILayout.Window(0, _clientWindowRect, RenderFeatureWindow, Strings.FeatureCommandsTitle , GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true));
+		_clientWindowRect = GUILayout.Window(0, _clientWindowRect, RenderFeatureWindow, Strings.FeatureCommandsTitle, GUILayout.ExpandHeight(true), GUILayout.ExpandWidth(true));
 		X = _clientWindowRect.x;
 		Y = _clientWindowRect.y;
 
@@ -93,7 +93,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 
 	private bool HandleSelectionContext<T>(SelectionContext<T>? context)
 	{
-		if (context == null) 
+		if (context == null)
 			return false;
 
 		var property = context.OrderedProperty.Property;
@@ -108,7 +108,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 	private int _selectedTabIndex = 0;
 	private void RenderFeatureWindow(int id)
 	{
-		var fixedTabs = new[] {Strings.FeatureRendererSummary};
+		var fixedTabs = new[] { Strings.FeatureRendererSummary };
 
 		var tabs = fixedTabs
 			.Concat
@@ -120,7 +120,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 			)
 			.ToArray();
 
-		var style = new GUIStyle {wordWrap = false, normal = {textColor = Color.white}, alignment = TextAnchor.UpperLeft, fixedHeight = 1, stretchHeight = true};
+		var style = new GUIStyle { wordWrap = false, normal = { textColor = Color.white }, alignment = TextAnchor.UpperLeft, fixedHeight = 1, stretchHeight = true };
 
 		GUILayout.BeginHorizontal();
 		var lastIndex = _selectedTabIndex;
@@ -228,7 +228,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 
 		if (currentValue == null)
 			return;
-			
+
 		var width = GUILayout.Width(LabelStyle.fixedWidth);
 		var newValue = RenderFeaturePropertyAsUIComponent(feature, orderedProperty, currentValue, width);
 
@@ -317,8 +317,8 @@ internal abstract class FeatureRenderer : ToggleFeature
 	private static bool ShouldResetSelectionContext<T>(string focused, SelectionContext<T>? context)
 	{
 		return !string.IsNullOrEmpty(focused)
-		       && !focused.EndsWith($"-{typeof(T).Name}")
-		       && context != null;
+			   && !focused.EndsWith($"-{typeof(T).Name}")
+			   && context != null;
 	}
 
 	private static object RenderIntProperty(object currentValue, GUILayoutOption option)
@@ -347,7 +347,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 
 	private void RenderColorProperty(object currentValue, string controlName, IFeature feature, OrderedProperty orderedProperty, GUILayoutOption option)
 	{
-		GUI.backgroundColor = (Color) currentValue;
+		GUI.backgroundColor = (Color)currentValue;
 
 		if (!GUILayout.Button(string.Empty, BoxStyle, option, GUILayout.Height(22f)))
 			return;
@@ -386,7 +386,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 
 	private object RenderBooleanProperty(object currentValue, GUILayoutOption option)
 	{
-		var boolValue = (bool) currentValue;
+		var boolValue = (bool)currentValue;
 		var newValue = GUILayout.Toggle(boolValue, string.Empty, option);
 		if (newValue != boolValue)
 		{

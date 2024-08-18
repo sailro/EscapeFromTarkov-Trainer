@@ -52,7 +52,7 @@ internal class Commands : FeatureRenderer
 
 		var properties = typeof(Strings)
 				.GetProperties(BindingFlags.Static | BindingFlags.NonPublic | BindingFlags.Public)
-			    .Where(p => p.Name.StartsWith(prefix));
+				.Where(p => p.Name.StartsWith(prefix));
 
 		PropertyDisplays.Clear();
 
@@ -60,7 +60,7 @@ internal class Commands : FeatureRenderer
 		{
 			var key = property.Name.Substring(prefix.Length);
 			var value = property.GetValue(null) as string ?? string.Empty;
-			
+
 			PropertyDisplays.Add(key, value);
 		}
 	}
@@ -75,7 +75,7 @@ internal class Commands : FeatureRenderer
 
 	private void RegisterCommands()
 	{
-		foreach(var feature in Context.ToggleableFeatures.Value)
+		foreach (var feature in Context.ToggleableFeatures.Value)
 		{
 			if (feature is Commands or GameState)
 				continue;
@@ -110,6 +110,6 @@ internal class Commands : FeatureRenderer
 			.Where(t => t.IsSubclassOf(typeof(ConsoleCommand)) && !t.IsAbstract && t.GetConstructor(Type.EmptyTypes) != null);
 
 		foreach (var type in types)
-			yield return (ConsoleCommand) Activator.CreateInstance(type);
+			yield return (ConsoleCommand)Activator.CreateInstance(type);
 	}
 }

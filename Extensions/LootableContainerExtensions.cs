@@ -9,7 +9,7 @@ public static class LootableContainerExtensions
 {
 	public static bool IsValid([NotNullWhen(true)] this LootableContainer? lootableContainer)
 	{
-		return lootableContainer != null 
-		       && lootableContainer.Template != null;
+		return lootableContainer != null
+			   && lootableContainer.Template != null;
 	}
 }

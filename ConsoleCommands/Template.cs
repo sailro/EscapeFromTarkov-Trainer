@@ -17,7 +17,7 @@ internal class Template : BaseTemplateCommand
 	public override void Execute(Match match)
 	{
 		var matchGroup = match.Groups[ValueGroup];
-		if (matchGroup is not {Success: true})
+		if (matchGroup is not { Success: true })
 			return;
 
 		if (!Singleton<ItemFactory>.Instantiated)
@@ -26,7 +26,7 @@ internal class Template : BaseTemplateCommand
 		var search = matchGroup.Value;
 
 		var templates = FindTemplates(search).ToArray();
-		
+
 		foreach (var template in templates)
 			AddConsoleLog(string.Format(Strings.CommandTemplateEnumerateFormat, template._id, template.ShortNameLocalizationKey.Localized().Green(), template.NameLocalizationKey.Localized()));
 

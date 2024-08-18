@@ -23,7 +23,7 @@ internal class Dump : ConsoleCommandWithoutArgument
 		Directory.CreateDirectory(thisDump);
 
 		AddConsoleLog(Strings.CommandDumpScenes);
-		for (int i = 0; i < SceneManager.sceneCount; i++) 
+		for (int i = 0; i < SceneManager.sceneCount; i++)
 		{
 			var scene = SceneManager.GetSceneAt(i);
 			if (!scene.isLoaded)
@@ -36,7 +36,7 @@ internal class Dump : ConsoleCommandWithoutArgument
 		AddConsoleLog(Strings.CommandDumpGameObjects);
 		foreach (var go in UnityEngine.Object.FindObjectsOfType<GameObject>())
 		{
-			if (go == null || go.transform.parent != null || !go.activeSelf) 
+			if (go == null || go.transform.parent != null || !go.activeSelf)
 				continue;
 
 			var filename = GetSafeFilename(go.name + "-" + go.GetHashCode() + ".txt");
@@ -49,7 +49,7 @@ internal class Dump : ConsoleCommandWithoutArgument
 
 	private static string GetSafeFilename(string filename)
 	{
-		return string.Join("_", filename.Split(Path.GetInvalidFileNameChars()));  	
+		return string.Join("_", filename.Split(Path.GetInvalidFileNameChars()));
 	}
 
 }

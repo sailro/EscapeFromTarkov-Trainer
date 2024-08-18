@@ -15,7 +15,7 @@ public class ColorConverter : JsonConverter
 		if (value is not Color color)
 			return;
 
-		serializer.Serialize(writer, new[] {color.r, color.g, color.b, color.a});
+		serializer.Serialize(writer, new[] { color.r, color.g, color.b, color.a });
 	}
 
 	public override object ReadJson(JsonReader reader, Type objectType, object? existingValue, JsonSerializer serializer)

@@ -13,7 +13,7 @@ internal static class Bones
 	public const string Spine3 = Spine2 + "/Base HumanSpine3";
 	public const string Neck = Spine3 + "/Base HumanNeck";
 	public const string Head = Neck + "/Base HumanHead";
-		
+
 	public const string LThigh1 = Pelvis + "/Base HumanLThigh1";
 	public const string LThigh2 = LThigh1 + "/Base HumanLThigh2";
 	public const string LCalf = LThigh2 + "/Base HumanLCalf";
@@ -49,12 +49,12 @@ internal static class Bones
 	public const string RForearm1 = RCollarbone + "/Base HumanRUpperarm/Base HumanRForearm1";
 	public const string RForearm2 = RForearm1 + "/Base HumanRForearm2";
 	public const string RForearm3 = RForearm2 + "/Base HumanRForearm3";
-	public const string RPalm = RForearm3 +"/Base HumanRPalm";
+	public const string RPalm = RForearm3 + "/Base HumanRPalm";
 	public const string RDigit11 = RPalm + "/Base HumanRDigit11";
 	public const string RDigit12 = RDigit11 + "/Base HumanRDigit12";
 	public const string RDigit13 = RDigit12 + "/Base HumanRDigit13";
 	public const string RDigit21 = RPalm + "/Base HumanRDigit21";
-	public const string RDigit22 = RDigit21 +"/Base HumanRDigit22";
+	public const string RDigit22 = RDigit21 + "/Base HumanRDigit22";
 	public const string RDigit23 = RDigit22 + "/Base HumanRDigit23";
 	public const string RDigit31 = RPalm + "/Base HumanRDigit31";
 	public const string RDigit32 = RDigit31 + "/Base HumanRDigit32";
@@ -68,19 +68,65 @@ internal static class Bones
 
 	public static readonly List<string[]> Connections =
 	[
-		[Pelvis, LThigh1], [LThigh1, LThigh2], [LThigh2, LCalf], [LCalf, LFoot], [LFoot, LToe], [Pelvis, RThigh1], [RThigh1, RThigh2], [RThigh2, RCalf],
-		[RCalf, RFoot], [RFoot, RToe], [Pelvis, Spine1], [Spine1, Spine2], [Spine2, Spine3], [Spine3, Neck], [Neck, Head], [Spine3, LCollarbone],
-		[LCollarbone, LForearm1], [LForearm1, LForearm2], [LForearm2, LForearm3], [LForearm3, LPalm], [Spine3, RCollarbone],
-		[RCollarbone, RForearm1], [RForearm1, RForearm2], [RForearm2, RForearm3], [RForearm3, RPalm] 
+		[Pelvis, LThigh1],
+		[LThigh1, LThigh2],
+		[LThigh2, LCalf],
+		[LCalf, LFoot],
+		[LFoot, LToe],
+		[Pelvis, RThigh1],
+		[RThigh1, RThigh2],
+		[RThigh2, RCalf],
+		[RCalf, RFoot],
+		[RFoot, RToe],
+		[Pelvis, Spine1],
+		[Spine1, Spine2],
+		[Spine2, Spine3],
+		[Spine3, Neck],
+		[Neck, Head],
+		[Spine3, LCollarbone],
+		[LCollarbone, LForearm1],
+		[LForearm1, LForearm2],
+		[LForearm2, LForearm3],
+		[LForearm3, LPalm],
+		[Spine3, RCollarbone],
+		[RCollarbone, RForearm1],
+		[RForearm1, RForearm2],
+		[RForearm2, RForearm3],
+		[RForearm3, RPalm]
 	];
 
 	public static readonly List<string[]> FingerConnections =
 	[
-		[LPalm, LDigit11], [LDigit11, LDigit12], [LDigit12, LDigit13], [LPalm, LDigit21], [LDigit21, LDigit22], [LDigit22, LDigit23], [LPalm, LDigit31],
-		[LDigit31, LDigit32], [LDigit32, LDigit33], [LPalm, LDigit41], [LDigit41, LDigit42], [LDigit42, LDigit43], [LPalm, LDigit51], [LDigit51, LDigit52],
-		[LDigit52, LDigit53], [RPalm, RDigit11], [RDigit11, RDigit12],	[RDigit12, RDigit13], [RPalm, RDigit11], [RDigit21, RDigit22], [RDigit22, RDigit23],
-		[RPalm, RDigit11], [RDigit31, RDigit32], [RDigit32, RDigit33],	[RPalm, RDigit11], [RDigit41, RDigit42], [RDigit42, RDigit43], [RPalm, RDigit11],
-		[RDigit51, RDigit52], [RDigit52, RDigit53]
+		[LPalm, LDigit11],
+		[LDigit11, LDigit12],
+		[LDigit12, LDigit13],
+		[LPalm, LDigit21],
+		[LDigit21, LDigit22],
+		[LDigit22, LDigit23],
+		[LPalm, LDigit31],
+		[LDigit31, LDigit32],
+		[LDigit32, LDigit33],
+		[LPalm, LDigit41],
+		[LDigit41, LDigit42],
+		[LDigit42, LDigit43],
+		[LPalm, LDigit51],
+		[LDigit51, LDigit52],
+		[LDigit52, LDigit53],
+		[RPalm, RDigit11],
+		[RDigit11, RDigit12],
+		[RDigit12, RDigit13],
+		[RPalm, RDigit11],
+		[RDigit21, RDigit22],
+		[RDigit22, RDigit23],
+		[RPalm, RDigit11],
+		[RDigit31, RDigit32],
+		[RDigit32, RDigit33],
+		[RPalm, RDigit11],
+		[RDigit41, RDigit42],
+		[RDigit42, RDigit43],
+		[RPalm, RDigit11],
+		[RDigit51, RDigit52],
+		[RDigit52, RDigit53]
 	];
 
 	private static Vector2 GetScreenPosition(Camera camera, Vector3 position, bool isAiming)
