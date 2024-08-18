@@ -47,6 +47,6 @@ This is an universal installer for the trainer. In most cases you just need to r
 - `Installer -c <command>` to disable a command. Example: `Installer -c Spawn`.
 - `Installer uninstall` to remove the trainer.
 - `Installer uninstall "C:\Battlestate Games\EFT"` to remove the trainer, adding `C:\Battlestate Games\EFT` to the search list.
-- `Installer -l <language>` to compile the trainer for a specific language (like `fr`). See the supported ones [here](https://github.com/sailro/EscapeFromTarkov-Trainer/tree/master/Properties).
+- `Installer -l <language>` to compile the trainer for a specific language (like `zh-cn` for Chinese simplified or `fr` for French). See the supported ones [here](https://github.com/sailro/EscapeFromTarkov-Trainer/tree/master/Properties).
 
 [![Sponsor](https://img.shields.io/badge/sponsor-%E2%9D%A4-lightgrey?logo=github&style=flat-square)](https://github.com/sponsors/sailro)
