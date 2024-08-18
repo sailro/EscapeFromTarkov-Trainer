@@ -189,7 +189,7 @@
     <value>status</value>
   </data>
   <data name="CommandStatusTextFormat" xml:space="preserve">
-    <value>{0} 是 {1} {2}</value>
+    <value>{0} is {1} {2}</value>
     <comment>Feature name, status, optional toggle text if a key is set</comment>
   </data>
   <data name="CommandStatusTextToggleFormat" xml:space="preserve">
@@ -343,7 +343,7 @@
     <value>无限弹药</value>
   </data>
   <data name="FeatureAmmunitionName" xml:space="preserve">
-    <value>弹药</value>
+    <value>无限弹药</value>
   </data>
   <data name="FeatureAutomaticGunDescription" xml:space="preserve">
     <value>强制所有武器(甚至是栓动步枪)使用具有可定制射击速度的自动射击模式。</value>
@@ -382,7 +382,7 @@
     <value>所有的东西都已经搜索过了。立刻搜索完成。</value>
   </data>
   <data name="FeatureExamineName" xml:space="preserve">
-    <value>搜索</value>
+    <value>快速搜索</value>
   </data>
   <data name="FeatureExfiltrationPointsDescription" xml:space="preserve">
     <value>撤离点与自定义的颜色,根据角色的撤离资格，状态过滤器，距离。</value>
@@ -431,7 +431,7 @@
     <value>阻止机器人看到你。</value>
   </data>
   <data name="FeatureGhostName" xml:space="preserve">
-    <value>幽灵</value>
+    <value>幽灵模式</value>
   </data>
   <data name="FeatureGrenadesDescription" xml:space="preserve">
     <value>手榴弹轮廓。</value>
@@ -449,7 +449,7 @@
     <value>命中标记(命中、护甲、生命值，颜色可配置)。</value>
   </data>
   <data name="FeatureHitsName" xml:space="preserve">
-    <value>命中</value>
+    <value>命中标记</value>
   </data>
   <data name="FeatureHudCoordinatesFormat" xml:space="preserve">
     <value>({0},{1})</value>
@@ -531,7 +531,7 @@
     <comment>Weapon name, health %, distance</comment>
   </data>
   <data name="FeaturePlayersName" xml:space="preserve">
-    <value>辅助视角</value>
+    <value>透视</value>
   </data>
   <data name="FeaturePointOfInterestsDistanceFormat" xml:space="preserve">
     <value>[{0}m]</value>
@@ -758,7 +758,7 @@
     <value>范围</value>
   </data>
   <data name="PropertyRate" xml:space="preserve">
-    <value>Rate</value>
+    <value>射速</value>
   </data>
   <data name="PropertyRemoveNegativeEffects" xml:space="preserve">
     <value>去除负面效果</value>
