@@ -158,7 +158,7 @@
     <value>load</value>
   </data>
   <data name="CommandLoadSuccessFormat" xml:space="preserve">
-    <value>加载 {0}</value>
+    <value>加载成功 {0}</value>
     <comment>Filename</comment>
   </data>
   <data name="CommandLoadTrackList" xml:space="preserve">
@@ -340,7 +340,7 @@
     <value>自动瞄准</value>
   </data>
   <data name="FeatureAmmunitionDescription" xml:space="preserve">
-    <value>无限弹药</value>
+    <value>武器无限弹药</value>
   </data>
   <data name="FeatureAmmunitionName" xml:space="preserve">
     <value>无限弹药</value>
@@ -349,19 +349,19 @@
     <value>强制所有武器(甚至是栓动步枪)使用具有可定制射击速度的自动射击模式。</value>
   </data>
   <data name="FeatureAutomaticGunName" xml:space="preserve">
-    <value>自动射击模式</value>
+    <value>全自动射击</value>
   </data>
   <data name="FeatureCameraDescription" xml:space="preserve">
-    <value>自由视角具有快速模式和传送等功能。</value>
+    <value>自由视角具有快速移动模式和传送等功能。</value>
   </data>
   <data name="FeatureCameraName" xml:space="preserve">
     <value>自由视角</value>
   </data>
   <data name="FeatureCommandsDescription" xml:space="preserve">
-    <value>主窗口</value>
+    <value>本功能窗口</value>
   </data>
   <data name="FeatureCommandsName" xml:space="preserve">
-    <value>命令窗口</value>
+    <value>功能窗口</value>
   </data>
   <data name="FeatureCommandsTitle" xml:space="preserve">
     <value>EFT Trainer</value>
@@ -440,7 +440,7 @@
     <value>手榴弹轮廓</value>
   </data>
   <data name="FeatureHealthDescription" xml:space="preserve">
-    <value>满生命值，防止任何伤害(即使是摔倒时)，保持能量和水分在最大限度</value>
+    <value>生命值保持满血状态，免疫任何伤害(即使是摔倒时)，具有保持能量和水分在最大限度功能</value>
   </data>
   <data name="FeatureHealthName" xml:space="preserve">
     <value>无敌</value>
@@ -584,25 +584,25 @@
     <value>技能</value>
   </data>
   <data name="FeatureSpeedDescription" xml:space="preserve">
-    <value>速度提升，能够通过墙壁/物体，或移动得更快。小心别掉出地图自杀。</value>
+    <value>速度提升，使你能够通过墙壁/物体，或移动得更快。小心别掉出地图自杀。</value>
   </data>
   <data name="FeatureSpeedName" xml:space="preserve">
-    <value>速度</value>
+    <value>移动速度</value>
   </data>
   <data name="FeatureStaminaDescription" xml:space="preserve">
-    <value>无限耐力</value>
+    <value>无限耐力；冲刺时不消耗体力，瞄准时不消耗耐力。</value>
   </data>
   <data name="FeatureStaminaName" xml:space="preserve">
     <value>无限耐力</value>
   </data>
   <data name="FeatureStashDescription" xml:space="preserve">
-    <value>显示/特殊藏匿物，如埋桶，地面贮藏物，空投物或尸体</value>
+    <value>显示/特殊藏匿物，如埋桶，地面贮藏物，空投物或尸体。</value>
   </data>
   <data name="FeatureStashName" xml:space="preserve">
     <value>显示容器</value>
   </data>
   <data name="FeatureThermalVisionDescription" xml:space="preserve">
-    <value>热成像视角</value>
+    <value>热成像视角。</value>
   </data>
   <data name="FeatureThermalVisionName" xml:space="preserve">
     <value>热成像</value>
@@ -617,13 +617,13 @@
     <value>穿墙射击</value>
   </data>
   <data name="FeatureWeatherDescription" xml:space="preserve">
-    <value>让天气晴朗。</value>
+    <value>更改天气为晴朗。</value>
   </data>
   <data name="FeatureWeatherName" xml:space="preserve">
     <value>天气晴朗</value>
   </data>
   <data name="FeatureWorldInteractiveObjectsDescription" xml:space="preserve">
-    <value>门/钥匙卡读卡器/汽车开锁</value>
+    <value>门/钥匙卡读卡器/汽车开锁；对容器按下绑定的按键，强制开锁。(即使你没有钥匙)</value>
   </data>
   <data name="FeatureWorldInteractiveObjectsName" xml:space="preserve">
     <value>开锁</value>
@@ -698,7 +698,7 @@
     <value>视场圈厚度</value>
   </data>
   <data name="PropertyFovRadius" xml:space="preserve">
-    <value>FOV半径</value>
+    <value>视场圈半径</value>
   </data>
   <data name="PropertyFreeLookSensitivity" xml:space="preserve">
     <value>自由视角灵敏度</value>
@@ -722,7 +722,7 @@
     <value>强度</value>
   </data>
   <data name="PropertyKey" xml:space="preserve">
-    <value>按键</value>
+    <value>热键</value>
   </data>
   <data name="PropertyLeft" xml:space="preserve">
     <value>左</value>
@@ -866,13 +866,13 @@
     <value>显示骨骼</value>
   </data>
   <data name="PropertySilentAim" xml:space="preserve">
-    <value>无声瞄准</value>
+    <value>自动开火</value>
   </data>
   <data name="PropertySilentAimNextShotDelay" xml:space="preserve">
-    <value>无声瞄准，下一枪延迟</value>
+    <value>自动开火，下一枪延迟</value>
   </data>
   <data name="PropertySilentAimSpeedFactor" xml:space="preserve">
-    <value>无声瞄准速度</value>
+    <value>自动开火速度</value>
   </data>
   <data name="PropertySize" xml:space="preserve">
     <value>大小</value>
@@ -908,7 +908,7 @@
     <value>X轴</value>
   </data>
   <data name="PropertyXRayVision" xml:space="preserve">
-    <value>x射线视野</value>
+    <value>X射线视野</value>
   </data>
   <data name="PropertyY" xml:space="preserve">
     <value>Y轴</value>
