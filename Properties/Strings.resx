@@ -921,4 +921,17 @@ Colors are stored as an array of 'RGBA' floats</value>
   <data name="TextSeparator" xml:space="preserve">
     <value>------</value>
   </data>
+  <data name="ErrorNoBotFound" xml:space="preserve">
+    <value>No bot found!</value>
+  </data>
+  <data name="CommandSpawnBot" xml:space="preserve">
+    <value>spawnbot</value>
+  </data>
+  <data name="ErrorTooManyBotsFormat" xml:space="preserve">
+    <value>Found {0} bots, be more specific</value>
+    <comment>Bot count &gt; 1</comment>
+  </data>
+  <data name="CommandSpawnBotEnumerateFormat" xml:space="preserve">
+    <value>{0}</value>
+  </data>
 </root>
