@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using Comfort.Common;
-using Diz.Utils;
-using EFT.CameraControl;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.Features;
 using EFT.Trainer.Properties;
