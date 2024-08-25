@@ -51,8 +51,8 @@ internal class SpawnBot : BaseTemplateCommand
 					AddConsoleLog(Strings.ErrorNoBotFound.Red());
 					return;
 				case > 1:
-					foreach (var name in names)
-						AddConsoleLog(string.Format(Strings.CommandSpawnBotEnumerateFormat, name.Green()));
+					foreach (var bot in bots)
+						AddConsoleLog(string.Format(Strings.CommandSpawnBotEnumerateFormat, bot.Green()));
 
 					AddConsoleLog(string.Format(Strings.ErrorTooManyBotsFormat, bots.Length.ToString().Cyan()));
 					return;
@@ -65,11 +65,11 @@ internal class SpawnBot : BaseTemplateCommand
 
 	private static string[] GetBotNames()
 	{
+		var filter = new[] { "test", "event", "spirit", "shooterbtr" };
+
 		return Enum
 			.GetNames(typeof(WildSpawnType))
-			.Where(n => n.Contains("boss") || n.Contains("follower"))
-			.Where(n => n.IndexOf("test", StringComparison.OrdinalIgnoreCase) < 0)
-			.Where(n => n.IndexOf("event", StringComparison.OrdinalIgnoreCase) < 0)
+			.Where(n => !filter.Any(f => n.IndexOf(f, StringComparison.OrdinalIgnoreCase) >= 0))
 			.OrderBy(n => n)
 			.ToArray();
 	}
