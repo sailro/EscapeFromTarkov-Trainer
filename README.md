@@ -102,53 +102,54 @@ For newer versions, copy `aki-efttrainer.dll` (this is the compiled code for the
 
 This trainer hooks into the command system, so you can easily setup features using the built-in console:
 
-| Command    | Values              | Default | Description                         |
-|------------|---------------------|---------|-------------------------------------|
-| ammo       | `on` or `off`       | `off`   | Enable/Disable unlimited ammo       |
-| autogun    | `on` or `off`       | `off`   | Enable/Disable automatic gun mode   |
-| crosshair  | `on` or `off`       | `off`   | Show/Hide crosshair                 |
-| dump       |                     |         | Dump game state for analysis        |
-| durability | `on` or `off`       | `off`   | Enable/Disable maximum durability   |
-| examine    | `on` or `off`       | `off`   | Enable/Disable all item examined    |
-| exfil      | `on` or `off`       | `on`    | Show/Hide exfiltration points       |
-| fovchanger | `on` or `off`       | `off`   | Change FOV value                    |
-| ghost      | `on` or `off`       | `off`   | Enable/Disable ghost mode           |
-| grenade    | `on` or `off`       | `off`   | Show/Hide grenades                  |
-| health     | `on` or `off`       | `off`   | Enable/Disable full health          |
-| hits       | `on` or `off`       | `off`   | Show/Hide hit markers               |
-| hud        | `on` or `off`       | `on`    | Show/Hide hud                       |
-| interact   | `on` or `off`       | `off`   | Enable/Disable interaction changes  |
-| list       | `[name]` or `*`     |         | List lootable items                 |
-| listr      | `[name]` or `*`     |         | List only rare lootable items       |
-| listsr     | `[name]` or `*`     |         | List only super rare lootable items |
-| load       |                     |         | Load settings from `trainer.ini`    |
-| loadtl     | `[filename]`        |         | Load current tracklist from file    |
-| loot       | `on` or `off`       |         | Show/Hide tracked items             |
-| night      | `on` or `off`       | `off`   | Enable/Disable night vision         |
-| nocoll     | `on` or `off`       | `off`   | Disable/Enable physical collisions  |
-| nomal      | `on` or `off`       | `off`   | Disable/Enable weapon malfunctions  |
-| norecoil   | `on` or `off`       | `off`   | Disable/Enable recoil               |
-| nosway     | `on` or `off`       | `off`   | Disable/Enable sway                 |
-| novisor    | `on` or `off`       | `off`   | Disable/Enable visor                |
-| quest      | `on` or `off`       | `off`   | Show/Hide quest POI                 |
-| radar      | `on` or `off`       | `off`   | Show/Hide radar                     |
-| save       |                     |         | Save settings to `trainer.ini`      |
-| savetl     | `[filename]`        |         | Save current tracklist to file      |
-| spawn      | `[name]`            |         | Spawn object in front of player     |
-| stamina    | `on` or `off`       | `off`   | Enable/Disable unlimited stamina    |
-| stash      | `on` or `off`       | `off`   | Show/Hide stashes                   |
-| status     |                     |         | Show status of all features         |
-| template   | `[name]`            |         | Search for templates by short/name  |
-| thermal    | `on` or `off`       | `off`   | Enable/Disable thermal vision       |
-| track      | `[name]` or `*`     |         | Track all items matching `name`     |
-| track      | `[name]` `<color>`  |         | Ex: track `roler` `red`             |
-| track      | `[name]` `<rgba>`   |         | Ex: track `roler` `[1,1,1,0.5]`     |
-| trackr     | same as `track`     |         | Track rare items only               |
-| tracksr    | same as `track`     |         | Track super rare items only         |
-| tracklist  |                     |         | Show tracked items                  |
-| untrack    | `[name]` or `*`     |         | Untrack a `name` or `*` for all     |
-| wallhack   | `on` or `off`       | `on`    | Show/hide players                   |
-| wallshoot  | `on` or `off`       | `on`    | Enable/Disable shoot through walls  |
+| Command    | Values              | Default | Description                          |
+|------------|---------------------|---------|--------------------------------------|
+| ammo       | `on` or `off`       | `off`   | Enable/Disable unlimited ammo        |
+| autogun    | `on` or `off`       | `off`   | Enable/Disable automatic gun mode    |
+| crosshair  | `on` or `off`       | `off`   | Show/Hide crosshair                  |
+| dump       |                     |         | Dump game state for analysis         |
+| durability | `on` or `off`       | `off`   | Enable/Disable maximum durability    |
+| examine    | `on` or `off`       | `off`   | Enable/Disable all item examined     |
+| exfil      | `on` or `off`       | `on`    | Show/Hide exfiltration points        |
+| fovchanger | `on` or `off`       | `off`   | Change FOV value                     |
+| ghost      | `on` or `off`       | `off`   | Enable/Disable ghost mode            |
+| grenade    | `on` or `off`       | `off`   | Show/Hide grenades                   |
+| health     | `on` or `off`       | `off`   | Enable/Disable full health           |
+| hits       | `on` or `off`       | `off`   | Show/Hide hit markers                |
+| hud        | `on` or `off`       | `on`    | Show/Hide hud                        |
+| interact   | `on` or `off`       | `off`   | Enable/Disable interaction changes   |
+| list       | `[name]` or `*`     |         | List lootable items                  |
+| listr      | `[name]` or `*`     |         | List only rare lootable items        |
+| listsr     | `[name]` or `*`     |         | List only super rare lootable items  |
+| load       |                     |         | Load settings from `trainer.ini`     |
+| loadtl     | `[filename]`        |         | Load current tracklist from file     |
+| loot       | `on` or `off`       |         | Show/Hide tracked items              |
+| night      | `on` or `off`       | `off`   | Enable/Disable night vision          |
+| nocoll     | `on` or `off`       | `off`   | Disable/Enable physical collisions   |
+| nomal      | `on` or `off`       | `off`   | Disable/Enable weapon malfunctions   |
+| norecoil   | `on` or `off`       | `off`   | Disable/Enable recoil                |
+| nosway     | `on` or `off`       | `off`   | Disable/Enable sway                  |
+| novisor    | `on` or `off`       | `off`   | Disable/Enable visor                 |
+| quest      | `on` or `off`       | `off`   | Show/Hide quest POI                  |
+| radar      | `on` or `off`       | `off`   | Show/Hide radar                      |
+| save       |                     |         | Save settings to `trainer.ini`       |
+| savetl     | `[filename]`        |         | Save current tracklist to file       |
+| spawn      | `[name]`            |         | Spawn object in front of player      |
+| spawnbot   | `[name]` or `*`     |         | Spawn a bot, ex `spawnbot bossKilla` |
+| stamina    | `on` or `off`       | `off`   | Enable/Disable unlimited stamina     |
+| stash      | `on` or `off`       | `off`   | Show/Hide stashes                    |
+| status     |                     |         | Show status of all features          |
+| template   | `[name]`            |         | Search for templates by short/name   |
+| thermal    | `on` or `off`       | `off`   | Enable/Disable thermal vision        |
+| track      | `[name]` or `*`     |         | Track all items matching `name`      |
+| track      | `[name]` `<color>`  |         | Ex: track `roler` `red`              |
+| track      | `[name]` `<rgba>`   |         | Ex: track `roler` `[1,1,1,0.5]`      |
+| trackr     | same as `track`     |         | Track rare items only                |
+| tracksr    | same as `track`     |         | Track super rare items only          |
+| tracklist  |                     |         | Show tracked items                   |
+| untrack    | `[name]` or `*`     |         | Untrack a `name` or `*` for all      |
+| wallhack   | `on` or `off`       | `on`    | Show/hide players                    |
+| wallshoot  | `on` or `off`       | `on`    | Enable/Disable shoot through walls   |
 
 ## Translations
 
