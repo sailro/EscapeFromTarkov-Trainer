@@ -243,6 +243,24 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to spawnbot.
+        /// </summary>
+        internal static string CommandSpawnBot {
+            get {
+                return ResourceManager.GetString("CommandSpawnBot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0}.
+        /// </summary>
+        internal static string CommandSpawnBotEnumerateFormat {
+            get {
+                return ResourceManager.GetString("CommandSpawnBotEnumerateFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to status.
         /// </summary>
         internal static string CommandStatus {
@@ -594,11 +612,29 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No bot found!.
+        /// </summary>
+        internal static string ErrorNoBotFound {
+            get {
+                return ResourceManager.GetString("ErrorNoBotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No template found!.
         /// </summary>
         internal static string ErrorNoTemplateFound {
             get {
                 return ResourceManager.GetString("ErrorNoTemplateFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Found {0} bots, be more specific.
+        /// </summary>
+        internal static string ErrorTooManyBotsFormat {
+            get {
+                return ResourceManager.GetString("ErrorTooManyBotsFormat", resourceCulture);
             }
         }
         

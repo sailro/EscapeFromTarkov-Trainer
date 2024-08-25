@@ -922,4 +922,17 @@
   <data name="TextSeparator" xml:space="preserve">
     <value>------</value>
   </data>
+  <data name="ErrorNoBotFound" xml:space="preserve">
+    <value>未找到机器人!</value>
+  </data>
+  <data name="CommandSpawnBot" xml:space="preserve">
+    <value>spawnbot</value>
+  </data>
+  <data name="ErrorTooManyBotsFormat" xml:space="preserve">
+    <value>发现{0}个机器人，更具体一点</value>
+    <comment>Bot count &gt; 1</comment>
+  </data>
+  <data name="CommandSpawnBotEnumerateFormat" xml:space="preserve">
+    <value>{0}</value>
+  </data>
 </root>

@@ -921,4 +921,17 @@ Les couleurs sont stockées sous la forme d'un tableau de valeurs flottantes 'RG
   <data name="TextSeparator" xml:space="preserve">
     <value>------</value>
   </data>
+  <data name="ErrorNoBotFound" xml:space="preserve">
+    <value>Auncun bot trouvé!</value>
+  </data>
+  <data name="CommandSpawnBot" xml:space="preserve">
+    <value>spawnbot</value>
+  </data>
+  <data name="ErrorTooManyBotsFormat" xml:space="preserve">
+    <value>{0} bots trouvés, essayez d'être plus spécficique</value>
+    <comment>Bot count &gt; 1</comment>
+  </data>
+  <data name="CommandSpawnBotEnumerateFormat" xml:space="preserve">
+    <value>{0}</value>
+  </data>
 </root>
