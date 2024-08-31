@@ -15,11 +15,6 @@ internal class SceneDumper
 	{
 		public string? Name;
 
-		[UsedImplicitly]
-		public NamedData()
-		{
-		}
-
 		public override string ToString()
 		{
 			return Name ?? string.Empty;
@@ -56,11 +51,6 @@ internal class SceneDumper
 	public class ComponentData
 	{
 		public string? Type;
-
-		[UsedImplicitly]
-		public ComponentData()
-		{
-		}
 
 		public override string ToString()
 		{

@@ -29,6 +29,7 @@ internal class Health : ToggleFeature
 
 	private static readonly Array _bodyParts = Enum.GetValues(typeof(EBodyPart));
 
+#pragma warning disable IDE0060
 	[UsedImplicitly]
 	protected static bool ApplyDamagePrefix(EBodyPart bodyPart, ActiveHealthController? __instance, ref float __result)
 	{
@@ -44,6 +45,7 @@ internal class Health : ToggleFeature
 	{
 		return UseBuiltinDamageLogic(__instance, part);
 	}
+#pragma warning restore IDE0060
 
 	protected static bool UseBuiltinDamageLogic(Player? player, EBodyPart bodyPart)
 	{

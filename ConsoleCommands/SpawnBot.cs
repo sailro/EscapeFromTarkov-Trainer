@@ -67,10 +67,9 @@ internal class SpawnBot : BaseTemplateCommand
 	{
 		var filter = new[] { "test", "event", "spirit", "shooterbtr" };
 
-		return Enum
+		return [.. Enum
 			.GetNames(typeof(WildSpawnType))
 			.Where(n => !filter.Any(f => n.IndexOf(f, StringComparison.OrdinalIgnoreCase) >= 0))
-			.OrderBy(n => n)
-			.ToArray();
+			.OrderBy(n => n)];
 	}
 }

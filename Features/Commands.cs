@@ -29,7 +29,7 @@ internal class Commands : FeatureRenderer
 	public override KeyCode Key { get; set; } = KeyCode.RightAlt;
 
 	private bool Registered { get; set; } = false;
-	private Dictionary<string, string> PropertyDisplays { get; } = new();
+	private Dictionary<string, string> PropertyDisplays { get; } = [];
 
 	protected override void Update()
 	{

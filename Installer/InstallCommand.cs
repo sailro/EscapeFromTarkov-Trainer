@@ -281,7 +281,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 						.GetResources(context)
 						.ToArray();
 
-					if (compiler.IsLocalizationSupported() && !resources.Any())
+					if (compiler.IsLocalizationSupported() && resources.Length == 0)
 					{
 						AnsiConsole.MarkupLine($"[yellow]Warning: no localization support for language '{context.Language.EscapeMarkup()}'.[/]");
 						compilation = null;
