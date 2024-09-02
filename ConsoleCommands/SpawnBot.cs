@@ -51,7 +51,7 @@ internal class SpawnBot : BaseTemplateCommand
 					AddConsoleLog(Strings.ErrorNoBotFound.Red());
 					return;
 				case > 1:
-					var exactMatch = names
+					var exactMatch = bots
 						.Where(n => n.Equals(search, StringComparison.OrdinalIgnoreCase))
 						.ToArray();
 
