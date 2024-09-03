@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Text.RegularExpressions;
 using Comfort.Common;
@@ -51,6 +51,15 @@ internal class SpawnBot : BaseTemplateCommand
 					AddConsoleLog(Strings.ErrorNoBotFound.Red());
 					return;
 				case > 1:
+					var exactMatch = bots
+						.Where(n => n.Equals(search, StringComparison.OrdinalIgnoreCase))
+						.ToArray();
+
+					if (exactMatch.Length == 1)
+					{
+						bots = exactMatch;
+						break;
+					}
 					foreach (var bot in bots)
 						AddConsoleLog(string.Format(Strings.CommandSpawnBotEnumerateFormat, bot.Green()));
 
