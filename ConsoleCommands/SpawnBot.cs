@@ -3,7 +3,6 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using Comfort.Common;
 using EFT.Trainer.Extensions;
-using EFT.Trainer.Features;
 using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 
@@ -24,52 +23,55 @@ internal class SpawnBot : BaseTemplateCommand
 		if (matchGroup is not { Success: true })
 			return;
 
-		var player = GameState.Current?.LocalPlayer;
-		if (player == null)
-			return;
-
 		var search = matchGroup.Value.Trim();
+		var bots = FindBots(search);
+
+		switch (bots.Length)
+		{
+			case 0:
+				AddConsoleLog(Strings.ErrorNoBotFound.Red());
+				return;
+
+			case > 1 when search != MatchAll:
+				foreach (var bot in bots)
+					AddConsoleLog(string.Format(Strings.CommandSpawnBotEnumerateFormat, bot.Green()));
+
+				AddConsoleLog(string.Format(Strings.ErrorTooManyBotsFormat, bots.Length.ToString().Cyan()));
+				return;
+		}
+
+		SpawnBots(bots);
+	}
+
+	private static void SpawnBots(string[] bots)
+	{
 		var instance = Singleton<IBotGame>.Instance;
 		if (instance == null)
 			return;
 
-		var names = GetBotNames();
-
-		var bots = names
-			.Where(n => n.IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0)
-			.ToArray();
-
-		if (search == MatchAll)
-		{
-			bots = names;
-		}
-		else
-		{
-			switch (bots.Length)
-			{
-				case 0:
-					AddConsoleLog(Strings.ErrorNoBotFound.Red());
-					return;
-				case > 1:
-					var exactMatch = bots
-						.Where(n => n.Equals(search, StringComparison.OrdinalIgnoreCase))
-						.ToArray();
-
-					if (exactMatch.Length == 1)
-					{
-						bots = exactMatch;
-						break;
-					}
-					foreach (var bot in bots)
-						AddConsoleLog(string.Format(Strings.CommandSpawnBotEnumerateFormat, bot.Green()));
-
-					AddConsoleLog(string.Format(Strings.ErrorTooManyBotsFormat, bots.Length.ToString().Cyan()));
-					return;
-			}
-		}
+		var controller = instance.BotsController;
 
 		foreach (var bot in bots)
-			instance.BotsController.SpawnBotDebugServer(EPlayerSide.Savage, false, (WildSpawnType)Enum.Parse(typeof(WildSpawnType), bot), BotDifficulty.normal, true);
+			controller.SpawnBotDebugServer(EPlayerSide.Savage, false, (WildSpawnType)Enum.Parse(typeof(WildSpawnType), bot), BotDifficulty.normal, true);
+	}
+
+	private static string[] FindBots(string search)
+	{
+		var names = GetBotNames();
+
+		if (search == MatchAll)
+			return names;
+
+		var exactMatch = names
+			.Where(n => n.Equals(search, StringComparison.OrdinalIgnoreCase))
+			.ToArray();
+
+		if (exactMatch.Length == 1)
+			return exactMatch;
+
+		return names
+			.Where(n => n.IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0)
+			.ToArray();
 	}
 
 	private static string[] GetBotNames()
