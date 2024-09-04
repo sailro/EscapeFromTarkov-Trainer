@@ -934,4 +934,7 @@ Colors are stored as an array of 'RGBA' floats</value>
   <data name="CommandSpawnBotEnumerateFormat" xml:space="preserve">
     <value>{0}</value>
   </data>
+  <data name="CommandSpawnQuestItems" xml:space="preserve">
+    <value>spawnqi</value>
+  </data>
 </root>

@@ -11,10 +11,11 @@ using JetBrains.Annotations;
 namespace EFT.Trainer.ConsoleCommands;
 
 [UsedImplicitly]
-internal class SpawnBot : BaseTemplateCommand
+internal class SpawnBot : ConsoleCommandWithArgument
 {
 	public const string MatchAll = "*";
 
+	public override string Pattern => RequiredArgumentPattern;
 	public override string Name => Strings.CommandSpawnBot;
 
 	public override void Execute(Match match)

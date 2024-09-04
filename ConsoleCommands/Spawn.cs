@@ -1,13 +1,17 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Comfort.Common;
 using Diz.Utils;
 using EFT.CameraControl;
+using EFT.InventoryLogic;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.Features;
 using EFT.Trainer.Properties;
 using JetBrains.Annotations;
+using UnityEngine;
+using Random = UnityEngine.Random;
 
 #nullable enable
 
@@ -29,7 +33,7 @@ internal class Spawn : BaseTemplateCommand
 			return;
 
 		var search = matchGroup.Value;
-		var templates = FindTemplates(search).ToArray();
+		var templates = FindTemplates(search);
 
 		switch (templates.Length)
 		{
@@ -45,25 +49,41 @@ internal class Spawn : BaseTemplateCommand
 		}
 
 		var tpl = templates[0];
+		SpawnTemplate(tpl, player, this);
+	}
+
+	internal static void SpawnTemplate(string template, Player player, ConsoleCommand command, Func<ItemTemplate, bool> filter)
+	{
+		var result = FindTemplates(template)
+			.FirstOrDefault(filter);
+
+		if (result == null)
+			return;
+
+		SpawnTemplate(result, player, command);
+	}
+
+	private static void SpawnTemplate(ItemTemplate template, Player player, ConsoleCommand command)
+	{
 		var poolManager = Singleton<PoolManager>.Instance;
 
 		poolManager
-			.LoadBundlesAndCreatePools(PoolManager.PoolsCategory.Raid, PoolManager.AssemblyType.Online, [.. tpl.AllResources], JobPriority.Immediate)
+			.LoadBundlesAndCreatePools(PoolManager.PoolsCategory.Raid, PoolManager.AssemblyType.Online, [.. template.AllResources], JobPriority.Immediate)
 			.ContinueWith(task =>
 			{
 				AsyncWorker.RunInMainTread(delegate
 				{
 					if (task.IsFaulted)
 					{
-						AddConsoleLog(Strings.ErrorFailedToLoadItemBundle.Red());
+						command.AddConsoleLog(Strings.ErrorFailedToLoadItemBundle.Red());
 					}
 					else
 					{
 						var itemFactory = Singleton<ItemFactory>.Instance;
-						var item = itemFactory.CreateItem(MongoID.Generate(), tpl._id, null);
+						var item = itemFactory.CreateItem(MongoID.Generate(), template._id, null);
 						if (item == null)
 						{
-							AddConsoleLog(Strings.ErrorFailedToCreateItem.Red());
+							command.AddConsoleLog(Strings.ErrorFailedToCreateItem.Red());
 						}
 						else
 						{
@@ -74,7 +94,14 @@ internal class Spawn : BaseTemplateCommand
 
 							go.SetActive(value: true);
 							var lootItem = Singleton<GameWorld>.Instance.CreateLootWithRigidbody(go, item, item.ShortName, Singleton<GameWorld>.Instance, randomRotation: false, null, out _);
-							lootItem.transform.SetPositionAndRotation(player.Transform.position + player.Transform.forward * 2f + player.Transform.up * 0.5f, player.Transform.rotation);
+
+							var transform = player.Transform;
+							var position = transform.position
+										   + transform.right * Random.Range(-1f, 1f)
+										   + transform.forward * 2f
+										   + transform.up * 0.5f;
+
+							lootItem.transform.SetPositionAndRotation(position, transform.rotation);
 							lootItem.LastOwner = player;
 						}
 					}

@@ -934,4 +934,7 @@ Les couleurs sont stockées sous la forme d'un tableau de valeurs flottantes 'RG
   <data name="CommandSpawnBotEnumerateFormat" xml:space="preserve">
     <value>{0}</value>
   </data>
+  <data name="CommandSpawnQuestItems" xml:space="preserve">
+    <value>spawnqi</value>
+  </data>
 </root>

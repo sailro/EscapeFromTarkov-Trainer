@@ -12,7 +12,7 @@ internal abstract class BaseTemplateCommand : ConsoleCommandWithArgument
 {
 	public override string Pattern => RequiredArgumentPattern;
 
-	protected static IEnumerable<ItemTemplate> FindTemplates(string searchShortNameOrTemplateId)
+	protected static ItemTemplate[] FindTemplates(string searchShortNameOrTemplateId)
 	{
 		if (!Singleton<ItemFactory>.Instantiated)
 			return [];
@@ -29,6 +29,7 @@ internal abstract class BaseTemplateCommand : ConsoleCommandWithArgument
 		return templates
 			.Values
 			.Where(t => t.ShortNameLocalizationKey.Localized().IndexOf(searchShortNameOrTemplateId, StringComparison.OrdinalIgnoreCase) >= 0
-						|| t.NameLocalizationKey.Localized().IndexOf(searchShortNameOrTemplateId, StringComparison.OrdinalIgnoreCase) >= 0);
+						|| t.NameLocalizationKey.Localized().IndexOf(searchShortNameOrTemplateId, StringComparison.OrdinalIgnoreCase) >= 0)
+			.ToArray();
 	}
 }
