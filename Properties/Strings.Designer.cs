@@ -261,6 +261,15 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to spawnqi.
+        /// </summary>
+        internal static string CommandSpawnQuestItems {
+            get {
+                return ResourceManager.GetString("CommandSpawnQuestItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to status.
         /// </summary>
         internal static string CommandStatus {
