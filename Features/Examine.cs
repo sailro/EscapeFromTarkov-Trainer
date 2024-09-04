@@ -36,7 +36,7 @@ internal class Examine : ToggleFeature
 		if (player == null)
 			return true;
 
-		__instance.UncoverAll(player.ProfileId);
+		//__instance.UncoverAll(player.ProfileId);
 		return true;
 	}
 
@@ -47,7 +47,7 @@ internal class Examine : ToggleFeature
 		{
 			HarmonyPrefix(harmony, typeof(Profile), nameof(Profile.Examined), nameof(ExaminedPrefix), [typeof(string)]);
 			HarmonyPrefix(harmony, typeof(Profile), nameof(Profile.Examined), nameof(ExaminedPrefix), [typeof(Item)]);
-			HarmonyPrefix(harmony, typeof(SearchableItemClass), nameof(SearchableItemClass.GetSearchState), nameof(GetSearchStatePrefix));
+			//HarmonyPrefix(harmony, typeof(SearchableItemClass), nameof(SearchableItemClass.GetSearchState), nameof(GetSearchStatePrefix));
 		});
 	}
 }

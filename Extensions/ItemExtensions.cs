@@ -21,16 +21,16 @@ public static class ItemExtensions
 		if (ItemViewFactory.IsSecureContainer(item))
 			return true;
 
-		if (item.CurrentAddress?.Container is { ParentItem.TemplateId: KnownTemplateIds.BossContainer })
+		if (item.CurrentAddress?.Container?.ParentItem?.TemplateId == (MongoID)KnownTemplateIds.BossContainer)
 			return true;
 
-		return item.TemplateId switch
-		{
-			KnownTemplateIds.DefaultInventory or KnownTemplateIds.Pockets => true,
-			_ => false
-			// KnownTemplateIds.Dollars or KnownTemplateIds.Euros or KnownTemplateIds.Roubles => false,
-			// Incompatible with extra mods like AllInOne, setting item weight to zero
-			//_ => item.Weight <= 0f,// easy way to remove special items like "Pockets" or "Default Inventory"
-		};
+		if (item.TemplateId == (MongoID)KnownTemplateIds.DefaultInventory || item.TemplateId == (MongoID)KnownTemplateIds.Pockets)
+			return true;
+
+		// KnownTemplateIds.Dollars or KnownTemplateIds.Euros or KnownTemplateIds.Roubles => false,
+		// Incompatible with extra mods like AllInOne, setting item weight to zero
+		//_ => item.Weight <= 0f,// easy way to remove special items like "Pockets" or "Default Inventory"
+
+		return false;
 	}
 }

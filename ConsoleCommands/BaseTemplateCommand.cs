@@ -14,10 +14,10 @@ internal abstract class BaseTemplateCommand : ConsoleCommandWithArgument
 
 	protected static ItemTemplate[] FindTemplates(string searchShortNameOrTemplateId)
 	{
-		if (!Singleton<ItemFactory>.Instantiated)
+		if (!Singleton<ItemFactoryClass>.Instantiated)
 			return [];
 
-		var templates = Singleton<ItemFactory>
+		var templates = Singleton<ItemFactoryClass>
 			.Instance
 			.ItemTemplates;
 

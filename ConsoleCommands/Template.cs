@@ -20,7 +20,7 @@ internal class Template : BaseTemplateCommand
 		if (matchGroup is not { Success: true })
 			return;
 
-		if (!Singleton<ItemFactory>.Instantiated)
+		if (!Singleton<ItemFactoryClass>.Instantiated)
 			return;
 
 		var search = matchGroup.Value;

@@ -79,7 +79,7 @@ internal class Spawn : BaseTemplateCommand
 					}
 					else
 					{
-						var itemFactory = Singleton<ItemFactory>.Instance;
+						var itemFactory = Singleton<ItemFactoryClass>.Instance;
 						var item = itemFactory.CreateItem(MongoID.Generate(), template._id, null);
 						if (item == null)
 						{
@@ -93,7 +93,7 @@ internal class Spawn : BaseTemplateCommand
 							var go = poolManager.CreateLootPrefab(item, ECameraType.Default);
 
 							go.SetActive(value: true);
-							var lootItem = Singleton<GameWorld>.Instance.CreateLootWithRigidbody(go, item, item.ShortName, Singleton<GameWorld>.Instance, randomRotation: false, null, out _);
+							var lootItem = Singleton<GameWorld>.Instance.CreateLootWithRigidbody(go, item, item.ShortName, randomRotation: false, null, out _, true);
 
 							var transform = player.Transform;
 							var position = transform.position
