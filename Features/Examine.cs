@@ -3,7 +3,6 @@ using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using static EFT.Player;
 
-
 #nullable enable
 
 namespace EFT.Trainer.Features;
