@@ -1,13 +1,6 @@
-﻿using System;
-using System.Linq;
-using EFT.InventoryLogic;
-using EFT.InventoryLogic.Operations;
-using EFT.Trainer.Extensions;
+﻿using EFT.InventoryLogic;
 using EFT.Trainer.Properties;
-using GPUInstancer;
-using HarmonyLib;
 using JetBrains.Annotations;
-using UnityEngine.Profiling;
 using static EFT.Player;
 
 
