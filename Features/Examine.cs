@@ -29,6 +29,10 @@ internal class Examine : ToggleFeature
 	[UsedImplicitly]
 	protected static bool SinglePlayerInventoryControllerConstructorPrefix(Player player, Profile profile, ref bool examined)
 	{
+		var feature = FeatureFactory.GetFeature<Examine>();
+		if (feature == null || !feature.Enabled)
+			return true; // keep using original code, we are not enabled
+
 		// this will make the game use the passthrough type implementing IPlayerSearchController, ISearchController with all items known and searched
 		examined = true;
 		return true;
