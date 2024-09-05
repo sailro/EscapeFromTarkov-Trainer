@@ -1,6 +1,15 @@
-﻿using EFT.InventoryLogic;
+﻿using System;
+using System.Linq;
+using EFT.InventoryLogic;
+using EFT.InventoryLogic.Operations;
+using EFT.Trainer.Extensions;
 using EFT.Trainer.Properties;
+using GPUInstancer;
+using HarmonyLib;
 using JetBrains.Annotations;
+using UnityEngine.Profiling;
+using static EFT.Player;
+
 
 #nullable enable
 
@@ -22,24 +31,16 @@ internal class Examine : ToggleFeature
 			return true; // keep using original code, we are not enabled
 
 		__result = true;
-		return false;  // skip the original code and all other prefix methods 
+		return false; // skip the original code and all other prefix methods 
 	}
 
 	[UsedImplicitly]
-	protected static bool GetSearchStatePrefix(SearchableItemClass __instance)
+	protected static bool SinglePlayerInventoryControllerConstructorPrefix(Player player, Profile profile, ref bool examined)
 	{
-		var feature = FeatureFactory.GetFeature<Examine>();
-		if (feature == null || !feature.Enabled)
-			return true; // keep using original code, we are not enabled
-
-		var player = GameState.Current?.LocalPlayer;
-		if (player == null)
-			return true;
-
-		//__instance.UncoverAll(player.ProfileId);
+		// this will make the game use the passthrough type implementing IPlayerSearchController, ISearchController with all items known and searched
+		examined = true;
 		return true;
 	}
-
 
 	protected override void UpdateWhenEnabled()
 	{
@@ -47,7 +48,7 @@ internal class Examine : ToggleFeature
 		{
 			HarmonyPrefix(harmony, typeof(Profile), nameof(Profile.Examined), nameof(ExaminedPrefix), [typeof(string)]);
 			HarmonyPrefix(harmony, typeof(Profile), nameof(Profile.Examined), nameof(ExaminedPrefix), [typeof(Item)]);
-			//HarmonyPrefix(harmony, typeof(SearchableItemClass), nameof(SearchableItemClass.GetSearchState), nameof(GetSearchStatePrefix));
+			HarmonyConstructorPrefix(harmony, typeof(SinglePlayerInventoryController), nameof(SinglePlayerInventoryControllerConstructorPrefix), [typeof(Player), typeof(Profile), typeof(bool)]);
 		});
 	}
 }
