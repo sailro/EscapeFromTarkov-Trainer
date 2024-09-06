@@ -2313,6 +2313,15 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Track Auto Wishlist.
+        /// </summary>
+        internal static string PropertyTrackAutoWishlist {
+            get {
+                return ResourceManager.GetString("PropertyTrackAutoWishlist", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Example: [&quot;foo&quot;, &quot;bar&quot;] or with extended properties: [{&quot;Name&quot;:&quot;foo&quot;,&quot;Color&quot;:[1.0,0.0,0.0,1.0]},{&quot;Name&quot;:&quot;bar&quot;,&quot;Color&quot;:[1.0,1.0,1.0,0.8],&quot;Rarity&quot;:&quot;Rare&quot;}].
         /// </summary>
         internal static string PropertyTrackedNamesComment {

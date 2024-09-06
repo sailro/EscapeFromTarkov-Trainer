@@ -937,4 +937,7 @@ Colors are stored as an array of 'RGBA' floats</value>
   <data name="CommandSpawnQuestItems" xml:space="preserve">
     <value>spawnqi</value>
   </data>
+  <data name="PropertyTrackAutoWishlist" xml:space="preserve">
+    <value>Track Auto Wishlist</value>
+  </data>
 </root>

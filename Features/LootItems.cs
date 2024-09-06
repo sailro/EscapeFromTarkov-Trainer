@@ -7,7 +7,6 @@ using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.Properties;
-using EFT.UI;
 using JsonType;
 using UnityEngine;
 
@@ -38,6 +37,9 @@ internal class LootItems : PointOfInterests
 
 	[ConfigurationProperty]
 	public bool TrackWishlist { get; set; } = false;
+
+	[ConfigurationProperty]
+	public bool TrackAutoWishlist { get; set; } = false;
 
 	public override float CacheTimeInSec { get; set; } = 3f;
 	public override Color GroupingColor => Color;
@@ -71,7 +73,7 @@ internal class LootItems : PointOfInterests
 
 	private HashSet<string> RefreshWishlist()
 	{
-		if (!TrackWishlist)
+		if (!TrackWishlist && !TrackAutoWishlist)
 			return [];
 
 		var player = GameState.Current?.LocalPlayer;
@@ -82,7 +84,13 @@ internal class LootItems : PointOfInterests
 		if (manager == null)
 			return [];
 
-		return [.. manager.UserItems.Keys];
+		return TrackWishlist switch
+		{
+			true when TrackAutoWishlist => [.. manager.GetWishlist().Keys], // this will get user items + auto-add hideout items if enabled in settings
+			true when !TrackAutoWishlist => [.. manager.UserItems.Keys],    // this will get user items only
+			false when TrackAutoWishlist => [.. manager.GetWishlist().Keys.Except(manager.UserItems.Keys)],
+			_ => []
+		};
 	}
 
 	public override void RefreshData(List<PointOfInterest> data)

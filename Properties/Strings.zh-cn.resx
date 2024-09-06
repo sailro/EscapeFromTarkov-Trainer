@@ -938,4 +938,7 @@
   <data name="CommandSpawnQuestItems" xml:space="preserve">
     <value>spawnqi</value>
   </data>
+  <data name="PropertyTrackAutoWishlist" xml:space="preserve">
+    <value>跟踪汽车愿望清单</value>
+  </data>
 </root>

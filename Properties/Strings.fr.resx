@@ -937,4 +937,7 @@ Les couleurs sont stockées sous la forme d'un tableau de valeurs flottantes 'RG
   <data name="CommandSpawnQuestItems" xml:space="preserve">
     <value>spawnqi</value>
   </data>
+  <data name="PropertyTrackAutoWishlist" xml:space="preserve">
+    <value>Suivre la liste de souhaits auto</value>
+  </data>
 </root>
