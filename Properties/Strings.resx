@@ -940,4 +940,7 @@ Colors are stored as an array of 'RGBA' floats</value>
   <data name="PropertyTrackAutoWishlist" xml:space="preserve">
     <value>Track Auto Wishlist</value>
   </data>
+  <data name="CommandSpawnHideoutItems" xml:space="preserve">
+    <value>spawnhi</value>
+  </data>
 </root>

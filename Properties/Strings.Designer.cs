@@ -261,6 +261,15 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to spawnhi.
+        /// </summary>
+        internal static string CommandSpawnHideoutItems {
+            get {
+                return ResourceManager.GetString("CommandSpawnHideoutItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to spawnqi.
         /// </summary>
         internal static string CommandSpawnQuestItems {

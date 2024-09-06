@@ -940,4 +940,7 @@ Les couleurs sont stockées sous la forme d'un tableau de valeurs flottantes 'RG
   <data name="PropertyTrackAutoWishlist" xml:space="preserve">
     <value>Suivre la liste de souhaits auto</value>
   </data>
+  <data name="CommandSpawnHideoutItems" xml:space="preserve">
+    <value>spawnhi</value>
+  </data>
 </root>

@@ -941,4 +941,7 @@
   <data name="PropertyTrackAutoWishlist" xml:space="preserve">
     <value>跟踪汽车愿望清单</value>
   </data>
+  <data name="CommandSpawnHideoutItems" xml:space="preserve">
+    <value>spawnhi</value>
+  </data>
 </root>

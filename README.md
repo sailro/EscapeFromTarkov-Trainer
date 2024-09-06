@@ -136,6 +136,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | savetl     | `[filename]`        |         | Save current tracklist to file       |
 | spawn      | `[name]`            |         | Spawn object in front of player      |
 | spawnbot   | `[name]` or `*`     |         | Spawn a bot, ex `spawnbot bossKilla` |
+| spawnhi    |                     |         | Spawn required hideout items         |
 | spawnqi    |                     |         | Spawn items-to-find in active quests |
 | stamina    | `on` or `off`       | `off`   | Enable/Disable unlimited stamina     |
 | stash      | `on` or `off`       | `off`   | Show/Hide stashes                    |
