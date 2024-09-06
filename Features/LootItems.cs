@@ -71,19 +71,18 @@ internal class LootItems : PointOfInterests
 
 	private HashSet<string> RefreshWishlist()
 	{
-		var result = new HashSet<string>();
 		if (!TrackWishlist)
-			return result;
+			return [];
 
-		var uiContextInstance = ItemUiContext.Instance; // warning instance is a MonoBehavior so no null propagation permitted
-		if (uiContextInstance == null)
-			return result;
+		var player = GameState.Current?.LocalPlayer;
+		if (!player.IsValid())
+			return [];
 
-		var rawWishList = uiContextInstance.Session?.RagFair?.Wishlist;
-		if (rawWishList == null)
-			return result;
+		var manager = player.Profile?.WishlistManager;
+		if (manager == null)
+			return [];
 
-		return [.. rawWishList.Keys];
+		return [.. manager.UserItems.Keys];
 	}
 
 	public override void RefreshData(List<PointOfInterest> data)
