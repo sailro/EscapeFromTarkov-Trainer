@@ -531,7 +531,7 @@
     <comment>Weapon name, health %, distance</comment>
   </data>
   <data name="FeaturePlayersName" xml:space="preserve">
-    <value>辅助视野</value>
+    <value>球员</value>
   </data>
   <data name="FeaturePointOfInterestsDistanceFormat" xml:space="preserve">
     <value>[{0}米]</value>
