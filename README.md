@@ -42,6 +42,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 | `Map`                     | `map`        | Full screen map with radar esp. |
 | `NightVision`             | `night`      | Night vision. |
 | `NoCollision`             | `nocoll`     | No physical collisions, making you immune to bullets, grenades and barbed wires. |
+| `NoFlash`                 | `noflash`    | No persistent flash or eye-burn effect after a flash grenade. |
 | `NoMalfunctions`          | `nomal`      | No weapon malfunctions: no misfires or failures to eject or feed. No jammed bolts or overheating. |
 | `NoRecoil`                | `norecoil`   | No recoil. |
 | `NoSway`                  | `nosway`     | No sway. |
@@ -126,6 +127,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | loot       | `on` or `off`       |         | Show/Hide tracked items              |
 | night      | `on` or `off`       | `off`   | Enable/Disable night vision          |
 | nocoll     | `on` or `off`       | `off`   | Disable/Enable physical collisions   |
+| noflash    | `on` or `off`       | `off`   | Disable/Enable flash/eyeburn effects |
 | nomal      | `on` or `off`       | `off`   | Disable/Enable weapon malfunctions   |
 | norecoil   | `on` or `off`       | `off`   | Disable/Enable recoil                |
 | nosway     | `on` or `off`       | `off`   | Disable/Enable sway                  |
