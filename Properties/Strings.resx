@@ -943,4 +943,10 @@ Colors are stored as an array of 'RGBA' floats</value>
   <data name="CommandSpawnHideoutItems" xml:space="preserve">
     <value>spawnhi</value>
   </data>
+  <data name="FeatureNoFlashName" xml:space="preserve">
+    <value>noflash</value>
+  </data>
+  <data name="FeatureNoFlashDescription" xml:space="preserve">
+    <value>No persistent flash or eye-burn effect after a flash grenade.</value>
+  </data>
 </root>

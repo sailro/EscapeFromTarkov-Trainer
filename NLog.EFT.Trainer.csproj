@@ -186,6 +186,7 @@
     <Compile Include="Features\NoCollision.cs" />
     <Compile Include="Features\NoSway.cs" />
     <Compile Include="Features\NoRecoil.cs" />
+    <Compile Include="Features\NoFlash.cs" />
     <Compile Include="Features\NoVisor.cs" />
     <Compile Include="Features\Players.cs" />
     <Compile Include="Features\PointOfInterest.cs" />
