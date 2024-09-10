@@ -523,7 +523,7 @@
     <value>无视野遮挡</value>
   </data>
   <data name="FeaturePlayersDescription" xml:space="preserve">
-    <value>透视(通过墙壁你会看到Bear/Boss/邪教徒/Scav/Usec)。可配置颜色、描边、人物盒子、人物信息(武器和生命值)，人物骨骼和距离。
+    <value>显示玩家(通过墙壁你会看到Bear/Boss/邪教徒/Scav/Usec)。可配置颜色、描边、人物盒子、人物信息(武器和生命值)，人物骨骼和距离。
 </value>
   </data>
   <data name="FeaturePlayersFormat" xml:space="preserve">
@@ -531,7 +531,7 @@
     <comment>Weapon name, health %, distance</comment>
   </data>
   <data name="FeaturePlayersName" xml:space="preserve">
-    <value>辅助视野</value>
+    <value>显示玩家</value>
   </data>
   <data name="FeaturePointOfInterestsDistanceFormat" xml:space="preserve">
     <value>[{0}米]</value>

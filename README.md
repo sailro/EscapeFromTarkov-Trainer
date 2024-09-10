@@ -46,7 +46,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 | `NoRecoil`                | `norecoil`   | No recoil. |
 | `NoSway`                  | `nosway`     | No sway. |
 | `NoVisor`                 | `novisor`    | No visor, so even when using a face shield-visor you won't see it. |
-| `Players`                 | `wallhack`   | Wallhack (you'll see Bear/Boss/Cultist/Scav/Usec with configurable colors through walls). Charms, boxes, info (weapon and health), skeletons and distance. |
+| `Players`                 | `players`    | Players (you'll see Bear/Boss/Cultist/Scav/Usec with configurable colors through walls). Charms, boxes, info (weapon and health), skeletons and distance. |
 | `Quests`                  | `quest`      | Locations for taking/placing quest items. Only items related to your started quests are displayed. |
 | `QuickThrow`              | `quickthrow` | Quick-throw grenades. |
 | `Radar`                   | `radar`      | 2D radar. |
@@ -61,7 +61,7 @@ This is an attempt -for educational purposes only- to alter a Unity game at runt
 
 You can Load/Save all settings using the `console` or the `GUI`.
 
-![Wallhack](https://user-images.githubusercontent.com/638167/222186879-a88a267e-16ba-4532-85ec-8cb385737947.png)
+![Players](https://user-images.githubusercontent.com/638167/222186879-a88a267e-16ba-4532-85ec-8cb385737947.png)
 ![Radar](https://user-images.githubusercontent.com/638167/222524208-589dc7ff-f053-4b0c-902b-49fa8d1f7ddd.png)
 ![Map](https://user-images.githubusercontent.com/769465/224330696-d09960a2-8940-4980-8489-0533b44534f9.png)
 ![Exfils](https://user-images.githubusercontent.com/638167/135586735-143ab160-ca20-4ec9-8ad4-9ce7bde58295.png)
@@ -83,7 +83,7 @@ You can try to compile the code yourself (you will need a recent Visual Studio, 
 Copy all files in your EFT directory like `C:\Battlestate Games\EFT`:
 
 - `EscapeFromTarkov_Data\Managed\NLog.EFT.Trainer.dll` (this is the compiled code for the trainer)
-- `EscapeFromTarkov_Data\outline` (this is the dedicated shader we use to outline players [wallhack])
+- `EscapeFromTarkov_Data\outline` (this is the dedicated shader we use to outline players [players])
 
 ### If you are using the Live version (you should NOT do that, you'll be detected and banned):
 
@@ -130,6 +130,7 @@ This trainer hooks into the command system, so you can easily setup features usi
 | norecoil   | `on` or `off`       | `off`   | Disable/Enable recoil                |
 | nosway     | `on` or `off`       | `off`   | Disable/Enable sway                  |
 | novisor    | `on` or `off`       | `off`   | Disable/Enable visor                 |
+| players    | `on` or `off`       | `on`    | Show/hide players                    |
 | quest      | `on` or `off`       | `off`   | Show/Hide quest POI                  |
 | radar      | `on` or `off`       | `off`   | Show/Hide radar                      |
 | save       |                     |         | Save settings to `trainer.ini`       |
@@ -150,7 +151,6 @@ This trainer hooks into the command system, so you can easily setup features usi
 | tracksr    | same as `track`     |         | Track super rare items only          |
 | tracklist  |                     |         | Show tracked items                   |
 | untrack    | `[name]` or `*`     |         | Untrack a `name` or `*` for all      |
-| wallhack   | `on` or `off`       | `on`    | Show/hide players                    |
 | wallshoot  | `on` or `off`       | `on`    | Enable/Disable shoot through walls   |
 
 ## Translations

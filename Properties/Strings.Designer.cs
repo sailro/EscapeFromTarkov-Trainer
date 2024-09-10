@@ -1233,7 +1233,7 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wallhack (you&apos;ll see Bear/Boss/Cultist/Scav/Usec with configurable colors through walls). Charms, boxes, info (weapon and health), skeletons and distance..
+        ///   Looks up a localized string similar to Players (you&apos;ll see Bear/Boss/Cultist/Scav/Usec with configurable colors through walls). Charms, boxes, info (weapon and health), skeletons and distance..
         /// </summary>
         internal static string FeaturePlayersDescription {
             get {
@@ -1251,7 +1251,7 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to wallhack.
+        ///   Looks up a localized string similar to players.
         /// </summary>
         internal static string FeaturePlayersName {
             get {
