@@ -14,6 +14,7 @@ internal class Installation
 {
 	public Version Version { get; }
 	public bool UsingSptAki { get; private set; }
+	public bool UsingSptAkiButNeverRun { get; private set; }
 	public bool UsingBepInEx { get; private set; }
 	public string Location { get; }
 	public string Data => Path.Combine(Location, "EscapeFromTarkov_Data");
@@ -91,6 +92,10 @@ internal class Installation
 		if (TryDiscoverInstallation(Path.GetDirectoryName(AppContext.BaseDirectory), out installation))
 			yield return installation;
 
+		// SPT-AKI default installation path
+		if (TryDiscoverInstallation(Path.Combine(Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System))!, "SPT"), out installation))
+			yield return installation;
+
 		using var hive = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32);
 		using var eft = hive.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\EscapeFromTarkov", false);
 
@@ -142,6 +147,11 @@ internal class Installation
 			var legacyAkiFolder = Path.Combine(path, "Aki_Data");
 			var akiFolder = Path.Combine(path, "SPT_Data");
 			installation.UsingSptAki = Directory.Exists(akiFolder) || Directory.Exists(legacyAkiFolder);
+
+
+			var battleye = Path.Combine(path, "BattlEye");
+			var user = Path.Combine(path, "user");
+			installation.UsingSptAkiButNeverRun = installation.UsingSptAki && (Directory.Exists(battleye) || !Directory.Exists(user));
 
 			installation.UsingBepInEx = Directory.Exists(installation.BepInExPlugins);
 
