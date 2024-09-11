@@ -1161,6 +1161,24 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No persistent flash or eye-burn effect after a flash grenade..
+        /// </summary>
+        internal static string FeatureNoFlashDescription {
+            get {
+                return ResourceManager.GetString("FeatureNoFlashDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to noflash.
+        /// </summary>
+        internal static string FeatureNoFlashName {
+            get {
+                return ResourceManager.GetString("FeatureNoFlashName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No weapon malfunctions: no misfires or failures to eject or feed. No jammed bolts or overheating..
         /// </summary>
         internal static string FeatureNoMalfunctionsDescription {

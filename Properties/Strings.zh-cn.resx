@@ -944,4 +944,10 @@
   <data name="CommandSpawnHideoutItems" xml:space="preserve">
     <value>spawnhi</value>
   </data>
+  <data name="FeatureNoFlashName" xml:space="preserve">
+    <value>不闪烁</value>
+  </data>
+  <data name="FeatureNoFlashDescription" xml:space="preserve">
+    <value>闪光弹爆炸后不会产生持续闪光或灼伤眼睛的效果。</value>
+  </data>
 </root>

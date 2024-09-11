@@ -943,4 +943,10 @@ Les couleurs sont stockées sous la forme d'un tableau de valeurs flottantes 'RG
   <data name="CommandSpawnHideoutItems" xml:space="preserve">
     <value>spawnhi</value>
   </data>
+  <data name="FeatureNoFlashName" xml:space="preserve">
+    <value>noflash</value>
+  </data>
+  <data name="FeatureNoFlashDescription" xml:space="preserve">
+    <value>Pas d'effet de flash persistant ou de brûlure oculaire après une grenade flash.</value>
+  </data>
 </root>
