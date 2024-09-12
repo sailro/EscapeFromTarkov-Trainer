@@ -5,6 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Runtime.Versioning;
+using System.Text;
 using Microsoft.Win32;
 using Spectre.Console;
 
@@ -73,11 +74,7 @@ internal class Installation
 				var first = installations.First();
 				return AnsiConsole.Confirm($"Continue with [green]EscapeFromTarkov ({first.Version})[/] in [blue]{first.Location.EscapeMarkup()}[/] ?") ? first : null;
 			default:
-				var prompt = new SelectionPrompt<Installation>
-				{
-					Converter = i => i.Location.EscapeMarkup(),
-					Title = promptTitle
-				};
+				var prompt = new SelectionPrompt<Installation> { Title = promptTitle };
 				prompt.AddChoices(installations);
 				return AnsiConsole.Prompt(prompt);
 		}
@@ -161,5 +158,13 @@ internal class Installation
 		{
 			return false;
 		}
+	}
+
+	public override string ToString()
+	{
+		var sb = new StringBuilder();
+		sb.Append($"{Location.EscapeMarkup()} - [[{Version}]] ");
+		sb.Append(UsingSptAki ? "[b]SPT-AKI[/]" : "Vanilla");
+		return sb.ToString();
 	}
 }
