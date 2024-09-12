@@ -164,7 +164,11 @@ internal class Installation
 	{
 		var sb = new StringBuilder();
 		sb.Append($"{Location.EscapeMarkup()} - [[{Version}]] ");
-		sb.Append(UsingSptAki ? "[b]SPT-AKI[/]" : "Vanilla");
+		sb.Append(UsingSptAki ? "[b]SPT-AKI[/] " : "Vanilla ");
+
+		if (VersionChecker.IsVersionSupported(Version) && UsingSptAki)
+			sb.Append("[green](Supported)[/]");
+
 		return sb.ToString();
 	}
 }
