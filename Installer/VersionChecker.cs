@@ -10,6 +10,7 @@ internal class VersionChecker
 {
 
 	private static readonly Dictionary<Version, bool> _versions = [];
+	private static readonly HttpClient _client = new();
 
 	public static async Task<bool> IsVersionSupportedAsync(Version version)
 	{
@@ -19,8 +20,8 @@ internal class VersionChecker
 		try
 		{
 			var branch = $"dev-{version}";
-			using var client = new HttpClient();
-			var result = await client.GetAsync(new Uri($"https://github.com/sailro/EscapeFromTarkov-Trainer/archive/refs/heads/{branch}.zip"));
+			var uri = new Uri($"https://github.com/sailro/EscapeFromTarkov-Trainer/tree/{branch}");
+			var result = await _client.GetAsync(uri);
 			_versions[version] = result.IsSuccessStatusCode;
 			return _versions[version];
 		}
