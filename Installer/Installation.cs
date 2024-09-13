@@ -18,6 +18,8 @@ internal class Installation
 	public bool UsingSptAkiButNeverRun { get; private set; }
 	public bool UsingBepInEx { get; private set; }
 	public string Location { get; }
+	public string DisplayString { get; private set; } = string.Empty;
+
 	public string Data => Path.Combine(Location, "EscapeFromTarkov_Data");
 	public string Managed => Path.Combine(Data, "Managed");
 	public string BepInEx => Path.Combine(Location, "BepInEx");
@@ -58,10 +60,10 @@ internal class Installation
 				installations = DiscoverInstallations()
 					.Distinct()
 					.ToList();
-			});
 
-		if (path is not null && TryDiscoverInstallation(path, out var installation))
-			installations.Add(installation);
+				if (path is not null && TryDiscoverInstallation(path, out var installation))
+					installations.Add(installation);
+			});
 
 		installations = [.. installations.Distinct().OrderBy(i => i.Location)];
 
@@ -152,6 +154,8 @@ internal class Installation
 
 			installation.UsingBepInEx = Directory.Exists(installation.BepInExPlugins);
 
+			installation.DisplayString = installation.ComputeDisplayString();
+
 			return true;
 		}
 		catch (IOException)
@@ -160,15 +164,20 @@ internal class Installation
 		}
 	}
 
-	public override string ToString()
+	private string ComputeDisplayString()
 	{
 		var sb = new StringBuilder();
 		sb.Append($"{Location.EscapeMarkup()} - [[{Version}]] ");
 		sb.Append(UsingSptAki ? "[b]SPT-AKI[/] " : "Vanilla ");
 
-		if (VersionChecker.IsVersionSupported(Version) && UsingSptAki)
+		if (UsingSptAki && VersionChecker.IsVersionSupported(Version))
 			sb.Append("[green](Supported)[/]");
 
 		return sb.ToString();
+	}
+
+	public override string ToString()
+	{
+		return DisplayString;
 	}
 }

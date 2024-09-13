@@ -26,6 +26,7 @@ internal class Examine : ToggleFeature
 		return false; // skip the original code and all other prefix methods 
 	}
 
+#pragma warning disable IDE0060
 	[UsedImplicitly]
 	protected static bool SinglePlayerInventoryControllerConstructorPrefix(Player player, Profile profile, ref bool examined)
 	{
@@ -37,6 +38,7 @@ internal class Examine : ToggleFeature
 		examined = true;
 		return true;
 	}
+#pragma warning restore IDE0060
 
 	protected override void UpdateWhenEnabled()
 	{

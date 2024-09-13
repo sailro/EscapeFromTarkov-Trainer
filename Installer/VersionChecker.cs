@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using Spectre.Console;
 
@@ -11,19 +12,21 @@ internal class VersionChecker
 
 	private static readonly Dictionary<Version, bool> _versions = [];
 	private static readonly HttpClient _client = new();
+	private static readonly SemaphoreSlim _semaphore = new(1, 1);
 
 	public static async Task<bool> IsVersionSupportedAsync(Version version)
 	{
-		if (_versions.TryGetValue(version, out var supported))
-			return supported;
+		await _semaphore.WaitAsync();
 
 		try
 		{
+			if (_versions.TryGetValue(version, out var supported))
+				return supported;
+
 			var branch = $"dev-{version}";
 			var uri = new Uri($"https://github.com/sailro/EscapeFromTarkov-Trainer/tree/{branch}");
 			var result = await _client.GetAsync(uri);
 			_versions[version] = result.IsSuccessStatusCode;
-			return _versions[version];
 		}
 		catch (Exception e)
 		{
@@ -31,8 +34,14 @@ internal class VersionChecker
 			AnsiConsole.WriteException(e);
 #endif
 
-			return false;
+			_versions[version] = false;
 		}
+		finally
+		{
+			_semaphore.Release();
+		}
+
+		return _versions[version];
 	}
 
 	public static bool IsVersionSupported(Version version)
