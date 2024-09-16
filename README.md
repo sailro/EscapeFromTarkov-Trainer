@@ -3,13 +3,11 @@
 
 [![Sponsor](https://img.shields.io/badge/sponsor-%E2%9D%A4-lightgrey?logo=github&style=flat-square)](https://github.com/sponsors/sailro)
 
-*I'm not responsible for any consequences that result from using this code. BattleState / BattlEye will ban you if you try to use it 'live'.*
+*I'm not responsible for any consequences that result from using this code. BattleState / BattlEye will ban you if you try to use it 'live'. Use it safely offline with [SPT-AKI](https://sp-tarkov.com/).*
 
 ***TLDR => Use the [Universal Installer](https://github.com/sailro/EscapeFromTarkov-Trainer/releases).*** Default key for in-game GUI is `Right-Alt`.
 
-This is an attempt -for educational purposes only- to alter a Unity game at runtime without patching the binaries (so without using [Cecil](https://github.com/jbevain/cecil) nor [Reflexil](https://github.com/sailro/reflexil)).
-
-`master` branch can build against `EFT 0.14.9.30626` (tested with [`spt-aki Version 3.9.8`](https://hub.sp-tarkov.com/files/file/16-spt-aki/#versions)). If you are looking for another version, see [`branches`](https://github.com/sailro/EscapeFromTarkov-Trainer/branches) and [`releases`](https://github.com/sailro/EscapeFromTarkov-Trainer/releases).
+`master` branch can build against `EFT 0.14.9.30626` (tested with [`SPT-AKI Version 3.9.8`](https://hub.sp-tarkov.com/files/file/16-spt-aki/#versions)). If you are looking for another version, see [`branches`](https://github.com/sailro/EscapeFromTarkov-Trainer/branches) and [`releases`](https://github.com/sailro/EscapeFromTarkov-Trainer/releases).
 
 > If you want to compile the code yourself, make sure you cleaned-up your solution properly after upgrading your EFT/sptarkov bits (even removing `bin` and `obj` folders) and check all your references.
 
@@ -76,26 +74,6 @@ You can Load/Save all settings using the `console` or the `GUI`.
 ## Easy and automatic installation
 
 Simply use the [Universal Installer](https://github.com/sailro/EscapeFromTarkov-Trainer/releases).
-
-## Manual installation 
-
-You can try to compile the code yourself (you will need a recent Visual Studio, because we are using CSharp 9). You can use a precompiled release as well.
-
-Copy all files in your EFT directory like `C:\Battlestate Games\EFT`:
-
-- `EscapeFromTarkov_Data\Managed\NLog.EFT.Trainer.dll` (this is the compiled code for the trainer)
-- `EscapeFromTarkov_Data\outline` (this is the dedicated shader we use to outline players [players])
-
-### If you are using the Live version (you should NOT do that, you'll be detected and banned):
-
-Rename `EscapeFromTarkov_Data\Managed\NLog.dll.nlog-live` to `NLog.dll.nlog`. This will work only for legacy versions. Given EscapeFromTarkov `0.13.0.21531` or later prevent this trainer to be loaded using NLog configuration. It is now mandatory to use SPT-AKI/BepInEx for recent versions.
-
-### If you are using sptarkov (https://www.sp-tarkov.com):
-
-Overwrite the existing `EscapeFromTarkov_Data\Managed\NLog.dll.nlog` using `NLog.dll.nlog-sptarkov`, or update the existing file accordingly. We must include the following 
-`<target name="EFTTarget" xsi:type="EFTTarget" />` in the `targets` section for the trainer to be loaded properly. This is for legacy versions before EscapeFromTarkov `0.13.0.21531`.
-
-For newer versions, copy `aki-efttrainer.dll` (this is the compiled code for the BepInEx plugin) to `BepInEx\plugins`.
 
 ## Configuration
 
