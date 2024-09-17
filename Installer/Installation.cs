@@ -6,7 +6,6 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Versioning;
 using System.Text;
-using Microsoft.Win32;
 using Spectre.Console;
 
 namespace Installer;
@@ -95,18 +94,14 @@ internal class Installation
 		if (TryDiscoverInstallation(Path.Combine(Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System))!, "SPT"), out installation))
 			yield return installation;
 
-		using var hive = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32);
-		using var eft = hive.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\EscapeFromTarkov", false);
+		// SPT-AKI locations from MUI cache
+		foreach (var sptpath in Registry.GetSptAkiInstallationsFromMuiCache())
+		{
+			if (TryDiscoverInstallation(sptpath, out installation))
+				yield return installation;
+		}
 
-		if (eft == null)
-			yield break;
-
-		var exe = eft.GetValue("DisplayIcon") as string;
-		if (string.IsNullOrEmpty(exe) || !File.Exists(exe))
-			yield break;
-
-		var path = Path.GetDirectoryName(exe);
-		if (string.IsNullOrEmpty(path) || !Directory.Exists(path))
+		if (!Registry.TryGetEscapeFromTarkovInstallationPath(out var path))
 			yield break;
 
 		if (TryDiscoverInstallation(path, out installation))

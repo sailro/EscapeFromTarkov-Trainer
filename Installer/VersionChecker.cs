@@ -33,7 +33,7 @@ internal class VersionChecker
 #if DEBUG
 			AnsiConsole.WriteException(e);
 #endif
-
+			_ = e;
 			_versions[version] = false;
 		}
 		finally
