@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Spectre.Console;
 
 namespace Installer;
 
@@ -31,7 +30,7 @@ internal class VersionChecker
 		catch (Exception e)
 		{
 #if DEBUG
-			AnsiConsole.WriteException(e);
+			Spectre.Console.AnsiConsole.WriteException(e);
 #endif
 			_ = e;
 			_versions[version] = false;
