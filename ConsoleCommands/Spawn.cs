@@ -10,7 +10,6 @@ using EFT.Trainer.Extensions;
 using EFT.Trainer.Features;
 using EFT.Trainer.Properties;
 using JetBrains.Annotations;
-using UnityEngine;
 using Random = UnityEngine.Random;
 
 #nullable enable
@@ -87,7 +86,7 @@ internal class Spawn : BaseTemplateCommand
 						}
 						else
 						{
-							item.SpawnedInSession = true; // found in raid
+							SetupItem(itemFactory, item);
 
 							_ = new TraderControllerClass(item, item.Id, item.ShortName);
 							var go = poolManager.CreateLootPrefab(item, ECameraType.Default);
@@ -109,5 +108,40 @@ internal class Spawn : BaseTemplateCommand
 
 				return Task.CompletedTask;
 			});
+	}
+
+	private static void SetupItem(ItemFactoryClass itemFactory, Item item)
+	{
+		item.SpawnedInSession = true; // found in raid
+
+		if (item.TryGetItemComponent<DogtagComponent>(out var dogtag))
+		{
+			dogtag.AccountId = Random.Range(0, int.MaxValue).ToString();
+			dogtag.ProfileId = Random.Range(0, int.MaxValue).ToString();
+			dogtag.Nickname = $"Rambo{Random.Range(1, 256)}";
+			dogtag.Side = Enum.GetValues(typeof(EPlayerSide)).Cast<EPlayerSide>().Random();
+			dogtag.Level = Random.Range(1, 69);
+			dogtag.Time = DateTime.Now;
+			dogtag.Status = "died";
+			dogtag.KillerAccountId = Random.Range(0, int.MaxValue).ToString();
+			dogtag.KillerProfileId = Random.Range(0, int.MaxValue).ToString();
+			dogtag.KillerName = "";
+			dogtag.WeaponName = "";
+		}
+
+		if (item.TryGetItemComponent<ArmorHolderComponent>(out var armorHolder))
+		{
+			foreach (var slot in armorHolder.ArmorSlots)
+			{
+				var plate = itemFactory.CreateItem(MongoID.Generate(), KnownTemplateIds.CultTermiteBallisticPlate, null);
+				slot.AddWithoutRestrictions(plate);
+			}
+		}
+
+		if (item.TryGetItemComponent<RepairableComponent>(out var repairable))
+		{
+			repairable.MaxDurability = repairable.TemplateDurability;
+			repairable.Durability = repairable.MaxDurability;
+		}
 	}
 }
