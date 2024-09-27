@@ -38,6 +38,7 @@
 | `LootableContainers`      | `stash`      | Hidden/special stashes like buried barrels, ground caches, air drops or corpses. |
 | `LootItems`               | `loot`       | List all lootable items and track any item by name or rarity or in-game wishlist in raid (even in containers and corpses). |
 | `Map`                     | `map`        | Full screen map with radar esp. |
+| `Mortar`                  | `mortar`     | Triggers a mortar strike at the player's location. |
 | `NightVision`             | `night`      | Night vision. |
 | `NoCollision`             | `nocoll`     | No physical collisions, making you immune to bullets, grenades and barbed wires. |
 | `NoFlash`                 | `noflash`    | No persistent flash or eye-burn effect after a flash grenade. |

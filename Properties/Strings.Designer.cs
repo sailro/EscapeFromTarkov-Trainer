@@ -1125,6 +1125,24 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Triggers a mortar strike at the player&apos;s location..
+        /// </summary>
+        internal static string FeatureMortarDescription {
+            get {
+                return ResourceManager.GetString("FeatureMortarDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to mortar.
+        /// </summary>
+        internal static string FeatureMortarName {
+            get {
+                return ResourceManager.GetString("FeatureMortarName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Night vision..
         /// </summary>
         internal static string FeatureNightVisionDescription {

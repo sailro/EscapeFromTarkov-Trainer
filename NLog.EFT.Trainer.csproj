@@ -202,6 +202,7 @@
     <Compile Include="Features\ThermalVision.cs" />
     <Compile Include="Features\ToggleFeature.cs" />
     <Compile Include="Features\TrackedItem.cs" />
+    <Compile Include="Features\Mortar.cs" />
     <Compile Include="Features\TriggerFeature.cs" />
     <Compile Include="Features\Ghost.cs" />
     <Compile Include="Features\WallShoot.cs" />
