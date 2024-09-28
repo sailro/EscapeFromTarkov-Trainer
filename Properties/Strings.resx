@@ -949,4 +949,10 @@ Colors are stored as an array of 'RGBA' floats</value>
   <data name="FeatureNoFlashDescription" xml:space="preserve">
     <value>No persistent flash or eye-burn effect after a flash grenade.</value>
   </data>
+  <data name="FeatureMortarName" xml:space="preserve">
+    <value>mortar</value>
+  </data>
+  <data name="FeatureMortarDescription" xml:space="preserve">
+    <value>Triggers a mortar strike at the player's location.</value>
+  </data>
 </root>

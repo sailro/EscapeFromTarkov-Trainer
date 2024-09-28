@@ -949,4 +949,10 @@ Les couleurs sont stockées sous la forme d'un tableau de valeurs flottantes 'RG
   <data name="FeatureNoFlashDescription" xml:space="preserve">
     <value>Pas d'effet de flash persistant ou de brûlure oculaire après une grenade flash.</value>
   </data>
+  <data name="FeatureMortarName" xml:space="preserve">
+    <value>mortar</value>
+  </data>
+  <data name="FeatureMortarDescription" xml:space="preserve">
+    <value>Déclenche une attaque de mortier à l'endroit où se trouve le joueur.</value>
+  </data>
 </root>

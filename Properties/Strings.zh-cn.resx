@@ -950,4 +950,10 @@
   <data name="FeatureNoFlashDescription" xml:space="preserve">
     <value>闪光弹爆炸后不会产生持续闪光或灼伤眼睛的效果。</value>
   </data>
+  <data name="FeatureMortarName" xml:space="preserve">
+    <value>灰浆</value>
+  </data>
+  <data name="FeatureMortarDescription" xml:space="preserve">
+    <value>触发对玩家所在位置的迫击炮攻击。</value>
+  </data>
 </root>
