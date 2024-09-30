@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -86,8 +87,6 @@ internal class Spawn : BaseTemplateCommand
 						}
 						else
 						{
-							SetupItem(itemFactory, item);
-
 							_ = new TraderControllerClass(item, item.Id, item.ShortName);
 							var go = poolManager.CreateLootPrefab(item, ECameraType.Default);
 
@@ -102,6 +101,9 @@ internal class Spawn : BaseTemplateCommand
 
 							lootItem.transform.SetPositionAndRotation(position, transform.rotation);
 							lootItem.LastOwner = player;
+
+							// setup after loot item is created, else we are hitting issues with weapon
+							SetupItem(itemFactory, item);
 						}
 					}
 				});
@@ -130,18 +132,36 @@ internal class Spawn : BaseTemplateCommand
 		}
 
 		if (item.TryGetItemComponent<ArmorHolderComponent>(out var armorHolder))
-		{
-			foreach (var slot in armorHolder.ArmorSlots)
-			{
-				var plate = itemFactory.CreateItem(MongoID.Generate(), KnownTemplateIds.CultTermiteBallisticPlate, null);
-				slot.AddWithoutRestrictions(plate);
-			}
-		}
+			FillSlots(itemFactory, armorHolder.ArmorSlots);
 
 		if (item.TryGetItemComponent<RepairableComponent>(out var repairable))
 		{
 			repairable.MaxDurability = repairable.TemplateDurability;
 			repairable.Durability = repairable.MaxDurability;
+		}
+
+		if (item is CompoundItem compound)
+			FillSlots(itemFactory, compound.AllSlots);
+	}
+
+	private static void FillSlots(ItemFactoryClass itemFactory, IEnumerable<Slot> slots)
+	{
+		foreach (var slot in slots)
+		{
+			if (slot.Items.Any())
+				continue;
+
+			var filter = slot
+				.Filters.FirstOrDefault()?
+				.Filter.Random();
+
+			if (filter == null)
+				continue;
+
+			var item = itemFactory.CreateItem(MongoID.Generate(), filter, null);
+			SetupItem(itemFactory, item);
+
+			slot.AddWithoutRestrictions(item);
 		}
 	}
 }
