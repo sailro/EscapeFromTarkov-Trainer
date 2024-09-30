@@ -19,10 +19,6 @@ internal class AirDrop : TriggerFeature
 
 	protected override void UpdateOnceWhenTriggered()
 	{
-		var world = Singleton<GameWorld>.Instance;
-		if (world == null)
-			return;
-
 		var player = GameState.Current?.LocalPlayer;
 		if (player == null)
 			return;
