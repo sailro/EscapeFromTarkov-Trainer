@@ -12,7 +12,6 @@ public static class KnownTemplateIds
 	public const string DefaultInventory = "55d7217a4bdc2d86028b456d";
 	public const string BossContainer = "5c0a794586f77461c458f892";
 
-	//air drop id. After testing, only the common one is used even the air drop is the other type.
 	public const string AirDropCommon = "6223349b3136504a544d1608";
 	public const string AirDropMedical = "622334c873090231d904a9fc";
 	public const string AirDropSupply = "622334fa3136504a544d160c";
