@@ -956,4 +956,10 @@
   <data name="FeatureMortarDescription" xml:space="preserve">
     <value>触发对玩家所在位置的迫击炮攻击。</value>
   </data>
+  <data name="FeatureAirDropName" xml:space="preserve">
+    <value>空投</value>
+  </data>
+  <data name="FeatureAirDropDescription" xml:space="preserve">
+    <value>触发玩家所在位置的空投。</value>
+  </data>
 </root>

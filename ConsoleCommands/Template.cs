@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 using Comfort.Common;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Features;
 using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 
@@ -25,7 +26,7 @@ internal class Template : BaseTemplateCommand
 
 		var search = matchGroup.Value;
 
-		var templates = FindTemplates(search).ToArray();
+		var templates = TemplateHelper.FindTemplates(search);
 
 		foreach (var template in templates)
 			AddConsoleLog(string.Format(Strings.CommandTemplateEnumerateFormat, template._id, template.ShortNameLocalizationKey.Localized().Green(), template.NameLocalizationKey.Localized()));

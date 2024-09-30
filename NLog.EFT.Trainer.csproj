@@ -164,6 +164,7 @@
     <Compile Include="Features\FovChanger.cs" />
     <Compile Include="Features\Durability.cs" />
     <Compile Include="Features\Interact.cs" />
+    <Compile Include="Features\AirDrop.cs" />
     <Compile Include="Features\NoMalfunctions.cs" />
     <Compile Include="Features\AutomaticGun.cs" />
     <Compile Include="Features\Bones.cs" />
@@ -199,6 +200,7 @@
     <Compile Include="Features\Speed.cs" />
     <Compile Include="Features\Health.cs" />
     <Compile Include="Features\Stamina.cs" />
+    <Compile Include="Features\TemplateHelper.cs" />
     <Compile Include="Features\ThermalVision.cs" />
     <Compile Include="Features\ToggleFeature.cs" />
     <Compile Include="Features\TrackedItem.cs" />

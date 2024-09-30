@@ -20,6 +20,7 @@
 | trainer.ini section       | GUI/console  | Description |
 |---------------------------|--------------|-------------|
 | `Aimbot`                  | `aimbot`     | Aimbot (distance, smoothness, silent aim with speed factor and shot delay, fov radius, fov circle). |
+| `AirDrop`                 | `airdrop`    | Triggers an airdrop at the player's location. |
 | `Ammunition`              | `ammo`       | Unlimited ammo. |
 | `AutomaticGun`            | `autogun`    | Force all guns (even bolt action guns) to use automatic firing mode with customizable fire rate. |
 | `Commands`                | `commands`   | Popup window to enable/disable all features (use right-alt or setup your own key in [trainer.ini](#sample-trainerini-configuration-file)). |
