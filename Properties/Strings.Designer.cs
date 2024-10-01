@@ -693,6 +693,24 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Triggers an airdrop at the player&apos;s location..
+        /// </summary>
+        internal static string FeatureAirDropDescription {
+            get {
+                return ResourceManager.GetString("FeatureAirDropDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to airdrop.
+        /// </summary>
+        internal static string FeatureAirDropName {
+            get {
+                return ResourceManager.GetString("FeatureAirDropName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Unlimited ammo..
         /// </summary>
         internal static string FeatureAmmunitionDescription {

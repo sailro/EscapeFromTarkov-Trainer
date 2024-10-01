@@ -33,7 +33,7 @@ internal class Spawn : BaseTemplateCommand
 			return;
 
 		var search = matchGroup.Value;
-		var templates = FindTemplates(search);
+		var templates = TemplateHelper.FindTemplates(search);
 
 		switch (templates.Length)
 		{
@@ -54,7 +54,7 @@ internal class Spawn : BaseTemplateCommand
 
 	internal static void SpawnTemplate(string template, Player player, ConsoleCommand command, Func<ItemTemplate, bool> filter)
 	{
-		var result = FindTemplates(template)
+		var result = TemplateHelper.FindTemplates(template)
 			.FirstOrDefault(filter);
 
 		if (result == null)

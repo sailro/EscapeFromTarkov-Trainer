@@ -955,4 +955,10 @@ Colors are stored as an array of 'RGBA' floats</value>
   <data name="FeatureMortarDescription" xml:space="preserve">
     <value>Triggers a mortar strike at the player's location.</value>
   </data>
+  <data name="FeatureAirDropName" xml:space="preserve">
+    <value>airdrop</value>
+  </data>
+  <data name="FeatureAirDropDescription" xml:space="preserve">
+    <value>Triggers an airdrop at the player's location.</value>
+  </data>
 </root>
