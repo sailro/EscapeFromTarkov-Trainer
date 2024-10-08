@@ -523,14 +523,14 @@ Colors are stored as an array of 'RGBA' floats</value>
     <value>novisor</value>
   </data>
   <data name="FeaturePlayersDescription" xml:space="preserve">
-    <value>Wallhack (you'll see Bear/Boss/Cultist/Scav/Usec with configurable colors through walls). Charms, boxes, info (weapon and health), skeletons and distance.</value>
+    <value>Players (you'll see Bear/Boss/Cultist/Scav/Usec with configurable colors through walls). Charms, boxes, info (weapon and health), skeletons and distance.</value>
   </data>
   <data name="FeaturePlayersFormat" xml:space="preserve">
     <value>{0} {1}% {2}</value>
     <comment>Weapon name, health %, distance</comment>
   </data>
   <data name="FeaturePlayersName" xml:space="preserve">
-    <value>wallhack</value>
+    <value>players</value>
   </data>
   <data name="FeaturePointOfInterestsDistanceFormat" xml:space="preserve">
     <value>[{0}m]</value>
@@ -936,5 +936,29 @@ Colors are stored as an array of 'RGBA' floats</value>
   </data>
   <data name="CommandSpawnQuestItems" xml:space="preserve">
     <value>spawnqi</value>
+  </data>
+  <data name="PropertyTrackAutoWishlist" xml:space="preserve">
+    <value>Track Auto Wishlist</value>
+  </data>
+  <data name="CommandSpawnHideoutItems" xml:space="preserve">
+    <value>spawnhi</value>
+  </data>
+  <data name="FeatureNoFlashName" xml:space="preserve">
+    <value>noflash</value>
+  </data>
+  <data name="FeatureNoFlashDescription" xml:space="preserve">
+    <value>No persistent flash or eye-burn effect after a flash grenade.</value>
+  </data>
+  <data name="FeatureMortarName" xml:space="preserve">
+    <value>mortar</value>
+  </data>
+  <data name="FeatureMortarDescription" xml:space="preserve">
+    <value>Triggers a mortar strike at the player's location.</value>
+  </data>
+  <data name="FeatureAirDropName" xml:space="preserve">
+    <value>airdrop</value>
+  </data>
+  <data name="FeatureAirDropDescription" xml:space="preserve">
+    <value>Triggers an airdrop at the player's location.</value>
   </data>
 </root>

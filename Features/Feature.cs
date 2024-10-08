@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using EFT.InputSystem;
 using EFT.UI;
 using Newtonsoft.Json;
@@ -30,48 +31,58 @@ internal abstract class Feature : InputNode, IFeature
 		action(harmony);
 	}
 
-	public void HarmonyPrefix(HarmonyLib.Harmony harmony, Type originalType, string originalMethod, string newMethod, Type[]? parameters = null)
+	public void HarmonyDispatch(HarmonyLib.Harmony harmony, Type originalType, string? originalMethod, string? newPrefixMethod, string? newPostfixMethod, Type[]? parameters = null)
 	{
-		var original = HarmonyLib.AccessTools.Method(originalType, originalMethod, parameters);
+		MethodBase original = originalMethod == null
+			? HarmonyLib.AccessTools.Constructor(originalType, parameters)
+			: HarmonyLib.AccessTools.Method(originalType, originalMethod, parameters);
+
 		if (original == null)
 		{
-			AddConsoleLog(string.Format(Properties.Strings.ErrorCannotFindOriginalMethodFormat, $"{originalType}.{originalMethod}"));
+			AddConsoleLog(string.Format(Properties.Strings.ErrorCannotFindOriginalMethodFormat, $"{originalType}.{originalMethod ?? "ctor"}").Red());
 			return;
 		}
 
-		var prefix = HarmonyLib.AccessTools.Method(GetType(), newMethod);
-		if (prefix == null)
-		{
-			AddConsoleLog(string.Format(Properties.Strings.ErrorCannotFindPrefixMethodFormat, newMethod));
-			return;
-		}
+		var prefix = GetTargetMethod(newPrefixMethod, Properties.Strings.ErrorCannotFindPrefixMethodFormat);
+		var postfix = GetTargetMethod(newPostfixMethod, Properties.Strings.ErrorCannotFindPostfixMethodFormat);
 
-		harmony.Patch(original, prefix: new HarmonyLib.HarmonyMethod(prefix));
+		if (prefix != null && postfix != null)
+			return;
+
+		if (prefix == null && postfix == null)
+			return;
+
+		harmony.Patch(original, prefix: prefix, postfix: postfix);
 #if DEBUG
-		AddConsoleLog(string.Format(Properties.Strings.DebugPatchedMethodFormat, $"{originalType}.{originalMethod}", $"{GetType()}.{newMethod}"));
+		AddConsoleLog(string.Format(Properties.Strings.DebugPatchedMethodFormat, $"{originalType}.{originalMethod}", $"{GetType()}.{newPrefixMethod ?? newPostfixMethod}"));
 #endif
 	}
 
-	public void HarmonyPostfix(HarmonyLib.Harmony harmony, Type originalType, string originalMethod, string newMethod)
+	private HarmonyLib.HarmonyMethod? GetTargetMethod(string? methodName, string errorFormat)
 	{
-		var original = HarmonyLib.AccessTools.Method(originalType, originalMethod);
-		if (original == null)
-		{
-			AddConsoleLog(string.Format(Properties.Strings.ErrorCannotFindOriginalMethodFormat, $"{originalType}.{originalMethod}"));
-			return;
-		}
+		if (methodName == null)
+			return null;
 
-		var postfix = HarmonyLib.AccessTools.Method(GetType(), newMethod);
-		if (postfix == null)
-		{
-			AddConsoleLog(string.Format(Properties.Strings.ErrorCannotFindPostfixMethodFormat, newMethod));
-			return;
-		}
+		var method = HarmonyLib.AccessTools.Method(GetType(), methodName);
+		if (method == null)
+			AddConsoleLog(string.Format(errorFormat, methodName).Red());
 
-		harmony.Patch(original, postfix: new HarmonyLib.HarmonyMethod(postfix));
-#if DEBUG
-		AddConsoleLog(string.Format(Properties.Strings.DebugPatchedMethodFormat, $"{originalType}.{originalMethod}", $"{GetType()}.{newMethod}"));
-#endif
+		return new HarmonyLib.HarmonyMethod(method);
+	}
+
+	public void HarmonyPrefix(HarmonyLib.Harmony harmony, Type originalType, string originalMethod, string newMethod, Type[]? parameters = null)
+	{
+		HarmonyDispatch(harmony, originalType, originalMethod, newPrefixMethod: newMethod, newPostfixMethod: null, parameters);
+	}
+
+	public void HarmonyConstructorPrefix(HarmonyLib.Harmony harmony, Type originalType, string newMethod, Type[]? parameters)
+	{
+		HarmonyDispatch(harmony, originalType, null, newPrefixMethod: newMethod, newPostfixMethod: null, parameters);
+	}
+
+	public void HarmonyPostfix(HarmonyLib.Harmony harmony, Type originalType, string originalMethod, string newMethod, Type[]? parameters = null)
+	{
+		HarmonyDispatch(harmony, originalType, originalMethod, newPrefixMethod: null, newPostfixMethod: newMethod, parameters);
 	}
 
 	protected void AddConsoleLog(string log)
