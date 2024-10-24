@@ -62,11 +62,11 @@ internal class Ammunition : ToggleFeature
 
 	private static Item CreateAmmo(Item ammo)
 	{
-		var instantiated = Singleton<ItemFactory>.Instantiated;
+		var instantiated = Singleton<ItemFactoryClass>.Instantiated;
 		if (!instantiated)
 			return ammo;
 
-		var instance = Singleton<ItemFactory>.Instance;
+		var instance = Singleton<ItemFactoryClass>.Instance;
 		var itemId = Guid.NewGuid().ToString("N").Substring(0, 24);
 		return instance.CreateItem(itemId, ammo.TemplateId, null) ?? ammo;
 	}

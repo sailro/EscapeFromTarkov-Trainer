@@ -523,14 +523,14 @@ Les couleurs sont stockées sous la forme d'un tableau de valeurs flottantes 'RG
     <value>novisor</value>
   </data>
   <data name="FeaturePlayersDescription" xml:space="preserve">
-    <value>Wallhack (vous verrez Bear/Boss/Cultist/Scav/Usec avec des couleurs configurables à travers les murs). Silhouettes, boîtes, infos (armes et santé), squelettes et distance.</value>
+    <value>Joueurs (vous verrez Bear/Boss/Cultist/Scav/Usec avec des couleurs configurables à travers les murs). Silhouettes, boîtes, infos (armes et santé), squelettes et distance.</value>
   </data>
   <data name="FeaturePlayersFormat" xml:space="preserve">
     <value>{0} {1}% {2}</value>
     <comment>Weapon name, health %, distance</comment>
   </data>
   <data name="FeaturePlayersName" xml:space="preserve">
-    <value>wallhack</value>
+    <value>players</value>
   </data>
   <data name="FeaturePointOfInterestsDistanceFormat" xml:space="preserve">
     <value>[{0}m]</value>
@@ -936,5 +936,29 @@ Les couleurs sont stockées sous la forme d'un tableau de valeurs flottantes 'RG
   </data>
   <data name="CommandSpawnQuestItems" xml:space="preserve">
     <value>spawnqi</value>
+  </data>
+  <data name="PropertyTrackAutoWishlist" xml:space="preserve">
+    <value>Suivre la liste de souhaits auto</value>
+  </data>
+  <data name="CommandSpawnHideoutItems" xml:space="preserve">
+    <value>spawnhi</value>
+  </data>
+  <data name="FeatureNoFlashName" xml:space="preserve">
+    <value>noflash</value>
+  </data>
+  <data name="FeatureNoFlashDescription" xml:space="preserve">
+    <value>Pas d'effet de flash persistant ou de brûlure oculaire après une grenade flash.</value>
+  </data>
+  <data name="FeatureMortarName" xml:space="preserve">
+    <value>mortar</value>
+  </data>
+  <data name="FeatureMortarDescription" xml:space="preserve">
+    <value>Déclenche une attaque de mortier à l'endroit où se trouve le joueur.</value>
+  </data>
+  <data name="FeatureAirDropName" xml:space="preserve">
+    <value>airdrop</value>
+  </data>
+  <data name="FeatureAirDropDescription" xml:space="preserve">
+    <value>Déclenche un largage aérien à l'endroit où se trouve le joueur.</value>
   </data>
 </root>

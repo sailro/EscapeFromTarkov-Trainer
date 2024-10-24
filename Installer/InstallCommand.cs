@@ -66,6 +66,19 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 
 			AnsiConsole.MarkupLine($"Target [green]EscapeFromTarkov ({installation.Version})[/] in [blue]{installation.Location.EscapeMarkup()}[/].");
 
+			if (installation.UsingSptAki)
+			{
+				AnsiConsole.MarkupLine("[green][[SPT-AKI]][/] detected. Please make sure you have run the game at least once before installing the trainer.");
+				AnsiConsole.MarkupLine("SPT-AKI is patching binaries during the first run, and we [underline]need[/] to compile against those patched binaries.");
+				AnsiConsole.MarkupLine("If you install this trainer on stock binaries, we'll be unable to compile or the game will freeze at the startup screen.");
+
+				if (installation.UsingSptAkiButNeverRun)
+					AnsiConsole.MarkupLine("[yellow]Warning: it seems that you have never run your SPT-AKI installation. You should quit now and rerun this installer once it's done.[/]");
+
+				if (!AnsiConsole.Confirm("Continue installation (yes I have run the game at least once) ?"))
+					return (int)ExitCode.Canceled;
+			}
+
 			const string features = "Features";
 			const string commands = "ConsoleCommands";
 
@@ -79,16 +92,6 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 				// Failure
 				AnsiConsole.MarkupLine($"[red]Unable to compile trainer for version {installation.Version}. Please file an issue here : https://github.com/sailro/EscapeFromTarkov-Trainer/issues [/]");
 				return (int)ExitCode.CompilationFailed;
-			}
-
-			if (installation.UsingSptAki)
-			{
-				AnsiConsole.MarkupLine("[green][[SPT-AKI]][/] detected. Please make sure you have run the game at least once before installing the trainer.");
-				AnsiConsole.MarkupLine("SPT-AKI is patching binaries during the first run, and we [underline]need[/] to compile against those patched binaries.");
-				AnsiConsole.MarkupLine("If you install this trainer on stock binaries, the game will freeze at the startup screen.");
-
-				if (!AnsiConsole.Confirm("Continue installation (yes I have run the game at least once) ?"))
-					return (int)ExitCode.Canceled;
 			}
 
 			if (!CreateDll(installation, "NLog.EFT.Trainer.dll", dllPath => result.Compilation.Emit(dllPath, manifestResources: result.Resources)))

@@ -23,7 +23,7 @@ internal class TrackList : ConsoleCommandWithoutArgument
 			command.AddConsoleLog(Strings.CommandTrackListUpdated);
 
 		foreach (var templateId in lootItems.Wishlist)
-			command.AddConsoleLog(string.Format(Strings.CommandTrackListWishListEnumerateFormat, templateId.LocalizedShortName()));
+			command.AddConsoleLog(string.Format(Strings.CommandTrackListWishListEnumerateFormat, ((MongoID)templateId).LocalizedShortName()));
 
 		foreach (var item in lootItems.TrackedNames)
 		{

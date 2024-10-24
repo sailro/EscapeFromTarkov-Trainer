@@ -42,6 +42,10 @@ internal class Commands : FeatureRenderer
 		if (!PreloaderUI.Instantiated)
 			return;
 
+#if DEBUG
+		ConsoleScreen.IAmDevShowMeLogs = true;
+#endif
+
 		RegisterPropertyDisplays();
 		RegisterCommands();
 	}
