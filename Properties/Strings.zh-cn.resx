@@ -939,7 +939,7 @@
     <value>spawnqi</value>
   </data>
   <data name="PropertyTrackAutoWishlist" xml:space="preserve">
-    <value>跟踪汽车愿望清单</value>
+    <value>自动跟踪愿望单</value>
   </data>
   <data name="CommandSpawnHideoutItems" xml:space="preserve">
     <value>spawnhi</value>
