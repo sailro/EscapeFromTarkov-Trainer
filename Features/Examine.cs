@@ -1,4 +1,5 @@
 ﻿using EFT.InventoryLogic;
+using EFT.Trainer.ConsoleCommands;
 using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using static EFT.Player;
@@ -44,7 +45,7 @@ internal class Examine : ToggleFeature
 	{
 		HarmonyPatchOnce(harmony =>
 		{
-			HarmonyPrefix(harmony, typeof(Profile), nameof(Profile.Examined), nameof(ExaminedPrefix), [typeof(string)]);
+			HarmonyPrefix(harmony, typeof(Profile), nameof(Profile.Examined), nameof(ExaminedPrefix), [typeof(MongoID)]);
 			HarmonyPrefix(harmony, typeof(Profile), nameof(Profile.Examined), nameof(ExaminedPrefix), [typeof(Item)]);
 			HarmonyConstructorPrefix(harmony, typeof(SinglePlayerInventoryController), nameof(SinglePlayerInventoryControllerConstructorPrefix), [typeof(Player), typeof(Profile), typeof(bool)]);
 		});
