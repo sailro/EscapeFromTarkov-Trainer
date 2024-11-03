@@ -45,10 +45,10 @@ internal class Hits : ToggleFeature
 	public bool ShowHealthDamage { get; set; } = true;
 
 
-	internal class HitMarker(DamageInfo damageInfo)
+	internal class HitMarker(DamageInfoStruct damageInfo)
 	{
 		public float ElapsedTime { get; set; } = 0.0f;
-		public DamageInfo DamageInfo { get; set; } = damageInfo;
+		public DamageInfoStruct DamageInfo { get; set; } = damageInfo;
 		public bool IsTaggedForDeletion { get; set; } = false;
 	}
 
@@ -56,7 +56,7 @@ internal class Hits : ToggleFeature
 
 #pragma warning disable IDE0060
 	[UsedImplicitly]
-	protected static void ApplyDamagePostfix(EBodyPart bodyPart, float damage, DamageInfo damageInfo, ActiveHealthController? __instance)
+	protected static void ApplyDamagePostfix(EBodyPart bodyPart, float damage, DamageInfoStruct damageInfo, ActiveHealthController? __instance)
 	{
 		var feature = FeatureFactory.GetFeature<Hits>();
 		if (feature == null || !feature.Enabled)
