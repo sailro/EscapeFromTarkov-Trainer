@@ -261,6 +261,15 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to spawnhi.
+        /// </summary>
+        internal static string CommandSpawnHideoutItems {
+            get {
+                return ResourceManager.GetString("CommandSpawnHideoutItems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to spawnqi.
         /// </summary>
         internal static string CommandSpawnQuestItems {
@@ -680,6 +689,24 @@ namespace EFT.Trainer.Properties {
         internal static string FeatureAimbotName {
             get {
                 return ResourceManager.GetString("FeatureAimbotName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Triggers an airdrop at the player&apos;s location..
+        /// </summary>
+        internal static string FeatureAirDropDescription {
+            get {
+                return ResourceManager.GetString("FeatureAirDropDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to airdrop.
+        /// </summary>
+        internal static string FeatureAirDropName {
+            get {
+                return ResourceManager.GetString("FeatureAirDropName", resourceCulture);
             }
         }
         
@@ -1116,6 +1143,24 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Triggers a mortar strike at the player&apos;s location..
+        /// </summary>
+        internal static string FeatureMortarDescription {
+            get {
+                return ResourceManager.GetString("FeatureMortarDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to mortar.
+        /// </summary>
+        internal static string FeatureMortarName {
+            get {
+                return ResourceManager.GetString("FeatureMortarName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Night vision..
         /// </summary>
         internal static string FeatureNightVisionDescription {
@@ -1148,6 +1193,24 @@ namespace EFT.Trainer.Properties {
         internal static string FeatureNoCollisionName {
             get {
                 return ResourceManager.GetString("FeatureNoCollisionName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No persistent flash or eye-burn effect after a flash grenade..
+        /// </summary>
+        internal static string FeatureNoFlashDescription {
+            get {
+                return ResourceManager.GetString("FeatureNoFlashDescription", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to noflash.
+        /// </summary>
+        internal static string FeatureNoFlashName {
+            get {
+                return ResourceManager.GetString("FeatureNoFlashName", resourceCulture);
             }
         }
         
@@ -1224,7 +1287,7 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Wallhack (you&apos;ll see Bear/Boss/Cultist/Scav/Usec with configurable colors through walls). Charms, boxes, info (weapon and health), skeletons and distance..
+        ///   Looks up a localized string similar to Players (you&apos;ll see Bear/Boss/Cultist/Scav/Usec with configurable colors through walls). Charms, boxes, info (weapon and health), skeletons and distance..
         /// </summary>
         internal static string FeaturePlayersDescription {
             get {
@@ -1242,7 +1305,7 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to wallhack.
+        ///   Looks up a localized string similar to players.
         /// </summary>
         internal static string FeaturePlayersName {
             get {
@@ -2309,6 +2372,15 @@ namespace EFT.Trainer.Properties {
         internal static string PropertyThickness {
             get {
                 return ResourceManager.GetString("PropertyThickness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Track Auto Wishlist.
+        /// </summary>
+        internal static string PropertyTrackAutoWishlist {
+            get {
+                return ResourceManager.GetString("PropertyTrackAutoWishlist", resourceCulture);
             }
         }
         

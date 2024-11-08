@@ -2,6 +2,7 @@
 using EFT.HealthSystem;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Model;
 using EFT.Trainer.Properties;
 using EFT.Trainer.UI;
 using JetBrains.Annotations;
@@ -44,10 +45,10 @@ internal class Hits : ToggleFeature
 	public bool ShowHealthDamage { get; set; } = true;
 
 
-	internal class HitMarker(DamageInfo damageInfo)
+	internal class HitMarker(DamageInfoStruct damageInfo)
 	{
 		public float ElapsedTime { get; set; } = 0.0f;
-		public DamageInfo DamageInfo { get; set; } = damageInfo;
+		public DamageInfoStruct DamageInfo { get; set; } = damageInfo;
 		public bool IsTaggedForDeletion { get; set; } = false;
 	}
 
@@ -55,7 +56,7 @@ internal class Hits : ToggleFeature
 
 #pragma warning disable IDE0060
 	[UsedImplicitly]
-	protected static void ApplyDamagePostfix(EBodyPart bodyPart, float damage, DamageInfo damageInfo, ActiveHealthController? __instance)
+	protected static void ApplyDamagePostfix(EBodyPart bodyPart, float damage, DamageInfoStruct damageInfo, ActiveHealthController? __instance)
 	{
 		var feature = FeatureFactory.GetFeature<Hits>();
 		if (feature == null || !feature.Enabled)
@@ -64,7 +65,7 @@ internal class Hits : ToggleFeature
 		if (__instance == null)
 			return;
 
-		var victim = __instance.Player;
+		var victim = new ActiveHealthControllerWrapper(__instance).Player;
 		if (victim == null || victim.IsYourPlayer)
 			return;
 
