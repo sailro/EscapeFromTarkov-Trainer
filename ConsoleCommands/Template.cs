@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using System.Text.RegularExpressions;
-using Comfort.Common;
+﻿using System.Text.RegularExpressions;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.Features;
 using EFT.Trainer.Properties;
@@ -19,9 +17,6 @@ internal class Template : BaseTemplateCommand
 	{
 		var matchGroup = match.Groups[ValueGroup];
 		if (matchGroup is not { Success: true })
-			return;
-
-		if (!Singleton<ItemFactoryClass>.Instantiated)
 			return;
 
 		var search = matchGroup.Value;
