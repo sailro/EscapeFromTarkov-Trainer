@@ -29,7 +29,7 @@ internal class Examine : ToggleFeature
 
 #pragma warning disable IDE0060
 	[UsedImplicitly]
-	protected static bool SinglePlayerInventoryControllerConstructorPrefix(Player player, Profile profile, ref bool examined)
+	protected static bool SinglePlayerInventoryControllerConstructorPrefix(Player player, Profile profile, bool isBot, ref bool examined)
 	{
 		var feature = FeatureFactory.GetFeature<Examine>();
 		if (feature == null || !feature.Enabled)
@@ -47,7 +47,7 @@ internal class Examine : ToggleFeature
 		{
 			HarmonyPrefix(harmony, typeof(Profile), nameof(Profile.Examined), nameof(ExaminedPrefix), [typeof(MongoID)]);
 			HarmonyPrefix(harmony, typeof(Profile), nameof(Profile.Examined), nameof(ExaminedPrefix), [typeof(Item)]);
-			HarmonyConstructorPrefix(harmony, typeof(SinglePlayerInventoryController), nameof(SinglePlayerInventoryControllerConstructorPrefix), [typeof(Player), typeof(Profile), typeof(bool)]);
+			HarmonyConstructorPrefix(harmony, typeof(SinglePlayerInventoryController), nameof(SinglePlayerInventoryControllerConstructorPrefix), [typeof(Player), typeof(Profile), typeof(bool), typeof(bool)]);
 		});
 	}
 }
