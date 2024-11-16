@@ -40,7 +40,7 @@ internal class Ammunition : ToggleFeature
 		var magazine = weapon.GetCurrentMagazine();
 		if (magazine != null)
 		{
-			if (magazine is CylinderMagazineClass cylinderMagazine)
+			if (magazine is CylinderMagazineItemClass cylinderMagazine)
 			{
 				// Rhino case
 				foreach (var slot in cylinderMagazine.Camoras)
