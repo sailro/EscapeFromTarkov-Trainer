@@ -142,6 +142,9 @@ internal class Spawn : BaseTemplateCommand
 
 		if (item is CompoundItem compound)
 			FillSlots(itemFactory, compound.AllSlots);
+
+		if (item is IAmmoContainer container) // AmmoBox or Magazine
+			FillStackSlot(itemFactory, container.Cartridges);
 	}
 
 	private static void FillSlots(ItemFactoryClass itemFactory, IEnumerable<Slot> slots)
@@ -162,6 +165,22 @@ internal class Spawn : BaseTemplateCommand
 			SetupItem(itemFactory, item);
 
 			slot.AddWithoutRestrictions(item);
+		}
+	}
+
+	private static void FillStackSlot(ItemFactoryClass itemFactory, StackSlot slot)
+	{
+		var filter = slot
+			.Filters.FirstOrDefault()?
+			.Filter.Random();
+
+		if (filter == null)
+			return;
+
+		while (slot.Count < slot.MaxCount)
+		{
+			var item = itemFactory.CreateItem(MongoID.Generate(), filter, null);
+			slot.Add(item, false);
 		}
 	}
 }
