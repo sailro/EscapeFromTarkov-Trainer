@@ -237,7 +237,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.Unity.Analyzers" Version="1.20.0" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.Unity.Analyzers" Version="1.21.0" PrivateAssets="all" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Strings.fr.resx">
