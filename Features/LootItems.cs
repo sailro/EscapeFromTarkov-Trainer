@@ -7,7 +7,6 @@ using EFT.InventoryLogic;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.Properties;
-using EFT.UI;
 using JsonType;
 using UnityEngine;
 
@@ -38,6 +37,9 @@ internal class LootItems : PointOfInterests
 
 	[ConfigurationProperty]
 	public bool TrackWishlist { get; set; } = false;
+
+	[ConfigurationProperty]
+	public bool TrackAutoWishlist { get; set; } = false;
 
 	public override float CacheTimeInSec { get; set; } = 3f;
 	public override Color GroupingColor => Color;
@@ -71,19 +73,24 @@ internal class LootItems : PointOfInterests
 
 	private HashSet<string> RefreshWishlist()
 	{
-		var result = new HashSet<string>();
-		if (!TrackWishlist)
-			return result;
+		if (!TrackWishlist && !TrackAutoWishlist)
+			return [];
 
-		var uiContextInstance = ItemUiContext.Instance; // warning instance is a MonoBehavior so no null propagation permitted
-		if (uiContextInstance == null)
-			return result;
+		var player = GameState.Current?.LocalPlayer;
+		if (!player.IsValid())
+			return [];
 
-		var rawWishList = uiContextInstance.Session?.RagFair?.Wishlist;
-		if (rawWishList == null)
-			return result;
+		var manager = player.Profile?.WishlistManager;
+		if (manager == null)
+			return [];
 
-		return [.. rawWishList.Keys];
+		return TrackWishlist switch
+		{
+			true when TrackAutoWishlist => [.. manager.GetWishlist().Keys], // this will get user items + auto-add hideout items if enabled in settings
+			true when !TrackAutoWishlist => [.. manager.UserItems.Keys],    // this will get user items only
+			false when TrackAutoWishlist => [.. manager.GetWishlist().Keys.Except(manager.UserItems.Keys)],
+			_ => []
+		};
 	}
 
 	public override void RefreshData(List<PointOfInterest> data)

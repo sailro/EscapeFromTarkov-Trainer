@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -10,7 +11,6 @@ using EFT.Trainer.Extensions;
 using EFT.Trainer.Features;
 using EFT.Trainer.Properties;
 using JetBrains.Annotations;
-using UnityEngine;
 using Random = UnityEngine.Random;
 
 #nullable enable
@@ -33,7 +33,7 @@ internal class Spawn : BaseTemplateCommand
 			return;
 
 		var search = matchGroup.Value;
-		var templates = FindTemplates(search);
+		var templates = TemplateHelper.FindTemplates(search);
 
 		switch (templates.Length)
 		{
@@ -54,7 +54,7 @@ internal class Spawn : BaseTemplateCommand
 
 	internal static void SpawnTemplate(string template, Player player, ConsoleCommand command, Func<ItemTemplate, bool> filter)
 	{
-		var result = FindTemplates(template)
+		var result = TemplateHelper.FindTemplates(template)
 			.FirstOrDefault(filter);
 
 		if (result == null)
@@ -79,7 +79,7 @@ internal class Spawn : BaseTemplateCommand
 					}
 					else
 					{
-						var itemFactory = Singleton<ItemFactory>.Instance;
+						var itemFactory = Singleton<ItemFactoryClass>.Instance;
 						var item = itemFactory.CreateItem(MongoID.Generate(), template._id, null);
 						if (item == null)
 						{
@@ -87,13 +87,11 @@ internal class Spawn : BaseTemplateCommand
 						}
 						else
 						{
-							item.SpawnedInSession = true; // found in raid
-
 							_ = new TraderControllerClass(item, item.Id, item.ShortName);
 							var go = poolManager.CreateLootPrefab(item, ECameraType.Default);
 
 							go.SetActive(value: true);
-							var lootItem = Singleton<GameWorld>.Instance.CreateLootWithRigidbody(go, item, item.ShortName, Singleton<GameWorld>.Instance, randomRotation: false, null, out _);
+							var lootItem = Singleton<GameWorld>.Instance.CreateLootWithRigidbody(go, item, item.ShortName, randomRotation: false, null, out _, true);
 
 							var transform = player.Transform;
 							var position = transform.position
@@ -103,11 +101,86 @@ internal class Spawn : BaseTemplateCommand
 
 							lootItem.transform.SetPositionAndRotation(position, transform.rotation);
 							lootItem.LastOwner = player;
+
+							// setup after loot item is created, else we are hitting issues with weapon
+							SetupItem(itemFactory, item);
 						}
 					}
 				});
 
 				return Task.CompletedTask;
 			});
+	}
+
+	private static void SetupItem(ItemFactoryClass itemFactory, Item item)
+	{
+		item.SpawnedInSession = true; // found in raid
+
+		if (item.TryGetItemComponent<DogtagComponent>(out var dogtag))
+		{
+			dogtag.AccountId = Random.Range(0, int.MaxValue).ToString();
+			dogtag.ProfileId = Random.Range(0, int.MaxValue).ToString();
+			dogtag.Nickname = $"Rambo{Random.Range(1, 256)}";
+			dogtag.Side = Enum.GetValues(typeof(EPlayerSide)).Cast<EPlayerSide>().Random();
+			dogtag.Level = Random.Range(1, 69);
+			dogtag.Time = DateTime.Now;
+			dogtag.Status = "died";
+			dogtag.KillerAccountId = Random.Range(0, int.MaxValue).ToString();
+			dogtag.KillerProfileId = Random.Range(0, int.MaxValue).ToString();
+			dogtag.KillerName = "";
+			dogtag.WeaponName = "";
+		}
+
+		if (item.TryGetItemComponent<ArmorHolderComponent>(out var armorHolder))
+			FillSlots(itemFactory, armorHolder.ArmorSlots);
+
+		if (item.TryGetItemComponent<RepairableComponent>(out var repairable))
+		{
+			repairable.MaxDurability = repairable.TemplateDurability;
+			repairable.Durability = repairable.MaxDurability;
+		}
+
+		if (item is CompoundItem compound)
+			FillSlots(itemFactory, compound.AllSlots);
+
+		if (item is IAmmoContainer container) // AmmoBox or Magazine
+			FillStackSlot(itemFactory, container.Cartridges);
+	}
+
+	private static void FillSlots(ItemFactoryClass itemFactory, IEnumerable<Slot> slots)
+	{
+		foreach (var slot in slots)
+		{
+			if (slot.Items.Any())
+				continue;
+
+			var filter = slot
+				.Filters.FirstOrDefault()?
+				.Filter.Random();
+
+			if (filter == null)
+				continue;
+
+			var item = itemFactory.CreateItem(MongoID.Generate(), filter, null);
+			SetupItem(itemFactory, item);
+
+			slot.AddWithoutRestrictions(item);
+		}
+	}
+
+	private static void FillStackSlot(ItemFactoryClass itemFactory, StackSlot slot)
+	{
+		var filter = slot
+			.Filters.FirstOrDefault()?
+			.Filter.Random();
+
+		if (filter == null)
+			return;
+
+		while (slot.Count < slot.MaxCount)
+		{
+			var item = itemFactory.CreateItem(MongoID.Generate(), filter, null);
+			slot.Add(item, false);
+		}
 	}
 }

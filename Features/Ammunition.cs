@@ -40,7 +40,7 @@ internal class Ammunition : ToggleFeature
 		var magazine = weapon.GetCurrentMagazine();
 		if (magazine != null)
 		{
-			if (magazine is CylinderMagazineClass cylinderMagazine)
+			if (magazine is CylinderMagazineItemClass cylinderMagazine)
 			{
 				// Rhino case
 				foreach (var slot in cylinderMagazine.Camoras)
@@ -62,11 +62,11 @@ internal class Ammunition : ToggleFeature
 
 	private static Item CreateAmmo(Item ammo)
 	{
-		var instantiated = Singleton<ItemFactory>.Instantiated;
+		var instantiated = Singleton<ItemFactoryClass>.Instantiated;
 		if (!instantiated)
 			return ammo;
 
-		var instance = Singleton<ItemFactory>.Instance;
+		var instance = Singleton<ItemFactoryClass>.Instance;
 		var itemId = Guid.NewGuid().ToString("N").Substring(0, 24);
 		return instance.CreateItem(itemId, ammo.TemplateId, null) ?? ammo;
 	}

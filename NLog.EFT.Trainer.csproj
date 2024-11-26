@@ -131,6 +131,7 @@
     <Compile Include="ConsoleCommands\ListSuperRare.cs" />
     <Compile Include="ConsoleCommands\LoadTrackList.cs" />
     <Compile Include="ConsoleCommands\SaveTrackList.cs" />
+    <Compile Include="ConsoleCommands\SpawnHideoutItems.cs" />
     <Compile Include="ConsoleCommands\SpawnQuestItems.cs" />
     <Compile Include="ConsoleCommands\SpawnBot.cs" />
     <Compile Include="ConsoleCommands\Spawn.cs" />
@@ -163,6 +164,7 @@
     <Compile Include="Features\FovChanger.cs" />
     <Compile Include="Features\Durability.cs" />
     <Compile Include="Features\Interact.cs" />
+    <Compile Include="Features\AirDrop.cs" />
     <Compile Include="Features\NoMalfunctions.cs" />
     <Compile Include="Features\AutomaticGun.cs" />
     <Compile Include="Features\Bones.cs" />
@@ -185,6 +187,7 @@
     <Compile Include="Features\NoCollision.cs" />
     <Compile Include="Features\NoSway.cs" />
     <Compile Include="Features\NoRecoil.cs" />
+    <Compile Include="Features\NoFlash.cs" />
     <Compile Include="Features\NoVisor.cs" />
     <Compile Include="Features\Players.cs" />
     <Compile Include="Features\PointOfInterest.cs" />
@@ -197,9 +200,11 @@
     <Compile Include="Features\Speed.cs" />
     <Compile Include="Features\Health.cs" />
     <Compile Include="Features\Stamina.cs" />
+    <Compile Include="Features\TemplateHelper.cs" />
     <Compile Include="Features\ThermalVision.cs" />
     <Compile Include="Features\ToggleFeature.cs" />
     <Compile Include="Features\TrackedItem.cs" />
+    <Compile Include="Features\Mortar.cs" />
     <Compile Include="Features\TriggerFeature.cs" />
     <Compile Include="Features\Ghost.cs" />
     <Compile Include="Features\WallShoot.cs" />
@@ -209,6 +214,7 @@
     <Compile Include="Features\QuickThrow.cs" />
     <Compile Include="Features\WorldInteractiveObjects.cs" />
     <Compile Include="Model\ReflectionWrapper.cs" />
+    <Compile Include="Model\ActiveHealthControllerWrapper.cs" />
     <Compile Include="Model\ShotWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Strings.fr.Designer.cs">
@@ -236,8 +242,8 @@
     <Compile Include="Loader.cs" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.4" PrivateAssets="all" />
-    <PackageReference Include="Microsoft.Unity.Analyzers" Version="1.20.0" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.Unity.Analyzers" Version="1.21.0" PrivateAssets="all" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Strings.fr.resx">
