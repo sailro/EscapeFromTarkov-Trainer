@@ -379,7 +379,7 @@
     <value>满耐久</value>
   </data>
   <data name="FeatureExamineDescription" xml:space="preserve">
-    <value>等同于所有的东西都已经搜索过了。立刻搜索完成。</value>
+    <value>等同于容器内所有的东西都已经搜索过。立刻搜索完成容器。</value>
   </data>
   <data name="FeatureExamineName" xml:space="preserve">
     <value>快速搜索</value>
@@ -413,7 +413,7 @@
     <value>Timer</value>
   </data>
   <data name="FeatureFeatureWallShootDescription" xml:space="preserve">
-    <value>能够射穿墙壁/头盔/背心/材料，且穿透力最大，偏差/弹跳最小。</value>
+    <value>能够射穿墙壁/头盔/背心/任意材料，且穿透力最大，弹道偏差/弹跳几率最小。</value>
   </data>
   <data name="FeatureFovChangerDescription" xml:space="preserve">
     <value>更改视野范围(FOV)。</value>
@@ -428,7 +428,7 @@
     <value>游戏状态</value>
   </data>
   <data name="FeatureGhostDescription" xml:space="preserve">
-    <value>阻止机器人看到你。</value>
+    <value>机器人将无视你。</value>
   </data>
   <data name="FeatureGhostName" xml:space="preserve">
     <value>幽灵模式</value>
@@ -550,7 +550,7 @@
     <comment>Owner</comment>
   </data>
   <data name="FeatureQuestsDescription" xml:space="preserve">
-    <value>获取/放置任务物品的位置。只有与你开始的任务相关的项目才会显示出来。</value>
+    <value>获取/放置任务物品的位置。只有与你接取的任务中相关的项目才会显示出来。</value>
   </data>
   <data name="FeatureQuestsFormat" xml:space="preserve">
     <value>{0} ({1})</value>
@@ -584,7 +584,7 @@
     <value>技能</value>
   </data>
   <data name="FeatureSpeedDescription" xml:space="preserve">
-    <value>速度提升，使你能够通过墙壁/物体，或移动得更快。小心别掉出地图自杀。</value>
+    <value>修改移动速度，使你能够通过墙壁/物体。注意，小心掉出地图自杀。</value>
   </data>
   <data name="FeatureSpeedName" xml:space="preserve">
     <value>移动速度</value>
@@ -632,7 +632,7 @@
     <value>命中防弹衣颜色</value>
   </data>
   <data name="PropertyBackward" xml:space="preserve">
-    <value>后退</value>
+    <value>后</value>
   </data>
   <data name="PropertyBearColors" xml:space="preserve">
     <value>Bear 阵营颜色</value>
@@ -686,7 +686,7 @@
     <value>食物 / 水</value>
   </data>
   <data name="PropertyForward" xml:space="preserve">
-    <value>前进</value>
+    <value>前</value>
   </data>
   <data name="PropertyFov" xml:space="preserve">
     <value>FOV</value>
@@ -722,7 +722,7 @@
     <value>强度</value>
   </data>
   <data name="PropertyKey" xml:space="preserve">
-    <value>热键</value>
+    <value>绑定快捷键</value>
   </data>
   <data name="PropertyLeft" xml:space="preserve">
     <value>左</value>
@@ -945,13 +945,13 @@
     <value>spawnhi</value>
   </data>
   <data name="FeatureNoFlashName" xml:space="preserve">
-    <value>不闪烁</value>
+    <value>免疫闪光</value>
   </data>
   <data name="FeatureNoFlashDescription" xml:space="preserve">
     <value>闪光弹爆炸后不会产生持续闪光或灼伤眼睛的效果。</value>
   </data>
   <data name="FeatureMortarName" xml:space="preserve">
-    <value>灰浆</value>
+    <value>迫击炮</value>
   </data>
   <data name="FeatureMortarDescription" xml:space="preserve">
     <value>触发对玩家所在位置的迫击炮攻击。</value>
