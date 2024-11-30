@@ -5,7 +5,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Linq;
 using System.Runtime.Versioning;
-using Microsoft.Win32;
+using System.Text;
 using Spectre.Console;
 
 namespace Installer;
@@ -14,8 +14,11 @@ internal class Installation
 {
 	public Version Version { get; }
 	public bool UsingSptAki { get; private set; }
+	public bool UsingSptAkiButNeverRun { get; private set; }
 	public bool UsingBepInEx { get; private set; }
 	public string Location { get; }
+	public string DisplayString { get; private set; } = string.Empty;
+
 	public string Data => Path.Combine(Location, "EscapeFromTarkov_Data");
 	public string Managed => Path.Combine(Data, "Managed");
 	public string BepInEx => Path.Combine(Location, "BepInEx");
@@ -56,10 +59,10 @@ internal class Installation
 				installations = DiscoverInstallations()
 					.Distinct()
 					.ToList();
-			});
 
-		if (path is not null && TryDiscoverInstallation(path, out var installation))
-			installations.Add(installation);
+				if (path is not null && TryDiscoverInstallation(path, out var installation))
+					installations.Add(installation);
+			});
 
 		installations = [.. installations.Distinct().OrderBy(i => i.Location)];
 
@@ -72,11 +75,7 @@ internal class Installation
 				var first = installations.First();
 				return AnsiConsole.Confirm($"Continue with [green]EscapeFromTarkov ({first.Version})[/] in [blue]{first.Location.EscapeMarkup()}[/] ?") ? first : null;
 			default:
-				var prompt = new SelectionPrompt<Installation>
-				{
-					Converter = i => i.Location.EscapeMarkup(),
-					Title = promptTitle
-				};
+				var prompt = new SelectionPrompt<Installation> { Title = promptTitle };
 				prompt.AddChoices(installations);
 				return AnsiConsole.Prompt(prompt);
 		}
@@ -91,18 +90,18 @@ internal class Installation
 		if (TryDiscoverInstallation(Path.GetDirectoryName(AppContext.BaseDirectory), out installation))
 			yield return installation;
 
-		using var hive = RegistryKey.OpenBaseKey(RegistryHive.LocalMachine, RegistryView.Registry32);
-		using var eft = hive.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Uninstall\EscapeFromTarkov", false);
+		// SPT-AKI default installation path
+		if (TryDiscoverInstallation(Path.Combine(Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System))!, "SPT"), out installation))
+			yield return installation;
 
-		if (eft == null)
-			yield break;
+		// SPT-AKI locations from MUI cache
+		foreach (var sptpath in Registry.GetSptAkiInstallationsFromMuiCache())
+		{
+			if (TryDiscoverInstallation(sptpath, out installation))
+				yield return installation;
+		}
 
-		var exe = eft.GetValue("DisplayIcon") as string;
-		if (string.IsNullOrEmpty(exe) || !File.Exists(exe))
-			yield break;
-
-		var path = Path.GetDirectoryName(exe);
-		if (string.IsNullOrEmpty(path) || !Directory.Exists(path))
+		if (!Registry.TryGetEscapeFromTarkovInstallationPath(out var path))
 			yield break;
 
 		if (TryDiscoverInstallation(path, out installation))
@@ -143,7 +142,14 @@ internal class Installation
 			var akiFolder = Path.Combine(path, "SPT_Data");
 			installation.UsingSptAki = Directory.Exists(akiFolder) || Directory.Exists(legacyAkiFolder);
 
+
+			var battleye = Path.Combine(path, "BattlEye");
+			var user = Path.Combine(path, "user");
+			installation.UsingSptAkiButNeverRun = installation.UsingSptAki && (Directory.Exists(battleye) || !Directory.Exists(user));
+
 			installation.UsingBepInEx = Directory.Exists(installation.BepInExPlugins);
+
+			installation.DisplayString = installation.ComputeDisplayString();
 
 			return true;
 		}
@@ -151,5 +157,22 @@ internal class Installation
 		{
 			return false;
 		}
+	}
+
+	private string ComputeDisplayString()
+	{
+		var sb = new StringBuilder();
+		sb.Append($"{Location.EscapeMarkup()} - [[{Version}]] ");
+		sb.Append(UsingSptAki ? "[b]SPT-AKI[/] " : "Vanilla ");
+
+		if (UsingSptAki && VersionChecker.IsVersionSupported(Version))
+			sb.Append("[green](Supported)[/]");
+
+		return sb.ToString();
+	}
+
+	public override string ToString()
+	{
+		return DisplayString;
 	}
 }

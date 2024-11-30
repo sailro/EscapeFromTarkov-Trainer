@@ -523,7 +523,7 @@
     <value>无视野遮挡</value>
   </data>
   <data name="FeaturePlayersDescription" xml:space="preserve">
-    <value>透视(通过墙壁你会看到Bear/Boss/邪教徒/Scav/Usec)。可配置颜色、描边、人物盒子、人物信息(武器和生命值)，人物骨骼和距离。
+    <value>显示玩家(通过墙壁你会看到Bear/Boss/邪教徒/Scav/Usec)。可配置颜色、描边、人物盒子、人物信息(武器和生命值)，人物骨骼和距离。
 </value>
   </data>
   <data name="FeaturePlayersFormat" xml:space="preserve">
@@ -531,7 +531,7 @@
     <comment>Weapon name, health %, distance</comment>
   </data>
   <data name="FeaturePlayersName" xml:space="preserve">
-    <value>辅助视野</value>
+    <value>显示玩家</value>
   </data>
   <data name="FeaturePointOfInterestsDistanceFormat" xml:space="preserve">
     <value>[{0}米]</value>
@@ -937,5 +937,29 @@
   </data>
   <data name="CommandSpawnQuestItems" xml:space="preserve">
     <value>spawnqi</value>
+  </data>
+  <data name="PropertyTrackAutoWishlist" xml:space="preserve">
+    <value>自动跟踪愿望单</value>
+  </data>
+  <data name="CommandSpawnHideoutItems" xml:space="preserve">
+    <value>spawnhi</value>
+  </data>
+  <data name="FeatureNoFlashName" xml:space="preserve">
+    <value>不闪烁</value>
+  </data>
+  <data name="FeatureNoFlashDescription" xml:space="preserve">
+    <value>闪光弹爆炸后不会产生持续闪光或灼伤眼睛的效果。</value>
+  </data>
+  <data name="FeatureMortarName" xml:space="preserve">
+    <value>灰浆</value>
+  </data>
+  <data name="FeatureMortarDescription" xml:space="preserve">
+    <value>触发对玩家所在位置的迫击炮攻击。</value>
+  </data>
+  <data name="FeatureAirDropName" xml:space="preserve">
+    <value>空投</value>
+  </data>
+  <data name="FeatureAirDropDescription" xml:space="preserve">
+    <value>触发玩家所在位置的空投。</value>
   </data>
 </root>

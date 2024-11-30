@@ -3,6 +3,7 @@ using EFT.Ballistics;
 using EFT.HealthSystem;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
+using EFT.Trainer.Model;
 using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 
@@ -33,7 +34,11 @@ internal class Health : ToggleFeature
 	[UsedImplicitly]
 	protected static bool ApplyDamagePrefix(EBodyPart bodyPart, ActiveHealthController? __instance, ref float __result)
 	{
-		if (UseBuiltinDamageLogic(__instance?.Player, bodyPart))
+		if (__instance == null)
+			return true; // keep using original code
+
+		var wrapper = new ActiveHealthControllerWrapper(__instance);
+		if (UseBuiltinDamageLogic(wrapper.Player, bodyPart))
 			return true; // keep using original code
 
 		__result = 0f;

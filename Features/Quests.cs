@@ -102,7 +102,7 @@ internal class Quests : PointOfInterests
 			{
 				foreach (var condition in quest.Template!.Conditions[EQuestStatus.AvailableForFinish].OfType<ConditionFindItem>())
 				{
-					if (!condition.target.Contains(lootItem.Item.TemplateId) || quest.CompletedConditions.Contains(condition.id))
+					if (!condition.target.Contains(lootItem.Item.TemplateId.ToString()) || quest.CompletedConditions.Contains(condition.id))
 						continue;
 
 					var position = lootItem.transform.position;
@@ -129,7 +129,7 @@ internal class Quests : PointOfInterests
 				if (quest.CompletedConditions.Contains(condition.id))
 					continue;
 
-				var result = allPlayerItems.FirstOrDefault(x => condition.target.Contains(x.TemplateId));
+				var result = allPlayerItems.FirstOrDefault(x => condition.target.Contains(x.TemplateId.ToString()));
 				if (result == null)
 					continue;
 
