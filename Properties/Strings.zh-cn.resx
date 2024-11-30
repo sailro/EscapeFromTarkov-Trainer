@@ -902,7 +902,7 @@
     <value>Usec颜色</value>
   </data>
   <data name="PropertyVitalsOnly" xml:space="preserve">
-    <value>仅重要器官无敌</value>
+    <value>仅重要器官免疫伤害</value>
   </data>
   <data name="PropertyX" xml:space="preserve">
     <value>X轴</value>
