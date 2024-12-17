@@ -7,7 +7,7 @@
 
 ***TLDR => Use the [Universal Installer](https://github.com/sailro/EscapeFromTarkov-Trainer/releases).*** Default key for in-game GUI is `Right-Alt`.
 
-`master` branch can build against `EFT 0.15.2.32678` (tested with [`SPT-AKI Version 3.10.0`](https://hub.sp-tarkov.com/files/file/16-spt-aki/#versions)). If you are looking for another version, see [`branches`](https://github.com/sailro/EscapeFromTarkov-Trainer/branches) and [`releases`](https://github.com/sailro/EscapeFromTarkov-Trainer/releases).
+`master` branch can build against `EFT 0.15.2.32678` (tested with [`SPT-AKI Version 3.10.3`](https://hub.sp-tarkov.com/files/file/16-spt-aki/#versions)). If you are looking for another version, see [`branches`](https://github.com/sailro/EscapeFromTarkov-Trainer/branches) and [`releases`](https://github.com/sailro/EscapeFromTarkov-Trainer/releases).
 
 > If you want to compile the code yourself, make sure you cleaned-up your solution properly after upgrading your EFT/sptarkov bits (even removing `bin` and `obj` folders) and check all your references.
 
