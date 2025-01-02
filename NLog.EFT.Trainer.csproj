@@ -80,7 +80,7 @@
     <Reference Include="DissonanceVoip">
       <HintPath>$(EFTManagedPath)\DissonanceVoip.dll</HintPath>
     </Reference>
-    <Reference Include="DissonanceVoip">
+    <Reference Include="Sirenix.Serialization">
       <HintPath>$(EFTManagedPath)\Sirenix.Serialization.dll</HintPath>
     </Reference>
     <!-- Unity -->
