@@ -52,8 +52,9 @@ internal class SpawnBot : ConsoleCommandWithArgument
 
 		var controller = instance.BotsController;
 
-		foreach (var bot in bots)
-			controller.SpawnBotDebugServer(EPlayerSide.Savage, false, (WildSpawnType)Enum.Parse(typeof(WildSpawnType), bot), BotDifficulty.normal, true);
+		// TODO: moved to GClass1124.SpawnBotDebugServer
+		/*foreach (var bot in bots)
+			controller.SpawnBotDebugServer(EPlayerSide.Savage, false, (WildSpawnType)Enum.Parse(typeof(WildSpawnType), bot), BotDifficulty.normal, true);*/
 	}
 
 	private static string[] FindBots(string search)

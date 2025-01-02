@@ -74,6 +74,15 @@
     <Reference Include="NLog">
       <HintPath>$(EFTManagedPath)\NLog.dll</HintPath>
     </Reference>
+    <Reference Include="ItemTemplate.Types">
+      <HintPath>$(EFTManagedPath)\ItemTemplate.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="DissonanceVoip">
+      <HintPath>$(EFTManagedPath)\DissonanceVoip.dll</HintPath>
+    </Reference>
+    <Reference Include="DissonanceVoip">
+      <HintPath>$(EFTManagedPath)\Sirenix.Serialization.dll</HintPath>
+    </Reference>
     <!-- Unity -->
     <Reference Include="UnityEngine.AssetBundleModule">
       <HintPath>$(EFTManagedPath)\UnityEngine.AssetBundleModule.dll</HintPath>
@@ -88,18 +97,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(EFTManagedPath)\UnityEngine.PhysicsModule.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.TextCoreModule">
-      <HintPath>$(EFTManagedPath)\UnityEngine.TextCoreModule.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
       <HintPath>$(EFTManagedPath)\UnityEngine.TextRenderingModule.dll</HintPath>
     </Reference>
-    <Reference Include="ItemTemplate.Types">
-      <HintPath>$(EFTManagedPath)\ItemTemplate.Types.dll</HintPath>
-    </Reference>
-    <Reference Include="DissonanceVoip">
-      <HintPath>$(EFTManagedPath)\DissonanceVoip.dll</HintPath>
-    </Reference>
+    <!-- Optional -->
     <Reference Include="0Harmony">
       <HintPath>Installer\Resources\0Harmony.dll</HintPath>
     </Reference>
