@@ -159,12 +159,6 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 		};
 
 		var result = await GetCompilationAsync(context);
-		var files = result.Errors
-			.Select(d => d.Location.SourceTree?.FilePath)
-			.Where(s => s is not null)
-			.Distinct()
-			.ToArray();
-
 		if (context.IsFatalFailure)
 			return result;
 
@@ -179,6 +173,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 			}
 		}
 
+		var files = result.ErrorFiles;
 		if (result.Compilation == null && files.Length != 0 && files.All(file => folders.Any(folder => file!.StartsWith(folder))))
 		{
 			// Failure, retry by removing faulting features if possible
