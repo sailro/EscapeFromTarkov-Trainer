@@ -66,7 +66,7 @@ internal class SpawnBot : ConsoleCommandWithArgument
 		if (spawner == null)
 			return;
 
-		BotZone randomBotZone = spawner.GetRandomBotZone(canBeSnipe);
+		var randomBotZone = spawner.GetRandomBotZone(canBeSnipe);
 		Spawn(spawner, side, randomBotZone, profile, botDifficulty, forcedSpawn).HandleExceptions();
 	}
 
@@ -149,7 +149,7 @@ internal class SpawnBot : ConsoleCommandWithArgument
 
 		public string GetDebugData()
 		{
-			return $" Side:{Side.ToString()} Type:{spawnType.ToString()}  BotDifficulty:{botDifficulty.ToString()}";
+			return $" Side:{Side} Type:{spawnType}  BotDifficulty:{botDifficulty}";
 		}
 
 		public bool ShallChooseByData()
