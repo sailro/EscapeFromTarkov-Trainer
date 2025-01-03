@@ -1,10 +1,14 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using Comfort.Common;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.Properties;
+using HarmonyLib;
 using JetBrains.Annotations;
+using Random = UnityEngine.Random;
 
 #nullable enable
 
@@ -44,7 +48,7 @@ internal class SpawnBot : ConsoleCommandWithArgument
 		SpawnBots(bots);
 	}
 
-	private static void SpawnBots(string[] bots)
+	private void SpawnBots(string[] bots)
 	{
 		var instance = Singleton<IBotGame>.Instance;
 		if (instance == null)
@@ -52,9 +56,131 @@ internal class SpawnBot : ConsoleCommandWithArgument
 
 		var controller = instance.BotsController;
 
-		// TODO: moved to GClass1124.SpawnBotDebugServer
-		/*foreach (var bot in bots)
-			controller.SpawnBotDebugServer(EPlayerSide.Savage, false, (WildSpawnType)Enum.Parse(typeof(WildSpawnType), bot), BotDifficulty.normal, true);*/
+		foreach (var bot in bots)
+			SpawnBotDebugServer(controller, EPlayerSide.Savage, false, (WildSpawnType)Enum.Parse(typeof(WildSpawnType), bot), BotDifficulty.normal, true);
+	}
+
+	private void SpawnBotDebugServer(BotsController controller, EPlayerSide side, bool canBeSnipe, WildSpawnType profile = WildSpawnType.assault, BotDifficulty botDifficulty = BotDifficulty.normal, bool forcedSpawn = false)
+	{
+		var spawner = controller.BotSpawner;
+		if (spawner == null)
+			return;
+
+		BotZone randomBotZone = spawner.GetRandomBotZone(canBeSnipe);
+		Spawn(spawner, side, randomBotZone, profile, botDifficulty, forcedSpawn).HandleExceptions();
+	}
+
+	public async Task Spawn(BotSpawner spawner, EPlayerSide side, BotZone zone, WildSpawnType profileType = WildSpawnType.assault, BotDifficulty botDifficulty = BotDifficulty.normal, bool forcedSpawn = false)
+	{
+		if (profileType.IsBossOrFollower())
+		{
+			var bossLocationSpawn = new BossLocationSpawn { 
+				BossZone = "", 
+				Time = 1f, 
+				Delay = 0f, 
+				TriggerId = "",
+				TriggerName = "",
+				BossChance = 100f,
+				BossName = profileType.ToString(),
+				BossDifficult = BotDifficulty.normal.ToString(),
+				BossEscortAmount = 0.ToString(),
+				BossEscortDifficult = BotDifficulty.normal.ToString(),
+				BossEscortType = WildSpawnType.followerBully.ToString()
+			};
+			bossLocationSpawn.ParseMainTypesTypes();
+			bossLocationSpawn.ForceSpawn = forcedSpawn;
+			bossLocationSpawn.IgnoreMaxBots = forcedSpawn;
+			spawner.BossSpawner.Spawn(bossLocationSpawn, new BotSpawnParams()).HandleExceptions();
+		}
+		else
+		{
+			const string fieldName = "_botCreator";
+			var field = AccessTools.Field(spawner.GetType(), fieldName);
+			if (field?.GetValue(spawner) is not IBotCreator botCreator)
+			{
+				AddConsoleLog(string.Format(Strings.ErrorCannotFindField, fieldName, spawner.GetType().Name).Red());				
+				return;
+			}
+
+			spawner.TryToSpawnInZoneAndDelay(zone, await BotCreationDataClass.Create(new GetProfileData(side, profileType, botDifficulty), botCreator, 1, spawner), withCheckMinMax: true, newWave: true, null, forcedSpawn);
+		}
+	}
+
+	public class GetProfileData(EPlayerSide side, WildSpawnType spawnType, BotDifficulty botDifficulty, BotSpawnParams? spawnParams = null) : IGetProfileData
+	{
+		public EPlayerSide? Side { get; } = side;
+		public BotSpawnParams? SpawnParams { get; set; } = spawnParams;
+
+		public bool TryGetRole(out WildSpawnType role, out BotDifficulty difficulty)
+		{
+			role = spawnType;
+			difficulty = botDifficulty;
+			return true;
+		}
+
+		public Profile? ChooseProfile(List<Profile> profiles2Select, bool withDelete)
+		{
+			var list = profiles2Select.Where((x) => x.Info.Side == Side && x.Info.Settings.Role == spawnType && x.Info.Settings.BotDifficulty == botDifficulty).ToList();
+			if (list.Count == 0)
+				return null;
+
+			var profile = list.Random();
+			if (withDelete)
+				profiles2Select.Remove(profile);
+
+			return profile;
+		}
+
+		public WaveInfo[] PrepareToLoadBackend(int count)
+		{
+			var waveInfo = new WaveInfo(count, spawnType, botDifficulty);
+			return [waveInfo];
+		}
+
+		public bool IsValidSpawnType(WildSpawnType wildSpawnType)
+		{
+			return wildSpawnType == spawnType;
+		}
+
+		public string GetDebugLocalName()
+		{
+			return $"{Side}{Random.Range(0, 256)} Profile";
+		}
+
+		public string GetDebugData()
+		{
+			return $" Side:{Side.ToString()} Type:{spawnType.ToString()}  BotDifficulty:{botDifficulty.ToString()}";
+		}
+
+		public bool ShallChooseByData()
+		{
+			return spawnType is WildSpawnType.exUsec or WildSpawnType.pmcBot or WildSpawnType.assaultGroup or WildSpawnType.arenaFighter;
+		}
+
+		public bool IsBossOrFollowerByTime()
+		{
+			return IsBossOrFollower();
+		}
+
+		public bool IsZeroWave()
+		{
+			return false;
+		}
+
+		public bool IsBossOrFollower()
+		{
+			return spawnType.IsBossOrFollower();
+		}
+
+		public bool IsSpawnOnStart()
+		{
+			return false;
+		}
+
+		public bool CanAtZoneByType(BotZone botZone, ZoneLeaveControllerClass botsControllerZonesLeaveController)
+		{
+			return !botsControllerZonesLeaveController.IsZoneBlockFor(botZone, spawnType);
+		}
 	}
 
 	private static string[] FindBots(string search)

@@ -83,6 +83,9 @@
     <Reference Include="Sirenix.Serialization">
       <HintPath>$(EFTManagedPath)\Sirenix.Serialization.dll</HintPath>
     </Reference>
+    <Reference Include="CommonExtensions">
+      <HintPath>$(EFTManagedPath)\CommonExtensions.dll</HintPath>
+    </Reference>
     <!-- Unity -->
     <Reference Include="UnityEngine.AssetBundleModule">
       <HintPath>$(EFTManagedPath)\UnityEngine.AssetBundleModule.dll</HintPath>
