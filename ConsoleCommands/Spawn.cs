@@ -65,10 +65,10 @@ internal class Spawn : BaseTemplateCommand
 
 	private static void SpawnTemplate(ItemTemplate template, Player player, ConsoleCommand command)
 	{
-		var poolManager = Singleton<PoolManager>.Instance;
+		var poolManager = Singleton<PoolManagerClass>.Instance;
 
 		poolManager
-			.LoadBundlesAndCreatePools(PoolManager.PoolsCategory.Raid, PoolManager.AssemblyType.Online, [.. template.AllResources], JobPriority.Immediate)
+			.LoadBundlesAndCreatePools(PoolManagerClass.PoolsCategory.Raid, PoolManagerClass.AssemblyType.Online, [.. template.AllResources], JobPriorityClass.Immediate)
 			.ContinueWith(task =>
 			{
 				AsyncWorker.RunInMainTread(delegate

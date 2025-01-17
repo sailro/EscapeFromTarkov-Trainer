@@ -131,9 +131,9 @@ internal class SpawnBot : ConsoleCommandWithArgument
 			return profile;
 		}
 
-		public WaveInfo[] PrepareToLoadBackend(int count)
+		public WaveInfoClass[] PrepareToLoadBackend(int count)
 		{
-			var waveInfo = new WaveInfo(count, spawnType, botDifficulty);
+			var waveInfo = new WaveInfoClass(count, spawnType, botDifficulty);
 			return [waveInfo];
 		}
 
