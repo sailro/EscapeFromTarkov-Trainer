@@ -37,9 +37,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <!-- Framework -->
     <Reference Include="System" />
-  </ItemGroup>
-  <ItemGroup>
+    <Reference Include="System.Core" />
+    <Reference Include="netstandard">
+      <HintPath>$(EFTManagedPath)\netstandard.dll</HintPath>
+    </Reference>  
     <!-- Unity -->
     <Reference Include="UnityEngine">
       <HintPath>$(EFTManagedPath)\UnityEngine.dll</HintPath>
