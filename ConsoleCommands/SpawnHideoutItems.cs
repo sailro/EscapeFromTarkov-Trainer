@@ -35,6 +35,6 @@ internal class SpawnHideoutItems : ConsoleCommandWithoutArgument
 			return;
 
 		foreach (var template in templates)
-			Spawn.SpawnTemplate(template, player, this, i => true);
+			Spawn.SpawnTemplate(template, player, this, _ => true);
 	}
 }
