@@ -23,7 +23,7 @@ internal partial class Compiler
 	private string ProjectContent { get; }
 
 	private string[] Exclude { get; }
-	private string[] Defines { get; } = [];
+	private string[] Defines { get; }
 
 	private static CSharpCompilationOptions CompilationOptions { get; } =
 		new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary)

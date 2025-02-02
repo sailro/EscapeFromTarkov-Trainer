@@ -155,7 +155,6 @@
     <Compile Include="Extensions\ItemTemplateExtensions.cs" />
     <Compile Include="Extensions\ItemExtensions.cs" />
     <Compile Include="Extensions\LootItemExtensions.cs" />
-    <Compile Include="Extensions\LootableContainerExtensions.cs" />
     <Compile Include="Extensions\NotNullWhenAttribute.cs" />
     <Compile Include="Extensions\PlayerExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />

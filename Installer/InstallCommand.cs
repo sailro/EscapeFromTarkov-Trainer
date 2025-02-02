@@ -175,21 +175,26 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 		}
 
 		var files = result.ErrorFiles;
-		if (result.Compilation == null && files.Length != 0 && files.All(file => folders.Any(folder => file!.StartsWith(folder))))
-		{
-			// Failure, retry by removing faulting features if possible
-			AnsiConsole.MarkupLine($"[yellow]Trying to disable faulting feature/command: [red]{GetFaultingNames(files!)}[/].[/]");
+		if (!HasFaultingFeatureOrCommand(result, folders, files))
+			return result;
 
-			context.Exclude = [.. files!, .. settings.DisabledFeatures!, .. settings.DisabledCommands!];
-			context.Branch = GetFallbackBranch(settings);
+		// Failure, retry by removing faulting features if possible
+		AnsiConsole.MarkupLine($"[yellow]Trying to disable faulting feature/command: [red]{GetFaultingNames(files)}[/].[/]");
 
-			result = await GetCompilationAsync(context);
+		context.Exclude = [.. files, .. settings.DisabledFeatures, .. settings.DisabledCommands];
+		context.Branch = GetFallbackBranch(settings);
 
-			if (result.Errors.Length == 0)
-				AnsiConsole.MarkupLine("[yellow]We found a fallback! But please file an issue here : https://github.com/sailro/EscapeFromTarkov-Trainer/issues [/]");
-		}
+		result = await GetCompilationAsync(context);
+
+		if (result.Errors.Length == 0)
+			AnsiConsole.MarkupLine("[yellow]We found a fallback! But please file an issue here : https://github.com/sailro/EscapeFromTarkov-Trainer/issues [/]");
 
 		return result;
+	}
+
+	private static bool HasFaultingFeatureOrCommand(CompilationResult result, string[] folders, string[] files)
+	{
+		return result.Compilation == null && files.Length != 0 && files.All(file => folders.Any(file.StartsWith));
 	}
 
 	private static string GetFaultingNames(string[] files)

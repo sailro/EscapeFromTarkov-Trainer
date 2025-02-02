@@ -1,6 +1,5 @@
 ﻿using EFT.Ballistics;
 using EFT.Trainer.Extensions;
-using EFT.Trainer.Model;
 using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
