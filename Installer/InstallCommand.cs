@@ -155,6 +155,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 		{
 			Exclude = [.. settings.DisabledFeatures!, .. settings.DisabledCommands!],
 			Branch = GetInitialBranch(settings),
+			Defines = installation.UsingSptAki ? [] : ["EFT_LIVE"],
 			Language = settings.Language
 		};
 

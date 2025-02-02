@@ -16,6 +16,7 @@ internal class TemplateHelper
 
 	private static void UpdateTemplates()
 	{
+#if !EFT_LIVE
 		if (!Singleton<ItemFactoryClass>.Instantiated)
 			return;
 
@@ -30,6 +31,7 @@ internal class TemplateHelper
 		{
 			_templates.Add(kv.Key.ToString(), kv.Value);
 		}
+#endif
 	}
 
 	internal static ItemTemplate[] FindTemplates(string searchShortNameOrTemplateId)
