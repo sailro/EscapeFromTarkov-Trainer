@@ -21,21 +21,43 @@ public class AkiDebuggingPlugin : BaseUnityPlugin
 		Loader.Load();
 		Loaded = true;
 
-		WhitelistThisPlugin();
+		HandleSptAkiBetaReleases();
 	}
 
-	private static void WhitelistThisPlugin()
+	[UsedImplicitly]
+	public void OnGUI()
+	{
+		if (_commitHash == null)
+			return;
+
+		var hash = _commitHash.GetValue(null) as string;
+		if (hash == string.Empty)
+		{
+			// Stop monitoring
+			_commitHash = null;
+			return;
+		}
+
+		// Suppress this dumb watermark
+		_commitHash.SetValue(null, string.Empty);
+	}
+
+	private static FieldInfo _commitHash;
+	private static void HandleSptAkiBetaReleases()
 	{
 		// Whitelist this plugin for spt-aki beta releases
-		var type = Type.GetType("SPT.Custom.Utils.MenuNotificationManager, spt-custom", throwOnError: false);
-		if (type == null)
+		var menuNotificationManager = Type.GetType("SPT.Custom.Utils.MenuNotificationManager, spt-custom", throwOnError: false);
+		if (menuNotificationManager == null)
 			return;
 
-		var field = type.GetField("whitelistedPlugins", BindingFlags.NonPublic | BindingFlags.Static);
-		if (field == null)
+		var hashField = menuNotificationManager.GetField("whitelistedPlugins", BindingFlags.NonPublic | BindingFlags.Static);
+		if (hashField == null)
 			return;
 
-		var hashset = field.GetValue(null) as HashSet<string>;
+		var hashset = hashField.GetValue(null) as HashSet<string>;
 		hashset?.Add(PluginId);
+
+		_commitHash = menuNotificationManager.GetField("commitHash", BindingFlags.Public | BindingFlags.Static);
+
 	}
 }
