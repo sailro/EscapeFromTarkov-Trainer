@@ -50,14 +50,19 @@ public class AkiDebuggingPlugin : BaseUnityPlugin
 		if (menuNotificationManager == null)
 			return;
 
-		var hashField = menuNotificationManager.GetField("whitelistedPlugins", BindingFlags.NonPublic | BindingFlags.Static);
+		var hashField = GetStaticField(menuNotificationManager, "whitelistedPlugins");
 		if (hashField == null)
 			return;
 
 		var hashset = hashField.GetValue(null) as HashSet<string>;
 		hashset?.Add(PluginId);
 
-		_commitHash = menuNotificationManager.GetField("commitHash", BindingFlags.Public | BindingFlags.Static);
+		_commitHash = GetStaticField(menuNotificationManager, "commitHash");
+	}
 
+	private static FieldInfo GetStaticField(Type type, string name)
+	{
+		return type.GetField(name, BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static)
+			   ?? type.GetField(char.ToUpper(name[0]) + name.Substring(1), BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Static);
 	}
 }
