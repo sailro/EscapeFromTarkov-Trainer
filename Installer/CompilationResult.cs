@@ -16,12 +16,11 @@ internal class CompilationResult(CSharpCompilation? compilation, ZipArchive? arc
 	{
 		get
 		{
-			return Errors
+			return [.. Errors
 				.Select(d => d.Location.SourceTree?.FilePath)
 				.Where(s => s is not null)
 				.OfType<string>()
-				.Distinct()
-				.ToArray();
+				.Distinct()];
 		}
 	}
 }

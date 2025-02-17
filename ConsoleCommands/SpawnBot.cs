@@ -74,9 +74,7 @@ internal class SpawnBot : ConsoleCommandWithArgument
 		if (exactMatch.Length == 1)
 			return exactMatch;
 
-		return names
-			.Where(n => n.IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0)
-			.ToArray();
+		return [.. names.Where(n => n.IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0)];
 	}
 
 	private static string[] GetBotNames()

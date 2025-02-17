@@ -45,10 +45,9 @@ internal class TemplateHelper
 		}
 
 		// Match by short name(s)
-		return _templates
+		return [.. _templates
 			.Values
 			.Where(t => t.ShortNameLocalizationKey.Localized().IndexOf(searchShortNameOrTemplateId, StringComparison.OrdinalIgnoreCase) >= 0
-						|| t.NameLocalizationKey.Localized().IndexOf(searchShortNameOrTemplateId, StringComparison.OrdinalIgnoreCase) >= 0)
-			.ToArray();
+						|| t.NameLocalizationKey.Localized().IndexOf(searchShortNameOrTemplateId, StringComparison.OrdinalIgnoreCase) >= 0)];
 	}
 }

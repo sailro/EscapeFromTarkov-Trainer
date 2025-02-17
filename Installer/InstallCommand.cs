@@ -47,9 +47,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 	public static string[] ToSourceFile(string[]? names, string folder)
 	{
 		names ??= [];
-		return names
-			.Select(f => $"{folder}\\{f}.cs")
-			.ToArray();
+		return [.. names.Select(f => $"{folder}\\{f}.cs")];
 	}
 
 	[SupportedOSPlatform("windows")]
@@ -264,10 +262,9 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 			{
 				var compiler = new Compiler(archive, context);
 				compilation = compiler.Compile(Path.GetFileNameWithoutExtension(context.Project));
-				errors = compilation
+				errors = [.. compilation
 					.GetDiagnostics()
-					.Where(d => d.Severity == DiagnosticSeverity.Error)
-					.ToArray();
+					.Where(d => d.Severity == DiagnosticSeverity.Error)];
 
 #if DEBUG
 				foreach (var error in errors)
@@ -281,9 +278,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 				}
 				else
 				{
-					resources = compiler
-						.GetResources(context)
-						.ToArray();
+					resources = [.. compiler.GetResources(context)];
 
 					if (compiler.IsLocalizationSupported() && resources.Length == 0)
 					{
