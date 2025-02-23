@@ -1,4 +1,6 @@
-﻿using System;
+﻿#pragma warning disable IDE0079
+
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading;

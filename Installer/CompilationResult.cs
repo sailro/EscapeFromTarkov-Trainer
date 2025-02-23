@@ -1,4 +1,5 @@
 ﻿using System.IO.Compression;
+using System.Linq;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 
@@ -10,4 +11,16 @@ internal class CompilationResult(CSharpCompilation? compilation, ZipArchive? arc
 	public ZipArchive? Archive { get; } = archive;
 	public Diagnostic[] Errors { get; } = errors;
 	public ResourceDescription[] Resources { get; } = resources;
+
+	public string[] ErrorFiles
+	{
+		get
+		{
+			return [.. Errors
+				.Select(d => d.Location.SourceTree?.FilePath)
+				.Where(s => s is not null)
+				.OfType<string>()
+				.Distinct()];
+		}
+	}
 }

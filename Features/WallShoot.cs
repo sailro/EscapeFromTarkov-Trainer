@@ -1,6 +1,5 @@
 ﻿using EFT.Ballistics;
 using EFT.Trainer.Extensions;
-using EFT.Trainer.Model;
 using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -17,14 +16,13 @@ internal class WallShoot : ToggleFeature
 
 #pragma warning disable IDE0060
 	[UsedImplicitly]
-	protected static bool IsPenetratedPrefix(object shot, Vector3 hitPoint, BallisticCollider __instance, ref bool __result)
+	protected static bool IsPenetratedPrefix(EftBulletClass shot, Vector3 hitPoint, BallisticCollider __instance, ref bool __result)
 	{
 		var feature = FeatureFactory.GetFeature<WallShoot>();
 		if (feature == null || !feature.Enabled)
 			return true; // keep using original code, we are not enabled
 
-		var shotWrapper = new ShotWrapper(shot);
-		var player = shotWrapper.Player;
+		var player = shot.Player.iPlayer;
 		if (player is not { IsYourPlayer: true })
 			return true; // keep using original code for other players
 
