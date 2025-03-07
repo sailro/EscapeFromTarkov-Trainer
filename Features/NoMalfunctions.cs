@@ -1,5 +1,4 @@
-﻿using EFT.InventoryLogic;
-using EFT.Trainer.Extensions;
+﻿using EFT.Trainer.Extensions;
 using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 
@@ -19,9 +18,6 @@ internal class NoMalfunctions : ToggleFeature
 	{
 		var player = GameState.Current?.LocalPlayer;
 		if (!player.IsValid())
-			return;
-
-		if (player.HandsController.Item is not Weapon)
 			return;
 
 		if (player.HandsController is not Player.FirearmController controller)
