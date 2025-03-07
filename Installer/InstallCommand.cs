@@ -47,9 +47,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 	public static string[] ToSourceFile(string[]? names, string folder)
 	{
 		names ??= [];
-		return names
-			.Select(f => $"{folder}\\{f}.cs")
-			.ToArray();
+		return [.. names.Select(f => $"{folder}\\{f}.cs")];
 	}
 
 	[SupportedOSPlatform("windows")]
@@ -155,16 +153,11 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 		{
 			Exclude = [.. settings.DisabledFeatures!, .. settings.DisabledCommands!],
 			Branch = GetInitialBranch(settings),
+			Defines = installation.UsingSptAki ? [] : ["EFT_LIVE"],
 			Language = settings.Language
 		};
 
 		var result = await GetCompilationAsync(context);
-		var files = result.Errors
-			.Select(d => d.Location.SourceTree?.FilePath)
-			.Where(s => s is not null)
-			.Distinct()
-			.ToArray();
-
 		if (context.IsFatalFailure)
 			return result;
 
@@ -179,21 +172,27 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 			}
 		}
 
-		if (result.Compilation == null && files.Length != 0 && files.All(file => folders.Any(folder => file!.StartsWith(folder))))
-		{
-			// Failure, retry by removing faulting features if possible
-			AnsiConsole.MarkupLine($"[yellow]Trying to disable faulting feature/command: [red]{GetFaultingNames(files!)}[/].[/]");
+		var files = result.ErrorFiles;
+		if (!HasFaultingFeatureOrCommand(result, folders, files))
+			return result;
 
-			context.Exclude = [.. files!, .. settings.DisabledFeatures!, .. settings.DisabledCommands!];
-			context.Branch = GetFallbackBranch(settings);
+		// Failure, retry by removing faulting features if possible
+		AnsiConsole.MarkupLine($"[yellow]Trying to disable faulting feature/command: [red]{GetFaultingNames(files)}[/].[/]");
 
-			result = await GetCompilationAsync(context);
+		context.Exclude = [.. files, .. settings.DisabledFeatures, .. settings.DisabledCommands];
+		context.Branch = GetFallbackBranch(settings);
 
-			if (result.Errors.Length == 0)
-				AnsiConsole.MarkupLine("[yellow]We found a fallback! But please file an issue here : https://github.com/sailro/EscapeFromTarkov-Trainer/issues [/]");
-		}
+		result = await GetCompilationAsync(context);
+
+		if (result.Errors.Length == 0)
+			AnsiConsole.MarkupLine("[yellow]We found a fallback! But please file an issue here : https://github.com/sailro/EscapeFromTarkov-Trainer/issues [/]");
 
 		return result;
+	}
+
+	private static bool HasFaultingFeatureOrCommand(CompilationResult result, string[] folders, string[] files)
+	{
+		return result.Compilation == null && files.Length != 0 && files.All(file => folders.Any(file.StartsWith));
 	}
 
 	private static string GetFaultingNames(string[] files)
@@ -263,10 +262,9 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 			{
 				var compiler = new Compiler(archive, context);
 				compilation = compiler.Compile(Path.GetFileNameWithoutExtension(context.Project));
-				errors = compilation
+				errors = [.. compilation
 					.GetDiagnostics()
-					.Where(d => d.Severity == DiagnosticSeverity.Error)
-					.ToArray();
+					.Where(d => d.Severity == DiagnosticSeverity.Error)];
 
 #if DEBUG
 				foreach (var error in errors)
@@ -280,9 +278,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 				}
 				else
 				{
-					resources = compiler
-						.GetResources(context)
-						.ToArray();
+					resources = [.. compiler.GetResources(context)];
 
 					if (compiler.IsLocalizationSupported() && resources.Length == 0)
 					{

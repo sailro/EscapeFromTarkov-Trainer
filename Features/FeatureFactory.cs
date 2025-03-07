@@ -9,20 +9,18 @@ namespace EFT.Trainer.Features;
 internal static class FeatureFactory
 {
 	private static GameObject? _gameObject = null;
-	private static readonly Lazy<Type[]> _types = new(() => typeof(FeatureFactory)
+	private static readonly Lazy<Type[]> _types = new(() => [.. typeof(FeatureFactory)
 		.Assembly
 		.GetTypes()
-		.Where(t => t.IsSubclassOf(typeof(Feature)) && !t.IsAbstract)
-		.ToArray());
+		.Where(t => t.IsSubclassOf(typeof(Feature)) && !t.IsAbstract)]);
 
 	public static Feature[] RegisterAllFeatures(GameObject gameObject)
 	{
 		_gameObject = gameObject;
 
-		return GetAllFeatureTypes()
+		return [.. GetAllFeatureTypes()
 			.Select(gameObject.GetOrAddComponent)
-			.OfType<Feature>()
-			.ToArray();
+			.OfType<Feature>()];
 	}
 
 	public static Type[] GetAllFeatureTypes()
@@ -42,16 +40,13 @@ internal static class FeatureFactory
 		if (_gameObject == null)
 			return [];
 
-		return GetAllFeatureTypes()
+		return [.. GetAllFeatureTypes()
 			.Select(_gameObject.GetComponent)
-			.OfType<Feature>()
-			.ToArray();
+			.OfType<Feature>()];
 	}
 
 	public static ToggleFeature[] GetAllToggleableFeatures()
 	{
-		return GetAllFeatures()
-			.OfType<ToggleFeature>()
-			.ToArray();
+		return [.. GetAllFeatures().OfType<ToggleFeature>()];
 	}
 }

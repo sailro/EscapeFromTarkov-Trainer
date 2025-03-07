@@ -64,10 +64,9 @@ public class ColorConverter : JsonConverter
 	public static string[] ColorNames()
 	{
 		var colorType = typeof(Color);
-		return colorType
+		return [.. colorType
 			.GetProperties(BindingFlags.Static | BindingFlags.Public)
 			.Where(p => p.PropertyType == colorType)
-			.Select(p => p.Name)
-			.ToArray();
+			.Select(p => p.Name)];
 	}
 }

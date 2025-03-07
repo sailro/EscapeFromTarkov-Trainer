@@ -397,7 +397,12 @@ internal abstract class FeatureRenderer : ToggleFeature
 		return newValue;
 	}
 
-	public override ETranslateResult TranslateCommand(ECommand command)
+#if EFT_LIVE 
+	protected
+#else
+	public
+#endif
+	override ETranslateResult TranslateCommand(ECommand command)
 	{
 		return command switch
 		{
@@ -407,14 +412,24 @@ internal abstract class FeatureRenderer : ToggleFeature
 		};
 	}
 
-	public override void TranslateAxes(ref float[] axes)
+#if EFT_LIVE 
+	protected
+#else
+	public
+#endif
+	override void TranslateAxes(ref float[] axes)
 	{
 		// this will disable the axes for player movement
 		if (Enabled)
 			axes = null!;
 	}
 
-	public override ECursorResult ShouldLockCursor()
+#if EFT_LIVE 
+	protected
+#else
+	public
+#endif
+	override ECursorResult ShouldLockCursor()
 	{
 		return Enabled ? ECursorResult.ShowCursor : ECursorResult.Ignore;
 	}

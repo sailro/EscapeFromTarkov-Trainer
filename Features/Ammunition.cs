@@ -2,7 +2,6 @@
 using Comfort.Common;
 using EFT.Ballistics;
 using EFT.InventoryLogic;
-using EFT.Trainer.Model;
 using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 
@@ -19,21 +18,20 @@ internal class Ammunition : ToggleFeature
 	public override bool Enabled { get; set; } = false;
 
 	[UsedImplicitly]
-	private static void ShootPostfix(object shot)
+	private static void ShootPostfix(EftBulletClass shot)
 	{
 		var feature = FeatureFactory.GetFeature<Ammunition>();
 		if (feature == null || !feature.Enabled)
 			return;
 
-		var shotWrapper = new ShotWrapper(shot);
-		if (shotWrapper.Weapon is not Weapon weapon)
+		if (shot.Weapon is not Weapon weapon)
 			return;
 
-		var ammo = shotWrapper.Ammo;
+		var ammo = shot.Ammo;
 		if (ammo == null)
 			return;
 
-		var player = shotWrapper.Player;
+		var player = shot.Player.iPlayer;
 		if (player is not { IsYourPlayer: true })
 			return;
 
@@ -75,7 +73,7 @@ internal class Ammunition : ToggleFeature
 	{
 		HarmonyPatchOnce(harmony =>
 		{
-			HarmonyPostfix(harmony, typeof(BallisticsCalculator), nameof(BallisticsCalculator.Shoot), nameof(ShootPostfix));
+			HarmonyPostfix(harmony, typeof(BallisticsCalculator), nameof(BallisticsCalculator.Shoot), nameof(ShootPostfix), [typeof(EftBulletClass)]);
 		});
 	}
 }

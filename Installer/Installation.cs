@@ -56,9 +56,7 @@ internal class Installation
 			.Status()
 			.Start("Discovering [green]Escape From Tarkov[/] installations...", _ =>
 			{
-				installations = DiscoverInstallations()
-					.Distinct()
-					.ToList();
+				installations = [.. DiscoverInstallations().Distinct()];
 
 				if (path is not null && TryDiscoverInstallation(path, out var installation))
 					installations.Add(installation);

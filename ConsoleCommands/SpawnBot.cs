@@ -51,9 +51,13 @@ internal class SpawnBot : ConsoleCommandWithArgument
 			return;
 
 		var controller = instance.BotsController;
+		var spawner = controller?.BotSpawner;
+
+		if (spawner == null)
+			return;
 
 		foreach (var bot in bots)
-			controller.SpawnBotDebugServer(EPlayerSide.Savage, false, (WildSpawnType)Enum.Parse(typeof(WildSpawnType), bot), BotDifficulty.normal, true);
+			spawner.SpawnBotByTypeForce(1, (WildSpawnType)Enum.Parse(typeof(WildSpawnType), bot), BotDifficulty.normal, null);
 	}
 
 	private static string[] FindBots(string search)
@@ -70,9 +74,7 @@ internal class SpawnBot : ConsoleCommandWithArgument
 		if (exactMatch.Length == 1)
 			return exactMatch;
 
-		return names
-			.Where(n => n.IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0)
-			.ToArray();
+		return [.. names.Where(n => n.IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0)];
 	}
 
 	private static string[] GetBotNames()
