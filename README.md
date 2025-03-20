@@ -137,6 +137,6 @@ This trainer hooks into the command system, so you can easily setup features usi
 
 ## Translations
 
-This trainer comes in English but we also provide French and Chinese simplified versions. You can use the [Universal Installer](https://github.com/sailro/EscapeFromTarkov-Trainer/releases) to specify your language, using `.\Installer -l zh-cn` for Chinese simplified for instance.
+This trainer comes in English but we also provide French, Japanese and Chinese simplified versions. You can use the [Universal Installer](https://github.com/sailro/EscapeFromTarkov-Trainer/releases) to specify your language, using `.\Installer -l zh-cn` for Chinese simplified for instance.
 
 You can also tweak or add your own language by having a look [here](https://github.com/sailro/EscapeFromTarkov-Trainer/issues/541).
