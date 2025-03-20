@@ -5,11 +5,11 @@ using BepInEx;
 using EFT.Trainer;
 using JetBrains.Annotations;
 
-[BepInPlugin(PluginId, "AKI.EftTrainer", "1.0.0")]
+[BepInPlugin(PluginId, "SPT.EftTrainer", "1.0.0")]
 [UsedImplicitly]
-public class AkiDebuggingPlugin : BaseUnityPlugin
+public class SptEftTrainerPlugin : BaseUnityPlugin
 {
-	private const string PluginId = "com.spt-aki.efttrainer";
+	private const string PluginId = "com.SPT.efttrainer";
 	public static bool Loaded = false;
 
 	[UsedImplicitly]
@@ -21,7 +21,7 @@ public class AkiDebuggingPlugin : BaseUnityPlugin
 		Loader.Load();
 		Loaded = true;
 
-		HandleSptAkiBetaReleases();
+		HandleSptBetaReleases();
 	}
 
 	[UsedImplicitly]
@@ -43,7 +43,7 @@ public class AkiDebuggingPlugin : BaseUnityPlugin
 	}
 
 	private static FieldInfo _commitHash;
-	private static void HandleSptAkiBetaReleases()
+	private static void HandleSptBetaReleases()
 	{
 		// Whitelist this plugin for spt-aki beta releases
 		var menuNotificationManager = Type.GetType("SPT.Custom.Utils.MenuNotificationManager, spt-custom", throwOnError: false);

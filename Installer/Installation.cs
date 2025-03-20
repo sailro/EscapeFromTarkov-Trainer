@@ -88,11 +88,11 @@ internal class Installation
 		if (TryDiscoverInstallation(Path.GetDirectoryName(AppContext.BaseDirectory), out installation))
 			yield return installation;
 
-		// SPT-AKI default installation path
+		// SPT default installation path
 		if (TryDiscoverInstallation(Path.Combine(Path.GetPathRoot(Environment.GetFolderPath(Environment.SpecialFolder.System))!, "SPT"), out installation))
 			yield return installation;
 
-		// SPT-AKI locations from MUI cache
+		// SPT locations from MUI cache
 		foreach (var sptpath in Registry.GetSptAkiInstallationsFromMuiCache())
 		{
 			if (TryDiscoverInstallation(sptpath, out installation))
@@ -161,7 +161,7 @@ internal class Installation
 	{
 		var sb = new StringBuilder();
 		sb.Append($"{Location.EscapeMarkup()} - [[{Version}]] ");
-		sb.Append(UsingSptAki ? "[b]SPT-AKI[/] " : "Vanilla ");
+		sb.Append(UsingSptAki ? "[b]SPT[/] " : "Vanilla ");
 
 		if (UsingSptAki && VersionChecker.IsVersionSupported(Version))
 			sb.Append("[green](Supported)[/]");

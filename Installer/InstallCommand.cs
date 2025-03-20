@@ -66,12 +66,12 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 
 			if (installation.UsingSptAki)
 			{
-				AnsiConsole.MarkupLine("[green][[SPT-AKI]][/] detected. Please make sure you have run the game at least once before installing the trainer.");
-				AnsiConsole.MarkupLine("SPT-AKI is patching binaries during the first run, and we [underline]need[/] to compile against those patched binaries.");
+				AnsiConsole.MarkupLine("[green][[SPT]][/] detected. Please make sure you have run the game at least once before installing the trainer.");
+				AnsiConsole.MarkupLine("SPT is patching binaries during the first run, and we [underline]need[/] to compile against those patched binaries.");
 				AnsiConsole.MarkupLine("If you install this trainer on stock binaries, we'll be unable to compile or the game will freeze at the startup screen.");
 
 				if (installation.UsingSptAkiButNeverRun)
-					AnsiConsole.MarkupLine("[yellow]Warning: it seems that you have never run your SPT-AKI installation. You should quit now and rerun this installer once it's done.[/]");
+					AnsiConsole.MarkupLine("[yellow]Warning: it seems that you have never run your SPT installation. You should quit now and rerun this installer once it's done.[/]");
 
 				if (!AnsiConsole.Confirm("Continue installation (yes I have run the game at least once) ?"))
 					return (int)ExitCode.Canceled;
@@ -129,7 +129,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 				if (installation.Version >= version)
 				{
 					AnsiConsole.MarkupLine($"[yellow]Warning: EscapeFromTarkov {version} or later prevent this trainer to be loaded using NLog configuration.[/]");
-					AnsiConsole.MarkupLine("[yellow]It is now mandatory to use SPT-AKI/BepInEx, or to find your own way to load the trainer. As is, it will not work.[/]");
+					AnsiConsole.MarkupLine("[yellow]It is now mandatory to use SPT/BepInEx, or to find your own way to load the trainer. As is, it will not work.[/]");
 				}
 
 				CreateOrPatchConfiguration(installation);

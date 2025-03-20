@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{00C66BBD-ED7F-4E01-B7E4-0388F76FD31C}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>aki-efttrainer</AssemblyName>
+    <AssemblyName>spt-efttrainer</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <LangVersion>latest</LangVersion>
@@ -56,7 +56,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AkiEftTrainerPlugin.cs" />
+    <Compile Include="SptEftTrainerPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
