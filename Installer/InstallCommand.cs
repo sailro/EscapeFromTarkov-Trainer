@@ -64,13 +64,13 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 
 			AnsiConsole.MarkupLine($"Target [green]EscapeFromTarkov ({installation.Version})[/] in [blue]{installation.Location.EscapeMarkup()}[/].");
 
-			if (installation.UsingSptAki)
+			if (installation.UsingSpt)
 			{
 				AnsiConsole.MarkupLine("[green][[SPT]][/] detected. Please make sure you have run the game at least once before installing the trainer.");
 				AnsiConsole.MarkupLine("SPT is patching binaries during the first run, and we [underline]need[/] to compile against those patched binaries.");
 				AnsiConsole.MarkupLine("If you install this trainer on stock binaries, we'll be unable to compile or the game will freeze at the startup screen.");
 
-				if (installation.UsingSptAkiButNeverRun)
+				if (installation.UsingSptButNeverRun)
 					AnsiConsole.MarkupLine("[yellow]Warning: it seems that you have never run your SPT installation. You should quit now and rerun this installer once it's done.[/]");
 
 				if (!AnsiConsole.Confirm("Continue installation (yes I have run the game at least once) ?"))
@@ -120,7 +120,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 					return (int)ExitCode.PluginCompilationFailed;
 				}
 
-				if (!CreateDll(installation, Path.Combine(installation.BepInExPlugins, "aki-efttrainer.dll"), dllPath => pluginResult.Compilation.Emit(dllPath)))
+				if (!CreateDll(installation, Path.Combine(installation.BepInExPlugins, "spt-efttrainer.dll"), dllPath => pluginResult.Compilation.Emit(dllPath)))
 					return (int)ExitCode.CreatePluginDllFailed;
 			}
 			else
@@ -153,7 +153,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 		{
 			Exclude = [.. settings.DisabledFeatures!, .. settings.DisabledCommands!],
 			Branch = GetInitialBranch(settings),
-			Defines = installation.UsingSptAki ? [] : ["EFT_LIVE"],
+			Defines = installation.UsingSpt ? [] : ["EFT_LIVE"],
 			Language = settings.Language
 		};
 

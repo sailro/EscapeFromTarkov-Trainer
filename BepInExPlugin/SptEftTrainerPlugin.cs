@@ -45,7 +45,7 @@ public class SptEftTrainerPlugin : BaseUnityPlugin
 	private static FieldInfo _commitHash;
 	private static void HandleSptBetaReleases()
 	{
-		// Whitelist this plugin for spt-aki beta releases
+		// Whitelist this plugin for spt beta releases
 		var menuNotificationManager = Type.GetType("SPT.Custom.Utils.MenuNotificationManager, spt-custom", throwOnError: false);
 		if (menuNotificationManager == null)
 			return;

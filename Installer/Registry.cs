@@ -40,7 +40,7 @@ namespace Installer
 			}
 		}
 
-		public static IEnumerable<string?> GetSptAkiInstallationsFromMuiCache()
+		public static IEnumerable<string?> GetSptInstallationsFromMuiCache()
 		{
 			try
 			{
@@ -51,7 +51,7 @@ namespace Installer
 					return [];
 
 				const string attribute = ".FriendlyAppName";
-				string[] candidates = ["SPT.Launcher.exe", "SPT.Server.exe", "Aki.Launcher.exe"];
+				string[] candidates = ["SPT.Launcher.exe", "SPT.Server.exe"];
 
 				return mui
 					.GetValueNames()

@@ -33,7 +33,7 @@ This is an universal installer for the trainer. In most cases you just need to r
 ![image](https://user-images.githubusercontent.com/638167/211163262-e49bca08-642c-4512-b92f-c2c1de4bead1.png)
 
 ## Troubleshooting:
-- The game is stuck after installing the trainer : if you are using `SPT-AKI`, please make sure you have run the game at least once before installing the trainer. `SPT-AKI` is patching binaries during the first run, and we need to compile against those patched binaries. If you install this trainer on stock binaries, the game will freeze at the startup screen.
+- The game is stuck after installing the trainer : if you are using `SPT`, please make sure you have run the game at least once before installing the trainer. `SPT` is patching binaries during the first run, and we need to compile against those patched binaries. If you install this trainer on stock binaries, the game will freeze at the startup screen.
 - The trainer is not loaded : are you sure you are running the proper EFT instance? you can double check with the file `%LOCALAPPDATA%Low\Battlestate Games\EscapeFromTarkov\Player.log`, search for an installation path (often along with `Fallback handler could not load library` errors). Perhaps you forgot to update your shortcuts to `server.exe`/`launcher.exe` files.
 - The installer is unable to compile the trainer for an old EFT version : sorry I do not plan to support old versions, please upgrade.
 - The installer is unable to compile the trainer for a new EFT version : please file an [issue](https://github.com/sailro/EscapeFromTarkov-Trainer/issues/new/choose).
