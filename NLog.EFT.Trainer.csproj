@@ -23,7 +23,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
@@ -74,6 +74,18 @@
     <Reference Include="NLog">
       <HintPath>$(EFTManagedPath)\NLog.dll</HintPath>
     </Reference>
+    <Reference Include="ItemTemplate.Types">
+      <HintPath>$(EFTManagedPath)\ItemTemplate.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="DissonanceVoip">
+      <HintPath>$(EFTManagedPath)\DissonanceVoip.dll</HintPath>
+    </Reference>
+    <Reference Include="Sirenix.Serialization">
+      <HintPath>$(EFTManagedPath)\Sirenix.Serialization.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonExtensions">
+      <HintPath>$(EFTManagedPath)\CommonExtensions.dll</HintPath>
+    </Reference>
     <!-- Unity -->
     <Reference Include="UnityEngine.AssetBundleModule">
       <HintPath>$(EFTManagedPath)\UnityEngine.AssetBundleModule.dll</HintPath>
@@ -88,18 +100,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>$(EFTManagedPath)\UnityEngine.PhysicsModule.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.TextCoreModule">
-      <HintPath>$(EFTManagedPath)\UnityEngine.TextCoreModule.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEngine.TextRenderingModule">
       <HintPath>$(EFTManagedPath)\UnityEngine.TextRenderingModule.dll</HintPath>
     </Reference>
-    <Reference Include="ItemTemplate.Types">
-      <HintPath>$(EFTManagedPath)\ItemTemplate.Types.dll</HintPath>
-    </Reference>
-    <Reference Include="DissonanceVoip">
-      <HintPath>$(EFTManagedPath)\DissonanceVoip.dll</HintPath>
-    </Reference>
+    <!-- Optional -->
     <Reference Include="0Harmony">
       <HintPath>Installer\Resources\0Harmony.dll</HintPath>
     </Reference>
@@ -151,7 +155,6 @@
     <Compile Include="Extensions\ItemTemplateExtensions.cs" />
     <Compile Include="Extensions\ItemExtensions.cs" />
     <Compile Include="Extensions\LootItemExtensions.cs" />
-    <Compile Include="Extensions\LootableContainerExtensions.cs" />
     <Compile Include="Extensions\NotNullWhenAttribute.cs" />
     <Compile Include="Extensions\PlayerExtensions.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
@@ -213,9 +216,6 @@
     <Compile Include="Features\Weather.cs" />
     <Compile Include="Features\QuickThrow.cs" />
     <Compile Include="Features\WorldInteractiveObjects.cs" />
-    <Compile Include="Model\ReflectionWrapper.cs" />
-    <Compile Include="Model\ActiveHealthControllerWrapper.cs" />
-    <Compile Include="Model\ShotWrapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Strings.fr.Designer.cs">
       <DependentUpon>Strings.fr.resx</DependentUpon>

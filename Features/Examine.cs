@@ -1,5 +1,4 @@
 ﻿using EFT.InventoryLogic;
-using EFT.Trainer.ConsoleCommands;
 using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using static EFT.Player;

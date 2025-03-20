@@ -6,7 +6,7 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{00C66BBD-ED7F-4E01-B7E4-0388F76FD31C}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <AssemblyName>aki-efttrainer</AssemblyName>
+    <AssemblyName>spt-efttrainer</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <LangVersion>latest</LangVersion>
@@ -23,7 +23,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
@@ -37,9 +37,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <!-- Framework -->
     <Reference Include="System" />
-  </ItemGroup>
-  <ItemGroup>
+    <Reference Include="System.Core" />
+    <Reference Include="netstandard">
+      <HintPath>$(EFTManagedPath)\netstandard.dll</HintPath>
+    </Reference>
     <!-- Unity -->
     <Reference Include="UnityEngine">
       <HintPath>$(EFTManagedPath)\UnityEngine.dll</HintPath>
@@ -53,7 +56,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AkiEftTrainerPlugin.cs" />
+    <Compile Include="SptEftTrainerPlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

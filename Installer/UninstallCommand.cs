@@ -36,7 +36,7 @@ internal sealed class UninstallCommand : Command<UninstallCommand.Settings>
 			if (!RemoveFile(Path.Combine(installation.Managed, "NLog.EFT.Trainer.dll")))
 				return (int)ExitCode.RemoveDllFailed;
 
-			// MonoMod.RuntimeDetour is a dependency used by the non-ilmerged 0Harmony.dll used by legacy spt-aki. In this case we are not handling the removal
+			// MonoMod.RuntimeDetour is a dependency used by the non-ilmerged 0Harmony.dll used by legacy spt. In this case we are not handling the removal
 			if (!File.Exists(Path.Combine(installation.Managed, "MonoMod.RuntimeDetour.dll")))
 			{
 				if (!RemoveFile(Path.Combine(installation.Managed, "0Harmony.dll")))
@@ -46,7 +46,7 @@ internal sealed class UninstallCommand : Command<UninstallCommand.Settings>
 			if (!RemoveFile(Path.Combine(installation.Data, "outline")))
 				return (int)ExitCode.RemoveOutlineFailed;
 
-			if (!RemoveFile(Path.Combine(installation.BepInExPlugins, "aki-efttrainer.dll")))
+			if (!RemoveFile(Path.Combine(installation.BepInExPlugins, "spt-efttrainer.dll")))
 				return (int)ExitCode.RemovePluginDllFailed;
 
 			RemoveOrPatchConfiguration(installation);

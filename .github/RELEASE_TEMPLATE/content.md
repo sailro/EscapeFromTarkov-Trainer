@@ -19,8 +19,8 @@ This is an universal installer for the trainer. In most cases you just need to r
 - Still not working? It will then try to disable faulting features.
 - No need for SDKs, third party dependencies or Visual Studio, the Installer is self-contained. 
 - Before EscapeFromTarkov `0.13.0.21531`, it should work for `live` (do not do that, you'll be detected & banned!).
-- Given EscapeFromTarkov `0.13.0.21531`  or later prevent this trainer to be loaded using NLog configuration. It is now mandatory to use `SPT-AKI/BepInEx` for recent versions.
-- **Important**: if you are using `SPT-AKI`, please make sure you have run the game at least once before installing the trainer. `SPT-AKI` is patching binaries during the first run, and we need to compile against those patched binaries. If you install this trainer on stock binaries, the game will freeze at the startup screen.
+- Given EscapeFromTarkov `0.13.0.21531`  or later prevent this trainer to be loaded using NLog configuration. It is now mandatory to use `SPT/BepInEx` for recent versions.
+- **Important**: if you are using `SPT`, please make sure you have run the game at least once before installing the trainer. `SPT` is patching binaries during the first run, and we need to compile against those patched binaries. If you install this trainer on stock binaries, the game will freeze at the startup screen.
 
 ![image](https://user-images.githubusercontent.com/638167/146071436-401b4f80-f4bb-4dfb-8cdc-23ef5bfc79c3.png)
 
@@ -28,12 +28,12 @@ This is an universal installer for the trainer. In most cases you just need to r
 - The freshly-compiled trainer bits will be copied to `EscapeFromTarkov_Data\Managed\NLog.EFT.Trainer.dll`.
 - The outline shader will be copied to `EscapeFromTarkov_Data\outline`
 - `EscapeFromTarkov_Data\Managed\NLog.dll.nlog` will be created or patched, depending on the content. (This is for legacy EscapeFromTarkov versions, before `0.13.0.21531`).
-- It will compile a SPT-AKI/BepInEx plugin named `aki-efttrainer.dll` in `BepInEx\plugins` 
+- It will compile a SPT/BepInEx plugin named `spt-efttrainer.dll` in `BepInEx\plugins` 
 
 ![image](https://user-images.githubusercontent.com/638167/211163262-e49bca08-642c-4512-b92f-c2c1de4bead1.png)
 
 ## Troubleshooting:
-- The game is stuck after installing the trainer : if you are using `SPT-AKI`, please make sure you have run the game at least once before installing the trainer. `SPT-AKI` is patching binaries during the first run, and we need to compile against those patched binaries. If you install this trainer on stock binaries, the game will freeze at the startup screen.
+- The game is stuck after installing the trainer : if you are using `SPT`, please make sure you have run the game at least once before installing the trainer. `SPT` is patching binaries during the first run, and we need to compile against those patched binaries. If you install this trainer on stock binaries, the game will freeze at the startup screen.
 - The trainer is not loaded : are you sure you are running the proper EFT instance? you can double check with the file `%LOCALAPPDATA%Low\Battlestate Games\EscapeFromTarkov\Player.log`, search for an installation path (often along with `Fallback handler could not load library` errors). Perhaps you forgot to update your shortcuts to `server.exe`/`launcher.exe` files.
 - The installer is unable to compile the trainer for an old EFT version : sorry I do not plan to support old versions, please upgrade.
 - The installer is unable to compile the trainer for a new EFT version : please file an [issue](https://github.com/sailro/EscapeFromTarkov-Trainer/issues/new/choose).

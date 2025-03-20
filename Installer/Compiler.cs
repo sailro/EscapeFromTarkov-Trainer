@@ -23,7 +23,7 @@ internal partial class Compiler
 	private string ProjectContent { get; }
 
 	private string[] Exclude { get; }
-	private string[] Defines { get; } = [];
+	private string[] Defines { get; }
 
 	private static CSharpCompilationOptions CompilationOptions { get; } =
 		new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary)
@@ -35,6 +35,7 @@ internal partial class Compiler
 		ProjectArchive = projectArchive;
 		Installation = context.Installation;
 		Exclude = context.Exclude;
+		Defines = context.Defines;
 		ProjectContent = string.Empty;
 
 		var entry = projectArchive.Entries.FirstOrDefault(e => e.Name == context.Project) ?? throw new ArgumentException($"Project {context.Project} not found!");

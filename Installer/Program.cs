@@ -22,12 +22,12 @@ internal class Program
 		});
 		var result = app.Run(args);
 
-		if (StartedByExplorer())
-		{
-			Console.WriteLine();
-			Console.WriteLine(@"Press a key to exit...");
-			Console.ReadKey();
-		}
+		if (!StartedByExplorer())
+			return result;
+
+		Console.WriteLine();
+		Console.WriteLine(@"Press a key to exit...");
+		Console.ReadKey();
 
 		return result;
 	}

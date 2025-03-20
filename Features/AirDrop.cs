@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using Comfort.Common;
 using EFT.InventoryLogic;
 using EFT.Trainer.Properties;
 using JetBrains.Annotations;

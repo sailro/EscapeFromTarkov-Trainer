@@ -47,9 +47,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 	public static string[] ToSourceFile(string[]? names, string folder)
 	{
 		names ??= [];
-		return names
-			.Select(f => $"{folder}\\{f}.cs")
-			.ToArray();
+		return [.. names.Select(f => $"{folder}\\{f}.cs")];
 	}
 
 	[SupportedOSPlatform("windows")]
@@ -66,14 +64,14 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 
 			AnsiConsole.MarkupLine($"Target [green]EscapeFromTarkov ({installation.Version})[/] in [blue]{installation.Location.EscapeMarkup()}[/].");
 
-			if (installation.UsingSptAki)
+			if (installation.UsingSpt)
 			{
-				AnsiConsole.MarkupLine("[green][[SPT-AKI]][/] detected. Please make sure you have run the game at least once before installing the trainer.");
-				AnsiConsole.MarkupLine("SPT-AKI is patching binaries during the first run, and we [underline]need[/] to compile against those patched binaries.");
+				AnsiConsole.MarkupLine("[green][[SPT]][/] detected. Please make sure you have run the game at least once before installing the trainer.");
+				AnsiConsole.MarkupLine("SPT is patching binaries during the first run, and we [underline]need[/] to compile against those patched binaries.");
 				AnsiConsole.MarkupLine("If you install this trainer on stock binaries, we'll be unable to compile or the game will freeze at the startup screen.");
 
-				if (installation.UsingSptAkiButNeverRun)
-					AnsiConsole.MarkupLine("[yellow]Warning: it seems that you have never run your SPT-AKI installation. You should quit now and rerun this installer once it's done.[/]");
+				if (installation.UsingSptButNeverRun)
+					AnsiConsole.MarkupLine("[yellow]Warning: it seems that you have never run your SPT installation. You should quit now and rerun this installer once it's done.[/]");
 
 				if (!AnsiConsole.Confirm("Continue installation (yes I have run the game at least once) ?"))
 					return (int)ExitCode.Canceled;
@@ -122,7 +120,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 					return (int)ExitCode.PluginCompilationFailed;
 				}
 
-				if (!CreateDll(installation, Path.Combine(installation.BepInExPlugins, "aki-efttrainer.dll"), dllPath => pluginResult.Compilation.Emit(dllPath)))
+				if (!CreateDll(installation, Path.Combine(installation.BepInExPlugins, "spt-efttrainer.dll"), dllPath => pluginResult.Compilation.Emit(dllPath)))
 					return (int)ExitCode.CreatePluginDllFailed;
 			}
 			else
@@ -131,7 +129,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 				if (installation.Version >= version)
 				{
 					AnsiConsole.MarkupLine($"[yellow]Warning: EscapeFromTarkov {version} or later prevent this trainer to be loaded using NLog configuration.[/]");
-					AnsiConsole.MarkupLine("[yellow]It is now mandatory to use SPT-AKI/BepInEx, or to find your own way to load the trainer. As is, it will not work.[/]");
+					AnsiConsole.MarkupLine("[yellow]It is now mandatory to use SPT/BepInEx, or to find your own way to load the trainer. As is, it will not work.[/]");
 				}
 
 				CreateOrPatchConfiguration(installation);
@@ -155,16 +153,11 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 		{
 			Exclude = [.. settings.DisabledFeatures!, .. settings.DisabledCommands!],
 			Branch = GetInitialBranch(settings),
+			Defines = installation.UsingSpt ? [] : ["EFT_LIVE"],
 			Language = settings.Language
 		};
 
 		var result = await GetCompilationAsync(context);
-		var files = result.Errors
-			.Select(d => d.Location.SourceTree?.FilePath)
-			.Where(s => s is not null)
-			.Distinct()
-			.ToArray();
-
 		if (context.IsFatalFailure)
 			return result;
 
@@ -179,21 +172,27 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 			}
 		}
 
-		if (result.Compilation == null && files.Length != 0 && files.All(file => folders.Any(folder => file!.StartsWith(folder))))
-		{
-			// Failure, retry by removing faulting features if possible
-			AnsiConsole.MarkupLine($"[yellow]Trying to disable faulting feature/command: [red]{GetFaultingNames(files!)}[/].[/]");
+		var files = result.ErrorFiles;
+		if (!HasFaultingFeatureOrCommand(result, folders, files))
+			return result;
 
-			context.Exclude = [.. files!, .. settings.DisabledFeatures!, .. settings.DisabledCommands!];
-			context.Branch = GetFallbackBranch(settings);
+		// Failure, retry by removing faulting features if possible
+		AnsiConsole.MarkupLine($"[yellow]Trying to disable faulting feature/command: [red]{GetFaultingNames(files)}[/].[/]");
 
-			result = await GetCompilationAsync(context);
+		context.Exclude = [.. files, .. settings.DisabledFeatures, .. settings.DisabledCommands];
+		context.Branch = GetFallbackBranch(settings);
 
-			if (result.Errors.Length == 0)
-				AnsiConsole.MarkupLine("[yellow]We found a fallback! But please file an issue here : https://github.com/sailro/EscapeFromTarkov-Trainer/issues [/]");
-		}
+		result = await GetCompilationAsync(context);
+
+		if (result.Errors.Length == 0)
+			AnsiConsole.MarkupLine("[yellow]We found a fallback! But please file an issue here : https://github.com/sailro/EscapeFromTarkov-Trainer/issues [/]");
 
 		return result;
+	}
+
+	private static bool HasFaultingFeatureOrCommand(CompilationResult result, string[] folders, string[] files)
+	{
+		return result.Compilation == null && files.Length != 0 && files.All(file => folders.Any(file.StartsWith));
 	}
 
 	private static string GetFaultingNames(string[] files)
@@ -263,10 +262,9 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 			{
 				var compiler = new Compiler(archive, context);
 				compilation = compiler.Compile(Path.GetFileNameWithoutExtension(context.Project));
-				errors = compilation
+				errors = [.. compilation
 					.GetDiagnostics()
-					.Where(d => d.Severity == DiagnosticSeverity.Error)
-					.ToArray();
+					.Where(d => d.Severity == DiagnosticSeverity.Error)];
 
 #if DEBUG
 				foreach (var error in errors)
@@ -280,9 +278,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 				}
 				else
 				{
-					resources = compiler
-						.GetResources(context)
-						.ToArray();
+					resources = [.. compiler.GetResources(context)];
 
 					if (compiler.IsLocalizationSupported() && resources.Length == 0)
 					{
