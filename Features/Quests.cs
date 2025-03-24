@@ -9,6 +9,7 @@ using EFT.Trainer.Extensions;
 using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 #nullable enable
 
@@ -27,6 +28,9 @@ internal class Quests : PointOfInterests
 	public override bool Enabled { get; set; } = false;
 	public override Color GroupingColor => Color;
 
+	private readonly Dictionary<string, ExperienceTrigger[]> _experienceTriggerCache = new();
+	private readonly Dictionary<string, PlaceItemTrigger[]> _placeItemTriggerCache = new();
+
 	public override void RefreshData(List<PointOfInterest> data)
 	{
 		var world = Singleton<GameWorld>.Instance;
@@ -42,6 +46,12 @@ internal class Quests : PointOfInterests
 			return;
 
 		var profile = player.Profile;
+		if (profile == null)
+			return;
+
+		var scene = SceneManager.GetActiveScene();
+		if (!scene.isLoaded)
+			return;
 
 		var startedQuests = profile.QuestsData
 			.Where(q => q.Status is EQuestStatus.Started && q.Template != null)
@@ -50,14 +60,19 @@ internal class Quests : PointOfInterests
 		if (!startedQuests.Any())
 			return;
 
-		RefreshPlaceOrRepairItemLocations(startedQuests, profile, data);
-		RefreshVisitPlaceLocations(startedQuests, profile, data);
+		RefreshPlaceOrRepairItemLocations(scene, startedQuests, profile, data);
+		RefreshVisitPlaceLocations(scene, startedQuests, profile, data);
 		RefreshFindItemLocations(startedQuests, world, data);
 	}
 
-	private void RefreshVisitPlaceLocations(QuestDataClass[] startedQuests, Profile profile, List<PointOfInterest> records)
+	private void RefreshVisitPlaceLocations(Scene scene, QuestDataClass[] startedQuests, Profile profile, List<PointOfInterest> records)
 	{
-		var triggers = FindObjectsOfType<ExperienceTrigger>();
+		if (!_experienceTriggerCache.TryGetValue(scene.name, out var triggers))
+		{
+			triggers = FindObjectsOfType<ExperienceTrigger>();
+			if (triggers.Length > 0)
+				_experienceTriggerCache[scene.name] = triggers;
+		}
 
 		foreach (var quest in startedQuests)
 		{
@@ -112,14 +127,19 @@ internal class Quests : PointOfInterests
 		}
 	}
 
-	private void RefreshPlaceOrRepairItemLocations(QuestDataClass[] startedQuests, Profile profile, List<PointOfInterest> records)
+	private void RefreshPlaceOrRepairItemLocations(Scene scene, QuestDataClass[] startedQuests, Profile profile, List<PointOfInterest> records)
 	{
 		var allPlayerItems = profile
 			.Inventory
 			.GetPlayerItems()
 			.ToArray();
 
-		var triggers = FindObjectsOfType<PlaceItemTrigger>();
+		if (!_placeItemTriggerCache.TryGetValue(scene.name, out var triggers))
+		{
+			triggers = FindObjectsOfType<PlaceItemTrigger>();
+			if (triggers.Length > 0)
+				_placeItemTriggerCache[scene.name] = triggers;
+		}
 
 		foreach (var quest in startedQuests)
 		{
