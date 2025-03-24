@@ -39,7 +39,7 @@
     <PackageReference Include="System.Resources.Writer" Version="4.3.0" />
     <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="6.1.0" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="9.0.3" />
-    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.6.0" />
+    <PackageReference Include="System.Threading.Tasks.Extensions" Version="4.6.2" />
   </ItemGroup>
 
   <ItemGroup>
