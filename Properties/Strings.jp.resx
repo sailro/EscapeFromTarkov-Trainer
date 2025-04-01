@@ -121,13 +121,13 @@
     <value>dump</value>
   </data>
   <data name="CommandDumpGameObjects" xml:space="preserve">
-    <value>ゲームオブジェクト分析...</value>
+    <value>Dumping game objects...</value>
   </data>
   <data name="CommandDumpScenes" xml:space="preserve">
-    <value>シナリオ分析...</value>
+    <value>Dumping Scenes...</value>
   </data>
   <data name="CommandDumpSuccessFormat" xml:space="preserve">
-    <value>{0} を分析</value>
+    <value>Dump created in {0}</value>
     <comment>Filename</comment>
   </data>
   <data name="CommandList" xml:space="preserve">
@@ -145,27 +145,27 @@
     <comment>Rarity</comment>
   </data>
   <data name="CommandListSuccessFormat" xml:space="preserve">
-    <value>アイテム {0} を発見</value>
+    <value>Found {0} item(s)</value>
     <comment>Item count</comment>
   </data>
   <data name="CommandListSuperRare" xml:space="preserve">
     <value>listsr</value>
   </data>
   <data name="CommandLoadDescription" xml:space="preserve">
-    <value>ロード設定</value>
+    <value>設定読込</value>
   </data>
   <data name="CommandLoadName" xml:space="preserve">
     <value>load</value>
   </data>
   <data name="CommandLoadSuccessFormat" xml:space="preserve">
-    <value>{0} をロードしました</value>
+    <value>Loaded {0}</value>
     <comment>Filename</comment>
   </data>
   <data name="CommandLoadTrackList" xml:space="preserve">
     <value>loadtl</value>
   </data>
   <data name="CommandSaveDescription" xml:space="preserve">
-    <value>セーブ設定</value>
+    <value>設定保存</value>
   </data>
   <data name="CommandSaveHeader" xml:space="preserve">
     <value>このファイルを更新するときは注意してください :)
@@ -176,7 +176,7 @@
     <value>save</value>
   </data>
   <data name="CommandSaveSuccessFormat" xml:space="preserve">
-    <value>{0} をセーブしました</value>
+    <value>Saved {0}</value>
     <comment>Filename</comment>
   </data>
   <data name="CommandSaveTrackList" xml:space="preserve">
@@ -189,11 +189,11 @@
     <value>status</value>
   </data>
   <data name="CommandStatusTextFormat" xml:space="preserve">
-    <value>{0} は {1} {2}</value>
+    <value>{0} is {1} {2}</value>
     <comment>Feature name, status, optional toggle text if a key is set</comment>
   </data>
   <data name="CommandStatusTextToggleFormat" xml:space="preserve">
-    <value>({0} へ切替)</value>
+    <value>({0} to toggle)</value>
     <comment>Key</comment>
   </data>
   <data name="CommandTemplate" xml:space="preserve">
@@ -204,7 +204,7 @@
     <comment>Template id, short-name, name</comment>
   </data>
   <data name="CommandTemplateSuccessFormat" xml:space="preserve">
-    <value>テンプレート {0} を発見(s)</value>
+    <value>Found {0} template(s)</value>
     <comment>Template count</comment>
   </data>
   <data name="CommandTrack" xml:space="preserve">
@@ -214,7 +214,7 @@
     <value>tracklist</value>
   </data>
   <data name="CommandTrackListEnumerateFormat" xml:space="preserve">
-    <value>トラッキング: {0} {1}</value>
+    <value>Tracking: {0} {1}</value>
     <comment>Item short-name, optional rarity</comment>
   </data>
   <data name="CommandTrackListRarityFormat" xml:space="preserve">
@@ -222,10 +222,10 @@
     <comment>Rarity</comment>
   </data>
   <data name="CommandTrackListUpdated" xml:space="preserve">
-    <value>トラッキングリスト更新...</value>
+    <value>Tracking list updated...</value>
   </data>
   <data name="CommandTrackListWishListEnumerateFormat" xml:space="preserve">
-    <value>トラッキング: {0} (ウィッシュリスト)</value>
+    <value>Tracking: {0} (Wishlist)</value>
     <comment>Item short-name</comment>
   </data>
   <data name="CommandTrackRare" xml:space="preserve">
@@ -238,19 +238,19 @@
     <value>untrack</value>
   </data>
   <data name="DebugPatchedMethodFormat" xml:space="preserve">
-    <value>{0} を {1} で修正</value>
+    <value>Patched {0} with {1}</value>
     <comment>Method names</comment>
   </data>
   <data name="DebugPerformanceRefreshedFormat" xml:space="preserve">
-    <value>{0} を {1}msでリフレッシュ</value>
+    <value>Refreshed {0} in {1}ms</value>
     <comment>Type name, elapsed milliseconds</comment>
   </data>
   <data name="DebugRegisteringCommandFormat" xml:space="preserve">
-    <value>コマンド {0} を登録...</value>
+    <value>Registering {0} command...</value>
     <comment>Command name</comment>
   </data>
   <data name="DebugRegisteringCommandWithArgumentsFormat" xml:space="preserve">
-    <value>コマンド {0} を引数付きで登録...</value>
+    <value>Registering {0} command with arguments...</value>
     <comment>Command name</comment>
   </data>
   <data name="DirectionEast" xml:space="preserve">
@@ -278,188 +278,188 @@
     <value>西</value>
   </data>
   <data name="ErrorCannotFindField" xml:space="preserve">
-    <value>{1} で {0} が見つかりません</value>
+    <value>Unable to find {0} on {1}</value>
     <comment>Field name, type name</comment>
   </data>
   <data name="ErrorCannotFindOriginalMethodFormat" xml:space="preserve">
-    <value>オリジナルのメソッド {0} が見つかりません</value>
+    <value>Cannot find original method {0}</value>
     <comment>Method name</comment>
   </data>
   <data name="ErrorCannotFindPostfixMethodFormat" xml:space="preserve">
-    <value>ポストフィックスメソッド {0} が見つかりません</value>
+    <value>Cannot find postfix method {0}</value>
     <comment>Method name</comment>
   </data>
   <data name="ErrorCannotFindPrefixMethodFormat" xml:space="preserve">
-    <value>プレフィックスメソッド {0} が見つかりません</value>
+    <value>Cannot find prefix method {0}</value>
     <comment>Method name</comment>
   </data>
   <data name="ErrorCannotLoadFormat" xml:space="preserve">
-    <value>{0}がロード出来ません. {1}</value>
+    <value>Unable to load {0}. {1}</value>
     <comment>Filename, error message</comment>
   </data>
   <data name="ErrorCannotSaveFormat" xml:space="preserve">
-    <value>{0}がセーブ出来ません. {1}</value>
+    <value>Unable to save {0}. {1}</value>
     <comment>Filename, error message</comment>
   </data>
   <data name="ErrorCorruptedFileFormat" xml:space="preserve">
-    <value>{0} が破損しているようです。修正してください</value>
+    <value>{0} seems corrupted. Please fix</value>
     <comment>Filename</comment>
   </data>
   <data name="ErrorCorruptedPropertyFormat" xml:space="preserve">
-    <value>{0} が {1} で破損しているようです。修正してください</value>
+    <value>{0} seems corrupted in {1}. Please fix</value>
     <comment>Key, filename</comment>
   </data>
   <data name="ErrorFailedToCreateItem" xml:space="preserve">
-    <value>アイテムを作成できません!</value>
+    <value>Failed to create item!</value>
   </data>
   <data name="ErrorFailedToLoadItemBundle" xml:space="preserve">
-    <value>アイテムバンドルがロード出来ません!</value>
+    <value>Failed to load item bundle!</value>
   </data>
   <data name="ErrorFileNotFoundFormat" xml:space="preserve">
-    <value>{0} が見つかりません!</value>
+    <value>{0} not found!</value>
     <comment>Filename</comment>
   </data>
   <data name="ErrorInvalidArguments" xml:space="preserve">
-    <value>無効な引数</value>
+    <value>Invalid arguments</value>
   </data>
   <data name="ErrorNoTemplateFound" xml:space="preserve">
-    <value>テンプレートが見つかりません!</value>
+    <value>No template found!</value>
   </data>
   <data name="ErrorTooManyTemplatesFormat" xml:space="preserve">
-    <value> {0} 個のテンプレートが見つかりました、もっと詳しく</value>
+    <value>Found {0} templates, be more specific</value>
     <comment>Template count &gt; 1</comment>
   </data>
   <data name="ErrorUnsupportedTypeFormat" xml:space="preserve">
-    <value>サポートされていないタイプ: {0}</value>
+    <value>Unsupported type: {0}</value>
     <comment>Property type-name</comment>
   </data>
   <data name="FeatureAimbotDescription" xml:space="preserve">
-    <value>Aimbot. 自動照準・自動発射 (SilentAim).</value>
+    <value>Aimbot. 自動照準・自動発射 (SilentAim)</value>
   </data>
   <data name="FeatureAimbotName" xml:space="preserve">
     <value>aimbot</value>
   </data>
   <data name="FeatureAmmunitionDescription" xml:space="preserve">
-    <value>弾薬無限.</value>
+    <value>弾薬無限</value>
   </data>
   <data name="FeatureAmmunitionName" xml:space="preserve">
-    <value>弾薬</value>
+    <value>ammo</value>
   </data>
   <data name="FeatureAutomaticGunDescription" xml:space="preserve">
-    <value>すべての銃（ボルトアクション銃も）を,発射速度をカスタマイズできる自動発射モードにする.</value>
+    <value>全ての銃(ボルトアクション銃含む)を発射速度が設定可能な自動発射モードにする</value>
   </data>
   <data name="FeatureAutomaticGunName" xml:space="preserve">
-    <value>全自動銃</value>
+    <value>autogun</value>
   </data>
   <data name="FeatureCameraDescription" xml:space="preserve">
-    <value>高速モードとテレポート機能を備えたフリーカメラ.</value>
+    <value>高速モードとテレポート機能を備えたフリーカメラ</value>
   </data>
   <data name="FeatureCameraName" xml:space="preserve">
-    <value>カメラ</value>
+    <value>camera</value>
   </data>
   <data name="FeatureCommandsDescription" xml:space="preserve">
-    <value>このメインポップアップウィンドウ.</value>
+    <value>このメインポップアップウィンドウ</value>
   </data>
   <data name="FeatureCommandsName" xml:space="preserve">
-    <value>コマンド</value>
+    <value>commands</value>
   </data>
   <data name="FeatureCommandsTitle" xml:space="preserve">
     <value>EFT Trainer</value>
   </data>
   <data name="FeatureCrosshairDescription" xml:space="preserve">
-    <value>サイズ,色,太さ及び照準時の自動非表示機能をカスタマイズできるクロスヘア.</value>
+    <value>照準</value>
   </data>
   <data name="FeatureCrosshairName" xml:space="preserve">
-    <value>クロスヘア</value>
+    <value>crosshair</value>
   </data>
   <data name="FeatureDurabilityDescription" xml:space="preserve">
-    <value>アイテムの最大耐久値.</value>
+    <value>耐久最大</value>
   </data>
   <data name="FeatureDurabilityName" xml:space="preserve">
-    <value>耐久値</value>
+    <value>durability</value>
   </data>
   <data name="FeatureExamineDescription" xml:space="preserve">
-    <value>全アイテム調査済. インスタントサーチ.</value>
+    <value>インスタントサーチ</value>
   </data>
   <data name="FeatureExamineName" xml:space="preserve">
-    <value>調査</value>
+    <value>examine</value>
   </data>
   <data name="FeatureExfiltrationPointsDescription" xml:space="preserve">
-    <value>資格,ステータス・フィルター,距離に応じて色をカスタマイズできる脱出地点.</value>
+    <value>脱出地点</value>
   </data>
   <data name="FeatureExfiltrationPointsEligibleFormat" xml:space="preserve">
     <value>{0} ({1})</value>
     <comment>Name, status</comment>
   </data>
   <data name="FeatureExfiltrationPointsName" xml:space="preserve">
-    <value>脱出地点</value>
+    <value>exfil</value>
   </data>
   <data name="FeatureExfiltrationPointsStatusActivate" xml:space="preserve">
-    <value>活性化</value>
+    <value>Activate</value>
   </data>
   <data name="FeatureExfiltrationPointsStatusClosed" xml:space="preserve">
-    <value>閉鎖</value>
+    <value>Closed</value>
   </data>
   <data name="FeatureExfiltrationPointsStatusOpen" xml:space="preserve">
-    <value>開放</value>
+    <value>Open</value>
   </data>
   <data name="FeatureExfiltrationPointsStatusPending" xml:space="preserve">
-    <value>待機</value>
+    <value>Pending</value>
   </data>
   <data name="FeatureExfiltrationPointsStatusRequirement" xml:space="preserve">
-    <value>条件</value>
+    <value>Requirement</value>
   </data>
   <data name="FeatureExfiltrationPointsStatusTimer" xml:space="preserve">
     <value>Timer</value>
   </data>
   <data name="FeatureFeatureWallShootDescription" xml:space="preserve">
-    <value>壁/ヘルメット/ベスト/素材を貫通し最大限の貫通力と最小限の逸脱/跳弾で撃つ.</value>
+    <value>壁/ヘルメット/ベスト/素材を貫通し最大限の貫通力と最小限の逸脱/跳弾で撃つ</value>
   </data>
   <data name="FeatureFovChangerDescription" xml:space="preserve">
-    <value>視野角変更 (FOV).</value>
+    <value>視野角変更 (FOV)</value>
   </data>
   <data name="FeatureFovChangerName" xml:space="preserve">
-    <value>FOVチェンジャー</value>
+    <value>fovchanger</value>
   </data>
   <data name="FeatureGameStateDescription" xml:space="preserve">
-    <value>他の機能のためにすべてのゲーム情報をリフレッシュ.</value>
+    <value>他の機能のためにすべてのゲーム情報をリフレッシュ</value>
   </data>
   <data name="FeatureGameStateName" xml:space="preserve">
-    <value>ゲームステート</value>
+    <value>gamestate</value>
   </data>
   <data name="FeatureGhostDescription" xml:space="preserve">
-    <value>ボットに見つからないようにする.</value>
+    <value>ボットに見つからないようにする</value>
   </data>
   <data name="FeatureGhostName" xml:space="preserve">
-    <value>ゴースト</value>
+    <value>ghost</value>
   </data>
   <data name="FeatureGrenadesDescription" xml:space="preserve">
-    <value>グレネードの概要.</value>
+    <value>手榴弾輪郭表示</value>
   </data>
   <data name="FeatureGrenadesName" xml:space="preserve">
-    <value>グレネード</value>
+    <value>grenade</value>
   </data>
   <data name="FeatureHealthDescription" xml:space="preserve">
-    <value>フルヘルス,あらゆるダメージの防止（転倒時でも）,エネルギーと水分補給を最大に保つ.</value>
+    <value>あらゆるダメージの防止(転倒時も)エネルギーと水分補給を最大に保つ</value>
   </data>
   <data name="FeatureHealthName" xml:space="preserve">
-    <value>ヘルス</value>
+    <value>health</value>
   </data>
   <data name="FeatureHitsDescription" xml:space="preserve">
-    <value>ヒットマーカー（ヒット,アーマー,ヘルスを色で設定可能）.</value>
+    <value>ヒットマーカー(ヒット,アーマー,色で設定可能なヘルス)</value>
   </data>
   <data name="FeatureHitsName" xml:space="preserve">
-    <value>ヒット</value>
+    <value>hits</value>
   </data>
   <data name="FeatureHudCoordinatesFormat" xml:space="preserve">
     <value>({0},{1})</value>
     <comment>X, y</comment>
   </data>
   <data name="FeatureHudDescription" xml:space="preserve">
-    <value>HUD（コンパス,弾薬残量/マガジン,射撃モード,座標）.</value>
+    <value>HUD(コンパス,弾薬残量/マガジン,射撃モード,座標)</value>
   </data>
   <data name="FeatureHudName" xml:space="preserve">
-    <value>HUD</value>
+    <value>hud</value>
   </data>
   <data name="FeatureHudSeparator" xml:space="preserve">
     <value> - </value>
@@ -469,68 +469,68 @@
     <comment>Magazine count, chamber count, magazine capacity, fire-mode</comment>
   </data>
   <data name="FeatureInteractDescription" xml:space="preserve">
-    <value>ルートアイテム/ドアとのインタラクション距離を変更.</value>
+    <value>ルートアイテム/ドアとのインタラクション距離を変更</value>
   </data>
   <data name="FeatureInteractName" xml:space="preserve">
-    <value>インタラクト</value>
+    <value>interact</value>
   </data>
   <data name="FeatureLootItemsDescription" xml:space="preserve">
-    <value>すべてのルート可能なアイテムをリストアップし名前やレアリティまたはレイド中のゲーム内ウィッシュリストによってアイテムを追跡します（コンテナや死体でも）.trackコマンドとtracklistコマンドを使用して表示をコントロールします.</value>
+    <value>すべてのルート可能なアイテムをリストアップし名前やレアリティまたはレイド中のゲーム内ウィッシュリストによってアイテムを追跡します(コンテナや死体でも)。trackコマンドとtracklistコマンドを使用して表示をコントロールします</value>
   </data>
   <data name="FeatureLootItemsName" xml:space="preserve">
-    <value>ルート</value>
+    <value>loot</value>
   </data>
   <data name="FeatureMapDescription" xml:space="preserve">
-    <value>レーダー付きフルスクリーンマップ.</value>
+    <value>レーダー付きフルスクリーンマップ</value>
   </data>
   <data name="FeatureMapName" xml:space="preserve">
-    <value>マップ</value>
+    <value>map</value>
   </data>
   <data name="FeatureNightVisionDescription" xml:space="preserve">
-    <value>暗視装置.</value>
-  </data>
-  <data name="FeatureNightVisionName" xml:space="preserve">
     <value>暗視</value>
   </data>
+  <data name="FeatureNightVisionName" xml:space="preserve">
+    <value>night</value>
+  </data>
   <data name="FeatureNoCollisionDescription" xml:space="preserve">
-    <value>物理的な衝突がないため,銃弾,手榴弾と有刺鉄線の影響を受けない.</value>
+    <value>銃弾・手榴弾と有刺鉄線の影響を受けない</value>
   </data>
   <data name="FeatureNoCollisionName" xml:space="preserve">
-    <value>ノーコリジョン</value>
+    <value>nocoll</value>
   </data>
   <data name="FeatureNoMalfunctionsDescription" xml:space="preserve">
-    <value>武器の誤作動はない：誤射、排莢や給弾の失敗はない.ボルトの詰まりやオーバーヒートなし.</value>
+    <value>武器の誤作動がない：誤射・排莢や給弾の失敗は無い。ボルトの詰まりやオーバーヒートも無い</value>
   </data>
   <data name="FeatureNoMalfunctionsName" xml:space="preserve">
-    <value>故障なし</value>
+    <value>nomal</value>
   </data>
   <data name="FeatureNoRecoilDescription" xml:space="preserve">
-    <value>反動なし.</value>
-  </data>
-  <data name="FeatureNoRecoilName" xml:space="preserve">
     <value>無反動</value>
   </data>
+  <data name="FeatureNoRecoilName" xml:space="preserve">
+    <value>norecoil</value>
+  </data>
   <data name="FeatureNoSwayDescription" xml:space="preserve">
-    <value>揺れない.</value>
+    <value>揺れない</value>
   </data>
   <data name="FeatureNoSwayName" xml:space="preserve">
-    <value>視野角無振動</value>
+    <value>nosway</value>
   </data>
   <data name="FeatureNoVisorDescription" xml:space="preserve">
-    <value>バイザーがないため,フェイスシールドバイザーを使用しても見えない.</value>
+    <value>バイザーがないため,フェイスシールドバイザーを使用しても見えない</value>
   </data>
   <data name="FeatureNoVisorName" xml:space="preserve">
-    <value>バイザーなし</value>
+    <value>novisor</value>
   </data>
   <data name="FeaturePlayersDescription" xml:space="preserve">
-    <value>プレイヤー（壁越しにBear／Boss／カルト／Scav／Usecが設定色で見える）.チャーム,ボックス,情報（武器とヘルス）,スケルトンと距離.</value>
+    <value>プレイヤー(壁越しにBear/Boss/カルト/Scav/Usecが設定色で見える)。チャーム,ボックス,情報(武器とヘルス),スケルトンと距離</value>
   </data>
   <data name="FeaturePlayersFormat" xml:space="preserve">
-    <value>武器{0} ヘルス{1}% 距離{2}</value>
+    <value>{0} {1}% {2}</value>
     <comment>Weapon name, health %, distance</comment>
   </data>
   <data name="FeaturePlayersName" xml:space="preserve">
-    <value>プレーヤー</value>
+    <value>players</value>
   </data>
   <data name="FeaturePointOfInterestsDistanceFormat" xml:space="preserve">
     <value>[{0}m]</value>
@@ -541,112 +541,112 @@
     <comment>Name, optional formatted owner, optional formatted distance</comment>
   </data>
   <data name="FeaturePointOfInterestsGroupFormat" xml:space="preserve">
-    <value>&gt;&gt; オーナー {0} 距離 {1}</value>
+    <value>&gt;&gt; In {0} {1}</value>
     <comment>Owner, distance</comment>
   </data>
   <data name="FeaturePointOfInterestsOwnerFormat" xml:space="preserve">
-    <value>(オーナー {0})</value>
+    <value>(in {0})</value>
     <comment>Owner</comment>
   </data>
   <data name="FeatureQuestsDescription" xml:space="preserve">
-    <value>クエストアイテムを取る／置く場所.開始したクエストに関連するアイテムのみ表示されます.</value>
+    <value>クエストアイテムを取る/置く場所。開始したクエストに関連するアイテムのみ表示されます</value>
   </data>
   <data name="FeatureQuestsFormat" xml:space="preserve">
     <value>{0} ({1})</value>
     <comment>Condition description, quest name</comment>
   </data>
   <data name="FeatureQuestsName" xml:space="preserve">
-    <value>クエスト</value>
+    <value>quest</value>
   </data>
   <data name="FeatureQuickTrowDescription" xml:space="preserve">
-    <value>クイックスロー・グレネード.</value>
+    <value>ワンタッチ手榴弾投擲</value>
   </data>
   <data name="FeatureQuickTrowName" xml:space="preserve">
-    <value>クイックスロー</value>
+    <value>quickthrow</value>
   </data>
   <data name="FeatureRadarDescription" xml:space="preserve">
-    <value>2D レーダー.</value>
+    <value>2Dレーダー</value>
   </data>
   <data name="FeatureRadarName" xml:space="preserve">
-    <value>レーダー</value>
+    <value>radar</value>
   </data>
   <data name="FeatureRendererSummary" xml:space="preserve">
-    <value>[サマリー]</value>
+    <value>[summary]</value>
   </data>
   <data name="FeatureRendererWelcome" xml:space="preserve">
     <value>Welcome to EFT-Trainer !</value>
   </data>
   <data name="FeatureSkillsDescription" xml:space="preserve">
-    <value>全スキルをエリートレベル (51) まで及び全武器をレベル 3 まで習得する.</value>
+    <value>全スキルをエリートレベル((51)に全武器をレベル3まで習得</value>
   </data>
   <data name="FeatureSkillsName" xml:space="preserve">
-    <value>スキル</value>
+    <value>skills</value>
   </data>
   <data name="FeatureSpeedDescription" xml:space="preserve">
-    <value>スピードブーストで壁や物体を通り抜けたり,より速く移動できるようになる.自殺しないように注意.</value>
+    <value>スピードブーストで壁や物体を通り抜けたり,より速く移動できるようになる。自殺しないように注意</value>
   </data>
   <data name="FeatureSpeedName" xml:space="preserve">
-    <value>スピード</value>
+    <value>speed</value>
   </data>
   <data name="FeatureStaminaDescription" xml:space="preserve">
-    <value>スタミナ無限.</value>
+    <value>スタミナ無限</value>
   </data>
   <data name="FeatureStaminaName" xml:space="preserve">
-    <value>スタミナ</value>
+    <value>stamina</value>
   </data>
   <data name="FeatureStashDescription" xml:space="preserve">
-    <value>埋められた樽のような特別な隠しスタッシュ, 地上の隠し場所, エアドロップや死体.</value>
+    <value>埋められた樽,隠しスタッシュ,地面湧き,エアドロップや死体</value>
   </data>
   <data name="FeatureStashName" xml:space="preserve">
-    <value>スタッシュ</value>
+    <value>stash</value>
   </data>
   <data name="FeatureThermalVisionDescription" xml:space="preserve">
-    <value>サーマルビジョン.</value>
+    <value>サーマルビジョン</value>
   </data>
   <data name="FeatureThermalVisionName" xml:space="preserve">
-    <value>サーマル</value>
+    <value>thermal</value>
   </data>
   <data name="FeatureTrainDescription" xml:space="preserve">
-    <value>リザーブやライトハウスなど互換性のあるマップで列車を召喚する.</value>
+    <value>リザーブやライトハウスなど互換性のあるマップで列車を召喚する</value>
   </data>
   <data name="FeatureTrainName" xml:space="preserve">
-    <value>列車</value>
+    <value>train</value>
   </data>
   <data name="FeatureWallShootName" xml:space="preserve">
-    <value>ウォールショット</value>
+    <value>wallshoot</value>
   </data>
   <data name="FeatureWeatherDescription" xml:space="preserve">
-    <value>快晴化.</value>
+    <value>天候を晴れに変更</value>
   </data>
   <data name="FeatureWeatherName" xml:space="preserve">
-    <value>天候</value>
+    <value>weather</value>
   </data>
   <data name="FeatureWorldInteractiveObjectsDescription" xml:space="preserve">
-    <value>ドア/キーカードリーダー/カーアンロッカー.</value>
+    <value>ドア/カードリーダー/車両開錠</value>
   </data>
   <data name="FeatureWorldInteractiveObjectsName" xml:space="preserve">
-    <value>オープナー</value>
+    <value>opener</value>
   </data>
   <data name="PropertyArmorDamageColor" xml:space="preserve">
-    <value>アーマーダメージ色</value>
+    <value>アーマーダメージカラー</value>
   </data>
   <data name="PropertyBackward" xml:space="preserve">
-    <value>バックワード</value>
+    <value>Backward</value>
   </data>
   <data name="PropertyBearColors" xml:space="preserve">
-    <value>Bear 色</value>
+    <value>Bearカラー</value>
   </data>
   <data name="PropertyBorderColor" xml:space="preserve">
-    <value>ボーダー 色</value>
+    <value>ボーダーカラー</value>
   </data>
   <data name="PropertyBossColors" xml:space="preserve">
-    <value>Boss 色</value>
+    <value>ボスカラー</value>
   </data>
   <data name="PropertyBoxThickness" xml:space="preserve">
-    <value>Box 肉厚</value>
+    <value>外枠肉厚</value>
   </data>
   <data name="PropertyCacheTimeInSec" xml:space="preserve">
-    <value>キャッシュタイム (sec)</value>
+    <value>保持時間(sec)</value>
   </data>
   <data name="PropertyCameraOffset" xml:space="preserve">
     <value>カメラオフセット</value>
@@ -655,10 +655,10 @@
     <value>時間変更</value>
   </data>
   <data name="PropertyColor" xml:space="preserve">
-    <value>色</value>
+    <value>カラー</value>
   </data>
   <data name="PropertyCultistColors" xml:space="preserve">
-    <value>Cultist 色</value>
+    <value>カルトカラー</value>
   </data>
   <data name="PropertyDisplayTime" xml:space="preserve">
     <value>時刻表示</value>
@@ -667,7 +667,7 @@
     <value>距離</value>
   </data>
   <data name="PropertyEligibleColor" xml:space="preserve">
-    <value>対象色</value>
+    <value>対象カラー</value>
   </data>
   <data name="PropertyEnabled" xml:space="preserve">
     <value>Enabled</value>
@@ -685,49 +685,49 @@
     <value>食料 / 水</value>
   </data>
   <data name="PropertyForward" xml:space="preserve">
-    <value>フォワード</value>
+    <value>Forward</value>
   </data>
   <data name="PropertyFov" xml:space="preserve">
     <value>FOV</value>
   </data>
   <data name="PropertyFovCircleColor" xml:space="preserve">
-    <value>FOV 円色</value>
+    <value>視野円カラー</value>
   </data>
   <data name="PropertyFovCircleThickness" xml:space="preserve">
-    <value>FOV 円太さ</value>
+    <value>視野円厚み</value>
   </data>
   <data name="PropertyFovRadius" xml:space="preserve">
-    <value>FOV 円半径</value>
+    <value>視野円半径</value>
   </data>
   <data name="PropertyFreeLookSensitivity" xml:space="preserve">
     <value>フリールック感度</value>
   </data>
   <data name="PropertyGroupingColor" xml:space="preserve">
-    <value>グループ色</value>
+    <value>グループカラー</value>
   </data>
   <data name="PropertyHealthDamageColor" xml:space="preserve">
-    <value>ヘルスダメージ色</value>
+    <value>ヘルスダメージカラー</value>
   </data>
   <data name="PropertyHideWhenAiming" xml:space="preserve">
     <value>照準時に非表示</value>
   </data>
   <data name="PropertyHitMarkerColor" xml:space="preserve">
-    <value>ヒットマーカー色</value>
+    <value>ヒットマーカーカラー</value>
   </data>
   <data name="PropertyInfoColor" xml:space="preserve">
-    <value>インフォ色</value>
+    <value>インフォカラー</value>
   </data>
   <data name="PropertyIntensity" xml:space="preserve">
     <value>強度</value>
   </data>
   <data name="PropertyKey" xml:space="preserve">
-    <value>キー</value>
+    <value>Key</value>
   </data>
   <data name="PropertyLeft" xml:space="preserve">
-    <value>左</value>
+    <value>Left</value>
   </data>
   <data name="PropertyMarksmanColors" xml:space="preserve">
-    <value>スナイパー 色</value>
+    <value>スナイパーカラー</value>
   </data>
   <data name="PropertyMaximumDistance" xml:space="preserve">
     <value>最大距離</value>
@@ -736,22 +736,22 @@
     <value>移動速度</value>
   </data>
   <data name="PropertyNotEligibleColor" xml:space="preserve">
-    <value>対象外色</value>
+    <value>対象外カラー</value>
   </data>
   <data name="PropertyNotShootableColors" xml:space="preserve">
-    <value>発砲不可色</value>
+    <value>発砲不可カラー</value>
   </data>
   <data name="PropertyRadarBackground" xml:space="preserve">
     <value>レーダー背景</value>
   </data>
   <data name="PropertyRadarCrosshair" xml:space="preserve">
-    <value>レーダー クロスヘア</value>
+    <value>レーダー照準線</value>
   </data>
   <data name="PropertyRadarPercentage" xml:space="preserve">
-    <value>レーダー パーセント</value>
+    <value>レーダー大きさ</value>
   </data>
   <data name="PropertyRadarRange" xml:space="preserve">
-    <value>レーダー レンジ</value>
+    <value>レーダー距離</value>
   </data>
   <data name="PropertyRange" xml:space="preserve">
     <value>レンジ</value>
@@ -760,22 +760,22 @@
     <value>レート</value>
   </data>
   <data name="PropertyRemoveNegativeEffects" xml:space="preserve">
-    <value>ネガティブな影響を取り除く</value>
+    <value>悪影響を取り除く</value>
   </data>
   <data name="PropertyRight" xml:space="preserve">
-    <value>右</value>
+    <value>Right</value>
   </data>
   <data name="PropertyRogueUsecColors" xml:space="preserve">
-    <value>ローグ-Usec 色</value>
+    <value>ローグUsecカラー</value>
   </data>
   <data name="PropertyScavAssaultColors" xml:space="preserve">
-    <value>Scav-アサルト 色</value>
+    <value>Scavアサルトカラー</value>
   </data>
   <data name="PropertyScavColors" xml:space="preserve">
-    <value>Scav 色</value>
+    <value>Scavカラー</value>
   </data>
   <data name="PropertyScavRaiderColors" xml:space="preserve">
-    <value>Scav-レイダー 色</value>
+    <value>Scavレイダーカラー</value>
   </data>
   <data name="PropertySearchInsideContainers" xml:space="preserve">
     <value>コンテナ内検索</value>
@@ -784,106 +784,106 @@
     <value>死体内検索</value>
   </data>
   <data name="PropertyShootableColors" xml:space="preserve">
-    <value>射撃可能色</value>
+    <value>射撃可能カラー</value>
   </data>
   <data name="PropertyShowArmorDamage" xml:space="preserve">
     <value>アーマーダメージ表示</value>
   </data>
   <data name="PropertyShowBosses" xml:space="preserve">
-    <value>表示 Bosses</value>
+    <value>ボス表示</value>
   </data>
   <data name="PropertyShowBoxes" xml:space="preserve">
-    <value>表示 ボックス</value>
+    <value>外枠表示</value>
   </data>
   <data name="PropertyShowCharms" xml:space="preserve">
-    <value>表示 チャーム</value>
+    <value>チャーム表示</value>
   </data>
   <data name="PropertyShowCompass" xml:space="preserve">
-    <value>表示 コンパス</value>
+    <value>コンパス表示</value>
   </data>
   <data name="PropertyShowContainers" xml:space="preserve">
-    <value>表示 コンテナ</value>
+    <value>コンテナ表示</value>
   </data>
   <data name="PropertyShowCoordinates" xml:space="preserve">
-    <value>表示 コーディネート</value>
+    <value>コーディネート表示</value>
   </data>
   <data name="PropertyShowCorpses" xml:space="preserve">
-    <value>表示 死体</value>
+    <value>死体表示</value>
   </data>
   <data name="PropertyShowCultists" xml:space="preserve">
-    <value>表示 カルト</value>
+    <value>カルト表示</value>
   </data>
   <data name="PropertyShowEligible" xml:space="preserve">
-    <value>表示 対象</value>
+    <value>対象表示</value>
   </data>
   <data name="PropertyShowFovCircle" xml:space="preserve">
-    <value>表示 fov サークル</value>
+    <value>視野円表示</value>
   </data>
   <data name="PropertyShowHealthDamage" xml:space="preserve">
-    <value>表示 health-ダメージ</value>
+    <value>ヘルスダメージ表示</value>
   </data>
   <data name="PropertyShowHitMarker" xml:space="preserve">
-    <value>表示 ヒットマーカー</value>
+    <value>ヒットマーカー表示</value>
   </data>
   <data name="PropertyShowInfos" xml:space="preserve">
-    <value>表示 インフォ</value>
+    <value>インフォ表示</value>
   </data>
   <data name="PropertyShowMap" xml:space="preserve">
-    <value>表示 マップ</value>
+    <value>マップ表示</value>
   </data>
   <data name="PropertyShowMarksmen" xml:space="preserve">
-    <value>表示 マークスマン</value>
+    <value>マークスマン表示</value>
   </data>
   <data name="PropertyShowNotEligible" xml:space="preserve">
-    <value>表示 対象外</value>
+    <value>対象外表示</value>
   </data>
   <data name="PropertyShowNotShootable" xml:space="preserve">
-    <value>表示 射撃不可</value>
+    <value>射撃不可表示</value>
   </data>
   <data name="PropertyShowPlayers" xml:space="preserve">
-    <value>表示 プレーヤー</value>
+    <value>プレーヤー表示</value>
   </data>
   <data name="PropertyShowPrices" xml:space="preserve">
-    <value>表示 価格</value>
+    <value>価格表示</value>
   </data>
   <data name="PropertyShowRogues" xml:space="preserve">
-    <value>表示 ローグ</value>
+    <value>ローグ表示</value>
   </data>
   <data name="PropertyShowScavAssaults" xml:space="preserve">
-    <value>表示 Scav-アサルト</value>
+    <value>Scavアサルト表示</value>
   </data>
   <data name="PropertyShowScavRaiders" xml:space="preserve">
-    <value>表示 Scav-レイダー</value>
+    <value>Scavレイダー表示</value>
   </data>
   <data name="PropertyShowScavs" xml:space="preserve">
-    <value>表示 Scavs</value>
+    <value>Scavs表示</value>
   </data>
   <data name="PropertyShowShootable" xml:space="preserve">
-    <value>表示 射撃可</value>
+    <value>射撃可表示</value>
   </data>
   <data name="PropertyShowSkeletons" xml:space="preserve">
-    <value>表示 スケルトン</value>
+    <value>骨格表示</value>
   </data>
   <data name="PropertySilentAim" xml:space="preserve">
-    <value>サイレント エイム</value>
+    <value>Silent aim</value>
   </data>
   <data name="PropertySilentAimNextShotDelay" xml:space="preserve">
-    <value>サイレント エイム ネクストショットディレイ</value>
+    <value>Silent aim next-shot-delay</value>
   </data>
   <data name="PropertySilentAimSpeedFactor" xml:space="preserve">
-    <value>サイレント エイム スピードファクター</value>
+    <value>Silent aim speed-factor</value>
   </data>
   <data name="PropertySize" xml:space="preserve">
-    <value>サイズ</value>
+    <value>大きさ</value>
   </data>
   <data name="PropertySkeletonThickness" xml:space="preserve">
-    <value>スケルトン 厚み</value>
+    <value>骨格厚み</value>
   </data>
   <data name="PropertySmoothness" xml:space="preserve">
-    <value>なめらかさ</value>
+    <value>Smoothness</value>
   </data>
   <data name="PropertyStatusFilter" xml:space="preserve">
-    <value>ステータスフィルター</value>
+    <value>Status filter</value>
   </data>
   <data name="PropertyTeleport" xml:space="preserve">
     <value>テレポート</value>
@@ -895,10 +895,10 @@
     <value>例 : ["foo", "bar"] または拡張プロパティ: [{"Name":"foo","Color":[1.0,0.0,0.0,1.0]},{"Name":"bar","Color":[1.0,1.0,1.0,0.8],"Rarity":"Rare"}]</value>
   </data>
   <data name="PropertyTrackWishlist" xml:space="preserve">
-    <value>トラック ウィッシュリスト</value>
+    <value>Track Wishlist</value>
   </data>
   <data name="PropertyUsecColors" xml:space="preserve">
-    <value>Usec 色</value>
+    <value>Usecカラー</value>
   </data>
   <data name="PropertyVitalsOnly" xml:space="preserve">
     <value>バイタルのみ</value>
@@ -907,7 +907,7 @@
     <value>X</value>
   </data>
   <data name="PropertyXRayVision" xml:space="preserve">
-    <value>Xレイ-ビジョン</value>
+    <value>XRay-Vision</value>
   </data>
   <data name="PropertyY" xml:space="preserve">
     <value>Y</value>
@@ -922,13 +922,13 @@
     <value>------</value>
   </data>
   <data name="ErrorNoBotFound" xml:space="preserve">
-    <value>ボットが見つかりません!</value>
+    <value>No bot found!</value>
   </data>
   <data name="CommandSpawnBot" xml:space="preserve">
     <value>spawnbot</value>
   </data>
   <data name="ErrorTooManyBotsFormat" xml:space="preserve">
-    <value>ボットを {0} 発見, もっと詳しく</value>
+    <value>Found {0} bots, be more specific</value>
     <comment>Bot count &gt; 1</comment>
   </data>
   <data name="CommandSpawnBotEnumerateFormat" xml:space="preserve">
@@ -938,27 +938,27 @@
     <value>spawnqi</value>
   </data>
   <data name="PropertyTrackAutoWishlist" xml:space="preserve">
-    <value>オートウィッシュリスト追跡</value>
+    <value>Track Auto Wishlist</value>
   </data>
   <data name="CommandSpawnHideoutItems" xml:space="preserve">
     <value>spawnhi</value>
   </data>
   <data name="FeatureNoFlashName" xml:space="preserve">
-    <value>フラッシュ無し</value>
+    <value>noflash</value>
   </data>
   <data name="FeatureNoFlashDescription" xml:space="preserve">
-    <value>閃光手榴弾で持続的な閃光や眼やけの影響はない.</value>
+    <value>閃光手榴弾で持続的な閃光や眼やけの影響を受けない</value>
   </data>
   <data name="FeatureMortarName" xml:space="preserve">
-    <value>迫撃砲</value>
+    <value>mortar</value>
   </data>
   <data name="FeatureMortarDescription" xml:space="preserve">
-    <value>プレイヤーの位置で迫撃砲による攻撃を発動.</value>
+    <value>プレイヤーの位置で迫撃砲による攻撃を発動</value>
   </data>
   <data name="FeatureAirDropName" xml:space="preserve">
-    <value>エアドロップ</value>
+    <value>airdrop</value>
   </data>
   <data name="FeatureAirDropDescription" xml:space="preserve">
-    <value>プレイヤーの位置でエアドロップを発動.</value>
+    <value>プレイヤーの位置でエアドロップを発動</value>
   </data>
 </root>
