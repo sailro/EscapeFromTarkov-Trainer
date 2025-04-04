@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Linq;
 using Comfort.Common;
 using EFT.Counters;
@@ -28,8 +29,17 @@ internal class Quests : PointOfInterests
 	public override bool Enabled { get; set; } = false;
 	public override Color GroupingColor => Color;
 
-	private readonly Dictionary<string, ExperienceTrigger[]> _experienceTriggerCache = new();
-	private readonly Dictionary<string, PlaceItemTrigger[]> _placeItemTriggerCache = new();
+	private readonly ConcurrentDictionary<string, ExperienceTrigger[]> _experienceTriggerCache = [];
+	private readonly ConcurrentDictionary<string, PlaceItemTrigger[]> _placeItemTriggerCache = [];
+	private static bool _refreshLookupTables = true;
+
+#pragma warning disable IDE0060
+	[UsedImplicitly]
+	protected static void OnConditionChangedHandlerPostfix(QuestClass conditional)
+	{
+		_refreshLookupTables = true;
+	}
+#pragma warning restore IDE0060
 
 	public override void RefreshData(List<PointOfInterest> data)
 	{
@@ -59,6 +69,14 @@ internal class Quests : PointOfInterests
 
 		if (!startedQuests.Any())
 			return;
+
+		if (_refreshLookupTables)
+		{
+			_experienceTriggerCache.Clear();
+			_placeItemTriggerCache.Clear();
+
+			_refreshLookupTables = false;
+		}
 
 		RefreshPlaceOrRepairItemLocations(scene, startedQuests, profile, data);
 		RefreshVisitPlaceLocations(scene, startedQuests, profile, data);
@@ -173,5 +191,13 @@ internal class Quests : PointOfInterests
 		poi.Owner = null;
 
 		records.Add(poi);
+	}
+
+	protected override void UpdateWhenEnabled()
+	{
+		HarmonyPatchOnce(harmony =>
+		{
+			HarmonyPostfix(harmony, typeof(AbstractQuestControllerClass), nameof(AbstractQuestControllerClass.OnConditionChangedHandler), nameof(OnConditionChangedHandlerPostfix));
+		});
 	}
 }
