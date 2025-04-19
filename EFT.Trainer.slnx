@@ -1,0 +1,14 @@
+<Solution>
+  <Configurations>
+    <BuildType Name="Debug" />
+    <BuildType Name="DebugPerformance" />
+    <BuildType Name="Release" />
+  </Configurations>
+  <Project Path="BepInExPlugin/BepInExPlugin.csproj" Id="00c66bbd-ed7f-4e01-b7e4-0388f76fd31c">
+    <BuildType Solution="DebugPerformance|*" Project="Debug" />
+  </Project>
+  <Project Path="Installer/Installer.csproj">
+    <BuildType Solution="DebugPerformance|*" Project="Debug" />
+  </Project>
+  <Project Path="NLog.EFT.Trainer.csproj" Id="f4eb56b6-f914-11e9-aad5-362b9e155667" />
+</Solution>
