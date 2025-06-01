@@ -17,12 +17,20 @@ public class SptEftTrainerPlugin : BaseUnityPlugin
 	public void Awake()
 	{
 		SetupSptBetaReleases();
+		SceneManager.sceneLoaded += OnSceneLoaded;
+	}
+
+	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+	{
+		LoadTrainer();
+
+		if (Loaded)
+			SceneManager.sceneLoaded -= OnSceneLoaded;
 	}
 
 	[UsedImplicitly]
 	public void OnGUI()
 	{
-		LoadTrainer();
 		RemoveSptBetaReleaseWatermark();
 	}
 
