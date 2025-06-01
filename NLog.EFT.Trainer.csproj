@@ -71,9 +71,6 @@
     <Reference Include="Newtonsoft.Json">
       <HintPath>$(EFTManagedPath)\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="NLog">
-      <HintPath>$(EFTManagedPath)\NLog.dll</HintPath>
-    </Reference>
     <Reference Include="ItemTemplate.Types">
       <HintPath>$(EFTManagedPath)\ItemTemplate.Types.dll</HintPath>
     </Reference>
@@ -242,7 +239,6 @@
     <Compile Include="UI\ColorPicker.cs" />
     <Compile Include="UI\ColorUtil.cs" />
     <Compile Include="UI\Render.cs" />
-    <Compile Include="EFTTarget.cs" />
     <Compile Include="KnownTemplateIds.cs" />
     <Compile Include="Loader.cs" />
   </ItemGroup>
