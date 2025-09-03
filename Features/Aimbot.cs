@@ -74,6 +74,7 @@ internal class Aimbot : HoldFeature
 	}
 
 	[UsedImplicitly]
+	[SuppressMessage("ReSharper", "InconsistentNaming")]
 	protected static bool ApplyShotPrefix(DamageInfoStruct damageInfo, EBodyPart bodyPartType, EBodyPartColliderType colliderType, EArmorPlateCollider armorPlateCollider, object shotId, Player? __instance)
 	{
 		var feature = FeatureFactory.GetFeature<Aimbot>();

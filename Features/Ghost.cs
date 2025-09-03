@@ -1,4 +1,5 @@
-﻿using EFT.Trainer.Extensions;
+﻿using System.Diagnostics.CodeAnalysis;
+using EFT.Trainer.Extensions;
 using EFT.Trainer.Properties;
 using JetBrains.Annotations;
 using UnityEngine;
@@ -16,6 +17,7 @@ internal class Ghost : ToggleFeature
 	public override bool Enabled { get; set; } = false;
 
 	[UsedImplicitly]
+	[SuppressMessage("ReSharper", "InconsistentNaming")]
 	private static bool CheckLookEnemy(EnemyInfo __instance)
 	{
 		var feature = FeatureFactory.GetFeature<Ghost>();

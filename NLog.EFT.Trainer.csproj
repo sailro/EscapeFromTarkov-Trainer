@@ -197,6 +197,7 @@
     <Compile Include="Features\Radar.cs" />
     <Compile Include="Features\SceneDumper.cs" />
     <Compile Include="Features\ShaderCache.cs" />
+    <Compile Include="Features\ShaderProperties.cs" />
     <Compile Include="Features\Speed.cs" />
     <Compile Include="Features\Health.cs" />
     <Compile Include="Features\Stamina.cs" />

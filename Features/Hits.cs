@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using EFT.HealthSystem;
 using EFT.Trainer.Configuration;
 using EFT.Trainer.Extensions;
@@ -55,6 +56,7 @@ internal class Hits : ToggleFeature
 
 #pragma warning disable IDE0060
 	[UsedImplicitly]
+	[SuppressMessage("ReSharper", "InconsistentNaming")]
 	protected static void ApplyDamagePostfix(EBodyPart bodyPart, float damage, DamageInfoStruct damageInfo, ActiveHealthController? __instance)
 	{
 		var feature = FeatureFactory.GetFeature<Hits>();
