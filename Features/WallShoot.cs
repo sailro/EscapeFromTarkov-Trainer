@@ -1,4 +1,5 @@
-﻿using EFT.Ballistics;
+﻿using System.Diagnostics.CodeAnalysis;
+using EFT.Ballistics;
 using EFT.Trainer.Extensions;
 using EFT.Trainer.Properties;
 using JetBrains.Annotations;
@@ -16,6 +17,7 @@ internal class WallShoot : ToggleFeature
 
 #pragma warning disable IDE0060
 	[UsedImplicitly]
+	[SuppressMessage("ReSharper", "InconsistentNaming")]
 	protected static bool IsPenetratedPrefix(EftBulletClass shot, Vector3 hitPoint, BallisticCollider __instance, ref bool __result)
 	{
 		var feature = FeatureFactory.GetFeature<WallShoot>();

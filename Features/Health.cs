@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using EFT.Ballistics;
 using EFT.HealthSystem;
 using EFT.Trainer.Configuration;
@@ -31,6 +32,7 @@ internal class Health : ToggleFeature
 
 #pragma warning disable IDE0060
 	[UsedImplicitly]
+	[SuppressMessage("ReSharper", "InconsistentNaming")]
 	protected static bool ApplyDamagePrefix(EBodyPart bodyPart, ActiveHealthController? __instance, ref float __result)
 	{
 		if (__instance == null)
@@ -44,6 +46,7 @@ internal class Health : ToggleFeature
 	}
 
 	[UsedImplicitly]
+	[SuppressMessage("ReSharper", "InconsistentNaming")]
 	protected static bool ReceiveDamagePrefix(float damage, EBodyPart part, EDamageType type, float absorbed, MaterialType special, Player? __instance)
 	{
 		return UseBuiltinDamageLogic(__instance, part);

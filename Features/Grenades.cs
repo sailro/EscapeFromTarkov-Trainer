@@ -70,11 +70,11 @@ internal class Grenades : CachableFeature<Throwable>
 
 			material.shader = shader;
 
-			material.SetColor("_FirstOutlineColor", color);
-			material.SetFloat("_FirstOutlineWidth", 0.02f);
-			material.SetColor("_SecondOutlineColor", color);
-			material.SetFloat("_SecondOutlineWidth", 0.0025f);
-			material.SetFloat("_ZTest", (float)UnityEngine.Rendering.CompareFunction.Always);
+			material.SetColor(ShaderProperties.FirstOutlineColor, color);
+			material.SetFloat(ShaderProperties.FirstOutlineWidth, 0.02f);
+			material.SetColor(ShaderProperties.SecondOutlineColor, color);
+			material.SetFloat(ShaderProperties.SecondOutlineWidth, 0.0025f);
+			material.SetFloat(ShaderProperties.ZTest, (float)UnityEngine.Rendering.CompareFunction.Always);
 		}
 	}
 }

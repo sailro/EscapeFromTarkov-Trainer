@@ -370,11 +370,11 @@ internal class Players : ToggleFeature
 				cache[renderer] = material.shader;
 				material.shader = shader;
 
-				material.SetColor("_FirstOutlineColor", borderColor);
-				material.SetFloat("_FirstOutlineWidth", 0.02f);
-				material.SetColor("_SecondOutlineColor", color);
-				material.SetFloat("_SecondOutlineWidth", 0.0025f);
-				material.SetFloat("_ZTest", (float)(XRayVision ? CompareFunction.Always : CompareFunction.Less));
+				material.SetColor(ShaderProperties.FirstOutlineColor, borderColor);
+				material.SetFloat(ShaderProperties.FirstOutlineWidth, 0.02f);
+				material.SetColor(ShaderProperties.SecondOutlineColor, color);
+				material.SetFloat(ShaderProperties.SecondOutlineWidth, 0.0025f);
+				material.SetFloat(ShaderProperties.ZTest, (float)(XRayVision ? CompareFunction.Always : CompareFunction.Less));
 			}
 		}
 	}

@@ -73,7 +73,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 				if (installation.UsingSptButNeverRun)
 					AnsiConsole.MarkupLine("[yellow]Warning: it seems that you have never run your SPT installation. You should quit now and rerun this installer once it's done.[/]");
 
-				if (!AnsiConsole.Confirm("Continue installation (yes I have run the game at least once) ?"))
+				if (!await AnsiConsole.ConfirmAsync("Continue installation (yes I have run the game at least once) ?"))
 					return (int)ExitCode.Canceled;
 			}
 

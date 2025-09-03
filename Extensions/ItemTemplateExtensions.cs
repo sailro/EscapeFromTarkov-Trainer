@@ -12,8 +12,8 @@ public static class ItemTemplateExtensions
 		return template.LootExperience switch
 		{
 			<= 0 => ELootRarity.Not_exist,
-			> 0 and <= 20 => ELootRarity.Common,
-			> 20 and <= 40 => ELootRarity.Rare,
+			<= 20 => ELootRarity.Common,
+			<= 40 => ELootRarity.Rare,
 			> 40 => ELootRarity.Superrare,
 		};
 	}

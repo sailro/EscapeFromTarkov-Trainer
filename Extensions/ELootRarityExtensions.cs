@@ -10,10 +10,10 @@ public static class ELootRarityExtensions
 	{
 		return rarity switch
 		{
-			ELootRarity.Superrare => ELootRarity.Superrare.ToString().Red(),
-			ELootRarity.Rare => ELootRarity.Rare.ToString().Yellow(),
-			ELootRarity.Common => ELootRarity.Common.ToString().Green(),
-			ELootRarity.Not_exist => ELootRarity.Not_exist.ToString(),
+			ELootRarity.Superrare => nameof(ELootRarity.Superrare).Red(),
+			ELootRarity.Rare => nameof(ELootRarity.Rare).Yellow(),
+			ELootRarity.Common => nameof(ELootRarity.Common).Green(),
+			ELootRarity.Not_exist => nameof(ELootRarity.Not_exist),
 			_ => string.Empty
 		};
 	}
