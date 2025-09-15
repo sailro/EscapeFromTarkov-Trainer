@@ -27,6 +27,9 @@ internal class Aimbot : HoldFeature
 	[ConfigurationProperty(Order = 11)]
 	public float Smoothness { get; set; } = 0.085f;
 
+	[ConfigurationProperty(Order = 15)]
+	public bool ElevationAdjustment { get; set; } = true;
+
 	[ConfigurationProperty(Order = 20)]
 	public float FovRadius { get; set; } = 0f;
 
@@ -91,6 +94,10 @@ internal class Aimbot : HoldFeature
 	[SuppressMessage("ReSharper", "InconsistentNaming")]
 	protected static bool CreateOpticCalibrationDataPrefix(Weapon? __instance, ref AmmoTemplate ammoTemplate)
 	{
+		var feature = FeatureFactory.GetFeature<Aimbot>();
+		if (feature == null || !feature.ElevationAdjustment)
+			return true; // keep using original code, we are not enabled
+
 		// Taken from SPT-BetterZeroing, credits to ehaugw
 		// Use the loaded ammo for elevation adjustment calculations rather than a weapon's default ammo
 		if (__instance?.GetCurrentMagazine() is { } mag && mag.FirstRealAmmo() is AmmoItemClass { AmmoTemplate: { } magazineTemplate })
