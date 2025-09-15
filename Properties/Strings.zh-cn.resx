@@ -962,4 +962,7 @@
   <data name="FeatureAirDropDescription" xml:space="preserve">
     <value>触发玩家所在位置的空投。</value>
   </data>
+  <data name="PropertyElevationAdjustment" xml:space="preserve">
+    <value>高度调节</value>
+  </data>
 </root>

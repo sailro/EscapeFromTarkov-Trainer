@@ -961,4 +961,7 @@ Les couleurs sont stockées sous la forme d'un tableau de valeurs flottantes 'RG
   <data name="FeatureAirDropDescription" xml:space="preserve">
     <value>Déclenche un largage aérien à l'endroit où se trouve le joueur.</value>
   </data>
+  <data name="PropertyElevationAdjustment" xml:space="preserve">
+    <value>Ajustement de l'élévation</value>
+  </data>
 </root>
