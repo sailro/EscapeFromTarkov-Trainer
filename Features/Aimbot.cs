@@ -27,6 +27,9 @@ internal class Aimbot : HoldFeature
 	[ConfigurationProperty(Order = 11)]
 	public float Smoothness { get; set; } = 0.085f;
 
+	[ConfigurationProperty(Order = 15)]
+	public bool ElevationAdjustment { get; set; } = true;
+
 	[ConfigurationProperty(Order = 20)]
 	public float FovRadius { get; set; } = 0f;
 
@@ -86,6 +89,29 @@ internal class Aimbot : HoldFeature
 
 		return true; // call the original code
 	}
+
+	[UsedImplicitly]
+	[SuppressMessage("ReSharper", "InconsistentNaming")]
+	protected static bool CreateOpticCalibrationDataPrefix(Weapon? __instance, ref AmmoTemplate ammoTemplate)
+	{
+		var feature = FeatureFactory.GetFeature<Aimbot>();
+		if (feature == null || !feature.ElevationAdjustment)
+			return true; // keep using original code, we are not enabled
+
+		// Taken from SPT-BetterZeroing, credits to ehaugw
+		// Use the loaded ammo for elevation adjustment calculations rather than a weapon's default ammo
+		if (__instance?.GetCurrentMagazine() is { } mag && mag.FirstRealAmmo() is AmmoItemClass { AmmoTemplate: { } magazineTemplate })
+		{
+			ammoTemplate = magazineTemplate;
+		}
+		else if (__instance?.Chambers is { Length: > 0 } slots && slots[0]?.ContainedItem is AmmoItemClass { AmmoTemplate: { } chamberedTemplate })
+		{
+			ammoTemplate = chamberedTemplate;
+		}
+
+		return true; // call the original code with updated template
+	}
+
 #pragma warning restore IDE0060
 
 	private Transform? _silentAimTarget = null;
@@ -101,6 +127,7 @@ internal class Aimbot : HoldFeature
 		{
 			HarmonyPrefix(harmony, typeof(BallisticsCalculator), nameof(BallisticsCalculator.CreateShot), nameof(CreateShotPrefix));
 			HarmonyPrefix(harmony, typeof(Player), nameof(Player.ApplyShot), nameof(ApplyShotPrefix));
+			HarmonyPrefix(harmony, typeof(Weapon), nameof(Weapon.CreateOpticCalibrationData), nameof(CreateOpticCalibrationDataPrefix));
 		});
 
 		_silentAimTarget = null;

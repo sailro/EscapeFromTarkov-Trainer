@@ -961,4 +961,7 @@ Colors are stored as an array of 'RGBA' floats</value>
   <data name="FeatureAirDropDescription" xml:space="preserve">
     <value>Triggers an airdrop at the player's location.</value>
   </data>
+  <data name="PropertyElevationAdjustment" xml:space="preserve">
+    <value>Elevation adjustment</value>
+  </data>
 </root>

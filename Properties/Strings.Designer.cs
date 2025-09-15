@@ -1701,6 +1701,15 @@ namespace EFT.Trainer.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Elevation adjustment.
+        /// </summary>
+        internal static string PropertyElevationAdjustment {
+            get {
+                return ResourceManager.GetString("PropertyElevationAdjustment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Eligible color.
         /// </summary>
         internal static string PropertyEligibleColor {
