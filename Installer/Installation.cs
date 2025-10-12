@@ -136,13 +136,12 @@ internal class Installation
 			if (!Directory.Exists(installation.Managed))
 				return false;
 
-			var sptFolder = Path.Combine(path, "SPT_Data");
-			installation.UsingSpt = Directory.Exists(sptFolder);
+			// Starting with 4.0.0, folder layout changed
+			installation.UsingSpt = Directory.Exists(Path.Combine(path, "SPT_Data")) || Directory.Exists(Path.Combine(path, "SPT", "SPT_Data"));
 
 
 			var battleye = Path.Combine(path, "BattlEye");
-			var user = Path.Combine(path, "user");
-			installation.UsingSptButNeverRun = installation.UsingSpt && (Directory.Exists(battleye) || !Directory.Exists(user));
+			installation.UsingSptButNeverRun = installation.UsingSpt && Directory.Exists(battleye);
 
 			installation.UsingBepInEx = Directory.Exists(installation.BepInExPlugins);
 
