@@ -1,17 +1,24 @@
 ﻿namespace EFT.Trainer.UI;
 
-public abstract class Picker<T>
+public interface IPicker
 {
-	protected T _value;
-	public T Value => _value;
-	public abstract bool IsSelected { get; protected set; }
+	public bool IsSelected { get; set; }
+	public object RawValue { get; set; }
 
-	[System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0290")]
-	protected Picker(T value)
+	public void SetWindowPosition(float x, float y);
+	public void DrawWindow(int id, string title);
+}
+
+public abstract class Picker<T>(T value) : IPicker
+{
+	public object RawValue { get; set; } = value!;
+	public T Value
 	{
-		_value = value;
+		get => (T)RawValue;
+		set => RawValue = value!;
 	}
 
+	public abstract bool IsSelected { get; set; }
 	public abstract void SetWindowPosition(float x, float y);
 	public abstract void DrawWindow(int id, string title);
 }

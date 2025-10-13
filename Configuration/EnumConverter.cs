@@ -1,6 +1,8 @@
 ﻿using System;
 using Newtonsoft.Json;
 
+#nullable enable
+
 namespace EFT.Trainer.Configuration;
 
 public class EnumConverter<T> : JsonConverter where T : Enum

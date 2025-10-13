@@ -42,7 +42,7 @@ public class ColorPicker : Picker<Color>
 		_svStyle = new GUIStyle { normal = { background = _svTexture } };
 	}
 
-	public override bool IsSelected { get; protected set; } = false; // with this picker we always keep focus, until another control is selected
+	public override bool IsSelected { get; set; } = false; // with this picker we always keep focus, until another control is selected
 
 	public override void SetWindowPosition(float x, float y)
 	{
@@ -76,7 +76,7 @@ public class ColorPicker : Picker<Color>
 			DrawPreview(Value);
 
 			GUILayout.Space(5f);
-			DrawHsvPicker(ref _value);
+			DrawHsvPicker();
 		}
 	}
 
@@ -98,21 +98,21 @@ public class ColorPicker : Picker<Color>
 		}
 	}
 
-	private void DrawHsvPicker(ref Color color)
+	private void DrawHsvPicker()
 	{
 		using (new GUILayout.HorizontalScope())
 		{
 			GUILayout.Label(string.Empty, _svStyle, GUILayout.Width(HsvPickerSize), GUILayout.Height(HsvPickerSize));
-			DrawSvHandler(GUILayoutUtility.GetLastRect(), ref color);
+			DrawSvHandler(GUILayoutUtility.GetLastRect());
 
 			GUILayout.Space(10f);
 
 			GUILayout.Label(string.Empty, _hueStyle, GUILayout.Width(HuePickerWidth), GUILayout.Height(HsvPickerSize));
-			DrawHueHandler(GUILayoutUtility.GetLastRect(), ref color);
+			DrawHueHandler(GUILayoutUtility.GetLastRect());
 		}
 	}
 
-	private void DrawSvHandler(Rect rect, ref Color color)
+	private void DrawSvHandler(Rect rect)
 	{
 		const float size = 10f;
 		const float offset = 5f;
@@ -126,12 +126,12 @@ public class ColorPicker : Picker<Color>
 
 		_s = (p.x - rect.x) / rect.width;
 		_v = 1f - (p.y - rect.y) / rect.height;
-		color = ColorUtil.HsvToRgb(_h, _s, _v);
+		Value = ColorUtil.HsvToRgb(_h, _s, _v);
 
 		e.Use();
 	}
 
-	private void DrawHueHandler(Rect rect, ref Color c)
+	private void DrawHueHandler(Rect rect)
 	{
 		const float size = 15f;
 		GUI.DrawTexture(new Rect(rect.x - size * 0.75f, rect.y + (1f - _h) * rect.height - size * 0.5f, size, size), _rightArrow);
@@ -144,8 +144,8 @@ public class ColorPicker : Picker<Color>
 			return;
 
 		_h = 1f - (p.y - rect.y) / rect.height;
-		c = ColorUtil.HsvToRgb(_h, _s, _v);
-		UpdateSvTexture(c, _svTexture);
+		Value = ColorUtil.HsvToRgb(_h, _s, _v);
+		UpdateSvTexture(Value, _svTexture);
 
 		e.Use();
 	}
