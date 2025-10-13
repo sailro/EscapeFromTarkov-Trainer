@@ -42,8 +42,6 @@ public class ColorPicker : Picker<Color>
 		_svStyle = new GUIStyle { normal = { background = _svTexture } };
 	}
 
-	public override bool IsSelected { get; set; } = false; // with this picker we always keep focus, until another control is selected
-
 	public override void SetWindowPosition(float x, float y)
 	{
 		_windowRect.x = x;

@@ -18,7 +18,7 @@ public abstract class Picker<T>(T value) : IPicker
 		set => RawValue = value!;
 	}
 
-	public abstract bool IsSelected { get; set; }
+	public bool IsSelected { get; set; } = false;
 	public abstract void SetWindowPosition(float x, float y);
 	public abstract void DrawWindow(int id, string title);
 }

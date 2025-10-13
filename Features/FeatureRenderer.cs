@@ -45,13 +45,16 @@ internal abstract class FeatureRenderer : ToggleFeature
 		return coord;
 	}
 
-	internal abstract class SelectionContext<T>
+	internal enum SelectionContextType { Color = 1, KeyCode = 2 }
+
+	internal class SelectionContext
 	{
-		protected SelectionContext(IFeature feature, OrderedProperty orderedProperty, float parentX, float parentY, Func<T, Picker<T>> builder)
+		public SelectionContext(IFeature feature, OrderedProperty orderedProperty, float parentX, float parentY, Func<object, IPicker> builder, SelectionContextType contextType)
 		{
 			Feature = feature;
 			OrderedProperty = orderedProperty;
-			Picker = builder((T)orderedProperty.Property.GetValue(feature));
+			Picker = builder(orderedProperty.Property.GetValue(feature));
+			ContextType = contextType;
 
 			var position = Event.current.mousePosition;
 			Picker.SetWindowPosition(parentX + LabelStyle.fixedWidth * 3 + LabelStyle.margin.left * 6, position.y + parentY - 32f);
@@ -59,23 +62,13 @@ internal abstract class FeatureRenderer : ToggleFeature
 
 		public IFeature Feature { get; }
 		public OrderedProperty OrderedProperty { get; }
-		public Picker<T> Picker { get; }
-		public abstract int Id { get; }
-	}
-
-	internal class ColorSelectionContext(IFeature feature, OrderedProperty orderedProperty, float parentX, float parentY) : SelectionContext<Color>(feature, orderedProperty, parentX, parentY, color => new ColorPicker(color))
-	{
-		public override int Id => 1;
-	}
-
-	internal class KeyCodeSelectionContext(IFeature feature, OrderedProperty orderedProperty, float parentX, float parentY) : SelectionContext<KeyCode>(feature, orderedProperty, parentX, parentY, color => new EnumPicker<KeyCode>(color))
-	{
-		public override int Id => 2;
+		public IPicker Picker { get; }
+		public SelectionContextType ContextType { get; }
 	}
 
 	private Rect _clientWindowRect;
-	private ColorSelectionContext? _colorSelectionContext = null;
-	private KeyCodeSelectionContext? _keyCodeSelectionContext = null;
+	private Dictionary<SelectionContextType, SelectionContext> _selectionContexts = new();
+
 	protected override void OnGUIWhenEnabled()
 	{
 		SetupInputNode();
@@ -85,13 +78,14 @@ internal abstract class FeatureRenderer : ToggleFeature
 		X = _clientWindowRect.x;
 		Y = _clientWindowRect.y;
 
-		HandleSelectionContext(_colorSelectionContext);
-
-		if (HandleSelectionContext(_keyCodeSelectionContext))
-			_keyCodeSelectionContext = null;
+		foreach (var key in _selectionContexts.Keys)
+		{
+			if (HandleSelectionContext(_selectionContexts[key]))
+				_selectionContexts.Remove(key);
+		}
 	}
 
-	private bool HandleSelectionContext<T>(SelectionContext<T>? context)
+	private bool HandleSelectionContext(SelectionContext? context)
 	{
 		if (context == null)
 			return false;
@@ -99,8 +93,8 @@ internal abstract class FeatureRenderer : ToggleFeature
 		var property = context.OrderedProperty.Property;
 		var picker = context.Picker;
 
-		picker.DrawWindow(context.Id, GetPropertyDisplay(property.Name));
-		property.SetValue(context.Feature, picker.Value);
+		picker.DrawWindow((int)context.ContextType, GetPropertyDisplay(property.Name));
+		property.SetValue(context.Feature, picker.RawValue);
 
 		return picker.IsSelected;
 	}
@@ -128,8 +122,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 
 		if (lastIndex != _selectedTabIndex)
 		{
-			_colorSelectionContext = null;
-			_keyCodeSelectionContext = null;
+			_selectionContexts.Clear();
 		}
 
 		GUILayout.BeginVertical(style);
@@ -237,11 +230,11 @@ internal abstract class FeatureRenderer : ToggleFeature
 
 		var focused = GUI.GetNameOfFocusedControl();
 
-		if (ShouldResetSelectionContext(focused, _colorSelectionContext))
-			_colorSelectionContext = null;
-
-		if (ShouldResetSelectionContext(focused, _keyCodeSelectionContext))
-			_keyCodeSelectionContext = null;
+		foreach (var key in _selectionContexts.Keys)
+		{
+			if (ShouldResetSelectionContext(focused, _selectionContexts[key]))
+				_selectionContexts.Remove(key);
+		}
 
 		GUI.backgroundColor = currentBackgroundColor;
 		GUILayout.EndHorizontal();
@@ -314,11 +307,11 @@ internal abstract class FeatureRenderer : ToggleFeature
 		return newValue;
 	}
 
-	private static bool ShouldResetSelectionContext<T>(string focused, SelectionContext<T>? context)
+	private static bool ShouldResetSelectionContext(string focused, SelectionContext? context)
 	{
 		return !string.IsNullOrEmpty(focused)
-			   && !focused.EndsWith($"-{typeof(T).Name}")
-			   && context != null;
+			   && context != null
+			   && !focused.EndsWith($"-{context.ContextType.ToString()}");
 	}
 
 	private static object RenderIntProperty(object currentValue, GUILayoutOption option)
@@ -341,7 +334,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 		if (!GUILayout.Button(currentValue.ToString(), option))
 			return;
 
-		_keyCodeSelectionContext = new KeyCodeSelectionContext(feature, orderedProperty, X, Y);
+		_selectionContexts[SelectionContextType.KeyCode] = new SelectionContext(feature, orderedProperty, X, Y, o => new EnumPicker<KeyCode>((KeyCode)o), SelectionContextType.KeyCode);
 		GUI.FocusControl(controlName);
 	}
 
@@ -352,7 +345,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 		if (!GUILayout.Button(string.Empty, BoxStyle, option, GUILayout.Height(22f)))
 			return;
 
-		_colorSelectionContext = new ColorSelectionContext(feature, orderedProperty, X, Y);
+		_selectionContexts[SelectionContextType.Color] = new SelectionContext(feature, orderedProperty, X, Y, o => new ColorPicker((Color)o), SelectionContextType.Color);
 		GUI.FocusControl(controlName);
 	}
 
@@ -390,14 +383,13 @@ internal abstract class FeatureRenderer : ToggleFeature
 		var newValue = GUILayout.Toggle(boolValue, string.Empty, option);
 		if (newValue != boolValue)
 		{
-			_colorSelectionContext = null;
-			_keyCodeSelectionContext = null;
+			_selectionContexts.Clear();
 		}
 
 		return newValue;
 	}
 
-#if EFT_LIVE 
+#if EFT_LIVE
 	protected
 #else
 	public
@@ -412,7 +404,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 		};
 	}
 
-#if EFT_LIVE 
+#if EFT_LIVE
 	protected
 #else
 	public
@@ -424,7 +416,7 @@ internal abstract class FeatureRenderer : ToggleFeature
 			axes = null!;
 	}
 
-#if EFT_LIVE 
+#if EFT_LIVE
 	protected
 #else
 	public
