@@ -115,6 +115,7 @@
     <Compile Include="Configuration\ColorConverter.cs" />
     <Compile Include="Configuration\ConfigurationManager.cs" />
     <Compile Include="Configuration\ConfigurationPropertyAttribute.cs" />
+    <Compile Include="Configuration\EnumConverter.cs" />
     <Compile Include="Configuration\KeyCodeConverter.cs" />
     <Compile Include="Configuration\OrderedProperty.cs" />
     <Compile Include="Configuration\TrackedItemConverter.cs" />
