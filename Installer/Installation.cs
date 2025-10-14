@@ -95,7 +95,14 @@ internal class Installation
 		// SPT locations from MUI cache
 		foreach (var sptpath in Registry.GetSptInstallationsFromMuiCache())
 		{
+			if (string.IsNullOrEmpty(sptpath))
+				continue;
+
 			if (TryDiscoverInstallation(sptpath, out installation))
+				yield return installation;
+
+			// Newer SPT versions (>= 4.0) install in SPT subfolder, so check the parent too
+			if (TryDiscoverInstallation(Path.Combine(sptpath, ".."), out installation))
 				yield return installation;
 		}
 
