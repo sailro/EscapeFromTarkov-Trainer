@@ -8,6 +8,7 @@ using System.Net.Http;
 using System.Net.Security;
 using System.Runtime.Versioning;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
 using Installer.Properties;
@@ -51,7 +52,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 	}
 
 	[SupportedOSPlatform("windows")]
-	public override async Task<int> ExecuteAsync(CommandContext commandContext, Settings settings)
+	public override async Task<int> ExecuteAsync(CommandContext commandContext, Settings settings, CancellationToken ct)
 	{
 		try
 		{
@@ -73,7 +74,7 @@ internal sealed class InstallCommand : AsyncCommand<InstallCommand.Settings>
 				if (installation.UsingSptButNeverRun)
 					AnsiConsole.MarkupLine("[yellow]Warning: it seems that you have never run your SPT installation. You should quit now and rerun this installer once it's done.[/]");
 
-				if (!await AnsiConsole.ConfirmAsync("Continue installation (yes I have run the game at least once) ?"))
+				if (!await AnsiConsole.ConfirmAsync("Continue installation (yes I have run the game at least once) ?", cancellationToken: ct))
 					return (int)ExitCode.Canceled;
 			}
 

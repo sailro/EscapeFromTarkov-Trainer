@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Runtime.Versioning;
 using System.Text;
+using System.Threading;
 using System.Xml;
 using Spectre.Console;
 using Spectre.Console.Cli;
@@ -20,7 +21,7 @@ internal sealed class UninstallCommand : Command<UninstallCommand.Settings>
 	}
 
 	[SupportedOSPlatform("windows")]
-	public override int Execute(CommandContext context, Settings settings)
+	public override int Execute(CommandContext context, Settings settings, CancellationToken ct)
 	{
 		try
 		{
